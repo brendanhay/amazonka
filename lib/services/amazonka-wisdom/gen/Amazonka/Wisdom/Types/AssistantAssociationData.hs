@@ -159,10 +159,10 @@ instance Prelude.Hashable AssistantAssociationData where
 
 instance Prelude.NFData AssistantAssociationData where
   rnf AssistantAssociationData' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf assistantArn
-      `Prelude.seq` Prelude.rnf assistantAssociationArn
-      `Prelude.seq` Prelude.rnf assistantAssociationId
-      `Prelude.seq` Prelude.rnf assistantId
-      `Prelude.seq` Prelude.rnf associationData
-      `Prelude.seq` Prelude.rnf associationType
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf assistantArn `Prelude.seq`
+        Prelude.rnf assistantAssociationArn `Prelude.seq`
+          Prelude.rnf assistantAssociationId `Prelude.seq`
+            Prelude.rnf assistantId `Prelude.seq`
+              Prelude.rnf associationData `Prelude.seq`
+                Prelude.rnf associationType

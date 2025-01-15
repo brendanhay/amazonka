@@ -157,12 +157,12 @@ instance Prelude.Hashable CreateAssistant where
 
 instance Prelude.NFData CreateAssistant where
   rnf CreateAssistant' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf serverSideEncryptionConfiguration `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf type'
 
 instance Data.ToHeaders CreateAssistant where
   toHeaders =
@@ -236,5 +236,5 @@ createAssistantResponse_httpStatus = Lens.lens (\CreateAssistantResponse' {httpS
 
 instance Prelude.NFData CreateAssistantResponse where
   rnf CreateAssistantResponse' {..} =
-    Prelude.rnf assistant
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assistant `Prelude.seq`
+      Prelude.rnf httpStatus

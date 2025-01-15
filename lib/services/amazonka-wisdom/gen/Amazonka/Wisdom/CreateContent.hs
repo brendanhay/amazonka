@@ -216,14 +216,14 @@ instance Prelude.Hashable CreateContent where
 
 instance Prelude.NFData CreateContent where
   rnf CreateContent' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf overrideLinkOutUri
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf knowledgeBaseId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf uploadId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf metadata `Prelude.seq`
+        Prelude.rnf overrideLinkOutUri `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf title `Prelude.seq`
+              Prelude.rnf knowledgeBaseId `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf uploadId
 
 instance Data.ToHeaders CreateContent where
   toHeaders =
@@ -302,5 +302,5 @@ createContentResponse_httpStatus = Lens.lens (\CreateContentResponse' {httpStatu
 
 instance Prelude.NFData CreateContentResponse where
   rnf CreateContentResponse' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf httpStatus

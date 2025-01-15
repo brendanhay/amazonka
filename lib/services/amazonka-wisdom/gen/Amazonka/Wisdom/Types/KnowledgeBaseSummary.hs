@@ -189,13 +189,13 @@ instance Prelude.Hashable KnowledgeBaseSummary where
 
 instance Prelude.NFData KnowledgeBaseSummary where
   rnf KnowledgeBaseSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf renderingConfiguration
-      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
-      `Prelude.seq` Prelude.rnf sourceConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf knowledgeBaseArn
-      `Prelude.seq` Prelude.rnf knowledgeBaseId
-      `Prelude.seq` Prelude.rnf knowledgeBaseType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf renderingConfiguration `Prelude.seq`
+        Prelude.rnf serverSideEncryptionConfiguration `Prelude.seq`
+          Prelude.rnf sourceConfiguration `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf knowledgeBaseArn `Prelude.seq`
+                Prelude.rnf knowledgeBaseId `Prelude.seq`
+                  Prelude.rnf knowledgeBaseType `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf status

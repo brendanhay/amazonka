@@ -114,8 +114,8 @@ instance Prelude.Hashable GetSession where
 
 instance Prelude.NFData GetSession where
   rnf GetSession' {..} =
-    Prelude.rnf assistantId
-      `Prelude.seq` Prelude.rnf sessionId
+    Prelude.rnf assistantId `Prelude.seq`
+      Prelude.rnf sessionId
 
 instance Data.ToHeaders GetSession where
   toHeaders =
@@ -180,5 +180,5 @@ getSessionResponse_httpStatus = Lens.lens (\GetSessionResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetSessionResponse where
   rnf GetSessionResponse' {..} =
-    Prelude.rnf session
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf session `Prelude.seq`
+      Prelude.rnf httpStatus

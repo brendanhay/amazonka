@@ -120,12 +120,12 @@ instance Core.AWSPager ListContents where
         (rs Lens.^. listContentsResponse_contentSummaries) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listContents_nextToken
-          Lens..~ rs
-          Lens.^? listContentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listContents_nextToken
+              Lens..~ rs
+              Lens.^? listContentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContents where
   type AWSResponse ListContents = ListContentsResponse
@@ -152,9 +152,9 @@ instance Prelude.Hashable ListContents where
 
 instance Prelude.NFData ListContents where
   rnf ListContents' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf knowledgeBaseId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf knowledgeBaseId
 
 instance Data.ToHeaders ListContents where
   toHeaders =
@@ -234,6 +234,6 @@ listContentsResponse_contentSummaries = Lens.lens (\ListContentsResponse' {conte
 
 instance Prelude.NFData ListContentsResponse where
   rnf ListContentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf contentSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf contentSummaries

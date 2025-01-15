@@ -162,5 +162,5 @@ getKnowledgeBaseResponse_httpStatus = Lens.lens (\GetKnowledgeBaseResponse' {htt
 
 instance Prelude.NFData GetKnowledgeBaseResponse where
   rnf GetKnowledgeBaseResponse' {..} =
-    Prelude.rnf knowledgeBase
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf knowledgeBase `Prelude.seq`
+      Prelude.rnf httpStatus

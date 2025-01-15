@@ -216,14 +216,14 @@ instance Prelude.Hashable ContentSummary where
 
 instance Prelude.NFData ContentSummary where
   rnf ContentSummary' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf contentArn
-      `Prelude.seq` Prelude.rnf contentId
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf knowledgeBaseArn
-      `Prelude.seq` Prelude.rnf knowledgeBaseId
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf contentArn `Prelude.seq`
+        Prelude.rnf contentId `Prelude.seq`
+          Prelude.rnf contentType `Prelude.seq`
+            Prelude.rnf knowledgeBaseArn `Prelude.seq`
+              Prelude.rnf knowledgeBaseId `Prelude.seq`
+                Prelude.rnf metadata `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf revisionId `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf title

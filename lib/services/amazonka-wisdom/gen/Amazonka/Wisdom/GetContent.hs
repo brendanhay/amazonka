@@ -114,8 +114,8 @@ instance Prelude.Hashable GetContent where
 
 instance Prelude.NFData GetContent where
   rnf GetContent' {..} =
-    Prelude.rnf contentId
-      `Prelude.seq` Prelude.rnf knowledgeBaseId
+    Prelude.rnf contentId `Prelude.seq`
+      Prelude.rnf knowledgeBaseId
 
 instance Data.ToHeaders GetContent where
   toHeaders =
@@ -180,5 +180,5 @@ getContentResponse_httpStatus = Lens.lens (\GetContentResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetContentResponse where
   rnf GetContentResponse' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf httpStatus

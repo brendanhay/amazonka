@@ -114,8 +114,8 @@ instance Prelude.Hashable DeleteContent where
 
 instance Prelude.NFData DeleteContent where
   rnf DeleteContent' {..} =
-    Prelude.rnf contentId
-      `Prelude.seq` Prelude.rnf knowledgeBaseId
+    Prelude.rnf contentId `Prelude.seq`
+      Prelude.rnf knowledgeBaseId
 
 instance Data.ToHeaders DeleteContent where
   toHeaders =

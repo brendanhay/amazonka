@@ -119,8 +119,8 @@ instance Prelude.Hashable GetAssistantAssociation where
 
 instance Prelude.NFData GetAssistantAssociation where
   rnf GetAssistantAssociation' {..} =
-    Prelude.rnf assistantAssociationId
-      `Prelude.seq` Prelude.rnf assistantId
+    Prelude.rnf assistantAssociationId `Prelude.seq`
+      Prelude.rnf assistantId
 
 instance Data.ToHeaders GetAssistantAssociation where
   toHeaders =
@@ -189,5 +189,5 @@ instance
     GetAssistantAssociationResponse
   where
   rnf GetAssistantAssociationResponse' {..} =
-    Prelude.rnf assistantAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assistantAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

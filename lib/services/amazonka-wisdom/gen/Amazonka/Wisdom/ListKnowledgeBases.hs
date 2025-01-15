@@ -107,12 +107,12 @@ instance Core.AWSPager ListKnowledgeBases where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listKnowledgeBases_nextToken
-          Lens..~ rs
-          Lens.^? listKnowledgeBasesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listKnowledgeBases_nextToken
+              Lens..~ rs
+              Lens.^? listKnowledgeBasesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListKnowledgeBases where
   type
@@ -140,8 +140,8 @@ instance Prelude.Hashable ListKnowledgeBases where
 
 instance Prelude.NFData ListKnowledgeBases where
   rnf ListKnowledgeBases' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListKnowledgeBases where
   toHeaders =
@@ -217,6 +217,6 @@ listKnowledgeBasesResponse_knowledgeBaseSummaries = Lens.lens (\ListKnowledgeBas
 
 instance Prelude.NFData ListKnowledgeBasesResponse where
   rnf ListKnowledgeBasesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf knowledgeBaseSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf knowledgeBaseSummaries

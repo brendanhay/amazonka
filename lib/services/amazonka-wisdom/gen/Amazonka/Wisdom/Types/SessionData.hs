@@ -119,8 +119,8 @@ instance Prelude.Hashable SessionData where
 
 instance Prelude.NFData SessionData where
   rnf SessionData' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sessionArn
-      `Prelude.seq` Prelude.rnf sessionId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf sessionArn `Prelude.seq`
+            Prelude.rnf sessionId

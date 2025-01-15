@@ -151,11 +151,11 @@ instance Prelude.Hashable CreateSession where
 
 instance Prelude.NFData CreateSession where
   rnf CreateSession' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf assistantId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf assistantId `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders CreateSession where
   toHeaders =
@@ -227,5 +227,5 @@ createSessionResponse_httpStatus = Lens.lens (\CreateSessionResponse' {httpStatu
 
 instance Prelude.NFData CreateSessionResponse where
   rnf CreateSessionResponse' {..} =
-    Prelude.rnf session
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf session `Prelude.seq`
+      Prelude.rnf httpStatus

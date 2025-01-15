@@ -157,11 +157,11 @@ instance Prelude.Hashable CreateAssistantAssociation where
 
 instance Prelude.NFData CreateAssistantAssociation where
   rnf CreateAssistantAssociation' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf assistantId
-      `Prelude.seq` Prelude.rnf association
-      `Prelude.seq` Prelude.rnf associationType
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf assistantId `Prelude.seq`
+          Prelude.rnf association `Prelude.seq`
+            Prelude.rnf associationType
 
 instance Data.ToHeaders CreateAssistantAssociation where
   toHeaders =
@@ -241,5 +241,5 @@ instance
     CreateAssistantAssociationResponse
   where
   rnf CreateAssistantAssociationResponse' {..} =
-    Prelude.rnf assistantAssociation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf assistantAssociation `Prelude.seq`
+      Prelude.rnf httpStatus

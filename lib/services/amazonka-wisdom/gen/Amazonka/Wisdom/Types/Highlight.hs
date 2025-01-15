@@ -81,5 +81,5 @@ instance Prelude.Hashable Highlight where
 
 instance Prelude.NFData Highlight where
   rnf Highlight' {..} =
-    Prelude.rnf beginOffsetInclusive
-      `Prelude.seq` Prelude.rnf endOffsetExclusive
+    Prelude.rnf beginOffsetInclusive `Prelude.seq`
+      Prelude.rnf endOffsetExclusive

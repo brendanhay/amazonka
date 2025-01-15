@@ -162,12 +162,12 @@ instance Prelude.Hashable CreateCollectionDetail where
 
 instance Prelude.NFData CreateCollectionDetail where
   rnf CreateCollectionDetail' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdDate `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf kmsKeyArn `Prelude.seq`
+              Prelude.rnf lastModifiedDate `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf type'

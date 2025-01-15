@@ -214,6 +214,6 @@ batchGetCollectionResponse_httpStatus = Lens.lens (\BatchGetCollectionResponse' 
 
 instance Prelude.NFData BatchGetCollectionResponse where
   rnf BatchGetCollectionResponse' {..} =
-    Prelude.rnf collectionDetails
-      `Prelude.seq` Prelude.rnf collectionErrorDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf collectionDetails `Prelude.seq`
+      Prelude.rnf collectionErrorDetails `Prelude.seq`
+        Prelude.rnf httpStatus

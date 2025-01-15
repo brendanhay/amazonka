@@ -156,11 +156,11 @@ instance Prelude.Hashable CreateVpcEndpoint where
 
 instance Prelude.NFData CreateVpcEndpoint where
   rnf CreateVpcEndpoint' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf securityGroupIds `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf subnetIds `Prelude.seq`
+            Prelude.rnf vpcId
 
 instance Data.ToHeaders CreateVpcEndpoint where
   toHeaders =
@@ -237,5 +237,5 @@ createVpcEndpointResponse_httpStatus = Lens.lens (\CreateVpcEndpointResponse' {h
 
 instance Prelude.NFData CreateVpcEndpointResponse where
   rnf CreateVpcEndpointResponse' {..} =
-    Prelude.rnf createVpcEndpointDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createVpcEndpointDetail `Prelude.seq`
+      Prelude.rnf httpStatus

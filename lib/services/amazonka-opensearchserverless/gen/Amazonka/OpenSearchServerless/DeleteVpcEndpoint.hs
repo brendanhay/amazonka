@@ -110,8 +110,8 @@ instance Prelude.Hashable DeleteVpcEndpoint where
 
 instance Prelude.NFData DeleteVpcEndpoint where
   rnf DeleteVpcEndpoint' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders DeleteVpcEndpoint where
   toHeaders =
@@ -184,5 +184,5 @@ deleteVpcEndpointResponse_httpStatus = Lens.lens (\DeleteVpcEndpointResponse' {h
 
 instance Prelude.NFData DeleteVpcEndpointResponse where
   rnf DeleteVpcEndpointResponse' {..} =
-    Prelude.rnf deleteVpcEndpointDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deleteVpcEndpointDetail `Prelude.seq`
+      Prelude.rnf httpStatus

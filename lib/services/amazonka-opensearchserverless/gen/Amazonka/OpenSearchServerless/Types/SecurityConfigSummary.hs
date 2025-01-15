@@ -126,9 +126,9 @@ instance Prelude.Hashable SecurityConfigSummary where
 
 instance Prelude.NFData SecurityConfigSummary where
   rnf SecurityConfigSummary' {..} =
-    Prelude.rnf configVersion
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf configVersion `Prelude.seq`
+      Prelude.rnf createdDate `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf lastModifiedDate `Prelude.seq`
+              Prelude.rnf type'

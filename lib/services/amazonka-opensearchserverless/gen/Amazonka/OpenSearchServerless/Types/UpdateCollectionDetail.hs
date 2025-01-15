@@ -148,11 +148,11 @@ instance Prelude.Hashable UpdateCollectionDetail where
 
 instance Prelude.NFData UpdateCollectionDetail where
   rnf UpdateCollectionDetail' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdDate `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf lastModifiedDate `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf type'

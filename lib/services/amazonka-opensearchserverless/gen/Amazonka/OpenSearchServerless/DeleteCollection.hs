@@ -124,8 +124,8 @@ instance Prelude.Hashable DeleteCollection where
 
 instance Prelude.NFData DeleteCollection where
   rnf DeleteCollection' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders DeleteCollection where
   toHeaders =
@@ -198,5 +198,5 @@ deleteCollectionResponse_httpStatus = Lens.lens (\DeleteCollectionResponse' {htt
 
 instance Prelude.NFData DeleteCollectionResponse where
   rnf DeleteCollectionResponse' {..} =
-    Prelude.rnf deleteCollectionDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deleteCollectionDetail `Prelude.seq`
+      Prelude.rnf httpStatus

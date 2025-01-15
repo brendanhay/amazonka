@@ -121,9 +121,9 @@ instance Prelude.Hashable DeleteAccessPolicy where
 
 instance Prelude.NFData DeleteAccessPolicy where
   rnf DeleteAccessPolicy' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToHeaders DeleteAccessPolicy where
   toHeaders =

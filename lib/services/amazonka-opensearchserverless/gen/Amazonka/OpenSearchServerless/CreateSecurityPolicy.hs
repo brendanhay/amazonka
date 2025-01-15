@@ -156,11 +156,11 @@ instance Prelude.Hashable CreateSecurityPolicy where
 
 instance Prelude.NFData CreateSecurityPolicy where
   rnf CreateSecurityPolicy' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf policy `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToHeaders CreateSecurityPolicy where
   toHeaders =
@@ -236,5 +236,5 @@ createSecurityPolicyResponse_httpStatus = Lens.lens (\CreateSecurityPolicyRespon
 
 instance Prelude.NFData CreateSecurityPolicyResponse where
   rnf CreateSecurityPolicyResponse' {..} =
-    Prelude.rnf securityPolicyDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf securityPolicyDetail `Prelude.seq`
+      Prelude.rnf httpStatus

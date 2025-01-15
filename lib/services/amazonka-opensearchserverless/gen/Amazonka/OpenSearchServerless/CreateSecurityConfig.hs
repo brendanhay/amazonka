@@ -146,11 +146,11 @@ instance Prelude.Hashable CreateSecurityConfig where
 
 instance Prelude.NFData CreateSecurityConfig where
   rnf CreateSecurityConfig' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf samlOptions
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf samlOptions `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToHeaders CreateSecurityConfig where
   toHeaders =
@@ -226,5 +226,5 @@ createSecurityConfigResponse_httpStatus = Lens.lens (\CreateSecurityConfigRespon
 
 instance Prelude.NFData CreateSecurityConfigResponse where
   rnf CreateSecurityConfigResponse' {..} =
-    Prelude.rnf securityConfigDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf securityConfigDetail `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -119,9 +119,9 @@ instance Prelude.Hashable UpdateCollection where
 
 instance Prelude.NFData UpdateCollection where
   rnf UpdateCollection' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id
 
 instance Data.ToHeaders UpdateCollection where
   toHeaders =
@@ -195,5 +195,5 @@ updateCollectionResponse_httpStatus = Lens.lens (\UpdateCollectionResponse' {htt
 
 instance Prelude.NFData UpdateCollectionResponse where
   rnf UpdateCollectionResponse' {..} =
-    Prelude.rnf updateCollectionDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf updateCollectionDetail `Prelude.seq`
+      Prelude.rnf httpStatus

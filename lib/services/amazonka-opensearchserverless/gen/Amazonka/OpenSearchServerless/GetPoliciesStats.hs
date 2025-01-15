@@ -181,8 +181,8 @@ getPoliciesStatsResponse_httpStatus = Lens.lens (\GetPoliciesStatsResponse' {htt
 
 instance Prelude.NFData GetPoliciesStatsResponse where
   rnf GetPoliciesStatsResponse' {..} =
-    Prelude.rnf accessPolicyStats
-      `Prelude.seq` Prelude.rnf securityConfigStats
-      `Prelude.seq` Prelude.rnf securityPolicyStats
-      `Prelude.seq` Prelude.rnf totalPolicyCount
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessPolicyStats `Prelude.seq`
+      Prelude.rnf securityConfigStats `Prelude.seq`
+        Prelude.rnf securityPolicyStats `Prelude.seq`
+          Prelude.rnf totalPolicyCount `Prelude.seq`
+            Prelude.rnf httpStatus

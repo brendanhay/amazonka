@@ -109,10 +109,10 @@ instance Prelude.Hashable SamlConfigOptions where
 
 instance Prelude.NFData SamlConfigOptions where
   rnf SamlConfigOptions' {..} =
-    Prelude.rnf groupAttribute
-      `Prelude.seq` Prelude.rnf sessionTimeout
-      `Prelude.seq` Prelude.rnf userAttribute
-      `Prelude.seq` Prelude.rnf metadata
+    Prelude.rnf groupAttribute `Prelude.seq`
+      Prelude.rnf sessionTimeout `Prelude.seq`
+        Prelude.rnf userAttribute `Prelude.seq`
+          Prelude.rnf metadata
 
 instance Data.ToJSON SamlConfigOptions where
   toJSON SamlConfigOptions' {..} =

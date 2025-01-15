@@ -142,9 +142,9 @@ instance Prelude.Hashable ListVpcEndpoints where
 
 instance Prelude.NFData ListVpcEndpoints where
   rnf ListVpcEndpoints' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vpcEndpointFilters
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf vpcEndpointFilters
 
 instance Data.ToHeaders ListVpcEndpoints where
   toHeaders =
@@ -234,6 +234,6 @@ listVpcEndpointsResponse_httpStatus = Lens.lens (\ListVpcEndpointsResponse' {htt
 
 instance Prelude.NFData ListVpcEndpointsResponse where
   rnf ListVpcEndpointsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vpcEndpointSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf vpcEndpointSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

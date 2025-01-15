@@ -172,5 +172,5 @@ updateAccountSettingsResponse_httpStatus = Lens.lens (\UpdateAccountSettingsResp
 
 instance Prelude.NFData UpdateAccountSettingsResponse where
   rnf UpdateAccountSettingsResponse' {..} =
-    Prelude.rnf accountSettingsDetail
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accountSettingsDetail `Prelude.seq`
+      Prelude.rnf httpStatus

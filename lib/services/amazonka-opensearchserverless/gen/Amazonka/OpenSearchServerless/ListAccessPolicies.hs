@@ -151,10 +151,10 @@ instance Prelude.Hashable ListAccessPolicies where
 
 instance Prelude.NFData ListAccessPolicies where
   rnf ListAccessPolicies' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resource `Prelude.seq`
+          Prelude.rnf type'
 
 instance Data.ToHeaders ListAccessPolicies where
   toHeaders =
@@ -244,6 +244,6 @@ listAccessPoliciesResponse_httpStatus = Lens.lens (\ListAccessPoliciesResponse' 
 
 instance Prelude.NFData ListAccessPoliciesResponse where
   rnf ListAccessPoliciesResponse' {..} =
-    Prelude.rnf accessPolicySummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessPolicySummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

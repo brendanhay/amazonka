@@ -188,14 +188,14 @@ instance Prelude.Hashable CollectionDetail where
 
 instance Prelude.NFData CollectionDetail where
   rnf CollectionDetail' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf collectionEndpoint
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf dashboardEndpoint
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf collectionEndpoint `Prelude.seq`
+        Prelude.rnf createdDate `Prelude.seq`
+          Prelude.rnf dashboardEndpoint `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf kmsKeyArn `Prelude.seq`
+                  Prelude.rnf lastModifiedDate `Prelude.seq`
+                    Prelude.rnf name `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf type'

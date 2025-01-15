@@ -92,6 +92,6 @@ instance Prelude.Hashable DeleteCollectionDetail where
 
 instance Prelude.NFData DeleteCollectionDetail where
   rnf DeleteCollectionDetail' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf status

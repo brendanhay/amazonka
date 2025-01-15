@@ -94,6 +94,6 @@ instance Prelude.Hashable CreateVpcEndpointDetail where
 
 instance Prelude.NFData CreateVpcEndpointDetail where
   rnf CreateVpcEndpointDetail' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf status

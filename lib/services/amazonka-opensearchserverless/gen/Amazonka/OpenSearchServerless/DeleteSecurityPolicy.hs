@@ -120,9 +120,9 @@ instance Prelude.Hashable DeleteSecurityPolicy where
 
 instance Prelude.NFData DeleteSecurityPolicy where
   rnf DeleteSecurityPolicy' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToHeaders DeleteSecurityPolicy where
   toHeaders =

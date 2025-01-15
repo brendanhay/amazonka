@@ -80,5 +80,5 @@ instance Prelude.Hashable S3BucketInfo where
 
 instance Prelude.NFData S3BucketInfo where
   rnf S3BucketInfo' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf name

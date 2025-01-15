@@ -164,12 +164,12 @@ instance Core.AWSPager ListBackendJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBackendJobs_nextToken
-          Lens..~ rs
-          Lens.^? listBackendJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBackendJobs_nextToken
+              Lens..~ rs
+              Lens.^? listBackendJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBackendJobs where
   type
@@ -199,13 +199,13 @@ instance Prelude.Hashable ListBackendJobs where
 
 instance Prelude.NFData ListBackendJobs where
   rnf ListBackendJobs' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf operation `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf appId `Prelude.seq`
+                Prelude.rnf backendEnvironmentName
 
 instance Data.ToHeaders ListBackendJobs where
   toHeaders =
@@ -291,6 +291,6 @@ listBackendJobsResponse_httpStatus = Lens.lens (\ListBackendJobsResponse' {httpS
 
 instance Prelude.NFData ListBackendJobsResponse where
   rnf ListBackendJobsResponse' {..} =
-    Prelude.rnf jobs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

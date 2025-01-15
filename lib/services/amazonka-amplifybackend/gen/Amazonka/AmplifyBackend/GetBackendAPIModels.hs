@@ -132,9 +132,9 @@ instance Prelude.Hashable GetBackendAPIModels where
 
 instance Prelude.NFData GetBackendAPIModels where
   rnf GetBackendAPIModels' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf resourceName
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf resourceName
 
 instance Data.ToHeaders GetBackendAPIModels where
   toHeaders =
@@ -229,7 +229,7 @@ getBackendAPIModelsResponse_httpStatus = Lens.lens (\GetBackendAPIModelsResponse
 
 instance Prelude.NFData GetBackendAPIModelsResponse where
   rnf GetBackendAPIModelsResponse' {..} =
-    Prelude.rnf modelIntrospectionSchema
-      `Prelude.seq` Prelude.rnf models
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf modelIntrospectionSchema `Prelude.seq`
+      Prelude.rnf models `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

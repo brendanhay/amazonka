@@ -148,10 +148,10 @@ instance Prelude.Hashable UpdateBackendStorage where
 
 instance Prelude.NFData UpdateBackendStorage where
   rnf UpdateBackendStorage' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf resourceConfig
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf resourceName `Prelude.seq`
+          Prelude.rnf resourceConfig
 
 instance Data.ToHeaders UpdateBackendStorage where
   toHeaders =
@@ -254,8 +254,8 @@ updateBackendStorageResponse_httpStatus = Lens.lens (\UpdateBackendStorageRespon
 
 instance Prelude.NFData UpdateBackendStorageResponse where
   rnf UpdateBackendStorageResponse' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf jobId `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf httpStatus

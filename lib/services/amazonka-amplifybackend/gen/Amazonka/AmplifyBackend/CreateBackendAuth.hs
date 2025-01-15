@@ -152,10 +152,10 @@ instance Prelude.Hashable CreateBackendAuth where
 
 instance Prelude.NFData CreateBackendAuth where
   rnf CreateBackendAuth' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf resourceConfig
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf resourceName `Prelude.seq`
+        Prelude.rnf backendEnvironmentName `Prelude.seq`
+          Prelude.rnf resourceConfig
 
 instance Data.ToHeaders CreateBackendAuth where
   toHeaders =
@@ -275,10 +275,10 @@ createBackendAuthResponse_httpStatus = Lens.lens (\CreateBackendAuthResponse' {h
 
 instance Prelude.NFData CreateBackendAuthResponse where
   rnf CreateBackendAuthResponse' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf error `Prelude.seq`
+          Prelude.rnf jobId `Prelude.seq`
+            Prelude.rnf operation `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf httpStatus

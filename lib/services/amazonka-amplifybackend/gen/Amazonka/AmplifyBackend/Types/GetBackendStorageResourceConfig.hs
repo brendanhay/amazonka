@@ -122,7 +122,7 @@ instance
     GetBackendStorageResourceConfig
   where
   rnf GetBackendStorageResourceConfig' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf imported
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf permissions `Prelude.seq`
+        Prelude.rnf serviceName `Prelude.seq`
+          Prelude.rnf imported

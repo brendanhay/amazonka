@@ -140,9 +140,9 @@ instance Prelude.Hashable GetBackendJob where
 
 instance Prelude.NFData GetBackendJob where
   rnf GetBackendJob' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf jobId
 
 instance Data.ToHeaders GetBackendJob where
   toHeaders =
@@ -272,12 +272,12 @@ getBackendJobResponse_httpStatus = Lens.lens (\GetBackendJobResponse' {httpStatu
 
 instance Prelude.NFData GetBackendJobResponse where
   rnf GetBackendJobResponse' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updateTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf createTime `Prelude.seq`
+          Prelude.rnf error `Prelude.seq`
+            Prelude.rnf jobId `Prelude.seq`
+              Prelude.rnf operation `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf updateTime `Prelude.seq`
+                    Prelude.rnf httpStatus

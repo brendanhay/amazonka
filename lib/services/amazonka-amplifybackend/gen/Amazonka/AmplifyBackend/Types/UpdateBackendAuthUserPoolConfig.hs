@@ -131,11 +131,11 @@ instance
     UpdateBackendAuthUserPoolConfig
   where
   rnf UpdateBackendAuthUserPoolConfig' {..} =
-    Prelude.rnf forgotPassword
-      `Prelude.seq` Prelude.rnf mfa
-      `Prelude.seq` Prelude.rnf oAuth
-      `Prelude.seq` Prelude.rnf passwordPolicy
-      `Prelude.seq` Prelude.rnf verificationMessage
+    Prelude.rnf forgotPassword `Prelude.seq`
+      Prelude.rnf mfa `Prelude.seq`
+        Prelude.rnf oAuth `Prelude.seq`
+          Prelude.rnf passwordPolicy `Prelude.seq`
+            Prelude.rnf verificationMessage
 
 instance Data.ToJSON UpdateBackendAuthUserPoolConfig where
   toJSON UpdateBackendAuthUserPoolConfig' {..} =

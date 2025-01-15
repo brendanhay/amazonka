@@ -102,8 +102,8 @@ instance
     CreateBackendAuthIdentityPoolConfig
   where
   rnf CreateBackendAuthIdentityPoolConfig' {..} =
-    Prelude.rnf unauthenticatedLogin
-      `Prelude.seq` Prelude.rnf identityPoolName
+    Prelude.rnf unauthenticatedLogin `Prelude.seq`
+      Prelude.rnf identityPoolName
 
 instance
   Data.ToJSON

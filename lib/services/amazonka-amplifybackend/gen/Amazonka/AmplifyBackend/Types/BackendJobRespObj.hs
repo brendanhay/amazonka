@@ -150,11 +150,11 @@ instance Prelude.Hashable BackendJobRespObj where
 
 instance Prelude.NFData BackendJobRespObj where
   rnf BackendJobRespObj' {..} =
-    Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updateTime
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
+    Prelude.rnf createTime `Prelude.seq`
+      Prelude.rnf error `Prelude.seq`
+        Prelude.rnf jobId `Prelude.seq`
+          Prelude.rnf operation `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf updateTime `Prelude.seq`
+                Prelude.rnf appId `Prelude.seq`
+                  Prelude.rnf backendEnvironmentName

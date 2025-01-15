@@ -87,8 +87,8 @@ instance
     UpdateBackendAuthPasswordPolicyConfig
   where
   rnf UpdateBackendAuthPasswordPolicyConfig' {..} =
-    Prelude.rnf additionalConstraints
-      `Prelude.seq` Prelude.rnf minimumLength
+    Prelude.rnf additionalConstraints `Prelude.seq`
+      Prelude.rnf minimumLength
 
 instance
   Data.ToJSON

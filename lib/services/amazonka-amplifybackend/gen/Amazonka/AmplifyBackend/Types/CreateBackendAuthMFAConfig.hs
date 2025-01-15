@@ -92,8 +92,8 @@ instance Prelude.Hashable CreateBackendAuthMFAConfig where
 
 instance Prelude.NFData CreateBackendAuthMFAConfig where
   rnf CreateBackendAuthMFAConfig' {..} =
-    Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf mfaMode
+    Prelude.rnf settings `Prelude.seq`
+      Prelude.rnf mfaMode
 
 instance Data.ToJSON CreateBackendAuthMFAConfig where
   toJSON CreateBackendAuthMFAConfig' {..} =

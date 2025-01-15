@@ -109,10 +109,10 @@ instance Prelude.Hashable LoginAuthConfigReqObj where
 
 instance Prelude.NFData LoginAuthConfigReqObj where
   rnf LoginAuthConfigReqObj' {..} =
-    Prelude.rnf awsCognitoIdentityPoolId
-      `Prelude.seq` Prelude.rnf awsCognitoRegion
-      `Prelude.seq` Prelude.rnf awsUserPoolsId
-      `Prelude.seq` Prelude.rnf awsUserPoolsWebClientId
+    Prelude.rnf awsCognitoIdentityPoolId `Prelude.seq`
+      Prelude.rnf awsCognitoRegion `Prelude.seq`
+        Prelude.rnf awsUserPoolsId `Prelude.seq`
+          Prelude.rnf awsUserPoolsWebClientId
 
 instance Data.ToJSON LoginAuthConfigReqObj where
   toJSON LoginAuthConfigReqObj' {..} =

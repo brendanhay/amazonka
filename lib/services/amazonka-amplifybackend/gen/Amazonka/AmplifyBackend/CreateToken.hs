@@ -189,8 +189,8 @@ createTokenResponse_httpStatus = Lens.lens (\CreateTokenResponse' {httpStatus} -
 
 instance Prelude.NFData CreateTokenResponse where
   rnf CreateTokenResponse' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf challengeCode
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf ttl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf challengeCode `Prelude.seq`
+        Prelude.rnf sessionId `Prelude.seq`
+          Prelude.rnf ttl `Prelude.seq`
+            Prelude.rnf httpStatus

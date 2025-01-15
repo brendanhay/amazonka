@@ -152,10 +152,10 @@ instance Prelude.Hashable UpdateBackendAPI where
 
 instance Prelude.NFData UpdateBackendAPI where
   rnf UpdateBackendAPI' {..} =
-    Prelude.rnf resourceConfig
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf resourceName
+    Prelude.rnf resourceConfig `Prelude.seq`
+      Prelude.rnf appId `Prelude.seq`
+        Prelude.rnf backendEnvironmentName `Prelude.seq`
+          Prelude.rnf resourceName
 
 instance Data.ToHeaders UpdateBackendAPI where
   toHeaders =
@@ -275,10 +275,10 @@ updateBackendAPIResponse_httpStatus = Lens.lens (\UpdateBackendAPIResponse' {htt
 
 instance Prelude.NFData UpdateBackendAPIResponse where
   rnf UpdateBackendAPIResponse' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf error `Prelude.seq`
+          Prelude.rnf jobId `Prelude.seq`
+            Prelude.rnf operation `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf httpStatus

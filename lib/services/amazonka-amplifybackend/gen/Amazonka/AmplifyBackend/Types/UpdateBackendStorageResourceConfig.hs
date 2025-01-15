@@ -87,8 +87,8 @@ instance
     UpdateBackendStorageResourceConfig
   where
   rnf UpdateBackendStorageResourceConfig' {..} =
-    Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf permissions
+    Prelude.rnf serviceName `Prelude.seq`
+      Prelude.rnf permissions
 
 instance
   Data.ToJSON

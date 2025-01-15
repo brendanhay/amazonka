@@ -117,8 +117,8 @@ instance Prelude.Hashable UpdateBackendConfig where
 
 instance Prelude.NFData UpdateBackendConfig where
   rnf UpdateBackendConfig' {..} =
-    Prelude.rnf loginAuthConfig
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf loginAuthConfig `Prelude.seq`
+      Prelude.rnf appId
 
 instance Data.ToHeaders UpdateBackendConfig where
   toHeaders =
@@ -219,8 +219,8 @@ updateBackendConfigResponse_httpStatus = Lens.lens (\UpdateBackendConfigResponse
 
 instance Prelude.NFData UpdateBackendConfigResponse where
   rnf UpdateBackendConfigResponse' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendManagerAppId
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf loginAuthConfig
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendManagerAppId `Prelude.seq`
+        Prelude.rnf error `Prelude.seq`
+          Prelude.rnf loginAuthConfig `Prelude.seq`
+            Prelude.rnf httpStatus

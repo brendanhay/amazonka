@@ -136,9 +136,9 @@ instance Prelude.Hashable CloneBackend where
 
 instance Prelude.NFData CloneBackend where
   rnf CloneBackend' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf targetEnvironmentName
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf targetEnvironmentName
 
 instance Data.ToHeaders CloneBackend where
   toHeaders =
@@ -260,10 +260,10 @@ cloneBackendResponse_httpStatus = Lens.lens (\CloneBackendResponse' {httpStatus}
 
 instance Prelude.NFData CloneBackendResponse where
   rnf CloneBackendResponse' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf error `Prelude.seq`
+          Prelude.rnf jobId `Prelude.seq`
+            Prelude.rnf operation `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf httpStatus

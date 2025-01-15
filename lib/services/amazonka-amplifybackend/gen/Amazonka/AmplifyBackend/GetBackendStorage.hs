@@ -134,9 +134,9 @@ instance Prelude.Hashable GetBackendStorage where
 
 instance Prelude.NFData GetBackendStorage where
   rnf GetBackendStorage' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf resourceName
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf resourceName
 
 instance Data.ToHeaders GetBackendStorage where
   toHeaders =
@@ -236,8 +236,8 @@ getBackendStorageResponse_httpStatus = Lens.lens (\GetBackendStorageResponse' {h
 
 instance Prelude.NFData GetBackendStorageResponse where
   rnf GetBackendStorageResponse' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf resourceConfig
-      `Prelude.seq` Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf backendEnvironmentName `Prelude.seq`
+        Prelude.rnf resourceConfig `Prelude.seq`
+          Prelude.rnf resourceName `Prelude.seq`
+            Prelude.rnf httpStatus

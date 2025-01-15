@@ -101,10 +101,10 @@ instance Prelude.Hashable SocialProviderSettings where
 
 instance Prelude.NFData SocialProviderSettings where
   rnf SocialProviderSettings' {..} =
-    Prelude.rnf facebook
-      `Prelude.seq` Prelude.rnf google
-      `Prelude.seq` Prelude.rnf loginWithAmazon
-      `Prelude.seq` Prelude.rnf signInWithApple
+    Prelude.rnf facebook `Prelude.seq`
+      Prelude.rnf google `Prelude.seq`
+        Prelude.rnf loginWithAmazon `Prelude.seq`
+          Prelude.rnf signInWithApple
 
 instance Data.ToJSON SocialProviderSettings where
   toJSON SocialProviderSettings' {..} =

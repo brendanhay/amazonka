@@ -106,8 +106,8 @@ instance
     CreateBackendAuthPasswordPolicyConfig
   where
   rnf CreateBackendAuthPasswordPolicyConfig' {..} =
-    Prelude.rnf additionalConstraints
-      `Prelude.seq` Prelude.rnf minimumLength
+    Prelude.rnf additionalConstraints `Prelude.seq`
+      Prelude.rnf minimumLength
 
 instance
   Data.ToJSON

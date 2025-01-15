@@ -99,8 +99,8 @@ instance
     BackendAuthSocialProviderConfig
   where
   rnf BackendAuthSocialProviderConfig' {..} =
-    Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf clientSecret
+    Prelude.rnf clientId `Prelude.seq`
+      Prelude.rnf clientSecret
 
 instance Data.ToJSON BackendAuthSocialProviderConfig where
   toJSON BackendAuthSocialProviderConfig' {..} =

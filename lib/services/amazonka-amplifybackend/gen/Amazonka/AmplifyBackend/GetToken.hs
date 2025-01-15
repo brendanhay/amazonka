@@ -111,8 +111,8 @@ instance Prelude.Hashable GetToken where
 
 instance Prelude.NFData GetToken where
   rnf GetToken' {..} =
-    Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf sessionId `Prelude.seq`
+      Prelude.rnf appId
 
 instance Data.ToHeaders GetToken where
   toHeaders =
@@ -207,8 +207,8 @@ getTokenResponse_httpStatus = Lens.lens (\GetTokenResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetTokenResponse where
   rnf GetTokenResponse' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf challengeCode
-      `Prelude.seq` Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf ttl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf challengeCode `Prelude.seq`
+        Prelude.rnf sessionId `Prelude.seq`
+          Prelude.rnf ttl `Prelude.seq`
+            Prelude.rnf httpStatus

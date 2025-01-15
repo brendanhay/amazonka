@@ -124,8 +124,8 @@ instance Prelude.Hashable GetBackend where
 
 instance Prelude.NFData GetBackend where
   rnf GetBackend' {..} =
-    Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf backendEnvironmentName `Prelude.seq`
+      Prelude.rnf appId
 
 instance Data.ToHeaders GetBackend where
   toHeaders =
@@ -250,11 +250,11 @@ getBackendResponse_httpStatus = Lens.lens (\GetBackendResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetBackendResponse where
   rnf GetBackendResponse' {..} =
-    Prelude.rnf amplifyFeatureFlags
-      `Prelude.seq` Prelude.rnf amplifyMetaConfig
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf appName
-      `Prelude.seq` Prelude.rnf backendEnvironmentList
-      `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf amplifyFeatureFlags `Prelude.seq`
+      Prelude.rnf amplifyMetaConfig `Prelude.seq`
+        Prelude.rnf appId `Prelude.seq`
+          Prelude.rnf appName `Prelude.seq`
+            Prelude.rnf backendEnvironmentList `Prelude.seq`
+              Prelude.rnf backendEnvironmentName `Prelude.seq`
+                Prelude.rnf error `Prelude.seq`
+                  Prelude.rnf httpStatus

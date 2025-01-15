@@ -111,9 +111,9 @@ instance
     CreateBackendAuthVerificationMessageConfig
   where
   rnf CreateBackendAuthVerificationMessageConfig' {..} =
-    Prelude.rnf emailSettings
-      `Prelude.seq` Prelude.rnf smsSettings
-      `Prelude.seq` Prelude.rnf deliveryMethod
+    Prelude.rnf emailSettings `Prelude.seq`
+      Prelude.rnf smsSettings `Prelude.seq`
+        Prelude.rnf deliveryMethod
 
 instance
   Data.ToJSON

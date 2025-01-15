@@ -88,5 +88,5 @@ instance Prelude.Hashable PublicAccess where
 
 instance Prelude.NFData PublicAccess where
   rnf PublicAccess' {..} =
-    Prelude.rnf effectivePermission
-      `Prelude.seq` Prelude.rnf permissionConfiguration
+    Prelude.rnf effectivePermission `Prelude.seq`
+      Prelude.rnf permissionConfiguration

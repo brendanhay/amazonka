@@ -90,5 +90,5 @@ instance Prelude.Hashable PermissionConfiguration where
 
 instance Prelude.NFData PermissionConfiguration where
   rnf PermissionConfiguration' {..} =
-    Prelude.rnf accountLevelPermissions
-      `Prelude.seq` Prelude.rnf bucketLevelPermissions
+    Prelude.rnf accountLevelPermissions `Prelude.seq`
+      Prelude.rnf bucketLevelPermissions

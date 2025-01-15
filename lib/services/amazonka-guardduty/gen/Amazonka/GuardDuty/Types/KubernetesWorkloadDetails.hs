@@ -141,10 +141,10 @@ instance Prelude.Hashable KubernetesWorkloadDetails where
 
 instance Prelude.NFData KubernetesWorkloadDetails where
   rnf KubernetesWorkloadDetails' {..} =
-    Prelude.rnf containers
-      `Prelude.seq` Prelude.rnf hostNetwork
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf uid
-      `Prelude.seq` Prelude.rnf volumes
+    Prelude.rnf containers `Prelude.seq`
+      Prelude.rnf hostNetwork `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf namespace `Prelude.seq`
+            Prelude.rnf type' `Prelude.seq`
+              Prelude.rnf uid `Prelude.seq`
+                Prelude.rnf volumes

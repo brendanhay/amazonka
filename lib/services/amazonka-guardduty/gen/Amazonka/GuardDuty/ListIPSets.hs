@@ -124,12 +124,12 @@ instance Core.AWSPager ListIPSets where
     | Core.stop (rs Lens.^. listIPSetsResponse_ipSetIds) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listIPSets_nextToken
-          Lens..~ rs
-          Lens.^? listIPSetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listIPSets_nextToken
+              Lens..~ rs
+              Lens.^? listIPSetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIPSets where
   type AWSResponse ListIPSets = ListIPSetsResponse
@@ -153,9 +153,9 @@ instance Prelude.Hashable ListIPSets where
 
 instance Prelude.NFData ListIPSets where
   rnf ListIPSets' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf detectorId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf detectorId
 
 instance Data.ToHeaders ListIPSets where
   toHeaders =
@@ -232,6 +232,6 @@ listIPSetsResponse_ipSetIds = Lens.lens (\ListIPSetsResponse' {ipSetIds} -> ipSe
 
 instance Prelude.NFData ListIPSetsResponse where
   rnf ListIPSetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf ipSetIds
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf ipSetIds

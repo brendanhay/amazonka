@@ -149,10 +149,10 @@ instance Prelude.Hashable Container where
 
 instance Prelude.NFData Container where
   rnf Container' {..} =
-    Prelude.rnf containerRuntime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf image
-      `Prelude.seq` Prelude.rnf imagePrefix
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf securityContext
-      `Prelude.seq` Prelude.rnf volumeMounts
+    Prelude.rnf containerRuntime `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf image `Prelude.seq`
+          Prelude.rnf imagePrefix `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf securityContext `Prelude.seq`
+                Prelude.rnf volumeMounts

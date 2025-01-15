@@ -176,5 +176,5 @@ deleteInvitationsResponse_unprocessedAccounts = Lens.lens (\DeleteInvitationsRes
 
 instance Prelude.NFData DeleteInvitationsResponse where
   rnf DeleteInvitationsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf unprocessedAccounts
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf unprocessedAccounts

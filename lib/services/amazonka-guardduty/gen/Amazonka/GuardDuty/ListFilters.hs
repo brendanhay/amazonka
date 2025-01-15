@@ -126,12 +126,12 @@ instance Core.AWSPager ListFilters where
         (rs Lens.^. listFiltersResponse_filterNames) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listFilters_nextToken
-          Lens..~ rs
-          Lens.^? listFiltersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listFilters_nextToken
+              Lens..~ rs
+              Lens.^? listFiltersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFilters where
   type AWSResponse ListFilters = ListFiltersResponse
@@ -155,9 +155,9 @@ instance Prelude.Hashable ListFilters where
 
 instance Prelude.NFData ListFilters where
   rnf ListFilters' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf detectorId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf detectorId
 
 instance Data.ToHeaders ListFilters where
   toHeaders =
@@ -234,6 +234,6 @@ listFiltersResponse_filterNames = Lens.lens (\ListFiltersResponse' {filterNames}
 
 instance Prelude.NFData ListFiltersResponse where
   rnf ListFiltersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf filterNames
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf filterNames

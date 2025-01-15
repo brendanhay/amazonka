@@ -575,14 +575,14 @@ instance Prelude.Hashable CreateFilter where
 
 instance Prelude.NFData CreateFilter where
   rnf CreateFilter' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf rank
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf findingCriteria
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf rank `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf detectorId `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf findingCriteria
 
 instance Data.ToHeaders CreateFilter where
   toHeaders =
@@ -660,5 +660,5 @@ createFilterResponse_name = Lens.lens (\CreateFilterResponse' {name} -> name) (\
 
 instance Prelude.NFData CreateFilterResponse where
   rnf CreateFilterResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

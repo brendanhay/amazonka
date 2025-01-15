@@ -171,13 +171,13 @@ instance Prelude.Hashable EcsTaskDetails where
 
 instance Prelude.NFData EcsTaskDetails where
   rnf EcsTaskDetails' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf containers
-      `Prelude.seq` Prelude.rnf definitionArn
-      `Prelude.seq` Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf startedBy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf taskCreatedAt
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf volumes
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf containers `Prelude.seq`
+        Prelude.rnf definitionArn `Prelude.seq`
+          Prelude.rnf group' `Prelude.seq`
+            Prelude.rnf startedAt `Prelude.seq`
+              Prelude.rnf startedBy `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf taskCreatedAt `Prelude.seq`
+                    Prelude.rnf version `Prelude.seq`
+                      Prelude.rnf volumes

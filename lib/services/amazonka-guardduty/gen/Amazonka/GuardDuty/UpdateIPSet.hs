@@ -145,11 +145,11 @@ instance Prelude.Hashable UpdateIPSet where
 
 instance Prelude.NFData UpdateIPSet where
   rnf UpdateIPSet' {..} =
-    Prelude.rnf activate
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf ipSetId
+    Prelude.rnf activate `Prelude.seq`
+      Prelude.rnf location `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf detectorId `Prelude.seq`
+            Prelude.rnf ipSetId
 
 instance Data.ToHeaders UpdateIPSet where
   toHeaders =

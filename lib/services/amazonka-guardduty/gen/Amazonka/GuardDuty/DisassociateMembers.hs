@@ -120,8 +120,8 @@ instance Prelude.Hashable DisassociateMembers where
 
 instance Prelude.NFData DisassociateMembers where
   rnf DisassociateMembers' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf accountIds
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf accountIds
 
 instance Data.ToHeaders DisassociateMembers where
   toHeaders =
@@ -196,5 +196,5 @@ disassociateMembersResponse_unprocessedAccounts = Lens.lens (\DisassociateMember
 
 instance Prelude.NFData DisassociateMembersResponse where
   rnf DisassociateMembersResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf unprocessedAccounts
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf unprocessedAccounts

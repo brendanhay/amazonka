@@ -82,5 +82,5 @@ instance Prelude.Hashable AccountFreeTrialInfo where
 
 instance Prelude.NFData AccountFreeTrialInfo where
   rnf AccountFreeTrialInfo' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf dataSources
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf dataSources

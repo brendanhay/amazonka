@@ -104,7 +104,7 @@ instance Prelude.Hashable ScanThreatName where
 
 instance Prelude.NFData ScanThreatName where
   rnf ScanThreatName' {..} =
-    Prelude.rnf filePaths
-      `Prelude.seq` Prelude.rnf itemCount
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf severity
+    Prelude.rnf filePaths `Prelude.seq`
+      Prelude.rnf itemCount `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf severity

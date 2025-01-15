@@ -81,5 +81,5 @@ instance Prelude.Hashable PrivateIpAddressDetails where
 
 instance Prelude.NFData PrivateIpAddressDetails where
   rnf PrivateIpAddressDetails' {..} =
-    Prelude.rnf privateDnsName
-      `Prelude.seq` Prelude.rnf privateIpAddress
+    Prelude.rnf privateDnsName `Prelude.seq`
+      Prelude.rnf privateIpAddress

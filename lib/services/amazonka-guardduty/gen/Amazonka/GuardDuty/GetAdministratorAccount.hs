@@ -167,5 +167,5 @@ instance
     GetAdministratorAccountResponse
   where
   rnf GetAdministratorAccountResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf administrator
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf administrator

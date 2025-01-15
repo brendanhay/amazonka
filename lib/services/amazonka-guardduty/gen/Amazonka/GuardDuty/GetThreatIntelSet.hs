@@ -121,8 +121,8 @@ instance Prelude.Hashable GetThreatIntelSet where
 
 instance Prelude.NFData GetThreatIntelSet where
   rnf GetThreatIntelSet' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf threatIntelSetId
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf threatIntelSetId
 
 instance Data.ToHeaders GetThreatIntelSet where
   toHeaders =
@@ -242,9 +242,9 @@ getThreatIntelSetResponse_status = Lens.lens (\GetThreatIntelSetResponse' {statu
 
 instance Prelude.NFData GetThreatIntelSetResponse where
   rnf GetThreatIntelSetResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf format `Prelude.seq`
+            Prelude.rnf location `Prelude.seq`
+              Prelude.rnf status

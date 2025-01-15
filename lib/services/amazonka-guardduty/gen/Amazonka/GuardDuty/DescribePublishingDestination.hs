@@ -131,8 +131,8 @@ instance
 
 instance Prelude.NFData DescribePublishingDestination where
   rnf DescribePublishingDestination' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf destinationId
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf destinationId
 
 instance Data.ToHeaders DescribePublishingDestination where
   toHeaders =
@@ -264,9 +264,9 @@ instance
     DescribePublishingDestinationResponse
   where
   rnf DescribePublishingDestinationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf destinationId
-      `Prelude.seq` Prelude.rnf destinationType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf publishingFailureStartTimestamp
-      `Prelude.seq` Prelude.rnf destinationProperties
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf destinationId `Prelude.seq`
+        Prelude.rnf destinationType `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf publishingFailureStartTimestamp `Prelude.seq`
+              Prelude.rnf destinationProperties

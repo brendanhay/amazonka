@@ -84,9 +84,9 @@ instance Prelude.Hashable DataSourceConfigurations where
 
 instance Prelude.NFData DataSourceConfigurations where
   rnf DataSourceConfigurations' {..} =
-    Prelude.rnf kubernetes
-      `Prelude.seq` Prelude.rnf malwareProtection
-      `Prelude.seq` Prelude.rnf s3Logs
+    Prelude.rnf kubernetes `Prelude.seq`
+      Prelude.rnf malwareProtection `Prelude.seq`
+        Prelude.rnf s3Logs
 
 instance Data.ToJSON DataSourceConfigurations where
   toJSON DataSourceConfigurations' {..} =

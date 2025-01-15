@@ -79,8 +79,8 @@ instance Prelude.Hashable FilterCriterion where
 
 instance Prelude.NFData FilterCriterion where
   rnf FilterCriterion' {..} =
-    Prelude.rnf criterionKey
-      `Prelude.seq` Prelude.rnf filterCondition
+    Prelude.rnf criterionKey `Prelude.seq`
+      Prelude.rnf filterCondition
 
 instance Data.ToJSON FilterCriterion where
   toJSON FilterCriterion' {..} =

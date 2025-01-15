@@ -133,10 +133,10 @@ instance Prelude.Hashable UpdateFindingsFeedback where
 
 instance Prelude.NFData UpdateFindingsFeedback where
   rnf UpdateFindingsFeedback' {..} =
-    Prelude.rnf comments
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf findingIds
-      `Prelude.seq` Prelude.rnf feedback
+    Prelude.rnf comments `Prelude.seq`
+      Prelude.rnf detectorId `Prelude.seq`
+        Prelude.rnf findingIds `Prelude.seq`
+          Prelude.rnf feedback
 
 instance Data.ToHeaders UpdateFindingsFeedback where
   toHeaders =

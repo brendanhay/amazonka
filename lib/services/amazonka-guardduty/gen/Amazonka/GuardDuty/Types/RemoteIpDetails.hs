@@ -117,8 +117,8 @@ instance Prelude.Hashable RemoteIpDetails where
 
 instance Prelude.NFData RemoteIpDetails where
   rnf RemoteIpDetails' {..} =
-    Prelude.rnf city
-      `Prelude.seq` Prelude.rnf country
-      `Prelude.seq` Prelude.rnf geoLocation
-      `Prelude.seq` Prelude.rnf ipAddressV4
-      `Prelude.seq` Prelude.rnf organization
+    Prelude.rnf city `Prelude.seq`
+      Prelude.rnf country `Prelude.seq`
+        Prelude.rnf geoLocation `Prelude.seq`
+          Prelude.rnf ipAddressV4 `Prelude.seq`
+            Prelude.rnf organization

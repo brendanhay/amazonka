@@ -170,12 +170,12 @@ instance Prelude.Hashable UpdateFilter where
 
 instance Prelude.NFData UpdateFilter where
   rnf UpdateFilter' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf findingCriteria
-      `Prelude.seq` Prelude.rnf rank
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf filterName
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf findingCriteria `Prelude.seq`
+          Prelude.rnf rank `Prelude.seq`
+            Prelude.rnf detectorId `Prelude.seq`
+              Prelude.rnf filterName
 
 instance Data.ToHeaders UpdateFilter where
   toHeaders =
@@ -254,5 +254,5 @@ updateFilterResponse_name = Lens.lens (\UpdateFilterResponse' {name} -> name) (\
 
 instance Prelude.NFData UpdateFilterResponse where
   rnf UpdateFilterResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf name

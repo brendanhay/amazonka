@@ -109,7 +109,7 @@ instance Prelude.Hashable ThreatDetectedByName where
 
 instance Prelude.NFData ThreatDetectedByName where
   rnf ThreatDetectedByName' {..} =
-    Prelude.rnf itemCount
-      `Prelude.seq` Prelude.rnf shortened
-      `Prelude.seq` Prelude.rnf threatNames
-      `Prelude.seq` Prelude.rnf uniqueThreatNameCount
+    Prelude.rnf itemCount `Prelude.seq`
+      Prelude.rnf shortened `Prelude.seq`
+        Prelude.rnf threatNames `Prelude.seq`
+          Prelude.rnf uniqueThreatNameCount

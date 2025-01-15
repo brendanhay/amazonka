@@ -177,12 +177,12 @@ instance Prelude.Hashable Resource where
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
-    Prelude.rnf accessKeyDetails
-      `Prelude.seq` Prelude.rnf containerDetails
-      `Prelude.seq` Prelude.rnf ebsVolumeDetails
-      `Prelude.seq` Prelude.rnf ecsClusterDetails
-      `Prelude.seq` Prelude.rnf eksClusterDetails
-      `Prelude.seq` Prelude.rnf instanceDetails
-      `Prelude.seq` Prelude.rnf kubernetesDetails
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf s3BucketDetails
+    Prelude.rnf accessKeyDetails `Prelude.seq`
+      Prelude.rnf containerDetails `Prelude.seq`
+        Prelude.rnf ebsVolumeDetails `Prelude.seq`
+          Prelude.rnf ecsClusterDetails `Prelude.seq`
+            Prelude.rnf eksClusterDetails `Prelude.seq`
+              Prelude.rnf instanceDetails `Prelude.seq`
+                Prelude.rnf kubernetesDetails `Prelude.seq`
+                  Prelude.rnf resourceType `Prelude.seq`
+                    Prelude.rnf s3BucketDetails

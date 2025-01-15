@@ -103,9 +103,9 @@ instance
     OrganizationDataSourceConfigurations
   where
   rnf OrganizationDataSourceConfigurations' {..} =
-    Prelude.rnf kubernetes
-      `Prelude.seq` Prelude.rnf malwareProtection
-      `Prelude.seq` Prelude.rnf s3Logs
+    Prelude.rnf kubernetes `Prelude.seq`
+      Prelude.rnf malwareProtection `Prelude.seq`
+        Prelude.rnf s3Logs
 
 instance
   Data.ToJSON

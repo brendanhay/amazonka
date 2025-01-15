@@ -108,7 +108,7 @@ instance Prelude.Hashable Administrator where
 
 instance Prelude.NFData Administrator where
   rnf Administrator' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf invitationId
-      `Prelude.seq` Prelude.rnf invitedAt
-      `Prelude.seq` Prelude.rnf relationshipStatus
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf invitationId `Prelude.seq`
+        Prelude.rnf invitedAt `Prelude.seq`
+          Prelude.rnf relationshipStatus

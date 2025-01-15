@@ -107,8 +107,8 @@ instance Prelude.Hashable DeleteIPSet where
 
 instance Prelude.NFData DeleteIPSet where
   rnf DeleteIPSet' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf ipSetId
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf ipSetId
 
 instance Data.ToHeaders DeleteIPSet where
   toHeaders =

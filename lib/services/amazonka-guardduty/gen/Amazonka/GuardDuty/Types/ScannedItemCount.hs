@@ -91,6 +91,6 @@ instance Prelude.Hashable ScannedItemCount where
 
 instance Prelude.NFData ScannedItemCount where
   rnf ScannedItemCount' {..} =
-    Prelude.rnf files
-      `Prelude.seq` Prelude.rnf totalGb
-      `Prelude.seq` Prelude.rnf volumes
+    Prelude.rnf files `Prelude.seq`
+      Prelude.rnf totalGb `Prelude.seq`
+        Prelude.rnf volumes

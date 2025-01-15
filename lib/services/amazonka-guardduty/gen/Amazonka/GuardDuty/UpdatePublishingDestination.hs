@@ -129,9 +129,9 @@ instance Prelude.Hashable UpdatePublishingDestination where
 
 instance Prelude.NFData UpdatePublishingDestination where
   rnf UpdatePublishingDestination' {..} =
-    Prelude.rnf destinationProperties
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf destinationId
+    Prelude.rnf destinationProperties `Prelude.seq`
+      Prelude.rnf detectorId `Prelude.seq`
+        Prelude.rnf destinationId
 
 instance Data.ToHeaders UpdatePublishingDestination where
   toHeaders =

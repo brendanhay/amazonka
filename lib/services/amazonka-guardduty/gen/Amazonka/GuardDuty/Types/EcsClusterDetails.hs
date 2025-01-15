@@ -152,11 +152,11 @@ instance Prelude.Hashable EcsClusterDetails where
 
 instance Prelude.NFData EcsClusterDetails where
   rnf EcsClusterDetails' {..} =
-    Prelude.rnf activeServicesCount
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf registeredContainerInstancesCount
-      `Prelude.seq` Prelude.rnf runningTasksCount
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf taskDetails
+    Prelude.rnf activeServicesCount `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf registeredContainerInstancesCount `Prelude.seq`
+            Prelude.rnf runningTasksCount `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf taskDetails

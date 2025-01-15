@@ -113,8 +113,8 @@ instance Prelude.Hashable DeleteThreatIntelSet where
 
 instance Prelude.NFData DeleteThreatIntelSet where
   rnf DeleteThreatIntelSet' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf threatIntelSetId
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf threatIntelSetId
 
 instance Data.ToHeaders DeleteThreatIntelSet where
   toHeaders =

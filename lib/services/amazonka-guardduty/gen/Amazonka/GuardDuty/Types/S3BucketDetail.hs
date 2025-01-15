@@ -150,11 +150,11 @@ instance Prelude.Hashable S3BucketDetail where
 
 instance Prelude.NFData S3BucketDetail where
   rnf S3BucketDetail' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf defaultServerSideEncryption
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf publicAccess
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdAt `Prelude.seq`
+        Prelude.rnf defaultServerSideEncryption `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf owner `Prelude.seq`
+              Prelude.rnf publicAccess `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf type'

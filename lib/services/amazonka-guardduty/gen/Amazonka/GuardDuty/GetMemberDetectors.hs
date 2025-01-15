@@ -116,8 +116,8 @@ instance Prelude.Hashable GetMemberDetectors where
 
 instance Prelude.NFData GetMemberDetectors where
   rnf GetMemberDetectors' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf accountIds
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf accountIds
 
 instance Data.ToHeaders GetMemberDetectors where
   toHeaders =
@@ -210,6 +210,6 @@ getMemberDetectorsResponse_unprocessedAccounts = Lens.lens (\GetMemberDetectorsR
 
 instance Prelude.NFData GetMemberDetectorsResponse where
   rnf GetMemberDetectorsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf memberDataSourceConfigurations
-      `Prelude.seq` Prelude.rnf unprocessedAccounts
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf memberDataSourceConfigurations `Prelude.seq`
+        Prelude.rnf unprocessedAccounts

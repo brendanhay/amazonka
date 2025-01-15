@@ -89,8 +89,8 @@ instance Prelude.Hashable ScanResourceCriteria where
 
 instance Prelude.NFData ScanResourceCriteria where
   rnf ScanResourceCriteria' {..} =
-    Prelude.rnf exclude
-      `Prelude.seq` Prelude.rnf include
+    Prelude.rnf exclude `Prelude.seq`
+      Prelude.rnf include
 
 instance Data.ToJSON ScanResourceCriteria where
   toJSON ScanResourceCriteria' {..} =

@@ -118,8 +118,8 @@ instance Prelude.Hashable StopMonitoringMembers where
 
 instance Prelude.NFData StopMonitoringMembers where
   rnf StopMonitoringMembers' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf accountIds
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf accountIds
 
 instance Data.ToHeaders StopMonitoringMembers where
   toHeaders =
@@ -194,5 +194,5 @@ stopMonitoringMembersResponse_unprocessedAccounts = Lens.lens (\StopMonitoringMe
 
 instance Prelude.NFData StopMonitoringMembersResponse where
   rnf StopMonitoringMembersResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf unprocessedAccounts
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf unprocessedAccounts

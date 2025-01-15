@@ -125,9 +125,9 @@ instance Prelude.Hashable UpdateMemberDetectors where
 
 instance Prelude.NFData UpdateMemberDetectors where
   rnf UpdateMemberDetectors' {..} =
-    Prelude.rnf dataSources
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf accountIds
+    Prelude.rnf dataSources `Prelude.seq`
+      Prelude.rnf detectorId `Prelude.seq`
+        Prelude.rnf accountIds
 
 instance Data.ToHeaders UpdateMemberDetectors where
   toHeaders =
@@ -204,5 +204,5 @@ updateMemberDetectorsResponse_unprocessedAccounts = Lens.lens (\UpdateMemberDete
 
 instance Prelude.NFData UpdateMemberDetectorsResponse where
   rnf UpdateMemberDetectorsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf unprocessedAccounts
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf unprocessedAccounts

@@ -115,12 +115,12 @@ instance Core.AWSPager ListDetectors where
         (rs Lens.^. listDetectorsResponse_detectorIds) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDetectors_nextToken
-          Lens..~ rs
-          Lens.^? listDetectorsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDetectors_nextToken
+              Lens..~ rs
+              Lens.^? listDetectorsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDetectors where
   type
@@ -145,8 +145,8 @@ instance Prelude.Hashable ListDetectors where
 
 instance Prelude.NFData ListDetectors where
   rnf ListDetectors' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDetectors where
   toHeaders =
@@ -221,6 +221,6 @@ listDetectorsResponse_detectorIds = Lens.lens (\ListDetectorsResponse' {detector
 
 instance Prelude.NFData ListDetectorsResponse where
   rnf ListDetectorsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf detectorIds
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf detectorIds

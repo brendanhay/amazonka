@@ -212,16 +212,16 @@ instance Prelude.Hashable InstanceDetails where
 
 instance Prelude.NFData InstanceDetails where
   rnf InstanceDetails' {..} =
-    Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf iamInstanceProfile
-      `Prelude.seq` Prelude.rnf imageDescription
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf instanceState
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf launchTime
-      `Prelude.seq` Prelude.rnf networkInterfaces
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf productCodes
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf availabilityZone `Prelude.seq`
+      Prelude.rnf iamInstanceProfile `Prelude.seq`
+        Prelude.rnf imageDescription `Prelude.seq`
+          Prelude.rnf imageId `Prelude.seq`
+            Prelude.rnf instanceId `Prelude.seq`
+              Prelude.rnf instanceState `Prelude.seq`
+                Prelude.rnf instanceType `Prelude.seq`
+                  Prelude.rnf launchTime `Prelude.seq`
+                    Prelude.rnf networkInterfaces `Prelude.seq`
+                      Prelude.rnf outpostArn `Prelude.seq`
+                        Prelude.rnf platform `Prelude.seq`
+                          Prelude.rnf productCodes `Prelude.seq`
+                            Prelude.rnf tags

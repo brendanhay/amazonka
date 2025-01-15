@@ -89,9 +89,9 @@ instance Prelude.Hashable FilterCondition where
 
 instance Prelude.NFData FilterCondition where
   rnf FilterCondition' {..} =
-    Prelude.rnf equalsValue
-      `Prelude.seq` Prelude.rnf greaterThan
-      `Prelude.seq` Prelude.rnf lessThan
+    Prelude.rnf equalsValue `Prelude.seq`
+      Prelude.rnf greaterThan `Prelude.seq`
+        Prelude.rnf lessThan
 
 instance Data.ToJSON FilterCondition where
   toJSON FilterCondition' {..} =

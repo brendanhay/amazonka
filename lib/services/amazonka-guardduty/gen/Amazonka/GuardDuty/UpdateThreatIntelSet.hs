@@ -149,11 +149,11 @@ instance Prelude.Hashable UpdateThreatIntelSet where
 
 instance Prelude.NFData UpdateThreatIntelSet where
   rnf UpdateThreatIntelSet' {..} =
-    Prelude.rnf activate
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf threatIntelSetId
+    Prelude.rnf activate `Prelude.seq`
+      Prelude.rnf location `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf detectorId `Prelude.seq`
+            Prelude.rnf threatIntelSetId
 
 instance Data.ToHeaders UpdateThreatIntelSet where
   toHeaders =

@@ -155,10 +155,10 @@ instance Prelude.Hashable InviteMembers where
 
 instance Prelude.NFData InviteMembers where
   rnf InviteMembers' {..} =
-    Prelude.rnf disableEmailNotification
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf accountIds
+    Prelude.rnf disableEmailNotification `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf detectorId `Prelude.seq`
+          Prelude.rnf accountIds
 
 instance Data.ToHeaders InviteMembers where
   toHeaders =
@@ -236,5 +236,5 @@ inviteMembersResponse_unprocessedAccounts = Lens.lens (\InviteMembersResponse' {
 
 instance Prelude.NFData InviteMembersResponse where
   rnf InviteMembersResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf unprocessedAccounts
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf unprocessedAccounts

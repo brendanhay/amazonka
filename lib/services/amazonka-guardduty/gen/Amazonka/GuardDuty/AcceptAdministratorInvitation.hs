@@ -138,9 +138,9 @@ instance
 
 instance Prelude.NFData AcceptAdministratorInvitation where
   rnf AcceptAdministratorInvitation' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf administratorId
-      `Prelude.seq` Prelude.rnf invitationId
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf administratorId `Prelude.seq`
+        Prelude.rnf invitationId
 
 instance Data.ToHeaders AcceptAdministratorInvitation where
   toHeaders =

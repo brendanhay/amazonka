@@ -229,17 +229,17 @@ instance Prelude.Hashable Scan where
 
 instance Prelude.NFData Scan where
   rnf Scan' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf adminDetectorId
-      `Prelude.seq` Prelude.rnf attachedVolumes
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf fileCount
-      `Prelude.seq` Prelude.rnf resourceDetails
-      `Prelude.seq` Prelude.rnf scanEndTime
-      `Prelude.seq` Prelude.rnf scanId
-      `Prelude.seq` Prelude.rnf scanResultDetails
-      `Prelude.seq` Prelude.rnf scanStartTime
-      `Prelude.seq` Prelude.rnf scanStatus
-      `Prelude.seq` Prelude.rnf totalBytes
-      `Prelude.seq` Prelude.rnf triggerDetails
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf adminDetectorId `Prelude.seq`
+        Prelude.rnf attachedVolumes `Prelude.seq`
+          Prelude.rnf detectorId `Prelude.seq`
+            Prelude.rnf failureReason `Prelude.seq`
+              Prelude.rnf fileCount `Prelude.seq`
+                Prelude.rnf resourceDetails `Prelude.seq`
+                  Prelude.rnf scanEndTime `Prelude.seq`
+                    Prelude.rnf scanId `Prelude.seq`
+                      Prelude.rnf scanResultDetails `Prelude.seq`
+                        Prelude.rnf scanStartTime `Prelude.seq`
+                          Prelude.rnf scanStatus `Prelude.seq`
+                            Prelude.rnf totalBytes `Prelude.seq`
+                              Prelude.rnf triggerDetails

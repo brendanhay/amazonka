@@ -91,6 +91,6 @@ instance Prelude.Hashable KubernetesUserDetails where
 
 instance Prelude.NFData KubernetesUserDetails where
   rnf KubernetesUserDetails' {..} =
-    Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf uid
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf groups `Prelude.seq`
+      Prelude.rnf uid `Prelude.seq`
+        Prelude.rnf username

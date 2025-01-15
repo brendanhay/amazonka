@@ -174,13 +174,13 @@ instance Prelude.Hashable NetworkInterface where
 
 instance Prelude.NFData NetworkInterface where
   rnf NetworkInterface' {..} =
-    Prelude.rnf ipv6Addresses
-      `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf privateDnsName
-      `Prelude.seq` Prelude.rnf privateIpAddress
-      `Prelude.seq` Prelude.rnf privateIpAddresses
-      `Prelude.seq` Prelude.rnf publicDnsName
-      `Prelude.seq` Prelude.rnf publicIp
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf ipv6Addresses `Prelude.seq`
+      Prelude.rnf networkInterfaceId `Prelude.seq`
+        Prelude.rnf privateDnsName `Prelude.seq`
+          Prelude.rnf privateIpAddress `Prelude.seq`
+            Prelude.rnf privateIpAddresses `Prelude.seq`
+              Prelude.rnf publicDnsName `Prelude.seq`
+                Prelude.rnf publicIp `Prelude.seq`
+                  Prelude.rnf securityGroups `Prelude.seq`
+                    Prelude.rnf subnetId `Prelude.seq`
+                      Prelude.rnf vpcId

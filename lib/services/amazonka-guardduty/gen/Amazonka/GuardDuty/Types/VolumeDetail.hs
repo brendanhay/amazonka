@@ -135,10 +135,10 @@ instance Prelude.Hashable VolumeDetail where
 
 instance Prelude.NFData VolumeDetail where
   rnf VolumeDetail' {..} =
-    Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf encryptionType
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf snapshotArn
-      `Prelude.seq` Prelude.rnf volumeArn
-      `Prelude.seq` Prelude.rnf volumeSizeInGB
-      `Prelude.seq` Prelude.rnf volumeType
+    Prelude.rnf deviceName `Prelude.seq`
+      Prelude.rnf encryptionType `Prelude.seq`
+        Prelude.rnf kmsKeyArn `Prelude.seq`
+          Prelude.rnf snapshotArn `Prelude.seq`
+            Prelude.rnf volumeArn `Prelude.seq`
+              Prelude.rnf volumeSizeInGB `Prelude.seq`
+                Prelude.rnf volumeType

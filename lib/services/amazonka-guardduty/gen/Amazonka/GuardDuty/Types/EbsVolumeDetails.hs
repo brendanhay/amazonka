@@ -88,5 +88,5 @@ instance Prelude.Hashable EbsVolumeDetails where
 
 instance Prelude.NFData EbsVolumeDetails where
   rnf EbsVolumeDetails' {..} =
-    Prelude.rnf scannedVolumeDetails
-      `Prelude.seq` Prelude.rnf skippedVolumeDetails
+    Prelude.rnf scannedVolumeDetails `Prelude.seq`
+      Prelude.rnf skippedVolumeDetails

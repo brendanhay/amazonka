@@ -167,5 +167,5 @@ instance
     GetDatalakeExceptionsSubscriptionResponse
   where
   rnf GetDatalakeExceptionsSubscriptionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf protocolAndNotificationEndpoint
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf protocolAndNotificationEndpoint

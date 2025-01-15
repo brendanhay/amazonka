@@ -92,8 +92,8 @@ instance Prelude.Hashable RetentionSetting where
 
 instance Prelude.NFData RetentionSetting where
   rnf RetentionSetting' {..} =
-    Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf storageClass
+    Prelude.rnf retentionPeriod `Prelude.seq`
+      Prelude.rnf storageClass
 
 instance Data.ToJSON RetentionSetting where
   toJSON RetentionSetting' {..} =

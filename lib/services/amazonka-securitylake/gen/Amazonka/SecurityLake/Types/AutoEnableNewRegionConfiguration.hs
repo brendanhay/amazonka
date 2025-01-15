@@ -103,8 +103,8 @@ instance
     AutoEnableNewRegionConfiguration
   where
   rnf AutoEnableNewRegionConfiguration' {..} =
-    Prelude.rnf region
-      `Prelude.seq` Prelude.rnf sources
+    Prelude.rnf region `Prelude.seq`
+      Prelude.rnf sources
 
 instance Data.ToJSON AutoEnableNewRegionConfiguration where
   toJSON AutoEnableNewRegionConfiguration' {..} =

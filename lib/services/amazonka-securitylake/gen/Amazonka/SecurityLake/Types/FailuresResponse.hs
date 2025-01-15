@@ -82,5 +82,5 @@ instance Prelude.Hashable FailuresResponse where
 
 instance Prelude.NFData FailuresResponse where
   rnf FailuresResponse' {..} =
-    Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf failures `Prelude.seq`
+      Prelude.rnf region

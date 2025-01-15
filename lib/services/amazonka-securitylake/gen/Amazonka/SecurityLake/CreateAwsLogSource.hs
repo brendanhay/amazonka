@@ -161,10 +161,10 @@ instance Prelude.Hashable CreateAwsLogSource where
 
 instance Prelude.NFData CreateAwsLogSource where
   rnf CreateAwsLogSource' {..} =
-    Prelude.rnf enableAllDimensions
-      `Prelude.seq` Prelude.rnf enableSingleDimension
-      `Prelude.seq` Prelude.rnf enableTwoDimensions
-      `Prelude.seq` Prelude.rnf inputOrder
+    Prelude.rnf enableAllDimensions `Prelude.seq`
+      Prelude.rnf enableSingleDimension `Prelude.seq`
+        Prelude.rnf enableTwoDimensions `Prelude.seq`
+          Prelude.rnf inputOrder
 
 instance Data.ToHeaders CreateAwsLogSource where
   toHeaders =
@@ -256,6 +256,6 @@ createAwsLogSourceResponse_httpStatus = Lens.lens (\CreateAwsLogSourceResponse' 
 
 instance Prelude.NFData CreateAwsLogSourceResponse where
   rnf CreateAwsLogSourceResponse' {..} =
-    Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf processing
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failed `Prelude.seq`
+      Prelude.rnf processing `Prelude.seq`
+        Prelude.rnf httpStatus

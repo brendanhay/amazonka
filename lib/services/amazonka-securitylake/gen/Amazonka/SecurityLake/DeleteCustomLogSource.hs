@@ -163,5 +163,5 @@ deleteCustomLogSourceResponse_customDataLocation = Lens.lens (\DeleteCustomLogSo
 
 instance Prelude.NFData DeleteCustomLogSourceResponse where
   rnf DeleteCustomLogSourceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf customDataLocation
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf customDataLocation

@@ -168,10 +168,10 @@ instance Prelude.Hashable DeleteAwsLogSource where
 
 instance Prelude.NFData DeleteAwsLogSource where
   rnf DeleteAwsLogSource' {..} =
-    Prelude.rnf disableAllDimensions
-      `Prelude.seq` Prelude.rnf disableSingleDimension
-      `Prelude.seq` Prelude.rnf disableTwoDimensions
-      `Prelude.seq` Prelude.rnf inputOrder
+    Prelude.rnf disableAllDimensions `Prelude.seq`
+      Prelude.rnf disableSingleDimension `Prelude.seq`
+        Prelude.rnf disableTwoDimensions `Prelude.seq`
+          Prelude.rnf inputOrder
 
 instance Data.ToHeaders DeleteAwsLogSource where
   toHeaders =
@@ -257,6 +257,6 @@ deleteAwsLogSourceResponse_httpStatus = Lens.lens (\DeleteAwsLogSourceResponse' 
 
 instance Prelude.NFData DeleteAwsLogSourceResponse where
   rnf DeleteAwsLogSourceResponse' {..} =
-    Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf processing
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failed `Prelude.seq`
+      Prelude.rnf processing `Prelude.seq`
+        Prelude.rnf httpStatus

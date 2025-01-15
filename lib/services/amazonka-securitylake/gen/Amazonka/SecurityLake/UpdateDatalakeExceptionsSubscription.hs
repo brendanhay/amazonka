@@ -124,8 +124,8 @@ instance
     UpdateDatalakeExceptionsSubscription
   where
   rnf UpdateDatalakeExceptionsSubscription' {..} =
-    Prelude.rnf notificationEndpoint
-      `Prelude.seq` Prelude.rnf subscriptionProtocol
+    Prelude.rnf notificationEndpoint `Prelude.seq`
+      Prelude.rnf subscriptionProtocol
 
 instance
   Data.ToHeaders

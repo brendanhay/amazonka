@@ -93,5 +93,5 @@ instance
     ProtocolAndNotificationEndpoint
   where
   rnf ProtocolAndNotificationEndpoint' {..} =
-    Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf protocol
+    Prelude.rnf endpoint `Prelude.seq`
+      Prelude.rnf protocol

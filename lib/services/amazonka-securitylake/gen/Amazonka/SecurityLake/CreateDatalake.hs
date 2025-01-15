@@ -170,10 +170,10 @@ instance Prelude.Hashable CreateDatalake where
 
 instance Prelude.NFData CreateDatalake where
   rnf CreateDatalake' {..} =
-    Prelude.rnf configurations
-      `Prelude.seq` Prelude.rnf enableAll
-      `Prelude.seq` Prelude.rnf metaStoreManagerRoleArn
-      `Prelude.seq` Prelude.rnf regions
+    Prelude.rnf configurations `Prelude.seq`
+      Prelude.rnf enableAll `Prelude.seq`
+        Prelude.rnf metaStoreManagerRoleArn `Prelude.seq`
+          Prelude.rnf regions
 
 instance Data.ToHeaders CreateDatalake where
   toHeaders =

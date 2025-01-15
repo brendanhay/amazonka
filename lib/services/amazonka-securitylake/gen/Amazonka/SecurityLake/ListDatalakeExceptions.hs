@@ -134,12 +134,12 @@ instance Core.AWSPager ListDatalakeExceptions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDatalakeExceptions_nextToken
-          Lens..~ rs
-          Lens.^? listDatalakeExceptionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDatalakeExceptions_nextToken
+              Lens..~ rs
+              Lens.^? listDatalakeExceptionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDatalakeExceptions where
   type
@@ -168,9 +168,9 @@ instance Prelude.Hashable ListDatalakeExceptions where
 
 instance Prelude.NFData ListDatalakeExceptions where
   rnf ListDatalakeExceptions' {..} =
-    Prelude.rnf maxFailures
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf regionSet
+    Prelude.rnf maxFailures `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf regionSet
 
 instance Data.ToHeaders ListDatalakeExceptions where
   toHeaders =
@@ -270,6 +270,6 @@ instance
     ListDatalakeExceptionsResponse
   where
   rnf ListDatalakeExceptionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf nonRetryableFailures
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf nonRetryableFailures

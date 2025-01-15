@@ -145,11 +145,11 @@ instance Prelude.Hashable LakeConfigurationRequest where
 
 instance Prelude.NFData LakeConfigurationRequest where
   rnf LakeConfigurationRequest' {..} =
-    Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf replicationDestinationRegions
-      `Prelude.seq` Prelude.rnf replicationRoleArn
-      `Prelude.seq` Prelude.rnf retentionSettings
-      `Prelude.seq` Prelude.rnf tagsMap
+    Prelude.rnf encryptionKey `Prelude.seq`
+      Prelude.rnf replicationDestinationRegions `Prelude.seq`
+        Prelude.rnf replicationRoleArn `Prelude.seq`
+          Prelude.rnf retentionSettings `Prelude.seq`
+            Prelude.rnf tagsMap
 
 instance Data.ToJSON LakeConfigurationRequest where
   toJSON LakeConfigurationRequest' {..} =

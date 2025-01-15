@@ -90,8 +90,8 @@ instance Prelude.Hashable SourceType where
 
 instance Prelude.NFData SourceType where
   rnf SourceType' {..} =
-    Prelude.rnf awsSourceType
-      `Prelude.seq` Prelude.rnf customSourceType
+    Prelude.rnf awsSourceType `Prelude.seq`
+      Prelude.rnf customSourceType
 
 instance Data.ToJSON SourceType where
   toJSON SourceType' {..} =

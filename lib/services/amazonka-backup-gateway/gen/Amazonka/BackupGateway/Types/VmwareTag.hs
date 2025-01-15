@@ -96,6 +96,6 @@ instance Prelude.Hashable VmwareTag where
 
 instance Prelude.NFData VmwareTag where
   rnf VmwareTag' {..} =
-    Prelude.rnf vmwareCategory
-      `Prelude.seq` Prelude.rnf vmwareTagDescription
-      `Prelude.seq` Prelude.rnf vmwareTagName
+    Prelude.rnf vmwareCategory `Prelude.seq`
+      Prelude.rnf vmwareTagDescription `Prelude.seq`
+        Prelude.rnf vmwareTagName

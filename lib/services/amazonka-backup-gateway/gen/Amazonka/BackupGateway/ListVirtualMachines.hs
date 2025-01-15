@@ -125,12 +125,12 @@ instance Core.AWSPager ListVirtualMachines where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listVirtualMachines_nextToken
-          Lens..~ rs
-          Lens.^? listVirtualMachinesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listVirtualMachines_nextToken
+              Lens..~ rs
+              Lens.^? listVirtualMachinesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVirtualMachines where
   type
@@ -159,9 +159,9 @@ instance Prelude.Hashable ListVirtualMachines where
 
 instance Prelude.NFData ListVirtualMachines where
   rnf ListVirtualMachines' {..} =
-    Prelude.rnf hypervisorArn
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf hypervisorArn `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListVirtualMachines where
   toHeaders =
@@ -256,6 +256,6 @@ listVirtualMachinesResponse_httpStatus = Lens.lens (\ListVirtualMachinesResponse
 
 instance Prelude.NFData ListVirtualMachinesResponse where
   rnf ListVirtualMachinesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf virtualMachines
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf virtualMachines `Prelude.seq`
+        Prelude.rnf httpStatus

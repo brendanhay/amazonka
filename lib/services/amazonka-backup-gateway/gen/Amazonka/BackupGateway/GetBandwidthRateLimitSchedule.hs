@@ -218,6 +218,6 @@ instance
     GetBandwidthRateLimitScheduleResponse
   where
   rnf GetBandwidthRateLimitScheduleResponse' {..} =
-    Prelude.rnf bandwidthRateLimitIntervals
-      `Prelude.seq` Prelude.rnf gatewayArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf bandwidthRateLimitIntervals `Prelude.seq`
+      Prelude.rnf gatewayArn `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -141,10 +141,10 @@ instance Prelude.Hashable CreateGateway where
 
 instance Prelude.NFData CreateGateway where
   rnf CreateGateway' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf activationKey
-      `Prelude.seq` Prelude.rnf gatewayDisplayName
-      `Prelude.seq` Prelude.rnf gatewayType
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf activationKey `Prelude.seq`
+        Prelude.rnf gatewayDisplayName `Prelude.seq`
+          Prelude.rnf gatewayType
 
 instance Data.ToHeaders CreateGateway where
   toHeaders =
@@ -220,5 +220,5 @@ createGatewayResponse_httpStatus = Lens.lens (\CreateGatewayResponse' {httpStatu
 
 instance Prelude.NFData CreateGatewayResponse where
   rnf CreateGatewayResponse' {..} =
-    Prelude.rnf gatewayArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -158,11 +158,11 @@ instance Prelude.Hashable PutMaintenanceStartTime where
 
 instance Prelude.NFData PutMaintenanceStartTime where
   rnf PutMaintenanceStartTime' {..} =
-    Prelude.rnf dayOfMonth
-      `Prelude.seq` Prelude.rnf dayOfWeek
-      `Prelude.seq` Prelude.rnf gatewayArn
-      `Prelude.seq` Prelude.rnf hourOfDay
-      `Prelude.seq` Prelude.rnf minuteOfHour
+    Prelude.rnf dayOfMonth `Prelude.seq`
+      Prelude.rnf dayOfWeek `Prelude.seq`
+        Prelude.rnf gatewayArn `Prelude.seq`
+          Prelude.rnf hourOfDay `Prelude.seq`
+            Prelude.rnf minuteOfHour
 
 instance Data.ToHeaders PutMaintenanceStartTime where
   toHeaders =
@@ -244,5 +244,5 @@ instance
     PutMaintenanceStartTimeResponse
   where
   rnf PutMaintenanceStartTimeResponse' {..} =
-    Prelude.rnf gatewayArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayArn `Prelude.seq`
+      Prelude.rnf httpStatus

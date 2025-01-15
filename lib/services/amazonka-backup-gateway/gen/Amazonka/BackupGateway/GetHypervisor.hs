@@ -169,5 +169,5 @@ getHypervisorResponse_httpStatus = Lens.lens (\GetHypervisorResponse' {httpStatu
 
 instance Prelude.NFData GetHypervisorResponse where
   rnf GetHypervisorResponse' {..} =
-    Prelude.rnf hypervisor
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hypervisor `Prelude.seq`
+      Prelude.rnf httpStatus

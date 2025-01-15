@@ -192,5 +192,5 @@ instance
     StartVirtualMachinesMetadataSyncResponse
   where
   rnf StartVirtualMachinesMetadataSyncResponse' {..} =
-    Prelude.rnf hypervisorArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hypervisorArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -133,8 +133,8 @@ instance
 
 instance Prelude.NFData PutBandwidthRateLimitSchedule where
   rnf PutBandwidthRateLimitSchedule' {..} =
-    Prelude.rnf bandwidthRateLimitIntervals
-      `Prelude.seq` Prelude.rnf gatewayArn
+    Prelude.rnf bandwidthRateLimitIntervals `Prelude.seq`
+      Prelude.rnf gatewayArn
 
 instance Data.ToHeaders PutBandwidthRateLimitSchedule where
   toHeaders =
@@ -222,5 +222,5 @@ instance
     PutBandwidthRateLimitScheduleResponse
   where
   rnf PutBandwidthRateLimitScheduleResponse' {..} =
-    Prelude.rnf gatewayArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf gatewayArn `Prelude.seq`
+      Prelude.rnf httpStatus

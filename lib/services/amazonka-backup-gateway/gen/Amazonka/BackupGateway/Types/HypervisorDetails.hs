@@ -179,12 +179,12 @@ instance Prelude.Hashable HypervisorDetails where
 
 instance Prelude.NFData HypervisorDetails where
   rnf HypervisorDetails' {..} =
-    Prelude.rnf host
-      `Prelude.seq` Prelude.rnf hypervisorArn
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf lastSuccessfulMetadataSyncTime
-      `Prelude.seq` Prelude.rnf latestMetadataSyncStatus
-      `Prelude.seq` Prelude.rnf latestMetadataSyncStatusMessage
-      `Prelude.seq` Prelude.rnf logGroupArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf host `Prelude.seq`
+      Prelude.rnf hypervisorArn `Prelude.seq`
+        Prelude.rnf kmsKeyArn `Prelude.seq`
+          Prelude.rnf lastSuccessfulMetadataSyncTime `Prelude.seq`
+            Prelude.rnf latestMetadataSyncStatus `Prelude.seq`
+              Prelude.rnf latestMetadataSyncStatusMessage `Prelude.seq`
+                Prelude.rnf logGroupArn `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf state

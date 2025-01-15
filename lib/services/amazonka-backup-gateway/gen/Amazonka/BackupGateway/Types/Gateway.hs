@@ -125,8 +125,8 @@ instance Prelude.Hashable Gateway where
 
 instance Prelude.NFData Gateway where
   rnf Gateway' {..} =
-    Prelude.rnf gatewayArn
-      `Prelude.seq` Prelude.rnf gatewayDisplayName
-      `Prelude.seq` Prelude.rnf gatewayType
-      `Prelude.seq` Prelude.rnf hypervisorId
-      `Prelude.seq` Prelude.rnf lastSeenTime
+    Prelude.rnf gatewayArn `Prelude.seq`
+      Prelude.rnf gatewayDisplayName `Prelude.seq`
+        Prelude.rnf gatewayType `Prelude.seq`
+          Prelude.rnf hypervisorId `Prelude.seq`
+            Prelude.rnf lastSeenTime

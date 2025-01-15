@@ -136,9 +136,9 @@ instance
 
 instance Prelude.NFData PutHypervisorPropertyMappings where
   rnf PutHypervisorPropertyMappings' {..} =
-    Prelude.rnf hypervisorArn
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf vmwareToAwsTagMappings
+    Prelude.rnf hypervisorArn `Prelude.seq`
+      Prelude.rnf iamRoleArn `Prelude.seq`
+        Prelude.rnf vmwareToAwsTagMappings
 
 instance Data.ToHeaders PutHypervisorPropertyMappings where
   toHeaders =
@@ -219,5 +219,5 @@ instance
     PutHypervisorPropertyMappingsResponse
   where
   rnf PutHypervisorPropertyMappingsResponse' {..} =
-    Prelude.rnf hypervisorArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hypervisorArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -211,7 +211,7 @@ instance
     GetHypervisorPropertyMappingsResponse
   where
   rnf GetHypervisorPropertyMappingsResponse' {..} =
-    Prelude.rnf hypervisorArn
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf vmwareToAwsTagMappings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hypervisorArn `Prelude.seq`
+      Prelude.rnf iamRoleArn `Prelude.seq`
+        Prelude.rnf vmwareToAwsTagMappings `Prelude.seq`
+          Prelude.rnf httpStatus

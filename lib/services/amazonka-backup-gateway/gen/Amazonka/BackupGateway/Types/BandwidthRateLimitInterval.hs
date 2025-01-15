@@ -177,12 +177,12 @@ instance Prelude.Hashable BandwidthRateLimitInterval where
 
 instance Prelude.NFData BandwidthRateLimitInterval where
   rnf BandwidthRateLimitInterval' {..} =
-    Prelude.rnf averageUploadRateLimitInBitsPerSec
-      `Prelude.seq` Prelude.rnf daysOfWeek
-      `Prelude.seq` Prelude.rnf endHourOfDay
-      `Prelude.seq` Prelude.rnf endMinuteOfHour
-      `Prelude.seq` Prelude.rnf startHourOfDay
-      `Prelude.seq` Prelude.rnf startMinuteOfHour
+    Prelude.rnf averageUploadRateLimitInBitsPerSec `Prelude.seq`
+      Prelude.rnf daysOfWeek `Prelude.seq`
+        Prelude.rnf endHourOfDay `Prelude.seq`
+          Prelude.rnf endMinuteOfHour `Prelude.seq`
+            Prelude.rnf startHourOfDay `Prelude.seq`
+              Prelude.rnf startMinuteOfHour
 
 instance Data.ToJSON BandwidthRateLimitInterval where
   toJSON BandwidthRateLimitInterval' {..} =

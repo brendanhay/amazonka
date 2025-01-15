@@ -132,7 +132,7 @@ instance Prelude.Hashable MaintenanceStartTime where
 
 instance Prelude.NFData MaintenanceStartTime where
   rnf MaintenanceStartTime' {..} =
-    Prelude.rnf dayOfMonth
-      `Prelude.seq` Prelude.rnf dayOfWeek
-      `Prelude.seq` Prelude.rnf hourOfDay
-      `Prelude.seq` Prelude.rnf minuteOfHour
+    Prelude.rnf dayOfMonth `Prelude.seq`
+      Prelude.rnf dayOfWeek `Prelude.seq`
+        Prelude.rnf hourOfDay `Prelude.seq`
+          Prelude.rnf minuteOfHour

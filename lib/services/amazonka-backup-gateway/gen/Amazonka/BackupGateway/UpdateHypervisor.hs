@@ -160,12 +160,12 @@ instance Prelude.Hashable UpdateHypervisor where
 
 instance Prelude.NFData UpdateHypervisor where
   rnf UpdateHypervisor' {..} =
-    Prelude.rnf host
-      `Prelude.seq` Prelude.rnf logGroupArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf hypervisorArn
+    Prelude.rnf host `Prelude.seq`
+      Prelude.rnf logGroupArn `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf password `Prelude.seq`
+            Prelude.rnf username `Prelude.seq`
+              Prelude.rnf hypervisorArn
 
 instance Data.ToHeaders UpdateHypervisor where
   toHeaders =
@@ -243,5 +243,5 @@ updateHypervisorResponse_httpStatus = Lens.lens (\UpdateHypervisorResponse' {htt
 
 instance Prelude.NFData UpdateHypervisorResponse where
   rnf UpdateHypervisorResponse' {..} =
-    Prelude.rnf hypervisorArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf hypervisorArn `Prelude.seq`
+      Prelude.rnf httpStatus

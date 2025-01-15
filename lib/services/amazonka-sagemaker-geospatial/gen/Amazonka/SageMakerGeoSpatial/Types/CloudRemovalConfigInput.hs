@@ -91,9 +91,9 @@ instance Prelude.Hashable CloudRemovalConfigInput where
 
 instance Prelude.NFData CloudRemovalConfigInput where
   rnf CloudRemovalConfigInput' {..} =
-    Prelude.rnf algorithmName
-      `Prelude.seq` Prelude.rnf interpolationValue
-      `Prelude.seq` Prelude.rnf targetBands
+    Prelude.rnf algorithmName `Prelude.seq`
+      Prelude.rnf interpolationValue `Prelude.seq`
+        Prelude.rnf targetBands
 
 instance Data.ToJSON CloudRemovalConfigInput where
   toJSON CloudRemovalConfigInput' {..} =

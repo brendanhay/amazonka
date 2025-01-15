@@ -106,10 +106,10 @@ instance
     RasterDataCollectionQueryInput
   where
   rnf RasterDataCollectionQueryInput' {..} =
-    Prelude.rnf areaOfInterest
-      `Prelude.seq` Prelude.rnf propertyFilters
-      `Prelude.seq` Prelude.rnf rasterDataCollectionArn
-      `Prelude.seq` Prelude.rnf timeRangeFilter
+    Prelude.rnf areaOfInterest `Prelude.seq`
+      Prelude.rnf propertyFilters `Prelude.seq`
+        Prelude.rnf rasterDataCollectionArn `Prelude.seq`
+          Prelude.rnf timeRangeFilter
 
 instance Data.ToJSON RasterDataCollectionQueryInput where
   toJSON RasterDataCollectionQueryInput' {..} =

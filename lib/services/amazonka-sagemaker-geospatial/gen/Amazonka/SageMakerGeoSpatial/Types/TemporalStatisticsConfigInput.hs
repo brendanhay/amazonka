@@ -94,9 +94,9 @@ instance
 
 instance Prelude.NFData TemporalStatisticsConfigInput where
   rnf TemporalStatisticsConfigInput' {..} =
-    Prelude.rnf groupBy
-      `Prelude.seq` Prelude.rnf targetBands
-      `Prelude.seq` Prelude.rnf statistics
+    Prelude.rnf groupBy `Prelude.seq`
+      Prelude.rnf targetBands `Prelude.seq`
+        Prelude.rnf statistics
 
 instance Data.ToJSON TemporalStatisticsConfigInput where
   toJSON TemporalStatisticsConfigInput' {..} =

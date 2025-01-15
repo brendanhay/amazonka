@@ -337,18 +337,18 @@ instance
     GetVectorEnrichmentJobResponse
   where
   rnf GetVectorEnrichmentJobResponse' {..} =
-    Prelude.rnf errorDetails
-      `Prelude.seq` Prelude.rnf exportErrorDetails
-      `Prelude.seq` Prelude.rnf exportStatus
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf durationInSeconds
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf inputConfig
-      `Prelude.seq` Prelude.rnf jobConfig
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf errorDetails `Prelude.seq`
+      Prelude.rnf exportErrorDetails `Prelude.seq`
+        Prelude.rnf exportStatus `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf httpStatus `Prelude.seq`
+                Prelude.rnf arn `Prelude.seq`
+                  Prelude.rnf creationTime `Prelude.seq`
+                    Prelude.rnf durationInSeconds `Prelude.seq`
+                      Prelude.rnf executionRoleArn `Prelude.seq`
+                        Prelude.rnf inputConfig `Prelude.seq`
+                          Prelude.rnf jobConfig `Prelude.seq`
+                            Prelude.rnf name `Prelude.seq`
+                              Prelude.rnf status `Prelude.seq`
+                                Prelude.rnf type'

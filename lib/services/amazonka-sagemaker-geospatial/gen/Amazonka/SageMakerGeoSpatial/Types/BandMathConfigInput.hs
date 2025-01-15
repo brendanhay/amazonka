@@ -78,8 +78,8 @@ instance Prelude.Hashable BandMathConfigInput where
 
 instance Prelude.NFData BandMathConfigInput where
   rnf BandMathConfigInput' {..} =
-    Prelude.rnf customIndices
-      `Prelude.seq` Prelude.rnf predefinedIndices
+    Prelude.rnf customIndices `Prelude.seq`
+      Prelude.rnf predefinedIndices
 
 instance Data.ToJSON BandMathConfigInput where
   toJSON BandMathConfigInput' {..} =

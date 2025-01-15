@@ -105,12 +105,12 @@ instance Core.AWSPager ListRasterDataCollections where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRasterDataCollections_nextToken
-          Lens..~ rs
-          Lens.^? listRasterDataCollectionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRasterDataCollections_nextToken
+              Lens..~ rs
+              Lens.^? listRasterDataCollectionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRasterDataCollections where
   type
@@ -138,8 +138,8 @@ instance Prelude.Hashable ListRasterDataCollections where
 
 instance Prelude.NFData ListRasterDataCollections where
   rnf ListRasterDataCollections' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRasterDataCollections where
   toHeaders =
@@ -219,6 +219,6 @@ instance
     ListRasterDataCollectionsResponse
   where
   rnf ListRasterDataCollectionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf rasterDataCollectionSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf rasterDataCollectionSummaries

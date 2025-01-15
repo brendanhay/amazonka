@@ -118,12 +118,12 @@ instance Prelude.Hashable Property where
 
 instance Prelude.NFData Property where
   rnf Property' {..} =
-    Prelude.rnf eoCloudCover
-      `Prelude.seq` Prelude.rnf landsatCloudCoverLand
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf viewOffNadir
-      `Prelude.seq` Prelude.rnf viewSunAzimuth
-      `Prelude.seq` Prelude.rnf viewSunElevation
+    Prelude.rnf eoCloudCover `Prelude.seq`
+      Prelude.rnf landsatCloudCoverLand `Prelude.seq`
+        Prelude.rnf platform `Prelude.seq`
+          Prelude.rnf viewOffNadir `Prelude.seq`
+            Prelude.rnf viewSunAzimuth `Prelude.seq`
+              Prelude.rnf viewSunElevation
 
 instance Data.ToJSON Property where
   toJSON Property' {..} =

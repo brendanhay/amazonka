@@ -79,8 +79,8 @@ instance Prelude.Hashable AreaOfInterestGeometry where
 
 instance Prelude.NFData AreaOfInterestGeometry where
   rnf AreaOfInterestGeometry' {..} =
-    Prelude.rnf multiPolygonGeometry
-      `Prelude.seq` Prelude.rnf polygonGeometry
+    Prelude.rnf multiPolygonGeometry `Prelude.seq`
+      Prelude.rnf polygonGeometry
 
 instance Data.ToJSON AreaOfInterestGeometry where
   toJSON AreaOfInterestGeometry' {..} =

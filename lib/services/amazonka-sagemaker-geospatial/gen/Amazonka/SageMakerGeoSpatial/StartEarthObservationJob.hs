@@ -195,13 +195,13 @@ instance Prelude.Hashable StartEarthObservationJob where
 
 instance Prelude.NFData StartEarthObservationJob where
   rnf StartEarthObservationJob' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf inputConfig
-      `Prelude.seq` Prelude.rnf jobConfig
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf executionRoleArn `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf inputConfig `Prelude.seq`
+              Prelude.rnf jobConfig `Prelude.seq`
+                Prelude.rnf name
 
 instance Data.ToHeaders StartEarthObservationJob where
   toHeaders =
@@ -386,14 +386,14 @@ instance
     StartEarthObservationJobResponse
   where
   rnf StartEarthObservationJobResponse' {..} =
-    Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf inputConfig
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf durationInSeconds
-      `Prelude.seq` Prelude.rnf jobConfig
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf executionRoleArn `Prelude.seq`
+      Prelude.rnf inputConfig `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf arn `Prelude.seq`
+                Prelude.rnf creationTime `Prelude.seq`
+                  Prelude.rnf durationInSeconds `Prelude.seq`
+                    Prelude.rnf jobConfig `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf status

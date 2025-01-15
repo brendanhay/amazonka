@@ -138,12 +138,12 @@ instance Core.AWSPager ListVectorEnrichmentJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listVectorEnrichmentJobs_nextToken
-          Lens..~ rs
-          Lens.^? listVectorEnrichmentJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listVectorEnrichmentJobs_nextToken
+              Lens..~ rs
+              Lens.^? listVectorEnrichmentJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVectorEnrichmentJobs where
   type
@@ -174,11 +174,11 @@ instance Prelude.Hashable ListVectorEnrichmentJobs where
 
 instance Prelude.NFData ListVectorEnrichmentJobs where
   rnf ListVectorEnrichmentJobs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf statusEquals
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sortBy `Prelude.seq`
+          Prelude.rnf sortOrder `Prelude.seq`
+            Prelude.rnf statusEquals
 
 instance Data.ToHeaders ListVectorEnrichmentJobs where
   toHeaders =
@@ -266,6 +266,6 @@ instance
     ListVectorEnrichmentJobsResponse
   where
   rnf ListVectorEnrichmentJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf vectorEnrichmentJobSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf vectorEnrichmentJobSummaries

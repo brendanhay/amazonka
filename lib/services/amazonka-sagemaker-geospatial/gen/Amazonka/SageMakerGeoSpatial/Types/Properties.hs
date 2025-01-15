@@ -112,9 +112,9 @@ instance Prelude.Hashable Properties where
 
 instance Prelude.NFData Properties where
   rnf Properties' {..} =
-    Prelude.rnf eoCloudCover
-      `Prelude.seq` Prelude.rnf landsatCloudCoverLand
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf viewOffNadir
-      `Prelude.seq` Prelude.rnf viewSunAzimuth
-      `Prelude.seq` Prelude.rnf viewSunElevation
+    Prelude.rnf eoCloudCover `Prelude.seq`
+      Prelude.rnf landsatCloudCoverLand `Prelude.seq`
+        Prelude.rnf platform `Prelude.seq`
+          Prelude.rnf viewOffNadir `Prelude.seq`
+            Prelude.rnf viewSunAzimuth `Prelude.seq`
+              Prelude.rnf viewSunElevation

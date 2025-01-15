@@ -86,8 +86,8 @@ instance Prelude.Hashable VectorEnrichmentJobS3Data where
 
 instance Prelude.NFData VectorEnrichmentJobS3Data where
   rnf VectorEnrichmentJobS3Data' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf s3Uri
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf s3Uri
 
 instance Data.ToJSON VectorEnrichmentJobS3Data where
   toJSON VectorEnrichmentJobS3Data' {..} =

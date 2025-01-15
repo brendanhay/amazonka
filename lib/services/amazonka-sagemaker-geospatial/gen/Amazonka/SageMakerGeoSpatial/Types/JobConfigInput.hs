@@ -183,15 +183,15 @@ instance Prelude.Hashable JobConfigInput where
 
 instance Prelude.NFData JobConfigInput where
   rnf JobConfigInput' {..} =
-    Prelude.rnf bandMathConfig
-      `Prelude.seq` Prelude.rnf cloudMaskingConfig
-      `Prelude.seq` Prelude.rnf cloudRemovalConfig
-      `Prelude.seq` Prelude.rnf geoMosaicConfig
-      `Prelude.seq` Prelude.rnf landCoverSegmentationConfig
-      `Prelude.seq` Prelude.rnf resamplingConfig
-      `Prelude.seq` Prelude.rnf stackConfig
-      `Prelude.seq` Prelude.rnf temporalStatisticsConfig
-      `Prelude.seq` Prelude.rnf zonalStatisticsConfig
+    Prelude.rnf bandMathConfig `Prelude.seq`
+      Prelude.rnf cloudMaskingConfig `Prelude.seq`
+        Prelude.rnf cloudRemovalConfig `Prelude.seq`
+          Prelude.rnf geoMosaicConfig `Prelude.seq`
+            Prelude.rnf landCoverSegmentationConfig `Prelude.seq`
+              Prelude.rnf resamplingConfig `Prelude.seq`
+                Prelude.rnf stackConfig `Prelude.seq`
+                  Prelude.rnf temporalStatisticsConfig `Prelude.seq`
+                    Prelude.rnf zonalStatisticsConfig
 
 instance Data.ToJSON JobConfigInput where
   toJSON JobConfigInput' {..} =

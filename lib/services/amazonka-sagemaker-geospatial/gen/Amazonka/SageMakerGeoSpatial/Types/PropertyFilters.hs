@@ -78,8 +78,8 @@ instance Prelude.Hashable PropertyFilters where
 
 instance Prelude.NFData PropertyFilters where
   rnf PropertyFilters' {..} =
-    Prelude.rnf logicalOperator
-      `Prelude.seq` Prelude.rnf properties
+    Prelude.rnf logicalOperator `Prelude.seq`
+      Prelude.rnf properties
 
 instance Data.ToJSON PropertyFilters where
   toJSON PropertyFilters' {..} =

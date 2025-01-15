@@ -154,10 +154,10 @@ instance
 
 instance Prelude.NFData RasterDataCollectionMetadata where
   rnf RasterDataCollectionMetadata' {..} =
-    Prelude.rnf descriptionPageUrl
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf supportedFilters
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf descriptionPageUrl `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf supportedFilters `Prelude.seq`
+                Prelude.rnf type'

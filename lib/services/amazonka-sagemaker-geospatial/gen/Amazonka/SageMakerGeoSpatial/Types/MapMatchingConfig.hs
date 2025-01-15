@@ -113,10 +113,10 @@ instance Prelude.Hashable MapMatchingConfig where
 
 instance Prelude.NFData MapMatchingConfig where
   rnf MapMatchingConfig' {..} =
-    Prelude.rnf idAttributeName
-      `Prelude.seq` Prelude.rnf timestampAttributeName
-      `Prelude.seq` Prelude.rnf xAttributeName
-      `Prelude.seq` Prelude.rnf yAttributeName
+    Prelude.rnf idAttributeName `Prelude.seq`
+      Prelude.rnf timestampAttributeName `Prelude.seq`
+        Prelude.rnf xAttributeName `Prelude.seq`
+          Prelude.rnf yAttributeName
 
 instance Data.ToJSON MapMatchingConfig where
   toJSON MapMatchingConfig' {..} =

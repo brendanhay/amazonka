@@ -139,12 +139,12 @@ instance Core.AWSPager ListEarthObservationJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEarthObservationJobs_nextToken
-          Lens..~ rs
-          Lens.^? listEarthObservationJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEarthObservationJobs_nextToken
+              Lens..~ rs
+              Lens.^? listEarthObservationJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEarthObservationJobs where
   type
@@ -175,11 +175,11 @@ instance Prelude.Hashable ListEarthObservationJobs where
 
 instance Prelude.NFData ListEarthObservationJobs where
   rnf ListEarthObservationJobs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf statusEquals
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sortBy `Prelude.seq`
+          Prelude.rnf sortOrder `Prelude.seq`
+            Prelude.rnf statusEquals
 
 instance Data.ToHeaders ListEarthObservationJobs where
   toHeaders =
@@ -267,6 +267,6 @@ instance
     ListEarthObservationJobsResponse
   where
   rnf ListEarthObservationJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf earthObservationJobSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf earthObservationJobSummaries

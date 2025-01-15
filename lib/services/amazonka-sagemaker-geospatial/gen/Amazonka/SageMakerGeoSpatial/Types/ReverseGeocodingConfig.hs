@@ -83,8 +83,8 @@ instance Prelude.Hashable ReverseGeocodingConfig where
 
 instance Prelude.NFData ReverseGeocodingConfig where
   rnf ReverseGeocodingConfig' {..} =
-    Prelude.rnf xAttributeName
-      `Prelude.seq` Prelude.rnf yAttributeName
+    Prelude.rnf xAttributeName `Prelude.seq`
+      Prelude.rnf yAttributeName
 
 instance Data.ToJSON ReverseGeocodingConfig where
   toJSON ReverseGeocodingConfig' {..} =

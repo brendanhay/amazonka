@@ -115,8 +115,8 @@ instance Prelude.Hashable ItemSource where
 
 instance Prelude.NFData ItemSource where
   rnf ItemSource' {..} =
-    Prelude.rnf assets
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf dateTime
-      `Prelude.seq` Prelude.rnf geometry
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf assets `Prelude.seq`
+      Prelude.rnf properties `Prelude.seq`
+        Prelude.rnf dateTime `Prelude.seq`
+          Prelude.rnf geometry `Prelude.seq`
+            Prelude.rnf id

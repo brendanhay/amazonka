@@ -81,5 +81,5 @@ instance Prelude.Hashable Geometry where
 
 instance Prelude.NFData Geometry where
   rnf Geometry' {..} =
-    Prelude.rnf coordinates
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf coordinates `Prelude.seq`
+      Prelude.rnf type'

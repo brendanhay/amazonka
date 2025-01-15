@@ -255,12 +255,12 @@ instance
     GetRasterDataCollectionResponse
   where
   rnf GetRasterDataCollectionResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf descriptionPageUrl
-      `Prelude.seq` Prelude.rnf imageSourceBands
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf supportedFilters
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf descriptionPageUrl `Prelude.seq`
+              Prelude.rnf imageSourceBands `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf supportedFilters `Prelude.seq`
+                    Prelude.rnf type'

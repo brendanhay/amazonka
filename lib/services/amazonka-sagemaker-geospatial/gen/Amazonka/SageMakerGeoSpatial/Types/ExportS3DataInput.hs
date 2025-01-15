@@ -85,8 +85,8 @@ instance Prelude.Hashable ExportS3DataInput where
 
 instance Prelude.NFData ExportS3DataInput where
   rnf ExportS3DataInput' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf s3Uri
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf s3Uri
 
 instance Data.ToJSON ExportS3DataInput where
   toJSON ExportS3DataInput' {..} =

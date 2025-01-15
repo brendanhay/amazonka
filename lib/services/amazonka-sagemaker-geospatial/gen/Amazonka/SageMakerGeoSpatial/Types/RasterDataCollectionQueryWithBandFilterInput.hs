@@ -101,10 +101,10 @@ instance
     RasterDataCollectionQueryWithBandFilterInput
   where
   rnf RasterDataCollectionQueryWithBandFilterInput' {..} =
-    Prelude.rnf areaOfInterest
-      `Prelude.seq` Prelude.rnf bandFilter
-      `Prelude.seq` Prelude.rnf propertyFilters
-      `Prelude.seq` Prelude.rnf timeRangeFilter
+    Prelude.rnf areaOfInterest `Prelude.seq`
+      Prelude.rnf bandFilter `Prelude.seq`
+        Prelude.rnf propertyFilters `Prelude.seq`
+          Prelude.rnf timeRangeFilter
 
 instance
   Data.ToJSON

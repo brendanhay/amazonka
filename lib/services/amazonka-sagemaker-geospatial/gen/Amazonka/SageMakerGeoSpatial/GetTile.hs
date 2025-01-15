@@ -221,17 +221,17 @@ instance Prelude.Hashable GetTile where
 
 instance Prelude.NFData GetTile where
   rnf GetTile' {..} =
-    Prelude.rnf imageMask
-      `Prelude.seq` Prelude.rnf outputDataType
-      `Prelude.seq` Prelude.rnf outputFormat
-      `Prelude.seq` Prelude.rnf propertyFilters
-      `Prelude.seq` Prelude.rnf timeRangeFilter
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf imageAssets
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf x
-      `Prelude.seq` Prelude.rnf y
-      `Prelude.seq` Prelude.rnf z
+    Prelude.rnf imageMask `Prelude.seq`
+      Prelude.rnf outputDataType `Prelude.seq`
+        Prelude.rnf outputFormat `Prelude.seq`
+          Prelude.rnf propertyFilters `Prelude.seq`
+            Prelude.rnf timeRangeFilter `Prelude.seq`
+              Prelude.rnf arn `Prelude.seq`
+                Prelude.rnf imageAssets `Prelude.seq`
+                  Prelude.rnf target `Prelude.seq`
+                    Prelude.rnf x `Prelude.seq`
+                      Prelude.rnf y `Prelude.seq`
+                        Prelude.rnf z
 
 instance Data.ToHeaders GetTile where
   toHeaders =

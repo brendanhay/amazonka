@@ -92,6 +92,6 @@ instance Prelude.Hashable InputConfigOutput where
 
 instance Prelude.NFData InputConfigOutput where
   rnf InputConfigOutput' {..} =
-    Prelude.rnf dataSourceConfig
-      `Prelude.seq` Prelude.rnf previousEarthObservationJobArn
-      `Prelude.seq` Prelude.rnf rasterDataCollectionQuery
+    Prelude.rnf dataSourceConfig `Prelude.seq`
+      Prelude.rnf previousEarthObservationJobArn `Prelude.seq`
+        Prelude.rnf rasterDataCollectionQuery

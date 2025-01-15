@@ -92,9 +92,9 @@ instance Prelude.Hashable ResamplingConfigInput where
 
 instance Prelude.NFData ResamplingConfigInput where
   rnf ResamplingConfigInput' {..} =
-    Prelude.rnf algorithmName
-      `Prelude.seq` Prelude.rnf targetBands
-      `Prelude.seq` Prelude.rnf outputResolution
+    Prelude.rnf algorithmName `Prelude.seq`
+      Prelude.rnf targetBands `Prelude.seq`
+        Prelude.rnf outputResolution
 
 instance Data.ToJSON ResamplingConfigInput where
   toJSON ResamplingConfigInput' {..} =

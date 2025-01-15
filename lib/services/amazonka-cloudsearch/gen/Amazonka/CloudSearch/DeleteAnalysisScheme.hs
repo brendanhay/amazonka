@@ -118,8 +118,8 @@ instance Prelude.Hashable DeleteAnalysisScheme where
 
 instance Prelude.NFData DeleteAnalysisScheme where
   rnf DeleteAnalysisScheme' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf analysisSchemeName
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf analysisSchemeName
 
 instance Data.ToHeaders DeleteAnalysisScheme where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,5 +186,5 @@ deleteAnalysisSchemeResponse_analysisScheme = Lens.lens (\DeleteAnalysisSchemeRe
 
 instance Prelude.NFData DeleteAnalysisSchemeResponse where
   rnf DeleteAnalysisSchemeResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf analysisScheme
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf analysisScheme

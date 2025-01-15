@@ -123,8 +123,8 @@ instance Prelude.Hashable DescribeAvailabilityOptions where
 
 instance Prelude.NFData DescribeAvailabilityOptions where
   rnf DescribeAvailabilityOptions' {..} =
-    Prelude.rnf deployed
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf deployed `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders DescribeAvailabilityOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,5 +196,5 @@ instance
     DescribeAvailabilityOptionsResponse
   where
   rnf DescribeAvailabilityOptionsResponse' {..} =
-    Prelude.rnf availabilityOptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf availabilityOptions `Prelude.seq`
+      Prelude.rnf httpStatus

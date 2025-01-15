@@ -122,8 +122,8 @@ instance Prelude.Hashable DefineIndexField where
 
 instance Prelude.NFData DefineIndexField where
   rnf DefineIndexField' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf indexField
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf indexField
 
 instance Data.ToHeaders DefineIndexField where
   toHeaders = Prelude.const Prelude.mempty
@@ -187,5 +187,5 @@ defineIndexFieldResponse_indexField = Lens.lens (\DefineIndexFieldResponse' {ind
 
 instance Prelude.NFData DefineIndexFieldResponse where
   rnf DefineIndexFieldResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf indexField
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf indexField

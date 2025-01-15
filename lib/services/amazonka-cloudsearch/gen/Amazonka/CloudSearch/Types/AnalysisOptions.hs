@@ -190,11 +190,11 @@ instance Prelude.Hashable AnalysisOptions where
 
 instance Prelude.NFData AnalysisOptions where
   rnf AnalysisOptions' {..} =
-    Prelude.rnf algorithmicStemming
-      `Prelude.seq` Prelude.rnf japaneseTokenizationDictionary
-      `Prelude.seq` Prelude.rnf stemmingDictionary
-      `Prelude.seq` Prelude.rnf stopwords
-      `Prelude.seq` Prelude.rnf synonyms
+    Prelude.rnf algorithmicStemming `Prelude.seq`
+      Prelude.rnf japaneseTokenizationDictionary `Prelude.seq`
+        Prelude.rnf stemmingDictionary `Prelude.seq`
+          Prelude.rnf stopwords `Prelude.seq`
+            Prelude.rnf synonyms
 
 instance Data.ToQuery AnalysisOptions where
   toQuery AnalysisOptions' {..} =

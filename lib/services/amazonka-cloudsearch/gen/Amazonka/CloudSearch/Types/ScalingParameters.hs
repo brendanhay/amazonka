@@ -99,9 +99,9 @@ instance Prelude.Hashable ScalingParameters where
 
 instance Prelude.NFData ScalingParameters where
   rnf ScalingParameters' {..} =
-    Prelude.rnf desiredInstanceType
-      `Prelude.seq` Prelude.rnf desiredPartitionCount
-      `Prelude.seq` Prelude.rnf desiredReplicationCount
+    Prelude.rnf desiredInstanceType `Prelude.seq`
+      Prelude.rnf desiredPartitionCount `Prelude.seq`
+        Prelude.rnf desiredReplicationCount
 
 instance Data.ToQuery ScalingParameters where
   toQuery ScalingParameters' {..} =

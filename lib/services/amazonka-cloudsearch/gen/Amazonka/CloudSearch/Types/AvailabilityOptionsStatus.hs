@@ -80,5 +80,5 @@ instance Prelude.Hashable AvailabilityOptionsStatus where
 
 instance Prelude.NFData AvailabilityOptionsStatus where
   rnf AvailabilityOptionsStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

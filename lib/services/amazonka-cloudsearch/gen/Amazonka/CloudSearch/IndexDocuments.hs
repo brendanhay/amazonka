@@ -89,9 +89,7 @@ instance Core.AWSRequest IndexDocuments where
       "IndexDocumentsResult"
       ( \s h x ->
           IndexDocumentsResponse'
-            Prelude.<$> ( x
-                            Data..@? "FieldNames"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "FieldNames" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -164,5 +162,5 @@ indexDocumentsResponse_httpStatus = Lens.lens (\IndexDocumentsResponse' {httpSta
 
 instance Prelude.NFData IndexDocumentsResponse where
   rnf IndexDocumentsResponse' {..} =
-    Prelude.rnf fieldNames
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf fieldNames `Prelude.seq`
+      Prelude.rnf httpStatus

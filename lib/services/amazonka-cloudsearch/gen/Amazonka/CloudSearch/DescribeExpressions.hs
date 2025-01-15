@@ -126,9 +126,7 @@ instance Core.AWSRequest DescribeExpressions where
       ( \s h x ->
           DescribeExpressionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x
-                            Data..@? "Expressions"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Expressions" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -142,9 +140,9 @@ instance Prelude.Hashable DescribeExpressions where
 
 instance Prelude.NFData DescribeExpressions where
   rnf DescribeExpressions' {..} =
-    Prelude.rnf deployed
-      `Prelude.seq` Prelude.rnf expressionNames
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf deployed `Prelude.seq`
+      Prelude.rnf expressionNames `Prelude.seq`
+        Prelude.rnf domainName
 
 instance Data.ToHeaders DescribeExpressions where
   toHeaders = Prelude.const Prelude.mempty
@@ -212,5 +210,5 @@ describeExpressionsResponse_expressions = Lens.lens (\DescribeExpressionsRespons
 
 instance Prelude.NFData DescribeExpressionsResponse where
   rnf DescribeExpressionsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf expressions
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf expressions

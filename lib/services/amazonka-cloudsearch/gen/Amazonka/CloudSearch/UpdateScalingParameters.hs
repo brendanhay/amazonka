@@ -123,8 +123,8 @@ instance Prelude.Hashable UpdateScalingParameters where
 
 instance Prelude.NFData UpdateScalingParameters where
   rnf UpdateScalingParameters' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf scalingParameters
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf scalingParameters
 
 instance Data.ToHeaders UpdateScalingParameters where
   toHeaders = Prelude.const Prelude.mempty
@@ -193,5 +193,5 @@ instance
     UpdateScalingParametersResponse
   where
   rnf UpdateScalingParametersResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf scalingParameters
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf scalingParameters

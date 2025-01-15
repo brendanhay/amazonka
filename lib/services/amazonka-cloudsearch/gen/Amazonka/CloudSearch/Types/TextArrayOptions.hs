@@ -115,11 +115,11 @@ instance Prelude.Hashable TextArrayOptions where
 
 instance Prelude.NFData TextArrayOptions where
   rnf TextArrayOptions' {..} =
-    Prelude.rnf analysisScheme
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf highlightEnabled
-      `Prelude.seq` Prelude.rnf returnEnabled
-      `Prelude.seq` Prelude.rnf sourceFields
+    Prelude.rnf analysisScheme `Prelude.seq`
+      Prelude.rnf defaultValue `Prelude.seq`
+        Prelude.rnf highlightEnabled `Prelude.seq`
+          Prelude.rnf returnEnabled `Prelude.seq`
+            Prelude.rnf sourceFields
 
 instance Data.ToQuery TextArrayOptions where
   toQuery TextArrayOptions' {..} =

@@ -244,19 +244,19 @@ instance Prelude.Hashable IndexField where
 
 instance Prelude.NFData IndexField where
   rnf IndexField' {..} =
-    Prelude.rnf dateArrayOptions
-      `Prelude.seq` Prelude.rnf dateOptions
-      `Prelude.seq` Prelude.rnf doubleArrayOptions
-      `Prelude.seq` Prelude.rnf doubleOptions
-      `Prelude.seq` Prelude.rnf intArrayOptions
-      `Prelude.seq` Prelude.rnf intOptions
-      `Prelude.seq` Prelude.rnf latLonOptions
-      `Prelude.seq` Prelude.rnf literalArrayOptions
-      `Prelude.seq` Prelude.rnf literalOptions
-      `Prelude.seq` Prelude.rnf textArrayOptions
-      `Prelude.seq` Prelude.rnf textOptions
-      `Prelude.seq` Prelude.rnf indexFieldName
-      `Prelude.seq` Prelude.rnf indexFieldType
+    Prelude.rnf dateArrayOptions `Prelude.seq`
+      Prelude.rnf dateOptions `Prelude.seq`
+        Prelude.rnf doubleArrayOptions `Prelude.seq`
+          Prelude.rnf doubleOptions `Prelude.seq`
+            Prelude.rnf intArrayOptions `Prelude.seq`
+              Prelude.rnf intOptions `Prelude.seq`
+                Prelude.rnf latLonOptions `Prelude.seq`
+                  Prelude.rnf literalArrayOptions `Prelude.seq`
+                    Prelude.rnf literalOptions `Prelude.seq`
+                      Prelude.rnf textArrayOptions `Prelude.seq`
+                        Prelude.rnf textOptions `Prelude.seq`
+                          Prelude.rnf indexFieldName `Prelude.seq`
+                            Prelude.rnf indexFieldType
 
 instance Data.ToQuery IndexField where
   toQuery IndexField' {..} =

@@ -120,8 +120,8 @@ instance Prelude.Hashable DeleteIndexField where
 
 instance Prelude.NFData DeleteIndexField where
   rnf DeleteIndexField' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf indexFieldName
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf indexFieldName
 
 instance Data.ToHeaders DeleteIndexField where
   toHeaders = Prelude.const Prelude.mempty
@@ -185,5 +185,5 @@ deleteIndexFieldResponse_indexField = Lens.lens (\DeleteIndexFieldResponse' {ind
 
 instance Prelude.NFData DeleteIndexFieldResponse where
   rnf DeleteIndexFieldResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf indexField
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf indexField

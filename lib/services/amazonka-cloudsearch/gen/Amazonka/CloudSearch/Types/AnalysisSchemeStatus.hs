@@ -80,5 +80,5 @@ instance Prelude.Hashable AnalysisSchemeStatus where
 
 instance Prelude.NFData AnalysisSchemeStatus where
   rnf AnalysisSchemeStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

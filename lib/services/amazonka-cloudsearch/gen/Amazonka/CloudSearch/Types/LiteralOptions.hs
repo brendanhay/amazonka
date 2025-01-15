@@ -123,12 +123,12 @@ instance Prelude.Hashable LiteralOptions where
 
 instance Prelude.NFData LiteralOptions where
   rnf LiteralOptions' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf facetEnabled
-      `Prelude.seq` Prelude.rnf returnEnabled
-      `Prelude.seq` Prelude.rnf searchEnabled
-      `Prelude.seq` Prelude.rnf sortEnabled
-      `Prelude.seq` Prelude.rnf sourceField
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf facetEnabled `Prelude.seq`
+        Prelude.rnf returnEnabled `Prelude.seq`
+          Prelude.rnf searchEnabled `Prelude.seq`
+            Prelude.rnf sortEnabled `Prelude.seq`
+              Prelude.rnf sourceField
 
 instance Data.ToQuery LiteralOptions where
   toQuery LiteralOptions' {..} =

@@ -114,11 +114,11 @@ instance Prelude.Hashable DoubleArrayOptions where
 
 instance Prelude.NFData DoubleArrayOptions where
   rnf DoubleArrayOptions' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf facetEnabled
-      `Prelude.seq` Prelude.rnf returnEnabled
-      `Prelude.seq` Prelude.rnf searchEnabled
-      `Prelude.seq` Prelude.rnf sourceFields
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf facetEnabled `Prelude.seq`
+        Prelude.rnf returnEnabled `Prelude.seq`
+          Prelude.rnf searchEnabled `Prelude.seq`
+            Prelude.rnf sourceFields
 
 instance Data.ToQuery DoubleArrayOptions where
   toQuery DoubleArrayOptions' {..} =

@@ -122,8 +122,8 @@ instance Prelude.Hashable UpdateServiceAccessPolicies where
 
 instance Prelude.NFData UpdateServiceAccessPolicies where
   rnf UpdateServiceAccessPolicies' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf accessPolicies
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf accessPolicies
 
 instance Data.ToHeaders UpdateServiceAccessPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,5 +195,5 @@ instance
     UpdateServiceAccessPoliciesResponse
   where
   rnf UpdateServiceAccessPoliciesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accessPolicies
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf accessPolicies

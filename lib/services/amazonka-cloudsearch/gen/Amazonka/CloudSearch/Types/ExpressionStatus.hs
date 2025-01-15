@@ -84,5 +84,5 @@ instance Prelude.Hashable ExpressionStatus where
 
 instance Prelude.NFData ExpressionStatus where
   rnf ExpressionStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

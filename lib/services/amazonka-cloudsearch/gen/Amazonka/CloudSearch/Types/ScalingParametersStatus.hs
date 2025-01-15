@@ -80,5 +80,5 @@ instance Prelude.Hashable ScalingParametersStatus where
 
 instance Prelude.NFData ScalingParametersStatus where
   rnf ScalingParametersStatus' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf options `Prelude.seq`
+      Prelude.rnf status

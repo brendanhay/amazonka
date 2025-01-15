@@ -116,8 +116,8 @@ instance Prelude.Hashable DeleteSuggester where
 
 instance Prelude.NFData DeleteSuggester where
   rnf DeleteSuggester' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf suggesterName
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf suggesterName
 
 instance Data.ToHeaders DeleteSuggester where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,5 +181,5 @@ deleteSuggesterResponse_suggester = Lens.lens (\DeleteSuggesterResponse' {sugges
 
 instance Prelude.NFData DeleteSuggesterResponse where
   rnf DeleteSuggesterResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf suggester
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf suggester

@@ -131,8 +131,8 @@ instance Prelude.Hashable UpdateDomainEndpointOptions where
 
 instance Prelude.NFData UpdateDomainEndpointOptions where
   rnf UpdateDomainEndpointOptions' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf domainEndpointOptions
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf domainEndpointOptions
 
 instance Data.ToHeaders UpdateDomainEndpointOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,5 +201,5 @@ instance
     UpdateDomainEndpointOptionsResponse
   where
   rnf UpdateDomainEndpointOptionsResponse' {..} =
-    Prelude.rnf domainEndpointOptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainEndpointOptions `Prelude.seq`
+      Prelude.rnf httpStatus

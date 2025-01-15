@@ -96,9 +96,9 @@ instance Prelude.Hashable AnalysisScheme where
 
 instance Prelude.NFData AnalysisScheme where
   rnf AnalysisScheme' {..} =
-    Prelude.rnf analysisOptions
-      `Prelude.seq` Prelude.rnf analysisSchemeName
-      `Prelude.seq` Prelude.rnf analysisSchemeLanguage
+    Prelude.rnf analysisOptions `Prelude.seq`
+      Prelude.rnf analysisSchemeName `Prelude.seq`
+        Prelude.rnf analysisSchemeLanguage
 
 instance Data.ToQuery AnalysisScheme where
   toQuery AnalysisScheme' {..} =

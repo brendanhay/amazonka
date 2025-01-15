@@ -124,9 +124,9 @@ instance Prelude.Hashable DocumentSuggesterOptions where
 
 instance Prelude.NFData DocumentSuggesterOptions where
   rnf DocumentSuggesterOptions' {..} =
-    Prelude.rnf fuzzyMatching
-      `Prelude.seq` Prelude.rnf sortExpression
-      `Prelude.seq` Prelude.rnf sourceField
+    Prelude.rnf fuzzyMatching `Prelude.seq`
+      Prelude.rnf sortExpression `Prelude.seq`
+        Prelude.rnf sourceField
 
 instance Data.ToQuery DocumentSuggesterOptions where
   toQuery DocumentSuggesterOptions' {..} =

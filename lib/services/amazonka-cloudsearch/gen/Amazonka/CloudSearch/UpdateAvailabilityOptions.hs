@@ -130,8 +130,8 @@ instance Prelude.Hashable UpdateAvailabilityOptions where
 
 instance Prelude.NFData UpdateAvailabilityOptions where
   rnf UpdateAvailabilityOptions' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf multiAZ
+    Prelude.rnf domainName `Prelude.seq`
+      Prelude.rnf multiAZ
 
 instance Data.ToHeaders UpdateAvailabilityOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,5 +200,5 @@ instance
     UpdateAvailabilityOptionsResponse
   where
   rnf UpdateAvailabilityOptionsResponse' {..} =
-    Prelude.rnf availabilityOptions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf availabilityOptions `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -170,5 +170,5 @@ describeDomainsResponse_domainStatusList = Lens.lens (\DescribeDomainsResponse' 
 
 instance Prelude.NFData DescribeDomainsResponse where
   rnf DescribeDomainsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf domainStatusList
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf domainStatusList

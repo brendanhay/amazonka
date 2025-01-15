@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteFlow where
 
 instance Prelude.NFData DeleteFlow where
   rnf DeleteFlow' {..} =
-    Prelude.rnf forceDelete
-      `Prelude.seq` Prelude.rnf flowName
+    Prelude.rnf forceDelete `Prelude.seq`
+      Prelude.rnf flowName
 
 instance Data.ToHeaders DeleteFlow where
   toHeaders =

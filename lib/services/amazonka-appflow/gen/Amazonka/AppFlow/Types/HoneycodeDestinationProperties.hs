@@ -92,8 +92,8 @@ instance
     HoneycodeDestinationProperties
   where
   rnf HoneycodeDestinationProperties' {..} =
-    Prelude.rnf errorHandlingConfig
-      `Prelude.seq` Prelude.rnf object'
+    Prelude.rnf errorHandlingConfig `Prelude.seq`
+      Prelude.rnf object'
 
 instance Data.ToJSON HoneycodeDestinationProperties where
   toJSON HoneycodeDestinationProperties' {..} =

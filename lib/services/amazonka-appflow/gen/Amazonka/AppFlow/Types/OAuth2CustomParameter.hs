@@ -152,10 +152,10 @@ instance Prelude.Hashable OAuth2CustomParameter where
 
 instance Prelude.NFData OAuth2CustomParameter where
   rnf OAuth2CustomParameter' {..} =
-    Prelude.rnf connectorSuppliedValues
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isRequired
-      `Prelude.seq` Prelude.rnf isSensitiveField
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf connectorSuppliedValues `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf isRequired `Prelude.seq`
+          Prelude.rnf isSensitiveField `Prelude.seq`
+            Prelude.rnf key `Prelude.seq`
+              Prelude.rnf label `Prelude.seq`
+                Prelude.rnf type'

@@ -128,11 +128,11 @@ instance
     CustomConnectorProfileCredentials
   where
   rnf CustomConnectorProfileCredentials' {..} =
-    Prelude.rnf apiKey
-      `Prelude.seq` Prelude.rnf basic
-      `Prelude.seq` Prelude.rnf custom
-      `Prelude.seq` Prelude.rnf oauth2
-      `Prelude.seq` Prelude.rnf authenticationType
+    Prelude.rnf apiKey `Prelude.seq`
+      Prelude.rnf basic `Prelude.seq`
+        Prelude.rnf custom `Prelude.seq`
+          Prelude.rnf oauth2 `Prelude.seq`
+            Prelude.rnf authenticationType
 
 instance
   Data.ToJSON

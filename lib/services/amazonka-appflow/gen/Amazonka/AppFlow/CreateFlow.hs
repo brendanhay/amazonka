@@ -224,15 +224,15 @@ instance Prelude.Hashable CreateFlow where
 
 instance Prelude.NFData CreateFlow where
   rnf CreateFlow' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf kmsArn
-      `Prelude.seq` Prelude.rnf metadataCatalogConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf flowName
-      `Prelude.seq` Prelude.rnf triggerConfig
-      `Prelude.seq` Prelude.rnf sourceFlowConfig
-      `Prelude.seq` Prelude.rnf destinationFlowConfigList
-      `Prelude.seq` Prelude.rnf tasks
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf kmsArn `Prelude.seq`
+        Prelude.rnf metadataCatalogConfig `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf flowName `Prelude.seq`
+              Prelude.rnf triggerConfig `Prelude.seq`
+                Prelude.rnf sourceFlowConfig `Prelude.seq`
+                  Prelude.rnf destinationFlowConfigList `Prelude.seq`
+                    Prelude.rnf tasks
 
 instance Data.ToHeaders CreateFlow where
   toHeaders =
@@ -321,6 +321,6 @@ createFlowResponse_httpStatus = Lens.lens (\CreateFlowResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateFlowResponse where
   rnf CreateFlowResponse' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf flowStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf flowArn `Prelude.seq`
+      Prelude.rnf flowStatus `Prelude.seq`
+        Prelude.rnf httpStatus

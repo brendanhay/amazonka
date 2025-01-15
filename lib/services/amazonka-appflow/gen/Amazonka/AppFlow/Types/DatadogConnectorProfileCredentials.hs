@@ -97,8 +97,8 @@ instance
     DatadogConnectorProfileCredentials
   where
   rnf DatadogConnectorProfileCredentials' {..} =
-    Prelude.rnf apiKey
-      `Prelude.seq` Prelude.rnf applicationKey
+    Prelude.rnf apiKey `Prelude.seq`
+      Prelude.rnf applicationKey
 
 instance
   Data.ToJSON

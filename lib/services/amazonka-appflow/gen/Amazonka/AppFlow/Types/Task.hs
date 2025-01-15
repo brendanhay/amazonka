@@ -128,11 +128,11 @@ instance Prelude.Hashable Task where
 
 instance Prelude.NFData Task where
   rnf Task' {..} =
-    Prelude.rnf connectorOperator
-      `Prelude.seq` Prelude.rnf destinationField
-      `Prelude.seq` Prelude.rnf taskProperties
-      `Prelude.seq` Prelude.rnf sourceFields
-      `Prelude.seq` Prelude.rnf taskType
+    Prelude.rnf connectorOperator `Prelude.seq`
+      Prelude.rnf destinationField `Prelude.seq`
+        Prelude.rnf taskProperties `Prelude.seq`
+          Prelude.rnf sourceFields `Prelude.seq`
+            Prelude.rnf taskType
 
 instance Data.ToJSON Task where
   toJSON Task' {..} =

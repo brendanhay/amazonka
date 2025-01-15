@@ -95,8 +95,8 @@ instance
     EventBridgeDestinationProperties
   where
   rnf EventBridgeDestinationProperties' {..} =
-    Prelude.rnf errorHandlingConfig
-      `Prelude.seq` Prelude.rnf object'
+    Prelude.rnf errorHandlingConfig `Prelude.seq`
+      Prelude.rnf object'
 
 instance Data.ToJSON EventBridgeDestinationProperties where
   toJSON EventBridgeDestinationProperties' {..} =

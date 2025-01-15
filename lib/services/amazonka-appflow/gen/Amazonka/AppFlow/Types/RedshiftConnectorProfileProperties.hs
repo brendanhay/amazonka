@@ -202,15 +202,15 @@ instance
     RedshiftConnectorProfileProperties
   where
   rnf RedshiftConnectorProfileProperties' {..} =
-    Prelude.rnf bucketPrefix
-      `Prelude.seq` Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf dataApiRoleArn
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf databaseUrl
-      `Prelude.seq` Prelude.rnf isRedshiftServerless
-      `Prelude.seq` Prelude.rnf workgroupName
-      `Prelude.seq` Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf bucketPrefix `Prelude.seq`
+      Prelude.rnf clusterIdentifier `Prelude.seq`
+        Prelude.rnf dataApiRoleArn `Prelude.seq`
+          Prelude.rnf databaseName `Prelude.seq`
+            Prelude.rnf databaseUrl `Prelude.seq`
+              Prelude.rnf isRedshiftServerless `Prelude.seq`
+                Prelude.rnf workgroupName `Prelude.seq`
+                  Prelude.rnf bucketName `Prelude.seq`
+                    Prelude.rnf roleArn
 
 instance
   Data.ToJSON

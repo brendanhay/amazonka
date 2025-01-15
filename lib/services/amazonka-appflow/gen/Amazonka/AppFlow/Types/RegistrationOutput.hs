@@ -105,6 +105,6 @@ instance Prelude.Hashable RegistrationOutput where
 
 instance Prelude.NFData RegistrationOutput where
   rnf RegistrationOutput' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf result
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf message `Prelude.seq`
+      Prelude.rnf result `Prelude.seq`
+        Prelude.rnf status

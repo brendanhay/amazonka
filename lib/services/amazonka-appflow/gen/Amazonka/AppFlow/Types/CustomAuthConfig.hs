@@ -81,5 +81,5 @@ instance Prelude.Hashable CustomAuthConfig where
 
 instance Prelude.NFData CustomAuthConfig where
   rnf CustomAuthConfig' {..} =
-    Prelude.rnf authParameters
-      `Prelude.seq` Prelude.rnf customAuthenticationType
+    Prelude.rnf authParameters `Prelude.seq`
+      Prelude.rnf customAuthenticationType

@@ -136,10 +136,10 @@ instance
 
 instance Prelude.NFData RedshiftDestinationProperties where
   rnf RedshiftDestinationProperties' {..} =
-    Prelude.rnf bucketPrefix
-      `Prelude.seq` Prelude.rnf errorHandlingConfig
-      `Prelude.seq` Prelude.rnf object'
-      `Prelude.seq` Prelude.rnf intermediateBucketName
+    Prelude.rnf bucketPrefix `Prelude.seq`
+      Prelude.rnf errorHandlingConfig `Prelude.seq`
+        Prelude.rnf object' `Prelude.seq`
+          Prelude.rnf intermediateBucketName
 
 instance Data.ToJSON RedshiftDestinationProperties where
   toJSON RedshiftDestinationProperties' {..} =

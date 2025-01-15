@@ -119,10 +119,10 @@ instance Prelude.Hashable DestinationFlowConfig where
 
 instance Prelude.NFData DestinationFlowConfig where
   rnf DestinationFlowConfig' {..} =
-    Prelude.rnf apiVersion
-      `Prelude.seq` Prelude.rnf connectorProfileName
-      `Prelude.seq` Prelude.rnf connectorType
-      `Prelude.seq` Prelude.rnf destinationConnectorProperties
+    Prelude.rnf apiVersion `Prelude.seq`
+      Prelude.rnf connectorProfileName `Prelude.seq`
+        Prelude.rnf connectorType `Prelude.seq`
+          Prelude.rnf destinationConnectorProperties
 
 instance Data.ToJSON DestinationFlowConfig where
   toJSON DestinationFlowConfig' {..} =

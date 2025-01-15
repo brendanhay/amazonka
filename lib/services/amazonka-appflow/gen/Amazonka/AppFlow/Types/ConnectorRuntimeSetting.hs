@@ -143,10 +143,10 @@ instance Prelude.Hashable ConnectorRuntimeSetting where
 
 instance Prelude.NFData ConnectorRuntimeSetting where
   rnf ConnectorRuntimeSetting' {..} =
-    Prelude.rnf connectorSuppliedValueOptions
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isRequired
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf connectorSuppliedValueOptions `Prelude.seq`
+      Prelude.rnf dataType `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf isRequired `Prelude.seq`
+            Prelude.rnf key `Prelude.seq`
+              Prelude.rnf label `Prelude.seq`
+                Prelude.rnf scope

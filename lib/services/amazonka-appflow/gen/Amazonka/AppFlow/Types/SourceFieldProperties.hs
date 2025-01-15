@@ -94,6 +94,6 @@ instance Prelude.Hashable SourceFieldProperties where
 
 instance Prelude.NFData SourceFieldProperties where
   rnf SourceFieldProperties' {..} =
-    Prelude.rnf isQueryable
-      `Prelude.seq` Prelude.rnf isRetrievable
-      `Prelude.seq` Prelude.rnf isTimestampFieldForIncrementalQueries
+    Prelude.rnf isQueryable `Prelude.seq`
+      Prelude.rnf isRetrievable `Prelude.seq`
+        Prelude.rnf isTimestampFieldForIncrementalQueries

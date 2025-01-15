@@ -98,8 +98,8 @@ instance
     CustomConnectorProfileProperties
   where
   rnf CustomConnectorProfileProperties' {..} =
-    Prelude.rnf oAuth2Properties
-      `Prelude.seq` Prelude.rnf profileProperties
+    Prelude.rnf oAuth2Properties `Prelude.seq`
+      Prelude.rnf profileProperties
 
 instance Data.ToJSON CustomConnectorProfileProperties where
   toJSON CustomConnectorProfileProperties' {..} =

@@ -98,9 +98,9 @@ instance Prelude.Hashable ErrorHandlingConfig where
 
 instance Prelude.NFData ErrorHandlingConfig where
   rnf ErrorHandlingConfig' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf bucketPrefix
-      `Prelude.seq` Prelude.rnf failOnFirstDestinationError
+    Prelude.rnf bucketName `Prelude.seq`
+      Prelude.rnf bucketPrefix `Prelude.seq`
+        Prelude.rnf failOnFirstDestinationError
 
 instance Data.ToJSON ErrorHandlingConfig where
   toJSON ErrorHandlingConfig' {..} =

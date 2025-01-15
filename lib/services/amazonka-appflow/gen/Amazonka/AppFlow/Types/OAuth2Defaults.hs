@@ -121,8 +121,8 @@ instance Prelude.Hashable OAuth2Defaults where
 
 instance Prelude.NFData OAuth2Defaults where
   rnf OAuth2Defaults' {..} =
-    Prelude.rnf authCodeUrls
-      `Prelude.seq` Prelude.rnf oauth2CustomProperties
-      `Prelude.seq` Prelude.rnf oauth2GrantTypesSupported
-      `Prelude.seq` Prelude.rnf oauthScopes
-      `Prelude.seq` Prelude.rnf tokenUrls
+    Prelude.rnf authCodeUrls `Prelude.seq`
+      Prelude.rnf oauth2CustomProperties `Prelude.seq`
+        Prelude.rnf oauth2GrantTypesSupported `Prelude.seq`
+          Prelude.rnf oauthScopes `Prelude.seq`
+            Prelude.rnf tokenUrls

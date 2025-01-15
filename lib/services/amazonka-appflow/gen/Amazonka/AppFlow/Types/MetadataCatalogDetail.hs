@@ -145,7 +145,7 @@ instance Prelude.Hashable MetadataCatalogDetail where
 
 instance Prelude.NFData MetadataCatalogDetail where
   rnf MetadataCatalogDetail' {..} =
-    Prelude.rnf catalogType
-      `Prelude.seq` Prelude.rnf partitionRegistrationOutput
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf tableRegistrationOutput
+    Prelude.rnf catalogType `Prelude.seq`
+      Prelude.rnf partitionRegistrationOutput `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf tableRegistrationOutput

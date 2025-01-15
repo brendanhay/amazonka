@@ -80,8 +80,8 @@ instance
     RedshiftConnectorProfileCredentials
   where
   rnf RedshiftConnectorProfileCredentials' {..} =
-    Prelude.rnf password
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf password `Prelude.seq`
+      Prelude.rnf username
 
 instance
   Data.ToJSON

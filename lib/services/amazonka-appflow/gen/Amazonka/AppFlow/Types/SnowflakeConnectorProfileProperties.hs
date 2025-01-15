@@ -169,13 +169,13 @@ instance
     SnowflakeConnectorProfileProperties
   where
   rnf SnowflakeConnectorProfileProperties' {..} =
-    Prelude.rnf accountName
-      `Prelude.seq` Prelude.rnf bucketPrefix
-      `Prelude.seq` Prelude.rnf privateLinkServiceName
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf warehouse
-      `Prelude.seq` Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf bucketName
+    Prelude.rnf accountName `Prelude.seq`
+      Prelude.rnf bucketPrefix `Prelude.seq`
+        Prelude.rnf privateLinkServiceName `Prelude.seq`
+          Prelude.rnf region `Prelude.seq`
+            Prelude.rnf warehouse `Prelude.seq`
+              Prelude.rnf stage `Prelude.seq`
+                Prelude.rnf bucketName
 
 instance
   Data.ToJSON

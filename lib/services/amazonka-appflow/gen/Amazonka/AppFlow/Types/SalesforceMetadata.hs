@@ -88,5 +88,5 @@ instance Prelude.Hashable SalesforceMetadata where
 
 instance Prelude.NFData SalesforceMetadata where
   rnf SalesforceMetadata' {..} =
-    Prelude.rnf dataTransferApis
-      `Prelude.seq` Prelude.rnf oAuthScopes
+    Prelude.rnf dataTransferApis `Prelude.seq`
+      Prelude.rnf oAuthScopes

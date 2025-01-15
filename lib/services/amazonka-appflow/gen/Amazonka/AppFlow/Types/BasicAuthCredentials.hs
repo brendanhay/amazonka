@@ -74,8 +74,8 @@ instance Prelude.Hashable BasicAuthCredentials where
 
 instance Prelude.NFData BasicAuthCredentials where
   rnf BasicAuthCredentials' {..} =
-    Prelude.rnf username
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf username `Prelude.seq`
+      Prelude.rnf password
 
 instance Data.ToJSON BasicAuthCredentials where
   toJSON BasicAuthCredentials' {..} =

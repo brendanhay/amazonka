@@ -81,5 +81,5 @@ instance Prelude.Hashable ErrorInfo where
 
 instance Prelude.NFData ErrorInfo where
   rnf ErrorInfo' {..} =
-    Prelude.rnf executionMessage
-      `Prelude.seq` Prelude.rnf putFailuresCount
+    Prelude.rnf executionMessage `Prelude.seq`
+      Prelude.rnf putFailuresCount

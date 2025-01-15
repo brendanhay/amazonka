@@ -202,14 +202,14 @@ instance Prelude.Hashable ConnectorEntityField where
 
 instance Prelude.NFData ConnectorEntityField where
   rnf ConnectorEntityField' {..} =
-    Prelude.rnf customProperties
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destinationProperties
-      `Prelude.seq` Prelude.rnf isDeprecated
-      `Prelude.seq` Prelude.rnf isPrimaryKey
-      `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf parentIdentifier
-      `Prelude.seq` Prelude.rnf sourceProperties
-      `Prelude.seq` Prelude.rnf supportedFieldTypeDetails
-      `Prelude.seq` Prelude.rnf identifier
+    Prelude.rnf customProperties `Prelude.seq`
+      Prelude.rnf defaultValue `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf destinationProperties `Prelude.seq`
+            Prelude.rnf isDeprecated `Prelude.seq`
+              Prelude.rnf isPrimaryKey `Prelude.seq`
+                Prelude.rnf label `Prelude.seq`
+                  Prelude.rnf parentIdentifier `Prelude.seq`
+                    Prelude.rnf sourceProperties `Prelude.seq`
+                      Prelude.rnf supportedFieldTypeDetails `Prelude.seq`
+                        Prelude.rnf identifier

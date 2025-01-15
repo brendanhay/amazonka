@@ -130,9 +130,9 @@ instance Prelude.Hashable UpdateConnectorProfile where
 
 instance Prelude.NFData UpdateConnectorProfile where
   rnf UpdateConnectorProfile' {..} =
-    Prelude.rnf connectorProfileName
-      `Prelude.seq` Prelude.rnf connectionMode
-      `Prelude.seq` Prelude.rnf connectorProfileConfig
+    Prelude.rnf connectorProfileName `Prelude.seq`
+      Prelude.rnf connectionMode `Prelude.seq`
+        Prelude.rnf connectorProfileConfig
 
 instance Data.ToHeaders UpdateConnectorProfile where
   toHeaders =
@@ -212,5 +212,5 @@ instance
     UpdateConnectorProfileResponse
   where
   rnf UpdateConnectorProfileResponse' {..} =
-    Prelude.rnf connectorProfileArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectorProfileArn `Prelude.seq`
+      Prelude.rnf httpStatus

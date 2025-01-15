@@ -224,19 +224,19 @@ instance
     DestinationConnectorProperties
   where
   rnf DestinationConnectorProperties' {..} =
-    Prelude.rnf customConnector
-      `Prelude.seq` Prelude.rnf customerProfiles
-      `Prelude.seq` Prelude.rnf eventBridge
-      `Prelude.seq` Prelude.rnf honeycode
-      `Prelude.seq` Prelude.rnf lookoutMetrics
-      `Prelude.seq` Prelude.rnf marketo
-      `Prelude.seq` Prelude.rnf redshift
-      `Prelude.seq` Prelude.rnf s3
-      `Prelude.seq` Prelude.rnf sAPOData
-      `Prelude.seq` Prelude.rnf salesforce
-      `Prelude.seq` Prelude.rnf snowflake
-      `Prelude.seq` Prelude.rnf upsolver
-      `Prelude.seq` Prelude.rnf zendesk
+    Prelude.rnf customConnector `Prelude.seq`
+      Prelude.rnf customerProfiles `Prelude.seq`
+        Prelude.rnf eventBridge `Prelude.seq`
+          Prelude.rnf honeycode `Prelude.seq`
+            Prelude.rnf lookoutMetrics `Prelude.seq`
+              Prelude.rnf marketo `Prelude.seq`
+                Prelude.rnf redshift `Prelude.seq`
+                  Prelude.rnf s3 `Prelude.seq`
+                    Prelude.rnf sAPOData `Prelude.seq`
+                      Prelude.rnf salesforce `Prelude.seq`
+                        Prelude.rnf snowflake `Prelude.seq`
+                          Prelude.rnf upsolver `Prelude.seq`
+                            Prelude.rnf zendesk
 
 instance Data.ToJSON DestinationConnectorProperties where
   toJSON DestinationConnectorProperties' {..} =

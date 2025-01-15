@@ -98,8 +98,8 @@ instance
     CustomerProfilesDestinationProperties
   where
   rnf CustomerProfilesDestinationProperties' {..} =
-    Prelude.rnf objectTypeName
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf objectTypeName `Prelude.seq`
+      Prelude.rnf domainName
 
 instance
   Data.ToJSON

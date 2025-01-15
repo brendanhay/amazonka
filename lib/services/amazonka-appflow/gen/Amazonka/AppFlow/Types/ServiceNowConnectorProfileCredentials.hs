@@ -87,8 +87,8 @@ instance
     ServiceNowConnectorProfileCredentials
   where
   rnf ServiceNowConnectorProfileCredentials' {..} =
-    Prelude.rnf username
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf username `Prelude.seq`
+      Prelude.rnf password
 
 instance
   Data.ToJSON

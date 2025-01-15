@@ -106,9 +106,9 @@ instance Prelude.Hashable OAuth2Properties where
 
 instance Prelude.NFData OAuth2Properties where
   rnf OAuth2Properties' {..} =
-    Prelude.rnf tokenUrlCustomProperties
-      `Prelude.seq` Prelude.rnf tokenUrl
-      `Prelude.seq` Prelude.rnf oAuth2GrantType
+    Prelude.rnf tokenUrlCustomProperties `Prelude.seq`
+      Prelude.rnf tokenUrl `Prelude.seq`
+        Prelude.rnf oAuth2GrantType
 
 instance Data.ToJSON OAuth2Properties where
   toJSON OAuth2Properties' {..} =

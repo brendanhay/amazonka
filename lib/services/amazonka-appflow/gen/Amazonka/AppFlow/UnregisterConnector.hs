@@ -116,8 +116,8 @@ instance Prelude.Hashable UnregisterConnector where
 
 instance Prelude.NFData UnregisterConnector where
   rnf UnregisterConnector' {..} =
-    Prelude.rnf forceDelete
-      `Prelude.seq` Prelude.rnf connectorLabel
+    Prelude.rnf forceDelete `Prelude.seq`
+      Prelude.rnf connectorLabel
 
 instance Data.ToHeaders UnregisterConnector where
   toHeaders =

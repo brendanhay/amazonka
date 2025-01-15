@@ -139,11 +139,11 @@ instance Prelude.Hashable SourceFlowConfig where
 
 instance Prelude.NFData SourceFlowConfig where
   rnf SourceFlowConfig' {..} =
-    Prelude.rnf apiVersion
-      `Prelude.seq` Prelude.rnf connectorProfileName
-      `Prelude.seq` Prelude.rnf incrementalPullConfig
-      `Prelude.seq` Prelude.rnf connectorType
-      `Prelude.seq` Prelude.rnf sourceConnectorProperties
+    Prelude.rnf apiVersion `Prelude.seq`
+      Prelude.rnf connectorProfileName `Prelude.seq`
+        Prelude.rnf incrementalPullConfig `Prelude.seq`
+          Prelude.rnf connectorType `Prelude.seq`
+            Prelude.rnf sourceConnectorProperties
 
 instance Data.ToJSON SourceFlowConfig where
   toJSON SourceFlowConfig' {..} =

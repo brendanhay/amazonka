@@ -133,11 +133,11 @@ instance
 
 instance Prelude.NFData SAPODataDestinationProperties where
   rnf SAPODataDestinationProperties' {..} =
-    Prelude.rnf errorHandlingConfig
-      `Prelude.seq` Prelude.rnf idFieldNames
-      `Prelude.seq` Prelude.rnf successResponseHandlingConfig
-      `Prelude.seq` Prelude.rnf writeOperationType
-      `Prelude.seq` Prelude.rnf objectPath
+    Prelude.rnf errorHandlingConfig `Prelude.seq`
+      Prelude.rnf idFieldNames `Prelude.seq`
+        Prelude.rnf successResponseHandlingConfig `Prelude.seq`
+          Prelude.rnf writeOperationType `Prelude.seq`
+            Prelude.rnf objectPath
 
 instance Data.ToJSON SAPODataDestinationProperties where
   toJSON SAPODataDestinationProperties' {..} =

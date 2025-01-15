@@ -100,9 +100,9 @@ instance Prelude.Hashable S3DestinationProperties where
 
 instance Prelude.NFData S3DestinationProperties where
   rnf S3DestinationProperties' {..} =
-    Prelude.rnf bucketPrefix
-      `Prelude.seq` Prelude.rnf s3OutputFormatConfig
-      `Prelude.seq` Prelude.rnf bucketName
+    Prelude.rnf bucketPrefix `Prelude.seq`
+      Prelude.rnf s3OutputFormatConfig `Prelude.seq`
+        Prelude.rnf bucketName
 
 instance Data.ToJSON S3DestinationProperties where
   toJSON S3DestinationProperties' {..} =

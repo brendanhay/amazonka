@@ -81,8 +81,8 @@ instance
     SAPODataConnectorProfileCredentials
   where
   rnf SAPODataConnectorProfileCredentials' {..} =
-    Prelude.rnf basicAuthCredentials
-      `Prelude.seq` Prelude.rnf oAuthCredentials
+    Prelude.rnf basicAuthCredentials `Prelude.seq`
+      Prelude.rnf oAuthCredentials
 
 instance
   Data.ToJSON

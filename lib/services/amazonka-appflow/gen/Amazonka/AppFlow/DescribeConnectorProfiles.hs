@@ -166,11 +166,11 @@ instance Prelude.Hashable DescribeConnectorProfiles where
 
 instance Prelude.NFData DescribeConnectorProfiles where
   rnf DescribeConnectorProfiles' {..} =
-    Prelude.rnf connectorLabel
-      `Prelude.seq` Prelude.rnf connectorProfileNames
-      `Prelude.seq` Prelude.rnf connectorType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf connectorLabel `Prelude.seq`
+      Prelude.rnf connectorProfileNames `Prelude.seq`
+        Prelude.rnf connectorType `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeConnectorProfiles where
   toHeaders =
@@ -262,6 +262,6 @@ instance
     DescribeConnectorProfilesResponse
   where
   rnf DescribeConnectorProfilesResponse' {..} =
-    Prelude.rnf connectorProfileDetails
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf connectorProfileDetails `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

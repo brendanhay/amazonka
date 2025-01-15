@@ -101,8 +101,8 @@ instance
     CustomConnectorSourceProperties
   where
   rnf CustomConnectorSourceProperties' {..} =
-    Prelude.rnf customProperties
-      `Prelude.seq` Prelude.rnf entityName
+    Prelude.rnf customProperties `Prelude.seq`
+      Prelude.rnf entityName
 
 instance Data.ToJSON CustomConnectorSourceProperties where
   toJSON CustomConnectorSourceProperties' {..} =

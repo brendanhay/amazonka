@@ -185,12 +185,12 @@ instance Prelude.Hashable ListConnectorEntities where
 
 instance Prelude.NFData ListConnectorEntities where
   rnf ListConnectorEntities' {..} =
-    Prelude.rnf apiVersion
-      `Prelude.seq` Prelude.rnf connectorProfileName
-      `Prelude.seq` Prelude.rnf connectorType
-      `Prelude.seq` Prelude.rnf entitiesPath
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf apiVersion `Prelude.seq`
+      Prelude.rnf connectorProfileName `Prelude.seq`
+        Prelude.rnf connectorType `Prelude.seq`
+          Prelude.rnf entitiesPath `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nextToken
 
 instance Data.ToHeaders ListConnectorEntities where
   toHeaders =
@@ -288,6 +288,6 @@ listConnectorEntitiesResponse_connectorEntityMap = Lens.lens (\ListConnectorEnti
 
 instance Prelude.NFData ListConnectorEntitiesResponse where
   rnf ListConnectorEntitiesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf connectorEntityMap
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf connectorEntityMap

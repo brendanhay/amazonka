@@ -86,8 +86,8 @@ instance
     VeevaConnectorProfileCredentials
   where
   rnf VeevaConnectorProfileCredentials' {..} =
-    Prelude.rnf username
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf username `Prelude.seq`
+      Prelude.rnf password
 
 instance Data.ToJSON VeevaConnectorProfileCredentials where
   toJSON VeevaConnectorProfileCredentials' {..} =

@@ -113,8 +113,8 @@ instance Prelude.Hashable DeleteConnectorProfile where
 
 instance Prelude.NFData DeleteConnectorProfile where
   rnf DeleteConnectorProfile' {..} =
-    Prelude.rnf forceDelete
-      `Prelude.seq` Prelude.rnf connectorProfileName
+    Prelude.rnf forceDelete `Prelude.seq`
+      Prelude.rnf connectorProfileName
 
 instance Data.ToHeaders DeleteConnectorProfile where
   toHeaders =

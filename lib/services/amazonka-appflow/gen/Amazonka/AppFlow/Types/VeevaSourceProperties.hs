@@ -119,11 +119,11 @@ instance Prelude.Hashable VeevaSourceProperties where
 
 instance Prelude.NFData VeevaSourceProperties where
   rnf VeevaSourceProperties' {..} =
-    Prelude.rnf documentType
-      `Prelude.seq` Prelude.rnf includeAllVersions
-      `Prelude.seq` Prelude.rnf includeRenditions
-      `Prelude.seq` Prelude.rnf includeSourceFiles
-      `Prelude.seq` Prelude.rnf object'
+    Prelude.rnf documentType `Prelude.seq`
+      Prelude.rnf includeAllVersions `Prelude.seq`
+        Prelude.rnf includeRenditions `Prelude.seq`
+          Prelude.rnf includeSourceFiles `Prelude.seq`
+            Prelude.rnf object'
 
 instance Data.ToJSON VeevaSourceProperties where
   toJSON VeevaSourceProperties' {..} =

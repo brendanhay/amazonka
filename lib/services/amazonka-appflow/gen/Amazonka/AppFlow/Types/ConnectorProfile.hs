@@ -180,13 +180,13 @@ instance Prelude.Hashable ConnectorProfile where
 
 instance Prelude.NFData ConnectorProfile where
   rnf ConnectorProfile' {..} =
-    Prelude.rnf connectionMode
-      `Prelude.seq` Prelude.rnf connectorLabel
-      `Prelude.seq` Prelude.rnf connectorProfileArn
-      `Prelude.seq` Prelude.rnf connectorProfileName
-      `Prelude.seq` Prelude.rnf connectorProfileProperties
-      `Prelude.seq` Prelude.rnf connectorType
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf credentialsArn
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf privateConnectionProvisioningState
+    Prelude.rnf connectionMode `Prelude.seq`
+      Prelude.rnf connectorLabel `Prelude.seq`
+        Prelude.rnf connectorProfileArn `Prelude.seq`
+          Prelude.rnf connectorProfileName `Prelude.seq`
+            Prelude.rnf connectorProfileProperties `Prelude.seq`
+              Prelude.rnf connectorType `Prelude.seq`
+                Prelude.rnf createdAt `Prelude.seq`
+                  Prelude.rnf credentialsArn `Prelude.seq`
+                    Prelude.rnf lastUpdatedAt `Prelude.seq`
+                      Prelude.rnf privateConnectionProvisioningState

@@ -154,9 +154,9 @@ instance
 
 instance Prelude.NFData SendSerialConsoleSSHPublicKey where
   rnf SendSerialConsoleSSHPublicKey' {..} =
-    Prelude.rnf serialPort
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf sSHPublicKey
+    Prelude.rnf serialPort `Prelude.seq`
+      Prelude.rnf instanceId `Prelude.seq`
+        Prelude.rnf sSHPublicKey
 
 instance Data.ToHeaders SendSerialConsoleSSHPublicKey where
   toHeaders =
@@ -245,6 +245,6 @@ instance
     SendSerialConsoleSSHPublicKeyResponse
   where
   rnf SendSerialConsoleSSHPublicKeyResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf success
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf requestId `Prelude.seq`
+      Prelude.rnf success `Prelude.seq`
+        Prelude.rnf httpStatus

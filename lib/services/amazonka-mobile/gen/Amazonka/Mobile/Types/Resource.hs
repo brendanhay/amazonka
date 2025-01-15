@@ -109,8 +109,8 @@ instance Prelude.Hashable Resource where
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf feature
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf attributes `Prelude.seq`
+        Prelude.rnf feature `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf type'

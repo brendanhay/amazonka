@@ -178,6 +178,6 @@ deleteProjectResponse_httpStatus = Lens.lens (\DeleteProjectResponse' {httpStatu
 
 instance Prelude.NFData DeleteProjectResponse where
   rnf DeleteProjectResponse' {..} =
-    Prelude.rnf deletedResources
-      `Prelude.seq` Prelude.rnf orphanedResources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deletedResources `Prelude.seq`
+      Prelude.rnf orphanedResources `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -143,11 +143,11 @@ instance Prelude.Hashable ProjectDetails where
 
 instance Prelude.NFData ProjectDetails where
   rnf ProjectDetails' {..} =
-    Prelude.rnf consoleUrl
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf projectId
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf consoleUrl `Prelude.seq`
+      Prelude.rnf createdDate `Prelude.seq`
+        Prelude.rnf lastUpdatedDate `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf projectId `Prelude.seq`
+              Prelude.rnf region `Prelude.seq`
+                Prelude.rnf resources `Prelude.seq`
+                  Prelude.rnf state

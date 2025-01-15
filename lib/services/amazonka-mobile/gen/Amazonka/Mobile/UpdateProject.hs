@@ -116,8 +116,8 @@ instance Prelude.Hashable UpdateProject where
 
 instance Prelude.NFData UpdateProject where
   rnf UpdateProject' {..} =
-    Prelude.rnf contents
-      `Prelude.seq` Prelude.rnf projectId
+    Prelude.rnf contents `Prelude.seq`
+      Prelude.rnf projectId
 
 instance Data.ToBody UpdateProject where
   toBody UpdateProject' {..} = Data.toBody contents
@@ -182,5 +182,5 @@ updateProjectResponse_httpStatus = Lens.lens (\UpdateProjectResponse' {httpStatu
 
 instance Prelude.NFData UpdateProjectResponse where
   rnf UpdateProjectResponse' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf httpStatus

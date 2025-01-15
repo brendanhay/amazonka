@@ -123,9 +123,9 @@ instance Prelude.Hashable BundleDetails where
 
 instance Prelude.NFData BundleDetails where
   rnf BundleDetails' {..} =
-    Prelude.rnf availablePlatforms
-      `Prelude.seq` Prelude.rnf bundleId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf iconUrl
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf availablePlatforms `Prelude.seq`
+      Prelude.rnf bundleId `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf iconUrl `Prelude.seq`
+            Prelude.rnf title `Prelude.seq`
+              Prelude.rnf version

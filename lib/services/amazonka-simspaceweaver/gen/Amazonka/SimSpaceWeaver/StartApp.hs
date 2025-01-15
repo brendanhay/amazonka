@@ -167,12 +167,12 @@ instance Prelude.Hashable StartApp where
 
 instance Prelude.NFData StartApp where
   rnf StartApp' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf launchOverrides
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf simulation
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf launchOverrides `Prelude.seq`
+          Prelude.rnf domain `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf simulation
 
 instance Data.ToHeaders StartApp where
   toHeaders =
@@ -263,7 +263,7 @@ startAppResponse_httpStatus = Lens.lens (\StartAppResponse' {httpStatus} -> http
 
 instance Prelude.NFData StartAppResponse where
   rnf StartAppResponse' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf simulation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf simulation `Prelude.seq`
+          Prelude.rnf httpStatus

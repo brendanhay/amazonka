@@ -135,9 +135,9 @@ instance Prelude.Hashable DescribeApp where
 
 instance Prelude.NFData DescribeApp where
   rnf DescribeApp' {..} =
-    Prelude.rnf app
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf simulation
+    Prelude.rnf app `Prelude.seq`
+      Prelude.rnf domain `Prelude.seq`
+        Prelude.rnf simulation
 
 instance Data.ToHeaders DescribeApp where
   toHeaders =
@@ -266,12 +266,12 @@ describeAppResponse_httpStatus = Lens.lens (\DescribeAppResponse' {httpStatus} -
 
 instance Prelude.NFData DescribeAppResponse where
   rnf DescribeAppResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf endpointInfo
-      `Prelude.seq` Prelude.rnf launchOverrides
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf simulation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf domain `Prelude.seq`
+        Prelude.rnf endpointInfo `Prelude.seq`
+          Prelude.rnf launchOverrides `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf simulation `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf targetStatus `Prelude.seq`
+                    Prelude.rnf httpStatus

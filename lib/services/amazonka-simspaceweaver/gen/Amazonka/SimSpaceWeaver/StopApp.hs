@@ -120,9 +120,9 @@ instance Prelude.Hashable StopApp where
 
 instance Prelude.NFData StopApp where
   rnf StopApp' {..} =
-    Prelude.rnf app
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf simulation
+    Prelude.rnf app `Prelude.seq`
+      Prelude.rnf domain `Prelude.seq`
+        Prelude.rnf simulation
 
 instance Data.ToHeaders StopApp where
   toHeaders =

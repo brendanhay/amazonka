@@ -98,5 +98,5 @@ instance Prelude.Hashable LiveSimulationState where
 
 instance Prelude.NFData LiveSimulationState where
   rnf LiveSimulationState' {..} =
-    Prelude.rnf clocks
-      `Prelude.seq` Prelude.rnf domains
+    Prelude.rnf clocks `Prelude.seq`
+      Prelude.rnf domains

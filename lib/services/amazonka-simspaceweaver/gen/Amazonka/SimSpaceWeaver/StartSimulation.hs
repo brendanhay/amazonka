@@ -225,13 +225,13 @@ instance Prelude.Hashable StartSimulation where
 
 instance Prelude.NFData StartSimulation where
   rnf StartSimulation' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf maximumDuration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf schemaS3Location
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf maximumDuration `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf roleArn `Prelude.seq`
+                Prelude.rnf schemaS3Location
 
 instance Data.ToHeaders StartSimulation where
   toHeaders =
@@ -339,7 +339,7 @@ startSimulationResponse_httpStatus = Lens.lens (\StartSimulationResponse' {httpS
 
 instance Prelude.NFData StartSimulationResponse where
   rnf StartSimulationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf executionId `Prelude.seq`
+          Prelude.rnf httpStatus

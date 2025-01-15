@@ -92,5 +92,5 @@ instance Prelude.Hashable SimulationAppEndpointInfo where
 
 instance Prelude.NFData SimulationAppEndpointInfo where
   rnf SimulationAppEndpointInfo' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf ingressPortMappings
+    Prelude.rnf address `Prelude.seq`
+      Prelude.rnf ingressPortMappings

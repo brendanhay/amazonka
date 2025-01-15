@@ -82,5 +82,5 @@ instance Prelude.Hashable SimulationClock where
 
 instance Prelude.NFData SimulationClock where
   rnf SimulationClock' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetStatus
+    Prelude.rnf status `Prelude.seq`
+      Prelude.rnf targetStatus

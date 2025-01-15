@@ -149,10 +149,10 @@ instance Prelude.Hashable ListApps where
 
 instance Prelude.NFData ListApps where
   rnf ListApps' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf simulation
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf simulation
 
 instance Data.ToHeaders ListApps where
   toHeaders =
@@ -244,6 +244,6 @@ listAppsResponse_httpStatus = Lens.lens (\ListAppsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListAppsResponse where
   rnf ListAppsResponse' {..} =
-    Prelude.rnf apps
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apps `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

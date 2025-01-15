@@ -127,8 +127,8 @@ instance Prelude.Hashable ListSimulations where
 
 instance Prelude.NFData ListSimulations where
   rnf ListSimulations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSimulations where
   toHeaders =
@@ -219,6 +219,6 @@ listSimulationsResponse_httpStatus = Lens.lens (\ListSimulationsResponse' {httpS
 
 instance Prelude.NFData ListSimulationsResponse where
   rnf ListSimulationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf simulations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf simulations `Prelude.seq`
+        Prelude.rnf httpStatus

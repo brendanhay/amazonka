@@ -200,9 +200,9 @@ startWorkflowResponse_httpStatus = Lens.lens (\StartWorkflowResponse' {httpStatu
 
 instance Prelude.NFData StartWorkflowResponse where
   rnf StartWorkflowResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastStartTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf lastStartTime `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf statusMessage `Prelude.seq`
+              Prelude.rnf httpStatus

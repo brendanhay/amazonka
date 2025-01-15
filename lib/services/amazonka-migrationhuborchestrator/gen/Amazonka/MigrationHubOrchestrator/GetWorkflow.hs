@@ -364,24 +364,24 @@ getWorkflowResponse_httpStatus = Lens.lens (\GetWorkflowResponse' {httpStatus} -
 
 instance Prelude.NFData GetWorkflowResponse where
   rnf GetWorkflowResponse' {..} =
-    Prelude.rnf adsApplicationConfigurationId
-      `Prelude.seq` Prelude.rnf adsApplicationName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf completedSteps
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf lastStartTime
-      `Prelude.seq` Prelude.rnf lastStopTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf tools
-      `Prelude.seq` Prelude.rnf totalSteps
-      `Prelude.seq` Prelude.rnf workflowBucket
-      `Prelude.seq` Prelude.rnf workflowInputs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf adsApplicationConfigurationId `Prelude.seq`
+      Prelude.rnf adsApplicationName `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf completedSteps `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf endTime `Prelude.seq`
+                  Prelude.rnf id `Prelude.seq`
+                    Prelude.rnf lastModifiedTime `Prelude.seq`
+                      Prelude.rnf lastStartTime `Prelude.seq`
+                        Prelude.rnf lastStopTime `Prelude.seq`
+                          Prelude.rnf name `Prelude.seq`
+                            Prelude.rnf status `Prelude.seq`
+                              Prelude.rnf statusMessage `Prelude.seq`
+                                Prelude.rnf tags `Prelude.seq`
+                                  Prelude.rnf templateId `Prelude.seq`
+                                    Prelude.rnf tools `Prelude.seq`
+                                      Prelude.rnf totalSteps `Prelude.seq`
+                                        Prelude.rnf workflowBucket `Prelude.seq`
+                                          Prelude.rnf workflowInputs `Prelude.seq`
+                                            Prelude.rnf httpStatus

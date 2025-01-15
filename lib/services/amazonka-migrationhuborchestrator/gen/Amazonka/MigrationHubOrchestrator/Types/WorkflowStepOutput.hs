@@ -104,10 +104,10 @@ instance Prelude.Hashable WorkflowStepOutput where
 
 instance Prelude.NFData WorkflowStepOutput where
   rnf WorkflowStepOutput' {..} =
-    Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf required
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf dataType `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf required `Prelude.seq`
+          Prelude.rnf value
 
 instance Data.ToJSON WorkflowStepOutput where
   toJSON WorkflowStepOutput' {..} =

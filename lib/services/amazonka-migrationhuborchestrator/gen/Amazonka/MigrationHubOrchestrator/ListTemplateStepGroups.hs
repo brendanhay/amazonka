@@ -114,12 +114,12 @@ instance Core.AWSPager ListTemplateStepGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTemplateStepGroups_nextToken
-          Lens..~ rs
-          Lens.^? listTemplateStepGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTemplateStepGroups_nextToken
+              Lens..~ rs
+              Lens.^? listTemplateStepGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTemplateStepGroups where
   type
@@ -148,9 +148,9 @@ instance Prelude.Hashable ListTemplateStepGroups where
 
 instance Prelude.NFData ListTemplateStepGroups where
   rnf ListTemplateStepGroups' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf templateId
 
 instance Data.ToHeaders ListTemplateStepGroups where
   toHeaders =
@@ -228,6 +228,6 @@ instance
     ListTemplateStepGroupsResponse
   where
   rnf ListTemplateStepGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf templateStepGroupSummary
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf templateStepGroupSummary

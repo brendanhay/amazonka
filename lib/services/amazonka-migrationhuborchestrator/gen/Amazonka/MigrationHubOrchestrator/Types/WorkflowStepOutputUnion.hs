@@ -95,9 +95,9 @@ instance Prelude.Hashable WorkflowStepOutputUnion where
 
 instance Prelude.NFData WorkflowStepOutputUnion where
   rnf WorkflowStepOutputUnion' {..} =
-    Prelude.rnf integerValue
-      `Prelude.seq` Prelude.rnf listOfStringValue
-      `Prelude.seq` Prelude.rnf stringValue
+    Prelude.rnf integerValue `Prelude.seq`
+      Prelude.rnf listOfStringValue `Prelude.seq`
+        Prelude.rnf stringValue
 
 instance Data.ToJSON WorkflowStepOutputUnion where
   toJSON WorkflowStepOutputUnion' {..} =

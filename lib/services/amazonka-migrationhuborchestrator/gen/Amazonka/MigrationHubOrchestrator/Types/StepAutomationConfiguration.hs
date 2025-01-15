@@ -118,8 +118,8 @@ instance Prelude.Hashable StepAutomationConfiguration where
 
 instance Prelude.NFData StepAutomationConfiguration where
   rnf StepAutomationConfiguration' {..} =
-    Prelude.rnf command
-      `Prelude.seq` Prelude.rnf runEnvironment
-      `Prelude.seq` Prelude.rnf scriptLocationS3Bucket
-      `Prelude.seq` Prelude.rnf scriptLocationS3Key
-      `Prelude.seq` Prelude.rnf targetType
+    Prelude.rnf command `Prelude.seq`
+      Prelude.rnf runEnvironment `Prelude.seq`
+        Prelude.rnf scriptLocationS3Bucket `Prelude.seq`
+          Prelude.rnf scriptLocationS3Key `Prelude.seq`
+            Prelude.rnf targetType

@@ -210,16 +210,16 @@ instance Prelude.Hashable WorkflowStepSummary where
 
 instance Prelude.NFData WorkflowStepSummary where
   rnf WorkflowStepSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf next
-      `Prelude.seq` Prelude.rnf noOfSrvCompleted
-      `Prelude.seq` Prelude.rnf noOfSrvFailed
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf previous
-      `Prelude.seq` Prelude.rnf scriptLocation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf stepActionType
-      `Prelude.seq` Prelude.rnf stepId
-      `Prelude.seq` Prelude.rnf totalNoOfSrv
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf next `Prelude.seq`
+          Prelude.rnf noOfSrvCompleted `Prelude.seq`
+            Prelude.rnf noOfSrvFailed `Prelude.seq`
+              Prelude.rnf owner `Prelude.seq`
+                Prelude.rnf previous `Prelude.seq`
+                  Prelude.rnf scriptLocation `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf statusMessage `Prelude.seq`
+                        Prelude.rnf stepActionType `Prelude.seq`
+                          Prelude.rnf stepId `Prelude.seq`
+                            Prelude.rnf totalNoOfSrv

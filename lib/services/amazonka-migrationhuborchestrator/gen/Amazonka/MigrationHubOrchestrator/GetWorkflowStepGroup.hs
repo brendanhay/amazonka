@@ -294,16 +294,16 @@ getWorkflowStepGroupResponse_httpStatus = Lens.lens (\GetWorkflowStepGroupRespon
 
 instance Prelude.NFData GetWorkflowStepGroupResponse where
   rnf GetWorkflowStepGroupResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf next
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf previous
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tools
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf next `Prelude.seq`
+                  Prelude.rnf owner `Prelude.seq`
+                    Prelude.rnf previous `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf tools `Prelude.seq`
+                          Prelude.rnf workflowId `Prelude.seq`
+                            Prelude.rnf httpStatus

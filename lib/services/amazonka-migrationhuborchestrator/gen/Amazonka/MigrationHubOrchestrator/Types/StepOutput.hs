@@ -92,6 +92,6 @@ instance Prelude.Hashable StepOutput where
 
 instance Prelude.NFData StepOutput where
   rnf StepOutput' {..} =
-    Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf required
+    Prelude.rnf dataType `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf required

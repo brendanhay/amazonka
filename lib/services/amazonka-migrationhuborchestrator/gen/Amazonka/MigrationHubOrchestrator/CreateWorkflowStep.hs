@@ -219,16 +219,16 @@ instance Prelude.Hashable CreateWorkflowStep where
 
 instance Prelude.NFData CreateWorkflowStep where
   rnf CreateWorkflowStep' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf next
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf previous
-      `Prelude.seq` Prelude.rnf stepTarget
-      `Prelude.seq` Prelude.rnf workflowStepAutomationConfiguration
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stepGroupId
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf stepActionType
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf next `Prelude.seq`
+        Prelude.rnf outputs `Prelude.seq`
+          Prelude.rnf previous `Prelude.seq`
+            Prelude.rnf stepTarget `Prelude.seq`
+              Prelude.rnf workflowStepAutomationConfiguration `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf stepGroupId `Prelude.seq`
+                    Prelude.rnf workflowId `Prelude.seq`
+                      Prelude.rnf stepActionType
 
 instance Data.ToHeaders CreateWorkflowStep where
   toHeaders =
@@ -333,8 +333,8 @@ createWorkflowStepResponse_httpStatus = Lens.lens (\CreateWorkflowStepResponse' 
 
 instance Prelude.NFData CreateWorkflowStepResponse where
   rnf CreateWorkflowStepResponse' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stepGroupId
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf stepGroupId `Prelude.seq`
+          Prelude.rnf workflowId `Prelude.seq`
+            Prelude.rnf httpStatus

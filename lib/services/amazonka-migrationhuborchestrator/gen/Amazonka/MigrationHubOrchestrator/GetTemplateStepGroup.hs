@@ -275,14 +275,14 @@ getTemplateStepGroupResponse_httpStatus = Lens.lens (\GetTemplateStepGroupRespon
 
 instance Prelude.NFData GetTemplateStepGroupResponse where
   rnf GetTemplateStepGroupResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf next
-      `Prelude.seq` Prelude.rnf previous
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf tools
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf next `Prelude.seq`
+                Prelude.rnf previous `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf templateId `Prelude.seq`
+                      Prelude.rnf tools `Prelude.seq`
+                        Prelude.rnf httpStatus

@@ -235,18 +235,18 @@ instance Prelude.Hashable UpdateWorkflowStep where
 
 instance Prelude.NFData UpdateWorkflowStep where
   rnf UpdateWorkflowStep' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf next
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf previous
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf stepActionType
-      `Prelude.seq` Prelude.rnf stepTarget
-      `Prelude.seq` Prelude.rnf workflowStepAutomationConfiguration
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf stepGroupId
-      `Prelude.seq` Prelude.rnf workflowId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf next `Prelude.seq`
+          Prelude.rnf outputs `Prelude.seq`
+            Prelude.rnf previous `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf stepActionType `Prelude.seq`
+                  Prelude.rnf stepTarget `Prelude.seq`
+                    Prelude.rnf workflowStepAutomationConfiguration `Prelude.seq`
+                      Prelude.rnf id `Prelude.seq`
+                        Prelude.rnf stepGroupId `Prelude.seq`
+                          Prelude.rnf workflowId
 
 instance Data.ToHeaders UpdateWorkflowStep where
   toHeaders =
@@ -353,8 +353,8 @@ updateWorkflowStepResponse_httpStatus = Lens.lens (\UpdateWorkflowStepResponse' 
 
 instance Prelude.NFData UpdateWorkflowStepResponse where
   rnf UpdateWorkflowStepResponse' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stepGroupId
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf stepGroupId `Prelude.seq`
+          Prelude.rnf workflowId `Prelude.seq`
+            Prelude.rnf httpStatus

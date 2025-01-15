@@ -170,13 +170,13 @@ instance Prelude.Hashable MigrationWorkflowSummary where
 
 instance Prelude.NFData MigrationWorkflowSummary where
   rnf MigrationWorkflowSummary' {..} =
-    Prelude.rnf adsApplicationConfigurationName
-      `Prelude.seq` Prelude.rnf completedSteps
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf totalSteps
+    Prelude.rnf adsApplicationConfigurationName `Prelude.seq`
+      Prelude.rnf completedSteps `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf endTime `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf statusMessage `Prelude.seq`
+                    Prelude.rnf templateId `Prelude.seq`
+                      Prelude.rnf totalSteps

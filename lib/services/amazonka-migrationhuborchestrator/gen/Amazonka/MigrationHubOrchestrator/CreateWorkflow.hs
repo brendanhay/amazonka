@@ -194,13 +194,13 @@ instance Prelude.Hashable CreateWorkflow where
 
 instance Prelude.NFData CreateWorkflow where
   rnf CreateWorkflow' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf stepTargets
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf applicationConfigurationId
-      `Prelude.seq` Prelude.rnf inputParameters
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf stepTargets `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf templateId `Prelude.seq`
+              Prelude.rnf applicationConfigurationId `Prelude.seq`
+                Prelude.rnf inputParameters
 
 instance Data.ToHeaders CreateWorkflow where
   toHeaders =
@@ -371,15 +371,15 @@ createWorkflowResponse_httpStatus = Lens.lens (\CreateWorkflowResponse' {httpSta
 
 instance Prelude.NFData CreateWorkflowResponse where
   rnf CreateWorkflowResponse' {..} =
-    Prelude.rnf adsApplicationConfigurationId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf stepTargets
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf workflowInputs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf adsApplicationConfigurationId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf stepTargets `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf templateId `Prelude.seq`
+                        Prelude.rnf workflowInputs `Prelude.seq`
+                          Prelude.rnf httpStatus

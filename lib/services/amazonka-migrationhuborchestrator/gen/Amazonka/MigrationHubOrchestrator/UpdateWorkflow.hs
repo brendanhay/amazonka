@@ -163,11 +163,11 @@ instance Prelude.Hashable UpdateWorkflow where
 
 instance Prelude.NFData UpdateWorkflow where
   rnf UpdateWorkflow' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf inputParameters
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stepTargets
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf inputParameters `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf stepTargets `Prelude.seq`
+            Prelude.rnf id
 
 instance Data.ToHeaders UpdateWorkflow where
   toHeaders =
@@ -340,16 +340,16 @@ updateWorkflowResponse_httpStatus = Lens.lens (\UpdateWorkflowResponse' {httpSta
 
 instance Prelude.NFData UpdateWorkflowResponse where
   rnf UpdateWorkflowResponse' {..} =
-    Prelude.rnf adsApplicationConfigurationId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf stepTargets
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf workflowInputs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf adsApplicationConfigurationId `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf lastModifiedTime `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf stepTargets `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf templateId `Prelude.seq`
+                          Prelude.rnf workflowInputs `Prelude.seq`
+                            Prelude.rnf httpStatus

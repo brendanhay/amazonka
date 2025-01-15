@@ -125,9 +125,9 @@ instance Prelude.Hashable PluginSummary where
 
 instance Prelude.NFData PluginSummary where
   rnf PluginSummary' {..} =
-    Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf pluginId
-      `Prelude.seq` Prelude.rnf registeredTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf hostname `Prelude.seq`
+      Prelude.rnf ipAddress `Prelude.seq`
+        Prelude.rnf pluginId `Prelude.seq`
+          Prelude.rnf registeredTime `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf version

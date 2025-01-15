@@ -218,11 +218,11 @@ getTemplateResponse_httpStatus = Lens.lens (\GetTemplateResponse' {httpStatus} -
 
 instance Prelude.NFData GetTemplateResponse where
   rnf GetTemplateResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tools
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf inputs `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf tools `Prelude.seq`
+                  Prelude.rnf httpStatus

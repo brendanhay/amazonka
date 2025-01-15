@@ -171,12 +171,12 @@ instance Prelude.Hashable UpdateApplication where
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
-    Prelude.rnf autoConfigEnabled
-      `Prelude.seq` Prelude.rnf cWEMonitorEnabled
-      `Prelude.seq` Prelude.rnf opsCenterEnabled
-      `Prelude.seq` Prelude.rnf opsItemSNSTopicArn
-      `Prelude.seq` Prelude.rnf removeSNSTopic
-      `Prelude.seq` Prelude.rnf resourceGroupName
+    Prelude.rnf autoConfigEnabled `Prelude.seq`
+      Prelude.rnf cWEMonitorEnabled `Prelude.seq`
+        Prelude.rnf opsCenterEnabled `Prelude.seq`
+          Prelude.rnf opsItemSNSTopicArn `Prelude.seq`
+            Prelude.rnf removeSNSTopic `Prelude.seq`
+              Prelude.rnf resourceGroupName
 
 instance Data.ToHeaders UpdateApplication where
   toHeaders =
@@ -259,5 +259,5 @@ updateApplicationResponse_httpStatus = Lens.lens (\UpdateApplicationResponse' {h
 
 instance Prelude.NFData UpdateApplicationResponse where
   rnf UpdateApplicationResponse' {..} =
-    Prelude.rnf applicationInfo
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationInfo `Prelude.seq`
+      Prelude.rnf httpStatus

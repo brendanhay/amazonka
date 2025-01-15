@@ -116,8 +116,8 @@ instance Prelude.Hashable DescribeComponent where
 
 instance Prelude.NFData DescribeComponent where
   rnf DescribeComponent' {..} =
-    Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf componentName
+    Prelude.rnf resourceGroupName `Prelude.seq`
+      Prelude.rnf componentName
 
 instance Data.ToHeaders DescribeComponent where
   toHeaders =
@@ -200,6 +200,6 @@ describeComponentResponse_httpStatus = Lens.lens (\DescribeComponentResponse' {h
 
 instance Prelude.NFData DescribeComponentResponse where
   rnf DescribeComponentResponse' {..} =
-    Prelude.rnf applicationComponent
-      `Prelude.seq` Prelude.rnf resourceList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationComponent `Prelude.seq`
+      Prelude.rnf resourceList `Prelude.seq`
+        Prelude.rnf httpStatus

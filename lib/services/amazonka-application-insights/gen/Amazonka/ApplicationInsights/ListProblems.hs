@@ -167,12 +167,12 @@ instance Prelude.Hashable ListProblems where
 
 instance Prelude.NFData ListProblems where
   rnf ListProblems' {..} =
-    Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf componentName `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf resourceGroupName `Prelude.seq`
+              Prelude.rnf startTime
 
 instance Data.ToHeaders ListProblems where
   toHeaders =
@@ -270,7 +270,7 @@ listProblemsResponse_httpStatus = Lens.lens (\ListProblemsResponse' {httpStatus}
 
 instance Prelude.NFData ListProblemsResponse where
   rnf ListProblemsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf problemList
-      `Prelude.seq` Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf problemList `Prelude.seq`
+        Prelude.rnf resourceGroupName `Prelude.seq`
+          Prelude.rnf httpStatus

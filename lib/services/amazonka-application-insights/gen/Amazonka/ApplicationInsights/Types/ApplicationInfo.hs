@@ -175,11 +175,11 @@ instance Prelude.Hashable ApplicationInfo where
 
 instance Prelude.NFData ApplicationInfo where
   rnf ApplicationInfo' {..} =
-    Prelude.rnf autoConfigEnabled
-      `Prelude.seq` Prelude.rnf cWEMonitorEnabled
-      `Prelude.seq` Prelude.rnf discoveryType
-      `Prelude.seq` Prelude.rnf lifeCycle
-      `Prelude.seq` Prelude.rnf opsCenterEnabled
-      `Prelude.seq` Prelude.rnf opsItemSNSTopicArn
-      `Prelude.seq` Prelude.rnf remarks
-      `Prelude.seq` Prelude.rnf resourceGroupName
+    Prelude.rnf autoConfigEnabled `Prelude.seq`
+      Prelude.rnf cWEMonitorEnabled `Prelude.seq`
+        Prelude.rnf discoveryType `Prelude.seq`
+          Prelude.rnf lifeCycle `Prelude.seq`
+            Prelude.rnf opsCenterEnabled `Prelude.seq`
+              Prelude.rnf opsItemSNSTopicArn `Prelude.seq`
+                Prelude.rnf remarks `Prelude.seq`
+                  Prelude.rnf resourceGroupName

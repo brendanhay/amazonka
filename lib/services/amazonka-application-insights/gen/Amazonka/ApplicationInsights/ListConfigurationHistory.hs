@@ -199,12 +199,12 @@ instance Prelude.Hashable ListConfigurationHistory where
 
 instance Prelude.NFData ListConfigurationHistory where
   rnf ListConfigurationHistory' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf eventStatus
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf eventStatus `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf resourceGroupName `Prelude.seq`
+              Prelude.rnf startTime
 
 instance Data.ToHeaders ListConfigurationHistory where
   toHeaders =
@@ -303,6 +303,6 @@ instance
     ListConfigurationHistoryResponse
   where
   rnf ListConfigurationHistoryResponse' {..} =
-    Prelude.rnf eventList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

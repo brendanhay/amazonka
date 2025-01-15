@@ -190,11 +190,11 @@ instance Prelude.Hashable CreateLogPattern where
 
 instance Prelude.NFData CreateLogPattern where
   rnf CreateLogPattern' {..} =
-    Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf patternSetName
-      `Prelude.seq` Prelude.rnf patternName
-      `Prelude.seq` Prelude.rnf pattern'
-      `Prelude.seq` Prelude.rnf rank
+    Prelude.rnf resourceGroupName `Prelude.seq`
+      Prelude.rnf patternSetName `Prelude.seq`
+        Prelude.rnf patternName `Prelude.seq`
+          Prelude.rnf pattern' `Prelude.seq`
+            Prelude.rnf rank
 
 instance Data.ToHeaders CreateLogPattern where
   toHeaders =
@@ -281,6 +281,6 @@ createLogPatternResponse_httpStatus = Lens.lens (\CreateLogPatternResponse' {htt
 
 instance Prelude.NFData CreateLogPatternResponse where
   rnf CreateLogPatternResponse' {..} =
-    Prelude.rnf logPattern
-      `Prelude.seq` Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf logPattern `Prelude.seq`
+      Prelude.rnf resourceGroupName `Prelude.seq`
+        Prelude.rnf httpStatus

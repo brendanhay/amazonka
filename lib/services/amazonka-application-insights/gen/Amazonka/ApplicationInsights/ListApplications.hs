@@ -117,8 +117,8 @@ instance Prelude.Hashable ListApplications where
 
 instance Prelude.NFData ListApplications where
   rnf ListApplications' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListApplications where
   toHeaders =
@@ -203,6 +203,6 @@ listApplicationsResponse_httpStatus = Lens.lens (\ListApplicationsResponse' {htt
 
 instance Prelude.NFData ListApplicationsResponse where
   rnf ListApplicationsResponse' {..} =
-    Prelude.rnf applicationInfoList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf applicationInfoList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

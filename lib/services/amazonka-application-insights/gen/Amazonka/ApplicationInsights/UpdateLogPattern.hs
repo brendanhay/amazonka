@@ -183,11 +183,11 @@ instance Prelude.Hashable UpdateLogPattern where
 
 instance Prelude.NFData UpdateLogPattern where
   rnf UpdateLogPattern' {..} =
-    Prelude.rnf pattern'
-      `Prelude.seq` Prelude.rnf rank
-      `Prelude.seq` Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf patternSetName
-      `Prelude.seq` Prelude.rnf patternName
+    Prelude.rnf pattern' `Prelude.seq`
+      Prelude.rnf rank `Prelude.seq`
+        Prelude.rnf resourceGroupName `Prelude.seq`
+          Prelude.rnf patternSetName `Prelude.seq`
+            Prelude.rnf patternName
 
 instance Data.ToHeaders UpdateLogPattern where
   toHeaders =
@@ -274,6 +274,6 @@ updateLogPatternResponse_httpStatus = Lens.lens (\UpdateLogPatternResponse' {htt
 
 instance Prelude.NFData UpdateLogPatternResponse where
   rnf UpdateLogPatternResponse' {..} =
-    Prelude.rnf logPattern
-      `Prelude.seq` Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf logPattern `Prelude.seq`
+      Prelude.rnf resourceGroupName `Prelude.seq`
+        Prelude.rnf httpStatus

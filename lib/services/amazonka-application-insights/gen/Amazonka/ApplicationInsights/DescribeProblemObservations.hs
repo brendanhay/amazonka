@@ -171,5 +171,5 @@ instance
     DescribeProblemObservationsResponse
   where
   rnf DescribeProblemObservationsResponse' {..} =
-    Prelude.rnf relatedObservations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf relatedObservations `Prelude.seq`
+      Prelude.rnf httpStatus

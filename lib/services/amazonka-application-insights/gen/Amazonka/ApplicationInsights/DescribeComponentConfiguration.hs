@@ -128,8 +128,8 @@ instance
     DescribeComponentConfiguration
   where
   rnf DescribeComponentConfiguration' {..} =
-    Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf componentName
+    Prelude.rnf resourceGroupName `Prelude.seq`
+      Prelude.rnf componentName
 
 instance
   Data.ToHeaders
@@ -238,7 +238,7 @@ instance
     DescribeComponentConfigurationResponse
   where
   rnf DescribeComponentConfigurationResponse' {..} =
-    Prelude.rnf componentConfiguration
-      `Prelude.seq` Prelude.rnf monitor
-      `Prelude.seq` Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf componentConfiguration `Prelude.seq`
+      Prelude.rnf monitor `Prelude.seq`
+        Prelude.rnf tier `Prelude.seq`
+          Prelude.rnf httpStatus

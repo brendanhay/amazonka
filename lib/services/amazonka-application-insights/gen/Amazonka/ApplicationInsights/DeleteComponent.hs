@@ -113,8 +113,8 @@ instance Prelude.Hashable DeleteComponent where
 
 instance Prelude.NFData DeleteComponent where
   rnf DeleteComponent' {..} =
-    Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf componentName
+    Prelude.rnf resourceGroupName `Prelude.seq`
+      Prelude.rnf componentName
 
 instance Data.ToHeaders DeleteComponent where
   toHeaders =

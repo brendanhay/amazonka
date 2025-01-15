@@ -140,9 +140,9 @@ instance
     DescribeComponentConfigurationRecommendation
   where
   rnf DescribeComponentConfigurationRecommendation' {..} =
-    Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf tier
+    Prelude.rnf resourceGroupName `Prelude.seq`
+      Prelude.rnf componentName `Prelude.seq`
+        Prelude.rnf tier
 
 instance
   Data.ToHeaders
@@ -239,5 +239,5 @@ instance
   where
   rnf
     DescribeComponentConfigurationRecommendationResponse' {..} =
-      Prelude.rnf componentConfiguration
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf componentConfiguration `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -157,7 +157,7 @@ instance Prelude.Hashable LogPattern where
 
 instance Prelude.NFData LogPattern where
   rnf LogPattern' {..} =
-    Prelude.rnf pattern'
-      `Prelude.seq` Prelude.rnf patternName
-      `Prelude.seq` Prelude.rnf patternSetName
-      `Prelude.seq` Prelude.rnf rank
+    Prelude.rnf pattern' `Prelude.seq`
+      Prelude.rnf patternName `Prelude.seq`
+        Prelude.rnf patternSetName `Prelude.seq`
+          Prelude.rnf rank

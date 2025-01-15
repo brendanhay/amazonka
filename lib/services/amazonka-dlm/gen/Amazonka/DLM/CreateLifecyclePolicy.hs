@@ -158,11 +158,11 @@ instance Prelude.Hashable CreateLifecyclePolicy where
 
 instance Prelude.NFData CreateLifecyclePolicy where
   rnf CreateLifecyclePolicy' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf policyDetails
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf executionRoleArn `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf policyDetails
 
 instance Data.ToHeaders CreateLifecyclePolicy where
   toHeaders =
@@ -236,5 +236,5 @@ createLifecyclePolicyResponse_httpStatus = Lens.lens (\CreateLifecyclePolicyResp
 
 instance Prelude.NFData CreateLifecyclePolicyResponse where
   rnf CreateLifecyclePolicyResponse' {..} =
-    Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policyId `Prelude.seq`
+      Prelude.rnf httpStatus

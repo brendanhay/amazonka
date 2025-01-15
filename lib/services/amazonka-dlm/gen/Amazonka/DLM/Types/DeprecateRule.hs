@@ -117,9 +117,9 @@ instance Prelude.Hashable DeprecateRule where
 
 instance Prelude.NFData DeprecateRule where
   rnf DeprecateRule' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf intervalUnit
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf interval `Prelude.seq`
+        Prelude.rnf intervalUnit
 
 instance Data.ToJSON DeprecateRule where
   toJSON DeprecateRule' {..} =

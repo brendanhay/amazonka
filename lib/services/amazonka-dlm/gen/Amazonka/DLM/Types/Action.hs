@@ -87,8 +87,8 @@ instance Prelude.Hashable Action where
 
 instance Prelude.NFData Action where
   rnf Action' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf crossRegionCopy
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf crossRegionCopy
 
 instance Data.ToJSON Action where
   toJSON Action' {..} =

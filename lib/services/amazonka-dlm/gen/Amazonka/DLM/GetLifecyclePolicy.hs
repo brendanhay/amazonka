@@ -155,5 +155,5 @@ getLifecyclePolicyResponse_httpStatus = Lens.lens (\GetLifecyclePolicyResponse' 
 
 instance Prelude.NFData GetLifecyclePolicyResponse where
   rnf GetLifecyclePolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf policy `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -103,9 +103,9 @@ instance Prelude.Hashable CrossRegionCopyAction where
 
 instance Prelude.NFData CrossRegionCopyAction where
   rnf CrossRegionCopyAction' {..} =
-    Prelude.rnf retainRule
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
+    Prelude.rnf retainRule `Prelude.seq`
+      Prelude.rnf target `Prelude.seq`
+        Prelude.rnf encryptionConfiguration
 
 instance Data.ToJSON CrossRegionCopyAction where
   toJSON CrossRegionCopyAction' {..} =

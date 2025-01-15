@@ -251,14 +251,14 @@ instance Prelude.Hashable PolicyDetails where
 
 instance Prelude.NFData PolicyDetails where
   rnf PolicyDetails' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf eventSource
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf policyType
-      `Prelude.seq` Prelude.rnf resourceLocations
-      `Prelude.seq` Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf schedules
-      `Prelude.seq` Prelude.rnf targetTags
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf eventSource `Prelude.seq`
+        Prelude.rnf parameters `Prelude.seq`
+          Prelude.rnf policyType `Prelude.seq`
+            Prelude.rnf resourceLocations `Prelude.seq`
+              Prelude.rnf resourceTypes `Prelude.seq`
+                Prelude.rnf schedules `Prelude.seq`
+                  Prelude.rnf targetTags
 
 instance Data.ToJSON PolicyDetails where
   toJSON PolicyDetails' {..} =

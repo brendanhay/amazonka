@@ -251,17 +251,17 @@ instance Prelude.Hashable Schedule where
 
 instance Prelude.NFData Schedule where
   rnf Schedule' {..} =
-    Prelude.rnf archiveRule
-      `Prelude.seq` Prelude.rnf copyTags
-      `Prelude.seq` Prelude.rnf createRule
-      `Prelude.seq` Prelude.rnf crossRegionCopyRules
-      `Prelude.seq` Prelude.rnf deprecateRule
-      `Prelude.seq` Prelude.rnf fastRestoreRule
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf retainRule
-      `Prelude.seq` Prelude.rnf shareRules
-      `Prelude.seq` Prelude.rnf tagsToAdd
-      `Prelude.seq` Prelude.rnf variableTags
+    Prelude.rnf archiveRule `Prelude.seq`
+      Prelude.rnf copyTags `Prelude.seq`
+        Prelude.rnf createRule `Prelude.seq`
+          Prelude.rnf crossRegionCopyRules `Prelude.seq`
+            Prelude.rnf deprecateRule `Prelude.seq`
+              Prelude.rnf fastRestoreRule `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf retainRule `Prelude.seq`
+                    Prelude.rnf shareRules `Prelude.seq`
+                      Prelude.rnf tagsToAdd `Prelude.seq`
+                        Prelude.rnf variableTags
 
 instance Data.ToJSON Schedule where
   toJSON Schedule' {..} =

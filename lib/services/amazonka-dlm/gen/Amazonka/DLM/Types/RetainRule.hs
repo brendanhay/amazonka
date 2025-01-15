@@ -144,9 +144,9 @@ instance Prelude.Hashable RetainRule where
 
 instance Prelude.NFData RetainRule where
   rnf RetainRule' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf intervalUnit
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf interval `Prelude.seq`
+        Prelude.rnf intervalUnit
 
 instance Data.ToJSON RetainRule where
   toJSON RetainRule' {..} =

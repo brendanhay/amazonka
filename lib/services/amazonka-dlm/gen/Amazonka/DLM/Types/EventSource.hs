@@ -88,8 +88,8 @@ instance Prelude.Hashable EventSource where
 
 instance Prelude.NFData EventSource where
   rnf EventSource' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf type'
 
 instance Data.ToJSON EventSource where
   toJSON EventSource' {..} =

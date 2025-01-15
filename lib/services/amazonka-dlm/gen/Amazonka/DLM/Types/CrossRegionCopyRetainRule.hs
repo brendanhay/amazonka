@@ -97,8 +97,8 @@ instance Prelude.Hashable CrossRegionCopyRetainRule where
 
 instance Prelude.NFData CrossRegionCopyRetainRule where
   rnf CrossRegionCopyRetainRule' {..} =
-    Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf intervalUnit
+    Prelude.rnf interval `Prelude.seq`
+      Prelude.rnf intervalUnit
 
 instance Data.ToJSON CrossRegionCopyRetainRule where
   toJSON CrossRegionCopyRetainRule' {..} =

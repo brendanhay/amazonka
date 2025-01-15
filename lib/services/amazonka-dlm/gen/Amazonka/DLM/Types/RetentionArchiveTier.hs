@@ -125,9 +125,9 @@ instance Prelude.Hashable RetentionArchiveTier where
 
 instance Prelude.NFData RetentionArchiveTier where
   rnf RetentionArchiveTier' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf intervalUnit
+    Prelude.rnf count `Prelude.seq`
+      Prelude.rnf interval `Prelude.seq`
+        Prelude.rnf intervalUnit
 
 instance Data.ToJSON RetentionArchiveTier where
   toJSON RetentionArchiveTier' {..} =

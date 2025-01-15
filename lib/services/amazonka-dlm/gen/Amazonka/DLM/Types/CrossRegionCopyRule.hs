@@ -191,13 +191,13 @@ instance Prelude.Hashable CrossRegionCopyRule where
 
 instance Prelude.NFData CrossRegionCopyRule where
   rnf CrossRegionCopyRule' {..} =
-    Prelude.rnf cmkArn
-      `Prelude.seq` Prelude.rnf copyTags
-      `Prelude.seq` Prelude.rnf deprecateRule
-      `Prelude.seq` Prelude.rnf retainRule
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf targetRegion
-      `Prelude.seq` Prelude.rnf encrypted
+    Prelude.rnf cmkArn `Prelude.seq`
+      Prelude.rnf copyTags `Prelude.seq`
+        Prelude.rnf deprecateRule `Prelude.seq`
+          Prelude.rnf retainRule `Prelude.seq`
+            Prelude.rnf target `Prelude.seq`
+              Prelude.rnf targetRegion `Prelude.seq`
+                Prelude.rnf encrypted
 
 instance Data.ToJSON CrossRegionCopyRule where
   toJSON CrossRegionCopyRule' {..} =

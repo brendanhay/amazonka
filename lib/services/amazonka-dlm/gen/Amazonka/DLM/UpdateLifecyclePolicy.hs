@@ -149,11 +149,11 @@ instance Prelude.Hashable UpdateLifecyclePolicy where
 
 instance Prelude.NFData UpdateLifecyclePolicy where
   rnf UpdateLifecyclePolicy' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf policyDetails
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf policyId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf executionRoleArn `Prelude.seq`
+        Prelude.rnf policyDetails `Prelude.seq`
+          Prelude.rnf state `Prelude.seq`
+            Prelude.rnf policyId
 
 instance Data.ToHeaders UpdateLifecyclePolicy where
   toHeaders =

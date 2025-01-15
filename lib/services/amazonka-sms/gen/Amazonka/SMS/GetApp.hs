@@ -180,7 +180,7 @@ getAppResponse_httpStatus = Lens.lens (\GetAppResponse' {httpStatus} -> httpStat
 
 instance Prelude.NFData GetAppResponse where
   rnf GetAppResponse' {..} =
-    Prelude.rnf appSummary
-      `Prelude.seq` Prelude.rnf serverGroups
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appSummary `Prelude.seq`
+      Prelude.rnf serverGroups `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf httpStatus

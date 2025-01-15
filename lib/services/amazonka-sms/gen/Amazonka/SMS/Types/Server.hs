@@ -115,11 +115,11 @@ instance Prelude.Hashable Server where
 
 instance Prelude.NFData Server where
   rnf Server' {..} =
-    Prelude.rnf replicationJobId
-      `Prelude.seq` Prelude.rnf replicationJobTerminated
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf serverType
-      `Prelude.seq` Prelude.rnf vmServer
+    Prelude.rnf replicationJobId `Prelude.seq`
+      Prelude.rnf replicationJobTerminated `Prelude.seq`
+        Prelude.rnf serverId `Prelude.seq`
+          Prelude.rnf serverType `Prelude.seq`
+            Prelude.rnf vmServer
 
 instance Data.ToJSON Server where
   toJSON Server' {..} =

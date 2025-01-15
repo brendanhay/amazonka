@@ -139,10 +139,10 @@ instance Prelude.Hashable ValidationOutput where
 
 instance Prelude.NFData ValidationOutput where
   rnf ValidationOutput' {..} =
-    Prelude.rnf appValidationOutput
-      `Prelude.seq` Prelude.rnf latestValidationTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf serverValidationOutput
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf validationId
+    Prelude.rnf appValidationOutput `Prelude.seq`
+      Prelude.rnf latestValidationTime `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf serverValidationOutput `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf statusMessage `Prelude.seq`
+                Prelude.rnf validationId

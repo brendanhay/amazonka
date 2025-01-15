@@ -155,12 +155,12 @@ instance Prelude.Hashable UpdateApp where
 
 instance Prelude.NFData UpdateApp where
   rnf UpdateApp' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf serverGroups
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf roleName `Prelude.seq`
+            Prelude.rnf serverGroups `Prelude.seq`
+              Prelude.rnf tags
 
 instance Data.ToHeaders UpdateApp where
   toHeaders =
@@ -254,7 +254,7 @@ updateAppResponse_httpStatus = Lens.lens (\UpdateAppResponse' {httpStatus} -> ht
 
 instance Prelude.NFData UpdateAppResponse where
   rnf UpdateAppResponse' {..} =
-    Prelude.rnf appSummary
-      `Prelude.seq` Prelude.rnf serverGroups
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appSummary `Prelude.seq`
+      Prelude.rnf serverGroups `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf httpStatus

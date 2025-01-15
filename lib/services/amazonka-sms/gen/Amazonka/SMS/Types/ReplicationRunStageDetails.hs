@@ -81,5 +81,5 @@ instance Prelude.Hashable ReplicationRunStageDetails where
 
 instance Prelude.NFData ReplicationRunStageDetails where
   rnf ReplicationRunStageDetails' {..} =
-    Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf stageProgress
+    Prelude.rnf stage `Prelude.seq`
+      Prelude.rnf stageProgress

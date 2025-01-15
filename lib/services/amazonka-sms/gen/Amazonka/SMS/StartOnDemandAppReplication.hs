@@ -107,8 +107,8 @@ instance Prelude.Hashable StartOnDemandAppReplication where
 
 instance Prelude.NFData StartOnDemandAppReplication where
   rnf StartOnDemandAppReplication' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf appId
 
 instance Data.ToHeaders StartOnDemandAppReplication where
   toHeaders =

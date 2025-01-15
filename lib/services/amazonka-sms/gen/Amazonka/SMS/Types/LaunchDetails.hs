@@ -91,6 +91,6 @@ instance Prelude.Hashable LaunchDetails where
 
 instance Prelude.NFData LaunchDetails where
   rnf LaunchDetails' {..} =
-    Prelude.rnf latestLaunchTime
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf latestLaunchTime `Prelude.seq`
+      Prelude.rnf stackId `Prelude.seq`
+        Prelude.rnf stackName

@@ -120,11 +120,11 @@ instance
 
 instance Prelude.NFData ServerValidationConfiguration where
   rnf ServerValidationConfiguration' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf server
-      `Prelude.seq` Prelude.rnf serverValidationStrategy
-      `Prelude.seq` Prelude.rnf userDataValidationParameters
-      `Prelude.seq` Prelude.rnf validationId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf server `Prelude.seq`
+        Prelude.rnf serverValidationStrategy `Prelude.seq`
+          Prelude.rnf userDataValidationParameters `Prelude.seq`
+            Prelude.rnf validationId
 
 instance Data.ToJSON ServerValidationConfiguration where
   toJSON ServerValidationConfiguration' {..} =

@@ -171,13 +171,13 @@ instance Prelude.Hashable Connector where
 
 instance Prelude.NFData Connector where
   rnf Connector' {..} =
-    Prelude.rnf associatedOn
-      `Prelude.seq` Prelude.rnf capabilityList
-      `Prelude.seq` Prelude.rnf connectorId
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf macAddress
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf vmManagerId
-      `Prelude.seq` Prelude.rnf vmManagerName
-      `Prelude.seq` Prelude.rnf vmManagerType
+    Prelude.rnf associatedOn `Prelude.seq`
+      Prelude.rnf capabilityList `Prelude.seq`
+        Prelude.rnf connectorId `Prelude.seq`
+          Prelude.rnf ipAddress `Prelude.seq`
+            Prelude.rnf macAddress `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf version `Prelude.seq`
+                  Prelude.rnf vmManagerId `Prelude.seq`
+                    Prelude.rnf vmManagerName `Prelude.seq`
+                      Prelude.rnf vmManagerType

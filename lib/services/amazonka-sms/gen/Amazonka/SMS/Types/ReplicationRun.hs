@@ -218,14 +218,14 @@ instance Prelude.Hashable ReplicationRun where
 
 instance Prelude.NFData ReplicationRun where
   rnf ReplicationRun' {..} =
-    Prelude.rnf amiId
-      `Prelude.seq` Prelude.rnf completedTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf replicationRunId
-      `Prelude.seq` Prelude.rnf scheduledStartTime
-      `Prelude.seq` Prelude.rnf stageDetails
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf amiId `Prelude.seq`
+      Prelude.rnf completedTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf encrypted `Prelude.seq`
+            Prelude.rnf kmsKeyId `Prelude.seq`
+              Prelude.rnf replicationRunId `Prelude.seq`
+                Prelude.rnf scheduledStartTime `Prelude.seq`
+                  Prelude.rnf stageDetails `Prelude.seq`
+                    Prelude.rnf state `Prelude.seq`
+                      Prelude.rnf statusMessage `Prelude.seq`
+                        Prelude.rnf type'

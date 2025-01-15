@@ -105,10 +105,10 @@ instance Prelude.Hashable AppValidationConfiguration where
 
 instance Prelude.NFData AppValidationConfiguration where
   rnf AppValidationConfiguration' {..} =
-    Prelude.rnf appValidationStrategy
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ssmValidationParameters
-      `Prelude.seq` Prelude.rnf validationId
+    Prelude.rnf appValidationStrategy `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf ssmValidationParameters `Prelude.seq`
+          Prelude.rnf validationId
 
 instance Data.ToJSON AppValidationConfiguration where
   toJSON AppValidationConfiguration' {..} =

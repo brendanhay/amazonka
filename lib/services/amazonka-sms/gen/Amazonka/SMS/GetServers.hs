@@ -123,12 +123,12 @@ instance Core.AWSPager GetServers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getServers_nextToken
-          Lens..~ rs
-          Lens.^? getServersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getServers_nextToken
+              Lens..~ rs
+              Lens.^? getServersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetServers where
   type AWSResponse GetServers = GetServersResponse
@@ -154,9 +154,9 @@ instance Prelude.Hashable GetServers where
 
 instance Prelude.NFData GetServers where
   rnf GetServers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vmServerAddressList
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf vmServerAddressList
 
 instance Data.ToHeaders GetServers where
   toHeaders =
@@ -261,8 +261,8 @@ getServersResponse_httpStatus = Lens.lens (\GetServersResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetServersResponse where
   rnf GetServersResponse' {..} =
-    Prelude.rnf lastModifiedOn
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serverCatalogStatus
-      `Prelude.seq` Prelude.rnf serverList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lastModifiedOn `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf serverCatalogStatus `Prelude.seq`
+          Prelude.rnf serverList `Prelude.seq`
+            Prelude.rnf httpStatus

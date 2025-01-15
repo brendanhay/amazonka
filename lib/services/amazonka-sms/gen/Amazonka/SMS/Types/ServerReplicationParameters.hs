@@ -176,13 +176,13 @@ instance Prelude.Hashable ServerReplicationParameters where
 
 instance Prelude.NFData ServerReplicationParameters where
   rnf ServerReplicationParameters' {..} =
-    Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf frequency
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf licenseType
-      `Prelude.seq` Prelude.rnf numberOfRecentAmisToKeep
-      `Prelude.seq` Prelude.rnf runOnce
-      `Prelude.seq` Prelude.rnf seedTime
+    Prelude.rnf encrypted `Prelude.seq`
+      Prelude.rnf frequency `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf licenseType `Prelude.seq`
+            Prelude.rnf numberOfRecentAmisToKeep `Prelude.seq`
+              Prelude.rnf runOnce `Prelude.seq`
+                Prelude.rnf seedTime
 
 instance Data.ToJSON ServerReplicationParameters where
   toJSON ServerReplicationParameters' {..} =

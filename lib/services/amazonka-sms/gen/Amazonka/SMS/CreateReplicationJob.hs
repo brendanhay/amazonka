@@ -246,16 +246,16 @@ instance Prelude.Hashable CreateReplicationJob where
 
 instance Prelude.NFData CreateReplicationJob where
   rnf CreateReplicationJob' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf frequency
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf licenseType
-      `Prelude.seq` Prelude.rnf numberOfRecentAmisToKeep
-      `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf runOnce
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf seedReplicationTime
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf encrypted `Prelude.seq`
+        Prelude.rnf frequency `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf licenseType `Prelude.seq`
+              Prelude.rnf numberOfRecentAmisToKeep `Prelude.seq`
+                Prelude.rnf roleName `Prelude.seq`
+                  Prelude.rnf runOnce `Prelude.seq`
+                    Prelude.rnf serverId `Prelude.seq`
+                      Prelude.rnf seedReplicationTime
 
 instance Data.ToHeaders CreateReplicationJob where
   toHeaders =
@@ -338,5 +338,5 @@ createReplicationJobResponse_httpStatus = Lens.lens (\CreateReplicationJobRespon
 
 instance Prelude.NFData CreateReplicationJobResponse where
   rnf CreateReplicationJobResponse' {..} =
-    Prelude.rnf replicationJobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf replicationJobId `Prelude.seq`
+      Prelude.rnf httpStatus

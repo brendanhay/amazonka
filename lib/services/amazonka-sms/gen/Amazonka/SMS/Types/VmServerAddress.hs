@@ -80,8 +80,8 @@ instance Prelude.Hashable VmServerAddress where
 
 instance Prelude.NFData VmServerAddress where
   rnf VmServerAddress' {..} =
-    Prelude.rnf vmId
-      `Prelude.seq` Prelude.rnf vmManagerId
+    Prelude.rnf vmId `Prelude.seq`
+      Prelude.rnf vmManagerId
 
 instance Data.ToJSON VmServerAddress where
   toJSON VmServerAddress' {..} =

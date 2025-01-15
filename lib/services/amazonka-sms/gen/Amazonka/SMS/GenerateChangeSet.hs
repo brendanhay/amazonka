@@ -107,8 +107,8 @@ instance Prelude.Hashable GenerateChangeSet where
 
 instance Prelude.NFData GenerateChangeSet where
   rnf GenerateChangeSet' {..} =
-    Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf changesetFormat
+    Prelude.rnf appId `Prelude.seq`
+      Prelude.rnf changesetFormat
 
 instance Data.ToHeaders GenerateChangeSet where
   toHeaders =
@@ -182,5 +182,5 @@ generateChangeSetResponse_httpStatus = Lens.lens (\GenerateChangeSetResponse' {h
 
 instance Prelude.NFData GenerateChangeSetResponse where
   rnf GenerateChangeSetResponse' {..} =
-    Prelude.rnf s3Location
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf s3Location `Prelude.seq`
+      Prelude.rnf httpStatus

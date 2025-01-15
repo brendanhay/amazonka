@@ -193,6 +193,6 @@ instance
     GetAppValidationConfigurationResponse
   where
   rnf GetAppValidationConfigurationResponse' {..} =
-    Prelude.rnf appValidationConfigurations
-      `Prelude.seq` Prelude.rnf serverGroupValidationConfigurations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appValidationConfigurations `Prelude.seq`
+      Prelude.rnf serverGroupValidationConfigurations `Prelude.seq`
+        Prelude.rnf httpStatus

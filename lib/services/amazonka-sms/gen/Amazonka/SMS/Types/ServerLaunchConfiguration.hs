@@ -203,18 +203,18 @@ instance Prelude.Hashable ServerLaunchConfiguration where
 
 instance Prelude.NFData ServerLaunchConfiguration where
   rnf ServerLaunchConfiguration' {..} =
-    Prelude.rnf associatePublicIpAddress
-      `Prelude.seq` Prelude.rnf configureScript
-      `Prelude.seq` Prelude.rnf configureScriptType
-      `Prelude.seq` Prelude.rnf ec2KeyName
-      `Prelude.seq` Prelude.rnf iamInstanceProfileName
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf logicalId
-      `Prelude.seq` Prelude.rnf securityGroup
-      `Prelude.seq` Prelude.rnf server
-      `Prelude.seq` Prelude.rnf subnet
-      `Prelude.seq` Prelude.rnf userData
-      `Prelude.seq` Prelude.rnf vpc
+    Prelude.rnf associatePublicIpAddress `Prelude.seq`
+      Prelude.rnf configureScript `Prelude.seq`
+        Prelude.rnf configureScriptType `Prelude.seq`
+          Prelude.rnf ec2KeyName `Prelude.seq`
+            Prelude.rnf iamInstanceProfileName `Prelude.seq`
+              Prelude.rnf instanceType `Prelude.seq`
+                Prelude.rnf logicalId `Prelude.seq`
+                  Prelude.rnf securityGroup `Prelude.seq`
+                    Prelude.rnf server `Prelude.seq`
+                      Prelude.rnf subnet `Prelude.seq`
+                        Prelude.rnf userData `Prelude.seq`
+                          Prelude.rnf vpc
 
 instance Data.ToJSON ServerLaunchConfiguration where
   toJSON ServerLaunchConfiguration' {..} =

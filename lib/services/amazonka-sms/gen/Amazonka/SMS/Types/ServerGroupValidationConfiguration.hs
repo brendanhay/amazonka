@@ -97,8 +97,8 @@ instance
     ServerGroupValidationConfiguration
   where
   rnf ServerGroupValidationConfiguration' {..} =
-    Prelude.rnf serverGroupId
-      `Prelude.seq` Prelude.rnf serverValidationConfigurations
+    Prelude.rnf serverGroupId `Prelude.seq`
+      Prelude.rnf serverValidationConfigurations
 
 instance
   Data.ToJSON

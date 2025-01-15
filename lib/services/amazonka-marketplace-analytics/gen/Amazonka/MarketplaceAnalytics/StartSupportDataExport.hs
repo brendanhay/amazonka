@@ -262,13 +262,13 @@ instance Prelude.Hashable StartSupportDataExport where
 
 instance Prelude.NFData StartSupportDataExport where
   rnf StartSupportDataExport' {..} =
-    Prelude.rnf customerDefinedValues
-      `Prelude.seq` Prelude.rnf destinationS3Prefix
-      `Prelude.seq` Prelude.rnf dataSetType
-      `Prelude.seq` Prelude.rnf fromDate
-      `Prelude.seq` Prelude.rnf roleNameArn
-      `Prelude.seq` Prelude.rnf destinationS3BucketName
-      `Prelude.seq` Prelude.rnf snsTopicArn
+    Prelude.rnf customerDefinedValues `Prelude.seq`
+      Prelude.rnf destinationS3Prefix `Prelude.seq`
+        Prelude.rnf dataSetType `Prelude.seq`
+          Prelude.rnf fromDate `Prelude.seq`
+            Prelude.rnf roleNameArn `Prelude.seq`
+              Prelude.rnf destinationS3BucketName `Prelude.seq`
+                Prelude.rnf snsTopicArn
 
 instance Data.ToHeaders StartSupportDataExport where
   toHeaders =
@@ -362,5 +362,5 @@ instance
     StartSupportDataExportResponse
   where
   rnf StartSupportDataExportResponse' {..} =
-    Prelude.rnf dataSetRequestId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataSetRequestId `Prelude.seq`
+      Prelude.rnf httpStatus

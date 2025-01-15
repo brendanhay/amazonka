@@ -117,8 +117,8 @@ instance Prelude.Hashable DescribeMigrationTask where
 
 instance Prelude.NFData DescribeMigrationTask where
   rnf DescribeMigrationTask' {..} =
-    Prelude.rnf progressUpdateStream
-      `Prelude.seq` Prelude.rnf migrationTaskName
+    Prelude.rnf progressUpdateStream `Prelude.seq`
+      Prelude.rnf migrationTaskName
 
 instance Data.ToHeaders DescribeMigrationTask where
   toHeaders =
@@ -195,5 +195,5 @@ describeMigrationTaskResponse_httpStatus = Lens.lens (\DescribeMigrationTaskResp
 
 instance Prelude.NFData DescribeMigrationTaskResponse where
   rnf DescribeMigrationTaskResponse' {..} =
-    Prelude.rnf migrationTask
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf migrationTask `Prelude.seq`
+      Prelude.rnf httpStatus

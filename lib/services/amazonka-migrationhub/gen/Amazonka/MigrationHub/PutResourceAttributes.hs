@@ -218,10 +218,10 @@ instance Prelude.Hashable PutResourceAttributes where
 
 instance Prelude.NFData PutResourceAttributes where
   rnf PutResourceAttributes' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf progressUpdateStream
-      `Prelude.seq` Prelude.rnf migrationTaskName
-      `Prelude.seq` Prelude.rnf resourceAttributeList
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf progressUpdateStream `Prelude.seq`
+        Prelude.rnf migrationTaskName `Prelude.seq`
+          Prelude.rnf resourceAttributeList
 
 instance Data.ToHeaders PutResourceAttributes where
   toHeaders =

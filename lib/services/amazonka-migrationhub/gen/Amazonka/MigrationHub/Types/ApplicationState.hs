@@ -97,6 +97,6 @@ instance Prelude.Hashable ApplicationState where
 
 instance Prelude.NFData ApplicationState where
   rnf ApplicationState' {..} =
-    Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf applicationStatus
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
+    Prelude.rnf applicationId `Prelude.seq`
+      Prelude.rnf applicationStatus `Prelude.seq`
+        Prelude.rnf lastUpdatedTime

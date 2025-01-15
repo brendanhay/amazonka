@@ -157,10 +157,10 @@ instance Prelude.Hashable AssociateCreatedArtifact where
 
 instance Prelude.NFData AssociateCreatedArtifact where
   rnf AssociateCreatedArtifact' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf progressUpdateStream
-      `Prelude.seq` Prelude.rnf migrationTaskName
-      `Prelude.seq` Prelude.rnf createdArtifact
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf progressUpdateStream `Prelude.seq`
+        Prelude.rnf migrationTaskName `Prelude.seq`
+          Prelude.rnf createdArtifact
 
 instance Data.ToHeaders AssociateCreatedArtifact where
   toHeaders =

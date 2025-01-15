@@ -189,12 +189,12 @@ instance Prelude.Hashable NotifyMigrationTaskState where
 
 instance Prelude.NFData NotifyMigrationTaskState where
   rnf NotifyMigrationTaskState' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf progressUpdateStream
-      `Prelude.seq` Prelude.rnf migrationTaskName
-      `Prelude.seq` Prelude.rnf task
-      `Prelude.seq` Prelude.rnf updateDateTime
-      `Prelude.seq` Prelude.rnf nextUpdateSeconds
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf progressUpdateStream `Prelude.seq`
+        Prelude.rnf migrationTaskName `Prelude.seq`
+          Prelude.rnf task `Prelude.seq`
+            Prelude.rnf updateDateTime `Prelude.seq`
+              Prelude.rnf nextUpdateSeconds
 
 instance Data.ToHeaders NotifyMigrationTaskState where
   toHeaders =

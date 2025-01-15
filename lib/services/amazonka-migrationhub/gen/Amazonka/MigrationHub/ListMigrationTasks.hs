@@ -126,12 +126,12 @@ instance Core.AWSPager ListMigrationTasks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listMigrationTasks_nextToken
-          Lens..~ rs
-          Lens.^? listMigrationTasksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listMigrationTasks_nextToken
+              Lens..~ rs
+              Lens.^? listMigrationTasksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMigrationTasks where
   type
@@ -160,9 +160,9 @@ instance Prelude.Hashable ListMigrationTasks where
 
 instance Prelude.NFData ListMigrationTasks where
   rnf ListMigrationTasks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceName
 
 instance Data.ToHeaders ListMigrationTasks where
   toHeaders =
@@ -257,6 +257,6 @@ listMigrationTasksResponse_httpStatus = Lens.lens (\ListMigrationTasksResponse' 
 
 instance Prelude.NFData ListMigrationTasksResponse where
   rnf ListMigrationTasksResponse' {..} =
-    Prelude.rnf migrationTaskSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf migrationTaskSummaryList `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

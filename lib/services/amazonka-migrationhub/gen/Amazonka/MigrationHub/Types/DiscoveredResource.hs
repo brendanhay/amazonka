@@ -88,8 +88,8 @@ instance Prelude.Hashable DiscoveredResource where
 
 instance Prelude.NFData DiscoveredResource where
   rnf DiscoveredResource' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf configurationId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf configurationId
 
 instance Data.ToJSON DiscoveredResource where
   toJSON DiscoveredResource' {..} =

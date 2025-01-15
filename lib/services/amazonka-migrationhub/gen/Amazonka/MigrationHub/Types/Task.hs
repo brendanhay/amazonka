@@ -100,9 +100,9 @@ instance Prelude.Hashable Task where
 
 instance Prelude.NFData Task where
   rnf Task' {..} =
-    Prelude.rnf progressPercent
-      `Prelude.seq` Prelude.rnf statusDetail
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf progressPercent `Prelude.seq`
+      Prelude.rnf statusDetail `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToJSON Task where
   toJSON Task' {..} =

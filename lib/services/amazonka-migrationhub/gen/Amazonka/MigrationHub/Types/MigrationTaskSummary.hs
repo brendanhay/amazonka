@@ -136,9 +136,9 @@ instance Prelude.Hashable MigrationTaskSummary where
 
 instance Prelude.NFData MigrationTaskSummary where
   rnf MigrationTaskSummary' {..} =
-    Prelude.rnf migrationTaskName
-      `Prelude.seq` Prelude.rnf progressPercent
-      `Prelude.seq` Prelude.rnf progressUpdateStream
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDetail
-      `Prelude.seq` Prelude.rnf updateDateTime
+    Prelude.rnf migrationTaskName `Prelude.seq`
+      Prelude.rnf progressPercent `Prelude.seq`
+        Prelude.rnf progressUpdateStream `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf statusDetail `Prelude.seq`
+              Prelude.rnf updateDateTime

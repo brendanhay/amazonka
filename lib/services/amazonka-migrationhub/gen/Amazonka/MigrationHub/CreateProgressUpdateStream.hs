@@ -120,8 +120,8 @@ instance Prelude.Hashable CreateProgressUpdateStream where
 
 instance Prelude.NFData CreateProgressUpdateStream where
   rnf CreateProgressUpdateStream' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf progressUpdateStreamName
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf progressUpdateStreamName
 
 instance Data.ToHeaders CreateProgressUpdateStream where
   toHeaders =

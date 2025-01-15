@@ -159,10 +159,10 @@ instance Prelude.Hashable DisassociateCreatedArtifact where
 
 instance Prelude.NFData DisassociateCreatedArtifact where
   rnf DisassociateCreatedArtifact' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf progressUpdateStream
-      `Prelude.seq` Prelude.rnf migrationTaskName
-      `Prelude.seq` Prelude.rnf createdArtifactName
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf progressUpdateStream `Prelude.seq`
+        Prelude.rnf migrationTaskName `Prelude.seq`
+          Prelude.rnf createdArtifactName
 
 instance Data.ToHeaders DisassociateCreatedArtifact where
   toHeaders =

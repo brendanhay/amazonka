@@ -132,9 +132,9 @@ instance Prelude.Hashable ImportMigrationTask where
 
 instance Prelude.NFData ImportMigrationTask where
   rnf ImportMigrationTask' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf progressUpdateStream
-      `Prelude.seq` Prelude.rnf migrationTaskName
+    Prelude.rnf dryRun `Prelude.seq`
+      Prelude.rnf progressUpdateStream `Prelude.seq`
+        Prelude.rnf migrationTaskName
 
 instance Data.ToHeaders ImportMigrationTask where
   toHeaders =

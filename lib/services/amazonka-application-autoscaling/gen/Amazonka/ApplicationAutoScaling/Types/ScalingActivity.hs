@@ -626,15 +626,15 @@ instance Prelude.Hashable ScalingActivity where
 
 instance Prelude.NFData ScalingActivity where
   rnf ScalingActivity' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf notScaledReasons
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf activityId
-      `Prelude.seq` Prelude.rnf serviceNamespace
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf scalableDimension
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf cause
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf details `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf notScaledReasons `Prelude.seq`
+          Prelude.rnf statusMessage `Prelude.seq`
+            Prelude.rnf activityId `Prelude.seq`
+              Prelude.rnf serviceNamespace `Prelude.seq`
+                Prelude.rnf resourceId `Prelude.seq`
+                  Prelude.rnf scalableDimension `Prelude.seq`
+                    Prelude.rnf description `Prelude.seq`
+                      Prelude.rnf cause `Prelude.seq`
+                        Prelude.rnf startTime `Prelude.seq`
+                          Prelude.rnf statusCode

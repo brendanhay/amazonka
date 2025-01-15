@@ -120,8 +120,8 @@ instance Prelude.Hashable ScalableTargetAction where
 
 instance Prelude.NFData ScalableTargetAction where
   rnf ScalableTargetAction' {..} =
-    Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf minCapacity
+    Prelude.rnf maxCapacity `Prelude.seq`
+      Prelude.rnf minCapacity
 
 instance Data.ToJSON ScalableTargetAction where
   toJSON ScalableTargetAction' {..} =

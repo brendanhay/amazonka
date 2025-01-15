@@ -450,12 +450,12 @@ instance
     TargetTrackingScalingPolicyConfiguration
   where
   rnf TargetTrackingScalingPolicyConfiguration' {..} =
-    Prelude.rnf customizedMetricSpecification
-      `Prelude.seq` Prelude.rnf disableScaleIn
-      `Prelude.seq` Prelude.rnf predefinedMetricSpecification
-      `Prelude.seq` Prelude.rnf scaleInCooldown
-      `Prelude.seq` Prelude.rnf scaleOutCooldown
-      `Prelude.seq` Prelude.rnf targetValue
+    Prelude.rnf customizedMetricSpecification `Prelude.seq`
+      Prelude.rnf disableScaleIn `Prelude.seq`
+        Prelude.rnf predefinedMetricSpecification `Prelude.seq`
+          Prelude.rnf scaleInCooldown `Prelude.seq`
+            Prelude.rnf scaleOutCooldown `Prelude.seq`
+              Prelude.rnf targetValue
 
 instance
   Data.ToJSON

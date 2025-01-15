@@ -717,15 +717,15 @@ instance Prelude.Hashable PutScheduledAction where
 
 instance Prelude.NFData PutScheduledAction where
   rnf PutScheduledAction' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf scalableTargetAction
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf timezone
-      `Prelude.seq` Prelude.rnf serviceNamespace
-      `Prelude.seq` Prelude.rnf scheduledActionName
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf scalableDimension
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf scalableTargetAction `Prelude.seq`
+        Prelude.rnf schedule `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf timezone `Prelude.seq`
+              Prelude.rnf serviceNamespace `Prelude.seq`
+                Prelude.rnf scheduledActionName `Prelude.seq`
+                  Prelude.rnf resourceId `Prelude.seq`
+                    Prelude.rnf scalableDimension
 
 instance Data.ToHeaders PutScheduledAction where
   toHeaders =

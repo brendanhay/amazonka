@@ -172,8 +172,8 @@ instance
 
 instance Prelude.NFData PredefinedMetricSpecification where
   rnf PredefinedMetricSpecification' {..} =
-    Prelude.rnf resourceLabel
-      `Prelude.seq` Prelude.rnf predefinedMetricType
+    Prelude.rnf resourceLabel `Prelude.seq`
+      Prelude.rnf predefinedMetricType
 
 instance Data.ToJSON PredefinedMetricSpecification where
   toJSON PredefinedMetricSpecification' {..} =

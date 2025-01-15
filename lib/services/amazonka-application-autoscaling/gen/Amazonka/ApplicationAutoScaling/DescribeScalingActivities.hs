@@ -587,12 +587,12 @@ instance Core.AWSPager DescribeScalingActivities where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeScalingActivities_nextToken
-          Lens..~ rs
-          Lens.^? describeScalingActivitiesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeScalingActivities_nextToken
+              Lens..~ rs
+              Lens.^? describeScalingActivitiesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScalingActivities where
   type
@@ -624,12 +624,12 @@ instance Prelude.Hashable DescribeScalingActivities where
 
 instance Prelude.NFData DescribeScalingActivities where
   rnf DescribeScalingActivities' {..} =
-    Prelude.rnf includeNotScaledActivities
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf scalableDimension
-      `Prelude.seq` Prelude.rnf serviceNamespace
+    Prelude.rnf includeNotScaledActivities `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf resourceId `Prelude.seq`
+            Prelude.rnf scalableDimension `Prelude.seq`
+              Prelude.rnf serviceNamespace
 
 instance Data.ToHeaders DescribeScalingActivities where
   toHeaders =
@@ -724,6 +724,6 @@ instance
     DescribeScalingActivitiesResponse
   where
   rnf DescribeScalingActivitiesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scalingActivities
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf scalingActivities `Prelude.seq`
+        Prelude.rnf httpStatus

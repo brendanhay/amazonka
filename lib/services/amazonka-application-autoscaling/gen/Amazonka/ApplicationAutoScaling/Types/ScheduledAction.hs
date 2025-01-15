@@ -680,14 +680,14 @@ instance Prelude.Hashable ScheduledAction where
 
 instance Prelude.NFData ScheduledAction where
   rnf ScheduledAction' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf scalableDimension
-      `Prelude.seq` Prelude.rnf scalableTargetAction
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf timezone
-      `Prelude.seq` Prelude.rnf scheduledActionName
-      `Prelude.seq` Prelude.rnf scheduledActionARN
-      `Prelude.seq` Prelude.rnf serviceNamespace
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf scalableDimension `Prelude.seq`
+        Prelude.rnf scalableTargetAction `Prelude.seq`
+          Prelude.rnf startTime `Prelude.seq`
+            Prelude.rnf timezone `Prelude.seq`
+              Prelude.rnf scheduledActionName `Prelude.seq`
+                Prelude.rnf scheduledActionARN `Prelude.seq`
+                  Prelude.rnf serviceNamespace `Prelude.seq`
+                    Prelude.rnf schedule `Prelude.seq`
+                      Prelude.rnf resourceId `Prelude.seq`
+                        Prelude.rnf creationTime

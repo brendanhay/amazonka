@@ -560,12 +560,12 @@ instance Core.AWSPager DescribeScalableTargets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeScalableTargets_nextToken
-          Lens..~ rs
-          Lens.^? describeScalableTargetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeScalableTargets_nextToken
+              Lens..~ rs
+              Lens.^? describeScalableTargetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScalableTargets where
   type
@@ -596,11 +596,11 @@ instance Prelude.Hashable DescribeScalableTargets where
 
 instance Prelude.NFData DescribeScalableTargets where
   rnf DescribeScalableTargets' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceIds
-      `Prelude.seq` Prelude.rnf scalableDimension
-      `Prelude.seq` Prelude.rnf serviceNamespace
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf resourceIds `Prelude.seq`
+          Prelude.rnf scalableDimension `Prelude.seq`
+            Prelude.rnf serviceNamespace
 
 instance Data.ToHeaders DescribeScalableTargets where
   toHeaders =
@@ -693,6 +693,6 @@ instance
     DescribeScalableTargetsResponse
   where
   rnf DescribeScalableTargetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scalableTargets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf scalableTargets `Prelude.seq`
+        Prelude.rnf httpStatus

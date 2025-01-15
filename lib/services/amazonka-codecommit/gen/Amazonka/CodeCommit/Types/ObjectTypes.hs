@@ -92,6 +92,6 @@ instance Prelude.Hashable ObjectTypes where
 
 instance Prelude.NFData ObjectTypes where
   rnf ObjectTypes' {..} =
-    Prelude.rnf base
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf base `Prelude.seq`
+      Prelude.rnf destination `Prelude.seq`
+        Prelude.rnf source

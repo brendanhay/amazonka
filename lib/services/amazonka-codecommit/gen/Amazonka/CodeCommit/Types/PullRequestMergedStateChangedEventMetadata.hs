@@ -106,6 +106,6 @@ instance
     PullRequestMergedStateChangedEventMetadata
   where
   rnf PullRequestMergedStateChangedEventMetadata' {..} =
-    Prelude.rnf destinationReference
-      `Prelude.seq` Prelude.rnf mergeMetadata
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf destinationReference `Prelude.seq`
+      Prelude.rnf mergeMetadata `Prelude.seq`
+        Prelude.rnf repositoryName

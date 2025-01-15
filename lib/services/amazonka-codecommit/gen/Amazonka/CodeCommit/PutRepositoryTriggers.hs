@@ -115,8 +115,8 @@ instance Prelude.Hashable PutRepositoryTriggers where
 
 instance Prelude.NFData PutRepositoryTriggers where
   rnf PutRepositoryTriggers' {..} =
-    Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf triggers
+    Prelude.rnf repositoryName `Prelude.seq`
+      Prelude.rnf triggers
 
 instance Data.ToHeaders PutRepositoryTriggers where
   toHeaders =
@@ -192,5 +192,5 @@ putRepositoryTriggersResponse_httpStatus = Lens.lens (\PutRepositoryTriggersResp
 
 instance Prelude.NFData PutRepositoryTriggersResponse where
   rnf PutRepositoryTriggersResponse' {..} =
-    Prelude.rnf configurationId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -185,6 +185,6 @@ getRepositoryTriggersResponse_httpStatus = Lens.lens (\GetRepositoryTriggersResp
 
 instance Prelude.NFData GetRepositoryTriggersResponse where
   rnf GetRepositoryTriggersResponse' {..} =
-    Prelude.rnf configurationId
-      `Prelude.seq` Prelude.rnf triggers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationId `Prelude.seq`
+      Prelude.rnf triggers `Prelude.seq`
+        Prelude.rnf httpStatus

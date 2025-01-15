@@ -145,11 +145,11 @@ instance Prelude.Hashable RepositoryTrigger where
 
 instance Prelude.NFData RepositoryTrigger where
   rnf RepositoryTrigger' {..} =
-    Prelude.rnf branches
-      `Prelude.seq` Prelude.rnf customData
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf events
+    Prelude.rnf branches `Prelude.seq`
+      Prelude.rnf customData `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf destinationArn `Prelude.seq`
+            Prelude.rnf events
 
 instance Data.ToJSON RepositoryTrigger where
   toJSON RepositoryTrigger' {..} =

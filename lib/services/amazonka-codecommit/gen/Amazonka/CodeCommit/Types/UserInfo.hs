@@ -94,6 +94,6 @@ instance Prelude.Hashable UserInfo where
 
 instance Prelude.NFData UserInfo where
   rnf UserInfo' {..} =
-    Prelude.rnf date
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf date `Prelude.seq`
+      Prelude.rnf email `Prelude.seq`
+        Prelude.rnf name

@@ -156,11 +156,11 @@ instance Prelude.Hashable ApprovalRuleTemplate where
 
 instance Prelude.NFData ApprovalRuleTemplate where
   rnf ApprovalRuleTemplate' {..} =
-    Prelude.rnf approvalRuleTemplateContent
-      `Prelude.seq` Prelude.rnf approvalRuleTemplateDescription
-      `Prelude.seq` Prelude.rnf approvalRuleTemplateId
-      `Prelude.seq` Prelude.rnf approvalRuleTemplateName
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf lastModifiedUser
-      `Prelude.seq` Prelude.rnf ruleContentSha256
+    Prelude.rnf approvalRuleTemplateContent `Prelude.seq`
+      Prelude.rnf approvalRuleTemplateDescription `Prelude.seq`
+        Prelude.rnf approvalRuleTemplateId `Prelude.seq`
+          Prelude.rnf approvalRuleTemplateName `Prelude.seq`
+            Prelude.rnf creationDate `Prelude.seq`
+              Prelude.rnf lastModifiedDate `Prelude.seq`
+                Prelude.rnf lastModifiedUser `Prelude.seq`
+                  Prelude.rnf ruleContentSha256

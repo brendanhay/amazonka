@@ -82,5 +82,5 @@ instance Prelude.Hashable OriginApprovalRuleTemplate where
 
 instance Prelude.NFData OriginApprovalRuleTemplate where
   rnf OriginApprovalRuleTemplate' {..} =
-    Prelude.rnf approvalRuleTemplateId
-      `Prelude.seq` Prelude.rnf approvalRuleTemplateName
+    Prelude.rnf approvalRuleTemplateId `Prelude.seq`
+      Prelude.rnf approvalRuleTemplateName

@@ -152,9 +152,9 @@ instance Prelude.Hashable GetFolder where
 
 instance Prelude.NFData GetFolder where
   rnf GetFolder' {..} =
-    Prelude.rnf commitSpecifier
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf folderPath
+    Prelude.rnf commitSpecifier `Prelude.seq`
+      Prelude.rnf repositoryName `Prelude.seq`
+        Prelude.rnf folderPath
 
 instance Data.ToHeaders GetFolder where
   toHeaders =
@@ -299,11 +299,11 @@ getFolderResponse_folderPath = Lens.lens (\GetFolderResponse' {folderPath} -> fo
 
 instance Prelude.NFData GetFolderResponse where
   rnf GetFolderResponse' {..} =
-    Prelude.rnf files
-      `Prelude.seq` Prelude.rnf subFolders
-      `Prelude.seq` Prelude.rnf subModules
-      `Prelude.seq` Prelude.rnf symbolicLinks
-      `Prelude.seq` Prelude.rnf treeId
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf folderPath
+    Prelude.rnf files `Prelude.seq`
+      Prelude.rnf subFolders `Prelude.seq`
+        Prelude.rnf subModules `Prelude.seq`
+          Prelude.rnf symbolicLinks `Prelude.seq`
+            Prelude.rnf treeId `Prelude.seq`
+              Prelude.rnf httpStatus `Prelude.seq`
+                Prelude.rnf commitId `Prelude.seq`
+                  Prelude.rnf folderPath

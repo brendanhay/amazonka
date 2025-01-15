@@ -120,8 +120,8 @@ instance Prelude.Hashable BatchGetCommits where
 
 instance Prelude.NFData BatchGetCommits where
   rnf BatchGetCommits' {..} =
-    Prelude.rnf commitIds
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf commitIds `Prelude.seq`
+      Prelude.rnf repositoryName
 
 instance Data.ToHeaders BatchGetCommits where
   toHeaders =
@@ -215,6 +215,6 @@ batchGetCommitsResponse_httpStatus = Lens.lens (\BatchGetCommitsResponse' {httpS
 
 instance Prelude.NFData BatchGetCommitsResponse where
   rnf BatchGetCommitsResponse' {..} =
-    Prelude.rnf commits
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf commits `Prelude.seq`
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -122,8 +122,8 @@ instance Prelude.Hashable TestRepositoryTriggers where
 
 instance Prelude.NFData TestRepositoryTriggers where
   rnf TestRepositoryTriggers' {..} =
-    Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf triggers
+    Prelude.rnf repositoryName `Prelude.seq`
+      Prelude.rnf triggers
 
 instance Data.ToHeaders TestRepositoryTriggers where
   toHeaders =
@@ -220,6 +220,6 @@ instance
     TestRepositoryTriggersResponse
   where
   rnf TestRepositoryTriggersResponse' {..} =
-    Prelude.rnf failedExecutions
-      `Prelude.seq` Prelude.rnf successfulExecutions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failedExecutions `Prelude.seq`
+      Prelude.rnf successfulExecutions `Prelude.seq`
+        Prelude.rnf httpStatus

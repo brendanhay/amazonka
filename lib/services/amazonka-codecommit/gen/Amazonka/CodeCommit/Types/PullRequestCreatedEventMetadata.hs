@@ -124,7 +124,7 @@ instance
     PullRequestCreatedEventMetadata
   where
   rnf PullRequestCreatedEventMetadata' {..} =
-    Prelude.rnf destinationCommitId
-      `Prelude.seq` Prelude.rnf mergeBase
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf sourceCommitId
+    Prelude.rnf destinationCommitId `Prelude.seq`
+      Prelude.rnf mergeBase `Prelude.seq`
+        Prelude.rnf repositoryName `Prelude.seq`
+          Prelude.rnf sourceCommitId

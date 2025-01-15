@@ -97,6 +97,6 @@ instance Prelude.Hashable Folder where
 
 instance Prelude.NFData Folder where
   rnf Folder' {..} =
-    Prelude.rnf absolutePath
-      `Prelude.seq` Prelude.rnf relativePath
-      `Prelude.seq` Prelude.rnf treeId
+    Prelude.rnf absolutePath `Prelude.seq`
+      Prelude.rnf relativePath `Prelude.seq`
+        Prelude.rnf treeId

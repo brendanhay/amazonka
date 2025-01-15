@@ -73,8 +73,8 @@ instance Prelude.Hashable SourceFileSpecifier where
 
 instance Prelude.NFData SourceFileSpecifier where
   rnf SourceFileSpecifier' {..} =
-    Prelude.rnf isMove
-      `Prelude.seq` Prelude.rnf filePath
+    Prelude.rnf isMove `Prelude.seq`
+      Prelude.rnf filePath
 
 instance Data.ToJSON SourceFileSpecifier where
   toJSON SourceFileSpecifier' {..} =

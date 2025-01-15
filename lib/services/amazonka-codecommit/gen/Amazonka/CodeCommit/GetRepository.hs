@@ -177,5 +177,5 @@ getRepositoryResponse_httpStatus = Lens.lens (\GetRepositoryResponse' {httpStatu
 
 instance Prelude.NFData GetRepositoryResponse where
   rnf GetRepositoryResponse' {..} =
-    Prelude.rnf repositoryMetadata
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf repositoryMetadata `Prelude.seq`
+      Prelude.rnf httpStatus

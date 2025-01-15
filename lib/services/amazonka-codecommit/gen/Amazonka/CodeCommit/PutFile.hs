@@ -254,15 +254,15 @@ instance Prelude.Hashable PutFile where
 
 instance Prelude.NFData PutFile where
   rnf PutFile' {..} =
-    Prelude.rnf commitMessage
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf fileMode
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parentCommitId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf branchName
-      `Prelude.seq` Prelude.rnf fileContent
-      `Prelude.seq` Prelude.rnf filePath
+    Prelude.rnf commitMessage `Prelude.seq`
+      Prelude.rnf email `Prelude.seq`
+        Prelude.rnf fileMode `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf parentCommitId `Prelude.seq`
+              Prelude.rnf repositoryName `Prelude.seq`
+                Prelude.rnf branchName `Prelude.seq`
+                  Prelude.rnf fileContent `Prelude.seq`
+                    Prelude.rnf filePath
 
 instance Data.ToHeaders PutFile where
   toHeaders =
@@ -374,7 +374,7 @@ putFileResponse_treeId = Lens.lens (\PutFileResponse' {treeId} -> treeId) (\s@Pu
 
 instance Prelude.NFData PutFileResponse where
   rnf PutFileResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf blobId
-      `Prelude.seq` Prelude.rnf treeId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf commitId `Prelude.seq`
+        Prelude.rnf blobId `Prelude.seq`
+          Prelude.rnf treeId

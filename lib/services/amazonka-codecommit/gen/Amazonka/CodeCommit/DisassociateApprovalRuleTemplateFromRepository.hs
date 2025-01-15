@@ -126,8 +126,8 @@ instance
   where
   rnf
     DisassociateApprovalRuleTemplateFromRepository' {..} =
-      Prelude.rnf approvalRuleTemplateName
-        `Prelude.seq` Prelude.rnf repositoryName
+      Prelude.rnf approvalRuleTemplateName `Prelude.seq`
+        Prelude.rnf repositoryName
 
 instance
   Data.ToHeaders

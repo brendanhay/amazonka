@@ -122,8 +122,8 @@ instance Prelude.Hashable UpdatePullRequestStatus where
 
 instance Prelude.NFData UpdatePullRequestStatus where
   rnf UpdatePullRequestStatus' {..} =
-    Prelude.rnf pullRequestId
-      `Prelude.seq` Prelude.rnf pullRequestStatus
+    Prelude.rnf pullRequestId `Prelude.seq`
+      Prelude.rnf pullRequestStatus
 
 instance Data.ToHeaders UpdatePullRequestStatus where
   toHeaders =
@@ -205,5 +205,5 @@ instance
     UpdatePullRequestStatusResponse
   where
   rnf UpdatePullRequestStatusResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf pullRequest
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf pullRequest

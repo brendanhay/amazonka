@@ -198,13 +198,13 @@ instance Prelude.Hashable ConflictMetadata where
 
 instance Prelude.NFData ConflictMetadata where
   rnf ConflictMetadata' {..} =
-    Prelude.rnf contentConflict
-      `Prelude.seq` Prelude.rnf fileModeConflict
-      `Prelude.seq` Prelude.rnf fileModes
-      `Prelude.seq` Prelude.rnf filePath
-      `Prelude.seq` Prelude.rnf fileSizes
-      `Prelude.seq` Prelude.rnf isBinaryFile
-      `Prelude.seq` Prelude.rnf mergeOperations
-      `Prelude.seq` Prelude.rnf numberOfConflicts
-      `Prelude.seq` Prelude.rnf objectTypeConflict
-      `Prelude.seq` Prelude.rnf objectTypes
+    Prelude.rnf contentConflict `Prelude.seq`
+      Prelude.rnf fileModeConflict `Prelude.seq`
+        Prelude.rnf fileModes `Prelude.seq`
+          Prelude.rnf filePath `Prelude.seq`
+            Prelude.rnf fileSizes `Prelude.seq`
+              Prelude.rnf isBinaryFile `Prelude.seq`
+                Prelude.rnf mergeOperations `Prelude.seq`
+                  Prelude.rnf numberOfConflicts `Prelude.seq`
+                    Prelude.rnf objectTypeConflict `Prelude.seq`
+                      Prelude.rnf objectTypes

@@ -94,5 +94,5 @@ instance
     ApprovalRuleOverriddenEventMetadata
   where
   rnf ApprovalRuleOverriddenEventMetadata' {..} =
-    Prelude.rnf overrideStatus
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf overrideStatus `Prelude.seq`
+      Prelude.rnf revisionId

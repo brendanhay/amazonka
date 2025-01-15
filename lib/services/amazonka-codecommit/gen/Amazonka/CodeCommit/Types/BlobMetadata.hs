@@ -118,6 +118,6 @@ instance Prelude.Hashable BlobMetadata where
 
 instance Prelude.NFData BlobMetadata where
   rnf BlobMetadata' {..} =
-    Prelude.rnf blobId
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf blobId `Prelude.seq`
+      Prelude.rnf mode `Prelude.seq`
+        Prelude.rnf path

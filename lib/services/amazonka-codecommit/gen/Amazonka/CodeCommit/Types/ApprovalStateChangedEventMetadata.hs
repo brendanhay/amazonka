@@ -94,5 +94,5 @@ instance
     ApprovalStateChangedEventMetadata
   where
   rnf ApprovalStateChangedEventMetadata' {..} =
-    Prelude.rnf approvalStatus
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf approvalStatus `Prelude.seq`
+      Prelude.rnf revisionId

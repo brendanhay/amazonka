@@ -199,12 +199,12 @@ instance
 
 instance Prelude.NFData PostCommentForComparedCommit where
   rnf PostCommentForComparedCommit' {..} =
-    Prelude.rnf beforeCommitId
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf afterCommitId
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf beforeCommitId `Prelude.seq`
+      Prelude.rnf clientRequestToken `Prelude.seq`
+        Prelude.rnf location `Prelude.seq`
+          Prelude.rnf repositoryName `Prelude.seq`
+            Prelude.rnf afterCommitId `Prelude.seq`
+              Prelude.rnf content
 
 instance Data.ToHeaders PostCommentForComparedCommit where
   toHeaders =
@@ -350,11 +350,11 @@ instance
     PostCommentForComparedCommitResponse
   where
   rnf PostCommentForComparedCommitResponse' {..} =
-    Prelude.rnf afterBlobId
-      `Prelude.seq` Prelude.rnf afterCommitId
-      `Prelude.seq` Prelude.rnf beforeBlobId
-      `Prelude.seq` Prelude.rnf beforeCommitId
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf afterBlobId `Prelude.seq`
+      Prelude.rnf afterCommitId `Prelude.seq`
+        Prelude.rnf beforeBlobId `Prelude.seq`
+          Prelude.rnf beforeCommitId `Prelude.seq`
+            Prelude.rnf comment `Prelude.seq`
+              Prelude.rnf location `Prelude.seq`
+                Prelude.rnf repositoryName `Prelude.seq`
+                  Prelude.rnf httpStatus

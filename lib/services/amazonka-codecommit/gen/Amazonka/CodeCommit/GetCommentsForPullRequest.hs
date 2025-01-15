@@ -167,12 +167,12 @@ instance Core.AWSPager GetCommentsForPullRequest where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getCommentsForPullRequest_nextToken
-          Lens..~ rs
-          Lens.^? getCommentsForPullRequestResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getCommentsForPullRequest_nextToken
+              Lens..~ rs
+              Lens.^? getCommentsForPullRequestResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetCommentsForPullRequest where
   type
@@ -204,12 +204,12 @@ instance Prelude.Hashable GetCommentsForPullRequest where
 
 instance Prelude.NFData GetCommentsForPullRequest where
   rnf GetCommentsForPullRequest' {..} =
-    Prelude.rnf afterCommitId
-      `Prelude.seq` Prelude.rnf beforeCommitId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf pullRequestId
+    Prelude.rnf afterCommitId `Prelude.seq`
+      Prelude.rnf beforeCommitId `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf repositoryName `Prelude.seq`
+              Prelude.rnf pullRequestId
 
 instance Data.ToHeaders GetCommentsForPullRequest where
   toHeaders =
@@ -304,6 +304,6 @@ instance
     GetCommentsForPullRequestResponse
   where
   rnf GetCommentsForPullRequestResponse' {..} =
-    Prelude.rnf commentsForPullRequestData
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf commentsForPullRequestData `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

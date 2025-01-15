@@ -281,17 +281,17 @@ instance
 
 instance Prelude.NFData CreateUnreferencedMergeCommit where
   rnf CreateUnreferencedMergeCommit' {..} =
-    Prelude.rnf authorName
-      `Prelude.seq` Prelude.rnf commitMessage
-      `Prelude.seq` Prelude.rnf conflictDetailLevel
-      `Prelude.seq` Prelude.rnf conflictResolution
-      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf keepEmptyFolders
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf sourceCommitSpecifier
-      `Prelude.seq` Prelude.rnf destinationCommitSpecifier
-      `Prelude.seq` Prelude.rnf mergeOption
+    Prelude.rnf authorName `Prelude.seq`
+      Prelude.rnf commitMessage `Prelude.seq`
+        Prelude.rnf conflictDetailLevel `Prelude.seq`
+          Prelude.rnf conflictResolution `Prelude.seq`
+            Prelude.rnf conflictResolutionStrategy `Prelude.seq`
+              Prelude.rnf email `Prelude.seq`
+                Prelude.rnf keepEmptyFolders `Prelude.seq`
+                  Prelude.rnf repositoryName `Prelude.seq`
+                    Prelude.rnf sourceCommitSpecifier `Prelude.seq`
+                      Prelude.rnf destinationCommitSpecifier `Prelude.seq`
+                        Prelude.rnf mergeOption
 
 instance Data.ToHeaders CreateUnreferencedMergeCommit where
   toHeaders =
@@ -399,6 +399,6 @@ instance
     CreateUnreferencedMergeCommitResponse
   where
   rnf CreateUnreferencedMergeCommitResponse' {..} =
-    Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf treeId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf commitId `Prelude.seq`
+      Prelude.rnf treeId `Prelude.seq`
+        Prelude.rnf httpStatus

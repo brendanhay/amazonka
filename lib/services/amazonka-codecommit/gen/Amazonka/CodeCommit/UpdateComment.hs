@@ -113,8 +113,8 @@ instance Prelude.Hashable UpdateComment where
 
 instance Prelude.NFData UpdateComment where
   rnf UpdateComment' {..} =
-    Prelude.rnf commentId
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf commentId `Prelude.seq`
+      Prelude.rnf content
 
 instance Data.ToHeaders UpdateComment where
   toHeaders =
@@ -186,5 +186,5 @@ updateCommentResponse_httpStatus = Lens.lens (\UpdateCommentResponse' {httpStatu
 
 instance Prelude.NFData UpdateCommentResponse where
   rnf UpdateCommentResponse' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -160,10 +160,10 @@ instance Prelude.Hashable CommentsForComparedCommit where
 
 instance Prelude.NFData CommentsForComparedCommit where
   rnf CommentsForComparedCommit' {..} =
-    Prelude.rnf afterBlobId
-      `Prelude.seq` Prelude.rnf afterCommitId
-      `Prelude.seq` Prelude.rnf beforeBlobId
-      `Prelude.seq` Prelude.rnf beforeCommitId
-      `Prelude.seq` Prelude.rnf comments
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf afterBlobId `Prelude.seq`
+      Prelude.rnf afterCommitId `Prelude.seq`
+        Prelude.rnf beforeBlobId `Prelude.seq`
+          Prelude.rnf beforeCommitId `Prelude.seq`
+            Prelude.rnf comments `Prelude.seq`
+              Prelude.rnf location `Prelude.seq`
+                Prelude.rnf repositoryName

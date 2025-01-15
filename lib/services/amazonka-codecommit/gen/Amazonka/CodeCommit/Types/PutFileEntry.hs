@@ -114,10 +114,10 @@ instance Prelude.Hashable PutFileEntry where
 
 instance Prelude.NFData PutFileEntry where
   rnf PutFileEntry' {..} =
-    Prelude.rnf fileContent
-      `Prelude.seq` Prelude.rnf fileMode
-      `Prelude.seq` Prelude.rnf sourceFile
-      `Prelude.seq` Prelude.rnf filePath
+    Prelude.rnf fileContent `Prelude.seq`
+      Prelude.rnf fileMode `Prelude.seq`
+        Prelude.rnf sourceFile `Prelude.seq`
+          Prelude.rnf filePath
 
 instance Data.ToJSON PutFileEntry where
   toJSON PutFileEntry' {..} =

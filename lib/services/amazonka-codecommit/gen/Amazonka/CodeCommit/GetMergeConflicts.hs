@@ -230,14 +230,14 @@ instance Prelude.Hashable GetMergeConflicts where
 
 instance Prelude.NFData GetMergeConflicts where
   rnf GetMergeConflicts' {..} =
-    Prelude.rnf conflictDetailLevel
-      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
-      `Prelude.seq` Prelude.rnf maxConflictFiles
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf destinationCommitSpecifier
-      `Prelude.seq` Prelude.rnf sourceCommitSpecifier
-      `Prelude.seq` Prelude.rnf mergeOption
+    Prelude.rnf conflictDetailLevel `Prelude.seq`
+      Prelude.rnf conflictResolutionStrategy `Prelude.seq`
+        Prelude.rnf maxConflictFiles `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf repositoryName `Prelude.seq`
+              Prelude.rnf destinationCommitSpecifier `Prelude.seq`
+                Prelude.rnf sourceCommitSpecifier `Prelude.seq`
+                  Prelude.rnf mergeOption
 
 instance Data.ToHeaders GetMergeConflicts where
   toHeaders =
@@ -396,10 +396,10 @@ getMergeConflictsResponse_conflictMetadataList = Lens.lens (\GetMergeConflictsRe
 
 instance Prelude.NFData GetMergeConflictsResponse where
   rnf GetMergeConflictsResponse' {..} =
-    Prelude.rnf baseCommitId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf mergeable
-      `Prelude.seq` Prelude.rnf destinationCommitId
-      `Prelude.seq` Prelude.rnf sourceCommitId
-      `Prelude.seq` Prelude.rnf conflictMetadataList
+    Prelude.rnf baseCommitId `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf mergeable `Prelude.seq`
+            Prelude.rnf destinationCommitId `Prelude.seq`
+              Prelude.rnf sourceCommitId `Prelude.seq`
+                Prelude.rnf conflictMetadataList

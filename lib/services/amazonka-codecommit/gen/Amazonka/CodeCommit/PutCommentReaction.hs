@@ -116,8 +116,8 @@ instance Prelude.Hashable PutCommentReaction where
 
 instance Prelude.NFData PutCommentReaction where
   rnf PutCommentReaction' {..} =
-    Prelude.rnf commentId
-      `Prelude.seq` Prelude.rnf reactionValue
+    Prelude.rnf commentId `Prelude.seq`
+      Prelude.rnf reactionValue
 
 instance Data.ToHeaders PutCommentReaction where
   toHeaders =

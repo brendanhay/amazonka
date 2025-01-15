@@ -113,7 +113,7 @@ instance Prelude.Hashable Evaluation where
 
 instance Prelude.NFData Evaluation where
   rnf Evaluation' {..} =
-    Prelude.rnf approvalRulesNotSatisfied
-      `Prelude.seq` Prelude.rnf approvalRulesSatisfied
-      `Prelude.seq` Prelude.rnf approved
-      `Prelude.seq` Prelude.rnf overridden
+    Prelude.rnf approvalRulesNotSatisfied `Prelude.seq`
+      Prelude.rnf approvalRulesSatisfied `Prelude.seq`
+        Prelude.rnf approved `Prelude.seq`
+          Prelude.rnf overridden

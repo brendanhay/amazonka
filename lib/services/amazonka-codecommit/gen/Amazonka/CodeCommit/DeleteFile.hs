@@ -238,14 +238,14 @@ instance Prelude.Hashable DeleteFile where
 
 instance Prelude.NFData DeleteFile where
   rnf DeleteFile' {..} =
-    Prelude.rnf commitMessage
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf keepEmptyFolders
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf branchName
-      `Prelude.seq` Prelude.rnf filePath
-      `Prelude.seq` Prelude.rnf parentCommitId
+    Prelude.rnf commitMessage `Prelude.seq`
+      Prelude.rnf email `Prelude.seq`
+        Prelude.rnf keepEmptyFolders `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf repositoryName `Prelude.seq`
+              Prelude.rnf branchName `Prelude.seq`
+                Prelude.rnf filePath `Prelude.seq`
+                  Prelude.rnf parentCommitId
 
 instance Data.ToHeaders DeleteFile where
   toHeaders =
@@ -375,8 +375,8 @@ deleteFileResponse_filePath = Lens.lens (\DeleteFileResponse' {filePath} -> file
 
 instance Prelude.NFData DeleteFileResponse where
   rnf DeleteFileResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf blobId
-      `Prelude.seq` Prelude.rnf treeId
-      `Prelude.seq` Prelude.rnf filePath
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf commitId `Prelude.seq`
+        Prelude.rnf blobId `Prelude.seq`
+          Prelude.rnf treeId `Prelude.seq`
+            Prelude.rnf filePath

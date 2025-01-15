@@ -126,7 +126,7 @@ instance
   where
   rnf
     PullRequestSourceReferenceUpdatedEventMetadata' {..} =
-      Prelude.rnf afterCommitId
-        `Prelude.seq` Prelude.rnf beforeCommitId
-        `Prelude.seq` Prelude.rnf mergeBase
-        `Prelude.seq` Prelude.rnf repositoryName
+      Prelude.rnf afterCommitId `Prelude.seq`
+        Prelude.rnf beforeCommitId `Prelude.seq`
+          Prelude.rnf mergeBase `Prelude.seq`
+            Prelude.rnf repositoryName

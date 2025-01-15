@@ -125,8 +125,8 @@ instance
     UpdateApprovalRuleTemplateName
   where
   rnf UpdateApprovalRuleTemplateName' {..} =
-    Prelude.rnf oldApprovalRuleTemplateName
-      `Prelude.seq` Prelude.rnf newApprovalRuleTemplateName'
+    Prelude.rnf oldApprovalRuleTemplateName `Prelude.seq`
+      Prelude.rnf newApprovalRuleTemplateName'
 
 instance
   Data.ToHeaders
@@ -216,5 +216,5 @@ instance
     UpdateApprovalRuleTemplateNameResponse
   where
   rnf UpdateApprovalRuleTemplateNameResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf approvalRuleTemplate
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf approvalRuleTemplate

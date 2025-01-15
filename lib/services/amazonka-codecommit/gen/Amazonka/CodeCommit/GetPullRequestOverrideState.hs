@@ -124,8 +124,8 @@ instance Prelude.Hashable GetPullRequestOverrideState where
 
 instance Prelude.NFData GetPullRequestOverrideState where
   rnf GetPullRequestOverrideState' {..} =
-    Prelude.rnf pullRequestId
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf pullRequestId `Prelude.seq`
+      Prelude.rnf revisionId
 
 instance Data.ToHeaders GetPullRequestOverrideState where
   toHeaders =
@@ -217,6 +217,6 @@ instance
     GetPullRequestOverrideStateResponse
   where
   rnf GetPullRequestOverrideStateResponse' {..} =
-    Prelude.rnf overridden
-      `Prelude.seq` Prelude.rnf overrider
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf overridden `Prelude.seq`
+      Prelude.rnf overrider `Prelude.seq`
+        Prelude.rnf httpStatus

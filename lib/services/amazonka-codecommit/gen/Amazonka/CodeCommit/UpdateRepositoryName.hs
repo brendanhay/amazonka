@@ -109,8 +109,8 @@ instance Prelude.Hashable UpdateRepositoryName where
 
 instance Prelude.NFData UpdateRepositoryName where
   rnf UpdateRepositoryName' {..} =
-    Prelude.rnf oldName
-      `Prelude.seq` Prelude.rnf newName'
+    Prelude.rnf oldName `Prelude.seq`
+      Prelude.rnf newName'
 
 instance Data.ToHeaders UpdateRepositoryName where
   toHeaders =

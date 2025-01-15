@@ -111,10 +111,10 @@ instance Prelude.Hashable ReplaceContentEntry where
 
 instance Prelude.NFData ReplaceContentEntry where
   rnf ReplaceContentEntry' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf fileMode
-      `Prelude.seq` Prelude.rnf filePath
-      `Prelude.seq` Prelude.rnf replacementType
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf fileMode `Prelude.seq`
+        Prelude.rnf filePath `Prelude.seq`
+          Prelude.rnf replacementType
 
 instance Data.ToJSON ReplaceContentEntry where
   toJSON ReplaceContentEntry' {..} =

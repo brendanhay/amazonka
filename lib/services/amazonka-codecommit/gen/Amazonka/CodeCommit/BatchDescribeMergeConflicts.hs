@@ -257,16 +257,16 @@ instance Prelude.Hashable BatchDescribeMergeConflicts where
 
 instance Prelude.NFData BatchDescribeMergeConflicts where
   rnf BatchDescribeMergeConflicts' {..} =
-    Prelude.rnf conflictDetailLevel
-      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
-      `Prelude.seq` Prelude.rnf filePaths
-      `Prelude.seq` Prelude.rnf maxConflictFiles
-      `Prelude.seq` Prelude.rnf maxMergeHunks
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf destinationCommitSpecifier
-      `Prelude.seq` Prelude.rnf sourceCommitSpecifier
-      `Prelude.seq` Prelude.rnf mergeOption
+    Prelude.rnf conflictDetailLevel `Prelude.seq`
+      Prelude.rnf conflictResolutionStrategy `Prelude.seq`
+        Prelude.rnf filePaths `Prelude.seq`
+          Prelude.rnf maxConflictFiles `Prelude.seq`
+            Prelude.rnf maxMergeHunks `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf repositoryName `Prelude.seq`
+                  Prelude.rnf destinationCommitSpecifier `Prelude.seq`
+                    Prelude.rnf sourceCommitSpecifier `Prelude.seq`
+                      Prelude.rnf mergeOption
 
 instance Data.ToHeaders BatchDescribeMergeConflicts where
   toHeaders =
@@ -428,10 +428,10 @@ instance
     BatchDescribeMergeConflictsResponse
   where
   rnf BatchDescribeMergeConflictsResponse' {..} =
-    Prelude.rnf baseCommitId
-      `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf conflicts
-      `Prelude.seq` Prelude.rnf destinationCommitId
-      `Prelude.seq` Prelude.rnf sourceCommitId
+    Prelude.rnf baseCommitId `Prelude.seq`
+      Prelude.rnf errors `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf conflicts `Prelude.seq`
+              Prelude.rnf destinationCommitId `Prelude.seq`
+                Prelude.rnf sourceCommitId

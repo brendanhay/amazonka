@@ -235,9 +235,9 @@ instance
 
 instance Prelude.NFData CreatePullRequestApprovalRule where
   rnf CreatePullRequestApprovalRule' {..} =
-    Prelude.rnf pullRequestId
-      `Prelude.seq` Prelude.rnf approvalRuleName
-      `Prelude.seq` Prelude.rnf approvalRuleContent
+    Prelude.rnf pullRequestId `Prelude.seq`
+      Prelude.rnf approvalRuleName `Prelude.seq`
+        Prelude.rnf approvalRuleContent
 
 instance Data.ToHeaders CreatePullRequestApprovalRule where
   toHeaders =
@@ -321,5 +321,5 @@ instance
     CreatePullRequestApprovalRuleResponse
   where
   rnf CreatePullRequestApprovalRuleResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf approvalRule
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf approvalRule

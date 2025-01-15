@@ -169,10 +169,10 @@ instance Prelude.Hashable Commit where
 
 instance Prelude.NFData Commit where
   rnf Commit' {..} =
-    Prelude.rnf additionalData
-      `Prelude.seq` Prelude.rnf author
-      `Prelude.seq` Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf committer
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf parents
-      `Prelude.seq` Prelude.rnf treeId
+    Prelude.rnf additionalData `Prelude.seq`
+      Prelude.rnf author `Prelude.seq`
+        Prelude.rnf commitId `Prelude.seq`
+          Prelude.rnf committer `Prelude.seq`
+            Prelude.rnf message `Prelude.seq`
+              Prelude.rnf parents `Prelude.seq`
+                Prelude.rnf treeId

@@ -156,12 +156,12 @@ instance Core.AWSPager GetCommentsForComparedCommit where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getCommentsForComparedCommit_nextToken
-          Lens..~ rs
-          Lens.^? getCommentsForComparedCommitResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getCommentsForComparedCommit_nextToken
+              Lens..~ rs
+              Lens.^? getCommentsForComparedCommitResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetCommentsForComparedCommit where
   type
@@ -195,11 +195,11 @@ instance
 
 instance Prelude.NFData GetCommentsForComparedCommit where
   rnf GetCommentsForComparedCommit' {..} =
-    Prelude.rnf beforeCommitId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf afterCommitId
+    Prelude.rnf beforeCommitId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf repositoryName `Prelude.seq`
+            Prelude.rnf afterCommitId
 
 instance Data.ToHeaders GetCommentsForComparedCommit where
   toHeaders =
@@ -293,6 +293,6 @@ instance
     GetCommentsForComparedCommitResponse
   where
   rnf GetCommentsForComparedCommitResponse' {..} =
-    Prelude.rnf commentsForComparedCommitData
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf commentsForComparedCommitData `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

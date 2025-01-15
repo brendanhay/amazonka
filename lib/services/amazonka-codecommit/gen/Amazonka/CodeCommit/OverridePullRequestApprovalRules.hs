@@ -149,9 +149,9 @@ instance
     OverridePullRequestApprovalRules
   where
   rnf OverridePullRequestApprovalRules' {..} =
-    Prelude.rnf pullRequestId
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf overrideStatus
+    Prelude.rnf pullRequestId `Prelude.seq`
+      Prelude.rnf revisionId `Prelude.seq`
+        Prelude.rnf overrideStatus
 
 instance
   Data.ToHeaders

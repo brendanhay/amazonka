@@ -179,11 +179,11 @@ instance Prelude.Hashable CommentsForPullRequest where
 
 instance Prelude.NFData CommentsForPullRequest where
   rnf CommentsForPullRequest' {..} =
-    Prelude.rnf afterBlobId
-      `Prelude.seq` Prelude.rnf afterCommitId
-      `Prelude.seq` Prelude.rnf beforeBlobId
-      `Prelude.seq` Prelude.rnf beforeCommitId
-      `Prelude.seq` Prelude.rnf comments
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf pullRequestId
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf afterBlobId `Prelude.seq`
+      Prelude.rnf afterCommitId `Prelude.seq`
+        Prelude.rnf beforeBlobId `Prelude.seq`
+          Prelude.rnf beforeCommitId `Prelude.seq`
+            Prelude.rnf comments `Prelude.seq`
+              Prelude.rnf location `Prelude.seq`
+                Prelude.rnf pullRequestId `Prelude.seq`
+                  Prelude.rnf repositoryName

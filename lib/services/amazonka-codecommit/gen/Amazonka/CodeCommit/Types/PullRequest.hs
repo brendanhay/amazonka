@@ -218,14 +218,14 @@ instance Prelude.Hashable PullRequest where
 
 instance Prelude.NFData PullRequest where
   rnf PullRequest' {..} =
-    Prelude.rnf approvalRules
-      `Prelude.seq` Prelude.rnf authorArn
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastActivityDate
-      `Prelude.seq` Prelude.rnf pullRequestId
-      `Prelude.seq` Prelude.rnf pullRequestStatus
-      `Prelude.seq` Prelude.rnf pullRequestTargets
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf approvalRules `Prelude.seq`
+      Prelude.rnf authorArn `Prelude.seq`
+        Prelude.rnf clientRequestToken `Prelude.seq`
+          Prelude.rnf creationDate `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf lastActivityDate `Prelude.seq`
+                Prelude.rnf pullRequestId `Prelude.seq`
+                  Prelude.rnf pullRequestStatus `Prelude.seq`
+                    Prelude.rnf pullRequestTargets `Prelude.seq`
+                      Prelude.rnf revisionId `Prelude.seq`
+                        Prelude.rnf title

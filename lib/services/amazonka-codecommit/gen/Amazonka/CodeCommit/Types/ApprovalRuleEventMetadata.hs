@@ -92,6 +92,6 @@ instance Prelude.Hashable ApprovalRuleEventMetadata where
 
 instance Prelude.NFData ApprovalRuleEventMetadata where
   rnf ApprovalRuleEventMetadata' {..} =
-    Prelude.rnf approvalRuleContent
-      `Prelude.seq` Prelude.rnf approvalRuleId
-      `Prelude.seq` Prelude.rnf approvalRuleName
+    Prelude.rnf approvalRuleContent `Prelude.seq`
+      Prelude.rnf approvalRuleId `Prelude.seq`
+        Prelude.rnf approvalRuleName

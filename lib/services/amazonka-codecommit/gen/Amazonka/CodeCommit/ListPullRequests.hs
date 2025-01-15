@@ -147,12 +147,12 @@ instance Core.AWSPager ListPullRequests where
         (rs Lens.^. listPullRequestsResponse_pullRequestIds) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPullRequests_nextToken
-          Lens..~ rs
-          Lens.^? listPullRequestsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPullRequests_nextToken
+              Lens..~ rs
+              Lens.^? listPullRequestsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPullRequests where
   type
@@ -183,11 +183,11 @@ instance Prelude.Hashable ListPullRequests where
 
 instance Prelude.NFData ListPullRequests where
   rnf ListPullRequests' {..} =
-    Prelude.rnf authorArn
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf pullRequestStatus
-      `Prelude.seq` Prelude.rnf repositoryName
+    Prelude.rnf authorArn `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf pullRequestStatus `Prelude.seq`
+            Prelude.rnf repositoryName
 
 instance Data.ToHeaders ListPullRequests where
   toHeaders =
@@ -277,6 +277,6 @@ listPullRequestsResponse_pullRequestIds = Lens.lens (\ListPullRequestsResponse' 
 
 instance Prelude.NFData ListPullRequestsResponse where
   rnf ListPullRequestsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf pullRequestIds
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf pullRequestIds

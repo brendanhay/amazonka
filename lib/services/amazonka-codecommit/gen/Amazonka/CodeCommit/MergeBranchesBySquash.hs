@@ -263,17 +263,17 @@ instance Prelude.Hashable MergeBranchesBySquash where
 
 instance Prelude.NFData MergeBranchesBySquash where
   rnf MergeBranchesBySquash' {..} =
-    Prelude.rnf authorName
-      `Prelude.seq` Prelude.rnf commitMessage
-      `Prelude.seq` Prelude.rnf conflictDetailLevel
-      `Prelude.seq` Prelude.rnf conflictResolution
-      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf keepEmptyFolders
-      `Prelude.seq` Prelude.rnf targetBranch
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf sourceCommitSpecifier
-      `Prelude.seq` Prelude.rnf destinationCommitSpecifier
+    Prelude.rnf authorName `Prelude.seq`
+      Prelude.rnf commitMessage `Prelude.seq`
+        Prelude.rnf conflictDetailLevel `Prelude.seq`
+          Prelude.rnf conflictResolution `Prelude.seq`
+            Prelude.rnf conflictResolutionStrategy `Prelude.seq`
+              Prelude.rnf email `Prelude.seq`
+                Prelude.rnf keepEmptyFolders `Prelude.seq`
+                  Prelude.rnf targetBranch `Prelude.seq`
+                    Prelude.rnf repositoryName `Prelude.seq`
+                      Prelude.rnf sourceCommitSpecifier `Prelude.seq`
+                        Prelude.rnf destinationCommitSpecifier
 
 instance Data.ToHeaders MergeBranchesBySquash where
   toHeaders =
@@ -375,6 +375,6 @@ mergeBranchesBySquashResponse_httpStatus = Lens.lens (\MergeBranchesBySquashResp
 
 instance Prelude.NFData MergeBranchesBySquashResponse where
   rnf MergeBranchesBySquashResponse' {..} =
-    Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf treeId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf commitId `Prelude.seq`
+      Prelude.rnf treeId `Prelude.seq`
+        Prelude.rnf httpStatus

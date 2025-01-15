@@ -110,8 +110,8 @@ instance Prelude.Hashable UpdateDefaultBranch where
 
 instance Prelude.NFData UpdateDefaultBranch where
   rnf UpdateDefaultBranch' {..} =
-    Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf defaultBranchName
+    Prelude.rnf repositoryName `Prelude.seq`
+      Prelude.rnf defaultBranchName
 
 instance Data.ToHeaders UpdateDefaultBranch where
   toHeaders =

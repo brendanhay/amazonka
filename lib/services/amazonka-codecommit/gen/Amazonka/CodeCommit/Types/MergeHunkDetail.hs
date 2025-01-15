@@ -95,6 +95,6 @@ instance Prelude.Hashable MergeHunkDetail where
 
 instance Prelude.NFData MergeHunkDetail where
   rnf MergeHunkDetail' {..} =
-    Prelude.rnf endLine
-      `Prelude.seq` Prelude.rnf hunkContent
-      `Prelude.seq` Prelude.rnf startLine
+    Prelude.rnf endLine `Prelude.seq`
+      Prelude.rnf hunkContent `Prelude.seq`
+        Prelude.rnf startLine

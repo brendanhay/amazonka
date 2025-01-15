@@ -75,8 +75,8 @@ instance Prelude.Hashable SetFileModeEntry where
 
 instance Prelude.NFData SetFileModeEntry where
   rnf SetFileModeEntry' {..} =
-    Prelude.rnf filePath
-      `Prelude.seq` Prelude.rnf fileMode
+    Prelude.rnf filePath `Prelude.seq`
+      Prelude.rnf fileMode
 
 instance Data.ToJSON SetFileModeEntry where
   toJSON SetFileModeEntry' {..} =

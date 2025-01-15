@@ -111,8 +111,8 @@ instance Prelude.Hashable GetBlob where
 
 instance Prelude.NFData GetBlob where
   rnf GetBlob' {..} =
-    Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf blobId
+    Prelude.rnf repositoryName `Prelude.seq`
+      Prelude.rnf blobId
 
 instance Data.ToHeaders GetBlob where
   toHeaders =
@@ -197,5 +197,5 @@ getBlobResponse_content = Lens.lens (\GetBlobResponse' {content} -> content) (\s
 
 instance Prelude.NFData GetBlobResponse where
   rnf GetBlobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf content

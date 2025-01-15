@@ -127,8 +127,8 @@ instance
 
 instance Prelude.NFData DeletePullRequestApprovalRule where
   rnf DeletePullRequestApprovalRule' {..} =
-    Prelude.rnf pullRequestId
-      `Prelude.seq` Prelude.rnf approvalRuleName
+    Prelude.rnf pullRequestId `Prelude.seq`
+      Prelude.rnf approvalRuleName
 
 instance Data.ToHeaders DeletePullRequestApprovalRule where
   toHeaders =
@@ -219,5 +219,5 @@ instance
     DeletePullRequestApprovalRuleResponse
   where
   rnf DeletePullRequestApprovalRuleResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf approvalRuleId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf approvalRuleId

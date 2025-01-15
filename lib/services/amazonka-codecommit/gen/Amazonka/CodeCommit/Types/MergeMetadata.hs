@@ -104,7 +104,7 @@ instance Prelude.Hashable MergeMetadata where
 
 instance Prelude.NFData MergeMetadata where
   rnf MergeMetadata' {..} =
-    Prelude.rnf isMerged
-      `Prelude.seq` Prelude.rnf mergeCommitId
-      `Prelude.seq` Prelude.rnf mergeOption
-      `Prelude.seq` Prelude.rnf mergedBy
+    Prelude.rnf isMerged `Prelude.seq`
+      Prelude.rnf mergeCommitId `Prelude.seq`
+        Prelude.rnf mergeOption `Prelude.seq`
+          Prelude.rnf mergedBy

@@ -177,11 +177,11 @@ instance Prelude.Hashable JobEntry where
 
 instance Prelude.NFData JobEntry where
   rnf JobEntry' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf details
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf details `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf state `Prelude.seq`
+                Prelude.rnf type' `Prelude.seq`
+                  Prelude.rnf updatedAt

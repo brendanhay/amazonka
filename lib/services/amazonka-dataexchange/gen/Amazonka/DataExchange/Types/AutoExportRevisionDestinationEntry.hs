@@ -101,8 +101,8 @@ instance
     AutoExportRevisionDestinationEntry
   where
   rnf AutoExportRevisionDestinationEntry' {..} =
-    Prelude.rnf keyPattern
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf keyPattern `Prelude.seq`
+      Prelude.rnf bucket
 
 instance
   Data.ToJSON

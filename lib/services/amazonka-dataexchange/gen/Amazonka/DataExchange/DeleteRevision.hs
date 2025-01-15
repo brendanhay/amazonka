@@ -101,8 +101,8 @@ instance Prelude.Hashable DeleteRevision where
 
 instance Prelude.NFData DeleteRevision where
   rnf DeleteRevision' {..} =
-    Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf dataSetId `Prelude.seq`
+      Prelude.rnf revisionId
 
 instance Data.ToHeaders DeleteRevision where
   toHeaders =

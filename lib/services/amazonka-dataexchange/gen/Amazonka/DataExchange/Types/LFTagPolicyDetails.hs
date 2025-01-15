@@ -102,6 +102,6 @@ instance Prelude.Hashable LFTagPolicyDetails where
 
 instance Prelude.NFData LFTagPolicyDetails where
   rnf LFTagPolicyDetails' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resourceDetails
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf resourceType `Prelude.seq`
+        Prelude.rnf resourceDetails

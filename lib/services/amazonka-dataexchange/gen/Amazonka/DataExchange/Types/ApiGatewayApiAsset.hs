@@ -160,12 +160,12 @@ instance Prelude.Hashable ApiGatewayApiAsset where
 
 instance Prelude.NFData ApiGatewayApiAsset where
   rnf ApiGatewayApiAsset' {..} =
-    Prelude.rnf apiDescription
-      `Prelude.seq` Prelude.rnf apiEndpoint
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf apiKey
-      `Prelude.seq` Prelude.rnf apiName
-      `Prelude.seq` Prelude.rnf apiSpecificationDownloadUrl
-      `Prelude.seq` Prelude.rnf apiSpecificationDownloadUrlExpiresAt
-      `Prelude.seq` Prelude.rnf protocolType
-      `Prelude.seq` Prelude.rnf stage
+    Prelude.rnf apiDescription `Prelude.seq`
+      Prelude.rnf apiEndpoint `Prelude.seq`
+        Prelude.rnf apiId `Prelude.seq`
+          Prelude.rnf apiKey `Prelude.seq`
+            Prelude.rnf apiName `Prelude.seq`
+              Prelude.rnf apiSpecificationDownloadUrl `Prelude.seq`
+                Prelude.rnf apiSpecificationDownloadUrlExpiresAt `Prelude.seq`
+                  Prelude.rnf protocolType `Prelude.seq`
+                    Prelude.rnf stage

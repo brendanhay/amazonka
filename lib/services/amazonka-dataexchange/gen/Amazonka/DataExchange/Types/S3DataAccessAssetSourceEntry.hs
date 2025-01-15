@@ -100,9 +100,9 @@ instance
 
 instance Prelude.NFData S3DataAccessAssetSourceEntry where
   rnf S3DataAccessAssetSourceEntry' {..} =
-    Prelude.rnf keyPrefixes
-      `Prelude.seq` Prelude.rnf keys
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf keyPrefixes `Prelude.seq`
+      Prelude.rnf keys `Prelude.seq`
+        Prelude.rnf bucket
 
 instance Data.ToJSON S3DataAccessAssetSourceEntry where
   toJSON S3DataAccessAssetSourceEntry' {..} =

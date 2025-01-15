@@ -95,8 +95,8 @@ instance Prelude.Hashable ExportServerSideEncryption where
 
 instance Prelude.NFData ExportServerSideEncryption where
   rnf ExportServerSideEncryption' {..} =
-    Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf kmsKeyArn `Prelude.seq`
+      Prelude.rnf type'
 
 instance Data.ToJSON ExportServerSideEncryption where
   toJSON ExportServerSideEncryption' {..} =

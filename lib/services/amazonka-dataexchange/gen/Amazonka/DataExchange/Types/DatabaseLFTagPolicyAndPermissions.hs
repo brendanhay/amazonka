@@ -94,8 +94,8 @@ instance
     DatabaseLFTagPolicyAndPermissions
   where
   rnf DatabaseLFTagPolicyAndPermissions' {..} =
-    Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf permissions
+    Prelude.rnf expression `Prelude.seq`
+      Prelude.rnf permissions
 
 instance
   Data.ToJSON

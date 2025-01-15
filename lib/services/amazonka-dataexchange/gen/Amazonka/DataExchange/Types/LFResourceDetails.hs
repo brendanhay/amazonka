@@ -89,5 +89,5 @@ instance Prelude.Hashable LFResourceDetails where
 
 instance Prelude.NFData LFResourceDetails where
   rnf LFResourceDetails' {..} =
-    Prelude.rnf database
-      `Prelude.seq` Prelude.rnf table
+    Prelude.rnf database `Prelude.seq`
+      Prelude.rnf table

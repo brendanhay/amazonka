@@ -137,9 +137,9 @@ instance Prelude.Hashable UpdateDataSet where
 
 instance Prelude.NFData UpdateDataSet where
   rnf UpdateDataSet' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf dataSetId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf dataSetId
 
 instance Data.ToHeaders UpdateDataSet where
   toHeaders =
@@ -305,14 +305,14 @@ updateDataSetResponse_httpStatus = Lens.lens (\UpdateDataSetResponse' {httpStatu
 
 instance Prelude.NFData UpdateDataSetResponse where
   rnf UpdateDataSetResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf assetType
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf origin
-      `Prelude.seq` Prelude.rnf originDetails
-      `Prelude.seq` Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf assetType `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf origin `Prelude.seq`
+                  Prelude.rnf originDetails `Prelude.seq`
+                    Prelude.rnf sourceId `Prelude.seq`
+                      Prelude.rnf updatedAt `Prelude.seq`
+                        Prelude.rnf httpStatus

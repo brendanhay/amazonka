@@ -210,13 +210,13 @@ instance Prelude.Hashable DataSetEntry where
 
 instance Prelude.NFData DataSetEntry where
   rnf DataSetEntry' {..} =
-    Prelude.rnf originDetails
-      `Prelude.seq` Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf assetType
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf origin
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf originDetails `Prelude.seq`
+      Prelude.rnf sourceId `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf assetType `Prelude.seq`
+            Prelude.rnf createdAt `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf id `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf origin `Prelude.seq`
+                      Prelude.rnf updatedAt

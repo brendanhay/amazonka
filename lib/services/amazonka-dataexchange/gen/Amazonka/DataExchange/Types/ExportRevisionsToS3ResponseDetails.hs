@@ -121,7 +121,7 @@ instance
     ExportRevisionsToS3ResponseDetails
   where
   rnf ExportRevisionsToS3ResponseDetails' {..} =
-    Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf eventActionArn
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf revisionDestinations
+    Prelude.rnf encryption `Prelude.seq`
+      Prelude.rnf eventActionArn `Prelude.seq`
+        Prelude.rnf dataSetId `Prelude.seq`
+          Prelude.rnf revisionDestinations

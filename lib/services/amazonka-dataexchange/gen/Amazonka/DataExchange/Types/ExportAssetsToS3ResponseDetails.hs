@@ -128,7 +128,7 @@ instance
     ExportAssetsToS3ResponseDetails
   where
   rnf ExportAssetsToS3ResponseDetails' {..} =
-    Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf assetDestinations
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf encryption `Prelude.seq`
+      Prelude.rnf assetDestinations `Prelude.seq`
+        Prelude.rnf dataSetId `Prelude.seq`
+          Prelude.rnf revisionId

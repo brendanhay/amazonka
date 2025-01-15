@@ -127,8 +127,8 @@ instance Prelude.Hashable S3DataAccessAsset where
 
 instance Prelude.NFData S3DataAccessAsset where
   rnf S3DataAccessAsset' {..} =
-    Prelude.rnf keyPrefixes
-      `Prelude.seq` Prelude.rnf keys
-      `Prelude.seq` Prelude.rnf s3AccessPointAlias
-      `Prelude.seq` Prelude.rnf s3AccessPointArn
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf keyPrefixes `Prelude.seq`
+      Prelude.rnf keys `Prelude.seq`
+        Prelude.rnf s3AccessPointAlias `Prelude.seq`
+          Prelude.rnf s3AccessPointArn `Prelude.seq`
+            Prelude.rnf bucket

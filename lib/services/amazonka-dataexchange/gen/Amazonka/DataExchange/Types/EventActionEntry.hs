@@ -149,9 +149,9 @@ instance Prelude.Hashable EventActionEntry where
 
 instance Prelude.NFData EventActionEntry where
   rnf EventActionEntry' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf event
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf action `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf createdAt `Prelude.seq`
+          Prelude.rnf event `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf updatedAt

@@ -103,9 +103,9 @@ instance
     CreateS3DataAccessFromS3BucketRequestDetails
   where
   rnf CreateS3DataAccessFromS3BucketRequestDetails' {..} =
-    Prelude.rnf assetSource
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf assetSource `Prelude.seq`
+      Prelude.rnf dataSetId `Prelude.seq`
+        Prelude.rnf revisionId
 
 instance
   Data.ToJSON

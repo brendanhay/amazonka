@@ -175,15 +175,15 @@ instance
     ImportAssetFromApiGatewayApiRequestDetails
   where
   rnf ImportAssetFromApiGatewayApiRequestDetails' {..} =
-    Prelude.rnf apiDescription
-      `Prelude.seq` Prelude.rnf apiKey
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf apiName
-      `Prelude.seq` Prelude.rnf apiSpecificationMd5Hash
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf protocolType
-      `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf stage
+    Prelude.rnf apiDescription `Prelude.seq`
+      Prelude.rnf apiKey `Prelude.seq`
+        Prelude.rnf apiId `Prelude.seq`
+          Prelude.rnf apiName `Prelude.seq`
+            Prelude.rnf apiSpecificationMd5Hash `Prelude.seq`
+              Prelude.rnf dataSetId `Prelude.seq`
+                Prelude.rnf protocolType `Prelude.seq`
+                  Prelude.rnf revisionId `Prelude.seq`
+                    Prelude.rnf stage
 
 instance
   Data.ToJSON

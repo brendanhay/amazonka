@@ -137,8 +137,8 @@ instance
     ExportAssetToSignedUrlResponseDetails
   where
   rnf ExportAssetToSignedUrlResponseDetails' {..} =
-    Prelude.rnf signedUrl
-      `Prelude.seq` Prelude.rnf signedUrlExpiresAt
-      `Prelude.seq` Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf signedUrl `Prelude.seq`
+      Prelude.rnf signedUrlExpiresAt `Prelude.seq`
+        Prelude.rnf assetId `Prelude.seq`
+          Prelude.rnf dataSetId `Prelude.seq`
+            Prelude.rnf revisionId

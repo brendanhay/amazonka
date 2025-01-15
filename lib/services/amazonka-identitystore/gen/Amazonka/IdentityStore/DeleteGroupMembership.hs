@@ -111,8 +111,8 @@ instance Prelude.Hashable DeleteGroupMembership where
 
 instance Prelude.NFData DeleteGroupMembership where
   rnf DeleteGroupMembership' {..} =
-    Prelude.rnf identityStoreId
-      `Prelude.seq` Prelude.rnf membershipId
+    Prelude.rnf identityStoreId `Prelude.seq`
+      Prelude.rnf membershipId
 
 instance Data.ToHeaders DeleteGroupMembership where
   toHeaders =

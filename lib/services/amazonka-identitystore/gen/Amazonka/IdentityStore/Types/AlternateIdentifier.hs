@@ -75,8 +75,8 @@ instance Prelude.Hashable AlternateIdentifier where
 
 instance Prelude.NFData AlternateIdentifier where
   rnf AlternateIdentifier' {..} =
-    Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf uniqueAttribute
+    Prelude.rnf externalId `Prelude.seq`
+      Prelude.rnf uniqueAttribute
 
 instance Data.ToJSON AlternateIdentifier where
   toJSON AlternateIdentifier' {..} =

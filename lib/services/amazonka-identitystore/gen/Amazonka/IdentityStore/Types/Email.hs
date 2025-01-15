@@ -97,9 +97,9 @@ instance Prelude.Hashable Email where
 
 instance Prelude.NFData Email where
   rnf Email' {..} =
-    Prelude.rnf primary
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf primary `Prelude.seq`
+      Prelude.rnf type' `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON Email where
   toJSON Email' {..} =

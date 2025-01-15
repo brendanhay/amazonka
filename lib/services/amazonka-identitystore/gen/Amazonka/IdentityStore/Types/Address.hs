@@ -149,14 +149,14 @@ instance Prelude.Hashable Address where
 
 instance Prelude.NFData Address where
   rnf Address' {..} =
-    Prelude.rnf country
-      `Prelude.seq` Prelude.rnf formatted
-      `Prelude.seq` Prelude.rnf locality
-      `Prelude.seq` Prelude.rnf postalCode
-      `Prelude.seq` Prelude.rnf primary
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf streetAddress
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf country `Prelude.seq`
+      Prelude.rnf formatted `Prelude.seq`
+        Prelude.rnf locality `Prelude.seq`
+          Prelude.rnf postalCode `Prelude.seq`
+            Prelude.rnf primary `Prelude.seq`
+              Prelude.rnf region `Prelude.seq`
+                Prelude.rnf streetAddress `Prelude.seq`
+                  Prelude.rnf type'
 
 instance Data.ToJSON Address where
   toJSON Address' {..} =

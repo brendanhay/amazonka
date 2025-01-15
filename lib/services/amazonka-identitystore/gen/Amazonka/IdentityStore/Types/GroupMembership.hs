@@ -112,7 +112,7 @@ instance Prelude.Hashable GroupMembership where
 
 instance Prelude.NFData GroupMembership where
   rnf GroupMembership' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf memberId
-      `Prelude.seq` Prelude.rnf membershipId
-      `Prelude.seq` Prelude.rnf identityStoreId
+    Prelude.rnf groupId `Prelude.seq`
+      Prelude.rnf memberId `Prelude.seq`
+        Prelude.rnf membershipId `Prelude.seq`
+          Prelude.rnf identityStoreId

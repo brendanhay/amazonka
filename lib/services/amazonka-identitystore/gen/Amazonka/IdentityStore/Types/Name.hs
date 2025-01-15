@@ -124,12 +124,12 @@ instance Prelude.Hashable Name where
 
 instance Prelude.NFData Name where
   rnf Name' {..} =
-    Prelude.rnf familyName
-      `Prelude.seq` Prelude.rnf formatted
-      `Prelude.seq` Prelude.rnf givenName
-      `Prelude.seq` Prelude.rnf honorificPrefix
-      `Prelude.seq` Prelude.rnf honorificSuffix
-      `Prelude.seq` Prelude.rnf middleName
+    Prelude.rnf familyName `Prelude.seq`
+      Prelude.rnf formatted `Prelude.seq`
+        Prelude.rnf givenName `Prelude.seq`
+          Prelude.rnf honorificPrefix `Prelude.seq`
+            Prelude.rnf honorificSuffix `Prelude.seq`
+              Prelude.rnf middleName
 
 instance Data.ToJSON Name where
   toJSON Name' {..} =

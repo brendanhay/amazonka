@@ -131,8 +131,8 @@ instance Prelude.Hashable DescribeGroup where
 
 instance Prelude.NFData DescribeGroup where
   rnf DescribeGroup' {..} =
-    Prelude.rnf identityStoreId
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf identityStoreId `Prelude.seq`
+      Prelude.rnf groupId
 
 instance Data.ToHeaders DescribeGroup where
   toHeaders =
@@ -267,9 +267,9 @@ describeGroupResponse_identityStoreId = Lens.lens (\DescribeGroupResponse' {iden
 
 instance Prelude.NFData DescribeGroupResponse where
   rnf DescribeGroupResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf externalIds
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf identityStoreId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf externalIds `Prelude.seq`
+          Prelude.rnf httpStatus `Prelude.seq`
+            Prelude.rnf groupId `Prelude.seq`
+              Prelude.rnf identityStoreId

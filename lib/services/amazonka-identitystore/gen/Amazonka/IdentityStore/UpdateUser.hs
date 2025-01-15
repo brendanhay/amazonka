@@ -123,9 +123,9 @@ instance Prelude.Hashable UpdateUser where
 
 instance Prelude.NFData UpdateUser where
   rnf UpdateUser' {..} =
-    Prelude.rnf identityStoreId
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf operations
+    Prelude.rnf identityStoreId `Prelude.seq`
+      Prelude.rnf userId `Prelude.seq`
+        Prelude.rnf operations
 
 instance Data.ToHeaders UpdateUser where
   toHeaders =

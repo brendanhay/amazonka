@@ -128,9 +128,9 @@ instance Prelude.Hashable IsMemberInGroups where
 
 instance Prelude.NFData IsMemberInGroups where
   rnf IsMemberInGroups' {..} =
-    Prelude.rnf identityStoreId
-      `Prelude.seq` Prelude.rnf memberId
-      `Prelude.seq` Prelude.rnf groupIds
+    Prelude.rnf identityStoreId `Prelude.seq`
+      Prelude.rnf memberId `Prelude.seq`
+        Prelude.rnf groupIds
 
 instance Data.ToHeaders IsMemberInGroups where
   toHeaders =
@@ -205,5 +205,5 @@ isMemberInGroupsResponse_results = Lens.lens (\IsMemberInGroupsResponse' {result
 
 instance Prelude.NFData IsMemberInGroupsResponse where
   rnf IsMemberInGroupsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf results
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf results

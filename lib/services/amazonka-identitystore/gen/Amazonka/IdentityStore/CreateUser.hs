@@ -273,20 +273,20 @@ instance Prelude.Hashable CreateUser where
 
 instance Prelude.NFData CreateUser where
   rnf CreateUser' {..} =
-    Prelude.rnf addresses
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf emails
-      `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nickName
-      `Prelude.seq` Prelude.rnf phoneNumbers
-      `Prelude.seq` Prelude.rnf preferredLanguage
-      `Prelude.seq` Prelude.rnf profileUrl
-      `Prelude.seq` Prelude.rnf timezone
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf userType
-      `Prelude.seq` Prelude.rnf identityStoreId
+    Prelude.rnf addresses `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf emails `Prelude.seq`
+          Prelude.rnf locale `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf nickName `Prelude.seq`
+                Prelude.rnf phoneNumbers `Prelude.seq`
+                  Prelude.rnf preferredLanguage `Prelude.seq`
+                    Prelude.rnf profileUrl `Prelude.seq`
+                      Prelude.rnf timezone `Prelude.seq`
+                        Prelude.rnf title `Prelude.seq`
+                          Prelude.rnf userName `Prelude.seq`
+                            Prelude.rnf userType `Prelude.seq`
+                              Prelude.rnf identityStoreId
 
 instance Data.ToHeaders CreateUser where
   toHeaders =
@@ -388,6 +388,6 @@ createUserResponse_identityStoreId = Lens.lens (\CreateUserResponse' {identitySt
 
 instance Prelude.NFData CreateUserResponse where
   rnf CreateUserResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf identityStoreId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf userId `Prelude.seq`
+        Prelude.rnf identityStoreId

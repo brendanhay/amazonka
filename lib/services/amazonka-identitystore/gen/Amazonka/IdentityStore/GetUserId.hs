@@ -119,8 +119,8 @@ instance Prelude.Hashable GetUserId where
 
 instance Prelude.NFData GetUserId where
   rnf GetUserId' {..} =
-    Prelude.rnf identityStoreId
-      `Prelude.seq` Prelude.rnf alternateIdentifier
+    Prelude.rnf identityStoreId `Prelude.seq`
+      Prelude.rnf alternateIdentifier
 
 instance Data.ToHeaders GetUserId where
   toHeaders =
@@ -208,6 +208,6 @@ getUserIdResponse_identityStoreId = Lens.lens (\GetUserIdResponse' {identityStor
 
 instance Prelude.NFData GetUserIdResponse where
   rnf GetUserIdResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf identityStoreId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf userId `Prelude.seq`
+        Prelude.rnf identityStoreId

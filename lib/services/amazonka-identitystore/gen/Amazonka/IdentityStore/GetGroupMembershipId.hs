@@ -135,9 +135,9 @@ instance Prelude.Hashable GetGroupMembershipId where
 
 instance Prelude.NFData GetGroupMembershipId where
   rnf GetGroupMembershipId' {..} =
-    Prelude.rnf identityStoreId
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf memberId
+    Prelude.rnf identityStoreId `Prelude.seq`
+      Prelude.rnf groupId `Prelude.seq`
+        Prelude.rnf memberId
 
 instance Data.ToHeaders GetGroupMembershipId where
   toHeaders =
@@ -228,6 +228,6 @@ getGroupMembershipIdResponse_identityStoreId = Lens.lens (\GetGroupMembershipIdR
 
 instance Prelude.NFData GetGroupMembershipIdResponse where
   rnf GetGroupMembershipIdResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf membershipId
-      `Prelude.seq` Prelude.rnf identityStoreId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf membershipId `Prelude.seq`
+        Prelude.rnf identityStoreId

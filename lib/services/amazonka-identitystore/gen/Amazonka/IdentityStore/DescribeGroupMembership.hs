@@ -120,8 +120,8 @@ instance Prelude.Hashable DescribeGroupMembership where
 
 instance Prelude.NFData DescribeGroupMembership where
   rnf DescribeGroupMembership' {..} =
-    Prelude.rnf identityStoreId
-      `Prelude.seq` Prelude.rnf membershipId
+    Prelude.rnf identityStoreId `Prelude.seq`
+      Prelude.rnf membershipId
 
 instance Data.ToHeaders DescribeGroupMembership where
   toHeaders =
@@ -237,8 +237,8 @@ instance
     DescribeGroupMembershipResponse
   where
   rnf DescribeGroupMembershipResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf identityStoreId
-      `Prelude.seq` Prelude.rnf membershipId
-      `Prelude.seq` Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf memberId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf identityStoreId `Prelude.seq`
+        Prelude.rnf membershipId `Prelude.seq`
+          Prelude.rnf groupId `Prelude.seq`
+            Prelude.rnf memberId

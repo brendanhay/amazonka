@@ -279,19 +279,19 @@ instance Prelude.Hashable User where
 
 instance Prelude.NFData User where
   rnf User' {..} =
-    Prelude.rnf addresses
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf emails
-      `Prelude.seq` Prelude.rnf externalIds
-      `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nickName
-      `Prelude.seq` Prelude.rnf phoneNumbers
-      `Prelude.seq` Prelude.rnf preferredLanguage
-      `Prelude.seq` Prelude.rnf profileUrl
-      `Prelude.seq` Prelude.rnf timezone
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf userType
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf identityStoreId
+    Prelude.rnf addresses `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf emails `Prelude.seq`
+          Prelude.rnf externalIds `Prelude.seq`
+            Prelude.rnf locale `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf nickName `Prelude.seq`
+                  Prelude.rnf phoneNumbers `Prelude.seq`
+                    Prelude.rnf preferredLanguage `Prelude.seq`
+                      Prelude.rnf profileUrl `Prelude.seq`
+                        Prelude.rnf timezone `Prelude.seq`
+                          Prelude.rnf title `Prelude.seq`
+                            Prelude.rnf userName `Prelude.seq`
+                              Prelude.rnf userType `Prelude.seq`
+                                Prelude.rnf userId `Prelude.seq`
+                                  Prelude.rnf identityStoreId

@@ -81,8 +81,8 @@ instance Prelude.Hashable UniqueAttribute where
 
 instance Prelude.NFData UniqueAttribute where
   rnf UniqueAttribute' {..} =
-    Prelude.rnf attributePath
-      `Prelude.seq` Prelude.rnf attributeValue
+    Prelude.rnf attributePath `Prelude.seq`
+      Prelude.rnf attributeValue
 
 instance Data.ToJSON UniqueAttribute where
   toJSON UniqueAttribute' {..} =

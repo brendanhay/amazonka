@@ -145,12 +145,12 @@ instance Core.AWSPager ListGroupMemberships where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listGroupMemberships_nextToken
-          Lens..~ rs
-          Lens.^? listGroupMembershipsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listGroupMemberships_nextToken
+              Lens..~ rs
+              Lens.^? listGroupMembershipsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGroupMemberships where
   type
@@ -180,10 +180,10 @@ instance Prelude.Hashable ListGroupMemberships where
 
 instance Prelude.NFData ListGroupMemberships where
   rnf ListGroupMemberships' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf identityStoreId
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf identityStoreId `Prelude.seq`
+          Prelude.rnf groupId
 
 instance Data.ToHeaders ListGroupMemberships where
   toHeaders =
@@ -280,6 +280,6 @@ listGroupMembershipsResponse_groupMemberships = Lens.lens (\ListGroupMemberships
 
 instance Prelude.NFData ListGroupMembershipsResponse where
   rnf ListGroupMembershipsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf groupMemberships
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf groupMemberships

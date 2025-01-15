@@ -122,8 +122,8 @@ instance Prelude.Hashable RootDirectory where
 
 instance Prelude.NFData RootDirectory where
   rnf RootDirectory' {..} =
-    Prelude.rnf creationInfo
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf creationInfo `Prelude.seq`
+      Prelude.rnf path
 
 instance Data.ToJSON RootDirectory where
   toJSON RootDirectory' {..} =

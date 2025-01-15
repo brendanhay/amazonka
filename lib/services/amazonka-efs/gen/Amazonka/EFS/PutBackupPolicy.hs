@@ -106,8 +106,8 @@ instance Prelude.Hashable PutBackupPolicy where
 
 instance Prelude.NFData PutBackupPolicy where
   rnf PutBackupPolicy' {..} =
-    Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf backupPolicy
+    Prelude.rnf fileSystemId `Prelude.seq`
+      Prelude.rnf backupPolicy
 
 instance Data.ToHeaders PutBackupPolicy where
   toHeaders = Prelude.const Prelude.mempty

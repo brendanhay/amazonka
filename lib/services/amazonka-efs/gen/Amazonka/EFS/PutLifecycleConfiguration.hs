@@ -204,8 +204,8 @@ instance Prelude.Hashable PutLifecycleConfiguration where
 
 instance Prelude.NFData PutLifecycleConfiguration where
   rnf PutLifecycleConfiguration' {..} =
-    Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf lifecyclePolicies
+    Prelude.rnf fileSystemId `Prelude.seq`
+      Prelude.rnf lifecyclePolicies
 
 instance Data.ToHeaders PutLifecycleConfiguration where
   toHeaders = Prelude.const Prelude.mempty

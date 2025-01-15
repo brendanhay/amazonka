@@ -124,8 +124,8 @@ instance Prelude.Hashable DescribeAccountPreferences where
 
 instance Prelude.NFData DescribeAccountPreferences where
   rnf DescribeAccountPreferences' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAccountPreferences where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,6 +202,6 @@ instance
     DescribeAccountPreferencesResponse
   where
   rnf DescribeAccountPreferencesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceIdPreference
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resourceIdPreference `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -79,5 +79,5 @@ instance Prelude.Hashable FileSystemPolicyDescription where
 
 instance Prelude.NFData FileSystemPolicyDescription where
   rnf FileSystemPolicyDescription' {..} =
-    Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf fileSystemId `Prelude.seq`
+      Prelude.rnf policy

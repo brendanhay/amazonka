@@ -190,5 +190,5 @@ putAccountPreferencesResponse_httpStatus = Lens.lens (\PutAccountPreferencesResp
 
 instance Prelude.NFData PutAccountPreferencesResponse where
   rnf PutAccountPreferencesResponse' {..} =
-    Prelude.rnf resourceIdPreference
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourceIdPreference `Prelude.seq`
+      Prelude.rnf httpStatus

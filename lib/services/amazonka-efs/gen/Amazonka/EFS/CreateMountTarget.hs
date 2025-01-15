@@ -267,10 +267,10 @@ instance Prelude.Hashable CreateMountTarget where
 
 instance Prelude.NFData CreateMountTarget where
   rnf CreateMountTarget' {..} =
-    Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf ipAddress `Prelude.seq`
+      Prelude.rnf securityGroups `Prelude.seq`
+        Prelude.rnf fileSystemId `Prelude.seq`
+          Prelude.rnf subnetId
 
 instance Data.ToHeaders CreateMountTarget where
   toHeaders = Prelude.const Prelude.mempty

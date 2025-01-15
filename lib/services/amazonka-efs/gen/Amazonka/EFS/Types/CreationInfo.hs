@@ -121,9 +121,9 @@ instance Prelude.Hashable CreationInfo where
 
 instance Prelude.NFData CreationInfo where
   rnf CreationInfo' {..} =
-    Prelude.rnf ownerUid
-      `Prelude.seq` Prelude.rnf ownerGid
-      `Prelude.seq` Prelude.rnf permissions
+    Prelude.rnf ownerUid `Prelude.seq`
+      Prelude.rnf ownerGid `Prelude.seq`
+        Prelude.rnf permissions
 
 instance Data.ToJSON CreationInfo where
   toJSON CreationInfo' {..} =

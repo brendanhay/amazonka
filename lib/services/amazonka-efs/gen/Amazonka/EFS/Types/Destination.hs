@@ -137,7 +137,7 @@ instance Prelude.Hashable Destination where
 
 instance Prelude.NFData Destination where
   rnf Destination' {..} =
-    Prelude.rnf lastReplicatedTimestamp
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf lastReplicatedTimestamp `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf fileSystemId `Prelude.seq`
+          Prelude.rnf region

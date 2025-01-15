@@ -194,5 +194,5 @@ instance
     DescribeMountTargetSecurityGroupsResponse
   where
   rnf DescribeMountTargetSecurityGroupsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf securityGroups
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf securityGroups

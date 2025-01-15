@@ -166,9 +166,9 @@ instance
     ReplicationConfigurationDescription
   where
   rnf ReplicationConfigurationDescription' {..} =
-    Prelude.rnf sourceFileSystemId
-      `Prelude.seq` Prelude.rnf sourceFileSystemRegion
-      `Prelude.seq` Prelude.rnf sourceFileSystemArn
-      `Prelude.seq` Prelude.rnf originalSourceFileSystemArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf destinations
+    Prelude.rnf sourceFileSystemId `Prelude.seq`
+      Prelude.rnf sourceFileSystemRegion `Prelude.seq`
+        Prelude.rnf sourceFileSystemArn `Prelude.seq`
+          Prelude.rnf originalSourceFileSystemArn `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf destinations

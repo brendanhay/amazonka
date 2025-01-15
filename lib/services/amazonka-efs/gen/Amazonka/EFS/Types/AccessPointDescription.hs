@@ -191,13 +191,13 @@ instance Prelude.Hashable AccessPointDescription where
 
 instance Prelude.NFData AccessPointDescription where
   rnf AccessPointDescription' {..} =
-    Prelude.rnf accessPointArn
-      `Prelude.seq` Prelude.rnf accessPointId
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf lifeCycleState
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf posixUser
-      `Prelude.seq` Prelude.rnf rootDirectory
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf accessPointArn `Prelude.seq`
+      Prelude.rnf accessPointId `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf fileSystemId `Prelude.seq`
+            Prelude.rnf lifeCycleState `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf ownerId `Prelude.seq`
+                  Prelude.rnf posixUser `Prelude.seq`
+                    Prelude.rnf rootDirectory `Prelude.seq`
+                      Prelude.rnf tags

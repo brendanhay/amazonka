@@ -170,9 +170,9 @@ instance Prelude.Hashable PutFileSystemPolicy where
 
 instance Prelude.NFData PutFileSystemPolicy where
   rnf PutFileSystemPolicy' {..} =
-    Prelude.rnf bypassPolicyLockoutSafetyCheck
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf bypassPolicyLockoutSafetyCheck `Prelude.seq`
+      Prelude.rnf fileSystemId `Prelude.seq`
+        Prelude.rnf policy
 
 instance Data.ToHeaders PutFileSystemPolicy where
   toHeaders = Prelude.const Prelude.mempty

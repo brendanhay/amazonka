@@ -130,8 +130,8 @@ instance
     ModifyMountTargetSecurityGroups
   where
   rnf ModifyMountTargetSecurityGroups' {..} =
-    Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf mountTargetId
+    Prelude.rnf securityGroups `Prelude.seq`
+      Prelude.rnf mountTargetId
 
 instance
   Data.ToHeaders

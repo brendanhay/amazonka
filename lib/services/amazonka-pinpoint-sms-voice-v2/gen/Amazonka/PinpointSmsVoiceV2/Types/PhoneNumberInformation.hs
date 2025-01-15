@@ -321,19 +321,19 @@ instance Prelude.Hashable PhoneNumberInformation where
 
 instance Prelude.NFData PhoneNumberInformation where
   rnf PhoneNumberInformation' {..} =
-    Prelude.rnf phoneNumberId
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf twoWayChannelArn
-      `Prelude.seq` Prelude.rnf phoneNumberArn
-      `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf isoCountryCode
-      `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf numberCapabilities
-      `Prelude.seq` Prelude.rnf numberType
-      `Prelude.seq` Prelude.rnf monthlyLeasingPrice
-      `Prelude.seq` Prelude.rnf twoWayEnabled
-      `Prelude.seq` Prelude.rnf selfManagedOptOutsEnabled
-      `Prelude.seq` Prelude.rnf optOutListName
-      `Prelude.seq` Prelude.rnf deletionProtectionEnabled
-      `Prelude.seq` Prelude.rnf createdTimestamp
+    Prelude.rnf phoneNumberId `Prelude.seq`
+      Prelude.rnf poolId `Prelude.seq`
+        Prelude.rnf twoWayChannelArn `Prelude.seq`
+          Prelude.rnf phoneNumberArn `Prelude.seq`
+            Prelude.rnf phoneNumber `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf isoCountryCode `Prelude.seq`
+                  Prelude.rnf messageType `Prelude.seq`
+                    Prelude.rnf numberCapabilities `Prelude.seq`
+                      Prelude.rnf numberType `Prelude.seq`
+                        Prelude.rnf monthlyLeasingPrice `Prelude.seq`
+                          Prelude.rnf twoWayEnabled `Prelude.seq`
+                            Prelude.rnf selfManagedOptOutsEnabled `Prelude.seq`
+                              Prelude.rnf optOutListName `Prelude.seq`
+                                Prelude.rnf deletionProtectionEnabled `Prelude.seq`
+                                  Prelude.rnf createdTimestamp

@@ -179,10 +179,10 @@ instance Prelude.Hashable PutKeyword where
 
 instance Prelude.NFData PutKeyword where
   rnf PutKeyword' {..} =
-    Prelude.rnf keywordAction
-      `Prelude.seq` Prelude.rnf originationIdentity
-      `Prelude.seq` Prelude.rnf keyword
-      `Prelude.seq` Prelude.rnf keywordMessage
+    Prelude.rnf keywordAction `Prelude.seq`
+      Prelude.rnf originationIdentity `Prelude.seq`
+        Prelude.rnf keyword `Prelude.seq`
+          Prelude.rnf keywordMessage
 
 instance Data.ToHeaders PutKeyword where
   toHeaders =
@@ -294,9 +294,9 @@ putKeywordResponse_httpStatus = Lens.lens (\PutKeywordResponse' {httpStatus} -> 
 
 instance Prelude.NFData PutKeywordResponse where
   rnf PutKeywordResponse' {..} =
-    Prelude.rnf keyword
-      `Prelude.seq` Prelude.rnf keywordAction
-      `Prelude.seq` Prelude.rnf keywordMessage
-      `Prelude.seq` Prelude.rnf originationIdentity
-      `Prelude.seq` Prelude.rnf originationIdentityArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keyword `Prelude.seq`
+      Prelude.rnf keywordAction `Prelude.seq`
+        Prelude.rnf keywordMessage `Prelude.seq`
+          Prelude.rnf originationIdentity `Prelude.seq`
+            Prelude.rnf originationIdentityArn `Prelude.seq`
+              Prelude.rnf httpStatus

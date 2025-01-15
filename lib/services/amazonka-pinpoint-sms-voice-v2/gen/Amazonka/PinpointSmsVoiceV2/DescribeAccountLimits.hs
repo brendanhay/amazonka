@@ -115,12 +115,12 @@ instance Core.AWSPager DescribeAccountLimits where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAccountLimits_nextToken
-          Lens..~ rs
-          Lens.^? describeAccountLimitsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAccountLimits_nextToken
+              Lens..~ rs
+              Lens.^? describeAccountLimitsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAccountLimits where
   type
@@ -145,8 +145,8 @@ instance Prelude.Hashable DescribeAccountLimits where
 
 instance Prelude.NFData DescribeAccountLimits where
   rnf DescribeAccountLimits' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAccountLimits where
   toHeaders =
@@ -231,6 +231,6 @@ describeAccountLimitsResponse_httpStatus = Lens.lens (\DescribeAccountLimitsResp
 
 instance Prelude.NFData DescribeAccountLimitsResponse where
   rnf DescribeAccountLimitsResponse' {..} =
-    Prelude.rnf accountLimits
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accountLimits `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

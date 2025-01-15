@@ -182,10 +182,10 @@ instance
     DisassociateOriginationIdentity
   where
   rnf DisassociateOriginationIdentity' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf originationIdentity
-      `Prelude.seq` Prelude.rnf isoCountryCode
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf poolId `Prelude.seq`
+        Prelude.rnf originationIdentity `Prelude.seq`
+          Prelude.rnf isoCountryCode
 
 instance
   Data.ToHeaders
@@ -313,9 +313,9 @@ instance
     DisassociateOriginationIdentityResponse
   where
   rnf DisassociateOriginationIdentityResponse' {..} =
-    Prelude.rnf isoCountryCode
-      `Prelude.seq` Prelude.rnf originationIdentity
-      `Prelude.seq` Prelude.rnf originationIdentityArn
-      `Prelude.seq` Prelude.rnf poolArn
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf isoCountryCode `Prelude.seq`
+      Prelude.rnf originationIdentity `Prelude.seq`
+        Prelude.rnf originationIdentityArn `Prelude.seq`
+          Prelude.rnf poolArn `Prelude.seq`
+            Prelude.rnf poolId `Prelude.seq`
+              Prelude.rnf httpStatus

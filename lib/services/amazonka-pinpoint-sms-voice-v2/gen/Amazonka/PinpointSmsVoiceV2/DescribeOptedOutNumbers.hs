@@ -156,12 +156,12 @@ instance Core.AWSPager DescribeOptedOutNumbers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeOptedOutNumbers_nextToken
-          Lens..~ rs
-          Lens.^? describeOptedOutNumbersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeOptedOutNumbers_nextToken
+              Lens..~ rs
+              Lens.^? describeOptedOutNumbersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeOptedOutNumbers where
   type
@@ -194,11 +194,11 @@ instance Prelude.Hashable DescribeOptedOutNumbers where
 
 instance Prelude.NFData DescribeOptedOutNumbers where
   rnf DescribeOptedOutNumbers' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf optedOutNumbers
-      `Prelude.seq` Prelude.rnf optOutListName
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf optedOutNumbers `Prelude.seq`
+            Prelude.rnf optOutListName
 
 instance Data.ToHeaders DescribeOptedOutNumbers where
   toHeaders =
@@ -312,8 +312,8 @@ instance
     DescribeOptedOutNumbersResponse
   where
   rnf DescribeOptedOutNumbersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf optOutListArn
-      `Prelude.seq` Prelude.rnf optOutListName
-      `Prelude.seq` Prelude.rnf optedOutNumbers
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf optOutListArn `Prelude.seq`
+        Prelude.rnf optOutListName `Prelude.seq`
+          Prelude.rnf optedOutNumbers `Prelude.seq`
+            Prelude.rnf httpStatus

@@ -137,7 +137,7 @@ instance Prelude.Hashable SpendLimit where
 
 instance Prelude.NFData SpendLimit where
   rnf SpendLimit' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf enforcedLimit
-      `Prelude.seq` Prelude.rnf maxLimit
-      `Prelude.seq` Prelude.rnf overridden
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf enforcedLimit `Prelude.seq`
+        Prelude.rnf maxLimit `Prelude.seq`
+          Prelude.rnf overridden

@@ -214,12 +214,12 @@ instance Prelude.Hashable UpdatePhoneNumber where
 
 instance Prelude.NFData UpdatePhoneNumber where
   rnf UpdatePhoneNumber' {..} =
-    Prelude.rnf deletionProtectionEnabled
-      `Prelude.seq` Prelude.rnf optOutListName
-      `Prelude.seq` Prelude.rnf selfManagedOptOutsEnabled
-      `Prelude.seq` Prelude.rnf twoWayChannelArn
-      `Prelude.seq` Prelude.rnf twoWayEnabled
-      `Prelude.seq` Prelude.rnf phoneNumberId
+    Prelude.rnf deletionProtectionEnabled `Prelude.seq`
+      Prelude.rnf optOutListName `Prelude.seq`
+        Prelude.rnf selfManagedOptOutsEnabled `Prelude.seq`
+          Prelude.rnf twoWayChannelArn `Prelude.seq`
+            Prelude.rnf twoWayEnabled `Prelude.seq`
+              Prelude.rnf phoneNumberId
 
 instance Data.ToHeaders UpdatePhoneNumber where
   toHeaders =
@@ -442,19 +442,19 @@ updatePhoneNumberResponse_httpStatus = Lens.lens (\UpdatePhoneNumberResponse' {h
 
 instance Prelude.NFData UpdatePhoneNumberResponse where
   rnf UpdatePhoneNumberResponse' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf deletionProtectionEnabled
-      `Prelude.seq` Prelude.rnf isoCountryCode
-      `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf monthlyLeasingPrice
-      `Prelude.seq` Prelude.rnf numberCapabilities
-      `Prelude.seq` Prelude.rnf numberType
-      `Prelude.seq` Prelude.rnf optOutListName
-      `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf phoneNumberArn
-      `Prelude.seq` Prelude.rnf phoneNumberId
-      `Prelude.seq` Prelude.rnf selfManagedOptOutsEnabled
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf twoWayChannelArn
-      `Prelude.seq` Prelude.rnf twoWayEnabled
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf deletionProtectionEnabled `Prelude.seq`
+        Prelude.rnf isoCountryCode `Prelude.seq`
+          Prelude.rnf messageType `Prelude.seq`
+            Prelude.rnf monthlyLeasingPrice `Prelude.seq`
+              Prelude.rnf numberCapabilities `Prelude.seq`
+                Prelude.rnf numberType `Prelude.seq`
+                  Prelude.rnf optOutListName `Prelude.seq`
+                    Prelude.rnf phoneNumber `Prelude.seq`
+                      Prelude.rnf phoneNumberArn `Prelude.seq`
+                        Prelude.rnf phoneNumberId `Prelude.seq`
+                          Prelude.rnf selfManagedOptOutsEnabled `Prelude.seq`
+                            Prelude.rnf status `Prelude.seq`
+                              Prelude.rnf twoWayChannelArn `Prelude.seq`
+                                Prelude.rnf twoWayEnabled `Prelude.seq`
+                                  Prelude.rnf httpStatus

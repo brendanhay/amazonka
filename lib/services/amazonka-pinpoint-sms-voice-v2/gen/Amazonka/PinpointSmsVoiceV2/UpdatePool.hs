@@ -209,13 +209,13 @@ instance Prelude.Hashable UpdatePool where
 
 instance Prelude.NFData UpdatePool where
   rnf UpdatePool' {..} =
-    Prelude.rnf deletionProtectionEnabled
-      `Prelude.seq` Prelude.rnf optOutListName
-      `Prelude.seq` Prelude.rnf selfManagedOptOutsEnabled
-      `Prelude.seq` Prelude.rnf sharedRoutesEnabled
-      `Prelude.seq` Prelude.rnf twoWayChannelArn
-      `Prelude.seq` Prelude.rnf twoWayEnabled
-      `Prelude.seq` Prelude.rnf poolId
+    Prelude.rnf deletionProtectionEnabled `Prelude.seq`
+      Prelude.rnf optOutListName `Prelude.seq`
+        Prelude.rnf selfManagedOptOutsEnabled `Prelude.seq`
+          Prelude.rnf sharedRoutesEnabled `Prelude.seq`
+            Prelude.rnf twoWayChannelArn `Prelude.seq`
+              Prelude.rnf twoWayEnabled `Prelude.seq`
+                Prelude.rnf poolId
 
 instance Data.ToHeaders UpdatePool where
   toHeaders =
@@ -409,15 +409,15 @@ updatePoolResponse_httpStatus = Lens.lens (\UpdatePoolResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdatePoolResponse where
   rnf UpdatePoolResponse' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf deletionProtectionEnabled
-      `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf optOutListName
-      `Prelude.seq` Prelude.rnf poolArn
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf selfManagedOptOutsEnabled
-      `Prelude.seq` Prelude.rnf sharedRoutesEnabled
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf twoWayChannelArn
-      `Prelude.seq` Prelude.rnf twoWayEnabled
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf deletionProtectionEnabled `Prelude.seq`
+        Prelude.rnf messageType `Prelude.seq`
+          Prelude.rnf optOutListName `Prelude.seq`
+            Prelude.rnf poolArn `Prelude.seq`
+              Prelude.rnf poolId `Prelude.seq`
+                Prelude.rnf selfManagedOptOutsEnabled `Prelude.seq`
+                  Prelude.rnf sharedRoutesEnabled `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf twoWayChannelArn `Prelude.seq`
+                        Prelude.rnf twoWayEnabled `Prelude.seq`
+                          Prelude.rnf httpStatus

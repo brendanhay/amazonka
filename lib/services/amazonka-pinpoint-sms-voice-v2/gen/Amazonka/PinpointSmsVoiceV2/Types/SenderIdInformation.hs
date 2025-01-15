@@ -138,8 +138,8 @@ instance Prelude.Hashable SenderIdInformation where
 
 instance Prelude.NFData SenderIdInformation where
   rnf SenderIdInformation' {..} =
-    Prelude.rnf senderIdArn
-      `Prelude.seq` Prelude.rnf senderId
-      `Prelude.seq` Prelude.rnf isoCountryCode
-      `Prelude.seq` Prelude.rnf messageTypes
-      `Prelude.seq` Prelude.rnf monthlyLeasingPrice
+    Prelude.rnf senderIdArn `Prelude.seq`
+      Prelude.rnf senderId `Prelude.seq`
+        Prelude.rnf isoCountryCode `Prelude.seq`
+          Prelude.rnf messageTypes `Prelude.seq`
+            Prelude.rnf monthlyLeasingPrice

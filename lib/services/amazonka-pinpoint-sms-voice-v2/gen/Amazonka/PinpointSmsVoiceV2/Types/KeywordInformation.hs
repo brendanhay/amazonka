@@ -101,6 +101,6 @@ instance Prelude.Hashable KeywordInformation where
 
 instance Prelude.NFData KeywordInformation where
   rnf KeywordInformation' {..} =
-    Prelude.rnf keyword
-      `Prelude.seq` Prelude.rnf keywordMessage
-      `Prelude.seq` Prelude.rnf keywordAction
+    Prelude.rnf keyword `Prelude.seq`
+      Prelude.rnf keywordMessage `Prelude.seq`
+        Prelude.rnf keywordAction

@@ -106,6 +106,6 @@ instance Prelude.Hashable OptedOutNumberInformation where
 
 instance Prelude.NFData OptedOutNumberInformation where
   rnf OptedOutNumberInformation' {..} =
-    Prelude.rnf optedOutNumber
-      `Prelude.seq` Prelude.rnf optedOutTimestamp
-      `Prelude.seq` Prelude.rnf endUserOptedOut
+    Prelude.rnf optedOutNumber `Prelude.seq`
+      Prelude.rnf optedOutTimestamp `Prelude.seq`
+        Prelude.rnf endUserOptedOut

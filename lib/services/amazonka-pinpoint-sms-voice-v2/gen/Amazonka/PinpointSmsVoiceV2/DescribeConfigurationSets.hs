@@ -138,12 +138,12 @@ instance Core.AWSPager DescribeConfigurationSets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeConfigurationSets_nextToken
-          Lens..~ rs
-          Lens.^? describeConfigurationSetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeConfigurationSets_nextToken
+              Lens..~ rs
+              Lens.^? describeConfigurationSetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeConfigurationSets where
   type
@@ -173,10 +173,10 @@ instance Prelude.Hashable DescribeConfigurationSets where
 
 instance Prelude.NFData DescribeConfigurationSets where
   rnf DescribeConfigurationSets' {..} =
-    Prelude.rnf configurationSetNames
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf configurationSetNames `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeConfigurationSets where
   toHeaders =
@@ -267,6 +267,6 @@ instance
     DescribeConfigurationSetsResponse
   where
   rnf DescribeConfigurationSetsResponse' {..} =
-    Prelude.rnf configurationSets
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationSets `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

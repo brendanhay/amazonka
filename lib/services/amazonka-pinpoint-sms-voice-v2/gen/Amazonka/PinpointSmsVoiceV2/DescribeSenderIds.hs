@@ -134,12 +134,12 @@ instance Core.AWSPager DescribeSenderIds where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeSenderIds_nextToken
-          Lens..~ rs
-          Lens.^? describeSenderIdsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeSenderIds_nextToken
+              Lens..~ rs
+              Lens.^? describeSenderIdsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSenderIds where
   type
@@ -166,10 +166,10 @@ instance Prelude.Hashable DescribeSenderIds where
 
 instance Prelude.NFData DescribeSenderIds where
   rnf DescribeSenderIds' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf senderIds
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf senderIds
 
 instance Data.ToHeaders DescribeSenderIds where
   toHeaders =
@@ -259,6 +259,6 @@ describeSenderIdsResponse_httpStatus = Lens.lens (\DescribeSenderIdsResponse' {h
 
 instance Prelude.NFData DescribeSenderIdsResponse where
   rnf DescribeSenderIdsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf senderIds
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf senderIds `Prelude.seq`
+        Prelude.rnf httpStatus

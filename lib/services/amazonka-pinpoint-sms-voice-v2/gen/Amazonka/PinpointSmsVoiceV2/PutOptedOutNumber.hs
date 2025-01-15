@@ -124,8 +124,8 @@ instance Prelude.Hashable PutOptedOutNumber where
 
 instance Prelude.NFData PutOptedOutNumber where
   rnf PutOptedOutNumber' {..} =
-    Prelude.rnf optOutListName
-      `Prelude.seq` Prelude.rnf optedOutNumber
+    Prelude.rnf optOutListName `Prelude.seq`
+      Prelude.rnf optedOutNumber
 
 instance Data.ToHeaders PutOptedOutNumber where
   toHeaders =
@@ -242,9 +242,9 @@ putOptedOutNumberResponse_httpStatus = Lens.lens (\PutOptedOutNumberResponse' {h
 
 instance Prelude.NFData PutOptedOutNumberResponse where
   rnf PutOptedOutNumberResponse' {..} =
-    Prelude.rnf endUserOptedOut
-      `Prelude.seq` Prelude.rnf optOutListArn
-      `Prelude.seq` Prelude.rnf optOutListName
-      `Prelude.seq` Prelude.rnf optedOutNumber
-      `Prelude.seq` Prelude.rnf optedOutTimestamp
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf endUserOptedOut `Prelude.seq`
+      Prelude.rnf optOutListArn `Prelude.seq`
+        Prelude.rnf optOutListName `Prelude.seq`
+          Prelude.rnf optedOutNumber `Prelude.seq`
+            Prelude.rnf optedOutTimestamp `Prelude.seq`
+              Prelude.rnf httpStatus

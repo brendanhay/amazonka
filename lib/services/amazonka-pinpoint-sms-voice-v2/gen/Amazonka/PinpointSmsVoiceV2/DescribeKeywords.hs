@@ -157,12 +157,12 @@ instance Core.AWSPager DescribeKeywords where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeKeywords_nextToken
-          Lens..~ rs
-          Lens.^? describeKeywordsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeKeywords_nextToken
+              Lens..~ rs
+              Lens.^? describeKeywordsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeKeywords where
   type
@@ -192,11 +192,11 @@ instance Prelude.Hashable DescribeKeywords where
 
 instance Prelude.NFData DescribeKeywords where
   rnf DescribeKeywords' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf keywords
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf originationIdentity
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf keywords `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf originationIdentity
 
 instance Data.ToHeaders DescribeKeywords where
   toHeaders =
@@ -309,8 +309,8 @@ describeKeywordsResponse_httpStatus = Lens.lens (\DescribeKeywordsResponse' {htt
 
 instance Prelude.NFData DescribeKeywordsResponse where
   rnf DescribeKeywordsResponse' {..} =
-    Prelude.rnf keywords
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf originationIdentity
-      `Prelude.seq` Prelude.rnf originationIdentityArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf keywords `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf originationIdentity `Prelude.seq`
+          Prelude.rnf originationIdentityArn `Prelude.seq`
+            Prelude.rnf httpStatus

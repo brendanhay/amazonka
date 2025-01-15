@@ -243,16 +243,16 @@ instance Prelude.Hashable SendVoiceMessage where
 
 instance Prelude.NFData SendVoiceMessage where
   rnf SendVoiceMessage' {..} =
-    Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf context
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxPricePerMinute
-      `Prelude.seq` Prelude.rnf messageBody
-      `Prelude.seq` Prelude.rnf messageBodyTextType
-      `Prelude.seq` Prelude.rnf timeToLive
-      `Prelude.seq` Prelude.rnf voiceId
-      `Prelude.seq` Prelude.rnf destinationPhoneNumber
-      `Prelude.seq` Prelude.rnf originationIdentity
+    Prelude.rnf configurationSetName `Prelude.seq`
+      Prelude.rnf context `Prelude.seq`
+        Prelude.rnf dryRun `Prelude.seq`
+          Prelude.rnf maxPricePerMinute `Prelude.seq`
+            Prelude.rnf messageBody `Prelude.seq`
+              Prelude.rnf messageBodyTextType `Prelude.seq`
+                Prelude.rnf timeToLive `Prelude.seq`
+                  Prelude.rnf voiceId `Prelude.seq`
+                    Prelude.rnf destinationPhoneNumber `Prelude.seq`
+                      Prelude.rnf originationIdentity
 
 instance Data.ToHeaders SendVoiceMessage where
   toHeaders =
@@ -340,5 +340,5 @@ sendVoiceMessageResponse_httpStatus = Lens.lens (\SendVoiceMessageResponse' {htt
 
 instance Prelude.NFData SendVoiceMessageResponse where
   rnf SendVoiceMessageResponse' {..} =
-    Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf messageId `Prelude.seq`
+      Prelude.rnf httpStatus

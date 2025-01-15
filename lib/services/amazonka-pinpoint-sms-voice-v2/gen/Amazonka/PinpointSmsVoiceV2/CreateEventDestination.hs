@@ -210,13 +210,13 @@ instance Prelude.Hashable CreateEventDestination where
 
 instance Prelude.NFData CreateEventDestination where
   rnf CreateEventDestination' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf cloudWatchLogsDestination
-      `Prelude.seq` Prelude.rnf kinesisFirehoseDestination
-      `Prelude.seq` Prelude.rnf snsDestination
-      `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf eventDestinationName
-      `Prelude.seq` Prelude.rnf matchingEventTypes
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf cloudWatchLogsDestination `Prelude.seq`
+        Prelude.rnf kinesisFirehoseDestination `Prelude.seq`
+          Prelude.rnf snsDestination `Prelude.seq`
+            Prelude.rnf configurationSetName `Prelude.seq`
+              Prelude.rnf eventDestinationName `Prelude.seq`
+                Prelude.rnf matchingEventTypes
 
 instance Data.ToHeaders CreateEventDestination where
   toHeaders =
@@ -325,7 +325,7 @@ instance
     CreateEventDestinationResponse
   where
   rnf CreateEventDestinationResponse' {..} =
-    Prelude.rnf configurationSetArn
-      `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf eventDestination
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationSetArn `Prelude.seq`
+      Prelude.rnf configurationSetName `Prelude.seq`
+        Prelude.rnf eventDestination `Prelude.seq`
+          Prelude.rnf httpStatus

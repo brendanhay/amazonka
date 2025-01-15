@@ -140,8 +140,8 @@ instance Prelude.Hashable SetDefaultSenderId where
 
 instance Prelude.NFData SetDefaultSenderId where
   rnf SetDefaultSenderId' {..} =
-    Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf senderId
+    Prelude.rnf configurationSetName `Prelude.seq`
+      Prelude.rnf senderId
 
 instance Data.ToHeaders SetDefaultSenderId where
   toHeaders =
@@ -235,7 +235,7 @@ setDefaultSenderIdResponse_httpStatus = Lens.lens (\SetDefaultSenderIdResponse' 
 
 instance Prelude.NFData SetDefaultSenderIdResponse where
   rnf SetDefaultSenderIdResponse' {..} =
-    Prelude.rnf configurationSetArn
-      `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf senderId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf configurationSetArn `Prelude.seq`
+      Prelude.rnf configurationSetName `Prelude.seq`
+        Prelude.rnf senderId `Prelude.seq`
+          Prelude.rnf httpStatus

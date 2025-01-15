@@ -114,12 +114,12 @@ instance Core.AWSPager DescribeAccountAttributes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& describeAccountAttributes_nextToken
-          Lens..~ rs
-          Lens.^? describeAccountAttributesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& describeAccountAttributes_nextToken
+              Lens..~ rs
+              Lens.^? describeAccountAttributesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAccountAttributes where
   type
@@ -147,8 +147,8 @@ instance Prelude.Hashable DescribeAccountAttributes where
 
 instance Prelude.NFData DescribeAccountAttributes where
   rnf DescribeAccountAttributes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAccountAttributes where
   toHeaders =
@@ -236,6 +236,6 @@ instance
     DescribeAccountAttributesResponse
   where
   rnf DescribeAccountAttributesResponse' {..} =
-    Prelude.rnf accountAttributes
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accountAttributes `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

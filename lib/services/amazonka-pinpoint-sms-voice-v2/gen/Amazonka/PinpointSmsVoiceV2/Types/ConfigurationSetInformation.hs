@@ -153,9 +153,9 @@ instance Prelude.Hashable ConfigurationSetInformation where
 
 instance Prelude.NFData ConfigurationSetInformation where
   rnf ConfigurationSetInformation' {..} =
-    Prelude.rnf defaultMessageType
-      `Prelude.seq` Prelude.rnf defaultSenderId
-      `Prelude.seq` Prelude.rnf configurationSetArn
-      `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf eventDestinations
-      `Prelude.seq` Prelude.rnf createdTimestamp
+    Prelude.rnf defaultMessageType `Prelude.seq`
+      Prelude.rnf defaultSenderId `Prelude.seq`
+        Prelude.rnf configurationSetArn `Prelude.seq`
+          Prelude.rnf configurationSetName `Prelude.seq`
+            Prelude.rnf eventDestinations `Prelude.seq`
+              Prelude.rnf createdTimestamp

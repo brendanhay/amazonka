@@ -177,10 +177,10 @@ instance
 
 instance Prelude.NFData AssociateOriginationIdentity where
   rnf AssociateOriginationIdentity' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf originationIdentity
-      `Prelude.seq` Prelude.rnf isoCountryCode
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf poolId `Prelude.seq`
+        Prelude.rnf originationIdentity `Prelude.seq`
+          Prelude.rnf isoCountryCode
 
 instance Data.ToHeaders AssociateOriginationIdentity where
   toHeaders =
@@ -306,9 +306,9 @@ instance
     AssociateOriginationIdentityResponse
   where
   rnf AssociateOriginationIdentityResponse' {..} =
-    Prelude.rnf isoCountryCode
-      `Prelude.seq` Prelude.rnf originationIdentity
-      `Prelude.seq` Prelude.rnf originationIdentityArn
-      `Prelude.seq` Prelude.rnf poolArn
-      `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf isoCountryCode `Prelude.seq`
+      Prelude.rnf originationIdentity `Prelude.seq`
+        Prelude.rnf originationIdentityArn `Prelude.seq`
+          Prelude.rnf poolArn `Prelude.seq`
+            Prelude.rnf poolId `Prelude.seq`
+              Prelude.rnf httpStatus

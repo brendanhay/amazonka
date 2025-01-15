@@ -251,17 +251,17 @@ instance Prelude.Hashable SendTextMessage where
 
 instance Prelude.NFData SendTextMessage where
   rnf SendTextMessage' {..} =
-    Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf context
-      `Prelude.seq` Prelude.rnf destinationCountryParameters
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf keyword
-      `Prelude.seq` Prelude.rnf maxPrice
-      `Prelude.seq` Prelude.rnf messageBody
-      `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf originationIdentity
-      `Prelude.seq` Prelude.rnf timeToLive
-      `Prelude.seq` Prelude.rnf destinationPhoneNumber
+    Prelude.rnf configurationSetName `Prelude.seq`
+      Prelude.rnf context `Prelude.seq`
+        Prelude.rnf destinationCountryParameters `Prelude.seq`
+          Prelude.rnf dryRun `Prelude.seq`
+            Prelude.rnf keyword `Prelude.seq`
+              Prelude.rnf maxPrice `Prelude.seq`
+                Prelude.rnf messageBody `Prelude.seq`
+                  Prelude.rnf messageType `Prelude.seq`
+                    Prelude.rnf originationIdentity `Prelude.seq`
+                      Prelude.rnf timeToLive `Prelude.seq`
+                        Prelude.rnf destinationPhoneNumber
 
 instance Data.ToHeaders SendTextMessage where
   toHeaders =
@@ -349,5 +349,5 @@ sendTextMessageResponse_httpStatus = Lens.lens (\SendTextMessageResponse' {httpS
 
 instance Prelude.NFData SendTextMessageResponse where
   rnf SendTextMessageResponse' {..} =
-    Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf messageId `Prelude.seq`
+      Prelude.rnf httpStatus

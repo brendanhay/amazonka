@@ -80,5 +80,5 @@ instance Prelude.Hashable IOUsage where
 
 instance Prelude.NFData IOUsage where
   rnf IOUsage' {..} =
-    Prelude.rnf readIOs
-      `Prelude.seq` Prelude.rnf writeIOs
+    Prelude.rnf readIOs `Prelude.seq`
+      Prelude.rnf writeIOs

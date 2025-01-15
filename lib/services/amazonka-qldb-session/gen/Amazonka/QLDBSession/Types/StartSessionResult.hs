@@ -84,5 +84,5 @@ instance Prelude.Hashable StartSessionResult where
 
 instance Prelude.NFData StartSessionResult where
   rnf StartSessionResult' {..} =
-    Prelude.rnf sessionToken
-      `Prelude.seq` Prelude.rnf timingInformation
+    Prelude.rnf sessionToken `Prelude.seq`
+      Prelude.rnf timingInformation

@@ -109,8 +109,8 @@ instance Prelude.Hashable CommitTransactionRequest where
 
 instance Prelude.NFData CommitTransactionRequest where
   rnf CommitTransactionRequest' {..} =
-    Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf commitDigest
+    Prelude.rnf transactionId `Prelude.seq`
+      Prelude.rnf commitDigest
 
 instance Data.ToJSON CommitTransactionRequest where
   toJSON CommitTransactionRequest' {..} =

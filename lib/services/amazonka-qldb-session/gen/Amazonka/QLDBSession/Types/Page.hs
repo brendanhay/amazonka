@@ -81,5 +81,5 @@ instance Prelude.Hashable Page where
 
 instance Prelude.NFData Page where
   rnf Page' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf values
+    Prelude.rnf nextPageToken `Prelude.seq`
+      Prelude.rnf values

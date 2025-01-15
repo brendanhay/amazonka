@@ -82,5 +82,5 @@ instance Prelude.Hashable StartTransactionResult where
 
 instance Prelude.NFData StartTransactionResult where
   rnf StartTransactionResult' {..} =
-    Prelude.rnf timingInformation
-      `Prelude.seq` Prelude.rnf transactionId
+    Prelude.rnf timingInformation `Prelude.seq`
+      Prelude.rnf transactionId

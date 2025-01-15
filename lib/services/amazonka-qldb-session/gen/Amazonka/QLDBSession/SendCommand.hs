@@ -215,14 +215,14 @@ instance Prelude.Hashable SendCommand where
 
 instance Prelude.NFData SendCommand where
   rnf SendCommand' {..} =
-    Prelude.rnf abortTransaction
-      `Prelude.seq` Prelude.rnf commitTransaction
-      `Prelude.seq` Prelude.rnf endSession
-      `Prelude.seq` Prelude.rnf executeStatement
-      `Prelude.seq` Prelude.rnf fetchPage
-      `Prelude.seq` Prelude.rnf sessionToken
-      `Prelude.seq` Prelude.rnf startSession
-      `Prelude.seq` Prelude.rnf startTransaction
+    Prelude.rnf abortTransaction `Prelude.seq`
+      Prelude.rnf commitTransaction `Prelude.seq`
+        Prelude.rnf endSession `Prelude.seq`
+          Prelude.rnf executeStatement `Prelude.seq`
+            Prelude.rnf fetchPage `Prelude.seq`
+              Prelude.rnf sessionToken `Prelude.seq`
+                Prelude.rnf startSession `Prelude.seq`
+                  Prelude.rnf startTransaction
 
 instance Data.ToHeaders SendCommand where
   toHeaders =
@@ -363,11 +363,11 @@ sendCommandResponse_httpStatus = Lens.lens (\SendCommandResponse' {httpStatus} -
 
 instance Prelude.NFData SendCommandResponse where
   rnf SendCommandResponse' {..} =
-    Prelude.rnf abortTransaction
-      `Prelude.seq` Prelude.rnf commitTransaction
-      `Prelude.seq` Prelude.rnf endSession
-      `Prelude.seq` Prelude.rnf executeStatement
-      `Prelude.seq` Prelude.rnf fetchPage
-      `Prelude.seq` Prelude.rnf startSession
-      `Prelude.seq` Prelude.rnf startTransaction
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf abortTransaction `Prelude.seq`
+      Prelude.rnf commitTransaction `Prelude.seq`
+        Prelude.rnf endSession `Prelude.seq`
+          Prelude.rnf executeStatement `Prelude.seq`
+            Prelude.rnf fetchPage `Prelude.seq`
+              Prelude.rnf startSession `Prelude.seq`
+                Prelude.rnf startTransaction `Prelude.seq`
+                  Prelude.rnf httpStatus

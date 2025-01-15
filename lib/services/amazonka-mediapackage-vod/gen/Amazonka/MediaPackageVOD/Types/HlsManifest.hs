@@ -164,12 +164,12 @@ instance Prelude.Hashable HlsManifest where
 
 instance Prelude.NFData HlsManifest where
   rnf HlsManifest' {..} =
-    Prelude.rnf adMarkers
-      `Prelude.seq` Prelude.rnf includeIframeOnlyStream
-      `Prelude.seq` Prelude.rnf manifestName
-      `Prelude.seq` Prelude.rnf programDateTimeIntervalSeconds
-      `Prelude.seq` Prelude.rnf repeatExtXKey
-      `Prelude.seq` Prelude.rnf streamSelection
+    Prelude.rnf adMarkers `Prelude.seq`
+      Prelude.rnf includeIframeOnlyStream `Prelude.seq`
+        Prelude.rnf manifestName `Prelude.seq`
+          Prelude.rnf programDateTimeIntervalSeconds `Prelude.seq`
+            Prelude.rnf repeatExtXKey `Prelude.seq`
+              Prelude.rnf streamSelection
 
 instance Data.ToJSON HlsManifest where
   toJSON HlsManifest' {..} =

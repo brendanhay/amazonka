@@ -119,8 +119,8 @@ instance Prelude.Hashable ConfigureLogs where
 
 instance Prelude.NFData ConfigureLogs where
   rnf ConfigureLogs' {..} =
-    Prelude.rnf egressAccessLogs
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf egressAccessLogs `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders ConfigureLogs where
   toHeaders =
@@ -235,10 +235,10 @@ configureLogsResponse_httpStatus = Lens.lens (\ConfigureLogsResponse' {httpStatu
 
 instance Prelude.NFData ConfigureLogsResponse where
   rnf ConfigureLogsResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf authorization
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf egressAccessLogs
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf authorization `Prelude.seq`
+        Prelude.rnf domainName `Prelude.seq`
+          Prelude.rnf egressAccessLogs `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf httpStatus

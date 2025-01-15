@@ -163,12 +163,12 @@ instance Prelude.Hashable DashManifest where
 
 instance Prelude.NFData DashManifest where
   rnf DashManifest' {..} =
-    Prelude.rnf manifestLayout
-      `Prelude.seq` Prelude.rnf manifestName
-      `Prelude.seq` Prelude.rnf minBufferTimeSeconds
-      `Prelude.seq` Prelude.rnf profile
-      `Prelude.seq` Prelude.rnf scteMarkersSource
-      `Prelude.seq` Prelude.rnf streamSelection
+    Prelude.rnf manifestLayout `Prelude.seq`
+      Prelude.rnf manifestName `Prelude.seq`
+        Prelude.rnf minBufferTimeSeconds `Prelude.seq`
+          Prelude.rnf profile `Prelude.seq`
+            Prelude.rnf scteMarkersSource `Prelude.seq`
+              Prelude.rnf streamSelection
 
 instance Data.ToJSON DashManifest where
   toJSON DashManifest' {..} =

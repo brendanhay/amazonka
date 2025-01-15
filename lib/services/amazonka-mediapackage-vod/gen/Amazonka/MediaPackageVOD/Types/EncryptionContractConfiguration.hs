@@ -109,8 +109,8 @@ instance
     EncryptionContractConfiguration
   where
   rnf EncryptionContractConfiguration' {..} =
-    Prelude.rnf presetSpeke20Audio
-      `Prelude.seq` Prelude.rnf presetSpeke20Video
+    Prelude.rnf presetSpeke20Audio `Prelude.seq`
+      Prelude.rnf presetSpeke20Video
 
 instance Data.ToJSON EncryptionContractConfiguration where
   toJSON EncryptionContractConfiguration' {..} =

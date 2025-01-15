@@ -221,11 +221,11 @@ instance
     DescribePackagingGroupResponse
   where
   rnf DescribePackagingGroupResponse' {..} =
-    Prelude.rnf approximateAssetCount
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf authorization
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf egressAccessLogs
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf approximateAssetCount `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf authorization `Prelude.seq`
+          Prelude.rnf domainName `Prelude.seq`
+            Prelude.rnf egressAccessLogs `Prelude.seq`
+              Prelude.rnf id `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf httpStatus

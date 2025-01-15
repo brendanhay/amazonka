@@ -123,11 +123,11 @@ instance Prelude.Hashable HlsPackage where
 
 instance Prelude.NFData HlsPackage where
   rnf HlsPackage' {..} =
-    Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf includeDvbSubtitles
-      `Prelude.seq` Prelude.rnf segmentDurationSeconds
-      `Prelude.seq` Prelude.rnf useAudioRenditionGroup
-      `Prelude.seq` Prelude.rnf hlsManifests
+    Prelude.rnf encryption `Prelude.seq`
+      Prelude.rnf includeDvbSubtitles `Prelude.seq`
+        Prelude.rnf segmentDurationSeconds `Prelude.seq`
+          Prelude.rnf useAudioRenditionGroup `Prelude.seq`
+            Prelude.rnf hlsManifests
 
 instance Data.ToJSON HlsPackage where
   toJSON HlsPackage' {..} =

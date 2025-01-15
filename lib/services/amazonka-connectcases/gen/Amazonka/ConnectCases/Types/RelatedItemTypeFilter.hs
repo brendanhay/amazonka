@@ -73,8 +73,8 @@ instance Prelude.Hashable RelatedItemTypeFilter where
 
 instance Prelude.NFData RelatedItemTypeFilter where
   rnf RelatedItemTypeFilter' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf contact
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf contact
 
 instance Data.ToJSON RelatedItemTypeFilter where
   toJSON RelatedItemTypeFilter' {..} =

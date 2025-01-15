@@ -111,8 +111,8 @@ instance Prelude.Hashable PutCaseEventConfiguration where
 
 instance Prelude.NFData PutCaseEventConfiguration where
   rnf PutCaseEventConfiguration' {..} =
-    Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf eventBridge
+    Prelude.rnf domainId `Prelude.seq`
+      Prelude.rnf eventBridge
 
 instance Data.ToHeaders PutCaseEventConfiguration where
   toHeaders =

@@ -171,13 +171,13 @@ instance Prelude.Hashable UpdateTemplate where
 
 instance Prelude.NFData UpdateTemplate where
   rnf UpdateTemplate' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf layoutConfiguration
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf requiredFields
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf layoutConfiguration `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf requiredFields `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf domainId `Prelude.seq`
+                Prelude.rnf templateId
 
 instance Data.ToHeaders UpdateTemplate where
   toHeaders =

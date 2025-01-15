@@ -128,10 +128,10 @@ instance Prelude.Hashable UpdateField where
 
 instance Prelude.NFData UpdateField where
   rnf UpdateField' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf fieldId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf domainId `Prelude.seq`
+          Prelude.rnf fieldId
 
 instance Data.ToHeaders UpdateField where
   toHeaders =

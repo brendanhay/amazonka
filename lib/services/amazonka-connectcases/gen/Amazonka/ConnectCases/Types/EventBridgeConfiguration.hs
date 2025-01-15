@@ -88,8 +88,8 @@ instance Prelude.Hashable EventBridgeConfiguration where
 
 instance Prelude.NFData EventBridgeConfiguration where
   rnf EventBridgeConfiguration' {..} =
-    Prelude.rnf includedData
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf includedData `Prelude.seq`
+      Prelude.rnf enabled
 
 instance Data.ToJSON EventBridgeConfiguration where
   toJSON EventBridgeConfiguration' {..} =

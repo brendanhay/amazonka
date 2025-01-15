@@ -97,9 +97,9 @@ instance Prelude.Hashable FieldValueUnion where
 
 instance Prelude.NFData FieldValueUnion where
   rnf FieldValueUnion' {..} =
-    Prelude.rnf booleanValue
-      `Prelude.seq` Prelude.rnf doubleValue
-      `Prelude.seq` Prelude.rnf stringValue
+    Prelude.rnf booleanValue `Prelude.seq`
+      Prelude.rnf doubleValue `Prelude.seq`
+        Prelude.rnf stringValue
 
 instance Data.ToJSON FieldValueUnion where
   toJSON FieldValueUnion' {..} =

@@ -130,8 +130,8 @@ instance Prelude.Hashable FieldSummary where
 
 instance Prelude.NFData FieldSummary where
   rnf FieldSummary' {..} =
-    Prelude.rnf fieldArn
-      `Prelude.seq` Prelude.rnf fieldId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf fieldArn `Prelude.seq`
+      Prelude.rnf fieldId `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf namespace `Prelude.seq`
+            Prelude.rnf type'

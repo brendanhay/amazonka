@@ -70,8 +70,8 @@ instance Prelude.Hashable ContactFilter where
 
 instance Prelude.NFData ContactFilter where
   rnf ContactFilter' {..} =
-    Prelude.rnf channel
-      `Prelude.seq` Prelude.rnf contactArn
+    Prelude.rnf channel `Prelude.seq`
+      Prelude.rnf contactArn
 
 instance Data.ToJSON ContactFilter where
   toJSON ContactFilter' {..} =

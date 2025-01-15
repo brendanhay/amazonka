@@ -144,10 +144,10 @@ instance Prelude.Hashable GetCase where
 
 instance Prelude.NFData GetCase where
   rnf GetCase' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf caseId
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf fields
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf caseId `Prelude.seq`
+        Prelude.rnf domainId `Prelude.seq`
+          Prelude.rnf fields
 
 instance Data.ToHeaders GetCase where
   toHeaders =
@@ -256,8 +256,8 @@ getCaseResponse_templateId = Lens.lens (\GetCaseResponse' {templateId} -> templa
 
 instance Prelude.NFData GetCaseResponse where
   rnf GetCaseResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf fields `Prelude.seq`
+            Prelude.rnf templateId

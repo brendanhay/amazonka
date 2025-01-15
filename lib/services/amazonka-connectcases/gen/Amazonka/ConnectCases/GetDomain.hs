@@ -228,10 +228,10 @@ getDomainResponse_name = Lens.lens (\GetDomainResponse' {name} -> name) (\s@GetD
 
 instance Prelude.NFData GetDomainResponse where
   rnf GetDomainResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf domainArn
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf domainStatus
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf createdTime `Prelude.seq`
+          Prelude.rnf domainArn `Prelude.seq`
+            Prelude.rnf domainId `Prelude.seq`
+              Prelude.rnf domainStatus `Prelude.seq`
+                Prelude.rnf name

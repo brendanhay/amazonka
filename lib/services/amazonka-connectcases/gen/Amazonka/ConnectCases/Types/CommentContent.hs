@@ -85,8 +85,8 @@ instance Prelude.Hashable CommentContent where
 
 instance Prelude.NFData CommentContent where
   rnf CommentContent' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf contentType
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf contentType
 
 instance Data.ToJSON CommentContent where
   toJSON CommentContent' {..} =

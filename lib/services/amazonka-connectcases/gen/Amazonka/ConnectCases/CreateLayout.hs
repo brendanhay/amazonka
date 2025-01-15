@@ -135,9 +135,9 @@ instance Prelude.Hashable CreateLayout where
 
 instance Prelude.NFData CreateLayout where
   rnf CreateLayout' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf domainId `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders CreateLayout where
   toHeaders =
@@ -223,6 +223,6 @@ createLayoutResponse_layoutId = Lens.lens (\CreateLayoutResponse' {layoutId} -> 
 
 instance Prelude.NFData CreateLayoutResponse where
   rnf CreateLayoutResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf layoutArn
-      `Prelude.seq` Prelude.rnf layoutId
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf layoutArn `Prelude.seq`
+        Prelude.rnf layoutId

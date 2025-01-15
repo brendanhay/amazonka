@@ -80,9 +80,9 @@ instance Prelude.Hashable CaseFilter where
 
 instance Prelude.NFData CaseFilter where
   rnf CaseFilter' {..} =
-    Prelude.rnf andAll
-      `Prelude.seq` Prelude.rnf field
-      `Prelude.seq` Prelude.rnf not
+    Prelude.rnf andAll `Prelude.seq`
+      Prelude.rnf field `Prelude.seq`
+        Prelude.rnf not
 
 instance Data.ToJSON CaseFilter where
   toJSON CaseFilter' {..} =

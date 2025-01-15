@@ -145,12 +145,12 @@ instance Core.AWSPager SearchRelatedItems where
         (rs Lens.^. searchRelatedItemsResponse_relatedItems) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& searchRelatedItems_nextToken
-          Lens..~ rs
-          Lens.^? searchRelatedItemsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& searchRelatedItems_nextToken
+              Lens..~ rs
+              Lens.^? searchRelatedItemsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchRelatedItems where
   type
@@ -178,11 +178,11 @@ instance Prelude.Hashable SearchRelatedItems where
 
 instance Prelude.NFData SearchRelatedItems where
   rnf SearchRelatedItems' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf caseId
-      `Prelude.seq` Prelude.rnf domainId
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf caseId `Prelude.seq`
+            Prelude.rnf domainId
 
 instance Data.ToHeaders SearchRelatedItems where
   toHeaders =
@@ -271,6 +271,6 @@ searchRelatedItemsResponse_relatedItems = Lens.lens (\SearchRelatedItemsResponse
 
 instance Prelude.NFData SearchRelatedItemsResponse where
   rnf SearchRelatedItemsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf relatedItems
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf relatedItems

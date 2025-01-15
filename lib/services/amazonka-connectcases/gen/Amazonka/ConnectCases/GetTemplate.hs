@@ -122,8 +122,8 @@ instance Prelude.Hashable GetTemplate where
 
 instance Prelude.NFData GetTemplate where
   rnf GetTemplate' {..} =
-    Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf domainId `Prelude.seq`
+      Prelude.rnf templateId
 
 instance Data.ToHeaders GetTemplate where
   toHeaders =
@@ -273,12 +273,12 @@ getTemplateResponse_templateId = Lens.lens (\GetTemplateResponse' {templateId} -
 
 instance Prelude.NFData GetTemplateResponse where
   rnf GetTemplateResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf layoutConfiguration
-      `Prelude.seq` Prelude.rnf requiredFields
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf templateArn
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf layoutConfiguration `Prelude.seq`
+        Prelude.rnf requiredFields `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf templateArn `Prelude.seq`
+                    Prelude.rnf templateId

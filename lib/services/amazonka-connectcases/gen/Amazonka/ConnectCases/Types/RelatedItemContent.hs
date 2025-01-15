@@ -82,5 +82,5 @@ instance Prelude.Hashable RelatedItemContent where
 
 instance Prelude.NFData RelatedItemContent where
   rnf RelatedItemContent' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf contact
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf contact

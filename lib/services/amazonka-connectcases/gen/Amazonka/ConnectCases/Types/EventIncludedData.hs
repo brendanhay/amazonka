@@ -86,8 +86,8 @@ instance Prelude.Hashable EventIncludedData where
 
 instance Prelude.NFData EventIncludedData where
   rnf EventIncludedData' {..} =
-    Prelude.rnf caseData
-      `Prelude.seq` Prelude.rnf relatedItemData
+    Prelude.rnf caseData `Prelude.seq`
+      Prelude.rnf relatedItemData
 
 instance Data.ToJSON EventIncludedData where
   toJSON EventIncludedData' {..} =

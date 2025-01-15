@@ -110,7 +110,7 @@ instance Prelude.Hashable SearchCasesResponseItem where
 
 instance Prelude.NFData SearchCasesResponseItem where
   rnf SearchCasesResponseItem' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf caseId
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf caseId `Prelude.seq`
+        Prelude.rnf fields `Prelude.seq`
+          Prelude.rnf templateId

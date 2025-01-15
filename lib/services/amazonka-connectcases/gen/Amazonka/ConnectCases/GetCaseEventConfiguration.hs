@@ -172,5 +172,5 @@ instance
     GetCaseEventConfigurationResponse
   where
   rnf GetCaseEventConfigurationResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf eventBridge
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf eventBridge

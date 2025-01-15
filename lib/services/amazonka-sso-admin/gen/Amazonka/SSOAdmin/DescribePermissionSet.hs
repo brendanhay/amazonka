@@ -121,8 +121,8 @@ instance Prelude.Hashable DescribePermissionSet where
 
 instance Prelude.NFData DescribePermissionSet where
   rnf DescribePermissionSet' {..} =
-    Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf permissionSetArn
+    Prelude.rnf instanceArn `Prelude.seq`
+      Prelude.rnf permissionSetArn
 
 instance Data.ToHeaders DescribePermissionSet where
   toHeaders =
@@ -196,5 +196,5 @@ describePermissionSetResponse_httpStatus = Lens.lens (\DescribePermissionSetResp
 
 instance Prelude.NFData DescribePermissionSetResponse where
   rnf DescribePermissionSetResponse' {..} =
-    Prelude.rnf permissionSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf permissionSet `Prelude.seq`
+      Prelude.rnf httpStatus

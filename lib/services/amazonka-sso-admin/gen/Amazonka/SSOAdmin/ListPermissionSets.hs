@@ -126,12 +126,12 @@ instance Core.AWSPager ListPermissionSets where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPermissionSets_nextToken
-          Lens..~ rs
-          Lens.^? listPermissionSetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPermissionSets_nextToken
+              Lens..~ rs
+              Lens.^? listPermissionSetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPermissionSets where
   type
@@ -157,9 +157,9 @@ instance Prelude.Hashable ListPermissionSets where
 
 instance Prelude.NFData ListPermissionSets where
   rnf ListPermissionSets' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf instanceArn
 
 instance Data.ToHeaders ListPermissionSets where
   toHeaders =
@@ -245,6 +245,6 @@ listPermissionSetsResponse_httpStatus = Lens.lens (\ListPermissionSetsResponse' 
 
 instance Prelude.NFData ListPermissionSetsResponse where
   rnf ListPermissionSetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf permissionSets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf permissionSets `Prelude.seq`
+        Prelude.rnf httpStatus

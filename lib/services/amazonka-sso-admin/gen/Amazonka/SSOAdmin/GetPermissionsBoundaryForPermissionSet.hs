@@ -129,8 +129,8 @@ instance
     GetPermissionsBoundaryForPermissionSet
   where
   rnf GetPermissionsBoundaryForPermissionSet' {..} =
-    Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf permissionSetArn
+    Prelude.rnf instanceArn `Prelude.seq`
+      Prelude.rnf permissionSetArn
 
 instance
   Data.ToHeaders
@@ -221,5 +221,5 @@ instance
   where
   rnf
     GetPermissionsBoundaryForPermissionSetResponse' {..} =
-      Prelude.rnf permissionsBoundary
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf permissionsBoundary `Prelude.seq`
+        Prelude.rnf httpStatus

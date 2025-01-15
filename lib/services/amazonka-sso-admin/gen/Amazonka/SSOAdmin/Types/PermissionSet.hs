@@ -136,9 +136,9 @@ instance Prelude.Hashable PermissionSet where
 
 instance Prelude.NFData PermissionSet where
   rnf PermissionSet' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf permissionSetArn
-      `Prelude.seq` Prelude.rnf relayState
-      `Prelude.seq` Prelude.rnf sessionDuration
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf permissionSetArn `Prelude.seq`
+            Prelude.rnf relayState `Prelude.seq`
+              Prelude.rnf sessionDuration

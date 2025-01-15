@@ -119,8 +119,8 @@ instance Prelude.Hashable DeletePermissionSet where
 
 instance Prelude.NFData DeletePermissionSet where
   rnf DeletePermissionSet' {..} =
-    Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf permissionSetArn
+    Prelude.rnf instanceArn `Prelude.seq`
+      Prelude.rnf permissionSetArn
 
 instance Data.ToHeaders DeletePermissionSet where
   toHeaders =

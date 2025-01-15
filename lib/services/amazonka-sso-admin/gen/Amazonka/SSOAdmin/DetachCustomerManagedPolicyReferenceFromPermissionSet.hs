@@ -150,9 +150,9 @@ instance
   where
   rnf
     DetachCustomerManagedPolicyReferenceFromPermissionSet' {..} =
-      Prelude.rnf instanceArn
-        `Prelude.seq` Prelude.rnf permissionSetArn
-        `Prelude.seq` Prelude.rnf customerManagedPolicyReference
+      Prelude.rnf instanceArn `Prelude.seq`
+        Prelude.rnf permissionSetArn `Prelude.seq`
+          Prelude.rnf customerManagedPolicyReference
 
 instance
   Data.ToHeaders

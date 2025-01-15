@@ -93,5 +93,5 @@ instance Prelude.Hashable InstanceMetadata where
 
 instance Prelude.NFData InstanceMetadata where
   rnf InstanceMetadata' {..} =
-    Prelude.rnf identityStoreId
-      `Prelude.seq` Prelude.rnf instanceArn
+    Prelude.rnf identityStoreId `Prelude.seq`
+      Prelude.rnf instanceArn

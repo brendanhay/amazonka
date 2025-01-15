@@ -135,8 +135,8 @@ instance
     DescribeAccountAssignmentDeletionStatus
   where
   rnf DescribeAccountAssignmentDeletionStatus' {..} =
-    Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf accountAssignmentDeletionRequestId
+    Prelude.rnf instanceArn `Prelude.seq`
+      Prelude.rnf accountAssignmentDeletionRequestId
 
 instance
   Data.ToHeaders
@@ -229,5 +229,5 @@ instance
   where
   rnf
     DescribeAccountAssignmentDeletionStatusResponse' {..} =
-      Prelude.rnf accountAssignmentDeletionStatus
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf accountAssignmentDeletionStatus `Prelude.seq`
+        Prelude.rnf httpStatus

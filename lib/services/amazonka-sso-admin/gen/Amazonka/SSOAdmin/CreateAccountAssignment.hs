@@ -212,12 +212,12 @@ instance Prelude.Hashable CreateAccountAssignment where
 
 instance Prelude.NFData CreateAccountAssignment where
   rnf CreateAccountAssignment' {..} =
-    Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf targetId
-      `Prelude.seq` Prelude.rnf targetType
-      `Prelude.seq` Prelude.rnf permissionSetArn
-      `Prelude.seq` Prelude.rnf principalType
-      `Prelude.seq` Prelude.rnf principalId
+    Prelude.rnf instanceArn `Prelude.seq`
+      Prelude.rnf targetId `Prelude.seq`
+        Prelude.rnf targetType `Prelude.seq`
+          Prelude.rnf permissionSetArn `Prelude.seq`
+            Prelude.rnf principalType `Prelude.seq`
+              Prelude.rnf principalId
 
 instance Data.ToHeaders CreateAccountAssignment where
   toHeaders =
@@ -298,5 +298,5 @@ instance
     CreateAccountAssignmentResponse
   where
   rnf CreateAccountAssignmentResponse' {..} =
-    Prelude.rnf accountAssignmentCreationStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accountAssignmentCreationStatus `Prelude.seq`
+      Prelude.rnf httpStatus

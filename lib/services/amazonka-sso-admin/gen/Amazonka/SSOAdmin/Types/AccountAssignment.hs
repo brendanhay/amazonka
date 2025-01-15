@@ -125,7 +125,7 @@ instance Prelude.Hashable AccountAssignment where
 
 instance Prelude.NFData AccountAssignment where
   rnf AccountAssignment' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf permissionSetArn
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf principalType
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf permissionSetArn `Prelude.seq`
+        Prelude.rnf principalId `Prelude.seq`
+          Prelude.rnf principalType

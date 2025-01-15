@@ -104,8 +104,8 @@ instance Prelude.Hashable PermissionsBoundary where
 
 instance Prelude.NFData PermissionsBoundary where
   rnf PermissionsBoundary' {..} =
-    Prelude.rnf customerManagedPolicyReference
-      `Prelude.seq` Prelude.rnf managedPolicyArn
+    Prelude.rnf customerManagedPolicyReference `Prelude.seq`
+      Prelude.rnf managedPolicyArn
 
 instance Data.ToJSON PermissionsBoundary where
   toJSON PermissionsBoundary' {..} =

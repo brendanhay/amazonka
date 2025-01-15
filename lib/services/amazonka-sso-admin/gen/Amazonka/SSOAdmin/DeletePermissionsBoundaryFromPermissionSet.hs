@@ -127,8 +127,8 @@ instance
     DeletePermissionsBoundaryFromPermissionSet
   where
   rnf DeletePermissionsBoundaryFromPermissionSet' {..} =
-    Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf permissionSetArn
+    Prelude.rnf instanceArn `Prelude.seq`
+      Prelude.rnf permissionSetArn
 
 instance
   Data.ToHeaders

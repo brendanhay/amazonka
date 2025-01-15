@@ -173,12 +173,12 @@ instance Prelude.Hashable CreatePermissionSet where
 
 instance Prelude.NFData CreatePermissionSet where
   rnf CreatePermissionSet' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf relayState
-      `Prelude.seq` Prelude.rnf sessionDuration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf instanceArn
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf relayState `Prelude.seq`
+        Prelude.rnf sessionDuration `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf instanceArn
 
 instance Data.ToHeaders CreatePermissionSet where
   toHeaders =
@@ -256,5 +256,5 @@ createPermissionSetResponse_httpStatus = Lens.lens (\CreatePermissionSetResponse
 
 instance Prelude.NFData CreatePermissionSetResponse where
   rnf CreatePermissionSetResponse' {..} =
-    Prelude.rnf permissionSet
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf permissionSet `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -24,7 +24,6 @@ common base
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   default-extensions:
-    NoImplicitPrelude
     ConstraintKinds
     DataKinds
     DefaultSignatures
@@ -45,6 +44,7 @@ common base
     MultiParamTypeClasses
     MultiWayIf
     NamedFieldPuns
+    NoImplicitPrelude
     OverloadedStrings
     PackageImports
     PatternSynonyms
@@ -75,6 +75,7 @@ library
     , ede                   >=0.3
     , filepath              >=1.4
     , free                  >=5
+    , generic-lens          ^>=2.2.2.0
     , hashable              >=1.3
     , haskell-src-exts      ^>=1.23
     , lens                  >=4.0
@@ -100,6 +101,8 @@ library
     Gen.Import
     Gen.IO
     Gen.JSON
+    Gen.Output.Template
+    Gen.Output.Template.CabalFile
     Gen.Prelude
     Gen.Protocol
     Gen.Text

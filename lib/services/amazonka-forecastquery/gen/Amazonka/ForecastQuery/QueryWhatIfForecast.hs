@@ -183,11 +183,11 @@ instance Prelude.Hashable QueryWhatIfForecast where
 
 instance Prelude.NFData QueryWhatIfForecast where
   rnf QueryWhatIfForecast' {..} =
-    Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf whatIfForecastArn
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf endDate `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf startDate `Prelude.seq`
+          Prelude.rnf whatIfForecastArn `Prelude.seq`
+            Prelude.rnf filters
 
 instance Data.ToHeaders QueryWhatIfForecast where
   toHeaders =
@@ -263,5 +263,5 @@ queryWhatIfForecastResponse_httpStatus = Lens.lens (\QueryWhatIfForecastResponse
 
 instance Prelude.NFData QueryWhatIfForecastResponse where
   rnf QueryWhatIfForecastResponse' {..} =
-    Prelude.rnf forecast
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf forecast `Prelude.seq`
+      Prelude.rnf httpStatus

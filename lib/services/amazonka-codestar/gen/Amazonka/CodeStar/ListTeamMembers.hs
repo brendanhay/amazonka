@@ -114,12 +114,12 @@ instance Core.AWSPager ListTeamMembers where
         (rs Lens.^. listTeamMembersResponse_teamMembers) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTeamMembers_nextToken
-          Lens..~ rs
-          Lens.^? listTeamMembersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTeamMembers_nextToken
+              Lens..~ rs
+              Lens.^? listTeamMembersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTeamMembers where
   type
@@ -145,9 +145,9 @@ instance Prelude.Hashable ListTeamMembers where
 
 instance Prelude.NFData ListTeamMembers where
   rnf ListTeamMembers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf projectId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf projectId
 
 instance Data.ToHeaders ListTeamMembers where
   toHeaders =
@@ -233,6 +233,6 @@ listTeamMembersResponse_teamMembers = Lens.lens (\ListTeamMembersResponse' {team
 
 instance Prelude.NFData ListTeamMembersResponse where
   rnf ListTeamMembersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf teamMembers
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf teamMembers

@@ -167,11 +167,11 @@ instance Prelude.Hashable AssociateTeamMember where
 
 instance Prelude.NFData AssociateTeamMember where
   rnf AssociateTeamMember' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf remoteAccessAllowed
-      `Prelude.seq` Prelude.rnf projectId
-      `Prelude.seq` Prelude.rnf userArn
-      `Prelude.seq` Prelude.rnf projectRole
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf remoteAccessAllowed `Prelude.seq`
+        Prelude.rnf projectId `Prelude.seq`
+          Prelude.rnf userArn `Prelude.seq`
+            Prelude.rnf projectRole
 
 instance Data.ToHeaders AssociateTeamMember where
   toHeaders =
@@ -252,5 +252,5 @@ associateTeamMemberResponse_httpStatus = Lens.lens (\AssociateTeamMemberResponse
 
 instance Prelude.NFData AssociateTeamMemberResponse where
   rnf AssociateTeamMemberResponse' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf httpStatus

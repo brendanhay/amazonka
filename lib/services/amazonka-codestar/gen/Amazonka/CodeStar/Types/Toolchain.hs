@@ -97,9 +97,9 @@ instance Prelude.Hashable Toolchain where
 
 instance Prelude.NFData Toolchain where
   rnf Toolchain' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf stackParameters
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf roleArn `Prelude.seq`
+      Prelude.rnf stackParameters `Prelude.seq`
+        Prelude.rnf source
 
 instance Data.ToJSON Toolchain where
   toJSON Toolchain' {..} =

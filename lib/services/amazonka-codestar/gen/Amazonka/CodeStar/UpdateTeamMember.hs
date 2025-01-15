@@ -159,10 +159,10 @@ instance Prelude.Hashable UpdateTeamMember where
 
 instance Prelude.NFData UpdateTeamMember where
   rnf UpdateTeamMember' {..} =
-    Prelude.rnf projectRole
-      `Prelude.seq` Prelude.rnf remoteAccessAllowed
-      `Prelude.seq` Prelude.rnf projectId
-      `Prelude.seq` Prelude.rnf userArn
+    Prelude.rnf projectRole `Prelude.seq`
+      Prelude.rnf remoteAccessAllowed `Prelude.seq`
+        Prelude.rnf projectId `Prelude.seq`
+          Prelude.rnf userArn
 
 instance Data.ToHeaders UpdateTeamMember where
   toHeaders =
@@ -262,7 +262,7 @@ updateTeamMemberResponse_httpStatus = Lens.lens (\UpdateTeamMemberResponse' {htt
 
 instance Prelude.NFData UpdateTeamMemberResponse where
   rnf UpdateTeamMemberResponse' {..} =
-    Prelude.rnf projectRole
-      `Prelude.seq` Prelude.rnf remoteAccessAllowed
-      `Prelude.seq` Prelude.rnf userArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf projectRole `Prelude.seq`
+      Prelude.rnf remoteAccessAllowed `Prelude.seq`
+        Prelude.rnf userArn `Prelude.seq`
+          Prelude.rnf httpStatus

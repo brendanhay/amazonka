@@ -118,8 +118,8 @@ instance Prelude.Hashable DisassociateTeamMember where
 
 instance Prelude.NFData DisassociateTeamMember where
   rnf DisassociateTeamMember' {..} =
-    Prelude.rnf projectId
-      `Prelude.seq` Prelude.rnf userArn
+    Prelude.rnf projectId `Prelude.seq`
+      Prelude.rnf userArn
 
 instance Data.ToHeaders DisassociateTeamMember where
   toHeaders =

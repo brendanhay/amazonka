@@ -129,8 +129,8 @@ instance Prelude.Hashable Chunk where
 
 instance Prelude.NFData Chunk where
   rnf Chunk' {..} =
-    Prelude.rnf index
-      `Prelude.seq` Prelude.rnf length
-      `Prelude.seq` Prelude.rnf checksum
-      `Prelude.seq` Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf chunkToken
+    Prelude.rnf index `Prelude.seq`
+      Prelude.rnf length `Prelude.seq`
+        Prelude.rnf checksum `Prelude.seq`
+          Prelude.rnf checksumAlgorithm `Prelude.seq`
+            Prelude.rnf chunkToken

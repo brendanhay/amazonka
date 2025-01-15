@@ -132,10 +132,10 @@ instance Prelude.Hashable ListChunks where
 
 instance Prelude.NFData ListChunks where
   rnf ListChunks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf storageJobId
-      `Prelude.seq` Prelude.rnf objectToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf storageJobId `Prelude.seq`
+          Prelude.rnf objectToken
 
 instance Data.ToHeaders ListChunks where
   toHeaders =
@@ -214,6 +214,6 @@ listChunksResponse_chunkList = Lens.lens (\ListChunksResponse' {chunkList} -> ch
 
 instance Prelude.NFData ListChunksResponse where
   rnf ListChunksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf chunkList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf chunkList

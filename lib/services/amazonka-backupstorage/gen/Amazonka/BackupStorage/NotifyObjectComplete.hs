@@ -284,6 +284,6 @@ notifyObjectCompleteResponse_objectChecksumAlgorithm = Lens.lens (\NotifyObjectC
 
 instance Prelude.NFData NotifyObjectCompleteResponse where
   rnf NotifyObjectCompleteResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf objectChecksum
-      `Prelude.seq` Prelude.rnf objectChecksumAlgorithm
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf objectChecksum `Prelude.seq`
+        Prelude.rnf objectChecksumAlgorithm

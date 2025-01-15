@@ -98,8 +98,8 @@ instance Prelude.Hashable User where
 
 instance Prelude.NFData User where
   rnf User' {..} =
-    Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf properties `Prelude.seq`
+      Prelude.rnf userId
 
 instance Data.ToJSON User where
   toJSON User' {..} =

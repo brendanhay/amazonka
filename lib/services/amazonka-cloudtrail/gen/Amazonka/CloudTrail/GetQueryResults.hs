@@ -145,10 +145,10 @@ instance Prelude.Hashable GetQueryResults where
 
 instance Prelude.NFData GetQueryResults where
   rnf GetQueryResults' {..} =
-    Prelude.rnf eventDataStore
-      `Prelude.seq` Prelude.rnf maxQueryResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryId
+    Prelude.rnf eventDataStore `Prelude.seq`
+      Prelude.rnf maxQueryResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf queryId
 
 instance Data.ToHeaders GetQueryResults where
   toHeaders =
@@ -264,9 +264,9 @@ getQueryResultsResponse_httpStatus = Lens.lens (\GetQueryResultsResponse' {httpS
 
 instance Prelude.NFData GetQueryResultsResponse where
   rnf GetQueryResultsResponse' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryResultRows
-      `Prelude.seq` Prelude.rnf queryStatistics
-      `Prelude.seq` Prelude.rnf queryStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errorMessage `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf queryResultRows `Prelude.seq`
+          Prelude.rnf queryStatistics `Prelude.seq`
+            Prelude.rnf queryStatus `Prelude.seq`
+              Prelude.rnf httpStatus

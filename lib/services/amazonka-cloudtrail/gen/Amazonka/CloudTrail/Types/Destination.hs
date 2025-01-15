@@ -88,5 +88,5 @@ instance Prelude.Hashable Destination where
 
 instance Prelude.NFData Destination where
   rnf Destination' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf location

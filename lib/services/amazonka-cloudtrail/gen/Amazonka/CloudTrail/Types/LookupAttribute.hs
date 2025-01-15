@@ -75,8 +75,8 @@ instance Prelude.Hashable LookupAttribute where
 
 instance Prelude.NFData LookupAttribute where
   rnf LookupAttribute' {..} =
-    Prelude.rnf attributeKey
-      `Prelude.seq` Prelude.rnf attributeValue
+    Prelude.rnf attributeKey `Prelude.seq`
+      Prelude.rnf attributeValue
 
 instance Data.ToJSON LookupAttribute where
   toJSON LookupAttribute' {..} =

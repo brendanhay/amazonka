@@ -224,10 +224,10 @@ instance Prelude.Hashable EventSelector where
 
 instance Prelude.NFData EventSelector where
   rnf EventSelector' {..} =
-    Prelude.rnf dataResources
-      `Prelude.seq` Prelude.rnf excludeManagementEventSources
-      `Prelude.seq` Prelude.rnf includeManagementEvents
-      `Prelude.seq` Prelude.rnf readWriteType
+    Prelude.rnf dataResources `Prelude.seq`
+      Prelude.rnf excludeManagementEventSources `Prelude.seq`
+        Prelude.rnf includeManagementEvents `Prelude.seq`
+          Prelude.rnf readWriteType
 
 instance Data.ToJSON EventSelector where
   toJSON EventSelector' {..} =

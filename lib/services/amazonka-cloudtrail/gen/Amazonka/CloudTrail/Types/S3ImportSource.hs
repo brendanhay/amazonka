@@ -100,9 +100,9 @@ instance Prelude.Hashable S3ImportSource where
 
 instance Prelude.NFData S3ImportSource where
   rnf S3ImportSource' {..} =
-    Prelude.rnf s3LocationUri
-      `Prelude.seq` Prelude.rnf s3BucketRegion
-      `Prelude.seq` Prelude.rnf s3BucketAccessRoleArn
+    Prelude.rnf s3LocationUri `Prelude.seq`
+      Prelude.rnf s3BucketRegion `Prelude.seq`
+        Prelude.rnf s3BucketAccessRoleArn
 
 instance Data.ToJSON S3ImportSource where
   toJSON S3ImportSource' {..} =

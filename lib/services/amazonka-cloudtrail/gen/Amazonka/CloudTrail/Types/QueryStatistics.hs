@@ -97,6 +97,6 @@ instance Prelude.Hashable QueryStatistics where
 
 instance Prelude.NFData QueryStatistics where
   rnf QueryStatistics' {..} =
-    Prelude.rnf bytesScanned
-      `Prelude.seq` Prelude.rnf resultsCount
-      `Prelude.seq` Prelude.rnf totalResultsCount
+    Prelude.rnf bytesScanned `Prelude.seq`
+      Prelude.rnf resultsCount `Prelude.seq`
+        Prelude.rnf totalResultsCount

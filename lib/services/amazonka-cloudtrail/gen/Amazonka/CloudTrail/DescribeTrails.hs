@@ -179,8 +179,8 @@ instance Prelude.Hashable DescribeTrails where
 
 instance Prelude.NFData DescribeTrails where
   rnf DescribeTrails' {..} =
-    Prelude.rnf includeShadowTrails
-      `Prelude.seq` Prelude.rnf trailNameList
+    Prelude.rnf includeShadowTrails `Prelude.seq`
+      Prelude.rnf trailNameList
 
 instance Data.ToHeaders DescribeTrails where
   toHeaders =
@@ -272,5 +272,5 @@ describeTrailsResponse_httpStatus = Lens.lens (\DescribeTrailsResponse' {httpSta
 
 instance Prelude.NFData DescribeTrailsResponse where
   rnf DescribeTrailsResponse' {..} =
-    Prelude.rnf trailList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trailList `Prelude.seq`
+      Prelude.rnf httpStatus

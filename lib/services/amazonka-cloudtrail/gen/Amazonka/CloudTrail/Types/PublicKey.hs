@@ -110,7 +110,7 @@ instance Prelude.Hashable PublicKey where
 
 instance Prelude.NFData PublicKey where
   rnf PublicKey' {..} =
-    Prelude.rnf fingerprint
-      `Prelude.seq` Prelude.rnf validityEndTime
-      `Prelude.seq` Prelude.rnf validityStartTime
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf fingerprint `Prelude.seq`
+      Prelude.rnf validityEndTime `Prelude.seq`
+        Prelude.rnf validityStartTime `Prelude.seq`
+          Prelude.rnf value

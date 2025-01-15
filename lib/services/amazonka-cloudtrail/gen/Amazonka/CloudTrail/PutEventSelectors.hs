@@ -262,9 +262,9 @@ instance Prelude.Hashable PutEventSelectors where
 
 instance Prelude.NFData PutEventSelectors where
   rnf PutEventSelectors' {..} =
-    Prelude.rnf advancedEventSelectors
-      `Prelude.seq` Prelude.rnf eventSelectors
-      `Prelude.seq` Prelude.rnf trailName
+    Prelude.rnf advancedEventSelectors `Prelude.seq`
+      Prelude.rnf eventSelectors `Prelude.seq`
+        Prelude.rnf trailName
 
 instance Data.ToHeaders PutEventSelectors where
   toHeaders =
@@ -367,7 +367,7 @@ putEventSelectorsResponse_httpStatus = Lens.lens (\PutEventSelectorsResponse' {h
 
 instance Prelude.NFData PutEventSelectorsResponse where
   rnf PutEventSelectorsResponse' {..} =
-    Prelude.rnf advancedEventSelectors
-      `Prelude.seq` Prelude.rnf eventSelectors
-      `Prelude.seq` Prelude.rnf trailARN
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf advancedEventSelectors `Prelude.seq`
+      Prelude.rnf eventSelectors `Prelude.seq`
+        Prelude.rnf trailARN `Prelude.seq`
+          Prelude.rnf httpStatus

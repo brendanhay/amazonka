@@ -168,12 +168,12 @@ instance Prelude.Hashable Event where
 
 instance Prelude.NFData Event where
   rnf Event' {..} =
-    Prelude.rnf accessKeyId
-      `Prelude.seq` Prelude.rnf cloudTrailEvent
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventName
-      `Prelude.seq` Prelude.rnf eventSource
-      `Prelude.seq` Prelude.rnf eventTime
-      `Prelude.seq` Prelude.rnf readOnly
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf accessKeyId `Prelude.seq`
+      Prelude.rnf cloudTrailEvent `Prelude.seq`
+        Prelude.rnf eventId `Prelude.seq`
+          Prelude.rnf eventName `Prelude.seq`
+            Prelude.rnf eventSource `Prelude.seq`
+              Prelude.rnf eventTime `Prelude.seq`
+                Prelude.rnf readOnly `Prelude.seq`
+                  Prelude.rnf resources `Prelude.seq`
+                    Prelude.rnf username

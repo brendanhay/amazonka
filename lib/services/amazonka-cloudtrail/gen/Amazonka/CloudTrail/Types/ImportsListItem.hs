@@ -116,8 +116,8 @@ instance Prelude.Hashable ImportsListItem where
 
 instance Prelude.NFData ImportsListItem where
   rnf ImportsListItem' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf importId
-      `Prelude.seq` Prelude.rnf importStatus
-      `Prelude.seq` Prelude.rnf updatedTimestamp
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf destinations `Prelude.seq`
+        Prelude.rnf importId `Prelude.seq`
+          Prelude.rnf importStatus `Prelude.seq`
+            Prelude.rnf updatedTimestamp

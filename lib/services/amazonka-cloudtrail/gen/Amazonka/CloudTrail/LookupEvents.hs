@@ -220,12 +220,12 @@ instance Core.AWSPager LookupEvents where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& lookupEvents_nextToken
-          Lens..~ rs
-          Lens.^? lookupEventsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& lookupEvents_nextToken
+              Lens..~ rs
+              Lens.^? lookupEventsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest LookupEvents where
   type AWSResponse LookupEvents = LookupEventsResponse
@@ -252,12 +252,12 @@ instance Prelude.Hashable LookupEvents where
 
 instance Prelude.NFData LookupEvents where
   rnf LookupEvents' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf eventCategory
-      `Prelude.seq` Prelude.rnf lookupAttributes
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf eventCategory `Prelude.seq`
+        Prelude.rnf lookupAttributes `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf startTime
 
 instance Data.ToHeaders LookupEvents where
   toHeaders =
@@ -366,6 +366,6 @@ lookupEventsResponse_httpStatus = Lens.lens (\LookupEventsResponse' {httpStatus}
 
 instance Prelude.NFData LookupEventsResponse where
   rnf LookupEventsResponse' {..} =
-    Prelude.rnf events
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf events `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

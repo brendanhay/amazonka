@@ -109,8 +109,8 @@ instance Prelude.Hashable StartQuery where
 
 instance Prelude.NFData StartQuery where
   rnf StartQuery' {..} =
-    Prelude.rnf deliveryS3Uri
-      `Prelude.seq` Prelude.rnf queryStatement
+    Prelude.rnf deliveryS3Uri `Prelude.seq`
+      Prelude.rnf queryStatement
 
 instance Data.ToHeaders StartQuery where
   toHeaders =
@@ -183,5 +183,5 @@ startQueryResponse_httpStatus = Lens.lens (\StartQueryResponse' {httpStatus} -> 
 
 instance Prelude.NFData StartQueryResponse where
   rnf StartQueryResponse' {..} =
-    Prelude.rnf queryId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf queryId `Prelude.seq`
+      Prelude.rnf httpStatus

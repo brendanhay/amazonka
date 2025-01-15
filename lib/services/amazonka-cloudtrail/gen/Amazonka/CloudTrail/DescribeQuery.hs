@@ -125,8 +125,8 @@ instance Prelude.Hashable DescribeQuery where
 
 instance Prelude.NFData DescribeQuery where
   rnf DescribeQuery' {..} =
-    Prelude.rnf eventDataStore
-      `Prelude.seq` Prelude.rnf queryId
+    Prelude.rnf eventDataStore `Prelude.seq`
+      Prelude.rnf queryId
 
 instance Data.ToHeaders DescribeQuery where
   toHeaders =
@@ -266,11 +266,11 @@ describeQueryResponse_httpStatus = Lens.lens (\DescribeQueryResponse' {httpStatu
 
 instance Prelude.NFData DescribeQueryResponse where
   rnf DescribeQueryResponse' {..} =
-    Prelude.rnf deliveryS3Uri
-      `Prelude.seq` Prelude.rnf deliveryStatus
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf queryId
-      `Prelude.seq` Prelude.rnf queryStatistics
-      `Prelude.seq` Prelude.rnf queryStatus
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf deliveryS3Uri `Prelude.seq`
+      Prelude.rnf deliveryStatus `Prelude.seq`
+        Prelude.rnf errorMessage `Prelude.seq`
+          Prelude.rnf queryId `Prelude.seq`
+            Prelude.rnf queryStatistics `Prelude.seq`
+              Prelude.rnf queryStatus `Prelude.seq`
+                Prelude.rnf queryString `Prelude.seq`
+                  Prelude.rnf httpStatus

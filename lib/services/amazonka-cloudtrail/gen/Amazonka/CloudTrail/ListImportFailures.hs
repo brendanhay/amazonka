@@ -114,12 +114,12 @@ instance Core.AWSPager ListImportFailures where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listImportFailures_nextToken
-          Lens..~ rs
-          Lens.^? listImportFailuresResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listImportFailures_nextToken
+              Lens..~ rs
+              Lens.^? listImportFailuresResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListImportFailures where
   type
@@ -145,9 +145,9 @@ instance Prelude.Hashable ListImportFailures where
 
 instance Prelude.NFData ListImportFailures where
   rnf ListImportFailures' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf importId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf importId
 
 instance Data.ToHeaders ListImportFailures where
   toHeaders =
@@ -230,6 +230,6 @@ listImportFailuresResponse_httpStatus = Lens.lens (\ListImportFailuresResponse' 
 
 instance Prelude.NFData ListImportFailuresResponse where
   rnf ListImportFailuresResponse' {..} =
-    Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf failures `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

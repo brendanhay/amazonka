@@ -304,14 +304,14 @@ instance Prelude.Hashable CreateEventDataStore where
 
 instance Prelude.NFData CreateEventDataStore where
   rnf CreateEventDataStore' {..} =
-    Prelude.rnf advancedEventSelectors
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf multiRegionEnabled
-      `Prelude.seq` Prelude.rnf organizationEnabled
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf tagsList
-      `Prelude.seq` Prelude.rnf terminationProtectionEnabled
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf advancedEventSelectors `Prelude.seq`
+      Prelude.rnf kmsKeyId `Prelude.seq`
+        Prelude.rnf multiRegionEnabled `Prelude.seq`
+          Prelude.rnf organizationEnabled `Prelude.seq`
+            Prelude.rnf retentionPeriod `Prelude.seq`
+              Prelude.rnf tagsList `Prelude.seq`
+                Prelude.rnf terminationProtectionEnabled `Prelude.seq`
+                  Prelude.rnf name
 
 instance Data.ToHeaders CreateEventDataStore where
   toHeaders =
@@ -524,16 +524,16 @@ createEventDataStoreResponse_httpStatus = Lens.lens (\CreateEventDataStoreRespon
 
 instance Prelude.NFData CreateEventDataStoreResponse where
   rnf CreateEventDataStoreResponse' {..} =
-    Prelude.rnf advancedEventSelectors
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf eventDataStoreArn
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf multiRegionEnabled
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf organizationEnabled
-      `Prelude.seq` Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tagsList
-      `Prelude.seq` Prelude.rnf terminationProtectionEnabled
-      `Prelude.seq` Prelude.rnf updatedTimestamp
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf advancedEventSelectors `Prelude.seq`
+      Prelude.rnf createdTimestamp `Prelude.seq`
+        Prelude.rnf eventDataStoreArn `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf multiRegionEnabled `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf organizationEnabled `Prelude.seq`
+                  Prelude.rnf retentionPeriod `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf tagsList `Prelude.seq`
+                        Prelude.rnf terminationProtectionEnabled `Prelude.seq`
+                          Prelude.rnf updatedTimestamp `Prelude.seq`
+                            Prelude.rnf httpStatus

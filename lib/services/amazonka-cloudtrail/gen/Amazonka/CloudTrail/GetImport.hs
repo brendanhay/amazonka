@@ -271,13 +271,13 @@ getImportResponse_httpStatus = Lens.lens (\GetImportResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetImportResponse where
   rnf GetImportResponse' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf endEventTime
-      `Prelude.seq` Prelude.rnf importId
-      `Prelude.seq` Prelude.rnf importSource
-      `Prelude.seq` Prelude.rnf importStatistics
-      `Prelude.seq` Prelude.rnf importStatus
-      `Prelude.seq` Prelude.rnf startEventTime
-      `Prelude.seq` Prelude.rnf updatedTimestamp
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf destinations `Prelude.seq`
+        Prelude.rnf endEventTime `Prelude.seq`
+          Prelude.rnf importId `Prelude.seq`
+            Prelude.rnf importSource `Prelude.seq`
+              Prelude.rnf importStatistics `Prelude.seq`
+                Prelude.rnf importStatus `Prelude.seq`
+                  Prelude.rnf startEventTime `Prelude.seq`
+                    Prelude.rnf updatedTimestamp `Prelude.seq`
+                      Prelude.rnf httpStatus

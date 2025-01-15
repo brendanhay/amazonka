@@ -124,9 +124,9 @@ instance Prelude.Hashable Group where
 
 instance Prelude.NFData Group where
   rnf Group' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf tags

@@ -134,8 +134,8 @@ instance Prelude.Hashable CanaryScheduleInput where
 
 instance Prelude.NFData CanaryScheduleInput where
   rnf CanaryScheduleInput' {..} =
-    Prelude.rnf durationInSeconds
-      `Prelude.seq` Prelude.rnf expression
+    Prelude.rnf durationInSeconds `Prelude.seq`
+      Prelude.rnf expression
 
 instance Data.ToJSON CanaryScheduleInput where
   toJSON CanaryScheduleInput' {..} =

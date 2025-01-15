@@ -126,8 +126,8 @@ instance Prelude.Hashable DescribeRuntimeVersions where
 
 instance Prelude.NFData DescribeRuntimeVersions where
   rnf DescribeRuntimeVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeRuntimeVersions where
   toHeaders =
@@ -217,6 +217,6 @@ instance
     DescribeRuntimeVersionsResponse
   where
   rnf DescribeRuntimeVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf runtimeVersions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf runtimeVersions `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -137,9 +137,9 @@ instance Prelude.Hashable ListGroupResources where
 
 instance Prelude.NFData ListGroupResources where
   rnf ListGroupResources' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf groupIdentifier
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf groupIdentifier
 
 instance Data.ToHeaders ListGroupResources where
   toHeaders =
@@ -228,6 +228,6 @@ listGroupResourcesResponse_httpStatus = Lens.lens (\ListGroupResourcesResponse' 
 
 instance Prelude.NFData ListGroupResourcesResponse where
   rnf ListGroupResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf resources `Prelude.seq`
+        Prelude.rnf httpStatus

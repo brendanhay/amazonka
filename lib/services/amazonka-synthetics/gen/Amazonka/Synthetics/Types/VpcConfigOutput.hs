@@ -98,6 +98,6 @@ instance Prelude.Hashable VpcConfigOutput where
 
 instance Prelude.NFData VpcConfigOutput where
   rnf VpcConfigOutput' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf securityGroupIds `Prelude.seq`
+      Prelude.rnf subnetIds `Prelude.seq`
+        Prelude.rnf vpcId

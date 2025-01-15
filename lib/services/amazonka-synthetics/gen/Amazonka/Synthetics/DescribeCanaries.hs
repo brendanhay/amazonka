@@ -176,9 +176,9 @@ instance Prelude.Hashable DescribeCanaries where
 
 instance Prelude.NFData DescribeCanaries where
   rnf DescribeCanaries' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf names `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeCanaries where
   toHeaders =
@@ -266,6 +266,6 @@ describeCanariesResponse_httpStatus = Lens.lens (\DescribeCanariesResponse' {htt
 
 instance Prelude.NFData DescribeCanariesResponse where
   rnf DescribeCanariesResponse' {..} =
-    Prelude.rnf canaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf canaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

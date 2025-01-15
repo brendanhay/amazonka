@@ -97,5 +97,5 @@ instance Prelude.Hashable VisualReferenceOutput where
 
 instance Prelude.NFData VisualReferenceOutput where
   rnf VisualReferenceOutput' {..} =
-    Prelude.rnf baseCanaryRunId
-      `Prelude.seq` Prelude.rnf baseScreenshots
+    Prelude.rnf baseCanaryRunId `Prelude.seq`
+      Prelude.rnf baseScreenshots

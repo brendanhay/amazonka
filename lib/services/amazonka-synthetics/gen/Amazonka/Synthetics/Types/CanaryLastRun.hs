@@ -82,5 +82,5 @@ instance Prelude.Hashable CanaryLastRun where
 
 instance Prelude.NFData CanaryLastRun where
   rnf CanaryLastRun' {..} =
-    Prelude.rnf canaryName
-      `Prelude.seq` Prelude.rnf lastRun
+    Prelude.rnf canaryName `Prelude.seq`
+      Prelude.rnf lastRun

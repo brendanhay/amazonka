@@ -169,10 +169,10 @@ instance Prelude.Hashable CanaryRunConfigInput where
 
 instance Prelude.NFData CanaryRunConfigInput where
   rnf CanaryRunConfigInput' {..} =
-    Prelude.rnf activeTracing
-      `Prelude.seq` Prelude.rnf environmentVariables
-      `Prelude.seq` Prelude.rnf memoryInMB
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
+    Prelude.rnf activeTracing `Prelude.seq`
+      Prelude.rnf environmentVariables `Prelude.seq`
+        Prelude.rnf memoryInMB `Prelude.seq`
+          Prelude.rnf timeoutInSeconds
 
 instance Data.ToJSON CanaryRunConfigInput where
   toJSON CanaryRunConfigInput' {..} =

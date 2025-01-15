@@ -119,8 +119,8 @@ instance Prelude.Hashable AssociateResource where
 
 instance Prelude.NFData AssociateResource where
   rnf AssociateResource' {..} =
-    Prelude.rnf groupIdentifier
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf groupIdentifier `Prelude.seq`
+      Prelude.rnf resourceArn
 
 instance Data.ToHeaders AssociateResource where
   toHeaders =

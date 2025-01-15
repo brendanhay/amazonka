@@ -153,5 +153,5 @@ getCanaryResponse_httpStatus = Lens.lens (\GetCanaryResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetCanaryResponse where
   rnf GetCanaryResponse' {..} =
-    Prelude.rnf canary
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf canary `Prelude.seq`
+      Prelude.rnf httpStatus

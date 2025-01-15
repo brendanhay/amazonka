@@ -103,7 +103,7 @@ instance Prelude.Hashable CanaryTimeline where
 
 instance Prelude.NFData CanaryTimeline where
   rnf CanaryTimeline' {..} =
-    Prelude.rnf created
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf lastStarted
-      `Prelude.seq` Prelude.rnf lastStopped
+    Prelude.rnf created `Prelude.seq`
+      Prelude.rnf lastModified `Prelude.seq`
+        Prelude.rnf lastStarted `Prelude.seq`
+          Prelude.rnf lastStopped

@@ -133,9 +133,9 @@ instance Prelude.Hashable GetCanaryRuns where
 
 instance Prelude.NFData GetCanaryRuns where
   rnf GetCanaryRuns' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders GetCanaryRuns where
   toHeaders =
@@ -224,6 +224,6 @@ getCanaryRunsResponse_httpStatus = Lens.lens (\GetCanaryRunsResponse' {httpStatu
 
 instance Prelude.NFData GetCanaryRunsResponse where
   rnf GetCanaryRunsResponse' {..} =
-    Prelude.rnf canaryRuns
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf canaryRuns `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

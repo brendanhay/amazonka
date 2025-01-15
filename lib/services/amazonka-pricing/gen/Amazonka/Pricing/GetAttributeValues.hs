@@ -140,12 +140,12 @@ instance Core.AWSPager GetAttributeValues where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getAttributeValues_nextToken
-          Lens..~ rs
-          Lens.^? getAttributeValuesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getAttributeValues_nextToken
+              Lens..~ rs
+              Lens.^? getAttributeValuesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetAttributeValues where
   type
@@ -175,10 +175,10 @@ instance Prelude.Hashable GetAttributeValues where
 
 instance Prelude.NFData GetAttributeValues where
   rnf GetAttributeValues' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceCode
-      `Prelude.seq` Prelude.rnf attributeName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf serviceCode `Prelude.seq`
+          Prelude.rnf attributeName
 
 instance Data.ToHeaders GetAttributeValues where
   toHeaders =
@@ -269,6 +269,6 @@ getAttributeValuesResponse_httpStatus = Lens.lens (\GetAttributeValuesResponse' 
 
 instance Prelude.NFData GetAttributeValuesResponse where
   rnf GetAttributeValuesResponse' {..} =
-    Prelude.rnf attributeValues
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf attributeValues `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

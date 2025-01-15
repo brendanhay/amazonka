@@ -147,12 +147,12 @@ instance Core.AWSPager GetProducts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getProducts_nextToken
-          Lens..~ rs
-          Lens.^? getProductsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getProducts_nextToken
+              Lens..~ rs
+              Lens.^? getProductsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetProducts where
   type AWSResponse GetProducts = GetProductsResponse
@@ -179,11 +179,11 @@ instance Prelude.Hashable GetProducts where
 
 instance Prelude.NFData GetProducts where
   rnf GetProducts' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf formatVersion
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceCode
+    Prelude.rnf filters `Prelude.seq`
+      Prelude.rnf formatVersion `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf serviceCode
 
 instance Data.ToHeaders GetProducts where
   toHeaders =
@@ -280,7 +280,7 @@ getProductsResponse_httpStatus = Lens.lens (\GetProductsResponse' {httpStatus} -
 
 instance Prelude.NFData GetProductsResponse where
   rnf GetProductsResponse' {..} =
-    Prelude.rnf formatVersion
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf priceList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf formatVersion `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf priceList `Prelude.seq`
+          Prelude.rnf httpStatus

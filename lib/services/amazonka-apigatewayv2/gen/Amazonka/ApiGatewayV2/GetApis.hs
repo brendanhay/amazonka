@@ -105,12 +105,12 @@ instance Core.AWSPager GetApis where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getApis_nextToken
-          Lens..~ rs
-          Lens.^? getApisResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getApis_nextToken
+              Lens..~ rs
+              Lens.^? getApisResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetApis where
   type AWSResponse GetApis = GetApisResponse
@@ -133,8 +133,8 @@ instance Prelude.Hashable GetApis where
 
 instance Prelude.NFData GetApis where
   rnf GetApis' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders GetApis where
   toHeaders =
@@ -209,6 +209,6 @@ getApisResponse_httpStatus = Lens.lens (\GetApisResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetApisResponse where
   rnf GetApisResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

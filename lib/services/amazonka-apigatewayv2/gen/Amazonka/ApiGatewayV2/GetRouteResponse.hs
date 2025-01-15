@@ -138,9 +138,9 @@ instance Prelude.Hashable GetRouteResponse where
 
 instance Prelude.NFData GetRouteResponse where
   rnf GetRouteResponse' {..} =
-    Prelude.rnf routeResponseId
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf routeId
+    Prelude.rnf routeResponseId `Prelude.seq`
+      Prelude.rnf apiId `Prelude.seq`
+        Prelude.rnf routeId
 
 instance Data.ToHeaders GetRouteResponse where
   toHeaders =
@@ -247,9 +247,9 @@ getRouteResponseResponse_httpStatus = Lens.lens (\GetRouteResponseResponse' {htt
 
 instance Prelude.NFData GetRouteResponseResponse where
   rnf GetRouteResponseResponse' {..} =
-    Prelude.rnf modelSelectionExpression
-      `Prelude.seq` Prelude.rnf responseModels
-      `Prelude.seq` Prelude.rnf responseParameters
-      `Prelude.seq` Prelude.rnf routeResponseId
-      `Prelude.seq` Prelude.rnf routeResponseKey
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf modelSelectionExpression `Prelude.seq`
+      Prelude.rnf responseModels `Prelude.seq`
+        Prelude.rnf responseParameters `Prelude.seq`
+          Prelude.rnf routeResponseId `Prelude.seq`
+            Prelude.rnf routeResponseKey `Prelude.seq`
+              Prelude.rnf httpStatus

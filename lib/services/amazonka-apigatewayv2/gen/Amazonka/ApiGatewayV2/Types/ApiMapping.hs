@@ -106,7 +106,7 @@ instance Prelude.Hashable ApiMapping where
 
 instance Prelude.NFData ApiMapping where
   rnf ApiMapping' {..} =
-    Prelude.rnf apiMappingId
-      `Prelude.seq` Prelude.rnf apiMappingKey
-      `Prelude.seq` Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf apiId
+    Prelude.rnf apiMappingId `Prelude.seq`
+      Prelude.rnf apiMappingKey `Prelude.seq`
+        Prelude.rnf stage `Prelude.seq`
+          Prelude.rnf apiId

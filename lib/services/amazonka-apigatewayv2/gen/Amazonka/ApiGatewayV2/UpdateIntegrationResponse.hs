@@ -278,14 +278,14 @@ instance Prelude.Hashable UpdateIntegrationResponse where
 
 instance Prelude.NFData UpdateIntegrationResponse where
   rnf UpdateIntegrationResponse' {..} =
-    Prelude.rnf contentHandlingStrategy
-      `Prelude.seq` Prelude.rnf integrationResponseKey
-      `Prelude.seq` Prelude.rnf responseParameters
-      `Prelude.seq` Prelude.rnf responseTemplates
-      `Prelude.seq` Prelude.rnf templateSelectionExpression
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf integrationResponseId
-      `Prelude.seq` Prelude.rnf integrationId
+    Prelude.rnf contentHandlingStrategy `Prelude.seq`
+      Prelude.rnf integrationResponseKey `Prelude.seq`
+        Prelude.rnf responseParameters `Prelude.seq`
+          Prelude.rnf responseTemplates `Prelude.seq`
+            Prelude.rnf templateSelectionExpression `Prelude.seq`
+              Prelude.rnf apiId `Prelude.seq`
+                Prelude.rnf integrationResponseId `Prelude.seq`
+                  Prelude.rnf integrationId
 
 instance Data.ToHeaders UpdateIntegrationResponse where
   toHeaders =
@@ -494,10 +494,10 @@ instance
     UpdateIntegrationResponseResponse
   where
   rnf UpdateIntegrationResponseResponse' {..} =
-    Prelude.rnf contentHandlingStrategy
-      `Prelude.seq` Prelude.rnf integrationResponseId
-      `Prelude.seq` Prelude.rnf integrationResponseKey
-      `Prelude.seq` Prelude.rnf responseParameters
-      `Prelude.seq` Prelude.rnf responseTemplates
-      `Prelude.seq` Prelude.rnf templateSelectionExpression
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contentHandlingStrategy `Prelude.seq`
+      Prelude.rnf integrationResponseId `Prelude.seq`
+        Prelude.rnf integrationResponseKey `Prelude.seq`
+          Prelude.rnf responseParameters `Prelude.seq`
+            Prelude.rnf responseTemplates `Prelude.seq`
+              Prelude.rnf templateSelectionExpression `Prelude.seq`
+                Prelude.rnf httpStatus

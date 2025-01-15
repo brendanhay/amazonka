@@ -134,8 +134,8 @@ instance Prelude.Hashable GetStage where
 
 instance Prelude.NFData GetStage where
   rnf GetStage' {..} =
-    Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf apiId
+    Prelude.rnf stageName `Prelude.seq`
+      Prelude.rnf apiId
 
 instance Data.ToHeaders GetStage where
   toHeaders =
@@ -345,18 +345,18 @@ getStageResponse_httpStatus = Lens.lens (\GetStageResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetStageResponse where
   rnf GetStageResponse' {..} =
-    Prelude.rnf accessLogSettings
-      `Prelude.seq` Prelude.rnf apiGatewayManaged
-      `Prelude.seq` Prelude.rnf autoDeploy
-      `Prelude.seq` Prelude.rnf clientCertificateId
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf defaultRouteSettings
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastDeploymentStatusMessage
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf routeSettings
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf stageVariables
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf accessLogSettings `Prelude.seq`
+      Prelude.rnf apiGatewayManaged `Prelude.seq`
+        Prelude.rnf autoDeploy `Prelude.seq`
+          Prelude.rnf clientCertificateId `Prelude.seq`
+            Prelude.rnf createdDate `Prelude.seq`
+              Prelude.rnf defaultRouteSettings `Prelude.seq`
+                Prelude.rnf deploymentId `Prelude.seq`
+                  Prelude.rnf description `Prelude.seq`
+                    Prelude.rnf lastDeploymentStatusMessage `Prelude.seq`
+                      Prelude.rnf lastUpdatedDate `Prelude.seq`
+                        Prelude.rnf routeSettings `Prelude.seq`
+                          Prelude.rnf stageName `Prelude.seq`
+                            Prelude.rnf stageVariables `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf httpStatus

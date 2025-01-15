@@ -101,8 +101,8 @@ instance Prelude.Hashable DeleteApiMapping where
 
 instance Prelude.NFData DeleteApiMapping where
   rnf DeleteApiMapping' {..} =
-    Prelude.rnf apiMappingId
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf apiMappingId `Prelude.seq`
+      Prelude.rnf domainName
 
 instance Data.ToHeaders DeleteApiMapping where
   toHeaders =

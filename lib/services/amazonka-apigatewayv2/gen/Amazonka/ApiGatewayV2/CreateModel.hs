@@ -156,11 +156,11 @@ instance Prelude.Hashable CreateModel where
 
 instance Prelude.NFData CreateModel where
   rnf CreateModel' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf apiId `Prelude.seq`
+          Prelude.rnf schema `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders CreateModel where
   toHeaders =
@@ -271,9 +271,9 @@ createModelResponse_httpStatus = Lens.lens (\CreateModelResponse' {httpStatus} -
 
 instance Prelude.NFData CreateModelResponse where
   rnf CreateModelResponse' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf modelId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf schema `Prelude.seq`
+              Prelude.rnf httpStatus

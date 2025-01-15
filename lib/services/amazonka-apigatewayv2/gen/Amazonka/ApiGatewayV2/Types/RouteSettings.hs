@@ -126,11 +126,11 @@ instance Prelude.Hashable RouteSettings where
 
 instance Prelude.NFData RouteSettings where
   rnf RouteSettings' {..} =
-    Prelude.rnf dataTraceEnabled
-      `Prelude.seq` Prelude.rnf detailedMetricsEnabled
-      `Prelude.seq` Prelude.rnf loggingLevel
-      `Prelude.seq` Prelude.rnf throttlingBurstLimit
-      `Prelude.seq` Prelude.rnf throttlingRateLimit
+    Prelude.rnf dataTraceEnabled `Prelude.seq`
+      Prelude.rnf detailedMetricsEnabled `Prelude.seq`
+        Prelude.rnf loggingLevel `Prelude.seq`
+          Prelude.rnf throttlingBurstLimit `Prelude.seq`
+            Prelude.rnf throttlingRateLimit
 
 instance Data.ToJSON RouteSettings where
   toJSON RouteSettings' {..} =

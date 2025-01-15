@@ -180,10 +180,10 @@ instance Prelude.Hashable ReimportApi where
 
 instance Prelude.NFData ReimportApi where
   rnf ReimportApi' {..} =
-    Prelude.rnf basepath
-      `Prelude.seq` Prelude.rnf failOnWarnings
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf body
+    Prelude.rnf basepath `Prelude.seq`
+      Prelude.rnf failOnWarnings `Prelude.seq`
+        Prelude.rnf apiId `Prelude.seq`
+          Prelude.rnf body
 
 instance Data.ToHeaders ReimportApi where
   toHeaders =
@@ -437,20 +437,20 @@ reimportApiResponse_httpStatus = Lens.lens (\ReimportApiResponse' {httpStatus} -
 
 instance Prelude.NFData ReimportApiResponse where
   rnf ReimportApiResponse' {..} =
-    Prelude.rnf apiEndpoint
-      `Prelude.seq` Prelude.rnf apiGatewayManaged
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf apiKeySelectionExpression
-      `Prelude.seq` Prelude.rnf corsConfiguration
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf disableExecuteApiEndpoint
-      `Prelude.seq` Prelude.rnf disableSchemaValidation
-      `Prelude.seq` Prelude.rnf importInfo
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf protocolType
-      `Prelude.seq` Prelude.rnf routeSelectionExpression
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf warnings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apiEndpoint `Prelude.seq`
+      Prelude.rnf apiGatewayManaged `Prelude.seq`
+        Prelude.rnf apiId `Prelude.seq`
+          Prelude.rnf apiKeySelectionExpression `Prelude.seq`
+            Prelude.rnf corsConfiguration `Prelude.seq`
+              Prelude.rnf createdDate `Prelude.seq`
+                Prelude.rnf description `Prelude.seq`
+                  Prelude.rnf disableExecuteApiEndpoint `Prelude.seq`
+                    Prelude.rnf disableSchemaValidation `Prelude.seq`
+                      Prelude.rnf importInfo `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf protocolType `Prelude.seq`
+                            Prelude.rnf routeSelectionExpression `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf version `Prelude.seq`
+                                  Prelude.rnf warnings `Prelude.seq`
+                                    Prelude.rnf httpStatus

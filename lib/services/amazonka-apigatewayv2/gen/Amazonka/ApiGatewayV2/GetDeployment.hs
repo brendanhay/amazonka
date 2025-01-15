@@ -120,8 +120,8 @@ instance Prelude.Hashable GetDeployment where
 
 instance Prelude.NFData GetDeployment where
   rnf GetDeployment' {..} =
-    Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf deploymentId
+    Prelude.rnf apiId `Prelude.seq`
+      Prelude.rnf deploymentId
 
 instance Data.ToHeaders GetDeployment where
   toHeaders =
@@ -232,10 +232,10 @@ getDeploymentResponse_httpStatus = Lens.lens (\GetDeploymentResponse' {httpStatu
 
 instance Prelude.NFData GetDeploymentResponse where
   rnf GetDeploymentResponse' {..} =
-    Prelude.rnf autoDeployed
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf deploymentStatus
-      `Prelude.seq` Prelude.rnf deploymentStatusMessage
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf autoDeployed `Prelude.seq`
+      Prelude.rnf createdDate `Prelude.seq`
+        Prelude.rnf deploymentId `Prelude.seq`
+          Prelude.rnf deploymentStatus `Prelude.seq`
+            Prelude.rnf deploymentStatusMessage `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf httpStatus

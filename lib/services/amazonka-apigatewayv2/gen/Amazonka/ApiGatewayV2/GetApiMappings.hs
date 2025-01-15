@@ -124,9 +124,9 @@ instance Prelude.Hashable GetApiMappings where
 
 instance Prelude.NFData GetApiMappings where
   rnf GetApiMappings' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf domainName
 
 instance Data.ToHeaders GetApiMappings where
   toHeaders =
@@ -206,6 +206,6 @@ getApiMappingsResponse_httpStatus = Lens.lens (\GetApiMappingsResponse' {httpSta
 
 instance Prelude.NFData GetApiMappingsResponse where
   rnf GetApiMappingsResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -108,8 +108,8 @@ instance Prelude.Hashable ResetAuthorizersCache where
 
 instance Prelude.NFData ResetAuthorizersCache where
   rnf ResetAuthorizersCache' {..} =
-    Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf apiId
+    Prelude.rnf stageName `Prelude.seq`
+      Prelude.rnf apiId
 
 instance Data.ToHeaders ResetAuthorizersCache where
   toHeaders =

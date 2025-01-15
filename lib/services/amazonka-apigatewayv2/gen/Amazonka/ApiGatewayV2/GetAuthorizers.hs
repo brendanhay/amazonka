@@ -117,12 +117,12 @@ instance Core.AWSPager GetAuthorizers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getAuthorizers_nextToken
-          Lens..~ rs
-          Lens.^? getAuthorizersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getAuthorizers_nextToken
+              Lens..~ rs
+              Lens.^? getAuthorizersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetAuthorizers where
   type
@@ -148,9 +148,9 @@ instance Prelude.Hashable GetAuthorizers where
 
 instance Prelude.NFData GetAuthorizers where
   rnf GetAuthorizers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf apiId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf apiId
 
 instance Data.ToHeaders GetAuthorizers where
   toHeaders =
@@ -227,6 +227,6 @@ getAuthorizersResponse_httpStatus = Lens.lens (\GetAuthorizersResponse' {httpSta
 
 instance Prelude.NFData GetAuthorizersResponse where
   rnf GetAuthorizersResponse' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf items `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

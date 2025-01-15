@@ -142,9 +142,9 @@ instance Prelude.Hashable GetIntegrationResponse where
 
 instance Prelude.NFData GetIntegrationResponse where
   rnf GetIntegrationResponse' {..} =
-    Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf integrationResponseId
-      `Prelude.seq` Prelude.rnf integrationId
+    Prelude.rnf apiId `Prelude.seq`
+      Prelude.rnf integrationResponseId `Prelude.seq`
+        Prelude.rnf integrationId
 
 instance Data.ToHeaders GetIntegrationResponse where
   toHeaders =
@@ -336,10 +336,10 @@ instance
     GetIntegrationResponseResponse
   where
   rnf GetIntegrationResponseResponse' {..} =
-    Prelude.rnf contentHandlingStrategy
-      `Prelude.seq` Prelude.rnf integrationResponseId
-      `Prelude.seq` Prelude.rnf integrationResponseKey
-      `Prelude.seq` Prelude.rnf responseParameters
-      `Prelude.seq` Prelude.rnf responseTemplates
-      `Prelude.seq` Prelude.rnf templateSelectionExpression
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contentHandlingStrategy `Prelude.seq`
+      Prelude.rnf integrationResponseId `Prelude.seq`
+        Prelude.rnf integrationResponseKey `Prelude.seq`
+          Prelude.rnf responseParameters `Prelude.seq`
+            Prelude.rnf responseTemplates `Prelude.seq`
+              Prelude.rnf templateSelectionExpression `Prelude.seq`
+                Prelude.rnf httpStatus

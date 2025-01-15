@@ -101,8 +101,8 @@ instance Prelude.Hashable DeleteAuthorizer where
 
 instance Prelude.NFData DeleteAuthorizer where
   rnf DeleteAuthorizer' {..} =
-    Prelude.rnf authorizerId
-      `Prelude.seq` Prelude.rnf apiId
+    Prelude.rnf authorizerId `Prelude.seq`
+      Prelude.rnf apiId
 
 instance Data.ToHeaders DeleteAuthorizer where
   toHeaders =

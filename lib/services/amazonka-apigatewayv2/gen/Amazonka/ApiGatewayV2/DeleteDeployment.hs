@@ -101,8 +101,8 @@ instance Prelude.Hashable DeleteDeployment where
 
 instance Prelude.NFData DeleteDeployment where
   rnf DeleteDeployment' {..} =
-    Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf deploymentId
+    Prelude.rnf apiId `Prelude.seq`
+      Prelude.rnf deploymentId
 
 instance Data.ToHeaders DeleteDeployment where
   toHeaders =

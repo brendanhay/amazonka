@@ -217,9 +217,9 @@ getModelResponse_httpStatus = Lens.lens (\GetModelResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetModelResponse where
   rnf GetModelResponse' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf modelId `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf schema `Prelude.seq`
+              Prelude.rnf httpStatus

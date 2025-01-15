@@ -118,9 +118,9 @@ instance Prelude.Hashable DeleteRouteResponse where
 
 instance Prelude.NFData DeleteRouteResponse where
   rnf DeleteRouteResponse' {..} =
-    Prelude.rnf routeResponseId
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf routeId
+    Prelude.rnf routeResponseId `Prelude.seq`
+      Prelude.rnf apiId `Prelude.seq`
+        Prelude.rnf routeId
 
 instance Data.ToHeaders DeleteRouteResponse where
   toHeaders =

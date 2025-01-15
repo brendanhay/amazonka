@@ -327,18 +327,18 @@ instance Prelude.Hashable UpdateApi where
 
 instance Prelude.NFData UpdateApi where
   rnf UpdateApi' {..} =
-    Prelude.rnf apiKeySelectionExpression
-      `Prelude.seq` Prelude.rnf corsConfiguration
-      `Prelude.seq` Prelude.rnf credentialsArn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf disableExecuteApiEndpoint
-      `Prelude.seq` Prelude.rnf disableSchemaValidation
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf routeKey
-      `Prelude.seq` Prelude.rnf routeSelectionExpression
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf apiId
+    Prelude.rnf apiKeySelectionExpression `Prelude.seq`
+      Prelude.rnf corsConfiguration `Prelude.seq`
+        Prelude.rnf credentialsArn `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf disableExecuteApiEndpoint `Prelude.seq`
+              Prelude.rnf disableSchemaValidation `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf routeKey `Prelude.seq`
+                    Prelude.rnf routeSelectionExpression `Prelude.seq`
+                      Prelude.rnf target `Prelude.seq`
+                        Prelude.rnf version `Prelude.seq`
+                          Prelude.rnf apiId
 
 instance Data.ToHeaders UpdateApi where
   toHeaders =
@@ -605,20 +605,20 @@ updateApiResponse_httpStatus = Lens.lens (\UpdateApiResponse' {httpStatus} -> ht
 
 instance Prelude.NFData UpdateApiResponse where
   rnf UpdateApiResponse' {..} =
-    Prelude.rnf apiEndpoint
-      `Prelude.seq` Prelude.rnf apiGatewayManaged
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf apiKeySelectionExpression
-      `Prelude.seq` Prelude.rnf corsConfiguration
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf disableExecuteApiEndpoint
-      `Prelude.seq` Prelude.rnf disableSchemaValidation
-      `Prelude.seq` Prelude.rnf importInfo
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf protocolType
-      `Prelude.seq` Prelude.rnf routeSelectionExpression
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf warnings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apiEndpoint `Prelude.seq`
+      Prelude.rnf apiGatewayManaged `Prelude.seq`
+        Prelude.rnf apiId `Prelude.seq`
+          Prelude.rnf apiKeySelectionExpression `Prelude.seq`
+            Prelude.rnf corsConfiguration `Prelude.seq`
+              Prelude.rnf createdDate `Prelude.seq`
+                Prelude.rnf description `Prelude.seq`
+                  Prelude.rnf disableExecuteApiEndpoint `Prelude.seq`
+                    Prelude.rnf disableSchemaValidation `Prelude.seq`
+                      Prelude.rnf importInfo `Prelude.seq`
+                        Prelude.rnf name `Prelude.seq`
+                          Prelude.rnf protocolType `Prelude.seq`
+                            Prelude.rnf routeSelectionExpression `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf version `Prelude.seq`
+                                  Prelude.rnf warnings `Prelude.seq`
+                                    Prelude.rnf httpStatus

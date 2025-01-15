@@ -144,10 +144,10 @@ instance Prelude.Hashable CreateDomainName where
 
 instance Prelude.NFData CreateDomainName where
   rnf CreateDomainName' {..} =
-    Prelude.rnf domainNameConfigurations
-      `Prelude.seq` Prelude.rnf mutualTlsAuthentication
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf domainNameConfigurations `Prelude.seq`
+      Prelude.rnf mutualTlsAuthentication `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf domainName
 
 instance Data.ToHeaders CreateDomainName where
   toHeaders =
@@ -256,9 +256,9 @@ createDomainNameResponse_httpStatus = Lens.lens (\CreateDomainNameResponse' {htt
 
 instance Prelude.NFData CreateDomainNameResponse where
   rnf CreateDomainNameResponse' {..} =
-    Prelude.rnf apiMappingSelectionExpression
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf domainNameConfigurations
-      `Prelude.seq` Prelude.rnf mutualTlsAuthentication
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apiMappingSelectionExpression `Prelude.seq`
+      Prelude.rnf domainName `Prelude.seq`
+        Prelude.rnf domainNameConfigurations `Prelude.seq`
+          Prelude.rnf mutualTlsAuthentication `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf httpStatus

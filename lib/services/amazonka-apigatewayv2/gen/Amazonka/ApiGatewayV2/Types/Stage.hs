@@ -243,17 +243,17 @@ instance Prelude.Hashable Stage where
 
 instance Prelude.NFData Stage where
   rnf Stage' {..} =
-    Prelude.rnf accessLogSettings
-      `Prelude.seq` Prelude.rnf apiGatewayManaged
-      `Prelude.seq` Prelude.rnf autoDeploy
-      `Prelude.seq` Prelude.rnf clientCertificateId
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf defaultRouteSettings
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastDeploymentStatusMessage
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf routeSettings
-      `Prelude.seq` Prelude.rnf stageVariables
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf accessLogSettings `Prelude.seq`
+      Prelude.rnf apiGatewayManaged `Prelude.seq`
+        Prelude.rnf autoDeploy `Prelude.seq`
+          Prelude.rnf clientCertificateId `Prelude.seq`
+            Prelude.rnf createdDate `Prelude.seq`
+              Prelude.rnf defaultRouteSettings `Prelude.seq`
+                Prelude.rnf deploymentId `Prelude.seq`
+                  Prelude.rnf description `Prelude.seq`
+                    Prelude.rnf lastDeploymentStatusMessage `Prelude.seq`
+                      Prelude.rnf lastUpdatedDate `Prelude.seq`
+                        Prelude.rnf routeSettings `Prelude.seq`
+                          Prelude.rnf stageVariables `Prelude.seq`
+                            Prelude.rnf tags `Prelude.seq`
+                              Prelude.rnf stageName

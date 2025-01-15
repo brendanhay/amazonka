@@ -157,8 +157,8 @@ instance Prelude.Hashable GetIntegration where
 
 instance Prelude.NFData GetIntegration where
   rnf GetIntegration' {..} =
-    Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf integrationId
+    Prelude.rnf apiId `Prelude.seq`
+      Prelude.rnf integrationId
 
 instance Data.ToHeaders GetIntegration where
   toHeaders =

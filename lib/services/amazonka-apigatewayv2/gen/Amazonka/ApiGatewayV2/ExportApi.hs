@@ -175,12 +175,12 @@ instance Prelude.Hashable ExportApi where
 
 instance Prelude.NFData ExportApi where
   rnf ExportApi' {..} =
-    Prelude.rnf exportVersion
-      `Prelude.seq` Prelude.rnf includeExtensions
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf specification
-      `Prelude.seq` Prelude.rnf outputType
-      `Prelude.seq` Prelude.rnf apiId
+    Prelude.rnf exportVersion `Prelude.seq`
+      Prelude.rnf includeExtensions `Prelude.seq`
+        Prelude.rnf stageName `Prelude.seq`
+          Prelude.rnf specification `Prelude.seq`
+            Prelude.rnf outputType `Prelude.seq`
+              Prelude.rnf apiId
 
 instance Data.ToHeaders ExportApi where
   toHeaders =
@@ -250,5 +250,5 @@ exportApiResponse_httpStatus = Lens.lens (\ExportApiResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ExportApiResponse where
   rnf ExportApiResponse' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf body `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -685,25 +685,25 @@ instance Prelude.Hashable UpdateIntegration where
 
 instance Prelude.NFData UpdateIntegration where
   rnf UpdateIntegration' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf connectionType
-      `Prelude.seq` Prelude.rnf contentHandlingStrategy
-      `Prelude.seq` Prelude.rnf credentialsArn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf integrationMethod
-      `Prelude.seq` Prelude.rnf integrationSubtype
-      `Prelude.seq` Prelude.rnf integrationType
-      `Prelude.seq` Prelude.rnf integrationUri
-      `Prelude.seq` Prelude.rnf passthroughBehavior
-      `Prelude.seq` Prelude.rnf payloadFormatVersion
-      `Prelude.seq` Prelude.rnf requestParameters
-      `Prelude.seq` Prelude.rnf requestTemplates
-      `Prelude.seq` Prelude.rnf responseParameters
-      `Prelude.seq` Prelude.rnf templateSelectionExpression
-      `Prelude.seq` Prelude.rnf timeoutInMillis
-      `Prelude.seq` Prelude.rnf tlsConfig
-      `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf integrationId
+    Prelude.rnf connectionId `Prelude.seq`
+      Prelude.rnf connectionType `Prelude.seq`
+        Prelude.rnf contentHandlingStrategy `Prelude.seq`
+          Prelude.rnf credentialsArn `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf integrationMethod `Prelude.seq`
+                Prelude.rnf integrationSubtype `Prelude.seq`
+                  Prelude.rnf integrationType `Prelude.seq`
+                    Prelude.rnf integrationUri `Prelude.seq`
+                      Prelude.rnf passthroughBehavior `Prelude.seq`
+                        Prelude.rnf payloadFormatVersion `Prelude.seq`
+                          Prelude.rnf requestParameters `Prelude.seq`
+                            Prelude.rnf requestTemplates `Prelude.seq`
+                              Prelude.rnf responseParameters `Prelude.seq`
+                                Prelude.rnf templateSelectionExpression `Prelude.seq`
+                                  Prelude.rnf timeoutInMillis `Prelude.seq`
+                                    Prelude.rnf tlsConfig `Prelude.seq`
+                                      Prelude.rnf apiId `Prelude.seq`
+                                        Prelude.rnf integrationId
 
 instance Data.ToHeaders UpdateIntegration where
   toHeaders =

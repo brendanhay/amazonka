@@ -243,13 +243,13 @@ getVpcLinkResponse_httpStatus = Lens.lens (\GetVpcLinkResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetVpcLinkResponse where
   rnf GetVpcLinkResponse' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcLinkId
-      `Prelude.seq` Prelude.rnf vpcLinkStatus
-      `Prelude.seq` Prelude.rnf vpcLinkStatusMessage
-      `Prelude.seq` Prelude.rnf vpcLinkVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf securityGroupIds `Prelude.seq`
+          Prelude.rnf subnetIds `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf vpcLinkId `Prelude.seq`
+                Prelude.rnf vpcLinkStatus `Prelude.seq`
+                  Prelude.rnf vpcLinkStatusMessage `Prelude.seq`
+                    Prelude.rnf vpcLinkVersion `Prelude.seq`
+                      Prelude.rnf httpStatus

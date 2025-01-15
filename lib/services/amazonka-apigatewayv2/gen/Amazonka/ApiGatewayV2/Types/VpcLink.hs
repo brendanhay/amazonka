@@ -166,12 +166,12 @@ instance Prelude.Hashable VpcLink where
 
 instance Prelude.NFData VpcLink where
   rnf VpcLink' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcLinkStatus
-      `Prelude.seq` Prelude.rnf vpcLinkStatusMessage
-      `Prelude.seq` Prelude.rnf vpcLinkVersion
-      `Prelude.seq` Prelude.rnf vpcLinkId
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf createdDate `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf vpcLinkStatus `Prelude.seq`
+          Prelude.rnf vpcLinkStatusMessage `Prelude.seq`
+            Prelude.rnf vpcLinkVersion `Prelude.seq`
+              Prelude.rnf vpcLinkId `Prelude.seq`
+                Prelude.rnf securityGroupIds `Prelude.seq`
+                  Prelude.rnf subnetIds `Prelude.seq`
+                    Prelude.rnf name

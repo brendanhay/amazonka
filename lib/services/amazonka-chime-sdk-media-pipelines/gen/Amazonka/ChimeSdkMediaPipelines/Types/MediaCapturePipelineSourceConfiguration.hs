@@ -107,8 +107,8 @@ instance
     MediaCapturePipelineSourceConfiguration
   where
   rnf MediaCapturePipelineSourceConfiguration' {..} =
-    Prelude.rnf mediaPipelineArn
-      `Prelude.seq` Prelude.rnf chimeSdkMeetingConfiguration
+    Prelude.rnf mediaPipelineArn `Prelude.seq`
+      Prelude.rnf chimeSdkMeetingConfiguration
 
 instance
   Data.ToJSON

@@ -179,13 +179,13 @@ instance
     ArtifactsConcatenationConfiguration
   where
   rnf ArtifactsConcatenationConfiguration' {..} =
-    Prelude.rnf audio
-      `Prelude.seq` Prelude.rnf video
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf dataChannel
-      `Prelude.seq` Prelude.rnf transcriptionMessages
-      `Prelude.seq` Prelude.rnf meetingEvents
-      `Prelude.seq` Prelude.rnf compositedVideo
+    Prelude.rnf audio `Prelude.seq`
+      Prelude.rnf video `Prelude.seq`
+        Prelude.rnf content `Prelude.seq`
+          Prelude.rnf dataChannel `Prelude.seq`
+            Prelude.rnf transcriptionMessages `Prelude.seq`
+              Prelude.rnf meetingEvents `Prelude.seq`
+                Prelude.rnf compositedVideo
 
 instance
   Data.ToJSON

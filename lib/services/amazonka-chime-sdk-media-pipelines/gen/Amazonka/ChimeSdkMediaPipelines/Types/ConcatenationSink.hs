@@ -89,8 +89,8 @@ instance Prelude.Hashable ConcatenationSink where
 
 instance Prelude.NFData ConcatenationSink where
   rnf ConcatenationSink' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf s3BucketSinkConfiguration
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf s3BucketSinkConfiguration
 
 instance Data.ToJSON ConcatenationSink where
   toJSON ConcatenationSink' {..} =

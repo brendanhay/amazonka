@@ -96,6 +96,6 @@ instance Prelude.Hashable MediaPipeline where
 
 instance Prelude.NFData MediaPipeline where
   rnf MediaPipeline' {..} =
-    Prelude.rnf mediaCapturePipeline
-      `Prelude.seq` Prelude.rnf mediaConcatenationPipeline
-      `Prelude.seq` Prelude.rnf mediaLiveConnectorPipeline
+    Prelude.rnf mediaCapturePipeline `Prelude.seq`
+      Prelude.rnf mediaConcatenationPipeline `Prelude.seq`
+        Prelude.rnf mediaLiveConnectorPipeline

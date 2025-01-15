@@ -81,5 +81,5 @@ instance Prelude.Hashable MediaPipelineSummary where
 
 instance Prelude.NFData MediaPipelineSummary where
   rnf MediaPipelineSummary' {..} =
-    Prelude.rnf mediaPipelineArn
-      `Prelude.seq` Prelude.rnf mediaPipelineId
+    Prelude.rnf mediaPipelineArn `Prelude.seq`
+      Prelude.rnf mediaPipelineId

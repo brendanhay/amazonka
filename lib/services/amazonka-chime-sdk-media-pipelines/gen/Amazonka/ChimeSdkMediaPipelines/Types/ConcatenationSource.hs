@@ -95,8 +95,8 @@ instance Prelude.Hashable ConcatenationSource where
 
 instance Prelude.NFData ConcatenationSource where
   rnf ConcatenationSource' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf mediaCapturePipelineSourceConfiguration
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf mediaCapturePipelineSourceConfiguration
 
 instance Data.ToJSON ConcatenationSource where
   toJSON ConcatenationSource' {..} =

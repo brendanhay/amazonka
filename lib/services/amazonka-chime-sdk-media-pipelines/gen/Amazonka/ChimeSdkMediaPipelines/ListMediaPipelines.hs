@@ -111,8 +111,8 @@ instance Prelude.Hashable ListMediaPipelines where
 
 instance Prelude.NFData ListMediaPipelines where
   rnf ListMediaPipelines' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMediaPipelines where
   toHeaders = Prelude.const Prelude.mempty
@@ -177,6 +177,6 @@ listMediaPipelinesResponse_httpStatus = Lens.lens (\ListMediaPipelinesResponse' 
 
 instance Prelude.NFData ListMediaPipelinesResponse where
   rnf ListMediaPipelinesResponse' {..} =
-    Prelude.rnf mediaPipelines
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf mediaPipelines `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

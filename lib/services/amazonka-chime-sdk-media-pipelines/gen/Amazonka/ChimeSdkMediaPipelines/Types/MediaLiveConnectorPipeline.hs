@@ -139,10 +139,10 @@ instance Prelude.Hashable MediaLiveConnectorPipeline where
 
 instance Prelude.NFData MediaLiveConnectorPipeline where
   rnf MediaLiveConnectorPipeline' {..} =
-    Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf mediaPipelineArn
-      `Prelude.seq` Prelude.rnf mediaPipelineId
-      `Prelude.seq` Prelude.rnf sinks
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedTimestamp
+    Prelude.rnf createdTimestamp `Prelude.seq`
+      Prelude.rnf mediaPipelineArn `Prelude.seq`
+        Prelude.rnf mediaPipelineId `Prelude.seq`
+          Prelude.rnf sinks `Prelude.seq`
+            Prelude.rnf sources `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf updatedTimestamp

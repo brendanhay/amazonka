@@ -85,8 +85,8 @@ instance Prelude.Hashable GridViewConfiguration where
 
 instance Prelude.NFData GridViewConfiguration where
   rnf GridViewConfiguration' {..} =
-    Prelude.rnf presenterOnlyConfiguration
-      `Prelude.seq` Prelude.rnf contentShareLayout
+    Prelude.rnf presenterOnlyConfiguration `Prelude.seq`
+      Prelude.rnf contentShareLayout
 
 instance Data.ToJSON GridViewConfiguration where
   toJSON GridViewConfiguration' {..} =

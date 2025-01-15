@@ -95,8 +95,8 @@ instance Prelude.Hashable RStudioServerProAppSettings where
 
 instance Prelude.NFData RStudioServerProAppSettings where
   rnf RStudioServerProAppSettings' {..} =
-    Prelude.rnf accessStatus
-      `Prelude.seq` Prelude.rnf userGroup
+    Prelude.rnf accessStatus `Prelude.seq`
+      Prelude.rnf userGroup
 
 instance Data.ToJSON RStudioServerProAppSettings where
   toJSON RStudioServerProAppSettings' {..} =

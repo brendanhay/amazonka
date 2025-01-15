@@ -170,8 +170,8 @@ instance Prelude.Hashable StoppingCondition where
 
 instance Prelude.NFData StoppingCondition where
   rnf StoppingCondition' {..} =
-    Prelude.rnf maxRuntimeInSeconds
-      `Prelude.seq` Prelude.rnf maxWaitTimeInSeconds
+    Prelude.rnf maxRuntimeInSeconds `Prelude.seq`
+      Prelude.rnf maxWaitTimeInSeconds
 
 instance Data.ToJSON StoppingCondition where
   toJSON StoppingCondition' {..} =

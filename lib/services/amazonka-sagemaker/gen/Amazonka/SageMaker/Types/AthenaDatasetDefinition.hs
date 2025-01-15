@@ -164,14 +164,14 @@ instance Prelude.Hashable AthenaDatasetDefinition where
 
 instance Prelude.NFData AthenaDatasetDefinition where
   rnf AthenaDatasetDefinition' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf outputCompression
-      `Prelude.seq` Prelude.rnf workGroup
-      `Prelude.seq` Prelude.rnf catalog
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf outputS3Uri
-      `Prelude.seq` Prelude.rnf outputFormat
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf outputCompression `Prelude.seq`
+        Prelude.rnf workGroup `Prelude.seq`
+          Prelude.rnf catalog `Prelude.seq`
+            Prelude.rnf database `Prelude.seq`
+              Prelude.rnf queryString `Prelude.seq`
+                Prelude.rnf outputS3Uri `Prelude.seq`
+                  Prelude.rnf outputFormat
 
 instance Data.ToJSON AthenaDatasetDefinition where
   toJSON AthenaDatasetDefinition' {..} =

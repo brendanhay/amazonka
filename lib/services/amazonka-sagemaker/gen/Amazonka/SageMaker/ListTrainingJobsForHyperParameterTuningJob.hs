@@ -168,12 +168,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTrainingJobsForHyperParameterTuningJob_nextToken
-          Lens..~ rs
-          Lens.^? listTrainingJobsForHyperParameterTuningJobResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTrainingJobsForHyperParameterTuningJob_nextToken
+              Lens..~ rs
+              Lens.^? listTrainingJobsForHyperParameterTuningJobResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -217,12 +217,12 @@ instance
     ListTrainingJobsForHyperParameterTuningJob
   where
   rnf ListTrainingJobsForHyperParameterTuningJob' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf statusEquals
-      `Prelude.seq` Prelude.rnf hyperParameterTuningJobName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf sortBy `Prelude.seq`
+          Prelude.rnf sortOrder `Prelude.seq`
+            Prelude.rnf statusEquals `Prelude.seq`
+              Prelude.rnf hyperParameterTuningJobName
 
 instance
   Data.ToHeaders
@@ -340,6 +340,6 @@ instance
   where
   rnf
     ListTrainingJobsForHyperParameterTuningJobResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf httpStatus
-        `Prelude.seq` Prelude.rnf trainingJobSummaries
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf trainingJobSummaries

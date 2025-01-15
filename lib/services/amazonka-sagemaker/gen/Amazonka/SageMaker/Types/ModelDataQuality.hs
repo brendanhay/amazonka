@@ -81,8 +81,8 @@ instance Prelude.Hashable ModelDataQuality where
 
 instance Prelude.NFData ModelDataQuality where
   rnf ModelDataQuality' {..} =
-    Prelude.rnf constraints
-      `Prelude.seq` Prelude.rnf statistics
+    Prelude.rnf constraints `Prelude.seq`
+      Prelude.rnf statistics
 
 instance Data.ToJSON ModelDataQuality where
   toJSON ModelDataQuality' {..} =

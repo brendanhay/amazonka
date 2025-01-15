@@ -397,17 +397,17 @@ instance Prelude.Hashable ClarifyInferenceConfig where
 
 instance Prelude.NFData ClarifyInferenceConfig where
   rnf ClarifyInferenceConfig' {..} =
-    Prelude.rnf contentTemplate
-      `Prelude.seq` Prelude.rnf featureHeaders
-      `Prelude.seq` Prelude.rnf featureTypes
-      `Prelude.seq` Prelude.rnf featuresAttribute
-      `Prelude.seq` Prelude.rnf labelAttribute
-      `Prelude.seq` Prelude.rnf labelHeaders
-      `Prelude.seq` Prelude.rnf labelIndex
-      `Prelude.seq` Prelude.rnf maxPayloadInMB
-      `Prelude.seq` Prelude.rnf maxRecordCount
-      `Prelude.seq` Prelude.rnf probabilityAttribute
-      `Prelude.seq` Prelude.rnf probabilityIndex
+    Prelude.rnf contentTemplate `Prelude.seq`
+      Prelude.rnf featureHeaders `Prelude.seq`
+        Prelude.rnf featureTypes `Prelude.seq`
+          Prelude.rnf featuresAttribute `Prelude.seq`
+            Prelude.rnf labelAttribute `Prelude.seq`
+              Prelude.rnf labelHeaders `Prelude.seq`
+                Prelude.rnf labelIndex `Prelude.seq`
+                  Prelude.rnf maxPayloadInMB `Prelude.seq`
+                    Prelude.rnf maxRecordCount `Prelude.seq`
+                      Prelude.rnf probabilityAttribute `Prelude.seq`
+                        Prelude.rnf probabilityIndex
 
 instance Data.ToJSON ClarifyInferenceConfig where
   toJSON ClarifyInferenceConfig' {..} =

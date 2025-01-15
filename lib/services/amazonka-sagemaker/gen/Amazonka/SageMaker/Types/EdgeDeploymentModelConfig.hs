@@ -87,8 +87,8 @@ instance Prelude.Hashable EdgeDeploymentModelConfig where
 
 instance Prelude.NFData EdgeDeploymentModelConfig where
   rnf EdgeDeploymentModelConfig' {..} =
-    Prelude.rnf modelHandle
-      `Prelude.seq` Prelude.rnf edgePackagingJobName
+    Prelude.rnf modelHandle `Prelude.seq`
+      Prelude.rnf edgePackagingJobName
 
 instance Data.ToJSON EdgeDeploymentModelConfig where
   toJSON EdgeDeploymentModelConfig' {..} =

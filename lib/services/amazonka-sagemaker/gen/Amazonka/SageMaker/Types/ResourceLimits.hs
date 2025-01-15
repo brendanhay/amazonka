@@ -90,8 +90,8 @@ instance Prelude.Hashable ResourceLimits where
 
 instance Prelude.NFData ResourceLimits where
   rnf ResourceLimits' {..} =
-    Prelude.rnf maxNumberOfTrainingJobs
-      `Prelude.seq` Prelude.rnf maxParallelTrainingJobs
+    Prelude.rnf maxNumberOfTrainingJobs `Prelude.seq`
+      Prelude.rnf maxParallelTrainingJobs
 
 instance Data.ToJSON ResourceLimits where
   toJSON ResourceLimits' {..} =

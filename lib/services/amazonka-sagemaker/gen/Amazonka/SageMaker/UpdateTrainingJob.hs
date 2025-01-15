@@ -141,10 +141,10 @@ instance Prelude.Hashable UpdateTrainingJob where
 
 instance Prelude.NFData UpdateTrainingJob where
   rnf UpdateTrainingJob' {..} =
-    Prelude.rnf profilerConfig
-      `Prelude.seq` Prelude.rnf profilerRuleConfigurations
-      `Prelude.seq` Prelude.rnf resourceConfig
-      `Prelude.seq` Prelude.rnf trainingJobName
+    Prelude.rnf profilerConfig `Prelude.seq`
+      Prelude.rnf profilerRuleConfigurations `Prelude.seq`
+        Prelude.rnf resourceConfig `Prelude.seq`
+          Prelude.rnf trainingJobName
 
 instance Data.ToHeaders UpdateTrainingJob where
   toHeaders =
@@ -227,5 +227,5 @@ updateTrainingJobResponse_trainingJobArn = Lens.lens (\UpdateTrainingJobResponse
 
 instance Prelude.NFData UpdateTrainingJobResponse where
   rnf UpdateTrainingJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf trainingJobArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf trainingJobArn

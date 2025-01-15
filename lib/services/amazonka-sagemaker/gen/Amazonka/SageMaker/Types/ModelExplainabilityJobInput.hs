@@ -82,8 +82,8 @@ instance Prelude.Hashable ModelExplainabilityJobInput where
 
 instance Prelude.NFData ModelExplainabilityJobInput where
   rnf ModelExplainabilityJobInput' {..} =
-    Prelude.rnf batchTransformInput
-      `Prelude.seq` Prelude.rnf endpointInput
+    Prelude.rnf batchTransformInput `Prelude.seq`
+      Prelude.rnf endpointInput
 
 instance Data.ToJSON ModelExplainabilityJobInput where
   toJSON ModelExplainabilityJobInput' {..} =

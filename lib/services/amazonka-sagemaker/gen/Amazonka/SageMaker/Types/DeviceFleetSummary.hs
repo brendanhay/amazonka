@@ -108,7 +108,7 @@ instance Prelude.Hashable DeviceFleetSummary where
 
 instance Prelude.NFData DeviceFleetSummary where
   rnf DeviceFleetSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf deviceFleetArn
-      `Prelude.seq` Prelude.rnf deviceFleetName
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf deviceFleetArn `Prelude.seq`
+          Prelude.rnf deviceFleetName

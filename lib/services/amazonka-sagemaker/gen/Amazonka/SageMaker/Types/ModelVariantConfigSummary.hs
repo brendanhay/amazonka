@@ -170,7 +170,7 @@ instance Prelude.Hashable ModelVariantConfigSummary where
 
 instance Prelude.NFData ModelVariantConfigSummary where
   rnf ModelVariantConfigSummary' {..} =
-    Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf variantName
-      `Prelude.seq` Prelude.rnf infrastructureConfig
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf modelName `Prelude.seq`
+      Prelude.rnf variantName `Prelude.seq`
+        Prelude.rnf infrastructureConfig `Prelude.seq`
+          Prelude.rnf status

@@ -236,12 +236,12 @@ instance Core.AWSPager ListTrainingJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTrainingJobs_nextToken
-          Lens..~ rs
-          Lens.^? listTrainingJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTrainingJobs_nextToken
+              Lens..~ rs
+              Lens.^? listTrainingJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTrainingJobs where
   type
@@ -278,17 +278,17 @@ instance Prelude.Hashable ListTrainingJobs where
 
 instance Prelude.NFData ListTrainingJobs where
   rnf ListTrainingJobs' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf statusEquals
-      `Prelude.seq` Prelude.rnf warmPoolStatusEquals
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf lastModifiedTimeAfter `Prelude.seq`
+          Prelude.rnf lastModifiedTimeBefore `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nameContains `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf sortBy `Prelude.seq`
+                    Prelude.rnf sortOrder `Prelude.seq`
+                      Prelude.rnf statusEquals `Prelude.seq`
+                        Prelude.rnf warmPoolStatusEquals
 
 instance Data.ToHeaders ListTrainingJobs where
   toHeaders =
@@ -385,6 +385,6 @@ listTrainingJobsResponse_trainingJobSummaries = Lens.lens (\ListTrainingJobsResp
 
 instance Prelude.NFData ListTrainingJobsResponse where
   rnf ListTrainingJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf trainingJobSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf trainingJobSummaries

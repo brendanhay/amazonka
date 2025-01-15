@@ -84,5 +84,5 @@ instance Prelude.Hashable AgentVersion where
 
 instance Prelude.NFData AgentVersion where
   rnf AgentVersion' {..} =
-    Prelude.rnf version
-      `Prelude.seq` Prelude.rnf agentCount
+    Prelude.rnf version `Prelude.seq`
+      Prelude.rnf agentCount

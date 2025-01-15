@@ -161,12 +161,12 @@ instance Prelude.Hashable AssociationSummary where
 
 instance Prelude.NFData AssociationSummary where
   rnf AssociationSummary' {..} =
-    Prelude.rnf associationType
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf destinationName
-      `Prelude.seq` Prelude.rnf destinationType
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf sourceName
-      `Prelude.seq` Prelude.rnf sourceType
+    Prelude.rnf associationType `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf destinationArn `Prelude.seq`
+            Prelude.rnf destinationName `Prelude.seq`
+              Prelude.rnf destinationType `Prelude.seq`
+                Prelude.rnf sourceArn `Prelude.seq`
+                  Prelude.rnf sourceName `Prelude.seq`
+                    Prelude.rnf sourceType

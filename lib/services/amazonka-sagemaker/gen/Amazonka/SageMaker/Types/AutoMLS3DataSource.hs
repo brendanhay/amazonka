@@ -127,8 +127,8 @@ instance Prelude.Hashable AutoMLS3DataSource where
 
 instance Prelude.NFData AutoMLS3DataSource where
   rnf AutoMLS3DataSource' {..} =
-    Prelude.rnf s3DataType
-      `Prelude.seq` Prelude.rnf s3Uri
+    Prelude.rnf s3DataType `Prelude.seq`
+      Prelude.rnf s3Uri
 
 instance Data.ToJSON AutoMLS3DataSource where
   toJSON AutoMLS3DataSource' {..} =

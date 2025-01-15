@@ -195,14 +195,14 @@ instance Prelude.Hashable TrainingSpecification where
 
 instance Prelude.NFData TrainingSpecification where
   rnf TrainingSpecification' {..} =
-    Prelude.rnf metricDefinitions
-      `Prelude.seq` Prelude.rnf supportedHyperParameters
-      `Prelude.seq` Prelude.rnf supportedTuningJobObjectiveMetrics
-      `Prelude.seq` Prelude.rnf supportsDistributedTraining
-      `Prelude.seq` Prelude.rnf trainingImageDigest
-      `Prelude.seq` Prelude.rnf trainingImage
-      `Prelude.seq` Prelude.rnf supportedTrainingInstanceTypes
-      `Prelude.seq` Prelude.rnf trainingChannels
+    Prelude.rnf metricDefinitions `Prelude.seq`
+      Prelude.rnf supportedHyperParameters `Prelude.seq`
+        Prelude.rnf supportedTuningJobObjectiveMetrics `Prelude.seq`
+          Prelude.rnf supportsDistributedTraining `Prelude.seq`
+            Prelude.rnf trainingImageDigest `Prelude.seq`
+              Prelude.rnf trainingImage `Prelude.seq`
+                Prelude.rnf supportedTrainingInstanceTypes `Prelude.seq`
+                  Prelude.rnf trainingChannels
 
 instance Data.ToJSON TrainingSpecification where
   toJSON TrainingSpecification' {..} =

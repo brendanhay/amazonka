@@ -199,13 +199,13 @@ instance
     RecommendationJobContainerConfig
   where
   rnf RecommendationJobContainerConfig' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf framework
-      `Prelude.seq` Prelude.rnf frameworkVersion
-      `Prelude.seq` Prelude.rnf nearestModelName
-      `Prelude.seq` Prelude.rnf payloadConfig
-      `Prelude.seq` Prelude.rnf supportedInstanceTypes
-      `Prelude.seq` Prelude.rnf task
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf framework `Prelude.seq`
+        Prelude.rnf frameworkVersion `Prelude.seq`
+          Prelude.rnf nearestModelName `Prelude.seq`
+            Prelude.rnf payloadConfig `Prelude.seq`
+              Prelude.rnf supportedInstanceTypes `Prelude.seq`
+                Prelude.rnf task
 
 instance Data.ToJSON RecommendationJobContainerConfig where
   toJSON RecommendationJobContainerConfig' {..} =

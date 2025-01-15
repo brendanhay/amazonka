@@ -82,8 +82,8 @@ instance Prelude.Hashable DataSource where
 
 instance Prelude.NFData DataSource where
   rnf DataSource' {..} =
-    Prelude.rnf fileSystemDataSource
-      `Prelude.seq` Prelude.rnf s3DataSource
+    Prelude.rnf fileSystemDataSource `Prelude.seq`
+      Prelude.rnf s3DataSource
 
 instance Data.ToJSON DataSource where
   toJSON DataSource' {..} =

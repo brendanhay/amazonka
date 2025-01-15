@@ -140,9 +140,9 @@ instance
     SendPipelineExecutionStepFailure
   where
   rnf SendPipelineExecutionStepFailure' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf callbackToken
+    Prelude.rnf clientRequestToken `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf callbackToken
 
 instance
   Data.ToHeaders
@@ -228,5 +228,5 @@ instance
     SendPipelineExecutionStepFailureResponse
   where
   rnf SendPipelineExecutionStepFailureResponse' {..} =
-    Prelude.rnf pipelineExecutionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pipelineExecutionArn `Prelude.seq`
+      Prelude.rnf httpStatus

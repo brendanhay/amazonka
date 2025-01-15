@@ -149,11 +149,11 @@ instance Prelude.Hashable UpdateDeviceFleet where
 
 instance Prelude.NFData UpdateDeviceFleet where
   rnf UpdateDeviceFleet' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf enableIotRoleAlias
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf deviceFleetName
-      `Prelude.seq` Prelude.rnf outputConfig
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf enableIotRoleAlias `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf deviceFleetName `Prelude.seq`
+            Prelude.rnf outputConfig
 
 instance Data.ToHeaders UpdateDeviceFleet where
   toHeaders =

@@ -83,8 +83,8 @@ instance Prelude.Hashable DriftCheckModelQuality where
 
 instance Prelude.NFData DriftCheckModelQuality where
   rnf DriftCheckModelQuality' {..} =
-    Prelude.rnf constraints
-      `Prelude.seq` Prelude.rnf statistics
+    Prelude.rnf constraints `Prelude.seq`
+      Prelude.rnf statistics
 
 instance Data.ToJSON DriftCheckModelQuality where
   toJSON DriftCheckModelQuality' {..} =

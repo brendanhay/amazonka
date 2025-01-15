@@ -174,10 +174,10 @@ instance Prelude.Hashable DescribeHubContent where
 
 instance Prelude.NFData DescribeHubContent where
   rnf DescribeHubContent' {..} =
-    Prelude.rnf hubContentVersion
-      `Prelude.seq` Prelude.rnf hubName
-      `Prelude.seq` Prelude.rnf hubContentType
-      `Prelude.seq` Prelude.rnf hubContentName
+    Prelude.rnf hubContentVersion `Prelude.seq`
+      Prelude.rnf hubName `Prelude.seq`
+        Prelude.rnf hubContentType `Prelude.seq`
+          Prelude.rnf hubContentName
 
 instance Data.ToHeaders DescribeHubContent where
   toHeaders =
@@ -427,20 +427,20 @@ describeHubContentResponse_creationTime = Lens.lens (\DescribeHubContentResponse
 
 instance Prelude.NFData DescribeHubContentResponse where
   rnf DescribeHubContentResponse' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf hubContentDependencies
-      `Prelude.seq` Prelude.rnf hubContentDescription
-      `Prelude.seq` Prelude.rnf hubContentDisplayName
-      `Prelude.seq` Prelude.rnf hubContentMarkdown
-      `Prelude.seq` Prelude.rnf hubContentSearchKeywords
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf hubContentName
-      `Prelude.seq` Prelude.rnf hubContentArn
-      `Prelude.seq` Prelude.rnf hubContentVersion
-      `Prelude.seq` Prelude.rnf hubContentType
-      `Prelude.seq` Prelude.rnf documentSchemaVersion
-      `Prelude.seq` Prelude.rnf hubName
-      `Prelude.seq` Prelude.rnf hubArn
-      `Prelude.seq` Prelude.rnf hubContentDocument
-      `Prelude.seq` Prelude.rnf hubContentStatus
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf failureReason `Prelude.seq`
+      Prelude.rnf hubContentDependencies `Prelude.seq`
+        Prelude.rnf hubContentDescription `Prelude.seq`
+          Prelude.rnf hubContentDisplayName `Prelude.seq`
+            Prelude.rnf hubContentMarkdown `Prelude.seq`
+              Prelude.rnf hubContentSearchKeywords `Prelude.seq`
+                Prelude.rnf httpStatus `Prelude.seq`
+                  Prelude.rnf hubContentName `Prelude.seq`
+                    Prelude.rnf hubContentArn `Prelude.seq`
+                      Prelude.rnf hubContentVersion `Prelude.seq`
+                        Prelude.rnf hubContentType `Prelude.seq`
+                          Prelude.rnf documentSchemaVersion `Prelude.seq`
+                            Prelude.rnf hubName `Prelude.seq`
+                              Prelude.rnf hubArn `Prelude.seq`
+                                Prelude.rnf hubContentDocument `Prelude.seq`
+                                  Prelude.rnf hubContentStatus `Prelude.seq`
+                                    Prelude.rnf creationTime

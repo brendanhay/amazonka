@@ -83,8 +83,8 @@ instance Prelude.Hashable DataQualityJobInput where
 
 instance Prelude.NFData DataQualityJobInput where
   rnf DataQualityJobInput' {..} =
-    Prelude.rnf batchTransformInput
-      `Prelude.seq` Prelude.rnf endpointInput
+    Prelude.rnf batchTransformInput `Prelude.seq`
+      Prelude.rnf endpointInput
 
 instance Data.ToJSON DataQualityJobInput where
   toJSON DataQualityJobInput' {..} =

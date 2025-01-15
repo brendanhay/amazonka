@@ -163,12 +163,12 @@ instance Prelude.Hashable CreateContext where
 
 instance Prelude.NFData CreateContext where
   rnf CreateContext' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf contextName
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf contextType
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf properties `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf contextName `Prelude.seq`
+            Prelude.rnf source `Prelude.seq`
+              Prelude.rnf contextType
 
 instance Data.ToHeaders CreateContext where
   toHeaders =
@@ -243,5 +243,5 @@ createContextResponse_httpStatus = Lens.lens (\CreateContextResponse' {httpStatu
 
 instance Prelude.NFData CreateContextResponse where
   rnf CreateContextResponse' {..} =
-    Prelude.rnf contextArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contextArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -101,6 +101,6 @@ instance Prelude.Hashable HumanTaskUiSummary where
 
 instance Prelude.NFData HumanTaskUiSummary where
   rnf HumanTaskUiSummary' {..} =
-    Prelude.rnf humanTaskUiName
-      `Prelude.seq` Prelude.rnf humanTaskUiArn
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf humanTaskUiName `Prelude.seq`
+      Prelude.rnf humanTaskUiArn `Prelude.seq`
+        Prelude.rnf creationTime

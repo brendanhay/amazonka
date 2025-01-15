@@ -155,11 +155,11 @@ instance Prelude.Hashable InferenceSpecification where
 
 instance Prelude.NFData InferenceSpecification where
   rnf InferenceSpecification' {..} =
-    Prelude.rnf supportedRealtimeInferenceInstanceTypes
-      `Prelude.seq` Prelude.rnf supportedTransformInstanceTypes
-      `Prelude.seq` Prelude.rnf containers
-      `Prelude.seq` Prelude.rnf supportedContentTypes
-      `Prelude.seq` Prelude.rnf supportedResponseMIMETypes
+    Prelude.rnf supportedRealtimeInferenceInstanceTypes `Prelude.seq`
+      Prelude.rnf supportedTransformInstanceTypes `Prelude.seq`
+        Prelude.rnf containers `Prelude.seq`
+          Prelude.rnf supportedContentTypes `Prelude.seq`
+            Prelude.rnf supportedResponseMIMETypes
 
 instance Data.ToJSON InferenceSpecification where
   toJSON InferenceSpecification' {..} =

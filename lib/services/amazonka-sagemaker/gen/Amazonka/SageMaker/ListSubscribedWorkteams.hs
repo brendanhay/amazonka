@@ -123,12 +123,12 @@ instance Core.AWSPager ListSubscribedWorkteams where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSubscribedWorkteams_nextToken
-          Lens..~ rs
-          Lens.^? listSubscribedWorkteamsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSubscribedWorkteams_nextToken
+              Lens..~ rs
+              Lens.^? listSubscribedWorkteamsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSubscribedWorkteams where
   type
@@ -157,9 +157,9 @@ instance Prelude.Hashable ListSubscribedWorkteams where
 
 instance Prelude.NFData ListSubscribedWorkteams where
   rnf ListSubscribedWorkteams' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nameContains `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSubscribedWorkteams where
   toHeaders =
@@ -248,6 +248,6 @@ instance
     ListSubscribedWorkteamsResponse
   where
   rnf ListSubscribedWorkteamsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf subscribedWorkteams
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf subscribedWorkteams

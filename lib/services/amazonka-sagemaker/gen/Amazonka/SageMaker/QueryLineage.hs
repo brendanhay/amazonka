@@ -235,13 +235,13 @@ instance Prelude.Hashable QueryLineage where
 
 instance Prelude.NFData QueryLineage where
   rnf QueryLineage' {..} =
-    Prelude.rnf direction
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf includeEdges
-      `Prelude.seq` Prelude.rnf maxDepth
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf startArns
+    Prelude.rnf direction `Prelude.seq`
+      Prelude.rnf filters `Prelude.seq`
+        Prelude.rnf includeEdges `Prelude.seq`
+          Prelude.rnf maxDepth `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf startArns
 
 instance Data.ToHeaders QueryLineage where
   toHeaders =
@@ -340,7 +340,7 @@ queryLineageResponse_httpStatus = Lens.lens (\QueryLineageResponse' {httpStatus}
 
 instance Prelude.NFData QueryLineageResponse where
   rnf QueryLineageResponse' {..} =
-    Prelude.rnf edges
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf vertices
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf edges `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf vertices `Prelude.seq`
+          Prelude.rnf httpStatus

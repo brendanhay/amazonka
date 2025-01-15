@@ -103,6 +103,6 @@ instance Prelude.Hashable AutoMLContainerDefinition where
 
 instance Prelude.NFData AutoMLContainerDefinition where
   rnf AutoMLContainerDefinition' {..} =
-    Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf image
-      `Prelude.seq` Prelude.rnf modelDataUrl
+    Prelude.rnf environment `Prelude.seq`
+      Prelude.rnf image `Prelude.seq`
+        Prelude.rnf modelDataUrl

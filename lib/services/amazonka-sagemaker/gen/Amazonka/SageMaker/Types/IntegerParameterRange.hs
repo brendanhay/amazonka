@@ -165,10 +165,10 @@ instance Prelude.Hashable IntegerParameterRange where
 
 instance Prelude.NFData IntegerParameterRange where
   rnf IntegerParameterRange' {..} =
-    Prelude.rnf scalingType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf minValue
-      `Prelude.seq` Prelude.rnf maxValue
+    Prelude.rnf scalingType `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf minValue `Prelude.seq`
+          Prelude.rnf maxValue
 
 instance Data.ToJSON IntegerParameterRange where
   toJSON IntegerParameterRange' {..} =

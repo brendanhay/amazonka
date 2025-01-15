@@ -124,9 +124,9 @@ instance Prelude.Hashable JupyterServerAppSettings where
 
 instance Prelude.NFData JupyterServerAppSettings where
   rnf JupyterServerAppSettings' {..} =
-    Prelude.rnf codeRepositories
-      `Prelude.seq` Prelude.rnf defaultResourceSpec
-      `Prelude.seq` Prelude.rnf lifecycleConfigArns
+    Prelude.rnf codeRepositories `Prelude.seq`
+      Prelude.rnf defaultResourceSpec `Prelude.seq`
+        Prelude.rnf lifecycleConfigArns
 
 instance Data.ToJSON JupyterServerAppSettings where
   toJSON JupyterServerAppSettings' {..} =

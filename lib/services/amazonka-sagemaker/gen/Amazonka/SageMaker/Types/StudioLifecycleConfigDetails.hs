@@ -122,8 +122,8 @@ instance
 
 instance Prelude.NFData StudioLifecycleConfigDetails where
   rnf StudioLifecycleConfigDetails' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf studioLifecycleConfigAppType
-      `Prelude.seq` Prelude.rnf studioLifecycleConfigArn
-      `Prelude.seq` Prelude.rnf studioLifecycleConfigName
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf studioLifecycleConfigAppType `Prelude.seq`
+          Prelude.rnf studioLifecycleConfigArn `Prelude.seq`
+            Prelude.rnf studioLifecycleConfigName

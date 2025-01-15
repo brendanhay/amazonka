@@ -114,8 +114,8 @@ instance Prelude.Hashable TrialComponentSimpleSummary where
 
 instance Prelude.NFData TrialComponentSimpleSummary where
   rnf TrialComponentSimpleSummary' {..} =
-    Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf trialComponentArn
-      `Prelude.seq` Prelude.rnf trialComponentName
-      `Prelude.seq` Prelude.rnf trialComponentSource
+    Prelude.rnf createdBy `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf trialComponentArn `Prelude.seq`
+          Prelude.rnf trialComponentName `Prelude.seq`
+            Prelude.rnf trialComponentSource

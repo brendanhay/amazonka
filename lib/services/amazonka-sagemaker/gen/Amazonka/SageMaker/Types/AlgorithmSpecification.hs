@@ -309,13 +309,13 @@ instance Prelude.Hashable AlgorithmSpecification where
 
 instance Prelude.NFData AlgorithmSpecification where
   rnf AlgorithmSpecification' {..} =
-    Prelude.rnf algorithmName
-      `Prelude.seq` Prelude.rnf containerArguments
-      `Prelude.seq` Prelude.rnf containerEntrypoint
-      `Prelude.seq` Prelude.rnf enableSageMakerMetricsTimeSeries
-      `Prelude.seq` Prelude.rnf metricDefinitions
-      `Prelude.seq` Prelude.rnf trainingImage
-      `Prelude.seq` Prelude.rnf trainingInputMode
+    Prelude.rnf algorithmName `Prelude.seq`
+      Prelude.rnf containerArguments `Prelude.seq`
+        Prelude.rnf containerEntrypoint `Prelude.seq`
+          Prelude.rnf enableSageMakerMetricsTimeSeries `Prelude.seq`
+            Prelude.rnf metricDefinitions `Prelude.seq`
+              Prelude.rnf trainingImage `Prelude.seq`
+                Prelude.rnf trainingInputMode
 
 instance Data.ToJSON AlgorithmSpecification where
   toJSON AlgorithmSpecification' {..} =

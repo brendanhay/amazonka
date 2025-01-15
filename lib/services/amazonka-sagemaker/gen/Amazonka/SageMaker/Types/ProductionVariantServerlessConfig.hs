@@ -104,8 +104,8 @@ instance
     ProductionVariantServerlessConfig
   where
   rnf ProductionVariantServerlessConfig' {..} =
-    Prelude.rnf memorySizeInMB
-      `Prelude.seq` Prelude.rnf maxConcurrency
+    Prelude.rnf memorySizeInMB `Prelude.seq`
+      Prelude.rnf maxConcurrency
 
 instance
   Data.ToJSON

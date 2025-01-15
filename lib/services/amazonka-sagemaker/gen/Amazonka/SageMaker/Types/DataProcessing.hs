@@ -210,9 +210,9 @@ instance Prelude.Hashable DataProcessing where
 
 instance Prelude.NFData DataProcessing where
   rnf DataProcessing' {..} =
-    Prelude.rnf inputFilter
-      `Prelude.seq` Prelude.rnf joinSource
-      `Prelude.seq` Prelude.rnf outputFilter
+    Prelude.rnf inputFilter `Prelude.seq`
+      Prelude.rnf joinSource `Prelude.seq`
+        Prelude.rnf outputFilter
 
 instance Data.ToJSON DataProcessing where
   toJSON DataProcessing' {..} =

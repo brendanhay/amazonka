@@ -144,9 +144,9 @@ instance
     HyperParameterTuningInstanceConfig
   where
   rnf HyperParameterTuningInstanceConfig' {..} =
-    Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf volumeSizeInGB
+    Prelude.rnf instanceType `Prelude.seq`
+      Prelude.rnf instanceCount `Prelude.seq`
+        Prelude.rnf volumeSizeInGB
 
 instance
   Data.ToJSON

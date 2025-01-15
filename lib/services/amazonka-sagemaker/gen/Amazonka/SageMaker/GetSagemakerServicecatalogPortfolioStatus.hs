@@ -174,5 +174,5 @@ instance
   where
   rnf
     GetSagemakerServicecatalogPortfolioStatusResponse' {..} =
-      Prelude.rnf status
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf httpStatus

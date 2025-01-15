@@ -125,10 +125,10 @@ instance Prelude.Hashable ResourceSpec where
 
 instance Prelude.NFData ResourceSpec where
   rnf ResourceSpec' {..} =
-    Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf lifecycleConfigArn
-      `Prelude.seq` Prelude.rnf sageMakerImageArn
-      `Prelude.seq` Prelude.rnf sageMakerImageVersionArn
+    Prelude.rnf instanceType `Prelude.seq`
+      Prelude.rnf lifecycleConfigArn `Prelude.seq`
+        Prelude.rnf sageMakerImageArn `Prelude.seq`
+          Prelude.rnf sageMakerImageVersionArn
 
 instance Data.ToJSON ResourceSpec where
   toJSON ResourceSpec' {..} =

@@ -304,15 +304,15 @@ describeAlgorithmResponse_algorithmStatusDetails = Lens.lens (\DescribeAlgorithm
 
 instance Prelude.NFData DescribeAlgorithmResponse where
   rnf DescribeAlgorithmResponse' {..} =
-    Prelude.rnf algorithmDescription
-      `Prelude.seq` Prelude.rnf certifyForMarketplace
-      `Prelude.seq` Prelude.rnf inferenceSpecification
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf validationSpecification
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf algorithmName
-      `Prelude.seq` Prelude.rnf algorithmArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf trainingSpecification
-      `Prelude.seq` Prelude.rnf algorithmStatus
-      `Prelude.seq` Prelude.rnf algorithmStatusDetails
+    Prelude.rnf algorithmDescription `Prelude.seq`
+      Prelude.rnf certifyForMarketplace `Prelude.seq`
+        Prelude.rnf inferenceSpecification `Prelude.seq`
+          Prelude.rnf productId `Prelude.seq`
+            Prelude.rnf validationSpecification `Prelude.seq`
+              Prelude.rnf httpStatus `Prelude.seq`
+                Prelude.rnf algorithmName `Prelude.seq`
+                  Prelude.rnf algorithmArn `Prelude.seq`
+                    Prelude.rnf creationTime `Prelude.seq`
+                      Prelude.rnf trainingSpecification `Prelude.seq`
+                        Prelude.rnf algorithmStatus `Prelude.seq`
+                          Prelude.rnf algorithmStatusDetails

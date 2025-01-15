@@ -261,14 +261,14 @@ instance Prelude.Hashable CreateModel where
 
 instance Prelude.NFData CreateModel where
   rnf CreateModel' {..} =
-    Prelude.rnf containers
-      `Prelude.seq` Prelude.rnf enableNetworkIsolation
-      `Prelude.seq` Prelude.rnf inferenceExecutionConfig
-      `Prelude.seq` Prelude.rnf primaryContainer
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf executionRoleArn
+    Prelude.rnf containers `Prelude.seq`
+      Prelude.rnf enableNetworkIsolation `Prelude.seq`
+        Prelude.rnf inferenceExecutionConfig `Prelude.seq`
+          Prelude.rnf primaryContainer `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf vpcConfig `Prelude.seq`
+                Prelude.rnf modelName `Prelude.seq`
+                  Prelude.rnf executionRoleArn
 
 instance Data.ToHeaders CreateModel where
   toHeaders =
@@ -350,5 +350,5 @@ createModelResponse_modelArn = Lens.lens (\CreateModelResponse' {modelArn} -> mo
 
 instance Prelude.NFData CreateModelResponse where
   rnf CreateModelResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf modelArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf modelArn

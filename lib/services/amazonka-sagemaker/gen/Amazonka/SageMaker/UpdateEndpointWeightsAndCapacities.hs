@@ -131,8 +131,8 @@ instance
     UpdateEndpointWeightsAndCapacities
   where
   rnf UpdateEndpointWeightsAndCapacities' {..} =
-    Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf desiredWeightsAndCapacities
+    Prelude.rnf endpointName `Prelude.seq`
+      Prelude.rnf desiredWeightsAndCapacities
 
 instance
   Data.ToHeaders
@@ -227,5 +227,5 @@ instance
     UpdateEndpointWeightsAndCapacitiesResponse
   where
   rnf UpdateEndpointWeightsAndCapacitiesResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf endpointArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf endpointArn

@@ -92,8 +92,8 @@ instance
     ModelExplainabilityBaselineConfig
   where
   rnf ModelExplainabilityBaselineConfig' {..} =
-    Prelude.rnf baseliningJobName
-      `Prelude.seq` Prelude.rnf constraintsResource
+    Prelude.rnf baseliningJobName `Prelude.seq`
+      Prelude.rnf constraintsResource
 
 instance
   Data.ToJSON

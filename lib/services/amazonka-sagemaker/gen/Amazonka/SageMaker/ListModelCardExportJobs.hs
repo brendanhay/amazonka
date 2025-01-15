@@ -202,12 +202,12 @@ instance Core.AWSPager ListModelCardExportJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listModelCardExportJobs_nextToken
-          Lens..~ rs
-          Lens.^? listModelCardExportJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listModelCardExportJobs_nextToken
+              Lens..~ rs
+              Lens.^? listModelCardExportJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModelCardExportJobs where
   type
@@ -243,16 +243,16 @@ instance Prelude.Hashable ListModelCardExportJobs where
 
 instance Prelude.NFData ListModelCardExportJobs where
   rnf ListModelCardExportJobs' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf modelCardExportJobNameContains
-      `Prelude.seq` Prelude.rnf modelCardVersion
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf statusEquals
-      `Prelude.seq` Prelude.rnf modelCardName
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf modelCardExportJobNameContains `Prelude.seq`
+            Prelude.rnf modelCardVersion `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf sortBy `Prelude.seq`
+                  Prelude.rnf sortOrder `Prelude.seq`
+                    Prelude.rnf statusEquals `Prelude.seq`
+                      Prelude.rnf modelCardName
 
 instance Data.ToHeaders ListModelCardExportJobs where
   toHeaders =
@@ -357,6 +357,6 @@ instance
     ListModelCardExportJobsResponse
   where
   rnf ListModelCardExportJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf modelCardExportJobSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf modelCardExportJobSummaries

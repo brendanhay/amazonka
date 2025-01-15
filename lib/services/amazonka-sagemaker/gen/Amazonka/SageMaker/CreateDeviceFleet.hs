@@ -163,12 +163,12 @@ instance Prelude.Hashable CreateDeviceFleet where
 
 instance Prelude.NFData CreateDeviceFleet where
   rnf CreateDeviceFleet' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf enableIotRoleAlias
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf deviceFleetName
-      `Prelude.seq` Prelude.rnf outputConfig
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf enableIotRoleAlias `Prelude.seq`
+        Prelude.rnf roleArn `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf deviceFleetName `Prelude.seq`
+              Prelude.rnf outputConfig
 
 instance Data.ToHeaders CreateDeviceFleet where
   toHeaders =

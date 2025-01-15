@@ -96,8 +96,8 @@ instance Prelude.Hashable MemberDefinition where
 
 instance Prelude.NFData MemberDefinition where
   rnf MemberDefinition' {..} =
-    Prelude.rnf cognitoMemberDefinition
-      `Prelude.seq` Prelude.rnf oidcMemberDefinition
+    Prelude.rnf cognitoMemberDefinition `Prelude.seq`
+      Prelude.rnf oidcMemberDefinition
 
 instance Data.ToJSON MemberDefinition where
   toJSON MemberDefinition' {..} =

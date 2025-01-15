@@ -235,8 +235,8 @@ instance Prelude.Hashable UiConfig where
 
 instance Prelude.NFData UiConfig where
   rnf UiConfig' {..} =
-    Prelude.rnf humanTaskUiArn
-      `Prelude.seq` Prelude.rnf uiTemplateS3Uri
+    Prelude.rnf humanTaskUiArn `Prelude.seq`
+      Prelude.rnf uiTemplateS3Uri
 
 instance Data.ToJSON UiConfig where
   toJSON UiConfig' {..} =

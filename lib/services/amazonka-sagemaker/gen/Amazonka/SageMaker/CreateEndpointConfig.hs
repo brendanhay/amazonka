@@ -351,14 +351,14 @@ instance Prelude.Hashable CreateEndpointConfig where
 
 instance Prelude.NFData CreateEndpointConfig where
   rnf CreateEndpointConfig' {..} =
-    Prelude.rnf asyncInferenceConfig
-      `Prelude.seq` Prelude.rnf dataCaptureConfig
-      `Prelude.seq` Prelude.rnf explainerConfig
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf shadowProductionVariants
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf endpointConfigName
-      `Prelude.seq` Prelude.rnf productionVariants
+    Prelude.rnf asyncInferenceConfig `Prelude.seq`
+      Prelude.rnf dataCaptureConfig `Prelude.seq`
+        Prelude.rnf explainerConfig `Prelude.seq`
+          Prelude.rnf kmsKeyId `Prelude.seq`
+            Prelude.rnf shadowProductionVariants `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf endpointConfigName `Prelude.seq`
+                  Prelude.rnf productionVariants
 
 instance Data.ToHeaders CreateEndpointConfig where
   toHeaders =
@@ -447,5 +447,5 @@ createEndpointConfigResponse_endpointConfigArn = Lens.lens (\CreateEndpointConfi
 
 instance Prelude.NFData CreateEndpointConfigResponse where
   rnf CreateEndpointConfigResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf endpointConfigArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf endpointConfigArn

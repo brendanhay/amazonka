@@ -119,7 +119,7 @@ instance Prelude.Hashable PendingDeploymentSummary where
 
 instance Prelude.NFData PendingDeploymentSummary where
   rnf PendingDeploymentSummary' {..} =
-    Prelude.rnf productionVariants
-      `Prelude.seq` Prelude.rnf shadowProductionVariants
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endpointConfigName
+    Prelude.rnf productionVariants `Prelude.seq`
+      Prelude.rnf shadowProductionVariants `Prelude.seq`
+        Prelude.rnf startTime `Prelude.seq`
+          Prelude.rnf endpointConfigName

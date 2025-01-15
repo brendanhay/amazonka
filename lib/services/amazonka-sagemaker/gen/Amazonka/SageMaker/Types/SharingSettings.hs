@@ -109,9 +109,9 @@ instance Prelude.Hashable SharingSettings where
 
 instance Prelude.NFData SharingSettings where
   rnf SharingSettings' {..} =
-    Prelude.rnf notebookOutputOption
-      `Prelude.seq` Prelude.rnf s3KmsKeyId
-      `Prelude.seq` Prelude.rnf s3OutputPath
+    Prelude.rnf notebookOutputOption `Prelude.seq`
+      Prelude.rnf s3KmsKeyId `Prelude.seq`
+        Prelude.rnf s3OutputPath
 
 instance Data.ToJSON SharingSettings where
   toJSON SharingSettings' {..} =

@@ -135,12 +135,12 @@ instance Core.AWSPager ListDevices where
         (rs Lens.^. listDevicesResponse_deviceSummaries) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listDevices_nextToken
-          Lens..~ rs
-          Lens.^? listDevicesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listDevices_nextToken
+              Lens..~ rs
+              Lens.^? listDevicesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDevices where
   type AWSResponse ListDevices = ListDevicesResponse
@@ -169,11 +169,11 @@ instance Prelude.Hashable ListDevices where
 
 instance Prelude.NFData ListDevices where
   rnf ListDevices' {..} =
-    Prelude.rnf deviceFleetName
-      `Prelude.seq` Prelude.rnf latestHeartbeatAfter
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf deviceFleetName `Prelude.seq`
+      Prelude.rnf latestHeartbeatAfter `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf modelName `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDevices where
   toHeaders =
@@ -260,6 +260,6 @@ listDevicesResponse_deviceSummaries = Lens.lens (\ListDevicesResponse' {deviceSu
 
 instance Prelude.NFData ListDevicesResponse where
   rnf ListDevicesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf deviceSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf deviceSummaries

@@ -143,12 +143,12 @@ instance Prelude.Hashable DataQualityAppSpecification where
 
 instance Prelude.NFData DataQualityAppSpecification where
   rnf DataQualityAppSpecification' {..} =
-    Prelude.rnf containerArguments
-      `Prelude.seq` Prelude.rnf containerEntrypoint
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf postAnalyticsProcessorSourceUri
-      `Prelude.seq` Prelude.rnf recordPreprocessorSourceUri
-      `Prelude.seq` Prelude.rnf imageUri
+    Prelude.rnf containerArguments `Prelude.seq`
+      Prelude.rnf containerEntrypoint `Prelude.seq`
+        Prelude.rnf environment `Prelude.seq`
+          Prelude.rnf postAnalyticsProcessorSourceUri `Prelude.seq`
+            Prelude.rnf recordPreprocessorSourceUri `Prelude.seq`
+              Prelude.rnf imageUri
 
 instance Data.ToJSON DataQualityAppSpecification where
   toJSON DataQualityAppSpecification' {..} =

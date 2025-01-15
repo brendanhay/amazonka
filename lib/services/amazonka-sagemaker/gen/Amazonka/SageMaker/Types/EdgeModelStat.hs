@@ -154,9 +154,9 @@ instance Prelude.Hashable EdgeModelStat where
 
 instance Prelude.NFData EdgeModelStat where
   rnf EdgeModelStat' {..} =
-    Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf modelVersion
-      `Prelude.seq` Prelude.rnf offlineDeviceCount
-      `Prelude.seq` Prelude.rnf connectedDeviceCount
-      `Prelude.seq` Prelude.rnf activeDeviceCount
-      `Prelude.seq` Prelude.rnf samplingDeviceCount
+    Prelude.rnf modelName `Prelude.seq`
+      Prelude.rnf modelVersion `Prelude.seq`
+        Prelude.rnf offlineDeviceCount `Prelude.seq`
+          Prelude.rnf connectedDeviceCount `Prelude.seq`
+            Prelude.rnf activeDeviceCount `Prelude.seq`
+              Prelude.rnf samplingDeviceCount

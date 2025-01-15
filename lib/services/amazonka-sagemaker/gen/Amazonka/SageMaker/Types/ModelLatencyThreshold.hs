@@ -81,8 +81,8 @@ instance Prelude.Hashable ModelLatencyThreshold where
 
 instance Prelude.NFData ModelLatencyThreshold where
   rnf ModelLatencyThreshold' {..} =
-    Prelude.rnf percentile
-      `Prelude.seq` Prelude.rnf valueInMilliseconds
+    Prelude.rnf percentile `Prelude.seq`
+      Prelude.rnf valueInMilliseconds
 
 instance Data.ToJSON ModelLatencyThreshold where
   toJSON ModelLatencyThreshold' {..} =

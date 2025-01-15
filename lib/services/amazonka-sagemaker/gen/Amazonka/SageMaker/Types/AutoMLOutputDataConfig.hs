@@ -82,8 +82,8 @@ instance Prelude.Hashable AutoMLOutputDataConfig where
 
 instance Prelude.NFData AutoMLOutputDataConfig where
   rnf AutoMLOutputDataConfig' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf s3OutputPath
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf s3OutputPath
 
 instance Data.ToJSON AutoMLOutputDataConfig where
   toJSON AutoMLOutputDataConfig' {..} =

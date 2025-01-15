@@ -163,14 +163,14 @@ instance Prelude.Hashable OidcConfig where
 
 instance Prelude.NFData OidcConfig where
   rnf OidcConfig' {..} =
-    Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf clientSecret
-      `Prelude.seq` Prelude.rnf issuer
-      `Prelude.seq` Prelude.rnf authorizationEndpoint
-      `Prelude.seq` Prelude.rnf tokenEndpoint
-      `Prelude.seq` Prelude.rnf userInfoEndpoint
-      `Prelude.seq` Prelude.rnf logoutEndpoint
-      `Prelude.seq` Prelude.rnf jwksUri
+    Prelude.rnf clientId `Prelude.seq`
+      Prelude.rnf clientSecret `Prelude.seq`
+        Prelude.rnf issuer `Prelude.seq`
+          Prelude.rnf authorizationEndpoint `Prelude.seq`
+            Prelude.rnf tokenEndpoint `Prelude.seq`
+              Prelude.rnf userInfoEndpoint `Prelude.seq`
+                Prelude.rnf logoutEndpoint `Prelude.seq`
+                  Prelude.rnf jwksUri
 
 instance Data.ToJSON OidcConfig where
   toJSON OidcConfig' {..} =

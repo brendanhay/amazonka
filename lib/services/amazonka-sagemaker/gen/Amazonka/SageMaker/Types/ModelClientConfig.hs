@@ -88,8 +88,8 @@ instance Prelude.Hashable ModelClientConfig where
 
 instance Prelude.NFData ModelClientConfig where
   rnf ModelClientConfig' {..} =
-    Prelude.rnf invocationsMaxRetries
-      `Prelude.seq` Prelude.rnf invocationsTimeoutInSeconds
+    Prelude.rnf invocationsMaxRetries `Prelude.seq`
+      Prelude.rnf invocationsTimeoutInSeconds
 
 instance Data.ToJSON ModelClientConfig where
   toJSON ModelClientConfig' {..} =

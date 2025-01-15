@@ -149,11 +149,11 @@ instance Prelude.Hashable AutoMLChannel where
 
 instance Prelude.NFData AutoMLChannel where
   rnf AutoMLChannel' {..} =
-    Prelude.rnf channelType
-      `Prelude.seq` Prelude.rnf compressionType
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf targetAttributeName
+    Prelude.rnf channelType `Prelude.seq`
+      Prelude.rnf compressionType `Prelude.seq`
+        Prelude.rnf contentType `Prelude.seq`
+          Prelude.rnf dataSource `Prelude.seq`
+            Prelude.rnf targetAttributeName
 
 instance Data.ToJSON AutoMLChannel where
   toJSON AutoMLChannel' {..} =

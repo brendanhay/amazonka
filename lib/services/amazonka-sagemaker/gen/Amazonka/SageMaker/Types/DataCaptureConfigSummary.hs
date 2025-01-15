@@ -131,8 +131,8 @@ instance Prelude.Hashable DataCaptureConfigSummary where
 
 instance Prelude.NFData DataCaptureConfigSummary where
   rnf DataCaptureConfigSummary' {..} =
-    Prelude.rnf enableCapture
-      `Prelude.seq` Prelude.rnf captureStatus
-      `Prelude.seq` Prelude.rnf currentSamplingPercentage
-      `Prelude.seq` Prelude.rnf destinationS3Uri
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf enableCapture `Prelude.seq`
+      Prelude.rnf captureStatus `Prelude.seq`
+        Prelude.rnf currentSamplingPercentage `Prelude.seq`
+          Prelude.rnf destinationS3Uri `Prelude.seq`
+            Prelude.rnf kmsKeyId

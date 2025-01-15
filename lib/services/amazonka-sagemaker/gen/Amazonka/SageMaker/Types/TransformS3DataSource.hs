@@ -226,8 +226,8 @@ instance Prelude.Hashable TransformS3DataSource where
 
 instance Prelude.NFData TransformS3DataSource where
   rnf TransformS3DataSource' {..} =
-    Prelude.rnf s3DataType
-      `Prelude.seq` Prelude.rnf s3Uri
+    Prelude.rnf s3DataType `Prelude.seq`
+      Prelude.rnf s3Uri
 
 instance Data.ToJSON TransformS3DataSource where
   toJSON TransformS3DataSource' {..} =

@@ -85,8 +85,8 @@ instance Prelude.Hashable LabelingJobInputConfig where
 
 instance Prelude.NFData LabelingJobInputConfig where
   rnf LabelingJobInputConfig' {..} =
-    Prelude.rnf dataAttributes
-      `Prelude.seq` Prelude.rnf dataSource
+    Prelude.rnf dataAttributes `Prelude.seq`
+      Prelude.rnf dataSource
 
 instance Data.ToJSON LabelingJobInputConfig where
   toJSON LabelingJobInputConfig' {..} =

@@ -82,5 +82,5 @@ instance Prelude.Hashable HubContentDependency where
 
 instance Prelude.NFData HubContentDependency where
   rnf HubContentDependency' {..} =
-    Prelude.rnf dependencyCopyPath
-      `Prelude.seq` Prelude.rnf dependencyOriginPath
+    Prelude.rnf dependencyCopyPath `Prelude.seq`
+      Prelude.rnf dependencyOriginPath

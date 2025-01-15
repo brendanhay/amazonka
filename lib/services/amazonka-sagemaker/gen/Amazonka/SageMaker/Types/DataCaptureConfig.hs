@@ -195,12 +195,12 @@ instance Prelude.Hashable DataCaptureConfig where
 
 instance Prelude.NFData DataCaptureConfig where
   rnf DataCaptureConfig' {..} =
-    Prelude.rnf captureContentTypeHeader
-      `Prelude.seq` Prelude.rnf enableCapture
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf initialSamplingPercentage
-      `Prelude.seq` Prelude.rnf destinationS3Uri
-      `Prelude.seq` Prelude.rnf captureOptions
+    Prelude.rnf captureContentTypeHeader `Prelude.seq`
+      Prelude.rnf enableCapture `Prelude.seq`
+        Prelude.rnf kmsKeyId `Prelude.seq`
+          Prelude.rnf initialSamplingPercentage `Prelude.seq`
+            Prelude.rnf destinationS3Uri `Prelude.seq`
+              Prelude.rnf captureOptions
 
 instance Data.ToJSON DataCaptureConfig where
   toJSON DataCaptureConfig' {..} =

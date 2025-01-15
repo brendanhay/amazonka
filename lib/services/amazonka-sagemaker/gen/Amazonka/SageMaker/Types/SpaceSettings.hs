@@ -81,8 +81,8 @@ instance Prelude.Hashable SpaceSettings where
 
 instance Prelude.NFData SpaceSettings where
   rnf SpaceSettings' {..} =
-    Prelude.rnf jupyterServerAppSettings
-      `Prelude.seq` Prelude.rnf kernelGatewayAppSettings
+    Prelude.rnf jupyterServerAppSettings `Prelude.seq`
+      Prelude.rnf kernelGatewayAppSettings
 
 instance Data.ToJSON SpaceSettings where
   toJSON SpaceSettings' {..} =

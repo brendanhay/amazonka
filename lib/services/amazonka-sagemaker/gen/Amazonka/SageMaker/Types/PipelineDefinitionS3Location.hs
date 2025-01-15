@@ -94,9 +94,9 @@ instance
 
 instance Prelude.NFData PipelineDefinitionS3Location where
   rnf PipelineDefinitionS3Location' {..} =
-    Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf objectKey
+    Prelude.rnf versionId `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf objectKey
 
 instance Data.ToJSON PipelineDefinitionS3Location where
   toJSON PipelineDefinitionS3Location' {..} =

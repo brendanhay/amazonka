@@ -223,17 +223,17 @@ instance Prelude.Hashable UpdateTrialComponent where
 
 instance Prelude.NFData UpdateTrialComponent where
   rnf UpdateTrialComponent' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf inputArtifacts
-      `Prelude.seq` Prelude.rnf inputArtifactsToRemove
-      `Prelude.seq` Prelude.rnf outputArtifacts
-      `Prelude.seq` Prelude.rnf outputArtifactsToRemove
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf parametersToRemove
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf trialComponentName
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf inputArtifacts `Prelude.seq`
+          Prelude.rnf inputArtifactsToRemove `Prelude.seq`
+            Prelude.rnf outputArtifacts `Prelude.seq`
+              Prelude.rnf outputArtifactsToRemove `Prelude.seq`
+                Prelude.rnf parameters `Prelude.seq`
+                  Prelude.rnf parametersToRemove `Prelude.seq`
+                    Prelude.rnf startTime `Prelude.seq`
+                      Prelude.rnf status `Prelude.seq`
+                        Prelude.rnf trialComponentName
 
 instance Data.ToHeaders UpdateTrialComponent where
   toHeaders =
@@ -321,5 +321,5 @@ updateTrialComponentResponse_httpStatus = Lens.lens (\UpdateTrialComponentRespon
 
 instance Prelude.NFData UpdateTrialComponentResponse where
   rnf UpdateTrialComponentResponse' {..} =
-    Prelude.rnf trialComponentArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trialComponentArn `Prelude.seq`
+      Prelude.rnf httpStatus

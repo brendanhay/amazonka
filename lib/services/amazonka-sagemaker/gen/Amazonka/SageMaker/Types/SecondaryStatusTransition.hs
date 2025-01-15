@@ -347,7 +347,7 @@ instance Prelude.Hashable SecondaryStatusTransition where
 
 instance Prelude.NFData SecondaryStatusTransition where
   rnf SecondaryStatusTransition' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf statusMessage `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf startTime

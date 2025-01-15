@@ -169,11 +169,11 @@ instance Prelude.Hashable ProcessingJobSummary where
 
 instance Prelude.NFData ProcessingJobSummary where
   rnf ProcessingJobSummary' {..} =
-    Prelude.rnf exitMessage
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf processingEndTime
-      `Prelude.seq` Prelude.rnf processingJobName
-      `Prelude.seq` Prelude.rnf processingJobArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf processingJobStatus
+    Prelude.rnf exitMessage `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf lastModifiedTime `Prelude.seq`
+          Prelude.rnf processingEndTime `Prelude.seq`
+            Prelude.rnf processingJobName `Prelude.seq`
+              Prelude.rnf processingJobArn `Prelude.seq`
+                Prelude.rnf creationTime `Prelude.seq`
+                  Prelude.rnf processingJobStatus

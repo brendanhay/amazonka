@@ -191,12 +191,12 @@ instance Core.AWSPager ListEdgeDeploymentPlans where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEdgeDeploymentPlans_nextToken
-          Lens..~ rs
-          Lens.^? listEdgeDeploymentPlansResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEdgeDeploymentPlans_nextToken
+              Lens..~ rs
+              Lens.^? listEdgeDeploymentPlansResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEdgeDeploymentPlans where
   type
@@ -232,16 +232,16 @@ instance Prelude.Hashable ListEdgeDeploymentPlans where
 
 instance Prelude.NFData ListEdgeDeploymentPlans where
   rnf ListEdgeDeploymentPlans' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf deviceFleetNameContains
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf deviceFleetNameContains `Prelude.seq`
+          Prelude.rnf lastModifiedTimeAfter `Prelude.seq`
+            Prelude.rnf lastModifiedTimeBefore `Prelude.seq`
+              Prelude.rnf maxResults `Prelude.seq`
+                Prelude.rnf nameContains `Prelude.seq`
+                  Prelude.rnf nextToken `Prelude.seq`
+                    Prelude.rnf sortBy `Prelude.seq`
+                      Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListEdgeDeploymentPlans where
   toHeaders =
@@ -340,6 +340,6 @@ instance
     ListEdgeDeploymentPlansResponse
   where
   rnf ListEdgeDeploymentPlansResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf edgeDeploymentPlanSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf edgeDeploymentPlanSummaries

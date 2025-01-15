@@ -624,16 +624,16 @@ instance Prelude.Hashable CreateLabelingJob where
 
 instance Prelude.NFData CreateLabelingJob where
   rnf CreateLabelingJob' {..} =
-    Prelude.rnf labelCategoryConfigS3Uri
-      `Prelude.seq` Prelude.rnf labelingJobAlgorithmsConfig
-      `Prelude.seq` Prelude.rnf stoppingConditions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf labelingJobName
-      `Prelude.seq` Prelude.rnf labelAttributeName
-      `Prelude.seq` Prelude.rnf inputConfig
-      `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf humanTaskConfig
+    Prelude.rnf labelCategoryConfigS3Uri `Prelude.seq`
+      Prelude.rnf labelingJobAlgorithmsConfig `Prelude.seq`
+        Prelude.rnf stoppingConditions `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf labelingJobName `Prelude.seq`
+              Prelude.rnf labelAttributeName `Prelude.seq`
+                Prelude.rnf inputConfig `Prelude.seq`
+                  Prelude.rnf outputConfig `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf humanTaskConfig
 
 instance Data.ToHeaders CreateLabelingJob where
   toHeaders =
@@ -727,5 +727,5 @@ createLabelingJobResponse_labelingJobArn = Lens.lens (\CreateLabelingJobResponse
 
 instance Prelude.NFData CreateLabelingJobResponse where
   rnf CreateLabelingJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf labelingJobArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf labelingJobArn

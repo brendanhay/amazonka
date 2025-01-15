@@ -347,11 +347,11 @@ instance Prelude.Hashable S3DataSource where
 
 instance Prelude.NFData S3DataSource where
   rnf S3DataSource' {..} =
-    Prelude.rnf attributeNames
-      `Prelude.seq` Prelude.rnf instanceGroupNames
-      `Prelude.seq` Prelude.rnf s3DataDistributionType
-      `Prelude.seq` Prelude.rnf s3DataType
-      `Prelude.seq` Prelude.rnf s3Uri
+    Prelude.rnf attributeNames `Prelude.seq`
+      Prelude.rnf instanceGroupNames `Prelude.seq`
+        Prelude.rnf s3DataDistributionType `Prelude.seq`
+          Prelude.rnf s3DataType `Prelude.seq`
+            Prelude.rnf s3Uri
 
 instance Data.ToJSON S3DataSource where
   toJSON S3DataSource' {..} =

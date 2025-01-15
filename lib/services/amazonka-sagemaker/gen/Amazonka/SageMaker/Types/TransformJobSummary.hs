@@ -160,10 +160,10 @@ instance Prelude.Hashable TransformJobSummary where
 
 instance Prelude.NFData TransformJobSummary where
   rnf TransformJobSummary' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf transformEndTime
-      `Prelude.seq` Prelude.rnf transformJobName
-      `Prelude.seq` Prelude.rnf transformJobArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf transformJobStatus
+    Prelude.rnf failureReason `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf transformEndTime `Prelude.seq`
+          Prelude.rnf transformJobName `Prelude.seq`
+            Prelude.rnf transformJobArn `Prelude.seq`
+              Prelude.rnf creationTime `Prelude.seq`
+                Prelude.rnf transformJobStatus

@@ -175,13 +175,13 @@ instance Prelude.Hashable Experiment where
 
 instance Prelude.NFData Experiment where
   rnf Experiment' {..} =
-    Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf experimentArn
-      `Prelude.seq` Prelude.rnf experimentName
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf createdBy `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf displayName `Prelude.seq`
+            Prelude.rnf experimentArn `Prelude.seq`
+              Prelude.rnf experimentName `Prelude.seq`
+                Prelude.rnf lastModifiedBy `Prelude.seq`
+                  Prelude.rnf lastModifiedTime `Prelude.seq`
+                    Prelude.rnf source `Prelude.seq`
+                      Prelude.rnf tags

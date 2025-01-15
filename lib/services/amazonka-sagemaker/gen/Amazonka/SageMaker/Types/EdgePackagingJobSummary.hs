@@ -157,11 +157,11 @@ instance Prelude.Hashable EdgePackagingJobSummary where
 
 instance Prelude.NFData EdgePackagingJobSummary where
   rnf EdgePackagingJobSummary' {..} =
-    Prelude.rnf compilationJobName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf modelVersion
-      `Prelude.seq` Prelude.rnf edgePackagingJobArn
-      `Prelude.seq` Prelude.rnf edgePackagingJobName
-      `Prelude.seq` Prelude.rnf edgePackagingJobStatus
+    Prelude.rnf compilationJobName `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf lastModifiedTime `Prelude.seq`
+          Prelude.rnf modelName `Prelude.seq`
+            Prelude.rnf modelVersion `Prelude.seq`
+              Prelude.rnf edgePackagingJobArn `Prelude.seq`
+                Prelude.rnf edgePackagingJobName `Prelude.seq`
+                  Prelude.rnf edgePackagingJobStatus

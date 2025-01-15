@@ -112,8 +112,8 @@ instance
 
 instance Prelude.NFData TimeSeriesForecastingSettings where
   rnf TimeSeriesForecastingSettings' {..} =
-    Prelude.rnf amazonForecastRoleArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf amazonForecastRoleArn `Prelude.seq`
+      Prelude.rnf status
 
 instance Data.ToJSON TimeSeriesForecastingSettings where
   toJSON TimeSeriesForecastingSettings' {..} =

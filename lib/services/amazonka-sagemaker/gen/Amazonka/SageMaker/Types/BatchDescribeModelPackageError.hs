@@ -91,5 +91,5 @@ instance
     BatchDescribeModelPackageError
   where
   rnf BatchDescribeModelPackageError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorResponse
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorResponse

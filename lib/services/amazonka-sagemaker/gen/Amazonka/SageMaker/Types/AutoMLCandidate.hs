@@ -205,14 +205,14 @@ instance Prelude.Hashable AutoMLCandidate where
 
 instance Prelude.NFData AutoMLCandidate where
   rnf AutoMLCandidate' {..} =
-    Prelude.rnf candidateProperties
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf finalAutoMLJobObjectiveMetric
-      `Prelude.seq` Prelude.rnf inferenceContainers
-      `Prelude.seq` Prelude.rnf candidateName
-      `Prelude.seq` Prelude.rnf objectiveStatus
-      `Prelude.seq` Prelude.rnf candidateSteps
-      `Prelude.seq` Prelude.rnf candidateStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf candidateProperties `Prelude.seq`
+      Prelude.rnf endTime `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf finalAutoMLJobObjectiveMetric `Prelude.seq`
+            Prelude.rnf inferenceContainers `Prelude.seq`
+              Prelude.rnf candidateName `Prelude.seq`
+                Prelude.rnf objectiveStatus `Prelude.seq`
+                  Prelude.rnf candidateSteps `Prelude.seq`
+                    Prelude.rnf candidateStatus `Prelude.seq`
+                      Prelude.rnf creationTime `Prelude.seq`
+                        Prelude.rnf lastModifiedTime

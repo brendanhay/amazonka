@@ -116,7 +116,7 @@ instance Prelude.Hashable TrialComponentSourceDetail where
 
 instance Prelude.NFData TrialComponentSourceDetail where
   rnf TrialComponentSourceDetail' {..} =
-    Prelude.rnf processingJob
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf trainingJob
-      `Prelude.seq` Prelude.rnf transformJob
+    Prelude.rnf processingJob `Prelude.seq`
+      Prelude.rnf sourceArn `Prelude.seq`
+        Prelude.rnf trainingJob `Prelude.seq`
+          Prelude.rnf transformJob

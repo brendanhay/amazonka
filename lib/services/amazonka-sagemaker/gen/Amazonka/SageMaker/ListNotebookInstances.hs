@@ -272,12 +272,12 @@ instance Core.AWSPager ListNotebookInstances where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listNotebookInstances_nextToken
-          Lens..~ rs
-          Lens.^? listNotebookInstancesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listNotebookInstances_nextToken
+              Lens..~ rs
+              Lens.^? listNotebookInstancesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListNotebookInstances where
   type
@@ -440,6 +440,6 @@ listNotebookInstancesResponse_httpStatus = Lens.lens (\ListNotebookInstancesResp
 
 instance Prelude.NFData ListNotebookInstancesResponse where
   rnf ListNotebookInstancesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf notebookInstances
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf notebookInstances `Prelude.seq`
+        Prelude.rnf httpStatus

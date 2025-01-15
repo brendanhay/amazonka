@@ -543,22 +543,22 @@ describeLabelingJobResponse_humanTaskConfig = Lens.lens (\DescribeLabelingJobRes
 
 instance Prelude.NFData DescribeLabelingJobResponse where
   rnf DescribeLabelingJobResponse' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf labelAttributeName
-      `Prelude.seq` Prelude.rnf labelCategoryConfigS3Uri
-      `Prelude.seq` Prelude.rnf labelingJobAlgorithmsConfig
-      `Prelude.seq` Prelude.rnf labelingJobOutput
-      `Prelude.seq` Prelude.rnf stoppingConditions
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf labelingJobStatus
-      `Prelude.seq` Prelude.rnf labelCounters
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf jobReferenceCode
-      `Prelude.seq` Prelude.rnf labelingJobName
-      `Prelude.seq` Prelude.rnf labelingJobArn
-      `Prelude.seq` Prelude.rnf inputConfig
-      `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf humanTaskConfig
+    Prelude.rnf failureReason `Prelude.seq`
+      Prelude.rnf labelAttributeName `Prelude.seq`
+        Prelude.rnf labelCategoryConfigS3Uri `Prelude.seq`
+          Prelude.rnf labelingJobAlgorithmsConfig `Prelude.seq`
+            Prelude.rnf labelingJobOutput `Prelude.seq`
+              Prelude.rnf stoppingConditions `Prelude.seq`
+                Prelude.rnf tags `Prelude.seq`
+                  Prelude.rnf httpStatus `Prelude.seq`
+                    Prelude.rnf labelingJobStatus `Prelude.seq`
+                      Prelude.rnf labelCounters `Prelude.seq`
+                        Prelude.rnf creationTime `Prelude.seq`
+                          Prelude.rnf lastModifiedTime `Prelude.seq`
+                            Prelude.rnf jobReferenceCode `Prelude.seq`
+                              Prelude.rnf labelingJobName `Prelude.seq`
+                                Prelude.rnf labelingJobArn `Prelude.seq`
+                                  Prelude.rnf inputConfig `Prelude.seq`
+                                    Prelude.rnf outputConfig `Prelude.seq`
+                                      Prelude.rnf roleArn `Prelude.seq`
+                                        Prelude.rnf humanTaskConfig

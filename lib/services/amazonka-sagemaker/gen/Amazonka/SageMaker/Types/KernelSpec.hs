@@ -85,8 +85,8 @@ instance Prelude.Hashable KernelSpec where
 
 instance Prelude.NFData KernelSpec where
   rnf KernelSpec' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf displayName `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToJSON KernelSpec where
   toJSON KernelSpec' {..} =

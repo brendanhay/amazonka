@@ -116,6 +116,6 @@ instance
     FinalHyperParameterTuningJobObjectiveMetric
   where
   rnf FinalHyperParameterTuningJobObjectiveMetric' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf type' `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf value

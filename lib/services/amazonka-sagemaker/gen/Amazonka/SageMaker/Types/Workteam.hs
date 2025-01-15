@@ -210,13 +210,13 @@ instance Prelude.Hashable Workteam where
 
 instance Prelude.NFData Workteam where
   rnf Workteam' {..} =
-    Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf notificationConfiguration
-      `Prelude.seq` Prelude.rnf productListingIds
-      `Prelude.seq` Prelude.rnf subDomain
-      `Prelude.seq` Prelude.rnf workforceArn
-      `Prelude.seq` Prelude.rnf workteamName
-      `Prelude.seq` Prelude.rnf memberDefinitions
-      `Prelude.seq` Prelude.rnf workteamArn
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf createDate `Prelude.seq`
+      Prelude.rnf lastUpdatedDate `Prelude.seq`
+        Prelude.rnf notificationConfiguration `Prelude.seq`
+          Prelude.rnf productListingIds `Prelude.seq`
+            Prelude.rnf subDomain `Prelude.seq`
+              Prelude.rnf workforceArn `Prelude.seq`
+                Prelude.rnf workteamName `Prelude.seq`
+                  Prelude.rnf memberDefinitions `Prelude.seq`
+                    Prelude.rnf workteamArn `Prelude.seq`
+                      Prelude.rnf description

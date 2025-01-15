@@ -177,11 +177,11 @@ instance Prelude.Hashable ClarifyCheckStepMetadata where
 
 instance Prelude.NFData ClarifyCheckStepMetadata where
   rnf ClarifyCheckStepMetadata' {..} =
-    Prelude.rnf baselineUsedForDriftCheckConstraints
-      `Prelude.seq` Prelude.rnf calculatedBaselineConstraints
-      `Prelude.seq` Prelude.rnf checkJobArn
-      `Prelude.seq` Prelude.rnf checkType
-      `Prelude.seq` Prelude.rnf modelPackageGroupName
-      `Prelude.seq` Prelude.rnf registerNewBaseline
-      `Prelude.seq` Prelude.rnf skipCheck
-      `Prelude.seq` Prelude.rnf violationReport
+    Prelude.rnf baselineUsedForDriftCheckConstraints `Prelude.seq`
+      Prelude.rnf calculatedBaselineConstraints `Prelude.seq`
+        Prelude.rnf checkJobArn `Prelude.seq`
+          Prelude.rnf checkType `Prelude.seq`
+            Prelude.rnf modelPackageGroupName `Prelude.seq`
+              Prelude.rnf registerNewBaseline `Prelude.seq`
+                Prelude.rnf skipCheck `Prelude.seq`
+                  Prelude.rnf violationReport

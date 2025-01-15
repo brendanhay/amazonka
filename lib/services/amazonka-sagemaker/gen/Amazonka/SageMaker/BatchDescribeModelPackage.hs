@@ -193,6 +193,6 @@ instance
     BatchDescribeModelPackageResponse
   where
   rnf BatchDescribeModelPackageResponse' {..} =
-    Prelude.rnf batchDescribeModelPackageErrorMap
-      `Prelude.seq` Prelude.rnf modelPackageSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf batchDescribeModelPackageErrorMap `Prelude.seq`
+      Prelude.rnf modelPackageSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

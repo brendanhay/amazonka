@@ -170,13 +170,13 @@ instance Prelude.Hashable UpdatePipeline where
 
 instance Prelude.NFData UpdatePipeline where
   rnf UpdatePipeline' {..} =
-    Prelude.rnf parallelismConfiguration
-      `Prelude.seq` Prelude.rnf pipelineDefinition
-      `Prelude.seq` Prelude.rnf pipelineDefinitionS3Location
-      `Prelude.seq` Prelude.rnf pipelineDescription
-      `Prelude.seq` Prelude.rnf pipelineDisplayName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf pipelineName
+    Prelude.rnf parallelismConfiguration `Prelude.seq`
+      Prelude.rnf pipelineDefinition `Prelude.seq`
+        Prelude.rnf pipelineDefinitionS3Location `Prelude.seq`
+          Prelude.rnf pipelineDescription `Prelude.seq`
+            Prelude.rnf pipelineDisplayName `Prelude.seq`
+              Prelude.rnf roleArn `Prelude.seq`
+                Prelude.rnf pipelineName
 
 instance Data.ToHeaders UpdatePipeline where
   toHeaders =
@@ -257,5 +257,5 @@ updatePipelineResponse_httpStatus = Lens.lens (\UpdatePipelineResponse' {httpSta
 
 instance Prelude.NFData UpdatePipelineResponse where
   rnf UpdatePipelineResponse' {..} =
-    Prelude.rnf pipelineArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pipelineArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -129,11 +129,11 @@ instance Prelude.Hashable MonitoringAppSpecification where
 
 instance Prelude.NFData MonitoringAppSpecification where
   rnf MonitoringAppSpecification' {..} =
-    Prelude.rnf containerArguments
-      `Prelude.seq` Prelude.rnf containerEntrypoint
-      `Prelude.seq` Prelude.rnf postAnalyticsProcessorSourceUri
-      `Prelude.seq` Prelude.rnf recordPreprocessorSourceUri
-      `Prelude.seq` Prelude.rnf imageUri
+    Prelude.rnf containerArguments `Prelude.seq`
+      Prelude.rnf containerEntrypoint `Prelude.seq`
+        Prelude.rnf postAnalyticsProcessorSourceUri `Prelude.seq`
+          Prelude.rnf recordPreprocessorSourceUri `Prelude.seq`
+            Prelude.rnf imageUri
 
 instance Data.ToJSON MonitoringAppSpecification where
   toJSON MonitoringAppSpecification' {..} =

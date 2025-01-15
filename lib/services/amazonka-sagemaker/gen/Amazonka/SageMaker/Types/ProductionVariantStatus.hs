@@ -134,6 +134,6 @@ instance Prelude.Hashable ProductionVariantStatus where
 
 instance Prelude.NFData ProductionVariantStatus where
   rnf ProductionVariantStatus' {..} =
-    Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf startTime `Prelude.seq`
+      Prelude.rnf statusMessage `Prelude.seq`
+        Prelude.rnf status

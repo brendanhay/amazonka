@@ -179,12 +179,12 @@ instance Core.AWSPager ListTrials where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listTrials_nextToken
-          Lens..~ rs
-          Lens.^? listTrialsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listTrials_nextToken
+              Lens..~ rs
+              Lens.^? listTrialsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTrials where
   type AWSResponse ListTrials = ListTrialsResponse
@@ -213,14 +213,14 @@ instance Prelude.Hashable ListTrials where
 
 instance Prelude.NFData ListTrials where
   rnf ListTrials' {..} =
-    Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf experimentName
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf trialComponentName
+    Prelude.rnf createdAfter `Prelude.seq`
+      Prelude.rnf createdBefore `Prelude.seq`
+        Prelude.rnf experimentName `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf sortBy `Prelude.seq`
+                Prelude.rnf sortOrder `Prelude.seq`
+                  Prelude.rnf trialComponentName
 
 instance Data.ToHeaders ListTrials where
   toHeaders =
@@ -307,6 +307,6 @@ listTrialsResponse_httpStatus = Lens.lens (\ListTrialsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListTrialsResponse where
   rnf ListTrialsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf trialSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf trialSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -129,9 +129,9 @@ instance Prelude.Hashable CreateModelPackageGroup where
 
 instance Prelude.NFData CreateModelPackageGroup where
   rnf CreateModelPackageGroup' {..} =
-    Prelude.rnf modelPackageGroupDescription
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf modelPackageGroupName
+    Prelude.rnf modelPackageGroupDescription `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf modelPackageGroupName
 
 instance Data.ToHeaders CreateModelPackageGroup where
   toHeaders =
@@ -217,5 +217,5 @@ instance
     CreateModelPackageGroupResponse
   where
   rnf CreateModelPackageGroupResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf modelPackageGroupArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf modelPackageGroupArn

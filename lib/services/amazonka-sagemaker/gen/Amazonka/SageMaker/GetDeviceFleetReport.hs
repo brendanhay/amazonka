@@ -254,12 +254,12 @@ getDeviceFleetReportResponse_deviceFleetName = Lens.lens (\GetDeviceFleetReportR
 
 instance Prelude.NFData GetDeviceFleetReportResponse where
   rnf GetDeviceFleetReportResponse' {..} =
-    Prelude.rnf agentVersions
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deviceStats
-      `Prelude.seq` Prelude.rnf modelStats
-      `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf reportGenerated
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf deviceFleetArn
-      `Prelude.seq` Prelude.rnf deviceFleetName
+    Prelude.rnf agentVersions `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf deviceStats `Prelude.seq`
+          Prelude.rnf modelStats `Prelude.seq`
+            Prelude.rnf outputConfig `Prelude.seq`
+              Prelude.rnf reportGenerated `Prelude.seq`
+                Prelude.rnf httpStatus `Prelude.seq`
+                  Prelude.rnf deviceFleetArn `Prelude.seq`
+                    Prelude.rnf deviceFleetName

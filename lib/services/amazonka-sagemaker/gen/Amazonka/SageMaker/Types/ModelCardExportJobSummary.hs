@@ -159,10 +159,10 @@ instance Prelude.Hashable ModelCardExportJobSummary where
 
 instance Prelude.NFData ModelCardExportJobSummary where
   rnf ModelCardExportJobSummary' {..} =
-    Prelude.rnf modelCardExportJobName
-      `Prelude.seq` Prelude.rnf modelCardExportJobArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf modelCardName
-      `Prelude.seq` Prelude.rnf modelCardVersion
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf lastModifiedAt
+    Prelude.rnf modelCardExportJobName `Prelude.seq`
+      Prelude.rnf modelCardExportJobArn `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf modelCardName `Prelude.seq`
+            Prelude.rnf modelCardVersion `Prelude.seq`
+              Prelude.rnf createdAt `Prelude.seq`
+                Prelude.rnf lastModifiedAt

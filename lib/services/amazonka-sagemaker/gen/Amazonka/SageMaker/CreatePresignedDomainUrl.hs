@@ -176,11 +176,11 @@ instance Prelude.Hashable CreatePresignedDomainUrl where
 
 instance Prelude.NFData CreatePresignedDomainUrl where
   rnf CreatePresignedDomainUrl' {..} =
-    Prelude.rnf expiresInSeconds
-      `Prelude.seq` Prelude.rnf sessionExpirationDurationInSeconds
-      `Prelude.seq` Prelude.rnf spaceName
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf userProfileName
+    Prelude.rnf expiresInSeconds `Prelude.seq`
+      Prelude.rnf sessionExpirationDurationInSeconds `Prelude.seq`
+        Prelude.rnf spaceName `Prelude.seq`
+          Prelude.rnf domainId `Prelude.seq`
+            Prelude.rnf userProfileName
 
 instance Data.ToHeaders CreatePresignedDomainUrl where
   toHeaders =
@@ -262,5 +262,5 @@ instance
     CreatePresignedDomainUrlResponse
   where
   rnf CreatePresignedDomainUrlResponse' {..} =
-    Prelude.rnf authorizedUrl
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authorizedUrl `Prelude.seq`
+      Prelude.rnf httpStatus

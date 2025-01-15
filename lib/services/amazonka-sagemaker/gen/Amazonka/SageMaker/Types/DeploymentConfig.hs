@@ -107,8 +107,8 @@ instance Prelude.Hashable DeploymentConfig where
 
 instance Prelude.NFData DeploymentConfig where
   rnf DeploymentConfig' {..} =
-    Prelude.rnf autoRollbackConfiguration
-      `Prelude.seq` Prelude.rnf blueGreenUpdatePolicy
+    Prelude.rnf autoRollbackConfiguration `Prelude.seq`
+      Prelude.rnf blueGreenUpdatePolicy
 
 instance Data.ToJSON DeploymentConfig where
   toJSON DeploymentConfig' {..} =

@@ -173,5 +173,5 @@ deleteTrialComponentResponse_httpStatus = Lens.lens (\DeleteTrialComponentRespon
 
 instance Prelude.NFData DeleteTrialComponentResponse where
   rnf DeleteTrialComponentResponse' {..} =
-    Prelude.rnf trialComponentArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trialComponentArn `Prelude.seq`
+      Prelude.rnf httpStatus

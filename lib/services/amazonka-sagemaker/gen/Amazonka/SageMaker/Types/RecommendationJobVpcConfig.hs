@@ -97,8 +97,8 @@ instance Prelude.Hashable RecommendationJobVpcConfig where
 
 instance Prelude.NFData RecommendationJobVpcConfig where
   rnf RecommendationJobVpcConfig' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnets
+    Prelude.rnf securityGroupIds `Prelude.seq`
+      Prelude.rnf subnets
 
 instance Data.ToJSON RecommendationJobVpcConfig where
   toJSON RecommendationJobVpcConfig' {..} =

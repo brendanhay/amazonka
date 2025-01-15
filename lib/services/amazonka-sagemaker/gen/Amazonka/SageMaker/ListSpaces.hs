@@ -148,12 +148,12 @@ instance Core.AWSPager ListSpaces where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSpaces_nextToken
-          Lens..~ rs
-          Lens.^? listSpacesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSpaces_nextToken
+              Lens..~ rs
+              Lens.^? listSpacesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSpaces where
   type AWSResponse ListSpaces = ListSpacesResponse
@@ -180,12 +180,12 @@ instance Prelude.Hashable ListSpaces where
 
 instance Prelude.NFData ListSpaces where
   rnf ListSpaces' {..} =
-    Prelude.rnf domainIdEquals
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf spaceNameContains
+    Prelude.rnf domainIdEquals `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortBy `Prelude.seq`
+            Prelude.rnf sortOrder `Prelude.seq`
+              Prelude.rnf spaceNameContains
 
 instance Data.ToHeaders ListSpaces where
   toHeaders =
@@ -273,6 +273,6 @@ listSpacesResponse_httpStatus = Lens.lens (\ListSpacesResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListSpacesResponse where
   rnf ListSpacesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf spaces
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf spaces `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -171,12 +171,12 @@ instance Core.AWSPager ListModelCards where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listModelCards_nextToken
-          Lens..~ rs
-          Lens.^? listModelCardsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listModelCards_nextToken
+              Lens..~ rs
+              Lens.^? listModelCardsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModelCards where
   type
@@ -210,14 +210,14 @@ instance Prelude.Hashable ListModelCards where
 
 instance Prelude.NFData ListModelCards where
   rnf ListModelCards' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf modelCardStatus
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf modelCardStatus `Prelude.seq`
+            Prelude.rnf nameContains `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf sortBy `Prelude.seq`
+                  Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListModelCards where
   toHeaders =
@@ -309,6 +309,6 @@ listModelCardsResponse_modelCardSummaries = Lens.lens (\ListModelCardsResponse' 
 
 instance Prelude.NFData ListModelCardsResponse where
   rnf ListModelCardsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf modelCardSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf modelCardSummaries

@@ -211,12 +211,12 @@ instance Core.AWSPager ListStudioLifecycleConfigs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listStudioLifecycleConfigs_nextToken
-          Lens..~ rs
-          Lens.^? listStudioLifecycleConfigsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listStudioLifecycleConfigs_nextToken
+              Lens..~ rs
+              Lens.^? listStudioLifecycleConfigsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStudioLifecycleConfigs where
   type
@@ -252,16 +252,16 @@ instance Prelude.Hashable ListStudioLifecycleConfigs where
 
 instance Prelude.NFData ListStudioLifecycleConfigs where
   rnf ListStudioLifecycleConfigs' {..} =
-    Prelude.rnf appTypeEquals
-      `Prelude.seq` Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf modifiedTimeAfter
-      `Prelude.seq` Prelude.rnf modifiedTimeBefore
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf appTypeEquals `Prelude.seq`
+      Prelude.rnf creationTimeAfter `Prelude.seq`
+        Prelude.rnf creationTimeBefore `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf modifiedTimeAfter `Prelude.seq`
+              Prelude.rnf modifiedTimeBefore `Prelude.seq`
+                Prelude.rnf nameContains `Prelude.seq`
+                  Prelude.rnf nextToken `Prelude.seq`
+                    Prelude.rnf sortBy `Prelude.seq`
+                      Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListStudioLifecycleConfigs where
   toHeaders =
@@ -359,6 +359,6 @@ instance
     ListStudioLifecycleConfigsResponse
   where
   rnf ListStudioLifecycleConfigsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf studioLifecycleConfigs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf studioLifecycleConfigs `Prelude.seq`
+        Prelude.rnf httpStatus

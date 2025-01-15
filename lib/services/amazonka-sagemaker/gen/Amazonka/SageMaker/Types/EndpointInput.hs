@@ -210,16 +210,16 @@ instance Prelude.Hashable EndpointInput where
 
 instance Prelude.NFData EndpointInput where
   rnf EndpointInput' {..} =
-    Prelude.rnf endTimeOffset
-      `Prelude.seq` Prelude.rnf featuresAttribute
-      `Prelude.seq` Prelude.rnf inferenceAttribute
-      `Prelude.seq` Prelude.rnf probabilityAttribute
-      `Prelude.seq` Prelude.rnf probabilityThresholdAttribute
-      `Prelude.seq` Prelude.rnf s3DataDistributionType
-      `Prelude.seq` Prelude.rnf s3InputMode
-      `Prelude.seq` Prelude.rnf startTimeOffset
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf localPath
+    Prelude.rnf endTimeOffset `Prelude.seq`
+      Prelude.rnf featuresAttribute `Prelude.seq`
+        Prelude.rnf inferenceAttribute `Prelude.seq`
+          Prelude.rnf probabilityAttribute `Prelude.seq`
+            Prelude.rnf probabilityThresholdAttribute `Prelude.seq`
+              Prelude.rnf s3DataDistributionType `Prelude.seq`
+                Prelude.rnf s3InputMode `Prelude.seq`
+                  Prelude.rnf startTimeOffset `Prelude.seq`
+                    Prelude.rnf endpointName `Prelude.seq`
+                      Prelude.rnf localPath
 
 instance Data.ToJSON EndpointInput where
   toJSON EndpointInput' {..} =

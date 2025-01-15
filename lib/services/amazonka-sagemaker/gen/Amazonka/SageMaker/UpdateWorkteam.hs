@@ -203,10 +203,10 @@ instance Prelude.Hashable UpdateWorkteam where
 
 instance Prelude.NFData UpdateWorkteam where
   rnf UpdateWorkteam' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf memberDefinitions
-      `Prelude.seq` Prelude.rnf notificationConfiguration
-      `Prelude.seq` Prelude.rnf workteamName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf memberDefinitions `Prelude.seq`
+        Prelude.rnf notificationConfiguration `Prelude.seq`
+          Prelude.rnf workteamName
 
 instance Data.ToHeaders UpdateWorkteam where
   toHeaders =
@@ -282,5 +282,5 @@ updateWorkteamResponse_workteam = Lens.lens (\UpdateWorkteamResponse' {workteam}
 
 instance Prelude.NFData UpdateWorkteamResponse where
   rnf UpdateWorkteamResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workteam
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf workteam

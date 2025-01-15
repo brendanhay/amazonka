@@ -89,8 +89,8 @@ instance Prelude.Hashable CaptureContentTypeHeader where
 
 instance Prelude.NFData CaptureContentTypeHeader where
   rnf CaptureContentTypeHeader' {..} =
-    Prelude.rnf csvContentTypes
-      `Prelude.seq` Prelude.rnf jsonContentTypes
+    Prelude.rnf csvContentTypes `Prelude.seq`
+      Prelude.rnf jsonContentTypes
 
 instance Data.ToJSON CaptureContentTypeHeader where
   toJSON CaptureContentTypeHeader' {..} =

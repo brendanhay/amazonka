@@ -106,10 +106,10 @@ instance
     RStudioServerProDomainSettingsForUpdate
   where
   rnf RStudioServerProDomainSettingsForUpdate' {..} =
-    Prelude.rnf defaultResourceSpec
-      `Prelude.seq` Prelude.rnf rStudioConnectUrl
-      `Prelude.seq` Prelude.rnf rStudioPackageManagerUrl
-      `Prelude.seq` Prelude.rnf domainExecutionRoleArn
+    Prelude.rnf defaultResourceSpec `Prelude.seq`
+      Prelude.rnf rStudioConnectUrl `Prelude.seq`
+        Prelude.rnf rStudioPackageManagerUrl `Prelude.seq`
+          Prelude.rnf domainExecutionRoleArn
 
 instance
   Data.ToJSON

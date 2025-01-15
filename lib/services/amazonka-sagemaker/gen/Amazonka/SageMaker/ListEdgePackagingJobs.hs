@@ -195,12 +195,12 @@ instance Core.AWSPager ListEdgePackagingJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEdgePackagingJobs_nextToken
-          Lens..~ rs
-          Lens.^? listEdgePackagingJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEdgePackagingJobs_nextToken
+              Lens..~ rs
+              Lens.^? listEdgePackagingJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEdgePackagingJobs where
   type
@@ -237,17 +237,17 @@ instance Prelude.Hashable ListEdgePackagingJobs where
 
 instance Prelude.NFData ListEdgePackagingJobs where
   rnf ListEdgePackagingJobs' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf modelNameContains
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf statusEquals
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf lastModifiedTimeAfter `Prelude.seq`
+          Prelude.rnf lastModifiedTimeBefore `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf modelNameContains `Prelude.seq`
+                Prelude.rnf nameContains `Prelude.seq`
+                  Prelude.rnf nextToken `Prelude.seq`
+                    Prelude.rnf sortBy `Prelude.seq`
+                      Prelude.rnf sortOrder `Prelude.seq`
+                        Prelude.rnf statusEquals
 
 instance Data.ToHeaders ListEdgePackagingJobs where
   toHeaders =
@@ -343,6 +343,6 @@ listEdgePackagingJobsResponse_edgePackagingJobSummaries = Lens.lens (\ListEdgePa
 
 instance Prelude.NFData ListEdgePackagingJobsResponse where
   rnf ListEdgePackagingJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf edgePackagingJobSummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf edgePackagingJobSummaries

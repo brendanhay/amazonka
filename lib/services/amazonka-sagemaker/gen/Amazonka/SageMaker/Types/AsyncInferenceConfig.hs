@@ -92,8 +92,8 @@ instance Prelude.Hashable AsyncInferenceConfig where
 
 instance Prelude.NFData AsyncInferenceConfig where
   rnf AsyncInferenceConfig' {..} =
-    Prelude.rnf clientConfig
-      `Prelude.seq` Prelude.rnf outputConfig
+    Prelude.rnf clientConfig `Prelude.seq`
+      Prelude.rnf outputConfig
 
 instance Data.ToJSON AsyncInferenceConfig where
   toJSON AsyncInferenceConfig' {..} =

@@ -277,13 +277,13 @@ instance Prelude.Hashable CreateAlgorithm where
 
 instance Prelude.NFData CreateAlgorithm where
   rnf CreateAlgorithm' {..} =
-    Prelude.rnf algorithmDescription
-      `Prelude.seq` Prelude.rnf certifyForMarketplace
-      `Prelude.seq` Prelude.rnf inferenceSpecification
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf validationSpecification
-      `Prelude.seq` Prelude.rnf algorithmName
-      `Prelude.seq` Prelude.rnf trainingSpecification
+    Prelude.rnf algorithmDescription `Prelude.seq`
+      Prelude.rnf certifyForMarketplace `Prelude.seq`
+        Prelude.rnf inferenceSpecification `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf validationSpecification `Prelude.seq`
+              Prelude.rnf algorithmName `Prelude.seq`
+                Prelude.rnf trainingSpecification
 
 instance Data.ToHeaders CreateAlgorithm where
   toHeaders =
@@ -369,5 +369,5 @@ createAlgorithmResponse_algorithmArn = Lens.lens (\CreateAlgorithmResponse' {alg
 
 instance Prelude.NFData CreateAlgorithmResponse where
   rnf CreateAlgorithmResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf algorithmArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf algorithmArn

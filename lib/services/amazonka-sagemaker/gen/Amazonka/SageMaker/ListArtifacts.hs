@@ -177,12 +177,12 @@ instance Core.AWSPager ListArtifacts where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listArtifacts_nextToken
-          Lens..~ rs
-          Lens.^? listArtifactsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listArtifacts_nextToken
+              Lens..~ rs
+              Lens.^? listArtifactsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListArtifacts where
   type
@@ -216,14 +216,14 @@ instance Prelude.Hashable ListArtifacts where
 
 instance Prelude.NFData ListArtifacts where
   rnf ListArtifacts' {..} =
-    Prelude.rnf artifactType
-      `Prelude.seq` Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf sourceUri
+    Prelude.rnf artifactType `Prelude.seq`
+      Prelude.rnf createdAfter `Prelude.seq`
+        Prelude.rnf createdBefore `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf sortBy `Prelude.seq`
+                Prelude.rnf sortOrder `Prelude.seq`
+                  Prelude.rnf sourceUri
 
 instance Data.ToHeaders ListArtifacts where
   toHeaders =
@@ -309,6 +309,6 @@ listArtifactsResponse_httpStatus = Lens.lens (\ListArtifactsResponse' {httpStatu
 
 instance Prelude.NFData ListArtifactsResponse where
   rnf ListArtifactsResponse' {..} =
-    Prelude.rnf artifactSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf artifactSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

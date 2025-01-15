@@ -180,12 +180,12 @@ instance Prelude.Hashable AutoMLJobSummary where
 
 instance Prelude.NFData AutoMLJobSummary where
   rnf AutoMLJobSummary' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf partialFailureReasons
-      `Prelude.seq` Prelude.rnf autoMLJobName
-      `Prelude.seq` Prelude.rnf autoMLJobArn
-      `Prelude.seq` Prelude.rnf autoMLJobStatus
-      `Prelude.seq` Prelude.rnf autoMLJobSecondaryStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf endTime `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf partialFailureReasons `Prelude.seq`
+          Prelude.rnf autoMLJobName `Prelude.seq`
+            Prelude.rnf autoMLJobArn `Prelude.seq`
+              Prelude.rnf autoMLJobStatus `Prelude.seq`
+                Prelude.rnf autoMLJobSecondaryStatus `Prelude.seq`
+                  Prelude.rnf creationTime `Prelude.seq`
+                    Prelude.rnf lastModifiedTime

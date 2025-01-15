@@ -102,9 +102,9 @@ instance Prelude.Hashable ModelBiasAppSpecification where
 
 instance Prelude.NFData ModelBiasAppSpecification where
   rnf ModelBiasAppSpecification' {..} =
-    Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf imageUri
-      `Prelude.seq` Prelude.rnf configUri
+    Prelude.rnf environment `Prelude.seq`
+      Prelude.rnf imageUri `Prelude.seq`
+        Prelude.rnf configUri
 
 instance Data.ToJSON ModelBiasAppSpecification where
   toJSON ModelBiasAppSpecification' {..} =

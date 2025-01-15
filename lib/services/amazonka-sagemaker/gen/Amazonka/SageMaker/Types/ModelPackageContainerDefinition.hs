@@ -237,16 +237,16 @@ instance
     ModelPackageContainerDefinition
   where
   rnf ModelPackageContainerDefinition' {..} =
-    Prelude.rnf containerHostname
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf framework
-      `Prelude.seq` Prelude.rnf frameworkVersion
-      `Prelude.seq` Prelude.rnf imageDigest
-      `Prelude.seq` Prelude.rnf modelDataUrl
-      `Prelude.seq` Prelude.rnf modelInput
-      `Prelude.seq` Prelude.rnf nearestModelName
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf image
+    Prelude.rnf containerHostname `Prelude.seq`
+      Prelude.rnf environment `Prelude.seq`
+        Prelude.rnf framework `Prelude.seq`
+          Prelude.rnf frameworkVersion `Prelude.seq`
+            Prelude.rnf imageDigest `Prelude.seq`
+              Prelude.rnf modelDataUrl `Prelude.seq`
+                Prelude.rnf modelInput `Prelude.seq`
+                  Prelude.rnf nearestModelName `Prelude.seq`
+                    Prelude.rnf productId `Prelude.seq`
+                      Prelude.rnf image
 
 instance Data.ToJSON ModelPackageContainerDefinition where
   toJSON ModelPackageContainerDefinition' {..} =

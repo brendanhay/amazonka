@@ -238,15 +238,15 @@ instance Prelude.Hashable LabelingJobSummary where
 
 instance Prelude.NFData LabelingJobSummary where
   rnf LabelingJobSummary' {..} =
-    Prelude.rnf annotationConsolidationLambdaArn
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf inputConfig
-      `Prelude.seq` Prelude.rnf labelingJobOutput
-      `Prelude.seq` Prelude.rnf labelingJobName
-      `Prelude.seq` Prelude.rnf labelingJobArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf labelingJobStatus
-      `Prelude.seq` Prelude.rnf labelCounters
-      `Prelude.seq` Prelude.rnf workteamArn
-      `Prelude.seq` Prelude.rnf preHumanTaskLambdaArn
+    Prelude.rnf annotationConsolidationLambdaArn `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf inputConfig `Prelude.seq`
+          Prelude.rnf labelingJobOutput `Prelude.seq`
+            Prelude.rnf labelingJobName `Prelude.seq`
+              Prelude.rnf labelingJobArn `Prelude.seq`
+                Prelude.rnf creationTime `Prelude.seq`
+                  Prelude.rnf lastModifiedTime `Prelude.seq`
+                    Prelude.rnf labelingJobStatus `Prelude.seq`
+                      Prelude.rnf labelCounters `Prelude.seq`
+                        Prelude.rnf workteamArn `Prelude.seq`
+                          Prelude.rnf preHumanTaskLambdaArn

@@ -94,9 +94,9 @@ instance Prelude.Hashable MonitoringDatasetFormat where
 
 instance Prelude.NFData MonitoringDatasetFormat where
   rnf MonitoringDatasetFormat' {..} =
-    Prelude.rnf csv
-      `Prelude.seq` Prelude.rnf json
-      `Prelude.seq` Prelude.rnf parquet
+    Prelude.rnf csv `Prelude.seq`
+      Prelude.rnf json `Prelude.seq`
+        Prelude.rnf parquet
 
 instance Data.ToJSON MonitoringDatasetFormat where
   toJSON MonitoringDatasetFormat' {..} =

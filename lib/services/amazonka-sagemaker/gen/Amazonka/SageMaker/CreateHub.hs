@@ -152,12 +152,12 @@ instance Prelude.Hashable CreateHub where
 
 instance Prelude.NFData CreateHub where
   rnf CreateHub' {..} =
-    Prelude.rnf hubDisplayName
-      `Prelude.seq` Prelude.rnf hubSearchKeywords
-      `Prelude.seq` Prelude.rnf s3StorageConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf hubName
-      `Prelude.seq` Prelude.rnf hubDescription
+    Prelude.rnf hubDisplayName `Prelude.seq`
+      Prelude.rnf hubSearchKeywords `Prelude.seq`
+        Prelude.rnf s3StorageConfig `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf hubName `Prelude.seq`
+              Prelude.rnf hubDescription
 
 instance Data.ToHeaders CreateHub where
   toHeaders =
@@ -237,5 +237,5 @@ createHubResponse_hubArn = Lens.lens (\CreateHubResponse' {hubArn} -> hubArn) (\
 
 instance Prelude.NFData CreateHubResponse where
   rnf CreateHubResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf hubArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf hubArn

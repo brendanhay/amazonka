@@ -88,5 +88,5 @@ instance Prelude.Hashable AlgorithmStatusDetails where
 
 instance Prelude.NFData AlgorithmStatusDetails where
   rnf AlgorithmStatusDetails' {..} =
-    Prelude.rnf imageScanStatuses
-      `Prelude.seq` Prelude.rnf validationStatuses
+    Prelude.rnf imageScanStatuses `Prelude.seq`
+      Prelude.rnf validationStatuses

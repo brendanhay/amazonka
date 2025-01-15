@@ -119,10 +119,10 @@ instance Prelude.Hashable ProcessingOutput where
 
 instance Prelude.NFData ProcessingOutput where
   rnf ProcessingOutput' {..} =
-    Prelude.rnf appManaged
-      `Prelude.seq` Prelude.rnf featureStoreOutput
-      `Prelude.seq` Prelude.rnf s3Output
-      `Prelude.seq` Prelude.rnf outputName
+    Prelude.rnf appManaged `Prelude.seq`
+      Prelude.rnf featureStoreOutput `Prelude.seq`
+        Prelude.rnf s3Output `Prelude.seq`
+          Prelude.rnf outputName
 
 instance Data.ToJSON ProcessingOutput where
   toJSON ProcessingOutput' {..} =

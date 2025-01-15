@@ -199,12 +199,12 @@ instance Core.AWSPager ListAppImageConfigs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAppImageConfigs_nextToken
-          Lens..~ rs
-          Lens.^? listAppImageConfigsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAppImageConfigs_nextToken
+              Lens..~ rs
+              Lens.^? listAppImageConfigsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAppImageConfigs where
   type
@@ -239,15 +239,15 @@ instance Prelude.Hashable ListAppImageConfigs where
 
 instance Prelude.NFData ListAppImageConfigs where
   rnf ListAppImageConfigs' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf modifiedTimeAfter
-      `Prelude.seq` Prelude.rnf modifiedTimeBefore
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf modifiedTimeAfter `Prelude.seq`
+            Prelude.rnf modifiedTimeBefore `Prelude.seq`
+              Prelude.rnf nameContains `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf sortBy `Prelude.seq`
+                    Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListAppImageConfigs where
   toHeaders =
@@ -340,6 +340,6 @@ listAppImageConfigsResponse_httpStatus = Lens.lens (\ListAppImageConfigsResponse
 
 instance Prelude.NFData ListAppImageConfigsResponse where
   rnf ListAppImageConfigsResponse' {..} =
-    Prelude.rnf appImageConfigs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appImageConfigs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

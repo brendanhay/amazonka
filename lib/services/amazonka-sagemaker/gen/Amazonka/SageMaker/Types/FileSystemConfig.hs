@@ -98,9 +98,9 @@ instance Prelude.Hashable FileSystemConfig where
 
 instance Prelude.NFData FileSystemConfig where
   rnf FileSystemConfig' {..} =
-    Prelude.rnf defaultGid
-      `Prelude.seq` Prelude.rnf defaultUid
-      `Prelude.seq` Prelude.rnf mountPath
+    Prelude.rnf defaultGid `Prelude.seq`
+      Prelude.rnf defaultUid `Prelude.seq`
+        Prelude.rnf mountPath
 
 instance Data.ToJSON FileSystemConfig where
   toJSON FileSystemConfig' {..} =

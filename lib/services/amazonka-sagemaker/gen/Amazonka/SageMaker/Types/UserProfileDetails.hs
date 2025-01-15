@@ -114,8 +114,8 @@ instance Prelude.Hashable UserProfileDetails where
 
 instance Prelude.NFData UserProfileDetails where
   rnf UserProfileDetails' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf userProfileName
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf domainId `Prelude.seq`
+        Prelude.rnf lastModifiedTime `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf userProfileName

@@ -145,8 +145,8 @@ instance Prelude.Hashable DescribeFeatureGroup where
 
 instance Prelude.NFData DescribeFeatureGroup where
   rnf DescribeFeatureGroup' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf featureGroupName
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf featureGroupName
 
 instance Data.ToHeaders DescribeFeatureGroup where
   toHeaders =
@@ -473,21 +473,21 @@ describeFeatureGroupResponse_nextToken = Lens.lens (\DescribeFeatureGroupRespons
 
 instance Prelude.NFData DescribeFeatureGroupResponse where
   rnf DescribeFeatureGroupResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf featureGroupStatus
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf lastUpdateStatus
-      `Prelude.seq` Prelude.rnf offlineStoreConfig
-      `Prelude.seq` Prelude.rnf offlineStoreStatus
-      `Prelude.seq` Prelude.rnf onlineStoreConfig
-      `Prelude.seq` Prelude.rnf onlineStoreTotalSizeBytes
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf featureGroupArn
-      `Prelude.seq` Prelude.rnf featureGroupName
-      `Prelude.seq` Prelude.rnf recordIdentifierFeatureName
-      `Prelude.seq` Prelude.rnf eventTimeFeatureName
-      `Prelude.seq` Prelude.rnf featureDefinitions
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf featureGroupStatus `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf lastUpdateStatus `Prelude.seq`
+              Prelude.rnf offlineStoreConfig `Prelude.seq`
+                Prelude.rnf offlineStoreStatus `Prelude.seq`
+                  Prelude.rnf onlineStoreConfig `Prelude.seq`
+                    Prelude.rnf onlineStoreTotalSizeBytes `Prelude.seq`
+                      Prelude.rnf roleArn `Prelude.seq`
+                        Prelude.rnf httpStatus `Prelude.seq`
+                          Prelude.rnf featureGroupArn `Prelude.seq`
+                            Prelude.rnf featureGroupName `Prelude.seq`
+                              Prelude.rnf recordIdentifierFeatureName `Prelude.seq`
+                                Prelude.rnf eventTimeFeatureName `Prelude.seq`
+                                  Prelude.rnf featureDefinitions `Prelude.seq`
+                                    Prelude.rnf creationTime `Prelude.seq`
+                                      Prelude.rnf nextToken

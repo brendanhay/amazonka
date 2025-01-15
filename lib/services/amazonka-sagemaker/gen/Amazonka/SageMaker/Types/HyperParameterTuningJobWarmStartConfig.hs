@@ -211,8 +211,8 @@ instance
     HyperParameterTuningJobWarmStartConfig
   where
   rnf HyperParameterTuningJobWarmStartConfig' {..} =
-    Prelude.rnf parentHyperParameterTuningJobs
-      `Prelude.seq` Prelude.rnf warmStartType
+    Prelude.rnf parentHyperParameterTuningJobs `Prelude.seq`
+      Prelude.rnf warmStartType
 
 instance
   Data.ToJSON

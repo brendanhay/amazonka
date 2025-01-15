@@ -214,6 +214,6 @@ instance
   where
   rnf
     DescribePipelineDefinitionForExecutionResponse' {..} =
-      Prelude.rnf creationTime
-        `Prelude.seq` Prelude.rnf pipelineDefinition
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf pipelineDefinition `Prelude.seq`
+          Prelude.rnf httpStatus

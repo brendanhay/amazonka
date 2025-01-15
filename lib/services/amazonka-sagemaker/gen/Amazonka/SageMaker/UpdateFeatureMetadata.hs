@@ -146,11 +146,11 @@ instance Prelude.Hashable UpdateFeatureMetadata where
 
 instance Prelude.NFData UpdateFeatureMetadata where
   rnf UpdateFeatureMetadata' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf parameterAdditions
-      `Prelude.seq` Prelude.rnf parameterRemovals
-      `Prelude.seq` Prelude.rnf featureGroupName
-      `Prelude.seq` Prelude.rnf featureName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf parameterAdditions `Prelude.seq`
+        Prelude.rnf parameterRemovals `Prelude.seq`
+          Prelude.rnf featureGroupName `Prelude.seq`
+            Prelude.rnf featureName
 
 instance Data.ToHeaders UpdateFeatureMetadata where
   toHeaders =

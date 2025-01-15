@@ -118,8 +118,8 @@ instance Prelude.Hashable SubscribedWorkteam where
 
 instance Prelude.NFData SubscribedWorkteam where
   rnf SubscribedWorkteam' {..} =
-    Prelude.rnf listingId
-      `Prelude.seq` Prelude.rnf marketplaceDescription
-      `Prelude.seq` Prelude.rnf marketplaceTitle
-      `Prelude.seq` Prelude.rnf sellerName
-      `Prelude.seq` Prelude.rnf workteamArn
+    Prelude.rnf listingId `Prelude.seq`
+      Prelude.rnf marketplaceDescription `Prelude.seq`
+        Prelude.rnf marketplaceTitle `Prelude.seq`
+          Prelude.rnf sellerName `Prelude.seq`
+            Prelude.rnf workteamArn

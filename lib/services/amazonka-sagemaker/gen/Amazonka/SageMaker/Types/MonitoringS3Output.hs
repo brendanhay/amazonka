@@ -109,9 +109,9 @@ instance Prelude.Hashable MonitoringS3Output where
 
 instance Prelude.NFData MonitoringS3Output where
   rnf MonitoringS3Output' {..} =
-    Prelude.rnf s3UploadMode
-      `Prelude.seq` Prelude.rnf s3Uri
-      `Prelude.seq` Prelude.rnf localPath
+    Prelude.rnf s3UploadMode `Prelude.seq`
+      Prelude.rnf s3Uri `Prelude.seq`
+        Prelude.rnf localPath
 
 instance Data.ToJSON MonitoringS3Output where
   toJSON MonitoringS3Output' {..} =

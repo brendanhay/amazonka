@@ -137,7 +137,7 @@ instance
     InferenceRecommendationsJobStep
   where
   rnf InferenceRecommendationsJobStep' {..} =
-    Prelude.rnf inferenceBenchmark
-      `Prelude.seq` Prelude.rnf stepType
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf inferenceBenchmark `Prelude.seq`
+      Prelude.rnf stepType `Prelude.seq`
+        Prelude.rnf jobName `Prelude.seq`
+          Prelude.rnf status

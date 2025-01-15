@@ -175,12 +175,12 @@ instance Prelude.Hashable TrainingJobDefinition where
 
 instance Prelude.NFData TrainingJobDefinition where
   rnf TrainingJobDefinition' {..} =
-    Prelude.rnf hyperParameters
-      `Prelude.seq` Prelude.rnf trainingInputMode
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf resourceConfig
-      `Prelude.seq` Prelude.rnf stoppingCondition
+    Prelude.rnf hyperParameters `Prelude.seq`
+      Prelude.rnf trainingInputMode `Prelude.seq`
+        Prelude.rnf inputDataConfig `Prelude.seq`
+          Prelude.rnf outputDataConfig `Prelude.seq`
+            Prelude.rnf resourceConfig `Prelude.seq`
+              Prelude.rnf stoppingCondition
 
 instance Data.ToJSON TrainingJobDefinition where
   toJSON TrainingJobDefinition' {..} =

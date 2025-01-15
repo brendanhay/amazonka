@@ -94,9 +94,9 @@ instance Prelude.Hashable DriftCheckBias where
 
 instance Prelude.NFData DriftCheckBias where
   rnf DriftCheckBias' {..} =
-    Prelude.rnf configFile
-      `Prelude.seq` Prelude.rnf postTrainingConstraints
-      `Prelude.seq` Prelude.rnf preTrainingConstraints
+    Prelude.rnf configFile `Prelude.seq`
+      Prelude.rnf postTrainingConstraints `Prelude.seq`
+        Prelude.rnf preTrainingConstraints
 
 instance Data.ToJSON DriftCheckBias where
   toJSON DriftCheckBias' {..} =

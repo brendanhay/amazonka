@@ -96,9 +96,9 @@ instance Prelude.Hashable EndpointInputConfiguration where
 
 instance Prelude.NFData EndpointInputConfiguration where
   rnf EndpointInputConfiguration' {..} =
-    Prelude.rnf environmentParameterRanges
-      `Prelude.seq` Prelude.rnf inferenceSpecificationName
-      `Prelude.seq` Prelude.rnf instanceType
+    Prelude.rnf environmentParameterRanges `Prelude.seq`
+      Prelude.rnf inferenceSpecificationName `Prelude.seq`
+        Prelude.rnf instanceType
 
 instance Data.ToJSON EndpointInputConfiguration where
   toJSON EndpointInputConfiguration' {..} =

@@ -115,8 +115,8 @@ instance Prelude.Hashable LineageGroupSummary where
 
 instance Prelude.NFData LineageGroupSummary where
   rnf LineageGroupSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf lineageGroupArn
-      `Prelude.seq` Prelude.rnf lineageGroupName
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf lastModifiedTime `Prelude.seq`
+          Prelude.rnf lineageGroupArn `Prelude.seq`
+            Prelude.rnf lineageGroupName

@@ -110,9 +110,9 @@ instance Prelude.Hashable RegisterDevices where
 
 instance Prelude.NFData RegisterDevices where
   rnf RegisterDevices' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf deviceFleetName
-      `Prelude.seq` Prelude.rnf devices
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf deviceFleetName `Prelude.seq`
+        Prelude.rnf devices
 
 instance Data.ToHeaders RegisterDevices where
   toHeaders =

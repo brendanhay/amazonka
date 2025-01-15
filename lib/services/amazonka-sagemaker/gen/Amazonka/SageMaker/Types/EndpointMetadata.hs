@@ -112,7 +112,7 @@ instance Prelude.Hashable EndpointMetadata where
 
 instance Prelude.NFData EndpointMetadata where
   rnf EndpointMetadata' {..} =
-    Prelude.rnf endpointConfigName
-      `Prelude.seq` Prelude.rnf endpointStatus
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf endpointName
+    Prelude.rnf endpointConfigName `Prelude.seq`
+      Prelude.rnf endpointStatus `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf endpointName

@@ -166,5 +166,5 @@ describeWorkteamResponse_workteam = Lens.lens (\DescribeWorkteamResponse' {workt
 
 instance Prelude.NFData DescribeWorkteamResponse where
   rnf DescribeWorkteamResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workteam
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf workteam

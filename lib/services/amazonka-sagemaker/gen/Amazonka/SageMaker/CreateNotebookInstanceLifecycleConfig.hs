@@ -161,9 +161,9 @@ instance
     CreateNotebookInstanceLifecycleConfig
   where
   rnf CreateNotebookInstanceLifecycleConfig' {..} =
-    Prelude.rnf onCreate
-      `Prelude.seq` Prelude.rnf onStart
-      `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigName
+    Prelude.rnf onCreate `Prelude.seq`
+      Prelude.rnf onStart `Prelude.seq`
+        Prelude.rnf notebookInstanceLifecycleConfigName
 
 instance
   Data.ToHeaders
@@ -257,5 +257,5 @@ instance
   where
   rnf
     CreateNotebookInstanceLifecycleConfigResponse' {..} =
-      Prelude.rnf notebookInstanceLifecycleConfigArn
-        `Prelude.seq` Prelude.rnf httpStatus
+      Prelude.rnf notebookInstanceLifecycleConfigArn `Prelude.seq`
+        Prelude.rnf httpStatus

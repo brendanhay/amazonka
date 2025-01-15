@@ -184,6 +184,6 @@ getLineageGroupPolicyResponse_httpStatus = Lens.lens (\GetLineageGroupPolicyResp
 
 instance Prelude.NFData GetLineageGroupPolicyResponse where
   rnf GetLineageGroupPolicyResponse' {..} =
-    Prelude.rnf lineageGroupArn
-      `Prelude.seq` Prelude.rnf resourcePolicy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lineageGroupArn `Prelude.seq`
+      Prelude.rnf resourcePolicy `Prelude.seq`
+        Prelude.rnf httpStatus

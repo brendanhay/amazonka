@@ -83,8 +83,8 @@ instance Prelude.Hashable MonitoringInput where
 
 instance Prelude.NFData MonitoringInput where
   rnf MonitoringInput' {..} =
-    Prelude.rnf batchTransformInput
-      `Prelude.seq` Prelude.rnf endpointInput
+    Prelude.rnf batchTransformInput `Prelude.seq`
+      Prelude.rnf endpointInput
 
 instance Data.ToJSON MonitoringInput where
   toJSON MonitoringInput' {..} =

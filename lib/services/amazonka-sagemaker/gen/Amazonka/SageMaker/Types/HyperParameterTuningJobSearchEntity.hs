@@ -265,19 +265,19 @@ instance
     HyperParameterTuningJobSearchEntity
   where
   rnf HyperParameterTuningJobSearchEntity' {..} =
-    Prelude.rnf bestTrainingJob
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf hyperParameterTuningEndTime
-      `Prelude.seq` Prelude.rnf hyperParameterTuningJobArn
-      `Prelude.seq` Prelude.rnf hyperParameterTuningJobConfig
-      `Prelude.seq` Prelude.rnf hyperParameterTuningJobName
-      `Prelude.seq` Prelude.rnf hyperParameterTuningJobStatus
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf objectiveStatusCounters
-      `Prelude.seq` Prelude.rnf overallBestTrainingJob
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trainingJobDefinition
-      `Prelude.seq` Prelude.rnf trainingJobDefinitions
-      `Prelude.seq` Prelude.rnf trainingJobStatusCounters
-      `Prelude.seq` Prelude.rnf warmStartConfig
+    Prelude.rnf bestTrainingJob `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf hyperParameterTuningEndTime `Prelude.seq`
+            Prelude.rnf hyperParameterTuningJobArn `Prelude.seq`
+              Prelude.rnf hyperParameterTuningJobConfig `Prelude.seq`
+                Prelude.rnf hyperParameterTuningJobName `Prelude.seq`
+                  Prelude.rnf hyperParameterTuningJobStatus `Prelude.seq`
+                    Prelude.rnf lastModifiedTime `Prelude.seq`
+                      Prelude.rnf objectiveStatusCounters `Prelude.seq`
+                        Prelude.rnf overallBestTrainingJob `Prelude.seq`
+                          Prelude.rnf tags `Prelude.seq`
+                            Prelude.rnf trainingJobDefinition `Prelude.seq`
+                              Prelude.rnf trainingJobDefinitions `Prelude.seq`
+                                Prelude.rnf trainingJobStatusCounters `Prelude.seq`
+                                  Prelude.rnf warmStartConfig

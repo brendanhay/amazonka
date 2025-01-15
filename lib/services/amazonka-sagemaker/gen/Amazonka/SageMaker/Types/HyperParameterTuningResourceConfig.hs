@@ -305,12 +305,12 @@ instance
     HyperParameterTuningResourceConfig
   where
   rnf HyperParameterTuningResourceConfig' {..} =
-    Prelude.rnf allocationStrategy
-      `Prelude.seq` Prelude.rnf instanceConfigs
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf volumeKmsKeyId
-      `Prelude.seq` Prelude.rnf volumeSizeInGB
+    Prelude.rnf allocationStrategy `Prelude.seq`
+      Prelude.rnf instanceConfigs `Prelude.seq`
+        Prelude.rnf instanceCount `Prelude.seq`
+          Prelude.rnf instanceType `Prelude.seq`
+            Prelude.rnf volumeKmsKeyId `Prelude.seq`
+              Prelude.rnf volumeSizeInGB
 
 instance
   Data.ToJSON

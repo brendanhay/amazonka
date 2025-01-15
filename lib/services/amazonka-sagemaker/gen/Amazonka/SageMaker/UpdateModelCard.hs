@@ -170,9 +170,9 @@ instance Prelude.Hashable UpdateModelCard where
 
 instance Prelude.NFData UpdateModelCard where
   rnf UpdateModelCard' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf modelCardStatus
-      `Prelude.seq` Prelude.rnf modelCardName
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf modelCardStatus `Prelude.seq`
+        Prelude.rnf modelCardName
 
 instance Data.ToHeaders UpdateModelCard where
   toHeaders =
@@ -249,5 +249,5 @@ updateModelCardResponse_modelCardArn = Lens.lens (\UpdateModelCardResponse' {mod
 
 instance Prelude.NFData UpdateModelCardResponse where
   rnf UpdateModelCardResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf modelCardArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf modelCardArn

@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteAssociation where
 
 instance Prelude.NFData DeleteAssociation where
   rnf DeleteAssociation' {..} =
-    Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf destinationArn
+    Prelude.rnf sourceArn `Prelude.seq`
+      Prelude.rnf destinationArn
 
 instance Data.ToHeaders DeleteAssociation where
   toHeaders =
@@ -196,6 +196,6 @@ deleteAssociationResponse_httpStatus = Lens.lens (\DeleteAssociationResponse' {h
 
 instance Prelude.NFData DeleteAssociationResponse where
   rnf DeleteAssociationResponse' {..} =
-    Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf destinationArn `Prelude.seq`
+      Prelude.rnf sourceArn `Prelude.seq`
+        Prelude.rnf httpStatus

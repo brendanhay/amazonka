@@ -82,8 +82,8 @@ instance Prelude.Hashable TrafficPattern where
 
 instance Prelude.NFData TrafficPattern where
   rnf TrafficPattern' {..} =
-    Prelude.rnf phases
-      `Prelude.seq` Prelude.rnf trafficType
+    Prelude.rnf phases `Prelude.seq`
+      Prelude.rnf trafficType
 
 instance Data.ToJSON TrafficPattern where
   toJSON TrafficPattern' {..} =

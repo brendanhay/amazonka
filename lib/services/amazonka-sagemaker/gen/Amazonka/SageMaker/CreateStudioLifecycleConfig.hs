@@ -150,10 +150,10 @@ instance Prelude.Hashable CreateStudioLifecycleConfig where
 
 instance Prelude.NFData CreateStudioLifecycleConfig where
   rnf CreateStudioLifecycleConfig' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf studioLifecycleConfigName
-      `Prelude.seq` Prelude.rnf studioLifecycleConfigContent
-      `Prelude.seq` Prelude.rnf studioLifecycleConfigAppType
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf studioLifecycleConfigName `Prelude.seq`
+        Prelude.rnf studioLifecycleConfigContent `Prelude.seq`
+          Prelude.rnf studioLifecycleConfigAppType
 
 instance Data.ToHeaders CreateStudioLifecycleConfig where
   toHeaders =
@@ -240,5 +240,5 @@ instance
     CreateStudioLifecycleConfigResponse
   where
   rnf CreateStudioLifecycleConfigResponse' {..} =
-    Prelude.rnf studioLifecycleConfigArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf studioLifecycleConfigArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -146,11 +146,11 @@ instance Prelude.Hashable UpdateImage where
 
 instance Prelude.NFData UpdateImage where
   rnf UpdateImage' {..} =
-    Prelude.rnf deleteProperties
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf imageName
+    Prelude.rnf deleteProperties `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf displayName `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf imageName
 
 instance Data.ToHeaders UpdateImage where
   toHeaders =
@@ -224,5 +224,5 @@ updateImageResponse_httpStatus = Lens.lens (\UpdateImageResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateImageResponse where
   rnf UpdateImageResponse' {..} =
-    Prelude.rnf imageArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageArn `Prelude.seq`
+      Prelude.rnf httpStatus

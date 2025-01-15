@@ -152,6 +152,6 @@ instance Prelude.Hashable WarmPoolStatus where
 
 instance Prelude.NFData WarmPoolStatus where
   rnf WarmPoolStatus' {..} =
-    Prelude.rnf resourceRetainedBillableTimeInSeconds
-      `Prelude.seq` Prelude.rnf reusedByJob
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf resourceRetainedBillableTimeInSeconds `Prelude.seq`
+      Prelude.rnf reusedByJob `Prelude.seq`
+        Prelude.rnf status

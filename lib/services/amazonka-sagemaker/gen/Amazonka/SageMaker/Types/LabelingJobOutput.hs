@@ -86,5 +86,5 @@ instance Prelude.Hashable LabelingJobOutput where
 
 instance Prelude.NFData LabelingJobOutput where
   rnf LabelingJobOutput' {..} =
-    Prelude.rnf finalActiveLearningModelArn
-      `Prelude.seq` Prelude.rnf outputDatasetS3Uri
+    Prelude.rnf finalActiveLearningModelArn `Prelude.seq`
+      Prelude.rnf outputDatasetS3Uri

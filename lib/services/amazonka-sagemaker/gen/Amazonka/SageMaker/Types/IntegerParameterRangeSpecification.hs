@@ -98,8 +98,8 @@ instance
     IntegerParameterRangeSpecification
   where
   rnf IntegerParameterRangeSpecification' {..} =
-    Prelude.rnf minValue
-      `Prelude.seq` Prelude.rnf maxValue
+    Prelude.rnf minValue `Prelude.seq`
+      Prelude.rnf maxValue
 
 instance
   Data.ToJSON

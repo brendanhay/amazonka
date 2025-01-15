@@ -83,5 +83,5 @@ instance Prelude.Hashable LastUpdateStatus where
 
 instance Prelude.NFData LastUpdateStatus where
   rnf LastUpdateStatus' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf failureReason `Prelude.seq`
+      Prelude.rnf status

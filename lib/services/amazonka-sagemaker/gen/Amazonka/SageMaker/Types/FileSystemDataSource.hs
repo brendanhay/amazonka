@@ -123,10 +123,10 @@ instance Prelude.Hashable FileSystemDataSource where
 
 instance Prelude.NFData FileSystemDataSource where
   rnf FileSystemDataSource' {..} =
-    Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf fileSystemAccessMode
-      `Prelude.seq` Prelude.rnf fileSystemType
-      `Prelude.seq` Prelude.rnf directoryPath
+    Prelude.rnf fileSystemId `Prelude.seq`
+      Prelude.rnf fileSystemAccessMode `Prelude.seq`
+        Prelude.rnf fileSystemType `Prelude.seq`
+          Prelude.rnf directoryPath
 
 instance Data.ToJSON FileSystemDataSource where
   toJSON FileSystemDataSource' {..} =

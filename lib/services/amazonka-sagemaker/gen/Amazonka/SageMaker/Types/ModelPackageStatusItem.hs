@@ -100,6 +100,6 @@ instance Prelude.Hashable ModelPackageStatusItem where
 
 instance Prelude.NFData ModelPackageStatusItem where
   rnf ModelPackageStatusItem' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf failureReason `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf status

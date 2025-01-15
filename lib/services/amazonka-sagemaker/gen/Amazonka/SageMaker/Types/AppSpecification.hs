@@ -94,9 +94,9 @@ instance Prelude.Hashable AppSpecification where
 
 instance Prelude.NFData AppSpecification where
   rnf AppSpecification' {..} =
-    Prelude.rnf containerArguments
-      `Prelude.seq` Prelude.rnf containerEntrypoint
-      `Prelude.seq` Prelude.rnf imageUri
+    Prelude.rnf containerArguments `Prelude.seq`
+      Prelude.rnf containerEntrypoint `Prelude.seq`
+        Prelude.rnf imageUri
 
 instance Data.ToJSON AppSpecification where
   toJSON AppSpecification' {..} =

@@ -117,7 +117,7 @@ instance Prelude.Hashable RecommendationMetrics where
 
 instance Prelude.NFData RecommendationMetrics where
   rnf RecommendationMetrics' {..} =
-    Prelude.rnf costPerHour
-      `Prelude.seq` Prelude.rnf costPerInference
-      `Prelude.seq` Prelude.rnf maxInvocations
-      `Prelude.seq` Prelude.rnf modelLatency
+    Prelude.rnf costPerHour `Prelude.seq`
+      Prelude.rnf costPerInference `Prelude.seq`
+        Prelude.rnf maxInvocations `Prelude.seq`
+          Prelude.rnf modelLatency

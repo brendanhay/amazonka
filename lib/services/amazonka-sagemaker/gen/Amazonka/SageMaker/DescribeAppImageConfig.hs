@@ -217,9 +217,9 @@ instance
     DescribeAppImageConfigResponse
   where
   rnf DescribeAppImageConfigResponse' {..} =
-    Prelude.rnf appImageConfigArn
-      `Prelude.seq` Prelude.rnf appImageConfigName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf kernelGatewayImageConfig
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appImageConfigArn `Prelude.seq`
+      Prelude.rnf appImageConfigName `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf kernelGatewayImageConfig `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf httpStatus

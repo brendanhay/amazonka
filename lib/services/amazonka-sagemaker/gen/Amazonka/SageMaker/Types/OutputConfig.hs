@@ -565,11 +565,11 @@ instance Prelude.Hashable OutputConfig where
 
 instance Prelude.NFData OutputConfig where
   rnf OutputConfig' {..} =
-    Prelude.rnf compilerOptions
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf targetDevice
-      `Prelude.seq` Prelude.rnf targetPlatform
-      `Prelude.seq` Prelude.rnf s3OutputLocation
+    Prelude.rnf compilerOptions `Prelude.seq`
+      Prelude.rnf kmsKeyId `Prelude.seq`
+        Prelude.rnf targetDevice `Prelude.seq`
+          Prelude.rnf targetPlatform `Prelude.seq`
+            Prelude.rnf s3OutputLocation
 
 instance Data.ToJSON OutputConfig where
   toJSON OutputConfig' {..} =

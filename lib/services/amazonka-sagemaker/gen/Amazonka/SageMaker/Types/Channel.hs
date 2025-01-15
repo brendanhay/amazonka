@@ -243,13 +243,13 @@ instance Prelude.Hashable Channel where
 
 instance Prelude.NFData Channel where
   rnf Channel' {..} =
-    Prelude.rnf compressionType
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf inputMode
-      `Prelude.seq` Prelude.rnf recordWrapperType
-      `Prelude.seq` Prelude.rnf shuffleConfig
-      `Prelude.seq` Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf dataSource
+    Prelude.rnf compressionType `Prelude.seq`
+      Prelude.rnf contentType `Prelude.seq`
+        Prelude.rnf inputMode `Prelude.seq`
+          Prelude.rnf recordWrapperType `Prelude.seq`
+            Prelude.rnf shuffleConfig `Prelude.seq`
+              Prelude.rnf channelName `Prelude.seq`
+                Prelude.rnf dataSource
 
 instance Data.ToJSON Channel where
   toJSON Channel' {..} =

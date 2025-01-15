@@ -128,9 +128,9 @@ instance Prelude.Hashable TrialSummary where
 
 instance Prelude.NFData TrialSummary where
   rnf TrialSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf trialArn
-      `Prelude.seq` Prelude.rnf trialName
-      `Prelude.seq` Prelude.rnf trialSource
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf lastModifiedTime `Prelude.seq`
+          Prelude.rnf trialArn `Prelude.seq`
+            Prelude.rnf trialName `Prelude.seq`
+              Prelude.rnf trialSource

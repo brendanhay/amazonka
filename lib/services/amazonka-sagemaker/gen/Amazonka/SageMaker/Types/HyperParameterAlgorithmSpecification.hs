@@ -153,10 +153,10 @@ instance
     HyperParameterAlgorithmSpecification
   where
   rnf HyperParameterAlgorithmSpecification' {..} =
-    Prelude.rnf algorithmName
-      `Prelude.seq` Prelude.rnf metricDefinitions
-      `Prelude.seq` Prelude.rnf trainingImage
-      `Prelude.seq` Prelude.rnf trainingInputMode
+    Prelude.rnf algorithmName `Prelude.seq`
+      Prelude.rnf metricDefinitions `Prelude.seq`
+        Prelude.rnf trainingImage `Prelude.seq`
+          Prelude.rnf trainingInputMode
 
 instance
   Data.ToJSON

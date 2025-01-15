@@ -116,8 +116,8 @@ instance Prelude.Hashable PutModelPackageGroupPolicy where
 
 instance Prelude.NFData PutModelPackageGroupPolicy where
   rnf PutModelPackageGroupPolicy' {..} =
-    Prelude.rnf modelPackageGroupName
-      `Prelude.seq` Prelude.rnf resourcePolicy
+    Prelude.rnf modelPackageGroupName `Prelude.seq`
+      Prelude.rnf resourcePolicy
 
 instance Data.ToHeaders PutModelPackageGroupPolicy where
   toHeaders =
@@ -202,5 +202,5 @@ instance
     PutModelPackageGroupPolicyResponse
   where
   rnf PutModelPackageGroupPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf modelPackageGroupArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf modelPackageGroupArn

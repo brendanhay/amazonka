@@ -93,9 +93,9 @@ instance Prelude.Hashable AutoMLSecurityConfig where
 
 instance Prelude.NFData AutoMLSecurityConfig where
   rnf AutoMLSecurityConfig' {..} =
-    Prelude.rnf enableInterContainerTrafficEncryption
-      `Prelude.seq` Prelude.rnf volumeKmsKeyId
-      `Prelude.seq` Prelude.rnf vpcConfig
+    Prelude.rnf enableInterContainerTrafficEncryption `Prelude.seq`
+      Prelude.rnf volumeKmsKeyId `Prelude.seq`
+        Prelude.rnf vpcConfig
 
 instance Data.ToJSON AutoMLSecurityConfig where
   toJSON AutoMLSecurityConfig' {..} =

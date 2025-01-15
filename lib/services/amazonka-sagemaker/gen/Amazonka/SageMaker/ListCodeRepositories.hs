@@ -193,12 +193,12 @@ instance Core.AWSPager ListCodeRepositories where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listCodeRepositories_nextToken
-          Lens..~ rs
-          Lens.^? listCodeRepositoriesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listCodeRepositories_nextToken
+              Lens..~ rs
+              Lens.^? listCodeRepositoriesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCodeRepositories where
   type
@@ -233,15 +233,15 @@ instance Prelude.Hashable ListCodeRepositories where
 
 instance Prelude.NFData ListCodeRepositories where
   rnf ListCodeRepositories' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf lastModifiedTimeAfter `Prelude.seq`
+          Prelude.rnf lastModifiedTimeBefore `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nameContains `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf sortBy `Prelude.seq`
+                    Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListCodeRepositories where
   toHeaders =
@@ -379,6 +379,6 @@ listCodeRepositoriesResponse_codeRepositorySummaryList = Lens.lens (\ListCodeRep
 
 instance Prelude.NFData ListCodeRepositoriesResponse where
   rnf ListCodeRepositoriesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf codeRepositorySummaryList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf codeRepositorySummaryList

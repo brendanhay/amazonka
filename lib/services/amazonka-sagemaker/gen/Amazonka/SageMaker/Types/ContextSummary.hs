@@ -126,9 +126,9 @@ instance Prelude.Hashable ContextSummary where
 
 instance Prelude.NFData ContextSummary where
   rnf ContextSummary' {..} =
-    Prelude.rnf contextArn
-      `Prelude.seq` Prelude.rnf contextName
-      `Prelude.seq` Prelude.rnf contextType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf contextArn `Prelude.seq`
+      Prelude.rnf contextName `Prelude.seq`
+        Prelude.rnf contextType `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf source

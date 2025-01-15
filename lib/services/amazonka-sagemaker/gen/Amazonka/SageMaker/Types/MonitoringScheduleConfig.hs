@@ -106,10 +106,10 @@ instance Prelude.Hashable MonitoringScheduleConfig where
 
 instance Prelude.NFData MonitoringScheduleConfig where
   rnf MonitoringScheduleConfig' {..} =
-    Prelude.rnf monitoringJobDefinition
-      `Prelude.seq` Prelude.rnf monitoringJobDefinitionName
-      `Prelude.seq` Prelude.rnf monitoringType
-      `Prelude.seq` Prelude.rnf scheduleConfig
+    Prelude.rnf monitoringJobDefinition `Prelude.seq`
+      Prelude.rnf monitoringJobDefinitionName `Prelude.seq`
+        Prelude.rnf monitoringType `Prelude.seq`
+          Prelude.rnf scheduleConfig
 
 instance Data.ToJSON MonitoringScheduleConfig where
   toJSON MonitoringScheduleConfig' {..} =

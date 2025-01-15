@@ -178,11 +178,11 @@ instance
     BatchDescribeModelPackageSummary
   where
   rnf BatchDescribeModelPackageSummary' {..} =
-    Prelude.rnf modelApprovalStatus
-      `Prelude.seq` Prelude.rnf modelPackageDescription
-      `Prelude.seq` Prelude.rnf modelPackageVersion
-      `Prelude.seq` Prelude.rnf modelPackageGroupName
-      `Prelude.seq` Prelude.rnf modelPackageArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf inferenceSpecification
-      `Prelude.seq` Prelude.rnf modelPackageStatus
+    Prelude.rnf modelApprovalStatus `Prelude.seq`
+      Prelude.rnf modelPackageDescription `Prelude.seq`
+        Prelude.rnf modelPackageVersion `Prelude.seq`
+          Prelude.rnf modelPackageGroupName `Prelude.seq`
+            Prelude.rnf modelPackageArn `Prelude.seq`
+              Prelude.rnf creationTime `Prelude.seq`
+                Prelude.rnf inferenceSpecification `Prelude.seq`
+                  Prelude.rnf modelPackageStatus

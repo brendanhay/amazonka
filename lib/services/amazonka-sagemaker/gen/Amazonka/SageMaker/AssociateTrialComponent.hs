@@ -117,8 +117,8 @@ instance Prelude.Hashable AssociateTrialComponent where
 
 instance Prelude.NFData AssociateTrialComponent where
   rnf AssociateTrialComponent' {..} =
-    Prelude.rnf trialComponentName
-      `Prelude.seq` Prelude.rnf trialName
+    Prelude.rnf trialComponentName `Prelude.seq`
+      Prelude.rnf trialName
 
 instance Data.ToHeaders AssociateTrialComponent where
   toHeaders =
@@ -204,6 +204,6 @@ instance
     AssociateTrialComponentResponse
   where
   rnf AssociateTrialComponentResponse' {..} =
-    Prelude.rnf trialArn
-      `Prelude.seq` Prelude.rnf trialComponentArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf trialArn `Prelude.seq`
+      Prelude.rnf trialComponentArn `Prelude.seq`
+        Prelude.rnf httpStatus

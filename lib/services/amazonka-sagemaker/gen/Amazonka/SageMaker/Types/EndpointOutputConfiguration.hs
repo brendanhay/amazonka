@@ -120,7 +120,7 @@ instance Prelude.Hashable EndpointOutputConfiguration where
 
 instance Prelude.NFData EndpointOutputConfiguration where
   rnf EndpointOutputConfiguration' {..} =
-    Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf variantName
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf initialInstanceCount
+    Prelude.rnf endpointName `Prelude.seq`
+      Prelude.rnf variantName `Prelude.seq`
+        Prelude.rnf instanceType `Prelude.seq`
+          Prelude.rnf initialInstanceCount

@@ -195,12 +195,12 @@ instance Core.AWSPager ListImages where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listImages_nextToken
-          Lens..~ rs
-          Lens.^? listImagesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listImages_nextToken
+              Lens..~ rs
+              Lens.^? listImagesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListImages where
   type AWSResponse ListImages = ListImagesResponse
@@ -230,15 +230,15 @@ instance Prelude.Hashable ListImages where
 
 instance Prelude.NFData ListImages where
   rnf ListImages' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf lastModifiedTimeAfter `Prelude.seq`
+          Prelude.rnf lastModifiedTimeBefore `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nameContains `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf sortBy `Prelude.seq`
+                    Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListImages where
   toHeaders =
@@ -328,6 +328,6 @@ listImagesResponse_httpStatus = Lens.lens (\ListImagesResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListImagesResponse where
   rnf ListImagesResponse' {..} =
-    Prelude.rnf images
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf images `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

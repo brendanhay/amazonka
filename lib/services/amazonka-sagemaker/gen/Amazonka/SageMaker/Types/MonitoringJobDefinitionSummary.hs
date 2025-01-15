@@ -125,7 +125,7 @@ instance
     MonitoringJobDefinitionSummary
   where
   rnf MonitoringJobDefinitionSummary' {..} =
-    Prelude.rnf monitoringJobDefinitionName
-      `Prelude.seq` Prelude.rnf monitoringJobDefinitionArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf endpointName
+    Prelude.rnf monitoringJobDefinitionName `Prelude.seq`
+      Prelude.rnf monitoringJobDefinitionArn `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf endpointName

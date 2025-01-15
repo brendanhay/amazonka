@@ -169,10 +169,10 @@ instance Prelude.Hashable MonitoringAlertSummary where
 
 instance Prelude.NFData MonitoringAlertSummary where
   rnf MonitoringAlertSummary' {..} =
-    Prelude.rnf monitoringAlertName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf alertStatus
-      `Prelude.seq` Prelude.rnf datapointsToAlert
-      `Prelude.seq` Prelude.rnf evaluationPeriod
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf monitoringAlertName `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf lastModifiedTime `Prelude.seq`
+          Prelude.rnf alertStatus `Prelude.seq`
+            Prelude.rnf datapointsToAlert `Prelude.seq`
+              Prelude.rnf evaluationPeriod `Prelude.seq`
+                Prelude.rnf actions

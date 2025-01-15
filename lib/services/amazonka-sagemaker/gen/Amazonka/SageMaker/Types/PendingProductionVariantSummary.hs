@@ -235,14 +235,14 @@ instance
     PendingProductionVariantSummary
   where
   rnf PendingProductionVariantSummary' {..} =
-    Prelude.rnf acceleratorType
-      `Prelude.seq` Prelude.rnf currentInstanceCount
-      `Prelude.seq` Prelude.rnf currentServerlessConfig
-      `Prelude.seq` Prelude.rnf currentWeight
-      `Prelude.seq` Prelude.rnf deployedImages
-      `Prelude.seq` Prelude.rnf desiredInstanceCount
-      `Prelude.seq` Prelude.rnf desiredServerlessConfig
-      `Prelude.seq` Prelude.rnf desiredWeight
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf variantStatus
-      `Prelude.seq` Prelude.rnf variantName
+    Prelude.rnf acceleratorType `Prelude.seq`
+      Prelude.rnf currentInstanceCount `Prelude.seq`
+        Prelude.rnf currentServerlessConfig `Prelude.seq`
+          Prelude.rnf currentWeight `Prelude.seq`
+            Prelude.rnf deployedImages `Prelude.seq`
+              Prelude.rnf desiredInstanceCount `Prelude.seq`
+                Prelude.rnf desiredServerlessConfig `Prelude.seq`
+                  Prelude.rnf desiredWeight `Prelude.seq`
+                    Prelude.rnf instanceType `Prelude.seq`
+                      Prelude.rnf variantStatus `Prelude.seq`
+                        Prelude.rnf variantName

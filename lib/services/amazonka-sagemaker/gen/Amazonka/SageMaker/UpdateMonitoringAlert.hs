@@ -149,10 +149,10 @@ instance Prelude.Hashable UpdateMonitoringAlert where
 
 instance Prelude.NFData UpdateMonitoringAlert where
   rnf UpdateMonitoringAlert' {..} =
-    Prelude.rnf monitoringScheduleName
-      `Prelude.seq` Prelude.rnf monitoringAlertName
-      `Prelude.seq` Prelude.rnf datapointsToAlert
-      `Prelude.seq` Prelude.rnf evaluationPeriod
+    Prelude.rnf monitoringScheduleName `Prelude.seq`
+      Prelude.rnf monitoringAlertName `Prelude.seq`
+        Prelude.rnf datapointsToAlert `Prelude.seq`
+          Prelude.rnf evaluationPeriod
 
 instance Data.ToHeaders UpdateMonitoringAlert where
   toHeaders =
@@ -247,6 +247,6 @@ updateMonitoringAlertResponse_monitoringScheduleArn = Lens.lens (\UpdateMonitori
 
 instance Prelude.NFData UpdateMonitoringAlertResponse where
   rnf UpdateMonitoringAlertResponse' {..} =
-    Prelude.rnf monitoringAlertName
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf monitoringScheduleArn
+    Prelude.rnf monitoringAlertName `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf monitoringScheduleArn

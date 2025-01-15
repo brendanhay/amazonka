@@ -116,10 +116,10 @@ instance Prelude.Hashable ProcessingInput where
 
 instance Prelude.NFData ProcessingInput where
   rnf ProcessingInput' {..} =
-    Prelude.rnf appManaged
-      `Prelude.seq` Prelude.rnf datasetDefinition
-      `Prelude.seq` Prelude.rnf s3Input
-      `Prelude.seq` Prelude.rnf inputName
+    Prelude.rnf appManaged `Prelude.seq`
+      Prelude.rnf datasetDefinition `Prelude.seq`
+        Prelude.rnf s3Input `Prelude.seq`
+          Prelude.rnf inputName
 
 instance Data.ToJSON ProcessingInput where
   toJSON ProcessingInput' {..} =

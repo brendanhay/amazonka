@@ -131,9 +131,9 @@ instance Prelude.Hashable CreateAppImageConfig where
 
 instance Prelude.NFData CreateAppImageConfig where
   rnf CreateAppImageConfig' {..} =
-    Prelude.rnf kernelGatewayImageConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf appImageConfigName
+    Prelude.rnf kernelGatewayImageConfig `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf appImageConfigName
 
 instance Data.ToHeaders CreateAppImageConfig where
   toHeaders =
@@ -209,5 +209,5 @@ createAppImageConfigResponse_httpStatus = Lens.lens (\CreateAppImageConfigRespon
 
 instance Prelude.NFData CreateAppImageConfigResponse where
   rnf CreateAppImageConfigResponse' {..} =
-    Prelude.rnf appImageConfigArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appImageConfigArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -87,5 +87,5 @@ instance Prelude.Hashable DeviceStats where
 
 instance Prelude.NFData DeviceStats where
   rnf DeviceStats' {..} =
-    Prelude.rnf connectedDeviceCount
-      `Prelude.seq` Prelude.rnf registeredDeviceCount
+    Prelude.rnf connectedDeviceCount `Prelude.seq`
+      Prelude.rnf registeredDeviceCount

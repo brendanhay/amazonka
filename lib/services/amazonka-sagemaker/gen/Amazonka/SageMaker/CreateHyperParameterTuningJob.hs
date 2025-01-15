@@ -280,12 +280,12 @@ instance
 
 instance Prelude.NFData CreateHyperParameterTuningJob where
   rnf CreateHyperParameterTuningJob' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf trainingJobDefinition
-      `Prelude.seq` Prelude.rnf trainingJobDefinitions
-      `Prelude.seq` Prelude.rnf warmStartConfig
-      `Prelude.seq` Prelude.rnf hyperParameterTuningJobName
-      `Prelude.seq` Prelude.rnf hyperParameterTuningJobConfig
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf trainingJobDefinition `Prelude.seq`
+        Prelude.rnf trainingJobDefinitions `Prelude.seq`
+          Prelude.rnf warmStartConfig `Prelude.seq`
+            Prelude.rnf hyperParameterTuningJobName `Prelude.seq`
+              Prelude.rnf hyperParameterTuningJobConfig
 
 instance Data.ToHeaders CreateHyperParameterTuningJob where
   toHeaders =
@@ -382,5 +382,5 @@ instance
     CreateHyperParameterTuningJobResponse
   where
   rnf CreateHyperParameterTuningJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf hyperParameterTuningJobArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf hyperParameterTuningJobArn

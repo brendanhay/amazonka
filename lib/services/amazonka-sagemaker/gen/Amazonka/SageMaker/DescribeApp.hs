@@ -168,11 +168,11 @@ instance Prelude.Hashable DescribeApp where
 
 instance Prelude.NFData DescribeApp where
   rnf DescribeApp' {..} =
-    Prelude.rnf spaceName
-      `Prelude.seq` Prelude.rnf userProfileName
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf appType
-      `Prelude.seq` Prelude.rnf appName
+    Prelude.rnf spaceName `Prelude.seq`
+      Prelude.rnf userProfileName `Prelude.seq`
+        Prelude.rnf domainId `Prelude.seq`
+          Prelude.rnf appType `Prelude.seq`
+            Prelude.rnf appName
 
 instance Data.ToHeaders DescribeApp where
   toHeaders =
@@ -360,16 +360,16 @@ describeAppResponse_httpStatus = Lens.lens (\DescribeAppResponse' {httpStatus} -
 
 instance Prelude.NFData DescribeAppResponse where
   rnf DescribeAppResponse' {..} =
-    Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf appName
-      `Prelude.seq` Prelude.rnf appType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf lastHealthCheckTimestamp
-      `Prelude.seq` Prelude.rnf lastUserActivityTimestamp
-      `Prelude.seq` Prelude.rnf resourceSpec
-      `Prelude.seq` Prelude.rnf spaceName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf userProfileName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appArn `Prelude.seq`
+      Prelude.rnf appName `Prelude.seq`
+        Prelude.rnf appType `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf domainId `Prelude.seq`
+              Prelude.rnf failureReason `Prelude.seq`
+                Prelude.rnf lastHealthCheckTimestamp `Prelude.seq`
+                  Prelude.rnf lastUserActivityTimestamp `Prelude.seq`
+                    Prelude.rnf resourceSpec `Prelude.seq`
+                      Prelude.rnf spaceName `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf userProfileName `Prelude.seq`
+                            Prelude.rnf httpStatus

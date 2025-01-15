@@ -89,8 +89,8 @@ instance Prelude.Hashable RealTimeInferenceConfig where
 
 instance Prelude.NFData RealTimeInferenceConfig where
   rnf RealTimeInferenceConfig' {..} =
-    Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf instanceCount
+    Prelude.rnf instanceType `Prelude.seq`
+      Prelude.rnf instanceCount
 
 instance Data.ToJSON RealTimeInferenceConfig where
   toJSON RealTimeInferenceConfig' {..} =

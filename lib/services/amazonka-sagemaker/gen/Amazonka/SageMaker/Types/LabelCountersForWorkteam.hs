@@ -95,6 +95,6 @@ instance Prelude.Hashable LabelCountersForWorkteam where
 
 instance Prelude.NFData LabelCountersForWorkteam where
   rnf LabelCountersForWorkteam' {..} =
-    Prelude.rnf humanLabeled
-      `Prelude.seq` Prelude.rnf pendingHuman
-      `Prelude.seq` Prelude.rnf total
+    Prelude.rnf humanLabeled `Prelude.seq`
+      Prelude.rnf pendingHuman `Prelude.seq`
+        Prelude.rnf total

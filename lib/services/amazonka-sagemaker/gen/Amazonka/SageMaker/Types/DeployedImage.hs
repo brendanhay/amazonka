@@ -107,6 +107,6 @@ instance Prelude.Hashable DeployedImage where
 
 instance Prelude.NFData DeployedImage where
   rnf DeployedImage' {..} =
-    Prelude.rnf resolutionTime
-      `Prelude.seq` Prelude.rnf resolvedImage
-      `Prelude.seq` Prelude.rnf specifiedImage
+    Prelude.rnf resolutionTime `Prelude.seq`
+      Prelude.rnf resolvedImage `Prelude.seq`
+        Prelude.rnf specifiedImage

@@ -152,9 +152,9 @@ instance Prelude.Hashable DescribeImageVersion where
 
 instance Prelude.NFData DescribeImageVersion where
   rnf DescribeImageVersion' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf imageName
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf version `Prelude.seq`
+        Prelude.rnf imageName
 
 instance Data.ToHeaders DescribeImageVersion where
   toHeaders =
@@ -444,20 +444,20 @@ describeImageVersionResponse_httpStatus = Lens.lens (\DescribeImageVersionRespon
 
 instance Prelude.NFData DescribeImageVersionResponse where
   rnf DescribeImageVersionResponse' {..} =
-    Prelude.rnf baseImage
-      `Prelude.seq` Prelude.rnf containerImage
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf horovod
-      `Prelude.seq` Prelude.rnf imageArn
-      `Prelude.seq` Prelude.rnf imageVersionArn
-      `Prelude.seq` Prelude.rnf imageVersionStatus
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf mLFramework
-      `Prelude.seq` Prelude.rnf processor
-      `Prelude.seq` Prelude.rnf programmingLang
-      `Prelude.seq` Prelude.rnf releaseNotes
-      `Prelude.seq` Prelude.rnf vendorGuidance
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf baseImage `Prelude.seq`
+      Prelude.rnf containerImage `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf failureReason `Prelude.seq`
+            Prelude.rnf horovod `Prelude.seq`
+              Prelude.rnf imageArn `Prelude.seq`
+                Prelude.rnf imageVersionArn `Prelude.seq`
+                  Prelude.rnf imageVersionStatus `Prelude.seq`
+                    Prelude.rnf jobType `Prelude.seq`
+                      Prelude.rnf lastModifiedTime `Prelude.seq`
+                        Prelude.rnf mLFramework `Prelude.seq`
+                          Prelude.rnf processor `Prelude.seq`
+                            Prelude.rnf programmingLang `Prelude.seq`
+                              Prelude.rnf releaseNotes `Prelude.seq`
+                                Prelude.rnf vendorGuidance `Prelude.seq`
+                                  Prelude.rnf version `Prelude.seq`
+                                    Prelude.rnf httpStatus

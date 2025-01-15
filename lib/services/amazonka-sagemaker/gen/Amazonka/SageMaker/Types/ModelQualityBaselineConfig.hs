@@ -83,8 +83,8 @@ instance Prelude.Hashable ModelQualityBaselineConfig where
 
 instance Prelude.NFData ModelQualityBaselineConfig where
   rnf ModelQualityBaselineConfig' {..} =
-    Prelude.rnf baseliningJobName
-      `Prelude.seq` Prelude.rnf constraintsResource
+    Prelude.rnf baseliningJobName `Prelude.seq`
+      Prelude.rnf constraintsResource
 
 instance Data.ToJSON ModelQualityBaselineConfig where
   toJSON ModelQualityBaselineConfig' {..} =

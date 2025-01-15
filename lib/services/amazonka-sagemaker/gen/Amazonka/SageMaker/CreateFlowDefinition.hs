@@ -201,13 +201,13 @@ instance Prelude.Hashable CreateFlowDefinition where
 
 instance Prelude.NFData CreateFlowDefinition where
   rnf CreateFlowDefinition' {..} =
-    Prelude.rnf humanLoopActivationConfig
-      `Prelude.seq` Prelude.rnf humanLoopRequestSource
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf flowDefinitionName
-      `Prelude.seq` Prelude.rnf humanLoopConfig
-      `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf humanLoopActivationConfig `Prelude.seq`
+      Prelude.rnf humanLoopRequestSource `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf flowDefinitionName `Prelude.seq`
+            Prelude.rnf humanLoopConfig `Prelude.seq`
+              Prelude.rnf outputConfig `Prelude.seq`
+                Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateFlowDefinition where
   toHeaders =
@@ -293,5 +293,5 @@ createFlowDefinitionResponse_flowDefinitionArn = Lens.lens (\CreateFlowDefinitio
 
 instance Prelude.NFData CreateFlowDefinitionResponse where
   rnf CreateFlowDefinitionResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf flowDefinitionArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf flowDefinitionArn

@@ -100,6 +100,6 @@ instance Prelude.Hashable AlgorithmStatusItem where
 
 instance Prelude.NFData AlgorithmStatusItem where
   rnf AlgorithmStatusItem' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf failureReason `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf status

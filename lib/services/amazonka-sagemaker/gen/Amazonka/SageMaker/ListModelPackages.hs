@@ -230,12 +230,12 @@ instance Core.AWSPager ListModelPackages where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listModelPackages_nextToken
-          Lens..~ rs
-          Lens.^? listModelPackagesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listModelPackages_nextToken
+              Lens..~ rs
+              Lens.^? listModelPackagesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModelPackages where
   type
@@ -271,16 +271,16 @@ instance Prelude.Hashable ListModelPackages where
 
 instance Prelude.NFData ListModelPackages where
   rnf ListModelPackages' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf modelApprovalStatus
-      `Prelude.seq` Prelude.rnf modelPackageGroupName
-      `Prelude.seq` Prelude.rnf modelPackageType
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf modelApprovalStatus `Prelude.seq`
+            Prelude.rnf modelPackageGroupName `Prelude.seq`
+              Prelude.rnf modelPackageType `Prelude.seq`
+                Prelude.rnf nameContains `Prelude.seq`
+                  Prelude.rnf nextToken `Prelude.seq`
+                    Prelude.rnf sortBy `Prelude.seq`
+                      Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListModelPackages where
   toHeaders =
@@ -381,6 +381,6 @@ listModelPackagesResponse_modelPackageSummaryList = Lens.lens (\ListModelPackage
 
 instance Prelude.NFData ListModelPackagesResponse where
   rnf ListModelPackagesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf modelPackageSummaryList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf modelPackageSummaryList

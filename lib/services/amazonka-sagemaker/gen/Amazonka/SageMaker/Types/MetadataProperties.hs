@@ -102,10 +102,10 @@ instance Prelude.Hashable MetadataProperties where
 
 instance Prelude.NFData MetadataProperties where
   rnf MetadataProperties' {..} =
-    Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf generatedBy
-      `Prelude.seq` Prelude.rnf projectId
-      `Prelude.seq` Prelude.rnf repository
+    Prelude.rnf commitId `Prelude.seq`
+      Prelude.rnf generatedBy `Prelude.seq`
+        Prelude.rnf projectId `Prelude.seq`
+          Prelude.rnf repository
 
 instance Data.ToJSON MetadataProperties where
   toJSON MetadataProperties' {..} =

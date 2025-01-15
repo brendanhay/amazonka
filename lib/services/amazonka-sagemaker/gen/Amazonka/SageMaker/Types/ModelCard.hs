@@ -251,16 +251,16 @@ instance Prelude.Hashable ModelCard where
 
 instance Prelude.NFData ModelCard where
   rnf ModelCard' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf modelCardArn
-      `Prelude.seq` Prelude.rnf modelCardName
-      `Prelude.seq` Prelude.rnf modelCardStatus
-      `Prelude.seq` Prelude.rnf modelCardVersion
-      `Prelude.seq` Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf riskRating
-      `Prelude.seq` Prelude.rnf securityConfig
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf createdBy `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf lastModifiedBy `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf modelCardArn `Prelude.seq`
+                Prelude.rnf modelCardName `Prelude.seq`
+                  Prelude.rnf modelCardStatus `Prelude.seq`
+                    Prelude.rnf modelCardVersion `Prelude.seq`
+                      Prelude.rnf modelId `Prelude.seq`
+                        Prelude.rnf riskRating `Prelude.seq`
+                          Prelude.rnf securityConfig `Prelude.seq`
+                            Prelude.rnf tags

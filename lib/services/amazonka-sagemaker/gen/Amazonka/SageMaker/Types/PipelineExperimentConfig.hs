@@ -81,5 +81,5 @@ instance Prelude.Hashable PipelineExperimentConfig where
 
 instance Prelude.NFData PipelineExperimentConfig where
   rnf PipelineExperimentConfig' {..} =
-    Prelude.rnf experimentName
-      `Prelude.seq` Prelude.rnf trialName
+    Prelude.rnf experimentName `Prelude.seq`
+      Prelude.rnf trialName

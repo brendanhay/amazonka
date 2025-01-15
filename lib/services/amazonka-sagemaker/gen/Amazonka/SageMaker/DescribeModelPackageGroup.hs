@@ -249,10 +249,10 @@ instance
     DescribeModelPackageGroupResponse
   where
   rnf DescribeModelPackageGroupResponse' {..} =
-    Prelude.rnf modelPackageGroupDescription
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf modelPackageGroupName
-      `Prelude.seq` Prelude.rnf modelPackageGroupArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf modelPackageGroupStatus
+    Prelude.rnf modelPackageGroupDescription `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf modelPackageGroupName `Prelude.seq`
+          Prelude.rnf modelPackageGroupArn `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf createdBy `Prelude.seq`
+                Prelude.rnf modelPackageGroupStatus

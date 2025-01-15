@@ -145,12 +145,12 @@ instance Core.AWSPager ListUserProfiles where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listUserProfiles_nextToken
-          Lens..~ rs
-          Lens.^? listUserProfilesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listUserProfiles_nextToken
+              Lens..~ rs
+              Lens.^? listUserProfilesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUserProfiles where
   type
@@ -179,12 +179,12 @@ instance Prelude.Hashable ListUserProfiles where
 
 instance Prelude.NFData ListUserProfiles where
   rnf ListUserProfiles' {..} =
-    Prelude.rnf domainIdEquals
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf userProfileNameContains
+    Prelude.rnf domainIdEquals `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sortBy `Prelude.seq`
+            Prelude.rnf sortOrder `Prelude.seq`
+              Prelude.rnf userProfileNameContains
 
 instance Data.ToHeaders ListUserProfiles where
   toHeaders =
@@ -273,6 +273,6 @@ listUserProfilesResponse_httpStatus = Lens.lens (\ListUserProfilesResponse' {htt
 
 instance Prelude.NFData ListUserProfilesResponse where
   rnf ListUserProfilesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf userProfiles
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf userProfiles `Prelude.seq`
+        Prelude.rnf httpStatus

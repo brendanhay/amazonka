@@ -164,5 +164,5 @@ instance
     ServiceCatalogProvisionedProductDetails
   where
   rnf ServiceCatalogProvisionedProductDetails' {..} =
-    Prelude.rnf provisionedProductId
-      `Prelude.seq` Prelude.rnf provisionedProductStatusMessage
+    Prelude.rnf provisionedProductId `Prelude.seq`
+      Prelude.rnf provisionedProductStatusMessage

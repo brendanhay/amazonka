@@ -90,8 +90,8 @@ instance Prelude.Hashable ShadowModelVariantConfig where
 
 instance Prelude.NFData ShadowModelVariantConfig where
   rnf ShadowModelVariantConfig' {..} =
-    Prelude.rnf shadowModelVariantName
-      `Prelude.seq` Prelude.rnf samplingPercentage
+    Prelude.rnf shadowModelVariantName `Prelude.seq`
+      Prelude.rnf samplingPercentage
 
 instance Data.ToJSON ShadowModelVariantConfig where
   toJSON ShadowModelVariantConfig' {..} =

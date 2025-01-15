@@ -152,11 +152,11 @@ instance Prelude.Hashable FeatureMetadata where
 
 instance Prelude.NFData FeatureMetadata where
   rnf FeatureMetadata' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf featureGroupArn
-      `Prelude.seq` Prelude.rnf featureGroupName
-      `Prelude.seq` Prelude.rnf featureName
-      `Prelude.seq` Prelude.rnf featureType
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf featureGroupArn `Prelude.seq`
+          Prelude.rnf featureGroupName `Prelude.seq`
+            Prelude.rnf featureName `Prelude.seq`
+              Prelude.rnf featureType `Prelude.seq`
+                Prelude.rnf lastModifiedTime `Prelude.seq`
+                  Prelude.rnf parameters

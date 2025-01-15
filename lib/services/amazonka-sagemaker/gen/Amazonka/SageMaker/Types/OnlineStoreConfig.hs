@@ -100,8 +100,8 @@ instance Prelude.Hashable OnlineStoreConfig where
 
 instance Prelude.NFData OnlineStoreConfig where
   rnf OnlineStoreConfig' {..} =
-    Prelude.rnf enableOnlineStore
-      `Prelude.seq` Prelude.rnf securityConfig
+    Prelude.rnf enableOnlineStore `Prelude.seq`
+      Prelude.rnf securityConfig
 
 instance Data.ToJSON OnlineStoreConfig where
   toJSON OnlineStoreConfig' {..} =

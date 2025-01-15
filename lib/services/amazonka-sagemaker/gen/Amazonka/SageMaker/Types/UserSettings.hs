@@ -207,15 +207,15 @@ instance Prelude.Hashable UserSettings where
 
 instance Prelude.NFData UserSettings where
   rnf UserSettings' {..} =
-    Prelude.rnf canvasAppSettings
-      `Prelude.seq` Prelude.rnf executionRole
-      `Prelude.seq` Prelude.rnf jupyterServerAppSettings
-      `Prelude.seq` Prelude.rnf kernelGatewayAppSettings
-      `Prelude.seq` Prelude.rnf rSessionAppSettings
-      `Prelude.seq` Prelude.rnf rStudioServerProAppSettings
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf sharingSettings
-      `Prelude.seq` Prelude.rnf tensorBoardAppSettings
+    Prelude.rnf canvasAppSettings `Prelude.seq`
+      Prelude.rnf executionRole `Prelude.seq`
+        Prelude.rnf jupyterServerAppSettings `Prelude.seq`
+          Prelude.rnf kernelGatewayAppSettings `Prelude.seq`
+            Prelude.rnf rSessionAppSettings `Prelude.seq`
+              Prelude.rnf rStudioServerProAppSettings `Prelude.seq`
+                Prelude.rnf securityGroups `Prelude.seq`
+                  Prelude.rnf sharingSettings `Prelude.seq`
+                    Prelude.rnf tensorBoardAppSettings
 
 instance Data.ToJSON UserSettings where
   toJSON UserSettings' {..} =

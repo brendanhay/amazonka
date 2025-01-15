@@ -167,12 +167,12 @@ instance Core.AWSPager ListModelPackageGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listModelPackageGroups_nextToken
-          Lens..~ rs
-          Lens.^? listModelPackageGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listModelPackageGroups_nextToken
+              Lens..~ rs
+              Lens.^? listModelPackageGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModelPackageGroups where
   type
@@ -205,13 +205,13 @@ instance Prelude.Hashable ListModelPackageGroups where
 
 instance Prelude.NFData ListModelPackageGroups where
   rnf ListModelPackageGroups' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nameContains `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf sortBy `Prelude.seq`
+                Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListModelPackageGroups where
   toHeaders =
@@ -310,6 +310,6 @@ instance
     ListModelPackageGroupsResponse
   where
   rnf ListModelPackageGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf modelPackageGroupSummaryList
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf modelPackageGroupSummaryList

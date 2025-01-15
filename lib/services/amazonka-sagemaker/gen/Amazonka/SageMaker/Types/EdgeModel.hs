@@ -106,7 +106,7 @@ instance Prelude.Hashable EdgeModel where
 
 instance Prelude.NFData EdgeModel where
   rnf EdgeModel' {..} =
-    Prelude.rnf latestInference
-      `Prelude.seq` Prelude.rnf latestSampleTime
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf modelVersion
+    Prelude.rnf latestInference `Prelude.seq`
+      Prelude.rnf latestSampleTime `Prelude.seq`
+        Prelude.rnf modelName `Prelude.seq`
+          Prelude.rnf modelVersion

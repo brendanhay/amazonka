@@ -90,8 +90,8 @@ instance
 
 instance Prelude.NFData LabelingJobStoppingConditions where
   rnf LabelingJobStoppingConditions' {..} =
-    Prelude.rnf maxHumanLabeledObjectCount
-      `Prelude.seq` Prelude.rnf maxPercentageOfInputDatasetLabeled
+    Prelude.rnf maxHumanLabeledObjectCount `Prelude.seq`
+      Prelude.rnf maxPercentageOfInputDatasetLabeled
 
 instance Data.ToJSON LabelingJobStoppingConditions where
   toJSON LabelingJobStoppingConditions' {..} =

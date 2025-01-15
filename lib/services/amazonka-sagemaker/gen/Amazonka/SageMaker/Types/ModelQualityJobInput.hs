@@ -97,9 +97,9 @@ instance Prelude.Hashable ModelQualityJobInput where
 
 instance Prelude.NFData ModelQualityJobInput where
   rnf ModelQualityJobInput' {..} =
-    Prelude.rnf batchTransformInput
-      `Prelude.seq` Prelude.rnf endpointInput
-      `Prelude.seq` Prelude.rnf groundTruthS3Input
+    Prelude.rnf batchTransformInput `Prelude.seq`
+      Prelude.rnf endpointInput `Prelude.seq`
+        Prelude.rnf groundTruthS3Input
 
 instance Data.ToJSON ModelQualityJobInput where
   toJSON ModelQualityJobInput' {..} =

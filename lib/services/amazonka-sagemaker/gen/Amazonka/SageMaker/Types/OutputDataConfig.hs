@@ -197,8 +197,8 @@ instance Prelude.Hashable OutputDataConfig where
 
 instance Prelude.NFData OutputDataConfig where
   rnf OutputDataConfig' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf s3OutputPath
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf s3OutputPath
 
 instance Data.ToJSON OutputDataConfig where
   toJSON OutputDataConfig' {..} =

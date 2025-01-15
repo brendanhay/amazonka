@@ -156,12 +156,12 @@ instance Core.AWSPager ListExperiments where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listExperiments_nextToken
-          Lens..~ rs
-          Lens.^? listExperimentsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listExperiments_nextToken
+              Lens..~ rs
+              Lens.^? listExperimentsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListExperiments where
   type
@@ -193,12 +193,12 @@ instance Prelude.Hashable ListExperiments where
 
 instance Prelude.NFData ListExperiments where
   rnf ListExperiments' {..} =
-    Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf createdAfter `Prelude.seq`
+      Prelude.rnf createdBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf sortBy `Prelude.seq`
+              Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListExperiments where
   toHeaders =
@@ -282,6 +282,6 @@ listExperimentsResponse_httpStatus = Lens.lens (\ListExperimentsResponse' {httpS
 
 instance Prelude.NFData ListExperimentsResponse where
   rnf ListExperimentsResponse' {..} =
-    Prelude.rnf experimentSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf experimentSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

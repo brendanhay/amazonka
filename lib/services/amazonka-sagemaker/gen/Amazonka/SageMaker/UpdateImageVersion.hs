@@ -293,18 +293,18 @@ instance Prelude.Hashable UpdateImageVersion where
 
 instance Prelude.NFData UpdateImageVersion where
   rnf UpdateImageVersion' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf aliasesToAdd
-      `Prelude.seq` Prelude.rnf aliasesToDelete
-      `Prelude.seq` Prelude.rnf horovod
-      `Prelude.seq` Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf mLFramework
-      `Prelude.seq` Prelude.rnf processor
-      `Prelude.seq` Prelude.rnf programmingLang
-      `Prelude.seq` Prelude.rnf releaseNotes
-      `Prelude.seq` Prelude.rnf vendorGuidance
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf imageName
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf aliasesToAdd `Prelude.seq`
+        Prelude.rnf aliasesToDelete `Prelude.seq`
+          Prelude.rnf horovod `Prelude.seq`
+            Prelude.rnf jobType `Prelude.seq`
+              Prelude.rnf mLFramework `Prelude.seq`
+                Prelude.rnf processor `Prelude.seq`
+                  Prelude.rnf programmingLang `Prelude.seq`
+                    Prelude.rnf releaseNotes `Prelude.seq`
+                      Prelude.rnf vendorGuidance `Prelude.seq`
+                        Prelude.rnf version `Prelude.seq`
+                          Prelude.rnf imageName
 
 instance Data.ToHeaders UpdateImageVersion where
   toHeaders =
@@ -390,5 +390,5 @@ updateImageVersionResponse_httpStatus = Lens.lens (\UpdateImageVersionResponse' 
 
 instance Prelude.NFData UpdateImageVersionResponse where
   rnf UpdateImageVersionResponse' {..} =
-    Prelude.rnf imageVersionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageVersionArn `Prelude.seq`
+      Prelude.rnf httpStatus

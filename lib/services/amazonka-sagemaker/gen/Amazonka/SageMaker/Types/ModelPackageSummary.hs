@@ -188,11 +188,11 @@ instance Prelude.Hashable ModelPackageSummary where
 
 instance Prelude.NFData ModelPackageSummary where
   rnf ModelPackageSummary' {..} =
-    Prelude.rnf modelApprovalStatus
-      `Prelude.seq` Prelude.rnf modelPackageDescription
-      `Prelude.seq` Prelude.rnf modelPackageGroupName
-      `Prelude.seq` Prelude.rnf modelPackageVersion
-      `Prelude.seq` Prelude.rnf modelPackageName
-      `Prelude.seq` Prelude.rnf modelPackageArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf modelPackageStatus
+    Prelude.rnf modelApprovalStatus `Prelude.seq`
+      Prelude.rnf modelPackageDescription `Prelude.seq`
+        Prelude.rnf modelPackageGroupName `Prelude.seq`
+          Prelude.rnf modelPackageVersion `Prelude.seq`
+            Prelude.rnf modelPackageName `Prelude.seq`
+              Prelude.rnf modelPackageArn `Prelude.seq`
+                Prelude.rnf creationTime `Prelude.seq`
+                  Prelude.rnf modelPackageStatus

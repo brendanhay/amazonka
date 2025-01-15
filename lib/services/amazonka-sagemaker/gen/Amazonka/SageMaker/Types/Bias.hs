@@ -92,9 +92,9 @@ instance Prelude.Hashable Bias where
 
 instance Prelude.NFData Bias where
   rnf Bias' {..} =
-    Prelude.rnf postTrainingReport
-      `Prelude.seq` Prelude.rnf preTrainingReport
-      `Prelude.seq` Prelude.rnf report
+    Prelude.rnf postTrainingReport `Prelude.seq`
+      Prelude.rnf preTrainingReport `Prelude.seq`
+        Prelude.rnf report
 
 instance Data.ToJSON Bias where
   toJSON Bias' {..} =

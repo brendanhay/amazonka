@@ -98,8 +98,8 @@ instance
     RecommendationJobPayloadConfig
   where
   rnf RecommendationJobPayloadConfig' {..} =
-    Prelude.rnf samplePayloadUrl
-      `Prelude.seq` Prelude.rnf supportedContentTypes
+    Prelude.rnf samplePayloadUrl `Prelude.seq`
+      Prelude.rnf supportedContentTypes
 
 instance Data.ToJSON RecommendationJobPayloadConfig where
   toJSON RecommendationJobPayloadConfig' {..} =

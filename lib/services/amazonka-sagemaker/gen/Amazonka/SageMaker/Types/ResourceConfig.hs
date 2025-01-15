@@ -342,12 +342,12 @@ instance Prelude.Hashable ResourceConfig where
 
 instance Prelude.NFData ResourceConfig where
   rnf ResourceConfig' {..} =
-    Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf instanceGroups
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf keepAlivePeriodInSeconds
-      `Prelude.seq` Prelude.rnf volumeKmsKeyId
-      `Prelude.seq` Prelude.rnf volumeSizeInGB
+    Prelude.rnf instanceCount `Prelude.seq`
+      Prelude.rnf instanceGroups `Prelude.seq`
+        Prelude.rnf instanceType `Prelude.seq`
+          Prelude.rnf keepAlivePeriodInSeconds `Prelude.seq`
+            Prelude.rnf volumeKmsKeyId `Prelude.seq`
+              Prelude.rnf volumeSizeInGB
 
 instance Data.ToJSON ResourceConfig where
   toJSON ResourceConfig' {..} =

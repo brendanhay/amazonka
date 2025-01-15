@@ -114,8 +114,8 @@ instance Prelude.Hashable SpaceDetails where
 
 instance Prelude.NFData SpaceDetails where
   rnf SpaceDetails' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf spaceName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf domainId `Prelude.seq`
+        Prelude.rnf lastModifiedTime `Prelude.seq`
+          Prelude.rnf spaceName `Prelude.seq`
+            Prelude.rnf status

@@ -136,10 +136,10 @@ instance Prelude.Hashable DomainDetails where
 
 instance Prelude.NFData DomainDetails where
   rnf DomainDetails' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf domainArn
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf domainArn `Prelude.seq`
+        Prelude.rnf domainId `Prelude.seq`
+          Prelude.rnf domainName `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf url

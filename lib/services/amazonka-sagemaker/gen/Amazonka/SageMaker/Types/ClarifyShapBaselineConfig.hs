@@ -168,9 +168,9 @@ instance Prelude.Hashable ClarifyShapBaselineConfig where
 
 instance Prelude.NFData ClarifyShapBaselineConfig where
   rnf ClarifyShapBaselineConfig' {..} =
-    Prelude.rnf mimeType
-      `Prelude.seq` Prelude.rnf shapBaseline
-      `Prelude.seq` Prelude.rnf shapBaselineUri
+    Prelude.rnf mimeType `Prelude.seq`
+      Prelude.rnf shapBaseline `Prelude.seq`
+        Prelude.rnf shapBaselineUri
 
 instance Data.ToJSON ClarifyShapBaselineConfig where
   toJSON ClarifyShapBaselineConfig' {..} =

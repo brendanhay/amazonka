@@ -167,12 +167,12 @@ instance Core.AWSPager ListEndpointConfigs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listEndpointConfigs_nextToken
-          Lens..~ rs
-          Lens.^? listEndpointConfigsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listEndpointConfigs_nextToken
+              Lens..~ rs
+              Lens.^? listEndpointConfigsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEndpointConfigs where
   type
@@ -205,13 +205,13 @@ instance Prelude.Hashable ListEndpointConfigs where
 
 instance Prelude.NFData ListEndpointConfigs where
   rnf ListEndpointConfigs' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nameContains `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf sortBy `Prelude.seq`
+                Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListEndpointConfigs where
   toHeaders =
@@ -306,6 +306,6 @@ listEndpointConfigsResponse_endpointConfigs = Lens.lens (\ListEndpointConfigsRes
 
 instance Prelude.NFData ListEndpointConfigsResponse where
   rnf ListEndpointConfigsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf endpointConfigs
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf endpointConfigs

@@ -214,12 +214,12 @@ instance Core.AWSPager ListAssociations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAssociations_nextToken
-          Lens..~ rs
-          Lens.^? listAssociationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAssociations_nextToken
+              Lens..~ rs
+              Lens.^? listAssociationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAssociations where
   type
@@ -256,17 +256,17 @@ instance Prelude.Hashable ListAssociations where
 
 instance Prelude.NFData ListAssociations where
   rnf ListAssociations' {..} =
-    Prelude.rnf associationType
-      `Prelude.seq` Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf destinationType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf sourceType
+    Prelude.rnf associationType `Prelude.seq`
+      Prelude.rnf createdAfter `Prelude.seq`
+        Prelude.rnf createdBefore `Prelude.seq`
+          Prelude.rnf destinationArn `Prelude.seq`
+            Prelude.rnf destinationType `Prelude.seq`
+              Prelude.rnf maxResults `Prelude.seq`
+                Prelude.rnf nextToken `Prelude.seq`
+                  Prelude.rnf sortBy `Prelude.seq`
+                    Prelude.rnf sortOrder `Prelude.seq`
+                      Prelude.rnf sourceArn `Prelude.seq`
+                        Prelude.rnf sourceType
 
 instance Data.ToHeaders ListAssociations where
   toHeaders =
@@ -358,6 +358,6 @@ listAssociationsResponse_httpStatus = Lens.lens (\ListAssociationsResponse' {htt
 
 instance Prelude.NFData ListAssociationsResponse where
   rnf ListAssociationsResponse' {..} =
-    Prelude.rnf associationSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf associationSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

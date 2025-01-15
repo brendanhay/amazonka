@@ -256,13 +256,13 @@ describeImageResponse_httpStatus = Lens.lens (\DescribeImageResponse' {httpStatu
 
 instance Prelude.NFData DescribeImageResponse where
   rnf DescribeImageResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf imageArn
-      `Prelude.seq` Prelude.rnf imageName
-      `Prelude.seq` Prelude.rnf imageStatus
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf displayName `Prelude.seq`
+          Prelude.rnf failureReason `Prelude.seq`
+            Prelude.rnf imageArn `Prelude.seq`
+              Prelude.rnf imageName `Prelude.seq`
+                Prelude.rnf imageStatus `Prelude.seq`
+                  Prelude.rnf lastModifiedTime `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf httpStatus

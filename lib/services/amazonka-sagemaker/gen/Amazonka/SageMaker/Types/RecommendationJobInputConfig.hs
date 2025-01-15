@@ -282,15 +282,15 @@ instance
 
 instance Prelude.NFData RecommendationJobInputConfig where
   rnf RecommendationJobInputConfig' {..} =
-    Prelude.rnf containerConfig
-      `Prelude.seq` Prelude.rnf endpointConfigurations
-      `Prelude.seq` Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf jobDurationInSeconds
-      `Prelude.seq` Prelude.rnf resourceLimit
-      `Prelude.seq` Prelude.rnf trafficPattern
-      `Prelude.seq` Prelude.rnf volumeKmsKeyId
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf modelPackageVersionArn
+    Prelude.rnf containerConfig `Prelude.seq`
+      Prelude.rnf endpointConfigurations `Prelude.seq`
+        Prelude.rnf endpoints `Prelude.seq`
+          Prelude.rnf jobDurationInSeconds `Prelude.seq`
+            Prelude.rnf resourceLimit `Prelude.seq`
+              Prelude.rnf trafficPattern `Prelude.seq`
+                Prelude.rnf volumeKmsKeyId `Prelude.seq`
+                  Prelude.rnf vpcConfig `Prelude.seq`
+                    Prelude.rnf modelPackageVersionArn
 
 instance Data.ToJSON RecommendationJobInputConfig where
   toJSON RecommendationJobInputConfig' {..} =

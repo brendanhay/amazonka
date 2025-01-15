@@ -153,10 +153,10 @@ instance Prelude.Hashable TrafficRoutingConfig where
 
 instance Prelude.NFData TrafficRoutingConfig where
   rnf TrafficRoutingConfig' {..} =
-    Prelude.rnf canarySize
-      `Prelude.seq` Prelude.rnf linearStepSize
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf waitIntervalInSeconds
+    Prelude.rnf canarySize `Prelude.seq`
+      Prelude.rnf linearStepSize `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf waitIntervalInSeconds
 
 instance Data.ToJSON TrafficRoutingConfig where
   toJSON TrafficRoutingConfig' {..} =

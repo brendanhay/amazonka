@@ -95,9 +95,9 @@ instance Prelude.Hashable MetricsSource where
 
 instance Prelude.NFData MetricsSource where
   rnf MetricsSource' {..} =
-    Prelude.rnf contentDigest
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf s3Uri
+    Prelude.rnf contentDigest `Prelude.seq`
+      Prelude.rnf contentType `Prelude.seq`
+        Prelude.rnf s3Uri
 
 instance Data.ToJSON MetricsSource where
   toJSON MetricsSource' {..} =

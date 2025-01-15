@@ -187,11 +187,11 @@ instance Prelude.Hashable StopInferenceExperiment where
 
 instance Prelude.NFData StopInferenceExperiment where
   rnf StopInferenceExperiment' {..} =
-    Prelude.rnf desiredModelVariants
-      `Prelude.seq` Prelude.rnf desiredState
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf modelVariantActions
+    Prelude.rnf desiredModelVariants `Prelude.seq`
+      Prelude.rnf desiredState `Prelude.seq`
+        Prelude.rnf reason `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf modelVariantActions
 
 instance Data.ToHeaders StopInferenceExperiment where
   toHeaders =
@@ -277,5 +277,5 @@ instance
     StopInferenceExperimentResponse
   where
   rnf StopInferenceExperimentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf inferenceExperimentArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf inferenceExperimentArn

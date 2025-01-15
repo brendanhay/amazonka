@@ -87,8 +87,8 @@ instance Prelude.Hashable TensorBoardOutputConfig where
 
 instance Prelude.NFData TensorBoardOutputConfig where
   rnf TensorBoardOutputConfig' {..} =
-    Prelude.rnf localPath
-      `Prelude.seq` Prelude.rnf s3OutputPath
+    Prelude.rnf localPath `Prelude.seq`
+      Prelude.rnf s3OutputPath
 
 instance Data.ToJSON TensorBoardOutputConfig where
   toJSON TensorBoardOutputConfig' {..} =

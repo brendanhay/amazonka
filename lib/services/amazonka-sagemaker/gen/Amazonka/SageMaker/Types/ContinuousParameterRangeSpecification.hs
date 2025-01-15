@@ -98,8 +98,8 @@ instance
     ContinuousParameterRangeSpecification
   where
   rnf ContinuousParameterRangeSpecification' {..} =
-    Prelude.rnf minValue
-      `Prelude.seq` Prelude.rnf maxValue
+    Prelude.rnf minValue `Prelude.seq`
+      Prelude.rnf maxValue
 
 instance
   Data.ToJSON

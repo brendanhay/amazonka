@@ -197,11 +197,11 @@ instance Prelude.Hashable AutoMLJobConfig where
 
 instance Prelude.NFData AutoMLJobConfig where
   rnf AutoMLJobConfig' {..} =
-    Prelude.rnf candidateGenerationConfig
-      `Prelude.seq` Prelude.rnf completionCriteria
-      `Prelude.seq` Prelude.rnf dataSplitConfig
-      `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf securityConfig
+    Prelude.rnf candidateGenerationConfig `Prelude.seq`
+      Prelude.rnf completionCriteria `Prelude.seq`
+        Prelude.rnf dataSplitConfig `Prelude.seq`
+          Prelude.rnf mode `Prelude.seq`
+            Prelude.rnf securityConfig
 
 instance Data.ToJSON AutoMLJobConfig where
   toJSON AutoMLJobConfig' {..} =

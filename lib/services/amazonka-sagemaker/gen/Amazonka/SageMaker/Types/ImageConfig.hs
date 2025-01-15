@@ -113,8 +113,8 @@ instance Prelude.Hashable ImageConfig where
 
 instance Prelude.NFData ImageConfig where
   rnf ImageConfig' {..} =
-    Prelude.rnf repositoryAuthConfig
-      `Prelude.seq` Prelude.rnf repositoryAccessMode
+    Prelude.rnf repositoryAuthConfig `Prelude.seq`
+      Prelude.rnf repositoryAccessMode
 
 instance Data.ToJSON ImageConfig where
   toJSON ImageConfig' {..} =

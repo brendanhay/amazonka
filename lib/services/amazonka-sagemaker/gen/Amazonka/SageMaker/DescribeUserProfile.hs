@@ -130,8 +130,8 @@ instance Prelude.Hashable DescribeUserProfile where
 
 instance Prelude.NFData DescribeUserProfile where
   rnf DescribeUserProfile' {..} =
-    Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf userProfileName
+    Prelude.rnf domainId `Prelude.seq`
+      Prelude.rnf userProfileName
 
 instance Data.ToHeaders DescribeUserProfile where
   toHeaders =
@@ -298,15 +298,15 @@ describeUserProfileResponse_httpStatus = Lens.lens (\DescribeUserProfileResponse
 
 instance Prelude.NFData DescribeUserProfileResponse where
   rnf DescribeUserProfileResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf homeEfsFileSystemUid
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf singleSignOnUserIdentifier
-      `Prelude.seq` Prelude.rnf singleSignOnUserValue
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf userProfileArn
-      `Prelude.seq` Prelude.rnf userProfileName
-      `Prelude.seq` Prelude.rnf userSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf domainId `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf homeEfsFileSystemUid `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf singleSignOnUserIdentifier `Prelude.seq`
+                Prelude.rnf singleSignOnUserValue `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf userProfileArn `Prelude.seq`
+                      Prelude.rnf userProfileName `Prelude.seq`
+                        Prelude.rnf userSettings `Prelude.seq`
+                          Prelude.rnf httpStatus

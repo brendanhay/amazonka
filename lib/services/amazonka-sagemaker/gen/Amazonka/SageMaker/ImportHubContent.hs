@@ -226,17 +226,17 @@ instance Prelude.Hashable ImportHubContent where
 
 instance Prelude.NFData ImportHubContent where
   rnf ImportHubContent' {..} =
-    Prelude.rnf hubContentDescription
-      `Prelude.seq` Prelude.rnf hubContentDisplayName
-      `Prelude.seq` Prelude.rnf hubContentMarkdown
-      `Prelude.seq` Prelude.rnf hubContentSearchKeywords
-      `Prelude.seq` Prelude.rnf hubContentVersion
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf hubContentName
-      `Prelude.seq` Prelude.rnf hubContentType
-      `Prelude.seq` Prelude.rnf documentSchemaVersion
-      `Prelude.seq` Prelude.rnf hubName
-      `Prelude.seq` Prelude.rnf hubContentDocument
+    Prelude.rnf hubContentDescription `Prelude.seq`
+      Prelude.rnf hubContentDisplayName `Prelude.seq`
+        Prelude.rnf hubContentMarkdown `Prelude.seq`
+          Prelude.rnf hubContentSearchKeywords `Prelude.seq`
+            Prelude.rnf hubContentVersion `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf hubContentName `Prelude.seq`
+                  Prelude.rnf hubContentType `Prelude.seq`
+                    Prelude.rnf documentSchemaVersion `Prelude.seq`
+                      Prelude.rnf hubName `Prelude.seq`
+                        Prelude.rnf hubContentDocument
 
 instance Data.ToHeaders ImportHubContent where
   toHeaders =
@@ -343,6 +343,6 @@ importHubContentResponse_hubContentArn = Lens.lens (\ImportHubContentResponse' {
 
 instance Prelude.NFData ImportHubContentResponse where
   rnf ImportHubContentResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf hubArn
-      `Prelude.seq` Prelude.rnf hubContentArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf hubArn `Prelude.seq`
+        Prelude.rnf hubContentArn

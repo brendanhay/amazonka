@@ -109,8 +109,8 @@ instance Prelude.Hashable DeleteEdgeDeploymentStage where
 
 instance Prelude.NFData DeleteEdgeDeploymentStage where
   rnf DeleteEdgeDeploymentStage' {..} =
-    Prelude.rnf edgeDeploymentPlanName
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf edgeDeploymentPlanName `Prelude.seq`
+      Prelude.rnf stageName
 
 instance Data.ToHeaders DeleteEdgeDeploymentStage where
   toHeaders =

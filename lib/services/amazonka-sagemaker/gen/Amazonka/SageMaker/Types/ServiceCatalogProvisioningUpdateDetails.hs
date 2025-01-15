@@ -83,8 +83,8 @@ instance
     ServiceCatalogProvisioningUpdateDetails
   where
   rnf ServiceCatalogProvisioningUpdateDetails' {..} =
-    Prelude.rnf provisioningArtifactId
-      `Prelude.seq` Prelude.rnf provisioningParameters
+    Prelude.rnf provisioningArtifactId `Prelude.seq`
+      Prelude.rnf provisioningParameters
 
 instance
   Data.ToJSON

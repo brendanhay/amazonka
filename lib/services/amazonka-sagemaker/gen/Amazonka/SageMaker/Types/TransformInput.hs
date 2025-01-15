@@ -219,10 +219,10 @@ instance Prelude.Hashable TransformInput where
 
 instance Prelude.NFData TransformInput where
   rnf TransformInput' {..} =
-    Prelude.rnf compressionType
-      `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf splitType
-      `Prelude.seq` Prelude.rnf dataSource
+    Prelude.rnf compressionType `Prelude.seq`
+      Prelude.rnf contentType `Prelude.seq`
+        Prelude.rnf splitType `Prelude.seq`
+          Prelude.rnf dataSource
 
 instance Data.ToJSON TransformInput where
   toJSON TransformInput' {..} =

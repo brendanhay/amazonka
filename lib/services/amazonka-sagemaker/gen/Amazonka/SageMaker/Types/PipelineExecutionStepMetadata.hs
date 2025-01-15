@@ -386,17 +386,17 @@ instance
 
 instance Prelude.NFData PipelineExecutionStepMetadata where
   rnf PipelineExecutionStepMetadata' {..} =
-    Prelude.rnf autoMLJob
-      `Prelude.seq` Prelude.rnf callback
-      `Prelude.seq` Prelude.rnf clarifyCheck
-      `Prelude.seq` Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf emr
-      `Prelude.seq` Prelude.rnf fail
-      `Prelude.seq` Prelude.rnf lambda
-      `Prelude.seq` Prelude.rnf model
-      `Prelude.seq` Prelude.rnf processingJob
-      `Prelude.seq` Prelude.rnf qualityCheck
-      `Prelude.seq` Prelude.rnf registerModel
-      `Prelude.seq` Prelude.rnf trainingJob
-      `Prelude.seq` Prelude.rnf transformJob
-      `Prelude.seq` Prelude.rnf tuningJob
+    Prelude.rnf autoMLJob `Prelude.seq`
+      Prelude.rnf callback `Prelude.seq`
+        Prelude.rnf clarifyCheck `Prelude.seq`
+          Prelude.rnf condition `Prelude.seq`
+            Prelude.rnf emr `Prelude.seq`
+              Prelude.rnf fail `Prelude.seq`
+                Prelude.rnf lambda `Prelude.seq`
+                  Prelude.rnf model `Prelude.seq`
+                    Prelude.rnf processingJob `Prelude.seq`
+                      Prelude.rnf qualityCheck `Prelude.seq`
+                        Prelude.rnf registerModel `Prelude.seq`
+                          Prelude.rnf trainingJob `Prelude.seq`
+                            Prelude.rnf transformJob `Prelude.seq`
+                              Prelude.rnf tuningJob

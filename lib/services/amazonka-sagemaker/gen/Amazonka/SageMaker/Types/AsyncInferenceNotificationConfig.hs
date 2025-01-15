@@ -102,8 +102,8 @@ instance
     AsyncInferenceNotificationConfig
   where
   rnf AsyncInferenceNotificationConfig' {..} =
-    Prelude.rnf errorTopic
-      `Prelude.seq` Prelude.rnf successTopic
+    Prelude.rnf errorTopic `Prelude.seq`
+      Prelude.rnf successTopic
 
 instance Data.ToJSON AsyncInferenceNotificationConfig where
   toJSON AsyncInferenceNotificationConfig' {..} =

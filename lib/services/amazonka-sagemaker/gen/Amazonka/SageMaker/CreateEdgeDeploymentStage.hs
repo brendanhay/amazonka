@@ -101,8 +101,8 @@ instance Prelude.Hashable CreateEdgeDeploymentStage where
 
 instance Prelude.NFData CreateEdgeDeploymentStage where
   rnf CreateEdgeDeploymentStage' {..} =
-    Prelude.rnf edgeDeploymentPlanName
-      `Prelude.seq` Prelude.rnf stages
+    Prelude.rnf edgeDeploymentPlanName `Prelude.seq`
+      Prelude.rnf stages
 
 instance Data.ToHeaders CreateEdgeDeploymentStage where
   toHeaders =

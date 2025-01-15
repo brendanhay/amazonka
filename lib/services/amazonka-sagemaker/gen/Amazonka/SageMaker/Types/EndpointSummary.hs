@@ -232,8 +232,8 @@ instance Prelude.Hashable EndpointSummary where
 
 instance Prelude.NFData EndpointSummary where
   rnf EndpointSummary' {..} =
-    Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf endpointArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf endpointStatus
+    Prelude.rnf endpointName `Prelude.seq`
+      Prelude.rnf endpointArn `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf endpointStatus

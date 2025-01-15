@@ -118,9 +118,9 @@ instance Prelude.Hashable DeleteImageVersion where
 
 instance Prelude.NFData DeleteImageVersion where
   rnf DeleteImageVersion' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf imageName
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf version `Prelude.seq`
+        Prelude.rnf imageName
 
 instance Data.ToHeaders DeleteImageVersion where
   toHeaders =

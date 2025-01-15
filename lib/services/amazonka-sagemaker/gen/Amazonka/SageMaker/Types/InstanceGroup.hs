@@ -104,9 +104,9 @@ instance Prelude.Hashable InstanceGroup where
 
 instance Prelude.NFData InstanceGroup where
   rnf InstanceGroup' {..} =
-    Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf instanceGroupName
+    Prelude.rnf instanceType `Prelude.seq`
+      Prelude.rnf instanceCount `Prelude.seq`
+        Prelude.rnf instanceGroupName
 
 instance Data.ToJSON InstanceGroup where
   toJSON InstanceGroup' {..} =

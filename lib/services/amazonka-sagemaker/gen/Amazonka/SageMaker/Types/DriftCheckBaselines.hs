@@ -119,10 +119,10 @@ instance Prelude.Hashable DriftCheckBaselines where
 
 instance Prelude.NFData DriftCheckBaselines where
   rnf DriftCheckBaselines' {..} =
-    Prelude.rnf bias
-      `Prelude.seq` Prelude.rnf explainability
-      `Prelude.seq` Prelude.rnf modelDataQuality
-      `Prelude.seq` Prelude.rnf modelQuality
+    Prelude.rnf bias `Prelude.seq`
+      Prelude.rnf explainability `Prelude.seq`
+        Prelude.rnf modelDataQuality `Prelude.seq`
+          Prelude.rnf modelQuality
 
 instance Data.ToJSON DriftCheckBaselines where
   toJSON DriftCheckBaselines' {..} =

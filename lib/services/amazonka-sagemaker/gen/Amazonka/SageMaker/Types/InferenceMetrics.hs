@@ -89,5 +89,5 @@ instance Prelude.Hashable InferenceMetrics where
 
 instance Prelude.NFData InferenceMetrics where
   rnf InferenceMetrics' {..} =
-    Prelude.rnf maxInvocations
-      `Prelude.seq` Prelude.rnf modelLatency
+    Prelude.rnf maxInvocations `Prelude.seq`
+      Prelude.rnf modelLatency

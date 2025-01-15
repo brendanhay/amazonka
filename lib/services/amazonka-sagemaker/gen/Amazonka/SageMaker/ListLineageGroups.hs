@@ -160,12 +160,12 @@ instance Core.AWSPager ListLineageGroups where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLineageGroups_nextToken
-          Lens..~ rs
-          Lens.^? listLineageGroupsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLineageGroups_nextToken
+              Lens..~ rs
+              Lens.^? listLineageGroupsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLineageGroups where
   type
@@ -197,12 +197,12 @@ instance Prelude.Hashable ListLineageGroups where
 
 instance Prelude.NFData ListLineageGroups where
   rnf ListLineageGroups' {..} =
-    Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf createdAfter `Prelude.seq`
+      Prelude.rnf createdBefore `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf sortBy `Prelude.seq`
+              Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListLineageGroups where
   toHeaders =
@@ -291,6 +291,6 @@ listLineageGroupsResponse_httpStatus = Lens.lens (\ListLineageGroupsResponse' {h
 
 instance Prelude.NFData ListLineageGroupsResponse where
   rnf ListLineageGroupsResponse' {..} =
-    Prelude.rnf lineageGroupSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lineageGroupSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

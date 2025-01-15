@@ -109,8 +109,8 @@ instance Prelude.Hashable UpdateAppImageConfig where
 
 instance Prelude.NFData UpdateAppImageConfig where
   rnf UpdateAppImageConfig' {..} =
-    Prelude.rnf kernelGatewayImageConfig
-      `Prelude.seq` Prelude.rnf appImageConfigName
+    Prelude.rnf kernelGatewayImageConfig `Prelude.seq`
+      Prelude.rnf appImageConfigName
 
 instance Data.ToHeaders UpdateAppImageConfig where
   toHeaders =
@@ -185,5 +185,5 @@ updateAppImageConfigResponse_httpStatus = Lens.lens (\UpdateAppImageConfigRespon
 
 instance Prelude.NFData UpdateAppImageConfigResponse where
   rnf UpdateAppImageConfigResponse' {..} =
-    Prelude.rnf appImageConfigArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf appImageConfigArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -237,9 +237,9 @@ describeHumanTaskUiResponse_uiTemplate = Lens.lens (\DescribeHumanTaskUiResponse
 
 instance Prelude.NFData DescribeHumanTaskUiResponse where
   rnf DescribeHumanTaskUiResponse' {..} =
-    Prelude.rnf humanTaskUiStatus
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf humanTaskUiArn
-      `Prelude.seq` Prelude.rnf humanTaskUiName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf uiTemplate
+    Prelude.rnf humanTaskUiStatus `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf humanTaskUiArn `Prelude.seq`
+          Prelude.rnf humanTaskUiName `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf uiTemplate

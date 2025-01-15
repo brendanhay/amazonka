@@ -96,9 +96,9 @@ instance Prelude.Hashable ModelBiasJobInput where
 
 instance Prelude.NFData ModelBiasJobInput where
   rnf ModelBiasJobInput' {..} =
-    Prelude.rnf batchTransformInput
-      `Prelude.seq` Prelude.rnf endpointInput
-      `Prelude.seq` Prelude.rnf groundTruthS3Input
+    Prelude.rnf batchTransformInput `Prelude.seq`
+      Prelude.rnf endpointInput `Prelude.seq`
+        Prelude.rnf groundTruthS3Input
 
 instance Data.ToJSON ModelBiasJobInput where
   toJSON ModelBiasJobInput' {..} =

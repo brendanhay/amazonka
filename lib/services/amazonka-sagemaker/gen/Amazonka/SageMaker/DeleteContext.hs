@@ -162,5 +162,5 @@ deleteContextResponse_httpStatus = Lens.lens (\DeleteContextResponse' {httpStatu
 
 instance Prelude.NFData DeleteContextResponse where
   rnf DeleteContextResponse' {..} =
-    Prelude.rnf contextArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contextArn `Prelude.seq`
+      Prelude.rnf httpStatus

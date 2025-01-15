@@ -292,17 +292,17 @@ describePipelineResponse_httpStatus = Lens.lens (\DescribePipelineResponse' {htt
 
 instance Prelude.NFData DescribePipelineResponse where
   rnf DescribePipelineResponse' {..} =
-    Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf lastRunTime
-      `Prelude.seq` Prelude.rnf parallelismConfiguration
-      `Prelude.seq` Prelude.rnf pipelineArn
-      `Prelude.seq` Prelude.rnf pipelineDefinition
-      `Prelude.seq` Prelude.rnf pipelineDescription
-      `Prelude.seq` Prelude.rnf pipelineDisplayName
-      `Prelude.seq` Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf pipelineStatus
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdBy `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf lastModifiedBy `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf lastRunTime `Prelude.seq`
+              Prelude.rnf parallelismConfiguration `Prelude.seq`
+                Prelude.rnf pipelineArn `Prelude.seq`
+                  Prelude.rnf pipelineDefinition `Prelude.seq`
+                    Prelude.rnf pipelineDescription `Prelude.seq`
+                      Prelude.rnf pipelineDisplayName `Prelude.seq`
+                        Prelude.rnf pipelineName `Prelude.seq`
+                          Prelude.rnf pipelineStatus `Prelude.seq`
+                            Prelude.rnf roleArn `Prelude.seq`
+                              Prelude.rnf httpStatus

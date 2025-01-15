@@ -284,13 +284,13 @@ describeModelResponse_modelArn = Lens.lens (\DescribeModelResponse' {modelArn} -
 
 instance Prelude.NFData DescribeModelResponse where
   rnf DescribeModelResponse' {..} =
-    Prelude.rnf containers
-      `Prelude.seq` Prelude.rnf enableNetworkIsolation
-      `Prelude.seq` Prelude.rnf inferenceExecutionConfig
-      `Prelude.seq` Prelude.rnf primaryContainer
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf modelArn
+    Prelude.rnf containers `Prelude.seq`
+      Prelude.rnf enableNetworkIsolation `Prelude.seq`
+        Prelude.rnf inferenceExecutionConfig `Prelude.seq`
+          Prelude.rnf primaryContainer `Prelude.seq`
+            Prelude.rnf vpcConfig `Prelude.seq`
+              Prelude.rnf httpStatus `Prelude.seq`
+                Prelude.rnf modelName `Prelude.seq`
+                  Prelude.rnf executionRoleArn `Prelude.seq`
+                    Prelude.rnf creationTime `Prelude.seq`
+                      Prelude.rnf modelArn

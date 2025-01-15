@@ -98,8 +98,8 @@ instance Prelude.Hashable DeleteSpace where
 
 instance Prelude.NFData DeleteSpace where
   rnf DeleteSpace' {..} =
-    Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf spaceName
+    Prelude.rnf domainId `Prelude.seq`
+      Prelude.rnf spaceName
 
 instance Data.ToHeaders DeleteSpace where
   toHeaders =

@@ -128,8 +128,8 @@ instance Prelude.Hashable ModelPackageGroupSummary where
 
 instance Prelude.NFData ModelPackageGroupSummary where
   rnf ModelPackageGroupSummary' {..} =
-    Prelude.rnf modelPackageGroupDescription
-      `Prelude.seq` Prelude.rnf modelPackageGroupName
-      `Prelude.seq` Prelude.rnf modelPackageGroupArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf modelPackageGroupStatus
+    Prelude.rnf modelPackageGroupDescription `Prelude.seq`
+      Prelude.rnf modelPackageGroupName `Prelude.seq`
+        Prelude.rnf modelPackageGroupArn `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf modelPackageGroupStatus

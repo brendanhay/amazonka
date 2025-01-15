@@ -139,11 +139,11 @@ instance Prelude.Hashable UpdateAction where
 
 instance Prelude.NFData UpdateAction where
   rnf UpdateAction' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf propertiesToRemove
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf actionName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf properties `Prelude.seq`
+        Prelude.rnf propertiesToRemove `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf actionName
 
 instance Data.ToHeaders UpdateAction where
   toHeaders =
@@ -217,5 +217,5 @@ updateActionResponse_httpStatus = Lens.lens (\UpdateActionResponse' {httpStatus}
 
 instance Prelude.NFData UpdateActionResponse where
   rnf UpdateActionResponse' {..} =
-    Prelude.rnf actionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf actionArn `Prelude.seq`
+      Prelude.rnf httpStatus

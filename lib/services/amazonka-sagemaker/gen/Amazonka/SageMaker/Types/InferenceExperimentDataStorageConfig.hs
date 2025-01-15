@@ -115,9 +115,9 @@ instance
     InferenceExperimentDataStorageConfig
   where
   rnf InferenceExperimentDataStorageConfig' {..} =
-    Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf contentType `Prelude.seq`
+      Prelude.rnf kmsKey `Prelude.seq`
+        Prelude.rnf destination
 
 instance
   Data.ToJSON

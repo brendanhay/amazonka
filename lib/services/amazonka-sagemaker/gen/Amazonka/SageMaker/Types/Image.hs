@@ -168,11 +168,11 @@ instance Prelude.Hashable Image where
 
 instance Prelude.NFData Image where
   rnf Image' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf imageArn
-      `Prelude.seq` Prelude.rnf imageName
-      `Prelude.seq` Prelude.rnf imageStatus
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf displayName `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf creationTime `Prelude.seq`
+            Prelude.rnf imageArn `Prelude.seq`
+              Prelude.rnf imageName `Prelude.seq`
+                Prelude.rnf imageStatus `Prelude.seq`
+                  Prelude.rnf lastModifiedTime

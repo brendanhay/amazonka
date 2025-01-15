@@ -241,9 +241,9 @@ instance
     DescribeCodeRepositoryResponse
   where
   rnf DescribeCodeRepositoryResponse' {..} =
-    Prelude.rnf gitConfig
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf codeRepositoryName
-      `Prelude.seq` Prelude.rnf codeRepositoryArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf gitConfig `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf codeRepositoryName `Prelude.seq`
+          Prelude.rnf codeRepositoryArn `Prelude.seq`
+            Prelude.rnf creationTime `Prelude.seq`
+              Prelude.rnf lastModifiedTime

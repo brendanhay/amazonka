@@ -180,8 +180,8 @@ instance Prelude.Hashable HyperbandStrategyConfig where
 
 instance Prelude.NFData HyperbandStrategyConfig where
   rnf HyperbandStrategyConfig' {..} =
-    Prelude.rnf maxResource
-      `Prelude.seq` Prelude.rnf minResource
+    Prelude.rnf maxResource `Prelude.seq`
+      Prelude.rnf minResource
 
 instance Data.ToJSON HyperbandStrategyConfig where
   toJSON HyperbandStrategyConfig' {..} =

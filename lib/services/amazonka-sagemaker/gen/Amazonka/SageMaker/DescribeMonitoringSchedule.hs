@@ -340,14 +340,14 @@ instance
     DescribeMonitoringScheduleResponse
   where
   rnf DescribeMonitoringScheduleResponse' {..} =
-    Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf lastMonitoringExecutionSummary
-      `Prelude.seq` Prelude.rnf monitoringType
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf monitoringScheduleArn
-      `Prelude.seq` Prelude.rnf monitoringScheduleName
-      `Prelude.seq` Prelude.rnf monitoringScheduleStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf monitoringScheduleConfig
+    Prelude.rnf endpointName `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf lastMonitoringExecutionSummary `Prelude.seq`
+          Prelude.rnf monitoringType `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf monitoringScheduleArn `Prelude.seq`
+                Prelude.rnf monitoringScheduleName `Prelude.seq`
+                  Prelude.rnf monitoringScheduleStatus `Prelude.seq`
+                    Prelude.rnf creationTime `Prelude.seq`
+                      Prelude.rnf lastModifiedTime `Prelude.seq`
+                        Prelude.rnf monitoringScheduleConfig

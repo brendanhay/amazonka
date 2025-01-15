@@ -137,9 +137,9 @@ instance Prelude.Hashable BatchDataCaptureConfig where
 
 instance Prelude.NFData BatchDataCaptureConfig where
   rnf BatchDataCaptureConfig' {..} =
-    Prelude.rnf generateInferenceId
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf destinationS3Uri
+    Prelude.rnf generateInferenceId `Prelude.seq`
+      Prelude.rnf kmsKeyId `Prelude.seq`
+        Prelude.rnf destinationS3Uri
 
 instance Data.ToJSON BatchDataCaptureConfig where
   toJSON BatchDataCaptureConfig' {..} =

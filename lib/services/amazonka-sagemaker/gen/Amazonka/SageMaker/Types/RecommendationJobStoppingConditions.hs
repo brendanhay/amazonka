@@ -104,8 +104,8 @@ instance
     RecommendationJobStoppingConditions
   where
   rnf RecommendationJobStoppingConditions' {..} =
-    Prelude.rnf maxInvocations
-      `Prelude.seq` Prelude.rnf modelLatencyThresholds
+    Prelude.rnf maxInvocations `Prelude.seq`
+      Prelude.rnf modelLatencyThresholds
 
 instance
   Data.ToJSON

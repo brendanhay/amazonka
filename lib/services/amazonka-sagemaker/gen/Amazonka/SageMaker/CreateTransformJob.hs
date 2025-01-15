@@ -438,20 +438,20 @@ instance Prelude.Hashable CreateTransformJob where
 
 instance Prelude.NFData CreateTransformJob where
   rnf CreateTransformJob' {..} =
-    Prelude.rnf batchStrategy
-      `Prelude.seq` Prelude.rnf dataCaptureConfig
-      `Prelude.seq` Prelude.rnf dataProcessing
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf experimentConfig
-      `Prelude.seq` Prelude.rnf maxConcurrentTransforms
-      `Prelude.seq` Prelude.rnf maxPayloadInMB
-      `Prelude.seq` Prelude.rnf modelClientConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf transformJobName
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf transformInput
-      `Prelude.seq` Prelude.rnf transformOutput
-      `Prelude.seq` Prelude.rnf transformResources
+    Prelude.rnf batchStrategy `Prelude.seq`
+      Prelude.rnf dataCaptureConfig `Prelude.seq`
+        Prelude.rnf dataProcessing `Prelude.seq`
+          Prelude.rnf environment `Prelude.seq`
+            Prelude.rnf experimentConfig `Prelude.seq`
+              Prelude.rnf maxConcurrentTransforms `Prelude.seq`
+                Prelude.rnf maxPayloadInMB `Prelude.seq`
+                  Prelude.rnf modelClientConfig `Prelude.seq`
+                    Prelude.rnf tags `Prelude.seq`
+                      Prelude.rnf transformJobName `Prelude.seq`
+                        Prelude.rnf modelName `Prelude.seq`
+                          Prelude.rnf transformInput `Prelude.seq`
+                            Prelude.rnf transformOutput `Prelude.seq`
+                              Prelude.rnf transformResources
 
 instance Data.ToHeaders CreateTransformJob where
   toHeaders =
@@ -550,5 +550,5 @@ createTransformJobResponse_transformJobArn = Lens.lens (\CreateTransformJobRespo
 
 instance Prelude.NFData CreateTransformJobResponse where
   rnf CreateTransformJobResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf transformJobArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf transformJobArn

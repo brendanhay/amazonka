@@ -352,19 +352,19 @@ instance
     DescribeEdgePackagingJobResponse
   where
   rnf DescribeEdgePackagingJobResponse' {..} =
-    Prelude.rnf compilationJobName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf edgePackagingJobStatusMessage
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf modelArtifact
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf modelSignature
-      `Prelude.seq` Prelude.rnf modelVersion
-      `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf presetDeploymentOutput
-      `Prelude.seq` Prelude.rnf resourceKey
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf edgePackagingJobArn
-      `Prelude.seq` Prelude.rnf edgePackagingJobName
-      `Prelude.seq` Prelude.rnf edgePackagingJobStatus
+    Prelude.rnf compilationJobName `Prelude.seq`
+      Prelude.rnf creationTime `Prelude.seq`
+        Prelude.rnf edgePackagingJobStatusMessage `Prelude.seq`
+          Prelude.rnf lastModifiedTime `Prelude.seq`
+            Prelude.rnf modelArtifact `Prelude.seq`
+              Prelude.rnf modelName `Prelude.seq`
+                Prelude.rnf modelSignature `Prelude.seq`
+                  Prelude.rnf modelVersion `Prelude.seq`
+                    Prelude.rnf outputConfig `Prelude.seq`
+                      Prelude.rnf presetDeploymentOutput `Prelude.seq`
+                        Prelude.rnf resourceKey `Prelude.seq`
+                          Prelude.rnf roleArn `Prelude.seq`
+                            Prelude.rnf httpStatus `Prelude.seq`
+                              Prelude.rnf edgePackagingJobArn `Prelude.seq`
+                                Prelude.rnf edgePackagingJobName `Prelude.seq`
+                                  Prelude.rnf edgePackagingJobStatus

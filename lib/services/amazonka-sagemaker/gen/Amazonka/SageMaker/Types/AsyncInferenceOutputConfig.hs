@@ -105,9 +105,9 @@ instance Prelude.Hashable AsyncInferenceOutputConfig where
 
 instance Prelude.NFData AsyncInferenceOutputConfig where
   rnf AsyncInferenceOutputConfig' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf notificationConfig
-      `Prelude.seq` Prelude.rnf s3OutputPath
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf notificationConfig `Prelude.seq`
+        Prelude.rnf s3OutputPath
 
 instance Data.ToJSON AsyncInferenceOutputConfig where
   toJSON AsyncInferenceOutputConfig' {..} =

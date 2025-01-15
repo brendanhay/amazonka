@@ -132,8 +132,8 @@ instance Prelude.Hashable FeatureGroupSummary where
 
 instance Prelude.NFData FeatureGroupSummary where
   rnf FeatureGroupSummary' {..} =
-    Prelude.rnf featureGroupStatus
-      `Prelude.seq` Prelude.rnf offlineStoreStatus
-      `Prelude.seq` Prelude.rnf featureGroupName
-      `Prelude.seq` Prelude.rnf featureGroupArn
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf featureGroupStatus `Prelude.seq`
+      Prelude.rnf offlineStoreStatus `Prelude.seq`
+        Prelude.rnf featureGroupName `Prelude.seq`
+          Prelude.rnf featureGroupArn `Prelude.seq`
+            Prelude.rnf creationTime

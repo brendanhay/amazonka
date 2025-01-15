@@ -169,11 +169,11 @@ instance Prelude.Hashable EdgeDeploymentPlanSummary where
 
 instance Prelude.NFData EdgeDeploymentPlanSummary where
   rnf EdgeDeploymentPlanSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf edgeDeploymentPlanArn
-      `Prelude.seq` Prelude.rnf edgeDeploymentPlanName
-      `Prelude.seq` Prelude.rnf deviceFleetName
-      `Prelude.seq` Prelude.rnf edgeDeploymentSuccess
-      `Prelude.seq` Prelude.rnf edgeDeploymentPending
-      `Prelude.seq` Prelude.rnf edgeDeploymentFailed
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf lastModifiedTime `Prelude.seq`
+        Prelude.rnf edgeDeploymentPlanArn `Prelude.seq`
+          Prelude.rnf edgeDeploymentPlanName `Prelude.seq`
+            Prelude.rnf deviceFleetName `Prelude.seq`
+              Prelude.rnf edgeDeploymentSuccess `Prelude.seq`
+                Prelude.rnf edgeDeploymentPending `Prelude.seq`
+                  Prelude.rnf edgeDeploymentFailed

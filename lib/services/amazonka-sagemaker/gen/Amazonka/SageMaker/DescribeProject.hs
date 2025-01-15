@@ -299,15 +299,15 @@ describeProjectResponse_creationTime = Lens.lens (\DescribeProjectResponse' {cre
 
 instance Prelude.NFData DescribeProjectResponse where
   rnf DescribeProjectResponse' {..} =
-    Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf projectDescription
-      `Prelude.seq` Prelude.rnf serviceCatalogProvisionedProductDetails
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf projectArn
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf projectId
-      `Prelude.seq` Prelude.rnf serviceCatalogProvisioningDetails
-      `Prelude.seq` Prelude.rnf projectStatus
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf createdBy `Prelude.seq`
+      Prelude.rnf lastModifiedBy `Prelude.seq`
+        Prelude.rnf lastModifiedTime `Prelude.seq`
+          Prelude.rnf projectDescription `Prelude.seq`
+            Prelude.rnf serviceCatalogProvisionedProductDetails `Prelude.seq`
+              Prelude.rnf httpStatus `Prelude.seq`
+                Prelude.rnf projectArn `Prelude.seq`
+                  Prelude.rnf projectName `Prelude.seq`
+                    Prelude.rnf projectId `Prelude.seq`
+                      Prelude.rnf serviceCatalogProvisioningDetails `Prelude.seq`
+                        Prelude.rnf projectStatus `Prelude.seq`
+                          Prelude.rnf creationTime

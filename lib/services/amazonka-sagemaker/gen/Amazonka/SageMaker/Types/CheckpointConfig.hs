@@ -89,8 +89,8 @@ instance Prelude.Hashable CheckpointConfig where
 
 instance Prelude.NFData CheckpointConfig where
   rnf CheckpointConfig' {..} =
-    Prelude.rnf localPath
-      `Prelude.seq` Prelude.rnf s3Uri
+    Prelude.rnf localPath `Prelude.seq`
+      Prelude.rnf s3Uri
 
 instance Data.ToJSON CheckpointConfig where
   toJSON CheckpointConfig' {..} =

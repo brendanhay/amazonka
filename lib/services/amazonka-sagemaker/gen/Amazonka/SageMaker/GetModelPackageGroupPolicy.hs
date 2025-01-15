@@ -182,5 +182,5 @@ instance
     GetModelPackageGroupPolicyResponse
   where
   rnf GetModelPackageGroupPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf resourcePolicy
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf resourcePolicy

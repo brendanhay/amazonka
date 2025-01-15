@@ -107,9 +107,9 @@ instance Prelude.Hashable CognitoMemberDefinition where
 
 instance Prelude.NFData CognitoMemberDefinition where
   rnf CognitoMemberDefinition' {..} =
-    Prelude.rnf userPool
-      `Prelude.seq` Prelude.rnf userGroup
-      `Prelude.seq` Prelude.rnf clientId
+    Prelude.rnf userPool `Prelude.seq`
+      Prelude.rnf userGroup `Prelude.seq`
+        Prelude.rnf clientId
 
 instance Data.ToJSON CognitoMemberDefinition where
   toJSON CognitoMemberDefinition' {..} =

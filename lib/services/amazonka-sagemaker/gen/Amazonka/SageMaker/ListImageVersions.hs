@@ -197,12 +197,12 @@ instance Core.AWSPager ListImageVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listImageVersions_nextToken
-          Lens..~ rs
-          Lens.^? listImageVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listImageVersions_nextToken
+              Lens..~ rs
+              Lens.^? listImageVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListImageVersions where
   type
@@ -234,15 +234,15 @@ instance Prelude.Hashable ListImageVersions where
 
 instance Prelude.NFData ListImageVersions where
   rnf ListImageVersions' {..} =
-    Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf imageName
+    Prelude.rnf creationTimeAfter `Prelude.seq`
+      Prelude.rnf creationTimeBefore `Prelude.seq`
+        Prelude.rnf lastModifiedTimeAfter `Prelude.seq`
+          Prelude.rnf lastModifiedTimeBefore `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf sortBy `Prelude.seq`
+                  Prelude.rnf sortOrder `Prelude.seq`
+                    Prelude.rnf imageName
 
 instance Data.ToHeaders ListImageVersions where
   toHeaders =
@@ -335,6 +335,6 @@ listImageVersionsResponse_httpStatus = Lens.lens (\ListImageVersionsResponse' {h
 
 instance Prelude.NFData ListImageVersionsResponse where
   rnf ListImageVersionsResponse' {..} =
-    Prelude.rnf imageVersions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf imageVersions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

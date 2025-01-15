@@ -90,8 +90,8 @@ instance
     RecommendationJobResourceLimit
   where
   rnf RecommendationJobResourceLimit' {..} =
-    Prelude.rnf maxNumberOfTests
-      `Prelude.seq` Prelude.rnf maxParallelOfTests
+    Prelude.rnf maxNumberOfTests `Prelude.seq`
+      Prelude.rnf maxParallelOfTests
 
 instance Data.ToJSON RecommendationJobResourceLimit where
   toJSON RecommendationJobResourceLimit' {..} =

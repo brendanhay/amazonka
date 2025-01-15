@@ -252,14 +252,14 @@ instance
 
 instance Prelude.NFData HyperParameterTuningJobConfig where
   rnf HyperParameterTuningJobConfig' {..} =
-    Prelude.rnf hyperParameterTuningJobObjective
-      `Prelude.seq` Prelude.rnf parameterRanges
-      `Prelude.seq` Prelude.rnf randomSeed
-      `Prelude.seq` Prelude.rnf strategyConfig
-      `Prelude.seq` Prelude.rnf trainingJobEarlyStoppingType
-      `Prelude.seq` Prelude.rnf tuningJobCompletionCriteria
-      `Prelude.seq` Prelude.rnf strategy
-      `Prelude.seq` Prelude.rnf resourceLimits
+    Prelude.rnf hyperParameterTuningJobObjective `Prelude.seq`
+      Prelude.rnf parameterRanges `Prelude.seq`
+        Prelude.rnf randomSeed `Prelude.seq`
+          Prelude.rnf strategyConfig `Prelude.seq`
+            Prelude.rnf trainingJobEarlyStoppingType `Prelude.seq`
+              Prelude.rnf tuningJobCompletionCriteria `Prelude.seq`
+                Prelude.rnf strategy `Prelude.seq`
+                  Prelude.rnf resourceLimits
 
 instance Data.ToJSON HyperParameterTuningJobConfig where
   toJSON HyperParameterTuningJobConfig' {..} =

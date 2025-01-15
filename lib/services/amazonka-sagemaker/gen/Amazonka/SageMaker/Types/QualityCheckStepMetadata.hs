@@ -203,13 +203,13 @@ instance Prelude.Hashable QualityCheckStepMetadata where
 
 instance Prelude.NFData QualityCheckStepMetadata where
   rnf QualityCheckStepMetadata' {..} =
-    Prelude.rnf baselineUsedForDriftCheckConstraints
-      `Prelude.seq` Prelude.rnf baselineUsedForDriftCheckStatistics
-      `Prelude.seq` Prelude.rnf calculatedBaselineConstraints
-      `Prelude.seq` Prelude.rnf calculatedBaselineStatistics
-      `Prelude.seq` Prelude.rnf checkJobArn
-      `Prelude.seq` Prelude.rnf checkType
-      `Prelude.seq` Prelude.rnf modelPackageGroupName
-      `Prelude.seq` Prelude.rnf registerNewBaseline
-      `Prelude.seq` Prelude.rnf skipCheck
-      `Prelude.seq` Prelude.rnf violationReport
+    Prelude.rnf baselineUsedForDriftCheckConstraints `Prelude.seq`
+      Prelude.rnf baselineUsedForDriftCheckStatistics `Prelude.seq`
+        Prelude.rnf calculatedBaselineConstraints `Prelude.seq`
+          Prelude.rnf calculatedBaselineStatistics `Prelude.seq`
+            Prelude.rnf checkJobArn `Prelude.seq`
+              Prelude.rnf checkType `Prelude.seq`
+                Prelude.rnf modelPackageGroupName `Prelude.seq`
+                  Prelude.rnf registerNewBaseline `Prelude.seq`
+                    Prelude.rnf skipCheck `Prelude.seq`
+                      Prelude.rnf violationReport

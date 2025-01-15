@@ -438,18 +438,18 @@ describeEndpointResponse_lastModifiedTime = Lens.lens (\DescribeEndpointResponse
 
 instance Prelude.NFData DescribeEndpointResponse where
   rnf DescribeEndpointResponse' {..} =
-    Prelude.rnf asyncInferenceConfig
-      `Prelude.seq` Prelude.rnf dataCaptureConfig
-      `Prelude.seq` Prelude.rnf explainerConfig
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf lastDeploymentConfig
-      `Prelude.seq` Prelude.rnf pendingDeploymentSummary
-      `Prelude.seq` Prelude.rnf productionVariants
-      `Prelude.seq` Prelude.rnf shadowProductionVariants
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf endpointArn
-      `Prelude.seq` Prelude.rnf endpointConfigName
-      `Prelude.seq` Prelude.rnf endpointStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf asyncInferenceConfig `Prelude.seq`
+      Prelude.rnf dataCaptureConfig `Prelude.seq`
+        Prelude.rnf explainerConfig `Prelude.seq`
+          Prelude.rnf failureReason `Prelude.seq`
+            Prelude.rnf lastDeploymentConfig `Prelude.seq`
+              Prelude.rnf pendingDeploymentSummary `Prelude.seq`
+                Prelude.rnf productionVariants `Prelude.seq`
+                  Prelude.rnf shadowProductionVariants `Prelude.seq`
+                    Prelude.rnf httpStatus `Prelude.seq`
+                      Prelude.rnf endpointName `Prelude.seq`
+                        Prelude.rnf endpointArn `Prelude.seq`
+                          Prelude.rnf endpointConfigName `Prelude.seq`
+                            Prelude.rnf endpointStatus `Prelude.seq`
+                              Prelude.rnf creationTime `Prelude.seq`
+                                Prelude.rnf lastModifiedTime

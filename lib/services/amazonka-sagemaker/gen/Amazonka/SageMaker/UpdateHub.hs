@@ -128,10 +128,10 @@ instance Prelude.Hashable UpdateHub where
 
 instance Prelude.NFData UpdateHub where
   rnf UpdateHub' {..} =
-    Prelude.rnf hubDescription
-      `Prelude.seq` Prelude.rnf hubDisplayName
-      `Prelude.seq` Prelude.rnf hubSearchKeywords
-      `Prelude.seq` Prelude.rnf hubName
+    Prelude.rnf hubDescription `Prelude.seq`
+      Prelude.rnf hubDisplayName `Prelude.seq`
+        Prelude.rnf hubSearchKeywords `Prelude.seq`
+          Prelude.rnf hubName
 
 instance Data.ToHeaders UpdateHub where
   toHeaders =
@@ -208,5 +208,5 @@ updateHubResponse_hubArn = Lens.lens (\UpdateHubResponse' {hubArn} -> hubArn) (\
 
 instance Prelude.NFData UpdateHubResponse where
   rnf UpdateHubResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf hubArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf hubArn

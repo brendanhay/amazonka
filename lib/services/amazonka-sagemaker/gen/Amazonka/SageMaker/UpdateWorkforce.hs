@@ -181,10 +181,10 @@ instance Prelude.Hashable UpdateWorkforce where
 
 instance Prelude.NFData UpdateWorkforce where
   rnf UpdateWorkforce' {..} =
-    Prelude.rnf oidcConfig
-      `Prelude.seq` Prelude.rnf sourceIpConfig
-      `Prelude.seq` Prelude.rnf workforceVpcConfig
-      `Prelude.seq` Prelude.rnf workforceName
+    Prelude.rnf oidcConfig `Prelude.seq`
+      Prelude.rnf sourceIpConfig `Prelude.seq`
+        Prelude.rnf workforceVpcConfig `Prelude.seq`
+          Prelude.rnf workforceName
 
 instance Data.ToHeaders UpdateWorkforce where
   toHeaders =
@@ -273,5 +273,5 @@ updateWorkforceResponse_workforce = Lens.lens (\UpdateWorkforceResponse' {workfo
 
 instance Prelude.NFData UpdateWorkforceResponse where
   rnf UpdateWorkforceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf workforce
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf workforce

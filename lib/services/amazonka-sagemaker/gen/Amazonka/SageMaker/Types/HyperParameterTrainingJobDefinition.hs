@@ -410,23 +410,23 @@ instance
     HyperParameterTrainingJobDefinition
   where
   rnf HyperParameterTrainingJobDefinition' {..} =
-    Prelude.rnf checkpointConfig
-      `Prelude.seq` Prelude.rnf definitionName
-      `Prelude.seq` Prelude.rnf enableInterContainerTrafficEncryption
-      `Prelude.seq` Prelude.rnf enableManagedSpotTraining
-      `Prelude.seq` Prelude.rnf enableNetworkIsolation
-      `Prelude.seq` Prelude.rnf hyperParameterRanges
-      `Prelude.seq` Prelude.rnf hyperParameterTuningResourceConfig
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf resourceConfig
-      `Prelude.seq` Prelude.rnf retryStrategy
-      `Prelude.seq` Prelude.rnf staticHyperParameters
-      `Prelude.seq` Prelude.rnf tuningObjective
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf algorithmSpecification
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf stoppingCondition
+    Prelude.rnf checkpointConfig `Prelude.seq`
+      Prelude.rnf definitionName `Prelude.seq`
+        Prelude.rnf enableInterContainerTrafficEncryption `Prelude.seq`
+          Prelude.rnf enableManagedSpotTraining `Prelude.seq`
+            Prelude.rnf enableNetworkIsolation `Prelude.seq`
+              Prelude.rnf hyperParameterRanges `Prelude.seq`
+                Prelude.rnf hyperParameterTuningResourceConfig `Prelude.seq`
+                  Prelude.rnf inputDataConfig `Prelude.seq`
+                    Prelude.rnf resourceConfig `Prelude.seq`
+                      Prelude.rnf retryStrategy `Prelude.seq`
+                        Prelude.rnf staticHyperParameters `Prelude.seq`
+                          Prelude.rnf tuningObjective `Prelude.seq`
+                            Prelude.rnf vpcConfig `Prelude.seq`
+                              Prelude.rnf algorithmSpecification `Prelude.seq`
+                                Prelude.rnf roleArn `Prelude.seq`
+                                  Prelude.rnf outputDataConfig `Prelude.seq`
+                                    Prelude.rnf stoppingCondition
 
 instance
   Data.ToJSON

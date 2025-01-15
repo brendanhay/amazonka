@@ -145,9 +145,9 @@ instance Prelude.Hashable DescribeEdgeDeploymentPlan where
 
 instance Prelude.NFData DescribeEdgeDeploymentPlan where
   rnf DescribeEdgeDeploymentPlan' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf edgeDeploymentPlanName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf edgeDeploymentPlanName
 
 instance Data.ToHeaders DescribeEdgeDeploymentPlan where
   toHeaders =
@@ -332,15 +332,15 @@ instance
     DescribeEdgeDeploymentPlanResponse
   where
   rnf DescribeEdgeDeploymentPlanResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf edgeDeploymentFailed
-      `Prelude.seq` Prelude.rnf edgeDeploymentPending
-      `Prelude.seq` Prelude.rnf edgeDeploymentSuccess
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf edgeDeploymentPlanArn
-      `Prelude.seq` Prelude.rnf edgeDeploymentPlanName
-      `Prelude.seq` Prelude.rnf modelConfigs
-      `Prelude.seq` Prelude.rnf deviceFleetName
-      `Prelude.seq` Prelude.rnf stages
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf edgeDeploymentFailed `Prelude.seq`
+        Prelude.rnf edgeDeploymentPending `Prelude.seq`
+          Prelude.rnf edgeDeploymentSuccess `Prelude.seq`
+            Prelude.rnf lastModifiedTime `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf httpStatus `Prelude.seq`
+                  Prelude.rnf edgeDeploymentPlanArn `Prelude.seq`
+                    Prelude.rnf edgeDeploymentPlanName `Prelude.seq`
+                      Prelude.rnf modelConfigs `Prelude.seq`
+                        Prelude.rnf deviceFleetName `Prelude.seq`
+                          Prelude.rnf stages

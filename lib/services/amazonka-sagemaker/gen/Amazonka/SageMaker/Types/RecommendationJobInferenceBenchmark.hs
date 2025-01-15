@@ -118,7 +118,7 @@ instance
     RecommendationJobInferenceBenchmark
   where
   rnf RecommendationJobInferenceBenchmark' {..} =
-    Prelude.rnf endpointConfiguration
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf modelConfiguration
+    Prelude.rnf endpointConfiguration `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf metrics `Prelude.seq`
+          Prelude.rnf modelConfiguration

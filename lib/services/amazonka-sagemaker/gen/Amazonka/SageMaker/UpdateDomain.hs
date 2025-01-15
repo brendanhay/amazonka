@@ -152,11 +152,11 @@ instance Prelude.Hashable UpdateDomain where
 
 instance Prelude.NFData UpdateDomain where
   rnf UpdateDomain' {..} =
-    Prelude.rnf appSecurityGroupManagement
-      `Prelude.seq` Prelude.rnf defaultSpaceSettings
-      `Prelude.seq` Prelude.rnf defaultUserSettings
-      `Prelude.seq` Prelude.rnf domainSettingsForUpdate
-      `Prelude.seq` Prelude.rnf domainId
+    Prelude.rnf appSecurityGroupManagement `Prelude.seq`
+      Prelude.rnf defaultSpaceSettings `Prelude.seq`
+        Prelude.rnf defaultUserSettings `Prelude.seq`
+          Prelude.rnf domainSettingsForUpdate `Prelude.seq`
+            Prelude.rnf domainId
 
 instance Data.ToHeaders UpdateDomain where
   toHeaders =
@@ -233,5 +233,5 @@ updateDomainResponse_httpStatus = Lens.lens (\UpdateDomainResponse' {httpStatus}
 
 instance Prelude.NFData UpdateDomainResponse where
   rnf UpdateDomainResponse' {..} =
-    Prelude.rnf domainArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf domainArn `Prelude.seq`
+      Prelude.rnf httpStatus

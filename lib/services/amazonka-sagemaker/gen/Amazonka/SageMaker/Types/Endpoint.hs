@@ -240,15 +240,15 @@ instance Prelude.Hashable Endpoint where
 
 instance Prelude.NFData Endpoint where
   rnf Endpoint' {..} =
-    Prelude.rnf dataCaptureConfig
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf monitoringSchedules
-      `Prelude.seq` Prelude.rnf productionVariants
-      `Prelude.seq` Prelude.rnf shadowProductionVariants
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf endpointArn
-      `Prelude.seq` Prelude.rnf endpointConfigName
-      `Prelude.seq` Prelude.rnf endpointStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf dataCaptureConfig `Prelude.seq`
+      Prelude.rnf failureReason `Prelude.seq`
+        Prelude.rnf monitoringSchedules `Prelude.seq`
+          Prelude.rnf productionVariants `Prelude.seq`
+            Prelude.rnf shadowProductionVariants `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf endpointName `Prelude.seq`
+                  Prelude.rnf endpointArn `Prelude.seq`
+                    Prelude.rnf endpointConfigName `Prelude.seq`
+                      Prelude.rnf endpointStatus `Prelude.seq`
+                        Prelude.rnf creationTime `Prelude.seq`
+                          Prelude.rnf lastModifiedTime

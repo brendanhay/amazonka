@@ -101,8 +101,8 @@ instance Prelude.Hashable NestedFilters where
 
 instance Prelude.NFData NestedFilters where
   rnf NestedFilters' {..} =
-    Prelude.rnf nestedPropertyName
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf nestedPropertyName `Prelude.seq`
+      Prelude.rnf filters
 
 instance Data.ToJSON NestedFilters where
   toJSON NestedFilters' {..} =

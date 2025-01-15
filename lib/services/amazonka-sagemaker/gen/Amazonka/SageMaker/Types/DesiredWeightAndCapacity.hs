@@ -83,9 +83,9 @@ instance Prelude.Hashable DesiredWeightAndCapacity where
 
 instance Prelude.NFData DesiredWeightAndCapacity where
   rnf DesiredWeightAndCapacity' {..} =
-    Prelude.rnf desiredInstanceCount
-      `Prelude.seq` Prelude.rnf desiredWeight
-      `Prelude.seq` Prelude.rnf variantName
+    Prelude.rnf desiredInstanceCount `Prelude.seq`
+      Prelude.rnf desiredWeight `Prelude.seq`
+        Prelude.rnf variantName
 
 instance Data.ToJSON DesiredWeightAndCapacity where
   toJSON DesiredWeightAndCapacity' {..} =

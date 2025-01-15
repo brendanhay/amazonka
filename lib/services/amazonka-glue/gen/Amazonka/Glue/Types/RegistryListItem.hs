@@ -125,9 +125,9 @@ instance Prelude.Hashable RegistryListItem where
 
 instance Prelude.NFData RegistryListItem where
   rnf RegistryListItem' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf registryArn
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedTime
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf registryArn `Prelude.seq`
+          Prelude.rnf registryName `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf updatedTime

@@ -85,8 +85,8 @@ instance Prelude.Hashable CloudWatchEncryption where
 
 instance Prelude.NFData CloudWatchEncryption where
   rnf CloudWatchEncryption' {..} =
-    Prelude.rnf cloudWatchEncryptionMode
-      `Prelude.seq` Prelude.rnf kmsKeyArn
+    Prelude.rnf cloudWatchEncryptionMode `Prelude.seq`
+      Prelude.rnf kmsKeyArn
 
 instance Data.ToJSON CloudWatchEncryption where
   toJSON CloudWatchEncryption' {..} =

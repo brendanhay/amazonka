@@ -135,10 +135,10 @@ instance Prelude.Hashable GetMLTransforms where
 
 instance Prelude.NFData GetMLTransforms where
   rnf GetMLTransforms' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sort
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sort
 
 instance Data.ToHeaders GetMLTransforms where
   toHeaders =
@@ -220,6 +220,6 @@ getMLTransformsResponse_transforms = Lens.lens (\GetMLTransformsResponse' {trans
 
 instance Prelude.NFData GetMLTransformsResponse where
   rnf GetMLTransformsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf transforms
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf transforms

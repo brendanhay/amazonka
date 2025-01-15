@@ -115,9 +115,9 @@ instance Prelude.Hashable MongoDBTarget where
 
 instance Prelude.NFData MongoDBTarget where
   rnf MongoDBTarget' {..} =
-    Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf scanAll
+    Prelude.rnf connectionName `Prelude.seq`
+      Prelude.rnf path `Prelude.seq`
+        Prelude.rnf scanAll
 
 instance Data.ToJSON MongoDBTarget where
   toJSON MongoDBTarget' {..} =

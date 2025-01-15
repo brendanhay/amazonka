@@ -195,7 +195,7 @@ getCustomEntityTypeResponse_httpStatus = Lens.lens (\GetCustomEntityTypeResponse
 
 instance Prelude.NFData GetCustomEntityTypeResponse where
   rnf GetCustomEntityTypeResponse' {..} =
-    Prelude.rnf contextWords
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf regexString
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf contextWords `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf regexString `Prelude.seq`
+          Prelude.rnf httpStatus

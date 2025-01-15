@@ -186,5 +186,5 @@ instance
     GetWorkflowRunPropertiesResponse
   where
   rnf GetWorkflowRunPropertiesResponse' {..} =
-    Prelude.rnf runProperties
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf runProperties `Prelude.seq`
+      Prelude.rnf httpStatus

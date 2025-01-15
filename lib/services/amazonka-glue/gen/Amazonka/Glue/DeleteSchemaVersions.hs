@@ -146,8 +146,8 @@ instance Prelude.Hashable DeleteSchemaVersions where
 
 instance Prelude.NFData DeleteSchemaVersions where
   rnf DeleteSchemaVersions' {..} =
-    Prelude.rnf schemaId
-      `Prelude.seq` Prelude.rnf versions
+    Prelude.rnf schemaId `Prelude.seq`
+      Prelude.rnf versions
 
 instance Data.ToHeaders DeleteSchemaVersions where
   toHeaders =
@@ -223,5 +223,5 @@ deleteSchemaVersionsResponse_httpStatus = Lens.lens (\DeleteSchemaVersionsRespon
 
 instance Prelude.NFData DeleteSchemaVersionsResponse where
   rnf DeleteSchemaVersionsResponse' {..} =
-    Prelude.rnf schemaVersionErrors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf schemaVersionErrors `Prelude.seq`
+      Prelude.rnf httpStatus

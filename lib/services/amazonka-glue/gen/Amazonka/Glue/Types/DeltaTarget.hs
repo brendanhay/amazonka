@@ -108,10 +108,10 @@ instance Prelude.Hashable DeltaTarget where
 
 instance Prelude.NFData DeltaTarget where
   rnf DeltaTarget' {..} =
-    Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf createNativeDeltaTable
-      `Prelude.seq` Prelude.rnf deltaTables
-      `Prelude.seq` Prelude.rnf writeManifest
+    Prelude.rnf connectionName `Prelude.seq`
+      Prelude.rnf createNativeDeltaTable `Prelude.seq`
+        Prelude.rnf deltaTables `Prelude.seq`
+          Prelude.rnf writeManifest
 
 instance Data.ToJSON DeltaTarget where
   toJSON DeltaTarget' {..} =

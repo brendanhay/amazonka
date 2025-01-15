@@ -172,13 +172,13 @@ instance Prelude.Hashable CrawlerHistory where
 
 instance Prelude.NFData CrawlerHistory where
   rnf CrawlerHistory' {..} =
-    Prelude.rnf crawlId
-      `Prelude.seq` Prelude.rnf dPUHour
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf logGroup
-      `Prelude.seq` Prelude.rnf logStream
-      `Prelude.seq` Prelude.rnf messagePrefix
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf summary
+    Prelude.rnf crawlId `Prelude.seq`
+      Prelude.rnf dPUHour `Prelude.seq`
+        Prelude.rnf endTime `Prelude.seq`
+          Prelude.rnf errorMessage `Prelude.seq`
+            Prelude.rnf logGroup `Prelude.seq`
+              Prelude.rnf logStream `Prelude.seq`
+                Prelude.rnf messagePrefix `Prelude.seq`
+                  Prelude.rnf startTime `Prelude.seq`
+                    Prelude.rnf state `Prelude.seq`
+                      Prelude.rnf summary

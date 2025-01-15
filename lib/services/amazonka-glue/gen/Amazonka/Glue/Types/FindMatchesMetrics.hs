@@ -224,9 +224,9 @@ instance Prelude.Hashable FindMatchesMetrics where
 
 instance Prelude.NFData FindMatchesMetrics where
   rnf FindMatchesMetrics' {..} =
-    Prelude.rnf areaUnderPRCurve
-      `Prelude.seq` Prelude.rnf columnImportances
-      `Prelude.seq` Prelude.rnf confusionMatrix
-      `Prelude.seq` Prelude.rnf f1
-      `Prelude.seq` Prelude.rnf precision
-      `Prelude.seq` Prelude.rnf recall
+    Prelude.rnf areaUnderPRCurve `Prelude.seq`
+      Prelude.rnf columnImportances `Prelude.seq`
+        Prelude.rnf confusionMatrix `Prelude.seq`
+          Prelude.rnf f1 `Prelude.seq`
+            Prelude.rnf precision `Prelude.seq`
+              Prelude.rnf recall

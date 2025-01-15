@@ -153,14 +153,14 @@ instance Prelude.Hashable SourceControlDetails where
 
 instance Prelude.NFData SourceControlDetails where
   rnf SourceControlDetails' {..} =
-    Prelude.rnf authStrategy
-      `Prelude.seq` Prelude.rnf authToken
-      `Prelude.seq` Prelude.rnf branch
-      `Prelude.seq` Prelude.rnf folder
-      `Prelude.seq` Prelude.rnf lastCommitId
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf repository
+    Prelude.rnf authStrategy `Prelude.seq`
+      Prelude.rnf authToken `Prelude.seq`
+        Prelude.rnf branch `Prelude.seq`
+          Prelude.rnf folder `Prelude.seq`
+            Prelude.rnf lastCommitId `Prelude.seq`
+              Prelude.rnf owner `Prelude.seq`
+                Prelude.rnf provider `Prelude.seq`
+                  Prelude.rnf repository
 
 instance Data.ToJSON SourceControlDetails where
   toJSON SourceControlDetails' {..} =

@@ -90,8 +90,8 @@ instance Prelude.Hashable EventBatchingCondition where
 
 instance Prelude.NFData EventBatchingCondition where
   rnf EventBatchingCondition' {..} =
-    Prelude.rnf batchWindow
-      `Prelude.seq` Prelude.rnf batchSize
+    Prelude.rnf batchWindow `Prelude.seq`
+      Prelude.rnf batchSize
 
 instance Data.ToJSON EventBatchingCondition where
   toJSON EventBatchingCondition' {..} =

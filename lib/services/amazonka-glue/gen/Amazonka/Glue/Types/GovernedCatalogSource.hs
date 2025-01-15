@@ -127,11 +127,11 @@ instance Prelude.Hashable GovernedCatalogSource where
 
 instance Prelude.NFData GovernedCatalogSource where
   rnf GovernedCatalogSource' {..} =
-    Prelude.rnf additionalOptions
-      `Prelude.seq` Prelude.rnf partitionPredicate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf table
+    Prelude.rnf additionalOptions `Prelude.seq`
+      Prelude.rnf partitionPredicate `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf database `Prelude.seq`
+            Prelude.rnf table
 
 instance Data.ToJSON GovernedCatalogSource where
   toJSON GovernedCatalogSource' {..} =

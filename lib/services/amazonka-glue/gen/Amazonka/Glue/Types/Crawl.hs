@@ -125,9 +125,9 @@ instance Prelude.Hashable Crawl where
 
 instance Prelude.NFData Crawl where
   rnf Crawl' {..} =
-    Prelude.rnf completedOn
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf logGroup
-      `Prelude.seq` Prelude.rnf logStream
-      `Prelude.seq` Prelude.rnf startedOn
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf completedOn `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf logGroup `Prelude.seq`
+          Prelude.rnf logStream `Prelude.seq`
+            Prelude.rnf startedOn `Prelude.seq`
+              Prelude.rnf state

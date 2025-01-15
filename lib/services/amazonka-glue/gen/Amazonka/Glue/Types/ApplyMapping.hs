@@ -101,9 +101,9 @@ instance Prelude.Hashable ApplyMapping where
 
 instance Prelude.NFData ApplyMapping where
   rnf ApplyMapping' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf mapping
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf inputs `Prelude.seq`
+        Prelude.rnf mapping
 
 instance Data.ToJSON ApplyMapping where
   toJSON ApplyMapping' {..} =

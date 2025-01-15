@@ -150,13 +150,13 @@ instance Prelude.Hashable RedshiftTarget where
 
 instance Prelude.NFData RedshiftTarget where
   rnf RedshiftTarget' {..} =
-    Prelude.rnf redshiftTmpDir
-      `Prelude.seq` Prelude.rnf tmpDirIAMRole
-      `Prelude.seq` Prelude.rnf upsertRedshiftOptions
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf table
+    Prelude.rnf redshiftTmpDir `Prelude.seq`
+      Prelude.rnf tmpDirIAMRole `Prelude.seq`
+        Prelude.rnf upsertRedshiftOptions `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf inputs `Prelude.seq`
+              Prelude.rnf database `Prelude.seq`
+                Prelude.rnf table
 
 instance Data.ToJSON RedshiftTarget where
   toJSON RedshiftTarget' {..} =

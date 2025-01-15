@@ -102,12 +102,12 @@ instance Core.AWSPager GetCrawlers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getCrawlers_nextToken
-          Lens..~ rs
-          Lens.^? getCrawlersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getCrawlers_nextToken
+              Lens..~ rs
+              Lens.^? getCrawlersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetCrawlers where
   type AWSResponse GetCrawlers = GetCrawlersResponse
@@ -130,8 +130,8 @@ instance Prelude.Hashable GetCrawlers where
 
 instance Prelude.NFData GetCrawlers where
   rnf GetCrawlers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders GetCrawlers where
   toHeaders =
@@ -213,6 +213,6 @@ getCrawlersResponse_httpStatus = Lens.lens (\GetCrawlersResponse' {httpStatus} -
 
 instance Prelude.NFData GetCrawlersResponse where
   rnf GetCrawlersResponse' {..} =
-    Prelude.rnf crawlers
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf crawlers `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -131,10 +131,10 @@ instance Prelude.Hashable ListDataQualityRulesets where
 
 instance Prelude.NFData ListDataQualityRulesets where
   rnf ListDataQualityRulesets' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf tags
 
 instance Data.ToHeaders ListDataQualityRulesets where
   toHeaders =
@@ -221,6 +221,6 @@ instance
     ListDataQualityRulesetsResponse
   where
   rnf ListDataQualityRulesetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf rulesets
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf rulesets `Prelude.seq`
+        Prelude.rnf httpStatus

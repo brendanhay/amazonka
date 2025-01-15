@@ -122,8 +122,8 @@ instance Prelude.Hashable LastActiveDefinition where
 
 instance Prelude.NFData LastActiveDefinition where
   rnf LastActiveDefinition' {..} =
-    Prelude.rnf blueprintLocation
-      `Prelude.seq` Prelude.rnf blueprintServiceLocation
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedOn
-      `Prelude.seq` Prelude.rnf parameterSpec
+    Prelude.rnf blueprintLocation `Prelude.seq`
+      Prelude.rnf blueprintServiceLocation `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf lastModifiedOn `Prelude.seq`
+            Prelude.rnf parameterSpec

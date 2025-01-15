@@ -185,6 +185,6 @@ instance
     BatchGetDataQualityResultResponse
   where
   rnf BatchGetDataQualityResultResponse' {..} =
-    Prelude.rnf resultsNotFound
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf results
+    Prelude.rnf resultsNotFound `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf results

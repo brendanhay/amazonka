@@ -186,12 +186,12 @@ instance Prelude.Hashable ConnectionInput where
 
 instance Prelude.NFData ConnectionInput where
   rnf ConnectionInput' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf matchCriteria
-      `Prelude.seq` Prelude.rnf physicalConnectionRequirements
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf connectionType
-      `Prelude.seq` Prelude.rnf connectionProperties
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf matchCriteria `Prelude.seq`
+        Prelude.rnf physicalConnectionRequirements `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf connectionType `Prelude.seq`
+              Prelude.rnf connectionProperties
 
 instance Data.ToJSON ConnectionInput where
   toJSON ConnectionInput' {..} =

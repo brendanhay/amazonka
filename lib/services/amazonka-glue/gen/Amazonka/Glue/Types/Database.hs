@@ -160,11 +160,11 @@ instance Prelude.Hashable Database where
 
 instance Prelude.NFData Database where
   rnf Database' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf createTableDefaultPermissions
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf targetDatabase
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf createTableDefaultPermissions `Prelude.seq`
+        Prelude.rnf createTime `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf locationUri `Prelude.seq`
+              Prelude.rnf parameters `Prelude.seq`
+                Prelude.rnf targetDatabase `Prelude.seq`
+                  Prelude.rnf name

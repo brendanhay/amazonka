@@ -151,13 +151,13 @@ instance Prelude.Hashable S3DirectTarget where
 
 instance Prelude.NFData S3DirectTarget where
   rnf S3DirectTarget' {..} =
-    Prelude.rnf compression
-      `Prelude.seq` Prelude.rnf partitionKeys
-      `Prelude.seq` Prelude.rnf schemaChangePolicy
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf compression `Prelude.seq`
+      Prelude.rnf partitionKeys `Prelude.seq`
+        Prelude.rnf schemaChangePolicy `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf inputs `Prelude.seq`
+              Prelude.rnf path `Prelude.seq`
+                Prelude.rnf format
 
 instance Data.ToJSON S3DirectTarget where
   toJSON S3DirectTarget' {..} =

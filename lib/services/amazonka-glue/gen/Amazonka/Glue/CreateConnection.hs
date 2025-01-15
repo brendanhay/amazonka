@@ -120,9 +120,9 @@ instance Prelude.Hashable CreateConnection where
 
 instance Prelude.NFData CreateConnection where
   rnf CreateConnection' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf connectionInput
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf connectionInput
 
 instance Data.ToHeaders CreateConnection where
   toHeaders =

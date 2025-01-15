@@ -158,5 +158,5 @@ getCrawlerResponse_httpStatus = Lens.lens (\GetCrawlerResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetCrawlerResponse where
   rnf GetCrawlerResponse' {..} =
-    Prelude.rnf crawler
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf crawler `Prelude.seq`
+      Prelude.rnf httpStatus

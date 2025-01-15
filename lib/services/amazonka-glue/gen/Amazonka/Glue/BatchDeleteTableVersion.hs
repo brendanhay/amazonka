@@ -145,10 +145,10 @@ instance Prelude.Hashable BatchDeleteTableVersion where
 
 instance Prelude.NFData BatchDeleteTableVersion where
   rnf BatchDeleteTableVersion' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf versionIds
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf versionIds
 
 instance Data.ToHeaders BatchDeleteTableVersion where
   toHeaders =
@@ -229,5 +229,5 @@ instance
     BatchDeleteTableVersionResponse
   where
   rnf BatchDeleteTableVersionResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -161,9 +161,9 @@ instance Prelude.Hashable GetSchemaVersion where
 
 instance Prelude.NFData GetSchemaVersion where
   rnf GetSchemaVersion' {..} =
-    Prelude.rnf schemaId
-      `Prelude.seq` Prelude.rnf schemaVersionId
-      `Prelude.seq` Prelude.rnf schemaVersionNumber
+    Prelude.rnf schemaId `Prelude.seq`
+      Prelude.rnf schemaVersionId `Prelude.seq`
+        Prelude.rnf schemaVersionNumber
 
 instance Data.ToHeaders GetSchemaVersion where
   toHeaders =
@@ -294,11 +294,11 @@ getSchemaVersionResponse_httpStatus = Lens.lens (\GetSchemaVersionResponse' {htt
 
 instance Prelude.NFData GetSchemaVersionResponse where
   rnf GetSchemaVersionResponse' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf dataFormat
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf schemaDefinition
-      `Prelude.seq` Prelude.rnf schemaVersionId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf versionNumber
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf dataFormat `Prelude.seq`
+        Prelude.rnf schemaArn `Prelude.seq`
+          Prelude.rnf schemaDefinition `Prelude.seq`
+            Prelude.rnf schemaVersionId `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf versionNumber `Prelude.seq`
+                  Prelude.rnf httpStatus

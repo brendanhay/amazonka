@@ -84,5 +84,5 @@ instance Prelude.Hashable TableError where
 
 instance Prelude.NFData TableError where
   rnf TableError' {..} =
-    Prelude.rnf errorDetail
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf errorDetail `Prelude.seq`
+      Prelude.rnf tableName

@@ -120,7 +120,7 @@ instance Prelude.Hashable ConfusionMatrix where
 
 instance Prelude.NFData ConfusionMatrix where
   rnf ConfusionMatrix' {..} =
-    Prelude.rnf numFalseNegatives
-      `Prelude.seq` Prelude.rnf numFalsePositives
-      `Prelude.seq` Prelude.rnf numTrueNegatives
-      `Prelude.seq` Prelude.rnf numTruePositives
+    Prelude.rnf numFalseNegatives `Prelude.seq`
+      Prelude.rnf numFalsePositives `Prelude.seq`
+        Prelude.rnf numTrueNegatives `Prelude.seq`
+          Prelude.rnf numTruePositives

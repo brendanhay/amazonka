@@ -90,8 +90,8 @@ instance Prelude.Hashable TransformEncryption where
 
 instance Prelude.NFData TransformEncryption where
   rnf TransformEncryption' {..} =
-    Prelude.rnf mlUserDataEncryption
-      `Prelude.seq` Prelude.rnf taskRunSecurityConfigurationName
+    Prelude.rnf mlUserDataEncryption `Prelude.seq`
+      Prelude.rnf taskRunSecurityConfigurationName
 
 instance Data.ToJSON TransformEncryption where
   toJSON TransformEncryption' {..} =

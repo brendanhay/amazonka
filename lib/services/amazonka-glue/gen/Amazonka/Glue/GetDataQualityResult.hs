@@ -292,15 +292,15 @@ getDataQualityResultResponse_httpStatus = Lens.lens (\GetDataQualityResultRespon
 
 instance Prelude.NFData GetDataQualityResultResponse where
   rnf GetDataQualityResultResponse' {..} =
-    Prelude.rnf completedOn
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf evaluationContext
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobRunId
-      `Prelude.seq` Prelude.rnf resultId
-      `Prelude.seq` Prelude.rnf ruleResults
-      `Prelude.seq` Prelude.rnf rulesetEvaluationRunId
-      `Prelude.seq` Prelude.rnf rulesetName
-      `Prelude.seq` Prelude.rnf score
-      `Prelude.seq` Prelude.rnf startedOn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf completedOn `Prelude.seq`
+      Prelude.rnf dataSource `Prelude.seq`
+        Prelude.rnf evaluationContext `Prelude.seq`
+          Prelude.rnf jobName `Prelude.seq`
+            Prelude.rnf jobRunId `Prelude.seq`
+              Prelude.rnf resultId `Prelude.seq`
+                Prelude.rnf ruleResults `Prelude.seq`
+                  Prelude.rnf rulesetEvaluationRunId `Prelude.seq`
+                    Prelude.rnf rulesetName `Prelude.seq`
+                      Prelude.rnf score `Prelude.seq`
+                        Prelude.rnf startedOn `Prelude.seq`
+                          Prelude.rnf httpStatus

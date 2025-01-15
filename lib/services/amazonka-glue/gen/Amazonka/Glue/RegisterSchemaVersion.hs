@@ -157,8 +157,8 @@ instance Prelude.Hashable RegisterSchemaVersion where
 
 instance Prelude.NFData RegisterSchemaVersion where
   rnf RegisterSchemaVersion' {..} =
-    Prelude.rnf schemaId
-      `Prelude.seq` Prelude.rnf schemaDefinition
+    Prelude.rnf schemaId `Prelude.seq`
+      Prelude.rnf schemaDefinition
 
 instance Data.ToHeaders RegisterSchemaVersion where
   toHeaders =
@@ -253,7 +253,7 @@ registerSchemaVersionResponse_httpStatus = Lens.lens (\RegisterSchemaVersionResp
 
 instance Prelude.NFData RegisterSchemaVersionResponse where
   rnf RegisterSchemaVersionResponse' {..} =
-    Prelude.rnf schemaVersionId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf versionNumber
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf schemaVersionId `Prelude.seq`
+      Prelude.rnf status `Prelude.seq`
+        Prelude.rnf versionNumber `Prelude.seq`
+          Prelude.rnf httpStatus

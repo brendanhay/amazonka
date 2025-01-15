@@ -424,17 +424,17 @@ instance Prelude.Hashable StartJobRun where
 
 instance Prelude.NFData StartJobRun where
   rnf StartJobRun' {..} =
-    Prelude.rnf allocatedCapacity
-      `Prelude.seq` Prelude.rnf arguments
-      `Prelude.seq` Prelude.rnf executionClass
-      `Prelude.seq` Prelude.rnf jobRunId
-      `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf notificationProperty
-      `Prelude.seq` Prelude.rnf numberOfWorkers
-      `Prelude.seq` Prelude.rnf securityConfiguration
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf workerType
-      `Prelude.seq` Prelude.rnf jobName
+    Prelude.rnf allocatedCapacity `Prelude.seq`
+      Prelude.rnf arguments `Prelude.seq`
+        Prelude.rnf executionClass `Prelude.seq`
+          Prelude.rnf jobRunId `Prelude.seq`
+            Prelude.rnf maxCapacity `Prelude.seq`
+              Prelude.rnf notificationProperty `Prelude.seq`
+                Prelude.rnf numberOfWorkers `Prelude.seq`
+                  Prelude.rnf securityConfiguration `Prelude.seq`
+                    Prelude.rnf timeout `Prelude.seq`
+                      Prelude.rnf workerType `Prelude.seq`
+                        Prelude.rnf jobName
 
 instance Data.ToHeaders StartJobRun where
   toHeaders =
@@ -518,5 +518,5 @@ startJobRunResponse_httpStatus = Lens.lens (\StartJobRunResponse' {httpStatus} -
 
 instance Prelude.NFData StartJobRunResponse where
   rnf StartJobRunResponse' {..} =
-    Prelude.rnf jobRunId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobRunId `Prelude.seq`
+      Prelude.rnf httpStatus

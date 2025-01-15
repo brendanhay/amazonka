@@ -142,11 +142,11 @@ instance Prelude.Hashable GlueTable where
 
 instance Prelude.NFData GlueTable where
   rnf GlueTable' {..} =
-    Prelude.rnf additionalOptions
-      `Prelude.seq` Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf additionalOptions `Prelude.seq`
+      Prelude.rnf catalogId `Prelude.seq`
+        Prelude.rnf connectionName `Prelude.seq`
+          Prelude.rnf databaseName `Prelude.seq`
+            Prelude.rnf tableName
 
 instance Data.ToJSON GlueTable where
   toJSON GlueTable' {..} =

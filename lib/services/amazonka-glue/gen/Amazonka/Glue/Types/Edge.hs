@@ -81,5 +81,5 @@ instance Prelude.Hashable Edge where
 
 instance Prelude.NFData Edge where
   rnf Edge' {..} =
-    Prelude.rnf destinationId
-      `Prelude.seq` Prelude.rnf sourceId
+    Prelude.rnf destinationId `Prelude.seq`
+      Prelude.rnf sourceId

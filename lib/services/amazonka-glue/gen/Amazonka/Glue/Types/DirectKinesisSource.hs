@@ -118,11 +118,11 @@ instance Prelude.Hashable DirectKinesisSource where
 
 instance Prelude.NFData DirectKinesisSource where
   rnf DirectKinesisSource' {..} =
-    Prelude.rnf dataPreviewOptions
-      `Prelude.seq` Prelude.rnf detectSchema
-      `Prelude.seq` Prelude.rnf streamingOptions
-      `Prelude.seq` Prelude.rnf windowSize
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf dataPreviewOptions `Prelude.seq`
+      Prelude.rnf detectSchema `Prelude.seq`
+        Prelude.rnf streamingOptions `Prelude.seq`
+          Prelude.rnf windowSize `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToJSON DirectKinesisSource where
   toJSON DirectKinesisSource' {..} =

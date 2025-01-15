@@ -120,10 +120,10 @@ instance Prelude.Hashable BasicCatalogTarget where
 
 instance Prelude.NFData BasicCatalogTarget where
   rnf BasicCatalogTarget' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf table
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf inputs `Prelude.seq`
+        Prelude.rnf database `Prelude.seq`
+          Prelude.rnf table
 
 instance Data.ToJSON BasicCatalogTarget where
   toJSON BasicCatalogTarget' {..} =

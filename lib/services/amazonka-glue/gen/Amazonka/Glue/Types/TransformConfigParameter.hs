@@ -162,13 +162,13 @@ instance Prelude.Hashable TransformConfigParameter where
 
 instance Prelude.NFData TransformConfigParameter where
   rnf TransformConfigParameter' {..} =
-    Prelude.rnf isOptional
-      `Prelude.seq` Prelude.rnf listType
-      `Prelude.seq` Prelude.rnf validationMessage
-      `Prelude.seq` Prelude.rnf validationRule
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf isOptional `Prelude.seq`
+      Prelude.rnf listType `Prelude.seq`
+        Prelude.rnf validationMessage `Prelude.seq`
+          Prelude.rnf validationRule `Prelude.seq`
+            Prelude.rnf value `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf type'
 
 instance Data.ToJSON TransformConfigParameter where
   toJSON TransformConfigParameter' {..} =

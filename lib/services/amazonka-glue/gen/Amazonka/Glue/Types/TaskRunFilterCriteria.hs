@@ -94,10 +94,10 @@ instance Prelude.Hashable TaskRunFilterCriteria where
 
 instance Prelude.NFData TaskRunFilterCriteria where
   rnf TaskRunFilterCriteria' {..} =
-    Prelude.rnf startedAfter
-      `Prelude.seq` Prelude.rnf startedBefore
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf taskRunType
+    Prelude.rnf startedAfter `Prelude.seq`
+      Prelude.rnf startedBefore `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf taskRunType
 
 instance Data.ToJSON TaskRunFilterCriteria where
   toJSON TaskRunFilterCriteria' {..} =

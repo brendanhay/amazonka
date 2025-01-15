@@ -125,8 +125,8 @@ instance
     PutDataCatalogEncryptionSettings
   where
   rnf PutDataCatalogEncryptionSettings' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf dataCatalogEncryptionSettings
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf dataCatalogEncryptionSettings
 
 instance
   Data.ToHeaders

@@ -137,10 +137,10 @@ instance Prelude.Hashable Statement where
 
 instance Prelude.NFData Statement where
   rnf Statement' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf completedOn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf output
-      `Prelude.seq` Prelude.rnf progress
-      `Prelude.seq` Prelude.rnf startedOn
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf completedOn `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf output `Prelude.seq`
+            Prelude.rnf progress `Prelude.seq`
+              Prelude.rnf startedOn `Prelude.seq`
+                Prelude.rnf state

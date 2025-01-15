@@ -127,11 +127,11 @@ instance Prelude.Hashable S3CatalogSource where
 
 instance Prelude.NFData S3CatalogSource where
   rnf S3CatalogSource' {..} =
-    Prelude.rnf additionalOptions
-      `Prelude.seq` Prelude.rnf partitionPredicate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf table
+    Prelude.rnf additionalOptions `Prelude.seq`
+      Prelude.rnf partitionPredicate `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf database `Prelude.seq`
+            Prelude.rnf table
 
 instance Data.ToJSON S3CatalogSource where
   toJSON S3CatalogSource' {..} =

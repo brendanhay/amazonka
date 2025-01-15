@@ -76,5 +76,5 @@ instance Prelude.Hashable ColumnRowFilter where
 
 instance Prelude.NFData ColumnRowFilter where
   rnf ColumnRowFilter' {..} =
-    Prelude.rnf columnName
-      `Prelude.seq` Prelude.rnf rowFilterExpression
+    Prelude.rnf columnName `Prelude.seq`
+      Prelude.rnf rowFilterExpression

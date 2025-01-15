@@ -146,12 +146,12 @@ instance Core.AWSPager GetTableVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getTableVersions_nextToken
-          Lens..~ rs
-          Lens.^? getTableVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getTableVersions_nextToken
+              Lens..~ rs
+              Lens.^? getTableVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetTableVersions where
   type
@@ -179,11 +179,11 @@ instance Prelude.Hashable GetTableVersions where
 
 instance Prelude.NFData GetTableVersions where
   rnf GetTableVersions' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf databaseName `Prelude.seq`
+            Prelude.rnf tableName
 
 instance Data.ToHeaders GetTableVersions where
   toHeaders =
@@ -269,6 +269,6 @@ getTableVersionsResponse_httpStatus = Lens.lens (\GetTableVersionsResponse' {htt
 
 instance Prelude.NFData GetTableVersionsResponse where
   rnf GetTableVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tableVersions
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf tableVersions `Prelude.seq`
+        Prelude.rnf httpStatus

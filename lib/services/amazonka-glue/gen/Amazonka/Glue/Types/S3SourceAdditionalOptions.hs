@@ -87,8 +87,8 @@ instance Prelude.Hashable S3SourceAdditionalOptions where
 
 instance Prelude.NFData S3SourceAdditionalOptions where
   rnf S3SourceAdditionalOptions' {..} =
-    Prelude.rnf boundedFiles
-      `Prelude.seq` Prelude.rnf boundedSize
+    Prelude.rnf boundedFiles `Prelude.seq`
+      Prelude.rnf boundedSize
 
 instance Data.ToJSON S3SourceAdditionalOptions where
   toJSON S3SourceAdditionalOptions' {..} =

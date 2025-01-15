@@ -98,9 +98,9 @@ instance Prelude.Hashable UpdateXMLClassifierRequest where
 
 instance Prelude.NFData UpdateXMLClassifierRequest where
   rnf UpdateXMLClassifierRequest' {..} =
-    Prelude.rnf classification
-      `Prelude.seq` Prelude.rnf rowTag
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf classification `Prelude.seq`
+      Prelude.rnf rowTag `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON UpdateXMLClassifierRequest where
   toJSON UpdateXMLClassifierRequest' {..} =

@@ -168,5 +168,5 @@ deleteMLTransformResponse_httpStatus = Lens.lens (\DeleteMLTransformResponse' {h
 
 instance Prelude.NFData DeleteMLTransformResponse where
   rnf DeleteMLTransformResponse' {..} =
-    Prelude.rnf transformId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transformId `Prelude.seq`
+      Prelude.rnf httpStatus

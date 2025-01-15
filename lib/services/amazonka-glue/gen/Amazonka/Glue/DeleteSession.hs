@@ -108,8 +108,8 @@ instance Prelude.Hashable DeleteSession where
 
 instance Prelude.NFData DeleteSession where
   rnf DeleteSession' {..} =
-    Prelude.rnf requestOrigin
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf requestOrigin `Prelude.seq`
+      Prelude.rnf id
 
 instance Data.ToHeaders DeleteSession where
   toHeaders =

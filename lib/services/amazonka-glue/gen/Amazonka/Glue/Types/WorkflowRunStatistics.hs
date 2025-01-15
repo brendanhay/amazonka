@@ -147,11 +147,11 @@ instance Prelude.Hashable WorkflowRunStatistics where
 
 instance Prelude.NFData WorkflowRunStatistics where
   rnf WorkflowRunStatistics' {..} =
-    Prelude.rnf erroredActions
-      `Prelude.seq` Prelude.rnf failedActions
-      `Prelude.seq` Prelude.rnf runningActions
-      `Prelude.seq` Prelude.rnf stoppedActions
-      `Prelude.seq` Prelude.rnf succeededActions
-      `Prelude.seq` Prelude.rnf timeoutActions
-      `Prelude.seq` Prelude.rnf totalActions
-      `Prelude.seq` Prelude.rnf waitingActions
+    Prelude.rnf erroredActions `Prelude.seq`
+      Prelude.rnf failedActions `Prelude.seq`
+        Prelude.rnf runningActions `Prelude.seq`
+          Prelude.rnf stoppedActions `Prelude.seq`
+            Prelude.rnf succeededActions `Prelude.seq`
+              Prelude.rnf timeoutActions `Prelude.seq`
+                Prelude.rnf totalActions `Prelude.seq`
+                  Prelude.rnf waitingActions

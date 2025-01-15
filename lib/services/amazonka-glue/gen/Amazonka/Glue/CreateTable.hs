@@ -151,11 +151,11 @@ instance Prelude.Hashable CreateTable where
 
 instance Prelude.NFData CreateTable where
   rnf CreateTable' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf partitionIndexes
-      `Prelude.seq` Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableInput
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf partitionIndexes `Prelude.seq`
+        Prelude.rnf transactionId `Prelude.seq`
+          Prelude.rnf databaseName `Prelude.seq`
+            Prelude.rnf tableInput
 
 instance Data.ToHeaders CreateTable where
   toHeaders =

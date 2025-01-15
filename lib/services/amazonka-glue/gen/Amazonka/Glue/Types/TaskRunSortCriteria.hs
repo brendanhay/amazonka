@@ -83,8 +83,8 @@ instance Prelude.Hashable TaskRunSortCriteria where
 
 instance Prelude.NFData TaskRunSortCriteria where
   rnf TaskRunSortCriteria' {..} =
-    Prelude.rnf column
-      `Prelude.seq` Prelude.rnf sortDirection
+    Prelude.rnf column `Prelude.seq`
+      Prelude.rnf sortDirection
 
 instance Data.ToJSON TaskRunSortCriteria where
   toJSON TaskRunSortCriteria' {..} =

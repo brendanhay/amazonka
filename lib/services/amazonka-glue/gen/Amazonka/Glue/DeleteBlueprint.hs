@@ -161,5 +161,5 @@ deleteBlueprintResponse_httpStatus = Lens.lens (\DeleteBlueprintResponse' {httpS
 
 instance Prelude.NFData DeleteBlueprintResponse where
   rnf DeleteBlueprintResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf httpStatus

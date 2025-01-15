@@ -234,16 +234,16 @@ instance Prelude.Hashable CreateTrigger where
 
 instance Prelude.NFData CreateTrigger where
   rnf CreateTrigger' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eventBatchingCondition
-      `Prelude.seq` Prelude.rnf predicate
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf startOnCreation
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workflowName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf eventBatchingCondition `Prelude.seq`
+        Prelude.rnf predicate `Prelude.seq`
+          Prelude.rnf schedule `Prelude.seq`
+            Prelude.rnf startOnCreation `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf workflowName `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf type' `Prelude.seq`
+                      Prelude.rnf actions
 
 instance Data.ToHeaders CreateTrigger where
   toHeaders =
@@ -323,5 +323,5 @@ createTriggerResponse_httpStatus = Lens.lens (\CreateTriggerResponse' {httpStatu
 
 instance Prelude.NFData CreateTriggerResponse where
   rnf CreateTriggerResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf httpStatus

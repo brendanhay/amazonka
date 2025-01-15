@@ -489,19 +489,19 @@ instance Prelude.Hashable CreateMLTransform where
 
 instance Prelude.NFData CreateMLTransform where
   rnf CreateMLTransform' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf glueVersion
-      `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf maxRetries
-      `Prelude.seq` Prelude.rnf numberOfWorkers
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf transformEncryption
-      `Prelude.seq` Prelude.rnf workerType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputRecordTables
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf role'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf glueVersion `Prelude.seq`
+        Prelude.rnf maxCapacity `Prelude.seq`
+          Prelude.rnf maxRetries `Prelude.seq`
+            Prelude.rnf numberOfWorkers `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf timeout `Prelude.seq`
+                  Prelude.rnf transformEncryption `Prelude.seq`
+                    Prelude.rnf workerType `Prelude.seq`
+                      Prelude.rnf name `Prelude.seq`
+                        Prelude.rnf inputRecordTables `Prelude.seq`
+                          Prelude.rnf parameters `Prelude.seq`
+                            Prelude.rnf role'
 
 instance Data.ToHeaders CreateMLTransform where
   toHeaders =
@@ -586,5 +586,5 @@ createMLTransformResponse_httpStatus = Lens.lens (\CreateMLTransformResponse' {h
 
 instance Prelude.NFData CreateMLTransformResponse where
   rnf CreateMLTransformResponse' {..} =
-    Prelude.rnf transformId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf transformId `Prelude.seq`
+      Prelude.rnf httpStatus

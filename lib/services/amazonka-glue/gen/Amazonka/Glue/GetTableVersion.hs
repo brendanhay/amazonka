@@ -144,10 +144,10 @@ instance Prelude.Hashable GetTableVersion where
 
 instance Prelude.NFData GetTableVersion where
   rnf GetTableVersion' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf versionId `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf tableName
 
 instance Data.ToHeaders GetTableVersion where
   toHeaders =
@@ -220,5 +220,5 @@ getTableVersionResponse_httpStatus = Lens.lens (\GetTableVersionResponse' {httpS
 
 instance Prelude.NFData GetTableVersionResponse where
   rnf GetTableVersionResponse' {..} =
-    Prelude.rnf tableVersion
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tableVersion `Prelude.seq`
+      Prelude.rnf httpStatus

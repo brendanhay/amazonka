@@ -83,8 +83,8 @@ instance
     BatchUpdatePartitionRequestEntry
   where
   rnf BatchUpdatePartitionRequestEntry' {..} =
-    Prelude.rnf partitionValueList
-      `Prelude.seq` Prelude.rnf partitionInput
+    Prelude.rnf partitionValueList `Prelude.seq`
+      Prelude.rnf partitionInput
 
 instance Data.ToJSON BatchUpdatePartitionRequestEntry where
   toJSON BatchUpdatePartitionRequestEntry' {..} =

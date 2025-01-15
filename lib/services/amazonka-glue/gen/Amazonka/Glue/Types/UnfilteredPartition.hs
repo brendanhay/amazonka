@@ -91,6 +91,6 @@ instance Prelude.Hashable UnfilteredPartition where
 
 instance Prelude.NFData UnfilteredPartition where
   rnf UnfilteredPartition' {..} =
-    Prelude.rnf authorizedColumns
-      `Prelude.seq` Prelude.rnf isRegisteredWithLakeFormation
-      `Prelude.seq` Prelude.rnf partition
+    Prelude.rnf authorizedColumns `Prelude.seq`
+      Prelude.rnf isRegisteredWithLakeFormation `Prelude.seq`
+        Prelude.rnf partition

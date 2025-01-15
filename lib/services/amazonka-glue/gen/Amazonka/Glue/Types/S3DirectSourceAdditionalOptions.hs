@@ -120,10 +120,10 @@ instance
     S3DirectSourceAdditionalOptions
   where
   rnf S3DirectSourceAdditionalOptions' {..} =
-    Prelude.rnf boundedFiles
-      `Prelude.seq` Prelude.rnf boundedSize
-      `Prelude.seq` Prelude.rnf enableSamplePath
-      `Prelude.seq` Prelude.rnf samplePath
+    Prelude.rnf boundedFiles `Prelude.seq`
+      Prelude.rnf boundedSize `Prelude.seq`
+        Prelude.rnf enableSamplePath `Prelude.seq`
+          Prelude.rnf samplePath
 
 instance Data.ToJSON S3DirectSourceAdditionalOptions where
   toJSON S3DirectSourceAdditionalOptions' {..} =

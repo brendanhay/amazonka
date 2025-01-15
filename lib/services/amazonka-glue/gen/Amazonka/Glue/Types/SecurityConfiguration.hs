@@ -96,6 +96,6 @@ instance Prelude.Hashable SecurityConfiguration where
 
 instance Prelude.NFData SecurityConfiguration where
   rnf SecurityConfiguration' {..} =
-    Prelude.rnf createdTimeStamp
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf createdTimeStamp `Prelude.seq`
+      Prelude.rnf encryptionConfiguration `Prelude.seq`
+        Prelude.rnf name

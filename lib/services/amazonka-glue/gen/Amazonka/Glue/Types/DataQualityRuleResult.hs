@@ -104,7 +104,7 @@ instance Prelude.Hashable DataQualityRuleResult where
 
 instance Prelude.NFData DataQualityRuleResult where
   rnf DataQualityRuleResult' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf evaluationMessage
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf result
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf evaluationMessage `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf result

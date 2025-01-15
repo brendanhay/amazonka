@@ -195,15 +195,15 @@ instance Prelude.Hashable UpdateJobFromSourceControl where
 
 instance Prelude.NFData UpdateJobFromSourceControl where
   rnf UpdateJobFromSourceControl' {..} =
-    Prelude.rnf authStrategy
-      `Prelude.seq` Prelude.rnf authToken
-      `Prelude.seq` Prelude.rnf branchName
-      `Prelude.seq` Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf folder
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf repositoryOwner
+    Prelude.rnf authStrategy `Prelude.seq`
+      Prelude.rnf authToken `Prelude.seq`
+        Prelude.rnf branchName `Prelude.seq`
+          Prelude.rnf commitId `Prelude.seq`
+            Prelude.rnf folder `Prelude.seq`
+              Prelude.rnf jobName `Prelude.seq`
+                Prelude.rnf provider `Prelude.seq`
+                  Prelude.rnf repositoryName `Prelude.seq`
+                    Prelude.rnf repositoryOwner
 
 instance Data.ToHeaders UpdateJobFromSourceControl where
   toHeaders =
@@ -288,5 +288,5 @@ instance
     UpdateJobFromSourceControlResponse
   where
   rnf UpdateJobFromSourceControlResponse' {..} =
-    Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobName `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -93,8 +93,8 @@ instance
     DataQualityEvaluationRunAdditionalRunOptions
   where
   rnf DataQualityEvaluationRunAdditionalRunOptions' {..} =
-    Prelude.rnf cloudWatchMetricsEnabled
-      `Prelude.seq` Prelude.rnf resultsS3Prefix
+    Prelude.rnf cloudWatchMetricsEnabled `Prelude.seq`
+      Prelude.rnf resultsS3Prefix
 
 instance
   Data.ToJSON

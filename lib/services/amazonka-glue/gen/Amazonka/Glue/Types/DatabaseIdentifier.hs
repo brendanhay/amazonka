@@ -80,8 +80,8 @@ instance Prelude.Hashable DatabaseIdentifier where
 
 instance Prelude.NFData DatabaseIdentifier where
   rnf DatabaseIdentifier' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName
 
 instance Data.ToJSON DatabaseIdentifier where
   toJSON DatabaseIdentifier' {..} =

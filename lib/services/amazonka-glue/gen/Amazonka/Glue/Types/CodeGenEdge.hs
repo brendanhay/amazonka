@@ -95,9 +95,9 @@ instance Prelude.Hashable CodeGenEdge where
 
 instance Prelude.NFData CodeGenEdge where
   rnf CodeGenEdge' {..} =
-    Prelude.rnf targetParameter
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf targetParameter `Prelude.seq`
+      Prelude.rnf source `Prelude.seq`
+        Prelude.rnf target
 
 instance Data.ToJSON CodeGenEdge where
   toJSON CodeGenEdge' {..} =

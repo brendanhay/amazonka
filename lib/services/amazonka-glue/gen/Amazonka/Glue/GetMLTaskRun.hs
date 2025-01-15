@@ -130,8 +130,8 @@ instance Prelude.Hashable GetMLTaskRun where
 
 instance Prelude.NFData GetMLTaskRun where
   rnf GetMLTaskRun' {..} =
-    Prelude.rnf transformId
-      `Prelude.seq` Prelude.rnf taskRunId
+    Prelude.rnf transformId `Prelude.seq`
+      Prelude.rnf taskRunId
 
 instance Data.ToHeaders GetMLTaskRun where
   toHeaders =
@@ -283,14 +283,14 @@ getMLTaskRunResponse_httpStatus = Lens.lens (\GetMLTaskRunResponse' {httpStatus}
 
 instance Prelude.NFData GetMLTaskRunResponse where
   rnf GetMLTaskRunResponse' {..} =
-    Prelude.rnf completedOn
-      `Prelude.seq` Prelude.rnf errorString
-      `Prelude.seq` Prelude.rnf executionTime
-      `Prelude.seq` Prelude.rnf lastModifiedOn
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf startedOn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf taskRunId
-      `Prelude.seq` Prelude.rnf transformId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf completedOn `Prelude.seq`
+      Prelude.rnf errorString `Prelude.seq`
+        Prelude.rnf executionTime `Prelude.seq`
+          Prelude.rnf lastModifiedOn `Prelude.seq`
+            Prelude.rnf logGroupName `Prelude.seq`
+              Prelude.rnf properties `Prelude.seq`
+                Prelude.rnf startedOn `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf taskRunId `Prelude.seq`
+                      Prelude.rnf transformId `Prelude.seq`
+                        Prelude.rnf httpStatus

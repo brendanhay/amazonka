@@ -138,9 +138,9 @@ instance Prelude.Hashable CreateRegistry where
 
 instance Prelude.NFData CreateRegistry where
   rnf CreateRegistry' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf registryName
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf registryName
 
 instance Data.ToHeaders CreateRegistry where
   toHeaders =
@@ -239,8 +239,8 @@ createRegistryResponse_httpStatus = Lens.lens (\CreateRegistryResponse' {httpSta
 
 instance Prelude.NFData CreateRegistryResponse where
   rnf CreateRegistryResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf registryArn
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf registryArn `Prelude.seq`
+        Prelude.rnf registryName `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf httpStatus

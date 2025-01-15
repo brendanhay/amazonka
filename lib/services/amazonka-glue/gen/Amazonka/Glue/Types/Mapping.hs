@@ -160,12 +160,12 @@ instance Prelude.Hashable Mapping where
 
 instance Prelude.NFData Mapping where
   rnf Mapping' {..} =
-    Prelude.rnf children
-      `Prelude.seq` Prelude.rnf dropped
-      `Prelude.seq` Prelude.rnf fromPath
-      `Prelude.seq` Prelude.rnf fromType
-      `Prelude.seq` Prelude.rnf toKey
-      `Prelude.seq` Prelude.rnf toType
+    Prelude.rnf children `Prelude.seq`
+      Prelude.rnf dropped `Prelude.seq`
+        Prelude.rnf fromPath `Prelude.seq`
+          Prelude.rnf fromType `Prelude.seq`
+            Prelude.rnf toKey `Prelude.seq`
+              Prelude.rnf toType
 
 instance Data.ToJSON Mapping where
   toJSON Mapping' {..} =

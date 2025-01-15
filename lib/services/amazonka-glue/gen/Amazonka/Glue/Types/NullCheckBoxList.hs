@@ -95,9 +95,9 @@ instance Prelude.Hashable NullCheckBoxList where
 
 instance Prelude.NFData NullCheckBoxList where
   rnf NullCheckBoxList' {..} =
-    Prelude.rnf isEmpty
-      `Prelude.seq` Prelude.rnf isNegOne
-      `Prelude.seq` Prelude.rnf isNullString
+    Prelude.rnf isEmpty `Prelude.seq`
+      Prelude.rnf isNegOne `Prelude.seq`
+        Prelude.rnf isNullString
 
 instance Data.ToJSON NullCheckBoxList where
   toJSON NullCheckBoxList' {..} =

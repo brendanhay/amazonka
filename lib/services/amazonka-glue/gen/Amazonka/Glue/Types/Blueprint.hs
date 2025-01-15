@@ -209,13 +209,13 @@ instance Prelude.Hashable Blueprint where
 
 instance Prelude.NFData Blueprint where
   rnf Blueprint' {..} =
-    Prelude.rnf blueprintLocation
-      `Prelude.seq` Prelude.rnf blueprintServiceLocation
-      `Prelude.seq` Prelude.rnf createdOn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf lastActiveDefinition
-      `Prelude.seq` Prelude.rnf lastModifiedOn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parameterSpec
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf blueprintLocation `Prelude.seq`
+      Prelude.rnf blueprintServiceLocation `Prelude.seq`
+        Prelude.rnf createdOn `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf errorMessage `Prelude.seq`
+              Prelude.rnf lastActiveDefinition `Prelude.seq`
+                Prelude.rnf lastModifiedOn `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf parameterSpec `Prelude.seq`
+                      Prelude.rnf status

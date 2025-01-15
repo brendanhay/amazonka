@@ -187,5 +187,5 @@ getJobBookmarkResponse_httpStatus = Lens.lens (\GetJobBookmarkResponse' {httpSta
 
 instance Prelude.NFData GetJobBookmarkResponse where
   rnf GetJobBookmarkResponse' {..} =
-    Prelude.rnf jobBookmarkEntry
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobBookmarkEntry `Prelude.seq`
+      Prelude.rnf httpStatus

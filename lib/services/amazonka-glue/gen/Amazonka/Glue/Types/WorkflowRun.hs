@@ -196,14 +196,14 @@ instance Prelude.Hashable WorkflowRun where
 
 instance Prelude.NFData WorkflowRun where
   rnf WorkflowRun' {..} =
-    Prelude.rnf completedOn
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf graph
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf previousRunId
-      `Prelude.seq` Prelude.rnf startedOn
-      `Prelude.seq` Prelude.rnf startingEventBatchCondition
-      `Prelude.seq` Prelude.rnf statistics
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf workflowRunId
-      `Prelude.seq` Prelude.rnf workflowRunProperties
+    Prelude.rnf completedOn `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf graph `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf previousRunId `Prelude.seq`
+              Prelude.rnf startedOn `Prelude.seq`
+                Prelude.rnf startingEventBatchCondition `Prelude.seq`
+                  Prelude.rnf statistics `Prelude.seq`
+                    Prelude.rnf status `Prelude.seq`
+                      Prelude.rnf workflowRunId `Prelude.seq`
+                        Prelude.rnf workflowRunProperties

@@ -101,8 +101,8 @@ instance Prelude.Hashable DevEndpointCustomLibraries where
 
 instance Prelude.NFData DevEndpointCustomLibraries where
   rnf DevEndpointCustomLibraries' {..} =
-    Prelude.rnf extraJarsS3Path
-      `Prelude.seq` Prelude.rnf extraPythonLibsS3Path
+    Prelude.rnf extraJarsS3Path `Prelude.seq`
+      Prelude.rnf extraPythonLibsS3Path
 
 instance Data.ToJSON DevEndpointCustomLibraries where
   toJSON DevEndpointCustomLibraries' {..} =

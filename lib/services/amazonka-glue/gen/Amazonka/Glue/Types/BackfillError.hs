@@ -103,5 +103,5 @@ instance Prelude.Hashable BackfillError where
 
 instance Prelude.NFData BackfillError where
   rnf BackfillError' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf partitions
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf partitions

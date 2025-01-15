@@ -93,9 +93,9 @@ instance
     DataQualityRuleRecommendationRunFilter
   where
   rnf DataQualityRuleRecommendationRunFilter' {..} =
-    Prelude.rnf startedAfter
-      `Prelude.seq` Prelude.rnf startedBefore
-      `Prelude.seq` Prelude.rnf dataSource
+    Prelude.rnf startedAfter `Prelude.seq`
+      Prelude.rnf startedBefore `Prelude.seq`
+        Prelude.rnf dataSource
 
 instance
   Data.ToJSON

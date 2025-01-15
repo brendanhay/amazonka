@@ -146,8 +146,8 @@ instance Prelude.Hashable GetSchemaByDefinition where
 
 instance Prelude.NFData GetSchemaByDefinition where
   rnf GetSchemaByDefinition' {..} =
-    Prelude.rnf schemaId
-      `Prelude.seq` Prelude.rnf schemaDefinition
+    Prelude.rnf schemaId `Prelude.seq`
+      Prelude.rnf schemaDefinition
 
 instance Data.ToHeaders GetSchemaByDefinition where
   toHeaders =
@@ -260,9 +260,9 @@ getSchemaByDefinitionResponse_httpStatus = Lens.lens (\GetSchemaByDefinitionResp
 
 instance Prelude.NFData GetSchemaByDefinitionResponse where
   rnf GetSchemaByDefinitionResponse' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf dataFormat
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf schemaVersionId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf dataFormat `Prelude.seq`
+        Prelude.rnf schemaArn `Prelude.seq`
+          Prelude.rnf schemaVersionId `Prelude.seq`
+            Prelude.rnf status `Prelude.seq`
+              Prelude.rnf httpStatus

@@ -120,8 +120,8 @@ instance Prelude.Hashable BatchGetWorkflows where
 
 instance Prelude.NFData BatchGetWorkflows where
   rnf BatchGetWorkflows' {..} =
-    Prelude.rnf includeGraph
-      `Prelude.seq` Prelude.rnf names
+    Prelude.rnf includeGraph `Prelude.seq`
+      Prelude.rnf names
 
 instance Data.ToHeaders BatchGetWorkflows where
   toHeaders =
@@ -201,6 +201,6 @@ batchGetWorkflowsResponse_httpStatus = Lens.lens (\BatchGetWorkflowsResponse' {h
 
 instance Prelude.NFData BatchGetWorkflowsResponse where
   rnf BatchGetWorkflowsResponse' {..} =
-    Prelude.rnf missingWorkflows
-      `Prelude.seq` Prelude.rnf workflows
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf missingWorkflows `Prelude.seq`
+      Prelude.rnf workflows `Prelude.seq`
+        Prelude.rnf httpStatus

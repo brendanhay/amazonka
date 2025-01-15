@@ -133,10 +133,10 @@ instance Prelude.Hashable GetPartition where
 
 instance Prelude.NFData GetPartition where
   rnf GetPartition' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf partitionValues
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf partitionValues
 
 instance Data.ToHeaders GetPartition where
   toHeaders =
@@ -209,5 +209,5 @@ getPartitionResponse_httpStatus = Lens.lens (\GetPartitionResponse' {httpStatus}
 
 instance Prelude.NFData GetPartitionResponse where
   rnf GetPartitionResponse' {..} =
-    Prelude.rnf partition
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf partition `Prelude.seq`
+      Prelude.rnf httpStatus

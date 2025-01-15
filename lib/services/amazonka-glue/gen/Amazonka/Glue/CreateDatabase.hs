@@ -120,9 +120,9 @@ instance Prelude.Hashable CreateDatabase where
 
 instance Prelude.NFData CreateDatabase where
   rnf CreateDatabase' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf databaseInput
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf databaseInput
 
 instance Data.ToHeaders CreateDatabase where
   toHeaders =

@@ -327,24 +327,24 @@ instance
 
 instance Prelude.NFData KinesisStreamingSourceOptions where
   rnf KinesisStreamingSourceOptions' {..} =
-    Prelude.rnf addIdleTimeBetweenReads
-      `Prelude.seq` Prelude.rnf avoidEmptyBatches
-      `Prelude.seq` Prelude.rnf classification
-      `Prelude.seq` Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf describeShardInterval
-      `Prelude.seq` Prelude.rnf endpointUrl
-      `Prelude.seq` Prelude.rnf idleTimeBetweenReadsInMs
-      `Prelude.seq` Prelude.rnf maxFetchRecordsPerShard
-      `Prelude.seq` Prelude.rnf maxFetchTimeInMs
-      `Prelude.seq` Prelude.rnf maxRecordPerRead
-      `Prelude.seq` Prelude.rnf maxRetryIntervalMs
-      `Prelude.seq` Prelude.rnf numRetries
-      `Prelude.seq` Prelude.rnf retryIntervalMs
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf roleSessionName
-      `Prelude.seq` Prelude.rnf startingPosition
-      `Prelude.seq` Prelude.rnf streamArn
-      `Prelude.seq` Prelude.rnf streamName
+    Prelude.rnf addIdleTimeBetweenReads `Prelude.seq`
+      Prelude.rnf avoidEmptyBatches `Prelude.seq`
+        Prelude.rnf classification `Prelude.seq`
+          Prelude.rnf delimiter `Prelude.seq`
+            Prelude.rnf describeShardInterval `Prelude.seq`
+              Prelude.rnf endpointUrl `Prelude.seq`
+                Prelude.rnf idleTimeBetweenReadsInMs `Prelude.seq`
+                  Prelude.rnf maxFetchRecordsPerShard `Prelude.seq`
+                    Prelude.rnf maxFetchTimeInMs `Prelude.seq`
+                      Prelude.rnf maxRecordPerRead `Prelude.seq`
+                        Prelude.rnf maxRetryIntervalMs `Prelude.seq`
+                          Prelude.rnf numRetries `Prelude.seq`
+                            Prelude.rnf retryIntervalMs `Prelude.seq`
+                              Prelude.rnf roleArn `Prelude.seq`
+                                Prelude.rnf roleSessionName `Prelude.seq`
+                                  Prelude.rnf startingPosition `Prelude.seq`
+                                    Prelude.rnf streamArn `Prelude.seq`
+                                      Prelude.rnf streamName
 
 instance Data.ToJSON KinesisStreamingSourceOptions where
   toJSON KinesisStreamingSourceOptions' {..} =

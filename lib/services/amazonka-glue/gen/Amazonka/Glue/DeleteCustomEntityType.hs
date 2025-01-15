@@ -167,5 +167,5 @@ instance
     DeleteCustomEntityTypeResponse
   where
   rnf DeleteCustomEntityTypeResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf httpStatus

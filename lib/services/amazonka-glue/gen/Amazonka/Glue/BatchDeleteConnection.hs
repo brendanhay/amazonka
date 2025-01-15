@@ -111,8 +111,8 @@ instance Prelude.Hashable BatchDeleteConnection where
 
 instance Prelude.NFData BatchDeleteConnection where
   rnf BatchDeleteConnection' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf connectionNameList
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf connectionNameList
 
 instance Data.ToHeaders BatchDeleteConnection where
   toHeaders =
@@ -201,6 +201,6 @@ batchDeleteConnectionResponse_httpStatus = Lens.lens (\BatchDeleteConnectionResp
 
 instance Prelude.NFData BatchDeleteConnectionResponse where
   rnf BatchDeleteConnectionResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf succeeded
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf succeeded `Prelude.seq`
+        Prelude.rnf httpStatus

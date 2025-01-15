@@ -94,6 +94,6 @@ instance Prelude.Hashable BatchStopJobRunError where
 
 instance Prelude.NFData BatchStopJobRunError where
   rnf BatchStopJobRunError' {..} =
-    Prelude.rnf errorDetail
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobRunId
+    Prelude.rnf errorDetail `Prelude.seq`
+      Prelude.rnf jobName `Prelude.seq`
+        Prelude.rnf jobRunId

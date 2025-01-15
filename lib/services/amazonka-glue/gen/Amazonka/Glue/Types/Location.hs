@@ -81,9 +81,9 @@ instance Prelude.Hashable Location where
 
 instance Prelude.NFData Location where
   rnf Location' {..} =
-    Prelude.rnf dynamoDB
-      `Prelude.seq` Prelude.rnf jdbc
-      `Prelude.seq` Prelude.rnf s3
+    Prelude.rnf dynamoDB `Prelude.seq`
+      Prelude.rnf jdbc `Prelude.seq`
+        Prelude.rnf s3
 
 instance Data.ToJSON Location where
   toJSON Location' {..} =

@@ -114,10 +114,10 @@ instance Prelude.Hashable Join where
 
 instance Prelude.NFData Join where
   rnf Join' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf joinType
-      `Prelude.seq` Prelude.rnf columns
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf inputs `Prelude.seq`
+        Prelude.rnf joinType `Prelude.seq`
+          Prelude.rnf columns
 
 instance Data.ToJSON Join where
   toJSON Join' {..} =

@@ -189,12 +189,12 @@ instance Prelude.Hashable Workflow where
 
 instance Prelude.NFData Workflow where
   rnf Workflow' {..} =
-    Prelude.rnf blueprintDetails
-      `Prelude.seq` Prelude.rnf createdOn
-      `Prelude.seq` Prelude.rnf defaultRunProperties
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf graph
-      `Prelude.seq` Prelude.rnf lastModifiedOn
-      `Prelude.seq` Prelude.rnf lastRun
-      `Prelude.seq` Prelude.rnf maxConcurrentRuns
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf blueprintDetails `Prelude.seq`
+      Prelude.rnf createdOn `Prelude.seq`
+        Prelude.rnf defaultRunProperties `Prelude.seq`
+          Prelude.rnf description `Prelude.seq`
+            Prelude.rnf graph `Prelude.seq`
+              Prelude.rnf lastModifiedOn `Prelude.seq`
+                Prelude.rnf lastRun `Prelude.seq`
+                  Prelude.rnf maxConcurrentRuns `Prelude.seq`
+                    Prelude.rnf name

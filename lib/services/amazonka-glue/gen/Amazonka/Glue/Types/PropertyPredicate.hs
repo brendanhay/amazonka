@@ -81,9 +81,9 @@ instance Prelude.Hashable PropertyPredicate where
 
 instance Prelude.NFData PropertyPredicate where
   rnf PropertyPredicate' {..} =
-    Prelude.rnf comparator
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf comparator `Prelude.seq`
+      Prelude.rnf key `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON PropertyPredicate where
   toJSON PropertyPredicate' {..} =

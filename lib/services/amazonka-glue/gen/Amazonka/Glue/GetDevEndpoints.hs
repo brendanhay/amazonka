@@ -108,12 +108,12 @@ instance Core.AWSPager GetDevEndpoints where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getDevEndpoints_nextToken
-          Lens..~ rs
-          Lens.^? getDevEndpointsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getDevEndpoints_nextToken
+              Lens..~ rs
+              Lens.^? getDevEndpointsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDevEndpoints where
   type
@@ -138,8 +138,8 @@ instance Prelude.Hashable GetDevEndpoints where
 
 instance Prelude.NFData GetDevEndpoints where
   rnf GetDevEndpoints' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders GetDevEndpoints where
   toHeaders =
@@ -222,6 +222,6 @@ getDevEndpointsResponse_httpStatus = Lens.lens (\GetDevEndpointsResponse' {httpS
 
 instance Prelude.NFData GetDevEndpointsResponse where
   rnf GetDevEndpointsResponse' {..} =
-    Prelude.rnf devEndpoints
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf devEndpoints `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -86,5 +86,5 @@ instance Prelude.Hashable EvaluationMetrics where
 
 instance Prelude.NFData EvaluationMetrics where
   rnf EvaluationMetrics' {..} =
-    Prelude.rnf findMatchesMetrics
-      `Prelude.seq` Prelude.rnf transformType
+    Prelude.rnf findMatchesMetrics `Prelude.seq`
+      Prelude.rnf transformType

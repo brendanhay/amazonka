@@ -146,10 +146,10 @@ instance Prelude.Hashable BatchUpdatePartition where
 
 instance Prelude.NFData BatchUpdatePartition where
   rnf BatchUpdatePartition' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf entries
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf entries
 
 instance Data.ToHeaders BatchUpdatePartition where
   toHeaders =
@@ -227,5 +227,5 @@ batchUpdatePartitionResponse_httpStatus = Lens.lens (\BatchUpdatePartitionRespon
 
 instance Prelude.NFData BatchUpdatePartitionResponse where
   rnf BatchUpdatePartitionResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf httpStatus

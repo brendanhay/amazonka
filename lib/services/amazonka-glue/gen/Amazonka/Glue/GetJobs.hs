@@ -102,12 +102,12 @@ instance Core.AWSPager GetJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getJobs_nextToken
-          Lens..~ rs
-          Lens.^? getJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getJobs_nextToken
+              Lens..~ rs
+              Lens.^? getJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetJobs where
   type AWSResponse GetJobs = GetJobsResponse
@@ -130,8 +130,8 @@ instance Prelude.Hashable GetJobs where
 
 instance Prelude.NFData GetJobs where
   rnf GetJobs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders GetJobs where
   toHeaders =
@@ -210,6 +210,6 @@ getJobsResponse_httpStatus = Lens.lens (\GetJobsResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetJobsResponse where
   rnf GetJobsResponse' {..} =
-    Prelude.rnf jobs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

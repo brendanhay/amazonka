@@ -130,9 +130,9 @@ instance Prelude.Hashable GetUserDefinedFunction where
 
 instance Prelude.NFData GetUserDefinedFunction where
   rnf GetUserDefinedFunction' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf functionName
 
 instance Data.ToHeaders GetUserDefinedFunction where
   toHeaders =
@@ -209,5 +209,5 @@ instance
     GetUserDefinedFunctionResponse
   where
   rnf GetUserDefinedFunctionResponse' {..} =
-    Prelude.rnf userDefinedFunction
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf userDefinedFunction `Prelude.seq`
+      Prelude.rnf httpStatus

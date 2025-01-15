@@ -132,10 +132,10 @@ instance Prelude.Hashable CreateBlueprint where
 
 instance Prelude.NFData CreateBlueprint where
   rnf CreateBlueprint' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf blueprintLocation
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf blueprintLocation
 
 instance Data.ToHeaders CreateBlueprint where
   toHeaders =
@@ -208,5 +208,5 @@ createBlueprintResponse_httpStatus = Lens.lens (\CreateBlueprintResponse' {httpS
 
 instance Prelude.NFData CreateBlueprintResponse where
   rnf CreateBlueprintResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf httpStatus

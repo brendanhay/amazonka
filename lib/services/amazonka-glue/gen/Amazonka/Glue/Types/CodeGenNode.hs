@@ -107,10 +107,10 @@ instance Prelude.Hashable CodeGenNode where
 
 instance Prelude.NFData CodeGenNode where
   rnf CodeGenNode' {..} =
-    Prelude.rnf lineNumber
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf nodeType
-      `Prelude.seq` Prelude.rnf args
+    Prelude.rnf lineNumber `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf nodeType `Prelude.seq`
+          Prelude.rnf args
 
 instance Data.ToJSON CodeGenNode where
   toJSON CodeGenNode' {..} =

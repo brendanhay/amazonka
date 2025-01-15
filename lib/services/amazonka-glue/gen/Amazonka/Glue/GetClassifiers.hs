@@ -102,12 +102,12 @@ instance Core.AWSPager GetClassifiers where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getClassifiers_nextToken
-          Lens..~ rs
-          Lens.^? getClassifiersResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getClassifiers_nextToken
+              Lens..~ rs
+              Lens.^? getClassifiersResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetClassifiers where
   type
@@ -132,8 +132,8 @@ instance Prelude.Hashable GetClassifiers where
 
 instance Prelude.NFData GetClassifiers where
   rnf GetClassifiers' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders GetClassifiers where
   toHeaders =
@@ -213,6 +213,6 @@ getClassifiersResponse_httpStatus = Lens.lens (\GetClassifiersResponse' {httpSta
 
 instance Prelude.NFData GetClassifiersResponse where
   rnf GetClassifiersResponse' {..} =
-    Prelude.rnf classifiers
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf classifiers `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -122,11 +122,11 @@ instance Prelude.Hashable RedshiftSource where
 
 instance Prelude.NFData RedshiftSource where
   rnf RedshiftSource' {..} =
-    Prelude.rnf redshiftTmpDir
-      `Prelude.seq` Prelude.rnf tmpDirIAMRole
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf table
+    Prelude.rnf redshiftTmpDir `Prelude.seq`
+      Prelude.rnf tmpDirIAMRole `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf database `Prelude.seq`
+            Prelude.rnf table
 
 instance Data.ToJSON RedshiftSource where
   toJSON RedshiftSource' {..} =

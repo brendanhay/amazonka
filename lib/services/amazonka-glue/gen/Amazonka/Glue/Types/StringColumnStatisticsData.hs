@@ -116,10 +116,10 @@ instance Prelude.Hashable StringColumnStatisticsData where
 
 instance Prelude.NFData StringColumnStatisticsData where
   rnf StringColumnStatisticsData' {..} =
-    Prelude.rnf maximumLength
-      `Prelude.seq` Prelude.rnf averageLength
-      `Prelude.seq` Prelude.rnf numberOfNulls
-      `Prelude.seq` Prelude.rnf numberOfDistinctValues
+    Prelude.rnf maximumLength `Prelude.seq`
+      Prelude.rnf averageLength `Prelude.seq`
+        Prelude.rnf numberOfNulls `Prelude.seq`
+          Prelude.rnf numberOfDistinctValues
 
 instance Data.ToJSON StringColumnStatisticsData where
   toJSON StringColumnStatisticsData' {..} =

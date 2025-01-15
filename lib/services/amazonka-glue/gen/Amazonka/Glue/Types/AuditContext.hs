@@ -81,9 +81,9 @@ instance Prelude.Hashable AuditContext where
 
 instance Prelude.NFData AuditContext where
   rnf AuditContext' {..} =
-    Prelude.rnf additionalAuditContext
-      `Prelude.seq` Prelude.rnf allColumnsRequested
-      `Prelude.seq` Prelude.rnf requestedColumns
+    Prelude.rnf additionalAuditContext `Prelude.seq`
+      Prelude.rnf allColumnsRequested `Prelude.seq`
+        Prelude.rnf requestedColumns
 
 instance Data.ToJSON AuditContext where
   toJSON AuditContext' {..} =

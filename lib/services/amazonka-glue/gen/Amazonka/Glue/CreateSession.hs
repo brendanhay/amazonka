@@ -320,21 +320,21 @@ instance Prelude.Hashable CreateSession where
 
 instance Prelude.NFData CreateSession where
   rnf CreateSession' {..} =
-    Prelude.rnf connections
-      `Prelude.seq` Prelude.rnf defaultArguments
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf glueVersion
-      `Prelude.seq` Prelude.rnf idleTimeout
-      `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf numberOfWorkers
-      `Prelude.seq` Prelude.rnf requestOrigin
-      `Prelude.seq` Prelude.rnf securityConfiguration
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf workerType
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf command
+    Prelude.rnf connections `Prelude.seq`
+      Prelude.rnf defaultArguments `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf glueVersion `Prelude.seq`
+            Prelude.rnf idleTimeout `Prelude.seq`
+              Prelude.rnf maxCapacity `Prelude.seq`
+                Prelude.rnf numberOfWorkers `Prelude.seq`
+                  Prelude.rnf requestOrigin `Prelude.seq`
+                    Prelude.rnf securityConfiguration `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf timeout `Prelude.seq`
+                          Prelude.rnf workerType `Prelude.seq`
+                            Prelude.rnf id `Prelude.seq`
+                              Prelude.rnf role' `Prelude.seq`
+                                Prelude.rnf command
 
 instance Data.ToHeaders CreateSession where
   toHeaders =
@@ -420,5 +420,5 @@ createSessionResponse_httpStatus = Lens.lens (\CreateSessionResponse' {httpStatu
 
 instance Prelude.NFData CreateSessionResponse where
   rnf CreateSessionResponse' {..} =
-    Prelude.rnf session
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf session `Prelude.seq`
+      Prelude.rnf httpStatus

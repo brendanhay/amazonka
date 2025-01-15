@@ -103,12 +103,12 @@ instance Core.AWSPager GetSecurityConfigurations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getSecurityConfigurations_nextToken
-          Lens..~ rs
-          Lens.^? getSecurityConfigurationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getSecurityConfigurations_nextToken
+              Lens..~ rs
+              Lens.^? getSecurityConfigurationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetSecurityConfigurations where
   type
@@ -136,8 +136,8 @@ instance Prelude.Hashable GetSecurityConfigurations where
 
 instance Prelude.NFData GetSecurityConfigurations where
   rnf GetSecurityConfigurations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders GetSecurityConfigurations where
   toHeaders =
@@ -225,6 +225,6 @@ instance
     GetSecurityConfigurationsResponse
   where
   rnf GetSecurityConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf securityConfigurations
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf securityConfigurations `Prelude.seq`
+        Prelude.rnf httpStatus

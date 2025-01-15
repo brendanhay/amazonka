@@ -194,7 +194,7 @@ deleteRegistryResponse_httpStatus = Lens.lens (\DeleteRegistryResponse' {httpSta
 
 instance Prelude.NFData DeleteRegistryResponse where
   rnf DeleteRegistryResponse' {..} =
-    Prelude.rnf registryArn
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf registryArn `Prelude.seq`
+      Prelude.rnf registryName `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

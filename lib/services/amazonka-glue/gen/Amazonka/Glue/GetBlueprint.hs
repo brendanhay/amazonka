@@ -117,9 +117,9 @@ instance Prelude.Hashable GetBlueprint where
 
 instance Prelude.NFData GetBlueprint where
   rnf GetBlueprint' {..} =
-    Prelude.rnf includeBlueprint
-      `Prelude.seq` Prelude.rnf includeParameterSpec
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf includeBlueprint `Prelude.seq`
+      Prelude.rnf includeParameterSpec `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders GetBlueprint where
   toHeaders =
@@ -192,5 +192,5 @@ getBlueprintResponse_httpStatus = Lens.lens (\GetBlueprintResponse' {httpStatus}
 
 instance Prelude.NFData GetBlueprintResponse where
   rnf GetBlueprintResponse' {..} =
-    Prelude.rnf blueprint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blueprint `Prelude.seq`
+      Prelude.rnf httpStatus

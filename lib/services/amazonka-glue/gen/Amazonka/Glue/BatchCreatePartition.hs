@@ -141,10 +141,10 @@ instance Prelude.Hashable BatchCreatePartition where
 
 instance Prelude.NFData BatchCreatePartition where
   rnf BatchCreatePartition' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf partitionInputList
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf partitionInputList
 
 instance Data.ToHeaders BatchCreatePartition where
   toHeaders =
@@ -220,5 +220,5 @@ batchCreatePartitionResponse_httpStatus = Lens.lens (\BatchCreatePartitionRespon
 
 instance Prelude.NFData BatchCreatePartitionResponse where
   rnf BatchCreatePartitionResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf httpStatus

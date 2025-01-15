@@ -84,5 +84,5 @@ instance Prelude.Hashable ColumnStatisticsError where
 
 instance Prelude.NFData ColumnStatisticsError where
   rnf ColumnStatisticsError' {..} =
-    Prelude.rnf columnStatistics
-      `Prelude.seq` Prelude.rnf error
+    Prelude.rnf columnStatistics `Prelude.seq`
+      Prelude.rnf error

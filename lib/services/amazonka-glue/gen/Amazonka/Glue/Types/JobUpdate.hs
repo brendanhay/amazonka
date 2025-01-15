@@ -511,26 +511,26 @@ instance Prelude.Hashable JobUpdate where
 
 instance Prelude.NFData JobUpdate where
   rnf JobUpdate' {..} =
-    Prelude.rnf allocatedCapacity
-      `Prelude.seq` Prelude.rnf codeGenConfigurationNodes
-      `Prelude.seq` Prelude.rnf command
-      `Prelude.seq` Prelude.rnf connections
-      `Prelude.seq` Prelude.rnf defaultArguments
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf executionClass
-      `Prelude.seq` Prelude.rnf executionProperty
-      `Prelude.seq` Prelude.rnf glueVersion
-      `Prelude.seq` Prelude.rnf logUri
-      `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf maxRetries
-      `Prelude.seq` Prelude.rnf nonOverridableArguments
-      `Prelude.seq` Prelude.rnf notificationProperty
-      `Prelude.seq` Prelude.rnf numberOfWorkers
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf securityConfiguration
-      `Prelude.seq` Prelude.rnf sourceControlDetails
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf workerType
+    Prelude.rnf allocatedCapacity `Prelude.seq`
+      Prelude.rnf codeGenConfigurationNodes `Prelude.seq`
+        Prelude.rnf command `Prelude.seq`
+          Prelude.rnf connections `Prelude.seq`
+            Prelude.rnf defaultArguments `Prelude.seq`
+              Prelude.rnf description `Prelude.seq`
+                Prelude.rnf executionClass `Prelude.seq`
+                  Prelude.rnf executionProperty `Prelude.seq`
+                    Prelude.rnf glueVersion `Prelude.seq`
+                      Prelude.rnf logUri `Prelude.seq`
+                        Prelude.rnf maxCapacity `Prelude.seq`
+                          Prelude.rnf maxRetries `Prelude.seq`
+                            Prelude.rnf nonOverridableArguments `Prelude.seq`
+                              Prelude.rnf notificationProperty `Prelude.seq`
+                                Prelude.rnf numberOfWorkers `Prelude.seq`
+                                  Prelude.rnf role' `Prelude.seq`
+                                    Prelude.rnf securityConfiguration `Prelude.seq`
+                                      Prelude.rnf sourceControlDetails `Prelude.seq`
+                                        Prelude.rnf timeout `Prelude.seq`
+                                          Prelude.rnf workerType
 
 instance Data.ToJSON JobUpdate where
   toJSON JobUpdate' {..} =

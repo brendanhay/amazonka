@@ -208,15 +208,15 @@ instance Prelude.Hashable CsvClassifier where
 
 instance Prelude.NFData CsvClassifier where
   rnf CsvClassifier' {..} =
-    Prelude.rnf allowSingleColumn
-      `Prelude.seq` Prelude.rnf containsHeader
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf customDatatypeConfigured
-      `Prelude.seq` Prelude.rnf customDatatypes
-      `Prelude.seq` Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf disableValueTrimming
-      `Prelude.seq` Prelude.rnf header
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf quoteSymbol
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf allowSingleColumn `Prelude.seq`
+      Prelude.rnf containsHeader `Prelude.seq`
+        Prelude.rnf creationTime `Prelude.seq`
+          Prelude.rnf customDatatypeConfigured `Prelude.seq`
+            Prelude.rnf customDatatypes `Prelude.seq`
+              Prelude.rnf delimiter `Prelude.seq`
+                Prelude.rnf disableValueTrimming `Prelude.seq`
+                  Prelude.rnf header `Prelude.seq`
+                    Prelude.rnf lastUpdated `Prelude.seq`
+                      Prelude.rnf quoteSymbol `Prelude.seq`
+                        Prelude.rnf version `Prelude.seq`
+                          Prelude.rnf name

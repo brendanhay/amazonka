@@ -125,9 +125,9 @@ instance Prelude.Hashable LastCrawlInfo where
 
 instance Prelude.NFData LastCrawlInfo where
   rnf LastCrawlInfo' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf logGroup
-      `Prelude.seq` Prelude.rnf logStream
-      `Prelude.seq` Prelude.rnf messagePrefix
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf errorMessage `Prelude.seq`
+      Prelude.rnf logGroup `Prelude.seq`
+        Prelude.rnf logStream `Prelude.seq`
+          Prelude.rnf messagePrefix `Prelude.seq`
+            Prelude.rnf startTime `Prelude.seq`
+              Prelude.rnf status

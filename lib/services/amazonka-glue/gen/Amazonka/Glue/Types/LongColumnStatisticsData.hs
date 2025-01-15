@@ -109,10 +109,10 @@ instance Prelude.Hashable LongColumnStatisticsData where
 
 instance Prelude.NFData LongColumnStatisticsData where
   rnf LongColumnStatisticsData' {..} =
-    Prelude.rnf maximumValue
-      `Prelude.seq` Prelude.rnf minimumValue
-      `Prelude.seq` Prelude.rnf numberOfNulls
-      `Prelude.seq` Prelude.rnf numberOfDistinctValues
+    Prelude.rnf maximumValue `Prelude.seq`
+      Prelude.rnf minimumValue `Prelude.seq`
+        Prelude.rnf numberOfNulls `Prelude.seq`
+          Prelude.rnf numberOfDistinctValues
 
 instance Data.ToJSON LongColumnStatisticsData where
   toJSON LongColumnStatisticsData' {..} =

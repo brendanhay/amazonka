@@ -159,10 +159,10 @@ instance Prelude.Hashable GrokClassifier where
 
 instance Prelude.NFData GrokClassifier where
   rnf GrokClassifier' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf customPatterns
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf classification
-      `Prelude.seq` Prelude.rnf grokPattern
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf customPatterns `Prelude.seq`
+        Prelude.rnf lastUpdated `Prelude.seq`
+          Prelude.rnf version `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf classification `Prelude.seq`
+                Prelude.rnf grokPattern

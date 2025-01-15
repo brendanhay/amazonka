@@ -124,12 +124,12 @@ instance Prelude.Hashable MappingEntry where
 
 instance Prelude.NFData MappingEntry where
   rnf MappingEntry' {..} =
-    Prelude.rnf sourcePath
-      `Prelude.seq` Prelude.rnf sourceTable
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf targetPath
-      `Prelude.seq` Prelude.rnf targetTable
-      `Prelude.seq` Prelude.rnf targetType
+    Prelude.rnf sourcePath `Prelude.seq`
+      Prelude.rnf sourceTable `Prelude.seq`
+        Prelude.rnf sourceType `Prelude.seq`
+          Prelude.rnf targetPath `Prelude.seq`
+            Prelude.rnf targetTable `Prelude.seq`
+              Prelude.rnf targetType
 
 instance Data.ToJSON MappingEntry where
   toJSON MappingEntry' {..} =

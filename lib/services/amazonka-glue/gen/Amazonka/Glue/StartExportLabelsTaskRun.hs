@@ -122,8 +122,8 @@ instance Prelude.Hashable StartExportLabelsTaskRun where
 
 instance Prelude.NFData StartExportLabelsTaskRun where
   rnf StartExportLabelsTaskRun' {..} =
-    Prelude.rnf transformId
-      `Prelude.seq` Prelude.rnf outputS3Path
+    Prelude.rnf transformId `Prelude.seq`
+      Prelude.rnf outputS3Path
 
 instance Data.ToHeaders StartExportLabelsTaskRun where
   toHeaders =
@@ -199,5 +199,5 @@ instance
     StartExportLabelsTaskRunResponse
   where
   rnf StartExportLabelsTaskRunResponse' {..} =
-    Prelude.rnf taskRunId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf taskRunId `Prelude.seq`
+      Prelude.rnf httpStatus

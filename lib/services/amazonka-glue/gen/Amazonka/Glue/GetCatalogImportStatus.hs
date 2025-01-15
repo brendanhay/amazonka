@@ -172,5 +172,5 @@ instance
     GetCatalogImportStatusResponse
   where
   rnf GetCatalogImportStatusResponse' {..} =
-    Prelude.rnf importStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf importStatus `Prelude.seq`
+      Prelude.rnf httpStatus

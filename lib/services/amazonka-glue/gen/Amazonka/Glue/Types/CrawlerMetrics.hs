@@ -149,11 +149,11 @@ instance Prelude.Hashable CrawlerMetrics where
 
 instance Prelude.NFData CrawlerMetrics where
   rnf CrawlerMetrics' {..} =
-    Prelude.rnf crawlerName
-      `Prelude.seq` Prelude.rnf lastRuntimeSeconds
-      `Prelude.seq` Prelude.rnf medianRuntimeSeconds
-      `Prelude.seq` Prelude.rnf stillEstimating
-      `Prelude.seq` Prelude.rnf tablesCreated
-      `Prelude.seq` Prelude.rnf tablesDeleted
-      `Prelude.seq` Prelude.rnf tablesUpdated
-      `Prelude.seq` Prelude.rnf timeLeftSeconds
+    Prelude.rnf crawlerName `Prelude.seq`
+      Prelude.rnf lastRuntimeSeconds `Prelude.seq`
+        Prelude.rnf medianRuntimeSeconds `Prelude.seq`
+          Prelude.rnf stillEstimating `Prelude.seq`
+            Prelude.rnf tablesCreated `Prelude.seq`
+              Prelude.rnf tablesDeleted `Prelude.seq`
+                Prelude.rnf tablesUpdated `Prelude.seq`
+                  Prelude.rnf timeLeftSeconds

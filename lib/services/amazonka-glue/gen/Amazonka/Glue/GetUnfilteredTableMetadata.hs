@@ -158,11 +158,11 @@ instance Prelude.Hashable GetUnfilteredTableMetadata where
 
 instance Prelude.NFData GetUnfilteredTableMetadata where
   rnf GetUnfilteredTableMetadata' {..} =
-    Prelude.rnf auditContext
-      `Prelude.seq` Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf supportedPermissionTypes
+    Prelude.rnf auditContext `Prelude.seq`
+      Prelude.rnf catalogId `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf supportedPermissionTypes
 
 instance Data.ToHeaders GetUnfilteredTableMetadata where
   toHeaders =
@@ -268,8 +268,8 @@ instance
     GetUnfilteredTableMetadataResponse
   where
   rnf GetUnfilteredTableMetadataResponse' {..} =
-    Prelude.rnf authorizedColumns
-      `Prelude.seq` Prelude.rnf cellFilters
-      `Prelude.seq` Prelude.rnf isRegisteredWithLakeFormation
-      `Prelude.seq` Prelude.rnf table
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authorizedColumns `Prelude.seq`
+      Prelude.rnf cellFilters `Prelude.seq`
+        Prelude.rnf isRegisteredWithLakeFormation `Prelude.seq`
+          Prelude.rnf table `Prelude.seq`
+            Prelude.rnf httpStatus

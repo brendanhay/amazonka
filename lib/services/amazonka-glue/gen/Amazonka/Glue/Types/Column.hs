@@ -104,10 +104,10 @@ instance Prelude.Hashable Column where
 
 instance Prelude.NFData Column where
   rnf Column' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf comment `Prelude.seq`
+      Prelude.rnf parameters `Prelude.seq`
+        Prelude.rnf type' `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToJSON Column where
   toJSON Column' {..} =

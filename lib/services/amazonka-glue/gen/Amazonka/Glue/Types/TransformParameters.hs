@@ -95,8 +95,8 @@ instance Prelude.Hashable TransformParameters where
 
 instance Prelude.NFData TransformParameters where
   rnf TransformParameters' {..} =
-    Prelude.rnf findMatchesParameters
-      `Prelude.seq` Prelude.rnf transformType
+    Prelude.rnf findMatchesParameters `Prelude.seq`
+      Prelude.rnf transformType
 
 instance Data.ToJSON TransformParameters where
   toJSON TransformParameters' {..} =

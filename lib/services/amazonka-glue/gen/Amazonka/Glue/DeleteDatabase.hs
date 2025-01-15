@@ -124,8 +124,8 @@ instance Prelude.Hashable DeleteDatabase where
 
 instance Prelude.NFData DeleteDatabase where
   rnf DeleteDatabase' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders DeleteDatabase where
   toHeaders =

@@ -135,10 +135,10 @@ instance Prelude.Hashable JobBookmarkEntry where
 
 instance Prelude.NFData JobBookmarkEntry where
   rnf JobBookmarkEntry' {..} =
-    Prelude.rnf attempt
-      `Prelude.seq` Prelude.rnf jobBookmark
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf previousRunId
-      `Prelude.seq` Prelude.rnf run
-      `Prelude.seq` Prelude.rnf runId
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf attempt `Prelude.seq`
+      Prelude.rnf jobBookmark `Prelude.seq`
+        Prelude.rnf jobName `Prelude.seq`
+          Prelude.rnf previousRunId `Prelude.seq`
+            Prelude.rnf run `Prelude.seq`
+              Prelude.rnf runId `Prelude.seq`
+                Prelude.rnf version

@@ -97,9 +97,9 @@ instance Prelude.Hashable RelationalCatalogSource where
 
 instance Prelude.NFData RelationalCatalogSource where
   rnf RelationalCatalogSource' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf table
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf database `Prelude.seq`
+        Prelude.rnf table
 
 instance Data.ToJSON RelationalCatalogSource where
   toJSON RelationalCatalogSource' {..} =

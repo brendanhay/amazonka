@@ -119,9 +119,9 @@ instance Prelude.Hashable ListDataQualityResults where
 
 instance Prelude.NFData ListDataQualityResults where
   rnf ListDataQualityResults' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDataQualityResults where
   toHeaders =
@@ -207,6 +207,6 @@ instance
     ListDataQualityResultsResponse
   where
   rnf ListDataQualityResultsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf results
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf results

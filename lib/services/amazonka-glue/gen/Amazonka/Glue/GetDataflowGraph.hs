@@ -171,6 +171,6 @@ getDataflowGraphResponse_httpStatus = Lens.lens (\GetDataflowGraphResponse' {htt
 
 instance Prelude.NFData GetDataflowGraphResponse where
   rnf GetDataflowGraphResponse' {..} =
-    Prelude.rnf dagEdges
-      `Prelude.seq` Prelude.rnf dagNodes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dagEdges `Prelude.seq`
+      Prelude.rnf dagNodes `Prelude.seq`
+        Prelude.rnf httpStatus

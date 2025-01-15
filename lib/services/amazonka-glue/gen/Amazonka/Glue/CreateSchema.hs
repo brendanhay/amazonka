@@ -355,13 +355,13 @@ instance Prelude.Hashable CreateSchema where
 
 instance Prelude.NFData CreateSchema where
   rnf CreateSchema' {..} =
-    Prelude.rnf compatibility
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf schemaDefinition
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf dataFormat
+    Prelude.rnf compatibility `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf registryId `Prelude.seq`
+          Prelude.rnf schemaDefinition `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf schemaName `Prelude.seq`
+                Prelude.rnf dataFormat
 
 instance Data.ToHeaders CreateSchema where
   toHeaders =
@@ -567,18 +567,18 @@ createSchemaResponse_httpStatus = Lens.lens (\CreateSchemaResponse' {httpStatus}
 
 instance Prelude.NFData CreateSchemaResponse where
   rnf CreateSchemaResponse' {..} =
-    Prelude.rnf compatibility
-      `Prelude.seq` Prelude.rnf dataFormat
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf latestSchemaVersion
-      `Prelude.seq` Prelude.rnf nextSchemaVersion
-      `Prelude.seq` Prelude.rnf registryArn
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf schemaCheckpoint
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf schemaStatus
-      `Prelude.seq` Prelude.rnf schemaVersionId
-      `Prelude.seq` Prelude.rnf schemaVersionStatus
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf compatibility `Prelude.seq`
+      Prelude.rnf dataFormat `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf latestSchemaVersion `Prelude.seq`
+            Prelude.rnf nextSchemaVersion `Prelude.seq`
+              Prelude.rnf registryArn `Prelude.seq`
+                Prelude.rnf registryName `Prelude.seq`
+                  Prelude.rnf schemaArn `Prelude.seq`
+                    Prelude.rnf schemaCheckpoint `Prelude.seq`
+                      Prelude.rnf schemaName `Prelude.seq`
+                        Prelude.rnf schemaStatus `Prelude.seq`
+                          Prelude.rnf schemaVersionId `Prelude.seq`
+                            Prelude.rnf schemaVersionStatus `Prelude.seq`
+                              Prelude.rnf tags `Prelude.seq`
+                                Prelude.rnf httpStatus

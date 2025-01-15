@@ -97,9 +97,9 @@ instance Prelude.Hashable SchemaId where
 
 instance Prelude.NFData SchemaId where
   rnf SchemaId' {..} =
-    Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf schemaName
+    Prelude.rnf registryName `Prelude.seq`
+      Prelude.rnf schemaArn `Prelude.seq`
+        Prelude.rnf schemaName
 
 instance Data.ToJSON SchemaId where
   toJSON SchemaId' {..} =

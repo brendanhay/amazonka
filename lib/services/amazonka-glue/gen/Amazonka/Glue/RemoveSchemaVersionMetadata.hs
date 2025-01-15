@@ -149,10 +149,10 @@ instance Prelude.Hashable RemoveSchemaVersionMetadata where
 
 instance Prelude.NFData RemoveSchemaVersionMetadata where
   rnf RemoveSchemaVersionMetadata' {..} =
-    Prelude.rnf schemaId
-      `Prelude.seq` Prelude.rnf schemaVersionId
-      `Prelude.seq` Prelude.rnf schemaVersionNumber
-      `Prelude.seq` Prelude.rnf metadataKeyValue
+    Prelude.rnf schemaId `Prelude.seq`
+      Prelude.rnf schemaVersionId `Prelude.seq`
+        Prelude.rnf schemaVersionNumber `Prelude.seq`
+          Prelude.rnf metadataKeyValue
 
 instance Data.ToHeaders RemoveSchemaVersionMetadata where
   toHeaders =
@@ -296,12 +296,12 @@ instance
     RemoveSchemaVersionMetadataResponse
   where
   rnf RemoveSchemaVersionMetadataResponse' {..} =
-    Prelude.rnf latestVersion
-      `Prelude.seq` Prelude.rnf metadataKey
-      `Prelude.seq` Prelude.rnf metadataValue
-      `Prelude.seq` Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf schemaVersionId
-      `Prelude.seq` Prelude.rnf versionNumber
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf latestVersion `Prelude.seq`
+      Prelude.rnf metadataKey `Prelude.seq`
+        Prelude.rnf metadataValue `Prelude.seq`
+          Prelude.rnf registryName `Prelude.seq`
+            Prelude.rnf schemaArn `Prelude.seq`
+              Prelude.rnf schemaName `Prelude.seq`
+                Prelude.rnf schemaVersionId `Prelude.seq`
+                  Prelude.rnf versionNumber `Prelude.seq`
+                    Prelude.rnf httpStatus

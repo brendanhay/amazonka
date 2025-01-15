@@ -145,12 +145,12 @@ instance Prelude.Hashable S3Target where
 
 instance Prelude.NFData S3Target where
   rnf S3Target' {..} =
-    Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf dlqEventQueueArn
-      `Prelude.seq` Prelude.rnf eventQueueArn
-      `Prelude.seq` Prelude.rnf exclusions
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf sampleSize
+    Prelude.rnf connectionName `Prelude.seq`
+      Prelude.rnf dlqEventQueueArn `Prelude.seq`
+        Prelude.rnf eventQueueArn `Prelude.seq`
+          Prelude.rnf exclusions `Prelude.seq`
+            Prelude.rnf path `Prelude.seq`
+              Prelude.rnf sampleSize
 
 instance Data.ToJSON S3Target where
   toJSON S3Target' {..} =

@@ -111,10 +111,10 @@ instance Prelude.Hashable DoubleColumnStatisticsData where
 
 instance Prelude.NFData DoubleColumnStatisticsData where
   rnf DoubleColumnStatisticsData' {..} =
-    Prelude.rnf maximumValue
-      `Prelude.seq` Prelude.rnf minimumValue
-      `Prelude.seq` Prelude.rnf numberOfNulls
-      `Prelude.seq` Prelude.rnf numberOfDistinctValues
+    Prelude.rnf maximumValue `Prelude.seq`
+      Prelude.rnf minimumValue `Prelude.seq`
+        Prelude.rnf numberOfNulls `Prelude.seq`
+          Prelude.rnf numberOfDistinctValues
 
 instance Data.ToJSON DoubleColumnStatisticsData where
   toJSON DoubleColumnStatisticsData' {..} =

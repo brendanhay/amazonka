@@ -132,10 +132,10 @@ instance Prelude.Hashable GetWorkflowRuns where
 
 instance Prelude.NFData GetWorkflowRuns where
   rnf GetWorkflowRuns' {..} =
-    Prelude.rnf includeGraph
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf includeGraph `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders GetWorkflowRuns where
   toHeaders =
@@ -220,6 +220,6 @@ getWorkflowRunsResponse_httpStatus = Lens.lens (\GetWorkflowRunsResponse' {httpS
 
 instance Prelude.NFData GetWorkflowRunsResponse where
   rnf GetWorkflowRunsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf runs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf runs `Prelude.seq`
+        Prelude.rnf httpStatus

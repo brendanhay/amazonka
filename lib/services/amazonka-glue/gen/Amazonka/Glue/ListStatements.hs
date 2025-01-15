@@ -121,9 +121,9 @@ instance Prelude.Hashable ListStatements where
 
 instance Prelude.NFData ListStatements where
   rnf ListStatements' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf requestOrigin
-      `Prelude.seq` Prelude.rnf sessionId
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf requestOrigin `Prelude.seq`
+        Prelude.rnf sessionId
 
 instance Data.ToHeaders ListStatements where
   toHeaders =
@@ -204,6 +204,6 @@ listStatementsResponse_httpStatus = Lens.lens (\ListStatementsResponse' {httpSta
 
 instance Prelude.NFData ListStatementsResponse where
   rnf ListStatementsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statements
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf statements `Prelude.seq`
+        Prelude.rnf httpStatus

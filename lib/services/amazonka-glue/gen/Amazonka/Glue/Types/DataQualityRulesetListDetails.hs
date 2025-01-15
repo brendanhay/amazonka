@@ -143,10 +143,10 @@ instance
 
 instance Prelude.NFData DataQualityRulesetListDetails where
   rnf DataQualityRulesetListDetails' {..} =
-    Prelude.rnf createdOn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedOn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recommendationRunId
-      `Prelude.seq` Prelude.rnf ruleCount
-      `Prelude.seq` Prelude.rnf targetTable
+    Prelude.rnf createdOn `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lastModifiedOn `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf recommendationRunId `Prelude.seq`
+              Prelude.rnf ruleCount `Prelude.seq`
+                Prelude.rnf targetTable

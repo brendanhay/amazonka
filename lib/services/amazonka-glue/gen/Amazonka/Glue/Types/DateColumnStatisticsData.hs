@@ -109,10 +109,10 @@ instance Prelude.Hashable DateColumnStatisticsData where
 
 instance Prelude.NFData DateColumnStatisticsData where
   rnf DateColumnStatisticsData' {..} =
-    Prelude.rnf maximumValue
-      `Prelude.seq` Prelude.rnf minimumValue
-      `Prelude.seq` Prelude.rnf numberOfNulls
-      `Prelude.seq` Prelude.rnf numberOfDistinctValues
+    Prelude.rnf maximumValue `Prelude.seq`
+      Prelude.rnf minimumValue `Prelude.seq`
+        Prelude.rnf numberOfNulls `Prelude.seq`
+          Prelude.rnf numberOfDistinctValues
 
 instance Data.ToJSON DateColumnStatisticsData where
   toJSON DateColumnStatisticsData' {..} =

@@ -190,6 +190,6 @@ instance
     BatchGetCustomEntityTypesResponse
   where
   rnf BatchGetCustomEntityTypesResponse' {..} =
-    Prelude.rnf customEntityTypes
-      `Prelude.seq` Prelude.rnf customEntityTypesNotFound
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf customEntityTypes `Prelude.seq`
+      Prelude.rnf customEntityTypesNotFound `Prelude.seq`
+        Prelude.rnf httpStatus

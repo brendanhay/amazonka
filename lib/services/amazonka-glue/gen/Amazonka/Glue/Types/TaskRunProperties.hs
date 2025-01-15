@@ -120,8 +120,8 @@ instance Prelude.Hashable TaskRunProperties where
 
 instance Prelude.NFData TaskRunProperties where
   rnf TaskRunProperties' {..} =
-    Prelude.rnf exportLabelsTaskRunProperties
-      `Prelude.seq` Prelude.rnf findMatchesTaskRunProperties
-      `Prelude.seq` Prelude.rnf importLabelsTaskRunProperties
-      `Prelude.seq` Prelude.rnf labelingSetGenerationTaskRunProperties
-      `Prelude.seq` Prelude.rnf taskType
+    Prelude.rnf exportLabelsTaskRunProperties `Prelude.seq`
+      Prelude.rnf findMatchesTaskRunProperties `Prelude.seq`
+        Prelude.rnf importLabelsTaskRunProperties `Prelude.seq`
+          Prelude.rnf labelingSetGenerationTaskRunProperties `Prelude.seq`
+            Prelude.rnf taskType

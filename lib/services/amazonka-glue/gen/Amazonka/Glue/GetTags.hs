@@ -162,5 +162,5 @@ getTagsResponse_httpStatus = Lens.lens (\GetTagsResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetTagsResponse where
   rnf GetTagsResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf httpStatus

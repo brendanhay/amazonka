@@ -110,8 +110,8 @@ instance Prelude.Hashable GetBlueprintRun where
 
 instance Prelude.NFData GetBlueprintRun where
   rnf GetBlueprintRun' {..} =
-    Prelude.rnf blueprintName
-      `Prelude.seq` Prelude.rnf runId
+    Prelude.rnf blueprintName `Prelude.seq`
+      Prelude.rnf runId
 
 instance Data.ToHeaders GetBlueprintRun where
   toHeaders =
@@ -183,5 +183,5 @@ getBlueprintRunResponse_httpStatus = Lens.lens (\GetBlueprintRunResponse' {httpS
 
 instance Prelude.NFData GetBlueprintRunResponse where
   rnf GetBlueprintRunResponse' {..} =
-    Prelude.rnf blueprintRun
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blueprintRun `Prelude.seq`
+      Prelude.rnf httpStatus

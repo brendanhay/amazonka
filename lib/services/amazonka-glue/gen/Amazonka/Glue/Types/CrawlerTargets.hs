@@ -133,12 +133,12 @@ instance Prelude.Hashable CrawlerTargets where
 
 instance Prelude.NFData CrawlerTargets where
   rnf CrawlerTargets' {..} =
-    Prelude.rnf catalogTargets
-      `Prelude.seq` Prelude.rnf deltaTargets
-      `Prelude.seq` Prelude.rnf dynamoDBTargets
-      `Prelude.seq` Prelude.rnf jdbcTargets
-      `Prelude.seq` Prelude.rnf mongoDBTargets
-      `Prelude.seq` Prelude.rnf s3Targets
+    Prelude.rnf catalogTargets `Prelude.seq`
+      Prelude.rnf deltaTargets `Prelude.seq`
+        Prelude.rnf dynamoDBTargets `Prelude.seq`
+          Prelude.rnf jdbcTargets `Prelude.seq`
+            Prelude.rnf mongoDBTargets `Prelude.seq`
+              Prelude.rnf s3Targets
 
 instance Data.ToJSON CrawlerTargets where
   toJSON CrawlerTargets' {..} =

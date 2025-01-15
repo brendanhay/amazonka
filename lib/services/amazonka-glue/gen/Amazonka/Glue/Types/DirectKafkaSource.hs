@@ -121,11 +121,11 @@ instance Prelude.Hashable DirectKafkaSource where
 
 instance Prelude.NFData DirectKafkaSource where
   rnf DirectKafkaSource' {..} =
-    Prelude.rnf dataPreviewOptions
-      `Prelude.seq` Prelude.rnf detectSchema
-      `Prelude.seq` Prelude.rnf streamingOptions
-      `Prelude.seq` Prelude.rnf windowSize
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf dataPreviewOptions `Prelude.seq`
+      Prelude.rnf detectSchema `Prelude.seq`
+        Prelude.rnf streamingOptions `Prelude.seq`
+          Prelude.rnf windowSize `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToJSON DirectKafkaSource where
   toJSON DirectKafkaSource' {..} =

@@ -121,9 +121,9 @@ instance Prelude.Hashable StartBlueprintRun where
 
 instance Prelude.NFData StartBlueprintRun where
   rnf StartBlueprintRun' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf blueprintName
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf parameters `Prelude.seq`
+      Prelude.rnf blueprintName `Prelude.seq`
+        Prelude.rnf roleArn
 
 instance Data.ToHeaders StartBlueprintRun where
   toHeaders =
@@ -194,5 +194,5 @@ startBlueprintRunResponse_httpStatus = Lens.lens (\StartBlueprintRunResponse' {h
 
 instance Prelude.NFData StartBlueprintRunResponse where
   rnf StartBlueprintRunResponse' {..} =
-    Prelude.rnf runId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf runId `Prelude.seq`
+      Prelude.rnf httpStatus

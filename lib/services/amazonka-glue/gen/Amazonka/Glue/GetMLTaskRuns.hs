@@ -156,11 +156,11 @@ instance Prelude.Hashable GetMLTaskRuns where
 
 instance Prelude.NFData GetMLTaskRuns where
   rnf GetMLTaskRuns' {..} =
-    Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sort
-      `Prelude.seq` Prelude.rnf transformId
+    Prelude.rnf filter' `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf sort `Prelude.seq`
+            Prelude.rnf transformId
 
 instance Data.ToHeaders GetMLTaskRuns where
   toHeaders =
@@ -242,6 +242,6 @@ getMLTaskRunsResponse_httpStatus = Lens.lens (\GetMLTaskRunsResponse' {httpStatu
 
 instance Prelude.NFData GetMLTaskRunsResponse where
   rnf GetMLTaskRunsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf taskRuns
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf taskRuns `Prelude.seq`
+        Prelude.rnf httpStatus

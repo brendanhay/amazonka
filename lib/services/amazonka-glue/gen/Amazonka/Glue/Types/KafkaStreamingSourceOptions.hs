@@ -287,21 +287,21 @@ instance Prelude.Hashable KafkaStreamingSourceOptions where
 
 instance Prelude.NFData KafkaStreamingSourceOptions where
   rnf KafkaStreamingSourceOptions' {..} =
-    Prelude.rnf assign
-      `Prelude.seq` Prelude.rnf bootstrapServers
-      `Prelude.seq` Prelude.rnf classification
-      `Prelude.seq` Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf endingOffsets
-      `Prelude.seq` Prelude.rnf maxOffsetsPerTrigger
-      `Prelude.seq` Prelude.rnf minPartitions
-      `Prelude.seq` Prelude.rnf numRetries
-      `Prelude.seq` Prelude.rnf pollTimeoutMs
-      `Prelude.seq` Prelude.rnf retryIntervalMs
-      `Prelude.seq` Prelude.rnf securityProtocol
-      `Prelude.seq` Prelude.rnf startingOffsets
-      `Prelude.seq` Prelude.rnf subscribePattern
-      `Prelude.seq` Prelude.rnf topicName
+    Prelude.rnf assign `Prelude.seq`
+      Prelude.rnf bootstrapServers `Prelude.seq`
+        Prelude.rnf classification `Prelude.seq`
+          Prelude.rnf connectionName `Prelude.seq`
+            Prelude.rnf delimiter `Prelude.seq`
+              Prelude.rnf endingOffsets `Prelude.seq`
+                Prelude.rnf maxOffsetsPerTrigger `Prelude.seq`
+                  Prelude.rnf minPartitions `Prelude.seq`
+                    Prelude.rnf numRetries `Prelude.seq`
+                      Prelude.rnf pollTimeoutMs `Prelude.seq`
+                        Prelude.rnf retryIntervalMs `Prelude.seq`
+                          Prelude.rnf securityProtocol `Prelude.seq`
+                            Prelude.rnf startingOffsets `Prelude.seq`
+                              Prelude.rnf subscribePattern `Prelude.seq`
+                                Prelude.rnf topicName
 
 instance Data.ToJSON KafkaStreamingSourceOptions where
   toJSON KafkaStreamingSourceOptions' {..} =

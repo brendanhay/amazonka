@@ -144,13 +144,13 @@ instance Prelude.Hashable CatalogKinesisSource where
 
 instance Prelude.NFData CatalogKinesisSource where
   rnf CatalogKinesisSource' {..} =
-    Prelude.rnf dataPreviewOptions
-      `Prelude.seq` Prelude.rnf detectSchema
-      `Prelude.seq` Prelude.rnf streamingOptions
-      `Prelude.seq` Prelude.rnf windowSize
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf table
-      `Prelude.seq` Prelude.rnf database
+    Prelude.rnf dataPreviewOptions `Prelude.seq`
+      Prelude.rnf detectSchema `Prelude.seq`
+        Prelude.rnf streamingOptions `Prelude.seq`
+          Prelude.rnf windowSize `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf table `Prelude.seq`
+                Prelude.rnf database
 
 instance Data.ToJSON CatalogKinesisSource where
   toJSON CatalogKinesisSource' {..} =

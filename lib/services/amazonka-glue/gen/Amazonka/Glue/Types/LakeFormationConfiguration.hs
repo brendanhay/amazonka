@@ -87,8 +87,8 @@ instance Prelude.Hashable LakeFormationConfiguration where
 
 instance Prelude.NFData LakeFormationConfiguration where
   rnf LakeFormationConfiguration' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf useLakeFormationCredentials
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf useLakeFormationCredentials
 
 instance Data.ToJSON LakeFormationConfiguration where
   toJSON LakeFormationConfiguration' {..} =

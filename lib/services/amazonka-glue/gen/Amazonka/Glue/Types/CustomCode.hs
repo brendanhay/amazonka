@@ -123,11 +123,11 @@ instance Prelude.Hashable CustomCode where
 
 instance Prelude.NFData CustomCode where
   rnf CustomCode' {..} =
-    Prelude.rnf outputSchemas
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf code
-      `Prelude.seq` Prelude.rnf className
+    Prelude.rnf outputSchemas `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf inputs `Prelude.seq`
+          Prelude.rnf code `Prelude.seq`
+            Prelude.rnf className
 
 instance Data.ToJSON CustomCode where
   toJSON CustomCode' {..} =

@@ -96,10 +96,10 @@ instance Prelude.Hashable UpdateGrokClassifierRequest where
 
 instance Prelude.NFData UpdateGrokClassifierRequest where
   rnf UpdateGrokClassifierRequest' {..} =
-    Prelude.rnf classification
-      `Prelude.seq` Prelude.rnf customPatterns
-      `Prelude.seq` Prelude.rnf grokPattern
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf classification `Prelude.seq`
+      Prelude.rnf customPatterns `Prelude.seq`
+        Prelude.rnf grokPattern `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToJSON UpdateGrokClassifierRequest where
   toJSON UpdateGrokClassifierRequest' {..} =

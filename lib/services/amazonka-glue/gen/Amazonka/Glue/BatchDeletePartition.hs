@@ -138,10 +138,10 @@ instance Prelude.Hashable BatchDeletePartition where
 
 instance Prelude.NFData BatchDeletePartition where
   rnf BatchDeletePartition' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf partitionsToDelete
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf tableName `Prelude.seq`
+          Prelude.rnf partitionsToDelete
 
 instance Data.ToHeaders BatchDeletePartition where
   toHeaders =
@@ -217,5 +217,5 @@ batchDeletePartitionResponse_httpStatus = Lens.lens (\BatchDeletePartitionRespon
 
 instance Prelude.NFData BatchDeletePartitionResponse where
   rnf BatchDeletePartitionResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf httpStatus

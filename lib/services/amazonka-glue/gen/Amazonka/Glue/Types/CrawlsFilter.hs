@@ -152,9 +152,9 @@ instance Prelude.Hashable CrawlsFilter where
 
 instance Prelude.NFData CrawlsFilter where
   rnf CrawlsFilter' {..} =
-    Prelude.rnf fieldName
-      `Prelude.seq` Prelude.rnf fieldValue
-      `Prelude.seq` Prelude.rnf filterOperator
+    Prelude.rnf fieldName `Prelude.seq`
+      Prelude.rnf fieldValue `Prelude.seq`
+        Prelude.rnf filterOperator
 
 instance Data.ToJSON CrawlsFilter where
   toJSON CrawlsFilter' {..} =

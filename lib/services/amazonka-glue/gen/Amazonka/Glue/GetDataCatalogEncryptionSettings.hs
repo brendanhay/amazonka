@@ -193,5 +193,5 @@ instance
     GetDataCatalogEncryptionSettingsResponse
   where
   rnf GetDataCatalogEncryptionSettingsResponse' {..} =
-    Prelude.rnf dataCatalogEncryptionSettings
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataCatalogEncryptionSettings `Prelude.seq`
+      Prelude.rnf httpStatus

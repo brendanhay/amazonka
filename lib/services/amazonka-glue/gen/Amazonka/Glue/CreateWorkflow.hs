@@ -160,11 +160,11 @@ instance Prelude.Hashable CreateWorkflow where
 
 instance Prelude.NFData CreateWorkflow where
   rnf CreateWorkflow' {..} =
-    Prelude.rnf defaultRunProperties
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf maxConcurrentRuns
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf defaultRunProperties `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf maxConcurrentRuns `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders CreateWorkflow where
   toHeaders =
@@ -239,5 +239,5 @@ createWorkflowResponse_httpStatus = Lens.lens (\CreateWorkflowResponse' {httpSta
 
 instance Prelude.NFData CreateWorkflowResponse where
   rnf CreateWorkflowResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf httpStatus

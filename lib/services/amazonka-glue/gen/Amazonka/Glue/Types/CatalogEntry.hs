@@ -74,8 +74,8 @@ instance Prelude.Hashable CatalogEntry where
 
 instance Prelude.NFData CatalogEntry where
   rnf CatalogEntry' {..} =
-    Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf databaseName `Prelude.seq`
+      Prelude.rnf tableName
 
 instance Data.ToJSON CatalogEntry where
   toJSON CatalogEntry' {..} =

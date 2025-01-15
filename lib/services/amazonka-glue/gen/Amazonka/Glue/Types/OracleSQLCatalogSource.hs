@@ -97,9 +97,9 @@ instance Prelude.Hashable OracleSQLCatalogSource where
 
 instance Prelude.NFData OracleSQLCatalogSource where
   rnf OracleSQLCatalogSource' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf table
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf database `Prelude.seq`
+        Prelude.rnf table
 
 instance Data.ToJSON OracleSQLCatalogSource where
   toJSON OracleSQLCatalogSource' {..} =

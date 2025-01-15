@@ -128,10 +128,10 @@ instance Prelude.Hashable CreateClassifier where
 
 instance Prelude.NFData CreateClassifier where
   rnf CreateClassifier' {..} =
-    Prelude.rnf csvClassifier
-      `Prelude.seq` Prelude.rnf grokClassifier
-      `Prelude.seq` Prelude.rnf jsonClassifier
-      `Prelude.seq` Prelude.rnf xMLClassifier
+    Prelude.rnf csvClassifier `Prelude.seq`
+      Prelude.rnf grokClassifier `Prelude.seq`
+        Prelude.rnf jsonClassifier `Prelude.seq`
+          Prelude.rnf xMLClassifier
 
 instance Data.ToHeaders CreateClassifier where
   toHeaders =

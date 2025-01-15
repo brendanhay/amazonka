@@ -215,19 +215,19 @@ instance Prelude.Hashable TableInput where
 
 instance Prelude.NFData TableInput where
   rnf TableInput' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastAccessTime
-      `Prelude.seq` Prelude.rnf lastAnalyzedTime
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf partitionKeys
-      `Prelude.seq` Prelude.rnf retention
-      `Prelude.seq` Prelude.rnf storageDescriptor
-      `Prelude.seq` Prelude.rnf tableType
-      `Prelude.seq` Prelude.rnf targetTable
-      `Prelude.seq` Prelude.rnf viewExpandedText
-      `Prelude.seq` Prelude.rnf viewOriginalText
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf lastAccessTime `Prelude.seq`
+        Prelude.rnf lastAnalyzedTime `Prelude.seq`
+          Prelude.rnf owner `Prelude.seq`
+            Prelude.rnf parameters `Prelude.seq`
+              Prelude.rnf partitionKeys `Prelude.seq`
+                Prelude.rnf retention `Prelude.seq`
+                  Prelude.rnf storageDescriptor `Prelude.seq`
+                    Prelude.rnf tableType `Prelude.seq`
+                      Prelude.rnf targetTable `Prelude.seq`
+                        Prelude.rnf viewExpandedText `Prelude.seq`
+                          Prelude.rnf viewOriginalText `Prelude.seq`
+                            Prelude.rnf name
 
 instance Data.ToJSON TableInput where
   toJSON TableInput' {..} =

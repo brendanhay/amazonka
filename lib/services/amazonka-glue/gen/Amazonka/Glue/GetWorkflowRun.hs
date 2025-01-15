@@ -121,9 +121,9 @@ instance Prelude.Hashable GetWorkflowRun where
 
 instance Prelude.NFData GetWorkflowRun where
   rnf GetWorkflowRun' {..} =
-    Prelude.rnf includeGraph
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf runId
+    Prelude.rnf includeGraph `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf runId
 
 instance Data.ToHeaders GetWorkflowRun where
   toHeaders =
@@ -194,5 +194,5 @@ getWorkflowRunResponse_httpStatus = Lens.lens (\GetWorkflowRunResponse' {httpSta
 
 instance Prelude.NFData GetWorkflowRunResponse where
   rnf GetWorkflowRunResponse' {..} =
-    Prelude.rnf run
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf run `Prelude.seq`
+      Prelude.rnf httpStatus

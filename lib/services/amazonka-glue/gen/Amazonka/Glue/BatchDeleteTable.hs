@@ -147,10 +147,10 @@ instance Prelude.Hashable BatchDeleteTable where
 
 instance Prelude.NFData BatchDeleteTable where
   rnf BatchDeleteTable' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf transactionId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tablesToDelete
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf transactionId `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf tablesToDelete
 
 instance Data.ToHeaders BatchDeleteTable where
   toHeaders =
@@ -226,5 +226,5 @@ batchDeleteTableResponse_httpStatus = Lens.lens (\BatchDeleteTableResponse' {htt
 
 instance Prelude.NFData BatchDeleteTableResponse where
   rnf BatchDeleteTableResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf httpStatus

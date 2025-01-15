@@ -133,9 +133,9 @@ instance Prelude.Hashable DynamoDBTarget where
 
 instance Prelude.NFData DynamoDBTarget where
   rnf DynamoDBTarget' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf scanAll
-      `Prelude.seq` Prelude.rnf scanRate
+    Prelude.rnf path `Prelude.seq`
+      Prelude.rnf scanAll `Prelude.seq`
+        Prelude.rnf scanRate
 
 instance Data.ToJSON DynamoDBTarget where
   toJSON DynamoDBTarget' {..} =

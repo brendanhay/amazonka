@@ -95,9 +95,9 @@ instance Prelude.Hashable CodeGenNodeArg where
 
 instance Prelude.NFData CodeGenNodeArg where
   rnf CodeGenNodeArg' {..} =
-    Prelude.rnf param
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf param `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf value
 
 instance Data.ToJSON CodeGenNodeArg where
   toJSON CodeGenNodeArg' {..} =

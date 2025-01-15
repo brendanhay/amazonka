@@ -84,5 +84,5 @@ instance Prelude.Hashable StartingEventBatchCondition where
 
 instance Prelude.NFData StartingEventBatchCondition where
   rnf StartingEventBatchCondition' {..} =
-    Prelude.rnf batchSize
-      `Prelude.seq` Prelude.rnf batchWindow
+    Prelude.rnf batchSize `Prelude.seq`
+      Prelude.rnf batchWindow

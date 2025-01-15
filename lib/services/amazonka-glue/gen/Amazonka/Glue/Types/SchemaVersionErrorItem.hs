@@ -83,5 +83,5 @@ instance Prelude.Hashable SchemaVersionErrorItem where
 
 instance Prelude.NFData SchemaVersionErrorItem where
   rnf SchemaVersionErrorItem' {..} =
-    Prelude.rnf errorDetails
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf errorDetails `Prelude.seq`
+      Prelude.rnf versionNumber

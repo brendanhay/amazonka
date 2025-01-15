@@ -167,12 +167,12 @@ instance Prelude.Hashable QuerySchemaVersionMetadata where
 
 instance Prelude.NFData QuerySchemaVersionMetadata where
   rnf QuerySchemaVersionMetadata' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf metadataList
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf schemaId
-      `Prelude.seq` Prelude.rnf schemaVersionId
-      `Prelude.seq` Prelude.rnf schemaVersionNumber
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf metadataList `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf schemaId `Prelude.seq`
+            Prelude.rnf schemaVersionId `Prelude.seq`
+              Prelude.rnf schemaVersionNumber
 
 instance Data.ToHeaders QuerySchemaVersionMetadata where
   toHeaders =
@@ -275,7 +275,7 @@ instance
     QuerySchemaVersionMetadataResponse
   where
   rnf QuerySchemaVersionMetadataResponse' {..} =
-    Prelude.rnf metadataInfoMap
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf schemaVersionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metadataInfoMap `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf schemaVersionId `Prelude.seq`
+          Prelude.rnf httpStatus

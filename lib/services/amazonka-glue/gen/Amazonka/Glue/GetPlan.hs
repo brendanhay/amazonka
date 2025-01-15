@@ -177,12 +177,12 @@ instance Prelude.Hashable GetPlan where
 
 instance Prelude.NFData GetPlan where
   rnf GetPlan' {..} =
-    Prelude.rnf additionalPlanOptionsMap
-      `Prelude.seq` Prelude.rnf language
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf sinks
-      `Prelude.seq` Prelude.rnf mapping
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf additionalPlanOptionsMap `Prelude.seq`
+      Prelude.rnf language `Prelude.seq`
+        Prelude.rnf location `Prelude.seq`
+          Prelude.rnf sinks `Prelude.seq`
+            Prelude.rnf mapping `Prelude.seq`
+              Prelude.rnf source
 
 instance Data.ToHeaders GetPlan where
   toHeaders =
@@ -266,6 +266,6 @@ getPlanResponse_httpStatus = Lens.lens (\GetPlanResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetPlanResponse where
   rnf GetPlanResponse' {..} =
-    Prelude.rnf pythonScript
-      `Prelude.seq` Prelude.rnf scalaCode
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf pythonScript `Prelude.seq`
+      Prelude.rnf scalaCode `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -128,9 +128,9 @@ instance Prelude.Hashable DeleteUserDefinedFunction where
 
 instance Prelude.NFData DeleteUserDefinedFunction where
   rnf DeleteUserDefinedFunction' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf functionName
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf functionName
 
 instance Data.ToHeaders DeleteUserDefinedFunction where
   toHeaders =

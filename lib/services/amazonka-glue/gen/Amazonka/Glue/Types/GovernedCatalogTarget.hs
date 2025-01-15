@@ -139,12 +139,12 @@ instance Prelude.Hashable GovernedCatalogTarget where
 
 instance Prelude.NFData GovernedCatalogTarget where
   rnf GovernedCatalogTarget' {..} =
-    Prelude.rnf partitionKeys
-      `Prelude.seq` Prelude.rnf schemaChangePolicy
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf table
-      `Prelude.seq` Prelude.rnf database
+    Prelude.rnf partitionKeys `Prelude.seq`
+      Prelude.rnf schemaChangePolicy `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf inputs `Prelude.seq`
+            Prelude.rnf table `Prelude.seq`
+              Prelude.rnf database
 
 instance Data.ToJSON GovernedCatalogTarget where
   toJSON GovernedCatalogTarget' {..} =

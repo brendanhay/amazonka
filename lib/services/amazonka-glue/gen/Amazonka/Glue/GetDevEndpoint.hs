@@ -167,5 +167,5 @@ getDevEndpointResponse_httpStatus = Lens.lens (\GetDevEndpointResponse' {httpSta
 
 instance Prelude.NFData GetDevEndpointResponse where
   rnf GetDevEndpointResponse' {..} =
-    Prelude.rnf devEndpoint
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf devEndpoint `Prelude.seq`
+      Prelude.rnf httpStatus

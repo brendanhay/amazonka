@@ -92,6 +92,6 @@ instance Prelude.Hashable CatalogImportStatus where
 
 instance Prelude.NFData CatalogImportStatus where
   rnf CatalogImportStatus' {..} =
-    Prelude.rnf importCompleted
-      `Prelude.seq` Prelude.rnf importTime
-      `Prelude.seq` Prelude.rnf importedBy
+    Prelude.rnf importCompleted `Prelude.seq`
+      Prelude.rnf importTime `Prelude.seq`
+        Prelude.rnf importedBy

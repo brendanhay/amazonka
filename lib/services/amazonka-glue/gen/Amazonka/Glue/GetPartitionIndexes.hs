@@ -132,12 +132,12 @@ instance Core.AWSPager GetPartitionIndexes where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getPartitionIndexes_nextToken
-          Lens..~ rs
-          Lens.^? getPartitionIndexesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getPartitionIndexes_nextToken
+              Lens..~ rs
+              Lens.^? getPartitionIndexesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetPartitionIndexes where
   type
@@ -167,10 +167,10 @@ instance Prelude.Hashable GetPartitionIndexes where
 
 instance Prelude.NFData GetPartitionIndexes where
   rnf GetPartitionIndexes' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf tableName
 
 instance Data.ToHeaders GetPartitionIndexes where
   toHeaders =
@@ -257,6 +257,6 @@ getPartitionIndexesResponse_httpStatus = Lens.lens (\GetPartitionIndexesResponse
 
 instance Prelude.NFData GetPartitionIndexesResponse where
   rnf GetPartitionIndexesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf partitionIndexDescriptorList
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf partitionIndexDescriptorList `Prelude.seq`
+        Prelude.rnf httpStatus

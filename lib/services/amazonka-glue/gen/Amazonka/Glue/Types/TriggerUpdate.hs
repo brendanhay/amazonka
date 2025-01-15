@@ -127,12 +127,12 @@ instance Prelude.Hashable TriggerUpdate where
 
 instance Prelude.NFData TriggerUpdate where
   rnf TriggerUpdate' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eventBatchingCondition
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf predicate
-      `Prelude.seq` Prelude.rnf schedule
+    Prelude.rnf actions `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf eventBatchingCondition `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf predicate `Prelude.seq`
+              Prelude.rnf schedule
 
 instance Data.ToJSON TriggerUpdate where
   toJSON TriggerUpdate' {..} =

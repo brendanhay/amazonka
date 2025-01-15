@@ -132,11 +132,11 @@ instance Prelude.Hashable Spigot where
 
 instance Prelude.NFData Spigot where
   rnf Spigot' {..} =
-    Prelude.rnf prob
-      `Prelude.seq` Prelude.rnf topk
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf prob `Prelude.seq`
+      Prelude.rnf topk `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf inputs `Prelude.seq`
+            Prelude.rnf path
 
 instance Data.ToJSON Spigot where
   toJSON Spigot' {..} =

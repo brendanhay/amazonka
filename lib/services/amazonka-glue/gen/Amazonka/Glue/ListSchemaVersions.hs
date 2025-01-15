@@ -144,12 +144,12 @@ instance Core.AWSPager ListSchemaVersions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSchemaVersions_nextToken
-          Lens..~ rs
-          Lens.^? listSchemaVersionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSchemaVersions_nextToken
+              Lens..~ rs
+              Lens.^? listSchemaVersionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSchemaVersions where
   type
@@ -175,9 +175,9 @@ instance Prelude.Hashable ListSchemaVersions where
 
 instance Prelude.NFData ListSchemaVersions where
   rnf ListSchemaVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf schemaId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf schemaId
 
 instance Data.ToHeaders ListSchemaVersions where
   toHeaders =
@@ -264,6 +264,6 @@ listSchemaVersionsResponse_httpStatus = Lens.lens (\ListSchemaVersionsResponse' 
 
 instance Prelude.NFData ListSchemaVersionsResponse where
   rnf ListSchemaVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf schemas
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf schemas `Prelude.seq`
+        Prelude.rnf httpStatus

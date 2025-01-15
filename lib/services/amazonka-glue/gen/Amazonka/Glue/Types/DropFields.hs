@@ -96,9 +96,9 @@ instance Prelude.Hashable DropFields where
 
 instance Prelude.NFData DropFields where
   rnf DropFields' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf paths
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf inputs `Prelude.seq`
+        Prelude.rnf paths
 
 instance Data.ToJSON DropFields where
   toJSON DropFields' {..} =

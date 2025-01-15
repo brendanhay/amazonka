@@ -181,6 +181,6 @@ batchGetCrawlersResponse_httpStatus = Lens.lens (\BatchGetCrawlersResponse' {htt
 
 instance Prelude.NFData BatchGetCrawlersResponse where
   rnf BatchGetCrawlersResponse' {..} =
-    Prelude.rnf crawlers
-      `Prelude.seq` Prelude.rnf crawlersNotFound
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf crawlers `Prelude.seq`
+      Prelude.rnf crawlersNotFound `Prelude.seq`
+        Prelude.rnf httpStatus

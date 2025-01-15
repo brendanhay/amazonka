@@ -177,12 +177,12 @@ instance
     GetUnfilteredPartitionMetadata
   where
   rnf GetUnfilteredPartitionMetadata' {..} =
-    Prelude.rnf auditContext
-      `Prelude.seq` Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf partitionValues
-      `Prelude.seq` Prelude.rnf supportedPermissionTypes
+    Prelude.rnf auditContext `Prelude.seq`
+      Prelude.rnf catalogId `Prelude.seq`
+        Prelude.rnf databaseName `Prelude.seq`
+          Prelude.rnf tableName `Prelude.seq`
+            Prelude.rnf partitionValues `Prelude.seq`
+              Prelude.rnf supportedPermissionTypes
 
 instance
   Data.ToHeaders
@@ -286,7 +286,7 @@ instance
     GetUnfilteredPartitionMetadataResponse
   where
   rnf GetUnfilteredPartitionMetadataResponse' {..} =
-    Prelude.rnf authorizedColumns
-      `Prelude.seq` Prelude.rnf isRegisteredWithLakeFormation
-      `Prelude.seq` Prelude.rnf partition
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf authorizedColumns `Prelude.seq`
+      Prelude.rnf isRegisteredWithLakeFormation `Prelude.seq`
+        Prelude.rnf partition `Prelude.seq`
+          Prelude.rnf httpStatus

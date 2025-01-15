@@ -115,8 +115,8 @@ instance Prelude.Hashable SchemaVersionListItem where
 
 instance Prelude.NFData SchemaVersionListItem where
   rnf SchemaVersionListItem' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf schemaVersionId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf createdTime `Prelude.seq`
+      Prelude.rnf schemaArn `Prelude.seq`
+        Prelude.rnf schemaVersionId `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf versionNumber

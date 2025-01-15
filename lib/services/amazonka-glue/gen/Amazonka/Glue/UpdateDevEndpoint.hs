@@ -208,14 +208,14 @@ instance Prelude.Hashable UpdateDevEndpoint where
 
 instance Prelude.NFData UpdateDevEndpoint where
   rnf UpdateDevEndpoint' {..} =
-    Prelude.rnf addArguments
-      `Prelude.seq` Prelude.rnf addPublicKeys
-      `Prelude.seq` Prelude.rnf customLibraries
-      `Prelude.seq` Prelude.rnf deleteArguments
-      `Prelude.seq` Prelude.rnf deletePublicKeys
-      `Prelude.seq` Prelude.rnf publicKey
-      `Prelude.seq` Prelude.rnf updateEtlLibraries
-      `Prelude.seq` Prelude.rnf endpointName
+    Prelude.rnf addArguments `Prelude.seq`
+      Prelude.rnf addPublicKeys `Prelude.seq`
+        Prelude.rnf customLibraries `Prelude.seq`
+          Prelude.rnf deleteArguments `Prelude.seq`
+            Prelude.rnf deletePublicKeys `Prelude.seq`
+              Prelude.rnf publicKey `Prelude.seq`
+                Prelude.rnf updateEtlLibraries `Prelude.seq`
+                  Prelude.rnf endpointName
 
 instance Data.ToHeaders UpdateDevEndpoint where
   toHeaders =

@@ -91,9 +91,9 @@ instance Prelude.Hashable TableIdentifier where
 
 instance Prelude.NFData TableIdentifier where
   rnf TableIdentifier' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf catalogId `Prelude.seq`
+      Prelude.rnf databaseName `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON TableIdentifier where
   toJSON TableIdentifier' {..} =

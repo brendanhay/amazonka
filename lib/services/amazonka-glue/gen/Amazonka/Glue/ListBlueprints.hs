@@ -119,9 +119,9 @@ instance Prelude.Hashable ListBlueprints where
 
 instance Prelude.NFData ListBlueprints where
   rnf ListBlueprints' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf tags
 
 instance Data.ToHeaders ListBlueprints where
   toHeaders =
@@ -202,6 +202,6 @@ listBlueprintsResponse_httpStatus = Lens.lens (\ListBlueprintsResponse' {httpSta
 
 instance Prelude.NFData ListBlueprintsResponse where
   rnf ListBlueprintsResponse' {..} =
-    Prelude.rnf blueprints
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf blueprints `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

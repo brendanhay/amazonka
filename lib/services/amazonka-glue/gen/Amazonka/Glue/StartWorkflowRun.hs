@@ -108,8 +108,8 @@ instance Prelude.Hashable StartWorkflowRun where
 
 instance Prelude.NFData StartWorkflowRun where
   rnf StartWorkflowRun' {..} =
-    Prelude.rnf runProperties
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf runProperties `Prelude.seq`
+      Prelude.rnf name
 
 instance Data.ToHeaders StartWorkflowRun where
   toHeaders =
@@ -179,5 +179,5 @@ startWorkflowRunResponse_httpStatus = Lens.lens (\StartWorkflowRunResponse' {htt
 
 instance Prelude.NFData StartWorkflowRunResponse where
   rnf StartWorkflowRunResponse' {..} =
-    Prelude.rnf runId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf runId `Prelude.seq`
+      Prelude.rnf httpStatus

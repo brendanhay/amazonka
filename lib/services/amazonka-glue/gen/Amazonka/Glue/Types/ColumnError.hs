@@ -81,5 +81,5 @@ instance Prelude.Hashable ColumnError where
 
 instance Prelude.NFData ColumnError where
   rnf ColumnError' {..} =
-    Prelude.rnf columnName
-      `Prelude.seq` Prelude.rnf error
+    Prelude.rnf columnName `Prelude.seq`
+      Prelude.rnf error

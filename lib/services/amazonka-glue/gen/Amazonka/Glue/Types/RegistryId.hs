@@ -77,8 +77,8 @@ instance Prelude.Hashable RegistryId where
 
 instance Prelude.NFData RegistryId where
   rnf RegistryId' {..} =
-    Prelude.rnf registryArn
-      `Prelude.seq` Prelude.rnf registryName
+    Prelude.rnf registryArn `Prelude.seq`
+      Prelude.rnf registryName
 
 instance Data.ToJSON RegistryId where
   toJSON RegistryId' {..} =

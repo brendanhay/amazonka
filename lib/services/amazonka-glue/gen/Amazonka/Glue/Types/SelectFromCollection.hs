@@ -98,9 +98,9 @@ instance Prelude.Hashable SelectFromCollection where
 
 instance Prelude.NFData SelectFromCollection where
   rnf SelectFromCollection' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf index
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf inputs `Prelude.seq`
+        Prelude.rnf index
 
 instance Data.ToJSON SelectFromCollection where
   toJSON SelectFromCollection' {..} =

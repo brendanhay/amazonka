@@ -145,9 +145,9 @@ instance Prelude.Hashable CreateCustomEntityType where
 
 instance Prelude.NFData CreateCustomEntityType where
   rnf CreateCustomEntityType' {..} =
-    Prelude.rnf contextWords
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf regexString
+    Prelude.rnf contextWords `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf regexString
 
 instance Data.ToHeaders CreateCustomEntityType where
   toHeaders =
@@ -224,5 +224,5 @@ instance
     CreateCustomEntityTypeResponse
   where
   rnf CreateCustomEntityTypeResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf httpStatus

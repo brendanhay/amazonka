@@ -85,5 +85,5 @@ instance Prelude.Hashable ColumnImportance where
 
 instance Prelude.NFData ColumnImportance where
   rnf ColumnImportance' {..} =
-    Prelude.rnf columnName
-      `Prelude.seq` Prelude.rnf importance
+    Prelude.rnf columnName `Prelude.seq`
+      Prelude.rnf importance

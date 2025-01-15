@@ -116,7 +116,7 @@ instance
     DataQualityRuleRecommendationRunDescription
   where
   rnf DataQualityRuleRecommendationRunDescription' {..} =
-    Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf runId
-      `Prelude.seq` Prelude.rnf startedOn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf dataSource `Prelude.seq`
+      Prelude.rnf runId `Prelude.seq`
+        Prelude.rnf startedOn `Prelude.seq`
+          Prelude.rnf status

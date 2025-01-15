@@ -95,6 +95,6 @@ instance Prelude.Hashable TableVersionError where
 
 instance Prelude.NFData TableVersionError where
   rnf TableVersionError' {..} =
-    Prelude.rnf errorDetail
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf errorDetail `Prelude.seq`
+      Prelude.rnf tableName `Prelude.seq`
+        Prelude.rnf versionId

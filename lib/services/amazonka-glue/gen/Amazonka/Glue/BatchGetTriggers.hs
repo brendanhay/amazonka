@@ -181,6 +181,6 @@ batchGetTriggersResponse_httpStatus = Lens.lens (\BatchGetTriggersResponse' {htt
 
 instance Prelude.NFData BatchGetTriggersResponse where
   rnf BatchGetTriggersResponse' {..} =
-    Prelude.rnf triggers
-      `Prelude.seq` Prelude.rnf triggersNotFound
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf triggers `Prelude.seq`
+      Prelude.rnf triggersNotFound `Prelude.seq`
+        Prelude.rnf httpStatus

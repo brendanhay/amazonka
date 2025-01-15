@@ -84,8 +84,8 @@ instance Prelude.Hashable Order where
 
 instance Prelude.NFData Order where
   rnf Order' {..} =
-    Prelude.rnf column
-      `Prelude.seq` Prelude.rnf sortOrder
+    Prelude.rnf column `Prelude.seq`
+      Prelude.rnf sortOrder
 
 instance Data.ToJSON Order where
   toJSON Order' {..} =

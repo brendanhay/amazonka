@@ -227,11 +227,11 @@ instance Prelude.Hashable CreateRecommender where
 
 instance Prelude.NFData CreateRecommender where
   rnf CreateRecommender' {..} =
-    Prelude.rnf recommenderConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf recipeArn
+    Prelude.rnf recommenderConfig `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf datasetGroupArn `Prelude.seq`
+            Prelude.rnf recipeArn
 
 instance Data.ToHeaders CreateRecommender where
   toHeaders =
@@ -309,5 +309,5 @@ createRecommenderResponse_httpStatus = Lens.lens (\CreateRecommenderResponse' {h
 
 instance Prelude.NFData CreateRecommenderResponse where
   rnf CreateRecommenderResponse' {..} =
-    Prelude.rnf recommenderArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf recommenderArn `Prelude.seq`
+      Prelude.rnf httpStatus

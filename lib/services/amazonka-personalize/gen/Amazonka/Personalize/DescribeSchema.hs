@@ -164,5 +164,5 @@ describeSchemaResponse_httpStatus = Lens.lens (\DescribeSchemaResponse' {httpSta
 
 instance Prelude.NFData DescribeSchemaResponse where
   rnf DescribeSchemaResponse' {..} =
-    Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf schema `Prelude.seq`
+      Prelude.rnf httpStatus

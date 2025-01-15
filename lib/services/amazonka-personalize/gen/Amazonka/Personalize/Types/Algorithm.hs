@@ -185,13 +185,13 @@ instance Prelude.Hashable Algorithm where
 
 instance Prelude.NFData Algorithm where
   rnf Algorithm' {..} =
-    Prelude.rnf algorithmArn
-      `Prelude.seq` Prelude.rnf algorithmImage
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf defaultHyperParameterRanges
-      `Prelude.seq` Prelude.rnf defaultHyperParameters
-      `Prelude.seq` Prelude.rnf defaultResourceConfig
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf trainingInputMode
+    Prelude.rnf algorithmArn `Prelude.seq`
+      Prelude.rnf algorithmImage `Prelude.seq`
+        Prelude.rnf creationDateTime `Prelude.seq`
+          Prelude.rnf defaultHyperParameterRanges `Prelude.seq`
+            Prelude.rnf defaultHyperParameters `Prelude.seq`
+              Prelude.rnf defaultResourceConfig `Prelude.seq`
+                Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                  Prelude.rnf name `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf trainingInputMode

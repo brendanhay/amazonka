@@ -106,6 +106,6 @@ instance Prelude.Hashable DefaultHyperParameterRanges where
 
 instance Prelude.NFData DefaultHyperParameterRanges where
   rnf DefaultHyperParameterRanges' {..} =
-    Prelude.rnf categoricalHyperParameterRanges
-      `Prelude.seq` Prelude.rnf continuousHyperParameterRanges
-      `Prelude.seq` Prelude.rnf integerHyperParameterRanges
+    Prelude.rnf categoricalHyperParameterRanges `Prelude.seq`
+      Prelude.rnf continuousHyperParameterRanges `Prelude.seq`
+        Prelude.rnf integerHyperParameterRanges

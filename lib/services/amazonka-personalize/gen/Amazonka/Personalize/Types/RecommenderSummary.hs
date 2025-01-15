@@ -181,11 +181,11 @@ instance Prelude.Hashable RecommenderSummary where
 
 instance Prelude.NFData RecommenderSummary where
   rnf RecommenderSummary' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recipeArn
-      `Prelude.seq` Prelude.rnf recommenderArn
-      `Prelude.seq` Prelude.rnf recommenderConfig
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf datasetGroupArn `Prelude.seq`
+        Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf recipeArn `Prelude.seq`
+              Prelude.rnf recommenderArn `Prelude.seq`
+                Prelude.rnf recommenderConfig `Prelude.seq`
+                  Prelude.rnf status

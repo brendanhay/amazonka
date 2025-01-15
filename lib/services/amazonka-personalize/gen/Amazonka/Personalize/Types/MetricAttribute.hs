@@ -114,9 +114,9 @@ instance Prelude.Hashable MetricAttribute where
 
 instance Prelude.NFData MetricAttribute where
   rnf MetricAttribute' {..} =
-    Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf expression
+    Prelude.rnf eventType `Prelude.seq`
+      Prelude.rnf metricName `Prelude.seq`
+        Prelude.rnf expression
 
 instance Data.ToJSON MetricAttribute where
   toJSON MetricAttribute' {..} =

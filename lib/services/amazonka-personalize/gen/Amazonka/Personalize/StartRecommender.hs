@@ -172,5 +172,5 @@ startRecommenderResponse_httpStatus = Lens.lens (\StartRecommenderResponse' {htt
 
 instance Prelude.NFData StartRecommenderResponse where
   rnf StartRecommenderResponse' {..} =
-    Prelude.rnf recommenderArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf recommenderArn `Prelude.seq`
+      Prelude.rnf httpStatus

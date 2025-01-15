@@ -305,14 +305,14 @@ instance Prelude.Hashable CreateSolution where
 
 instance Prelude.NFData CreateSolution where
   rnf CreateSolution' {..} =
-    Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf performAutoML
-      `Prelude.seq` Prelude.rnf performHPO
-      `Prelude.seq` Prelude.rnf recipeArn
-      `Prelude.seq` Prelude.rnf solutionConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf datasetGroupArn
+    Prelude.rnf eventType `Prelude.seq`
+      Prelude.rnf performAutoML `Prelude.seq`
+        Prelude.rnf performHPO `Prelude.seq`
+          Prelude.rnf recipeArn `Prelude.seq`
+            Prelude.rnf solutionConfig `Prelude.seq`
+              Prelude.rnf tags `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf datasetGroupArn
 
 instance Data.ToHeaders CreateSolution where
   toHeaders =
@@ -393,5 +393,5 @@ createSolutionResponse_httpStatus = Lens.lens (\CreateSolutionResponse' {httpSta
 
 instance Prelude.NFData CreateSolutionResponse where
   rnf CreateSolutionResponse' {..} =
-    Prelude.rnf solutionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf solutionArn `Prelude.seq`
+      Prelude.rnf httpStatus

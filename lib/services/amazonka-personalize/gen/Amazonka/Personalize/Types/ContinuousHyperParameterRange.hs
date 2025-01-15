@@ -95,9 +95,9 @@ instance
 
 instance Prelude.NFData ContinuousHyperParameterRange where
   rnf ContinuousHyperParameterRange' {..} =
-    Prelude.rnf maxValue
-      `Prelude.seq` Prelude.rnf minValue
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf maxValue `Prelude.seq`
+      Prelude.rnf minValue `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON ContinuousHyperParameterRange where
   toJSON ContinuousHyperParameterRange' {..} =

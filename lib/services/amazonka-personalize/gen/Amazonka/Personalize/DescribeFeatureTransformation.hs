@@ -186,5 +186,5 @@ instance
     DescribeFeatureTransformationResponse
   where
   rnf DescribeFeatureTransformationResponse' {..} =
-    Prelude.rnf featureTransformation
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf featureTransformation `Prelude.seq`
+      Prelude.rnf httpStatus

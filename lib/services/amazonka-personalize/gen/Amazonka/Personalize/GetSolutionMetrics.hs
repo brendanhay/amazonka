@@ -190,6 +190,6 @@ getSolutionMetricsResponse_httpStatus = Lens.lens (\GetSolutionMetricsResponse' 
 
 instance Prelude.NFData GetSolutionMetricsResponse where
   rnf GetSolutionMetricsResponse' {..} =
-    Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf solutionVersionArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metrics `Prelude.seq`
+      Prelude.rnf solutionVersionArn `Prelude.seq`
+        Prelude.rnf httpStatus

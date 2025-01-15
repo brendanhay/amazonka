@@ -216,13 +216,13 @@ instance Prelude.Hashable DatasetExportJob where
 
 instance Prelude.NFData DatasetExportJob where
   rnf DatasetExportJob' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf datasetExportJobArn
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf ingestionMode
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobOutput
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf datasetArn `Prelude.seq`
+        Prelude.rnf datasetExportJobArn `Prelude.seq`
+          Prelude.rnf failureReason `Prelude.seq`
+            Prelude.rnf ingestionMode `Prelude.seq`
+              Prelude.rnf jobName `Prelude.seq`
+                Prelude.rnf jobOutput `Prelude.seq`
+                  Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                    Prelude.rnf roleArn `Prelude.seq`
+                      Prelude.rnf status

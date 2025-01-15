@@ -113,8 +113,8 @@ instance Prelude.Hashable UpdateRecommender where
 
 instance Prelude.NFData UpdateRecommender where
   rnf UpdateRecommender' {..} =
-    Prelude.rnf recommenderArn
-      `Prelude.seq` Prelude.rnf recommenderConfig
+    Prelude.rnf recommenderArn `Prelude.seq`
+      Prelude.rnf recommenderConfig
 
 instance Data.ToHeaders UpdateRecommender where
   toHeaders =
@@ -189,5 +189,5 @@ updateRecommenderResponse_httpStatus = Lens.lens (\UpdateRecommenderResponse' {h
 
 instance Prelude.NFData UpdateRecommenderResponse where
   rnf UpdateRecommenderResponse' {..} =
-    Prelude.rnf recommenderArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf recommenderArn `Prelude.seq`
+      Prelude.rnf httpStatus

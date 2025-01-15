@@ -167,5 +167,5 @@ stopRecommenderResponse_httpStatus = Lens.lens (\StopRecommenderResponse' {httpS
 
 instance Prelude.NFData StopRecommenderResponse where
   rnf StopRecommenderResponse' {..} =
-    Prelude.rnf recommenderArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf recommenderArn `Prelude.seq`
+      Prelude.rnf httpStatus

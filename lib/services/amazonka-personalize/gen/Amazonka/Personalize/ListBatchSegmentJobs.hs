@@ -119,12 +119,12 @@ instance Core.AWSPager ListBatchSegmentJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBatchSegmentJobs_nextToken
-          Lens..~ rs
-          Lens.^? listBatchSegmentJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBatchSegmentJobs_nextToken
+              Lens..~ rs
+              Lens.^? listBatchSegmentJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBatchSegmentJobs where
   type
@@ -153,9 +153,9 @@ instance Prelude.Hashable ListBatchSegmentJobs where
 
 instance Prelude.NFData ListBatchSegmentJobs where
   rnf ListBatchSegmentJobs' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf solutionVersionArn
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf solutionVersionArn
 
 instance Data.ToHeaders ListBatchSegmentJobs where
   toHeaders =
@@ -242,6 +242,6 @@ listBatchSegmentJobsResponse_httpStatus = Lens.lens (\ListBatchSegmentJobsRespon
 
 instance Prelude.NFData ListBatchSegmentJobsResponse where
   rnf ListBatchSegmentJobsResponse' {..} =
-    Prelude.rnf batchSegmentJobs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf batchSegmentJobs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

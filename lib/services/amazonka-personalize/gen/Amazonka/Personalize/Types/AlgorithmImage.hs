@@ -82,5 +82,5 @@ instance Prelude.Hashable AlgorithmImage where
 
 instance Prelude.NFData AlgorithmImage where
   rnf AlgorithmImage' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf dockerURI
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf dockerURI

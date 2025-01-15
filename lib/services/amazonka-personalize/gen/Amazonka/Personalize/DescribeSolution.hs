@@ -165,5 +165,5 @@ describeSolutionResponse_httpStatus = Lens.lens (\DescribeSolutionResponse' {htt
 
 instance Prelude.NFData DescribeSolutionResponse where
   rnf DescribeSolutionResponse' {..} =
-    Prelude.rnf solution
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf solution `Prelude.seq`
+      Prelude.rnf httpStatus

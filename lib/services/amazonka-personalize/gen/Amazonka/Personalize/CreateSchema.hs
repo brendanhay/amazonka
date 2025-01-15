@@ -141,9 +141,9 @@ instance Prelude.Hashable CreateSchema where
 
 instance Prelude.NFData CreateSchema where
   rnf CreateSchema' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf schema
+    Prelude.rnf domain `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf schema
 
 instance Data.ToHeaders CreateSchema where
   toHeaders =
@@ -216,5 +216,5 @@ createSchemaResponse_httpStatus = Lens.lens (\CreateSchemaResponse' {httpStatus}
 
 instance Prelude.NFData CreateSchemaResponse where
   rnf CreateSchemaResponse' {..} =
-    Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf schemaArn `Prelude.seq`
+      Prelude.rnf httpStatus

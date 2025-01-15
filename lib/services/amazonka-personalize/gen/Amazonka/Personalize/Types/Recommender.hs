@@ -227,14 +227,14 @@ instance Prelude.Hashable Recommender where
 
 instance Prelude.NFData Recommender where
   rnf Recommender' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf latestRecommenderUpdate
-      `Prelude.seq` Prelude.rnf modelMetrics
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recipeArn
-      `Prelude.seq` Prelude.rnf recommenderArn
-      `Prelude.seq` Prelude.rnf recommenderConfig
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf datasetGroupArn `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+            Prelude.rnf latestRecommenderUpdate `Prelude.seq`
+              Prelude.rnf modelMetrics `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf recipeArn `Prelude.seq`
+                    Prelude.rnf recommenderArn `Prelude.seq`
+                      Prelude.rnf recommenderConfig `Prelude.seq`
+                        Prelude.rnf status

@@ -116,7 +116,7 @@ instance
     DefaultIntegerHyperParameterRange
   where
   rnf DefaultIntegerHyperParameterRange' {..} =
-    Prelude.rnf isTunable
-      `Prelude.seq` Prelude.rnf maxValue
-      `Prelude.seq` Prelude.rnf minValue
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf isTunable `Prelude.seq`
+      Prelude.rnf maxValue `Prelude.seq`
+        Prelude.rnf minValue `Prelude.seq`
+          Prelude.rnf name

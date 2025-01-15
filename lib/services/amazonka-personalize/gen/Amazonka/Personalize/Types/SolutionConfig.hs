@@ -149,12 +149,12 @@ instance Prelude.Hashable SolutionConfig where
 
 instance Prelude.NFData SolutionConfig where
   rnf SolutionConfig' {..} =
-    Prelude.rnf algorithmHyperParameters
-      `Prelude.seq` Prelude.rnf autoMLConfig
-      `Prelude.seq` Prelude.rnf eventValueThreshold
-      `Prelude.seq` Prelude.rnf featureTransformationParameters
-      `Prelude.seq` Prelude.rnf hpoConfig
-      `Prelude.seq` Prelude.rnf optimizationObjective
+    Prelude.rnf algorithmHyperParameters `Prelude.seq`
+      Prelude.rnf autoMLConfig `Prelude.seq`
+        Prelude.rnf eventValueThreshold `Prelude.seq`
+          Prelude.rnf featureTransformationParameters `Prelude.seq`
+            Prelude.rnf hpoConfig `Prelude.seq`
+              Prelude.rnf optimizationObjective
 
 instance Data.ToJSON SolutionConfig where
   toJSON SolutionConfig' {..} =

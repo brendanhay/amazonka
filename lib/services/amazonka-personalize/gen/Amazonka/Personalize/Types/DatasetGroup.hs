@@ -192,12 +192,12 @@ instance Prelude.Hashable DatasetGroup where
 
 instance Prelude.NFData DatasetGroup where
   rnf DatasetGroup' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf datasetGroupArn `Prelude.seq`
+        Prelude.rnf domain `Prelude.seq`
+          Prelude.rnf failureReason `Prelude.seq`
+            Prelude.rnf kmsKeyArn `Prelude.seq`
+              Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                Prelude.rnf name `Prelude.seq`
+                  Prelude.rnf roleArn `Prelude.seq`
+                    Prelude.rnf status

@@ -176,5 +176,5 @@ describeCampaignResponse_httpStatus = Lens.lens (\DescribeCampaignResponse' {htt
 
 instance Prelude.NFData DescribeCampaignResponse where
   rnf DescribeCampaignResponse' {..} =
-    Prelude.rnf campaign
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf campaign `Prelude.seq`
+      Prelude.rnf httpStatus

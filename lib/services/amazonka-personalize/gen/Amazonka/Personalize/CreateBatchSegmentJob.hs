@@ -220,14 +220,14 @@ instance Prelude.Hashable CreateBatchSegmentJob where
 
 instance Prelude.NFData CreateBatchSegmentJob where
   rnf CreateBatchSegmentJob' {..} =
-    Prelude.rnf filterArn
-      `Prelude.seq` Prelude.rnf numResults
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf solutionVersionArn
-      `Prelude.seq` Prelude.rnf jobInput
-      `Prelude.seq` Prelude.rnf jobOutput
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf filterArn `Prelude.seq`
+      Prelude.rnf numResults `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf jobName `Prelude.seq`
+            Prelude.rnf solutionVersionArn `Prelude.seq`
+              Prelude.rnf jobInput `Prelude.seq`
+                Prelude.rnf jobOutput `Prelude.seq`
+                  Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateBatchSegmentJob where
   toHeaders =
@@ -307,5 +307,5 @@ createBatchSegmentJobResponse_httpStatus = Lens.lens (\CreateBatchSegmentJobResp
 
 instance Prelude.NFData CreateBatchSegmentJobResponse where
   rnf CreateBatchSegmentJobResponse' {..} =
-    Prelude.rnf batchSegmentJobArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf batchSegmentJobArn `Prelude.seq`
+      Prelude.rnf httpStatus

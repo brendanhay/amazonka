@@ -90,8 +90,8 @@ instance Prelude.Hashable Tag where
 
 instance Prelude.NFData Tag where
   rnf Tag' {..} =
-    Prelude.rnf tagKey
-      `Prelude.seq` Prelude.rnf tagValue
+    Prelude.rnf tagKey `Prelude.seq`
+      Prelude.rnf tagValue
 
 instance Data.ToJSON Tag where
   toJSON Tag' {..} =

@@ -206,14 +206,14 @@ instance Prelude.Hashable DatasetImportJob where
 
 instance Prelude.NFData DatasetImportJob where
   rnf DatasetImportJob' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf datasetImportJobArn
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf importMode
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf publishAttributionMetricsToS3
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf dataSource `Prelude.seq`
+        Prelude.rnf datasetArn `Prelude.seq`
+          Prelude.rnf datasetImportJobArn `Prelude.seq`
+            Prelude.rnf failureReason `Prelude.seq`
+              Prelude.rnf importMode `Prelude.seq`
+                Prelude.rnf jobName `Prelude.seq`
+                  Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+                    Prelude.rnf publishAttributionMetricsToS3 `Prelude.seq`
+                      Prelude.rnf roleArn `Prelude.seq`
+                        Prelude.rnf status

@@ -84,8 +84,8 @@ instance Prelude.Hashable AutoMLConfig where
 
 instance Prelude.NFData AutoMLConfig where
   rnf AutoMLConfig' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf recipeList
+    Prelude.rnf metricName `Prelude.seq`
+      Prelude.rnf recipeList
 
 instance Data.ToJSON AutoMLConfig where
   toJSON AutoMLConfig' {..} =

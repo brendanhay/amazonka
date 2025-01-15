@@ -188,5 +188,5 @@ describeRecommenderResponse_httpStatus = Lens.lens (\DescribeRecommenderResponse
 
 instance Prelude.NFData DescribeRecommenderResponse where
   rnf DescribeRecommenderResponse' {..} =
-    Prelude.rnf recommender
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf recommender `Prelude.seq`
+      Prelude.rnf httpStatus

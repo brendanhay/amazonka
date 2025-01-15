@@ -177,5 +177,5 @@ instance
     DescribeBatchInferenceJobResponse
   where
   rnf DescribeBatchInferenceJobResponse' {..} =
-    Prelude.rnf batchInferenceJob
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf batchInferenceJob `Prelude.seq`
+      Prelude.rnf httpStatus

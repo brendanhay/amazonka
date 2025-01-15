@@ -145,9 +145,9 @@ instance Prelude.Hashable CampaignSummary where
 
 instance Prelude.NFData CampaignSummary where
   rnf CampaignSummary' {..} =
-    Prelude.rnf campaignArn
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf campaignArn `Prelude.seq`
+      Prelude.rnf creationDateTime `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf status

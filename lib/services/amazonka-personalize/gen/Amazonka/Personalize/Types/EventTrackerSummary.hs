@@ -138,8 +138,8 @@ instance Prelude.Hashable EventTrackerSummary where
 
 instance Prelude.NFData EventTrackerSummary where
   rnf EventTrackerSummary' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf eventTrackerArn
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf eventTrackerArn `Prelude.seq`
+        Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf status

@@ -226,15 +226,15 @@ instance Prelude.Hashable CreateBatchInferenceJob where
 
 instance Prelude.NFData CreateBatchInferenceJob where
   rnf CreateBatchInferenceJob' {..} =
-    Prelude.rnf batchInferenceJobConfig
-      `Prelude.seq` Prelude.rnf filterArn
-      `Prelude.seq` Prelude.rnf numResults
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf solutionVersionArn
-      `Prelude.seq` Prelude.rnf jobInput
-      `Prelude.seq` Prelude.rnf jobOutput
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf batchInferenceJobConfig `Prelude.seq`
+      Prelude.rnf filterArn `Prelude.seq`
+        Prelude.rnf numResults `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf jobName `Prelude.seq`
+              Prelude.rnf solutionVersionArn `Prelude.seq`
+                Prelude.rnf jobInput `Prelude.seq`
+                  Prelude.rnf jobOutput `Prelude.seq`
+                    Prelude.rnf roleArn
 
 instance Data.ToHeaders CreateBatchInferenceJob where
   toHeaders =
@@ -319,5 +319,5 @@ instance
     CreateBatchInferenceJobResponse
   where
   rnf CreateBatchInferenceJobResponse' {..} =
-    Prelude.rnf batchInferenceJobArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf batchInferenceJobArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -161,10 +161,10 @@ instance Prelude.Hashable DatasetGroupSummary where
 
 instance Prelude.NFData DatasetGroupSummary where
   rnf DatasetGroupSummary' {..} =
-    Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDateTime `Prelude.seq`
+      Prelude.rnf datasetGroupArn `Prelude.seq`
+        Prelude.rnf domain `Prelude.seq`
+          Prelude.rnf failureReason `Prelude.seq`
+            Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf status

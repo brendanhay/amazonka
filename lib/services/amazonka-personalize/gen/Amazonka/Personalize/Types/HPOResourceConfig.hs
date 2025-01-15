@@ -88,8 +88,8 @@ instance Prelude.Hashable HPOResourceConfig where
 
 instance Prelude.NFData HPOResourceConfig where
   rnf HPOResourceConfig' {..} =
-    Prelude.rnf maxNumberOfTrainingJobs
-      `Prelude.seq` Prelude.rnf maxParallelTrainingJobs
+    Prelude.rnf maxNumberOfTrainingJobs `Prelude.seq`
+      Prelude.rnf maxParallelTrainingJobs
 
 instance Data.ToJSON HPOResourceConfig where
   toJSON HPOResourceConfig' {..} =

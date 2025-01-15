@@ -94,9 +94,9 @@ instance Prelude.Hashable HPOObjective where
 
 instance Prelude.NFData HPOObjective where
   rnf HPOObjective' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf metricRegex
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf metricName `Prelude.seq`
+      Prelude.rnf metricRegex `Prelude.seq`
+        Prelude.rnf type'
 
 instance Data.ToJSON HPOObjective where
   toJSON HPOObjective' {..} =

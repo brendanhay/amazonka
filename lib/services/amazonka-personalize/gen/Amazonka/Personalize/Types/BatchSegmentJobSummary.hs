@@ -170,10 +170,10 @@ instance Prelude.Hashable BatchSegmentJobSummary where
 
 instance Prelude.NFData BatchSegmentJobSummary where
   rnf BatchSegmentJobSummary' {..} =
-    Prelude.rnf batchSegmentJobArn
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf solutionVersionArn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf batchSegmentJobArn `Prelude.seq`
+      Prelude.rnf creationDateTime `Prelude.seq`
+        Prelude.rnf failureReason `Prelude.seq`
+          Prelude.rnf jobName `Prelude.seq`
+            Prelude.rnf lastUpdatedDateTime `Prelude.seq`
+              Prelude.rnf solutionVersionArn `Prelude.seq`
+                Prelude.rnf status

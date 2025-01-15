@@ -166,9 +166,9 @@ instance Prelude.Hashable CreateEventTracker where
 
 instance Prelude.NFData CreateEventTracker where
   rnf CreateEventTracker' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf datasetGroupArn
+    Prelude.rnf tags `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf datasetGroupArn
 
 instance Data.ToHeaders CreateEventTracker where
   toHeaders =
@@ -258,6 +258,6 @@ createEventTrackerResponse_httpStatus = Lens.lens (\CreateEventTrackerResponse' 
 
 instance Prelude.NFData CreateEventTrackerResponse where
   rnf CreateEventTrackerResponse' {..} =
-    Prelude.rnf eventTrackerArn
-      `Prelude.seq` Prelude.rnf trackingId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventTrackerArn `Prelude.seq`
+      Prelude.rnf trackingId `Prelude.seq`
+        Prelude.rnf httpStatus

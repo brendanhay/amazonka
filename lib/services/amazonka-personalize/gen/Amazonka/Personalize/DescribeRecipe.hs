@@ -181,5 +181,5 @@ describeRecipeResponse_httpStatus = Lens.lens (\DescribeRecipeResponse' {httpSta
 
 instance Prelude.NFData DescribeRecipeResponse where
   rnf DescribeRecipeResponse' {..} =
-    Prelude.rnf recipe
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf recipe `Prelude.seq`
+      Prelude.rnf httpStatus

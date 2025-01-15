@@ -92,9 +92,9 @@ instance Prelude.Hashable IntegerHyperParameterRange where
 
 instance Prelude.NFData IntegerHyperParameterRange where
   rnf IntegerHyperParameterRange' {..} =
-    Prelude.rnf maxValue
-      `Prelude.seq` Prelude.rnf minValue
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf maxValue `Prelude.seq`
+      Prelude.rnf minValue `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToJSON IntegerHyperParameterRange where
   toJSON IntegerHyperParameterRange' {..} =

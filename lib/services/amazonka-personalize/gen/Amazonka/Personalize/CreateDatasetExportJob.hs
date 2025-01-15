@@ -205,12 +205,12 @@ instance Prelude.Hashable CreateDatasetExportJob where
 
 instance Prelude.NFData CreateDatasetExportJob where
   rnf CreateDatasetExportJob' {..} =
-    Prelude.rnf ingestionMode
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf jobOutput
+    Prelude.rnf ingestionMode `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf jobName `Prelude.seq`
+          Prelude.rnf datasetArn `Prelude.seq`
+            Prelude.rnf roleArn `Prelude.seq`
+              Prelude.rnf jobOutput
 
 instance Data.ToHeaders CreateDatasetExportJob where
   toHeaders =
@@ -290,5 +290,5 @@ instance
     CreateDatasetExportJobResponse
   where
   rnf CreateDatasetExportJobResponse' {..} =
-    Prelude.rnf datasetExportJobArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf datasetExportJobArn `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -371,11 +371,11 @@ instance Prelude.Hashable MetricDefinitionRequest where
 
 instance Prelude.NFData MetricDefinitionRequest where
   rnf MetricDefinitionRequest' {..} =
-    Prelude.rnf dimensionKeys
-      `Prelude.seq` Prelude.rnf eventPattern
-      `Prelude.seq` Prelude.rnf unitLabel
-      `Prelude.seq` Prelude.rnf valueKey
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf dimensionKeys `Prelude.seq`
+      Prelude.rnf eventPattern `Prelude.seq`
+        Prelude.rnf unitLabel `Prelude.seq`
+          Prelude.rnf valueKey `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToJSON MetricDefinitionRequest where
   toJSON MetricDefinitionRequest' {..} =

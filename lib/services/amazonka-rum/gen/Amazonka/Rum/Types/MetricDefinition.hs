@@ -163,9 +163,9 @@ instance Prelude.Hashable MetricDefinition where
 
 instance Prelude.NFData MetricDefinition where
   rnf MetricDefinition' {..} =
-    Prelude.rnf dimensionKeys
-      `Prelude.seq` Prelude.rnf eventPattern
-      `Prelude.seq` Prelude.rnf unitLabel
-      `Prelude.seq` Prelude.rnf valueKey
-      `Prelude.seq` Prelude.rnf metricDefinitionId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf dimensionKeys `Prelude.seq`
+      Prelude.rnf eventPattern `Prelude.seq`
+        Prelude.rnf unitLabel `Prelude.seq`
+          Prelude.rnf valueKey `Prelude.seq`
+            Prelude.rnf metricDefinitionId `Prelude.seq`
+              Prelude.rnf name

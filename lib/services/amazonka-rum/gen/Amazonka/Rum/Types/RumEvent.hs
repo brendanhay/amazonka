@@ -121,11 +121,11 @@ instance Prelude.Hashable RumEvent where
 
 instance Prelude.NFData RumEvent where
   rnf RumEvent' {..} =
-    Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf details
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf metadata `Prelude.seq`
+      Prelude.rnf details `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf timestamp `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToJSON RumEvent where
   toJSON RumEvent' {..} =

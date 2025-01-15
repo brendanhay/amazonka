@@ -170,12 +170,12 @@ instance Core.AWSPager BatchGetRumMetricDefinitions where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& batchGetRumMetricDefinitions_nextToken
-          Lens..~ rs
-          Lens.^? batchGetRumMetricDefinitionsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& batchGetRumMetricDefinitions_nextToken
+              Lens..~ rs
+              Lens.^? batchGetRumMetricDefinitionsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest BatchGetRumMetricDefinitions where
   type
@@ -209,11 +209,11 @@ instance
 
 instance Prelude.NFData BatchGetRumMetricDefinitions where
   rnf BatchGetRumMetricDefinitions' {..} =
-    Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appMonitorName
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf destinationArn `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf appMonitorName `Prelude.seq`
+            Prelude.rnf destination
 
 instance Data.ToHeaders BatchGetRumMetricDefinitions where
   toHeaders =
@@ -302,6 +302,6 @@ instance
     BatchGetRumMetricDefinitionsResponse
   where
   rnf BatchGetRumMetricDefinitionsResponse' {..} =
-    Prelude.rnf metricDefinitions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf metricDefinitions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

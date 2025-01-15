@@ -137,12 +137,12 @@ instance Core.AWSPager ListRumMetricsDestinations where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRumMetricsDestinations_nextToken
-          Lens..~ rs
-          Lens.^? listRumMetricsDestinationsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRumMetricsDestinations_nextToken
+              Lens..~ rs
+              Lens.^? listRumMetricsDestinationsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRumMetricsDestinations where
   type
@@ -168,9 +168,9 @@ instance Prelude.Hashable ListRumMetricsDestinations where
 
 instance Prelude.NFData ListRumMetricsDestinations where
   rnf ListRumMetricsDestinations' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appMonitorName
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf appMonitorName
 
 instance Data.ToHeaders ListRumMetricsDestinations where
   toHeaders =
@@ -257,6 +257,6 @@ instance
     ListRumMetricsDestinationsResponse
   where
   rnf ListRumMetricsDestinationsResponse' {..} =
-    Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf destinations `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

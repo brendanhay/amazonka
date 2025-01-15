@@ -85,5 +85,5 @@ instance Prelude.Hashable CwLog where
 
 instance Prelude.NFData CwLog where
   rnf CwLog' {..} =
-    Prelude.rnf cwLogEnabled
-      `Prelude.seq` Prelude.rnf cwLogGroup
+    Prelude.rnf cwLogEnabled `Prelude.seq`
+      Prelude.rnf cwLogGroup

@@ -200,11 +200,11 @@ instance Prelude.Hashable UpdateAppMonitor where
 
 instance Prelude.NFData UpdateAppMonitor where
   rnf UpdateAppMonitor' {..} =
-    Prelude.rnf appMonitorConfiguration
-      `Prelude.seq` Prelude.rnf customEvents
-      `Prelude.seq` Prelude.rnf cwLogEnabled
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf appMonitorConfiguration `Prelude.seq`
+      Prelude.rnf customEvents `Prelude.seq`
+        Prelude.rnf cwLogEnabled `Prelude.seq`
+          Prelude.rnf domain `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders UpdateAppMonitor where
   toHeaders =

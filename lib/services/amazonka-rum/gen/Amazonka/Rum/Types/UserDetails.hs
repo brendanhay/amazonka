@@ -77,8 +77,8 @@ instance Prelude.Hashable UserDetails where
 
 instance Prelude.NFData UserDetails where
   rnf UserDetails' {..} =
-    Prelude.rnf sessionId
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf sessionId `Prelude.seq`
+      Prelude.rnf userId
 
 instance Data.ToJSON UserDetails where
   toJSON UserDetails' {..} =

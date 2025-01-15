@@ -103,6 +103,6 @@ instance Prelude.Hashable MetricDestinationSummary where
 
 instance Prelude.NFData MetricDestinationSummary where
   rnf MetricDestinationSummary' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf destinationArn
-      `Prelude.seq` Prelude.rnf iamRoleArn
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf destinationArn `Prelude.seq`
+        Prelude.rnf iamRoleArn

@@ -122,8 +122,8 @@ instance Prelude.Hashable ImscDestinationSettings where
 
 instance Prelude.NFData ImscDestinationSettings where
   rnf ImscDestinationSettings' {..} =
-    Prelude.rnf accessibility
-      `Prelude.seq` Prelude.rnf stylePassthrough
+    Prelude.rnf accessibility `Prelude.seq`
+      Prelude.rnf stylePassthrough
 
 instance Data.ToJSON ImscDestinationSettings where
   toJSON ImscDestinationSettings' {..} =

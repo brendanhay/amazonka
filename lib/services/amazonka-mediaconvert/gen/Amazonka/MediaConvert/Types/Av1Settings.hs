@@ -406,19 +406,19 @@ instance Prelude.Hashable Av1Settings where
 
 instance Prelude.NFData Av1Settings where
   rnf Av1Settings' {..} =
-    Prelude.rnf adaptiveQuantization
-      `Prelude.seq` Prelude.rnf bitDepth
-      `Prelude.seq` Prelude.rnf framerateControl
-      `Prelude.seq` Prelude.rnf framerateConversionAlgorithm
-      `Prelude.seq` Prelude.rnf framerateDenominator
-      `Prelude.seq` Prelude.rnf framerateNumerator
-      `Prelude.seq` Prelude.rnf gopSize
-      `Prelude.seq` Prelude.rnf maxBitrate
-      `Prelude.seq` Prelude.rnf numberBFramesBetweenReferenceFrames
-      `Prelude.seq` Prelude.rnf qvbrSettings
-      `Prelude.seq` Prelude.rnf rateControlMode
-      `Prelude.seq` Prelude.rnf slices
-      `Prelude.seq` Prelude.rnf spatialAdaptiveQuantization
+    Prelude.rnf adaptiveQuantization `Prelude.seq`
+      Prelude.rnf bitDepth `Prelude.seq`
+        Prelude.rnf framerateControl `Prelude.seq`
+          Prelude.rnf framerateConversionAlgorithm `Prelude.seq`
+            Prelude.rnf framerateDenominator `Prelude.seq`
+              Prelude.rnf framerateNumerator `Prelude.seq`
+                Prelude.rnf gopSize `Prelude.seq`
+                  Prelude.rnf maxBitrate `Prelude.seq`
+                    Prelude.rnf numberBFramesBetweenReferenceFrames `Prelude.seq`
+                      Prelude.rnf qvbrSettings `Prelude.seq`
+                        Prelude.rnf rateControlMode `Prelude.seq`
+                          Prelude.rnf slices `Prelude.seq`
+                            Prelude.rnf spatialAdaptiveQuantization
 
 instance Data.ToJSON Av1Settings where
   toJSON Av1Settings' {..} =

@@ -339,19 +339,19 @@ instance Prelude.Hashable CreateJob where
 
 instance Prelude.NFData CreateJob where
   rnf CreateJob' {..} =
-    Prelude.rnf accelerationSettings
-      `Prelude.seq` Prelude.rnf billingTagsSource
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf hopDestinations
-      `Prelude.seq` Prelude.rnf jobTemplate
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf queue
-      `Prelude.seq` Prelude.rnf simulateReservedQueue
-      `Prelude.seq` Prelude.rnf statusUpdateInterval
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf userMetadata
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf settings
+    Prelude.rnf accelerationSettings `Prelude.seq`
+      Prelude.rnf billingTagsSource `Prelude.seq`
+        Prelude.rnf clientRequestToken `Prelude.seq`
+          Prelude.rnf hopDestinations `Prelude.seq`
+            Prelude.rnf jobTemplate `Prelude.seq`
+              Prelude.rnf priority `Prelude.seq`
+                Prelude.rnf queue `Prelude.seq`
+                  Prelude.rnf simulateReservedQueue `Prelude.seq`
+                    Prelude.rnf statusUpdateInterval `Prelude.seq`
+                      Prelude.rnf tags `Prelude.seq`
+                        Prelude.rnf userMetadata `Prelude.seq`
+                          Prelude.rnf role' `Prelude.seq`
+                            Prelude.rnf settings
 
 instance Data.ToHeaders CreateJob where
   toHeaders =
@@ -442,5 +442,5 @@ createJobResponse_httpStatus = Lens.lens (\CreateJobResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CreateJobResponse where
   rnf CreateJobResponse' {..} =
-    Prelude.rnf job
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf job `Prelude.seq`
+      Prelude.rnf httpStatus

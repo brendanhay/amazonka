@@ -136,9 +136,9 @@ instance Prelude.Hashable MxfSettings where
 
 instance Prelude.NFData MxfSettings where
   rnf MxfSettings' {..} =
-    Prelude.rnf afdSignaling
-      `Prelude.seq` Prelude.rnf profile
-      `Prelude.seq` Prelude.rnf xavcProfileSettings
+    Prelude.rnf afdSignaling `Prelude.seq`
+      Prelude.rnf profile `Prelude.seq`
+        Prelude.rnf xavcProfileSettings
 
 instance Data.ToJSON MxfSettings where
   toJSON MxfSettings' {..} =

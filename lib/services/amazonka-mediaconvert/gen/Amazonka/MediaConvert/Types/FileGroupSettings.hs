@@ -100,8 +100,8 @@ instance Prelude.Hashable FileGroupSettings where
 
 instance Prelude.NFData FileGroupSettings where
   rnf FileGroupSettings' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf destinationSettings
+    Prelude.rnf destination `Prelude.seq`
+      Prelude.rnf destinationSettings
 
 instance Data.ToJSON FileGroupSettings where
   toJSON FileGroupSettings' {..} =

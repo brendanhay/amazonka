@@ -331,18 +331,18 @@ instance Prelude.Hashable AudioSelector where
 
 instance Prelude.NFData AudioSelector where
   rnf AudioSelector' {..} =
-    Prelude.rnf audioDurationCorrection
-      `Prelude.seq` Prelude.rnf customLanguageCode
-      `Prelude.seq` Prelude.rnf defaultSelection
-      `Prelude.seq` Prelude.rnf externalAudioFileInput
-      `Prelude.seq` Prelude.rnf hlsRenditionGroupSettings
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf offset
-      `Prelude.seq` Prelude.rnf pids
-      `Prelude.seq` Prelude.rnf programSelection
-      `Prelude.seq` Prelude.rnf remixSettings
-      `Prelude.seq` Prelude.rnf selectorType
-      `Prelude.seq` Prelude.rnf tracks
+    Prelude.rnf audioDurationCorrection `Prelude.seq`
+      Prelude.rnf customLanguageCode `Prelude.seq`
+        Prelude.rnf defaultSelection `Prelude.seq`
+          Prelude.rnf externalAudioFileInput `Prelude.seq`
+            Prelude.rnf hlsRenditionGroupSettings `Prelude.seq`
+              Prelude.rnf languageCode `Prelude.seq`
+                Prelude.rnf offset `Prelude.seq`
+                  Prelude.rnf pids `Prelude.seq`
+                    Prelude.rnf programSelection `Prelude.seq`
+                      Prelude.rnf remixSettings `Prelude.seq`
+                        Prelude.rnf selectorType `Prelude.seq`
+                          Prelude.rnf tracks
 
 instance Data.ToJSON AudioSelector where
   toJSON AudioSelector' {..} =

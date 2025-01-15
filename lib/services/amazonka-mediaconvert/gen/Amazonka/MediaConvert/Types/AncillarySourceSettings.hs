@@ -115,9 +115,9 @@ instance Prelude.Hashable AncillarySourceSettings where
 
 instance Prelude.NFData AncillarySourceSettings where
   rnf AncillarySourceSettings' {..} =
-    Prelude.rnf convert608To708
-      `Prelude.seq` Prelude.rnf sourceAncillaryChannelNumber
-      `Prelude.seq` Prelude.rnf terminateCaptions
+    Prelude.rnf convert608To708 `Prelude.seq`
+      Prelude.rnf sourceAncillaryChannelNumber `Prelude.seq`
+        Prelude.rnf terminateCaptions
 
 instance Data.ToJSON AncillarySourceSettings where
   toJSON AncillarySourceSettings' {..} =

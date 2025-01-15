@@ -208,12 +208,12 @@ instance Prelude.Hashable Mp4Settings where
 
 instance Prelude.NFData Mp4Settings where
   rnf Mp4Settings' {..} =
-    Prelude.rnf audioDuration
-      `Prelude.seq` Prelude.rnf cslgAtom
-      `Prelude.seq` Prelude.rnf cttsVersion
-      `Prelude.seq` Prelude.rnf freeSpaceBox
-      `Prelude.seq` Prelude.rnf moovPlacement
-      `Prelude.seq` Prelude.rnf mp4MajorBrand
+    Prelude.rnf audioDuration `Prelude.seq`
+      Prelude.rnf cslgAtom `Prelude.seq`
+        Prelude.rnf cttsVersion `Prelude.seq`
+          Prelude.rnf freeSpaceBox `Prelude.seq`
+            Prelude.rnf moovPlacement `Prelude.seq`
+              Prelude.rnf mp4MajorBrand
 
 instance Data.ToJSON Mp4Settings where
   toJSON Mp4Settings' {..} =

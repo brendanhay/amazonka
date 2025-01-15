@@ -176,12 +176,12 @@ instance Prelude.Hashable CreateQueue where
 
 instance Prelude.NFData CreateQueue where
   rnf CreateQueue' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf reservationPlanSettings
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf pricingPlan `Prelude.seq`
+        Prelude.rnf reservationPlanSettings `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf name
 
 instance Data.ToHeaders CreateQueue where
   toHeaders =
@@ -266,5 +266,5 @@ createQueueResponse_httpStatus = Lens.lens (\CreateQueueResponse' {httpStatus} -
 
 instance Prelude.NFData CreateQueueResponse where
   rnf CreateQueueResponse' {..} =
-    Prelude.rnf queue
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf queue `Prelude.seq`
+      Prelude.rnf httpStatus

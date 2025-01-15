@@ -113,9 +113,9 @@ instance Prelude.Hashable VorbisSettings where
 
 instance Prelude.NFData VorbisSettings where
   rnf VorbisSettings' {..} =
-    Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf sampleRate
-      `Prelude.seq` Prelude.rnf vbrQuality
+    Prelude.rnf channels `Prelude.seq`
+      Prelude.rnf sampleRate `Prelude.seq`
+        Prelude.rnf vbrQuality
 
 instance Data.ToJSON VorbisSettings where
   toJSON VorbisSettings' {..} =

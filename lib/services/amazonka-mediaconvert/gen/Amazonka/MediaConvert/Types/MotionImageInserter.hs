@@ -236,12 +236,12 @@ instance Prelude.Hashable MotionImageInserter where
 
 instance Prelude.NFData MotionImageInserter where
   rnf MotionImageInserter' {..} =
-    Prelude.rnf framerate
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf insertionMode
-      `Prelude.seq` Prelude.rnf offset
-      `Prelude.seq` Prelude.rnf playback
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf framerate `Prelude.seq`
+      Prelude.rnf input `Prelude.seq`
+        Prelude.rnf insertionMode `Prelude.seq`
+          Prelude.rnf offset `Prelude.seq`
+            Prelude.rnf playback `Prelude.seq`
+              Prelude.rnf startTime
 
 instance Data.ToJSON MotionImageInserter where
   toJSON MotionImageInserter' {..} =

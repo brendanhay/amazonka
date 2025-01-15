@@ -361,17 +361,17 @@ instance Prelude.Hashable MpdSettings where
 
 instance Prelude.NFData MpdSettings where
   rnf MpdSettings' {..} =
-    Prelude.rnf accessibilityCaptionHints
-      `Prelude.seq` Prelude.rnf audioDuration
-      `Prelude.seq` Prelude.rnf captionContainerType
-      `Prelude.seq` Prelude.rnf klvMetadata
-      `Prelude.seq` Prelude.rnf manifestMetadataSignaling
-      `Prelude.seq` Prelude.rnf scte35Esam
-      `Prelude.seq` Prelude.rnf scte35Source
-      `Prelude.seq` Prelude.rnf timedMetadata
-      `Prelude.seq` Prelude.rnf timedMetadataBoxVersion
-      `Prelude.seq` Prelude.rnf timedMetadataSchemeIdUri
-      `Prelude.seq` Prelude.rnf timedMetadataValue
+    Prelude.rnf accessibilityCaptionHints `Prelude.seq`
+      Prelude.rnf audioDuration `Prelude.seq`
+        Prelude.rnf captionContainerType `Prelude.seq`
+          Prelude.rnf klvMetadata `Prelude.seq`
+            Prelude.rnf manifestMetadataSignaling `Prelude.seq`
+              Prelude.rnf scte35Esam `Prelude.seq`
+                Prelude.rnf scte35Source `Prelude.seq`
+                  Prelude.rnf timedMetadata `Prelude.seq`
+                    Prelude.rnf timedMetadataBoxVersion `Prelude.seq`
+                      Prelude.rnf timedMetadataSchemeIdUri `Prelude.seq`
+                        Prelude.rnf timedMetadataValue
 
 instance Data.ToJSON MpdSettings where
   toJSON MpdSettings' {..} =

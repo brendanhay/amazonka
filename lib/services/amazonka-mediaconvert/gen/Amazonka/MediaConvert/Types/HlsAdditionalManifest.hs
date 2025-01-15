@@ -113,8 +113,8 @@ instance Prelude.Hashable HlsAdditionalManifest where
 
 instance Prelude.NFData HlsAdditionalManifest where
   rnf HlsAdditionalManifest' {..} =
-    Prelude.rnf manifestNameModifier
-      `Prelude.seq` Prelude.rnf selectedOutputs
+    Prelude.rnf manifestNameModifier `Prelude.seq`
+      Prelude.rnf selectedOutputs
 
 instance Data.ToJSON HlsAdditionalManifest where
   toJSON HlsAdditionalManifest' {..} =

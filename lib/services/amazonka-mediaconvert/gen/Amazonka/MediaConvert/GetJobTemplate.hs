@@ -158,5 +158,5 @@ getJobTemplateResponse_httpStatus = Lens.lens (\GetJobTemplateResponse' {httpSta
 
 instance Prelude.NFData GetJobTemplateResponse where
   rnf GetJobTemplateResponse' {..} =
-    Prelude.rnf jobTemplate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf jobTemplate `Prelude.seq`
+      Prelude.rnf httpStatus

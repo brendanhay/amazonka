@@ -200,10 +200,10 @@ instance Prelude.Hashable TimecodeConfig where
 
 instance Prelude.NFData TimecodeConfig where
   rnf TimecodeConfig' {..} =
-    Prelude.rnf anchor
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf start
-      `Prelude.seq` Prelude.rnf timestampOffset
+    Prelude.rnf anchor `Prelude.seq`
+      Prelude.rnf source `Prelude.seq`
+        Prelude.rnf start `Prelude.seq`
+          Prelude.rnf timestampOffset
 
 instance Data.ToJSON TimecodeConfig where
   toJSON TimecodeConfig' {..} =

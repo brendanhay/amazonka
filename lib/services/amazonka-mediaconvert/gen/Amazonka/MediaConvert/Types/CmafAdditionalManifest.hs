@@ -114,8 +114,8 @@ instance Prelude.Hashable CmafAdditionalManifest where
 
 instance Prelude.NFData CmafAdditionalManifest where
   rnf CmafAdditionalManifest' {..} =
-    Prelude.rnf manifestNameModifier
-      `Prelude.seq` Prelude.rnf selectedOutputs
+    Prelude.rnf manifestNameModifier `Prelude.seq`
+      Prelude.rnf selectedOutputs
 
 instance Data.ToJSON CmafAdditionalManifest where
   toJSON CmafAdditionalManifest' {..} =

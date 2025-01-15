@@ -80,5 +80,5 @@ instance Prelude.Hashable VideoDetail where
 
 instance Prelude.NFData VideoDetail where
   rnf VideoDetail' {..} =
-    Prelude.rnf heightInPx
-      `Prelude.seq` Prelude.rnf widthInPx
+    Prelude.rnf heightInPx `Prelude.seq`
+      Prelude.rnf widthInPx

@@ -276,11 +276,11 @@ instance Prelude.Hashable AutomatedAbrRule where
 
 instance Prelude.NFData AutomatedAbrRule where
   rnf AutomatedAbrRule' {..} =
-    Prelude.rnf allowedRenditions
-      `Prelude.seq` Prelude.rnf forceIncludeRenditions
-      `Prelude.seq` Prelude.rnf minBottomRenditionSize
-      `Prelude.seq` Prelude.rnf minTopRenditionSize
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf allowedRenditions `Prelude.seq`
+      Prelude.rnf forceIncludeRenditions `Prelude.seq`
+        Prelude.rnf minBottomRenditionSize `Prelude.seq`
+          Prelude.rnf minTopRenditionSize `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToJSON AutomatedAbrRule where
   toJSON AutomatedAbrRule' {..} =

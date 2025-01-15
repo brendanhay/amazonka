@@ -242,16 +242,16 @@ instance Prelude.Hashable JobTemplate where
 
 instance Prelude.NFData JobTemplate where
   rnf JobTemplate' {..} =
-    Prelude.rnf accelerationSettings
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf hopDestinations
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf queue
-      `Prelude.seq` Prelude.rnf statusUpdateInterval
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf accelerationSettings `Prelude.seq`
+      Prelude.rnf arn `Prelude.seq`
+        Prelude.rnf category `Prelude.seq`
+          Prelude.rnf createdAt `Prelude.seq`
+            Prelude.rnf description `Prelude.seq`
+              Prelude.rnf hopDestinations `Prelude.seq`
+                Prelude.rnf lastUpdated `Prelude.seq`
+                  Prelude.rnf priority `Prelude.seq`
+                    Prelude.rnf queue `Prelude.seq`
+                      Prelude.rnf statusUpdateInterval `Prelude.seq`
+                        Prelude.rnf type' `Prelude.seq`
+                          Prelude.rnf settings `Prelude.seq`
+                            Prelude.rnf name

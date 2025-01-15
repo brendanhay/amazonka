@@ -117,10 +117,10 @@ instance Prelude.Hashable StaticKeyProvider where
 
 instance Prelude.NFData StaticKeyProvider where
   rnf StaticKeyProvider' {..} =
-    Prelude.rnf keyFormat
-      `Prelude.seq` Prelude.rnf keyFormatVersions
-      `Prelude.seq` Prelude.rnf staticKeyValue
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf keyFormat `Prelude.seq`
+      Prelude.rnf keyFormatVersions `Prelude.seq`
+        Prelude.rnf staticKeyValue `Prelude.seq`
+          Prelude.rnf url
 
 instance Data.ToJSON StaticKeyProvider where
   toJSON StaticKeyProvider' {..} =

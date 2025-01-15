@@ -137,8 +137,8 @@ instance Prelude.Hashable Av1QvbrSettings where
 
 instance Prelude.NFData Av1QvbrSettings where
   rnf Av1QvbrSettings' {..} =
-    Prelude.rnf qvbrQualityLevel
-      `Prelude.seq` Prelude.rnf qvbrQualityLevelFineTune
+    Prelude.rnf qvbrQualityLevel `Prelude.seq`
+      Prelude.rnf qvbrQualityLevelFineTune
 
 instance Data.ToJSON Av1QvbrSettings where
   toJSON Av1QvbrSettings' {..} =

@@ -507,24 +507,24 @@ instance Prelude.Hashable InputTemplate where
 
 instance Prelude.NFData InputTemplate where
   rnf InputTemplate' {..} =
-    Prelude.rnf audioSelectorGroups
-      `Prelude.seq` Prelude.rnf audioSelectors
-      `Prelude.seq` Prelude.rnf captionSelectors
-      `Prelude.seq` Prelude.rnf crop
-      `Prelude.seq` Prelude.rnf deblockFilter
-      `Prelude.seq` Prelude.rnf denoiseFilter
-      `Prelude.seq` Prelude.rnf dolbyVisionMetadataXml
-      `Prelude.seq` Prelude.rnf filterEnable
-      `Prelude.seq` Prelude.rnf filterStrength
-      `Prelude.seq` Prelude.rnf imageInserter
-      `Prelude.seq` Prelude.rnf inputClippings
-      `Prelude.seq` Prelude.rnf inputScanType
-      `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf programNumber
-      `Prelude.seq` Prelude.rnf psiControl
-      `Prelude.seq` Prelude.rnf timecodeSource
-      `Prelude.seq` Prelude.rnf timecodeStart
-      `Prelude.seq` Prelude.rnf videoSelector
+    Prelude.rnf audioSelectorGroups `Prelude.seq`
+      Prelude.rnf audioSelectors `Prelude.seq`
+        Prelude.rnf captionSelectors `Prelude.seq`
+          Prelude.rnf crop `Prelude.seq`
+            Prelude.rnf deblockFilter `Prelude.seq`
+              Prelude.rnf denoiseFilter `Prelude.seq`
+                Prelude.rnf dolbyVisionMetadataXml `Prelude.seq`
+                  Prelude.rnf filterEnable `Prelude.seq`
+                    Prelude.rnf filterStrength `Prelude.seq`
+                      Prelude.rnf imageInserter `Prelude.seq`
+                        Prelude.rnf inputClippings `Prelude.seq`
+                          Prelude.rnf inputScanType `Prelude.seq`
+                            Prelude.rnf position `Prelude.seq`
+                              Prelude.rnf programNumber `Prelude.seq`
+                                Prelude.rnf psiControl `Prelude.seq`
+                                  Prelude.rnf timecodeSource `Prelude.seq`
+                                    Prelude.rnf timecodeStart `Prelude.seq`
+                                      Prelude.rnf videoSelector
 
 instance Data.ToJSON InputTemplate where
   toJSON InputTemplate' {..} =

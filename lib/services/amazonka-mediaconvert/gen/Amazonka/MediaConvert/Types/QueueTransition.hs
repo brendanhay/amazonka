@@ -96,6 +96,6 @@ instance Prelude.Hashable QueueTransition where
 
 instance Prelude.NFData QueueTransition where
   rnf QueueTransition' {..} =
-    Prelude.rnf destinationQueue
-      `Prelude.seq` Prelude.rnf sourceQueue
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf destinationQueue `Prelude.seq`
+      Prelude.rnf sourceQueue `Prelude.seq`
+        Prelude.rnf timestamp

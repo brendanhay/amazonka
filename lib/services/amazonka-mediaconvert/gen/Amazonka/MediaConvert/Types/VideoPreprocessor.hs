@@ -193,14 +193,14 @@ instance Prelude.Hashable VideoPreprocessor where
 
 instance Prelude.NFData VideoPreprocessor where
   rnf VideoPreprocessor' {..} =
-    Prelude.rnf colorCorrector
-      `Prelude.seq` Prelude.rnf deinterlacer
-      `Prelude.seq` Prelude.rnf dolbyVision
-      `Prelude.seq` Prelude.rnf hdr10Plus
-      `Prelude.seq` Prelude.rnf imageInserter
-      `Prelude.seq` Prelude.rnf noiseReducer
-      `Prelude.seq` Prelude.rnf partnerWatermarking
-      `Prelude.seq` Prelude.rnf timecodeBurnin
+    Prelude.rnf colorCorrector `Prelude.seq`
+      Prelude.rnf deinterlacer `Prelude.seq`
+        Prelude.rnf dolbyVision `Prelude.seq`
+          Prelude.rnf hdr10Plus `Prelude.seq`
+            Prelude.rnf imageInserter `Prelude.seq`
+              Prelude.rnf noiseReducer `Prelude.seq`
+                Prelude.rnf partnerWatermarking `Prelude.seq`
+                  Prelude.rnf timecodeBurnin
 
 instance Data.ToJSON VideoPreprocessor where
   toJSON VideoPreprocessor' {..} =

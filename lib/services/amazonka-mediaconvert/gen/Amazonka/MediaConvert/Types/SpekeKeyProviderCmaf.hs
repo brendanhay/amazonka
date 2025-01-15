@@ -159,11 +159,11 @@ instance Prelude.Hashable SpekeKeyProviderCmaf where
 
 instance Prelude.NFData SpekeKeyProviderCmaf where
   rnf SpekeKeyProviderCmaf' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf dashSignaledSystemIds
-      `Prelude.seq` Prelude.rnf hlsSignaledSystemIds
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf certificateArn `Prelude.seq`
+      Prelude.rnf dashSignaledSystemIds `Prelude.seq`
+        Prelude.rnf hlsSignaledSystemIds `Prelude.seq`
+          Prelude.rnf resourceId `Prelude.seq`
+            Prelude.rnf url
 
 instance Data.ToJSON SpekeKeyProviderCmaf where
   toJSON SpekeKeyProviderCmaf' {..} =

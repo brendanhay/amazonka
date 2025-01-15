@@ -282,19 +282,19 @@ instance Prelude.Hashable KantarWatermarkSettings where
 
 instance Prelude.NFData KantarWatermarkSettings where
   rnf KantarWatermarkSettings' {..} =
-    Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf contentReference
-      `Prelude.seq` Prelude.rnf credentialsSecretName
-      `Prelude.seq` Prelude.rnf fileOffset
-      `Prelude.seq` Prelude.rnf kantarLicenseId
-      `Prelude.seq` Prelude.rnf kantarServerUrl
-      `Prelude.seq` Prelude.rnf logDestination
-      `Prelude.seq` Prelude.rnf metadata3
-      `Prelude.seq` Prelude.rnf metadata4
-      `Prelude.seq` Prelude.rnf metadata5
-      `Prelude.seq` Prelude.rnf metadata6
-      `Prelude.seq` Prelude.rnf metadata7
-      `Prelude.seq` Prelude.rnf metadata8
+    Prelude.rnf channelName `Prelude.seq`
+      Prelude.rnf contentReference `Prelude.seq`
+        Prelude.rnf credentialsSecretName `Prelude.seq`
+          Prelude.rnf fileOffset `Prelude.seq`
+            Prelude.rnf kantarLicenseId `Prelude.seq`
+              Prelude.rnf kantarServerUrl `Prelude.seq`
+                Prelude.rnf logDestination `Prelude.seq`
+                  Prelude.rnf metadata3 `Prelude.seq`
+                    Prelude.rnf metadata4 `Prelude.seq`
+                      Prelude.rnf metadata5 `Prelude.seq`
+                        Prelude.rnf metadata6 `Prelude.seq`
+                          Prelude.rnf metadata7 `Prelude.seq`
+                            Prelude.rnf metadata8
 
 instance Data.ToJSON KantarWatermarkSettings where
   toJSON KantarWatermarkSettings' {..} =

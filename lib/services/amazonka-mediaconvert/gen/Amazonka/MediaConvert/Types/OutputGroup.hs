@@ -135,11 +135,11 @@ instance Prelude.Hashable OutputGroup where
 
 instance Prelude.NFData OutputGroup where
   rnf OutputGroup' {..} =
-    Prelude.rnf automatedEncodingSettings
-      `Prelude.seq` Prelude.rnf customName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf outputGroupSettings
-      `Prelude.seq` Prelude.rnf outputs
+    Prelude.rnf automatedEncodingSettings `Prelude.seq`
+      Prelude.rnf customName `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf outputGroupSettings `Prelude.seq`
+            Prelude.rnf outputs
 
 instance Data.ToJSON OutputGroup where
   toJSON OutputGroup' {..} =

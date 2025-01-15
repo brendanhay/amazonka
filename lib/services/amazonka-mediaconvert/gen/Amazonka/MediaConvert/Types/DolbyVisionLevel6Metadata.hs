@@ -91,8 +91,8 @@ instance Prelude.Hashable DolbyVisionLevel6Metadata where
 
 instance Prelude.NFData DolbyVisionLevel6Metadata where
   rnf DolbyVisionLevel6Metadata' {..} =
-    Prelude.rnf maxCll
-      `Prelude.seq` Prelude.rnf maxFall
+    Prelude.rnf maxCll `Prelude.seq`
+      Prelude.rnf maxFall
 
 instance Data.ToJSON DolbyVisionLevel6Metadata where
   toJSON DolbyVisionLevel6Metadata' {..} =

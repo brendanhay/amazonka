@@ -197,12 +197,12 @@ instance Prelude.Hashable OutputGroupSettings where
 
 instance Prelude.NFData OutputGroupSettings where
   rnf OutputGroupSettings' {..} =
-    Prelude.rnf cmafGroupSettings
-      `Prelude.seq` Prelude.rnf dashIsoGroupSettings
-      `Prelude.seq` Prelude.rnf fileGroupSettings
-      `Prelude.seq` Prelude.rnf hlsGroupSettings
-      `Prelude.seq` Prelude.rnf msSmoothGroupSettings
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf cmafGroupSettings `Prelude.seq`
+      Prelude.rnf dashIsoGroupSettings `Prelude.seq`
+        Prelude.rnf fileGroupSettings `Prelude.seq`
+          Prelude.rnf hlsGroupSettings `Prelude.seq`
+            Prelude.rnf msSmoothGroupSettings `Prelude.seq`
+              Prelude.rnf type'
 
 instance Data.ToJSON OutputGroupSettings where
   toJSON OutputGroupSettings' {..} =

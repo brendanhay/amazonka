@@ -296,16 +296,16 @@ instance Prelude.Hashable Ac3Settings where
 
 instance Prelude.NFData Ac3Settings where
   rnf Ac3Settings' {..} =
-    Prelude.rnf bitrate
-      `Prelude.seq` Prelude.rnf bitstreamMode
-      `Prelude.seq` Prelude.rnf codingMode
-      `Prelude.seq` Prelude.rnf dialnorm
-      `Prelude.seq` Prelude.rnf dynamicRangeCompressionLine
-      `Prelude.seq` Prelude.rnf dynamicRangeCompressionProfile
-      `Prelude.seq` Prelude.rnf dynamicRangeCompressionRf
-      `Prelude.seq` Prelude.rnf lfeFilter
-      `Prelude.seq` Prelude.rnf metadataControl
-      `Prelude.seq` Prelude.rnf sampleRate
+    Prelude.rnf bitrate `Prelude.seq`
+      Prelude.rnf bitstreamMode `Prelude.seq`
+        Prelude.rnf codingMode `Prelude.seq`
+          Prelude.rnf dialnorm `Prelude.seq`
+            Prelude.rnf dynamicRangeCompressionLine `Prelude.seq`
+              Prelude.rnf dynamicRangeCompressionProfile `Prelude.seq`
+                Prelude.rnf dynamicRangeCompressionRf `Prelude.seq`
+                  Prelude.rnf lfeFilter `Prelude.seq`
+                    Prelude.rnf metadataControl `Prelude.seq`
+                      Prelude.rnf sampleRate
 
 instance Data.ToJSON Ac3Settings where
   toJSON Ac3Settings' {..} =

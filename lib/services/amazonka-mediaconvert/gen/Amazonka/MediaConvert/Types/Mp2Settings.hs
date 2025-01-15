@@ -98,9 +98,9 @@ instance Prelude.Hashable Mp2Settings where
 
 instance Prelude.NFData Mp2Settings where
   rnf Mp2Settings' {..} =
-    Prelude.rnf bitrate
-      `Prelude.seq` Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf sampleRate
+    Prelude.rnf bitrate `Prelude.seq`
+      Prelude.rnf channels `Prelude.seq`
+        Prelude.rnf sampleRate
 
 instance Data.ToJSON Mp2Settings where
   toJSON Mp2Settings' {..} =

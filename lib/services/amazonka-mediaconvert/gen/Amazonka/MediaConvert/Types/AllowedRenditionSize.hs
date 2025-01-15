@@ -106,9 +106,9 @@ instance Prelude.Hashable AllowedRenditionSize where
 
 instance Prelude.NFData AllowedRenditionSize where
   rnf AllowedRenditionSize' {..} =
-    Prelude.rnf height
-      `Prelude.seq` Prelude.rnf required
-      `Prelude.seq` Prelude.rnf width
+    Prelude.rnf height `Prelude.seq`
+      Prelude.rnf required `Prelude.seq`
+        Prelude.rnf width
 
 instance Data.ToJSON AllowedRenditionSize where
   toJSON AllowedRenditionSize' {..} =

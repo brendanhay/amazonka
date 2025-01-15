@@ -163,9 +163,9 @@ instance Prelude.Hashable H264QvbrSettings where
 
 instance Prelude.NFData H264QvbrSettings where
   rnf H264QvbrSettings' {..} =
-    Prelude.rnf maxAverageBitrate
-      `Prelude.seq` Prelude.rnf qvbrQualityLevel
-      `Prelude.seq` Prelude.rnf qvbrQualityLevelFineTune
+    Prelude.rnf maxAverageBitrate `Prelude.seq`
+      Prelude.rnf qvbrQualityLevel `Prelude.seq`
+        Prelude.rnf qvbrQualityLevelFineTune
 
 instance Data.ToJSON H264QvbrSettings where
   toJSON H264QvbrSettings' {..} =

@@ -171,10 +171,10 @@ instance Prelude.Hashable CaptionDescriptionPreset where
 
 instance Prelude.NFData CaptionDescriptionPreset where
   rnf CaptionDescriptionPreset' {..} =
-    Prelude.rnf customLanguageCode
-      `Prelude.seq` Prelude.rnf destinationSettings
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf languageDescription
+    Prelude.rnf customLanguageCode `Prelude.seq`
+      Prelude.rnf destinationSettings `Prelude.seq`
+        Prelude.rnf languageCode `Prelude.seq`
+          Prelude.rnf languageDescription
 
 instance Data.ToJSON CaptionDescriptionPreset where
   toJSON CaptionDescriptionPreset' {..} =

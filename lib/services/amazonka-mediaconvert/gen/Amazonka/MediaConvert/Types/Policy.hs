@@ -94,9 +94,9 @@ instance Prelude.Hashable Policy where
 
 instance Prelude.NFData Policy where
   rnf Policy' {..} =
-    Prelude.rnf httpInputs
-      `Prelude.seq` Prelude.rnf httpsInputs
-      `Prelude.seq` Prelude.rnf s3Inputs
+    Prelude.rnf httpInputs `Prelude.seq`
+      Prelude.rnf httpsInputs `Prelude.seq`
+        Prelude.rnf s3Inputs
 
 instance Data.ToJSON Policy where
   toJSON Policy' {..} =

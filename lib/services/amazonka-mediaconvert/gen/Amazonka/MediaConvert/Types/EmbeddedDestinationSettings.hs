@@ -132,8 +132,8 @@ instance Prelude.Hashable EmbeddedDestinationSettings where
 
 instance Prelude.NFData EmbeddedDestinationSettings where
   rnf EmbeddedDestinationSettings' {..} =
-    Prelude.rnf destination608ChannelNumber
-      `Prelude.seq` Prelude.rnf destination708ServiceNumber
+    Prelude.rnf destination608ChannelNumber `Prelude.seq`
+      Prelude.rnf destination708ServiceNumber
 
 instance Data.ToJSON EmbeddedDestinationSettings where
   toJSON EmbeddedDestinationSettings' {..} =

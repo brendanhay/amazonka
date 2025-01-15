@@ -101,9 +101,9 @@ instance Prelude.Hashable AiffSettings where
 
 instance Prelude.NFData AiffSettings where
   rnf AiffSettings' {..} =
-    Prelude.rnf bitDepth
-      `Prelude.seq` Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf sampleRate
+    Prelude.rnf bitDepth `Prelude.seq`
+      Prelude.rnf channels `Prelude.seq`
+        Prelude.rnf sampleRate
 
 instance Data.ToJSON AiffSettings where
   toJSON AiffSettings' {..} =

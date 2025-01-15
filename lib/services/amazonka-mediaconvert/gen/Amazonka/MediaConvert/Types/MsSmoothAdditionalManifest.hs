@@ -104,8 +104,8 @@ instance Prelude.Hashable MsSmoothAdditionalManifest where
 
 instance Prelude.NFData MsSmoothAdditionalManifest where
   rnf MsSmoothAdditionalManifest' {..} =
-    Prelude.rnf manifestNameModifier
-      `Prelude.seq` Prelude.rnf selectedOutputs
+    Prelude.rnf manifestNameModifier `Prelude.seq`
+      Prelude.rnf selectedOutputs
 
 instance Data.ToJSON MsSmoothAdditionalManifest where
   toJSON MsSmoothAdditionalManifest' {..} =

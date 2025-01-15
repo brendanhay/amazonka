@@ -94,8 +94,8 @@ instance Prelude.Hashable NielsenConfiguration where
 
 instance Prelude.NFData NielsenConfiguration where
   rnf NielsenConfiguration' {..} =
-    Prelude.rnf breakoutCode
-      `Prelude.seq` Prelude.rnf distributorId
+    Prelude.rnf breakoutCode `Prelude.seq`
+      Prelude.rnf distributorId
 
 instance Data.ToJSON NielsenConfiguration where
   toJSON NielsenConfiguration' {..} =

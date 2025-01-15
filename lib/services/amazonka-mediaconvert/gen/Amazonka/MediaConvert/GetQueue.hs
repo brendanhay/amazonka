@@ -163,5 +163,5 @@ getQueueResponse_httpStatus = Lens.lens (\GetQueueResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetQueueResponse where
   rnf GetQueueResponse' {..} =
-    Prelude.rnf queue
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf queue `Prelude.seq`
+      Prelude.rnf httpStatus

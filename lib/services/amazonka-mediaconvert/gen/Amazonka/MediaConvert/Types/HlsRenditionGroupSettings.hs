@@ -101,9 +101,9 @@ instance Prelude.Hashable HlsRenditionGroupSettings where
 
 instance Prelude.NFData HlsRenditionGroupSettings where
   rnf HlsRenditionGroupSettings' {..} =
-    Prelude.rnf renditionGroupId
-      `Prelude.seq` Prelude.rnf renditionLanguageCode
-      `Prelude.seq` Prelude.rnf renditionName
+    Prelude.rnf renditionGroupId `Prelude.seq`
+      Prelude.rnf renditionLanguageCode `Prelude.seq`
+        Prelude.rnf renditionName
 
 instance Data.ToJSON HlsRenditionGroupSettings where
   toJSON HlsRenditionGroupSettings' {..} =

@@ -157,5 +157,5 @@ getPresetResponse_httpStatus = Lens.lens (\GetPresetResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetPresetResponse where
   rnf GetPresetResponse' {..} =
-    Prelude.rnf preset
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf preset `Prelude.seq`
+      Prelude.rnf httpStatus

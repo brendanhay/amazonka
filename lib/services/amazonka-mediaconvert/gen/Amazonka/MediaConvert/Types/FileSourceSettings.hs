@@ -213,11 +213,11 @@ instance Prelude.Hashable FileSourceSettings where
 
 instance Prelude.NFData FileSourceSettings where
   rnf FileSourceSettings' {..} =
-    Prelude.rnf convert608To708
-      `Prelude.seq` Prelude.rnf framerate
-      `Prelude.seq` Prelude.rnf sourceFile
-      `Prelude.seq` Prelude.rnf timeDelta
-      `Prelude.seq` Prelude.rnf timeDeltaUnits
+    Prelude.rnf convert608To708 `Prelude.seq`
+      Prelude.rnf framerate `Prelude.seq`
+        Prelude.rnf sourceFile `Prelude.seq`
+          Prelude.rnf timeDelta `Prelude.seq`
+            Prelude.rnf timeDeltaUnits
 
 instance Data.ToJSON FileSourceSettings where
   toJSON FileSourceSettings' {..} =

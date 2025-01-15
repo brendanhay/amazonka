@@ -161,9 +161,9 @@ instance Prelude.Hashable ReservationPlan where
 
 instance Prelude.NFData ReservationPlan where
   rnf ReservationPlan' {..} =
-    Prelude.rnf commitment
-      `Prelude.seq` Prelude.rnf expiresAt
-      `Prelude.seq` Prelude.rnf purchasedAt
-      `Prelude.seq` Prelude.rnf renewalType
-      `Prelude.seq` Prelude.rnf reservedSlots
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf commitment `Prelude.seq`
+      Prelude.rnf expiresAt `Prelude.seq`
+        Prelude.rnf purchasedAt `Prelude.seq`
+          Prelude.rnf renewalType `Prelude.seq`
+            Prelude.rnf reservedSlots `Prelude.seq`
+              Prelude.rnf status

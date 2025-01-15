@@ -119,9 +119,9 @@ instance Prelude.Hashable HopDestination where
 
 instance Prelude.NFData HopDestination where
   rnf HopDestination' {..} =
-    Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf queue
-      `Prelude.seq` Prelude.rnf waitMinutes
+    Prelude.rnf priority `Prelude.seq`
+      Prelude.rnf queue `Prelude.seq`
+        Prelude.rnf waitMinutes
 
 instance Data.ToJSON HopDestination where
   toJSON HopDestination' {..} =

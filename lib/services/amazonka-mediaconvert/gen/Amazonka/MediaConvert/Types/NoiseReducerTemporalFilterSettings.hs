@@ -192,11 +192,11 @@ instance
     NoiseReducerTemporalFilterSettings
   where
   rnf NoiseReducerTemporalFilterSettings' {..} =
-    Prelude.rnf aggressiveMode
-      `Prelude.seq` Prelude.rnf postTemporalSharpening
-      `Prelude.seq` Prelude.rnf postTemporalSharpeningStrength
-      `Prelude.seq` Prelude.rnf speed
-      `Prelude.seq` Prelude.rnf strength
+    Prelude.rnf aggressiveMode `Prelude.seq`
+      Prelude.rnf postTemporalSharpening `Prelude.seq`
+        Prelude.rnf postTemporalSharpeningStrength `Prelude.seq`
+          Prelude.rnf speed `Prelude.seq`
+            Prelude.rnf strength
 
 instance
   Data.ToJSON

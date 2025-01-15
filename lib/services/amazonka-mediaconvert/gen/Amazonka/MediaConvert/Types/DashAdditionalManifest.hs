@@ -104,8 +104,8 @@ instance Prelude.Hashable DashAdditionalManifest where
 
 instance Prelude.NFData DashAdditionalManifest where
   rnf DashAdditionalManifest' {..} =
-    Prelude.rnf manifestNameModifier
-      `Prelude.seq` Prelude.rnf selectedOutputs
+    Prelude.rnf manifestNameModifier `Prelude.seq`
+      Prelude.rnf selectedOutputs
 
 instance Data.ToJSON DashAdditionalManifest where
   toJSON DashAdditionalManifest' {..} =

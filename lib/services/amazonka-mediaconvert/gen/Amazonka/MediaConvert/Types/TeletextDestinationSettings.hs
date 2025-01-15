@@ -108,8 +108,8 @@ instance Prelude.Hashable TeletextDestinationSettings where
 
 instance Prelude.NFData TeletextDestinationSettings where
   rnf TeletextDestinationSettings' {..} =
-    Prelude.rnf pageNumber
-      `Prelude.seq` Prelude.rnf pageTypes
+    Prelude.rnf pageNumber `Prelude.seq`
+      Prelude.rnf pageTypes
 
 instance Data.ToJSON TeletextDestinationSettings where
   toJSON TeletextDestinationSettings' {..} =

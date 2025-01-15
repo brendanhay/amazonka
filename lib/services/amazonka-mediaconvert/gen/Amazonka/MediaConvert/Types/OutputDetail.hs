@@ -81,5 +81,5 @@ instance Prelude.Hashable OutputDetail where
 
 instance Prelude.NFData OutputDetail where
   rnf OutputDetail' {..} =
-    Prelude.rnf durationInMs
-      `Prelude.seq` Prelude.rnf videoDetails
+    Prelude.rnf durationInMs `Prelude.seq`
+      Prelude.rnf videoDetails

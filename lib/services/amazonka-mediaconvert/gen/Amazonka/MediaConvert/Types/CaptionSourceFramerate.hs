@@ -106,8 +106,8 @@ instance Prelude.Hashable CaptionSourceFramerate where
 
 instance Prelude.NFData CaptionSourceFramerate where
   rnf CaptionSourceFramerate' {..} =
-    Prelude.rnf framerateDenominator
-      `Prelude.seq` Prelude.rnf framerateNumerator
+    Prelude.rnf framerateDenominator `Prelude.seq`
+      Prelude.rnf framerateNumerator
 
 instance Data.ToJSON CaptionSourceFramerate where
   toJSON CaptionSourceFramerate' {..} =

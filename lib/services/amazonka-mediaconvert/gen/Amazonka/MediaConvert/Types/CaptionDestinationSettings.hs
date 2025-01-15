@@ -368,16 +368,16 @@ instance Prelude.Hashable CaptionDestinationSettings where
 
 instance Prelude.NFData CaptionDestinationSettings where
   rnf CaptionDestinationSettings' {..} =
-    Prelude.rnf burninDestinationSettings
-      `Prelude.seq` Prelude.rnf destinationType
-      `Prelude.seq` Prelude.rnf dvbSubDestinationSettings
-      `Prelude.seq` Prelude.rnf embeddedDestinationSettings
-      `Prelude.seq` Prelude.rnf imscDestinationSettings
-      `Prelude.seq` Prelude.rnf sccDestinationSettings
-      `Prelude.seq` Prelude.rnf srtDestinationSettings
-      `Prelude.seq` Prelude.rnf teletextDestinationSettings
-      `Prelude.seq` Prelude.rnf ttmlDestinationSettings
-      `Prelude.seq` Prelude.rnf webvttDestinationSettings
+    Prelude.rnf burninDestinationSettings `Prelude.seq`
+      Prelude.rnf destinationType `Prelude.seq`
+        Prelude.rnf dvbSubDestinationSettings `Prelude.seq`
+          Prelude.rnf embeddedDestinationSettings `Prelude.seq`
+            Prelude.rnf imscDestinationSettings `Prelude.seq`
+              Prelude.rnf sccDestinationSettings `Prelude.seq`
+                Prelude.rnf srtDestinationSettings `Prelude.seq`
+                  Prelude.rnf teletextDestinationSettings `Prelude.seq`
+                    Prelude.rnf ttmlDestinationSettings `Prelude.seq`
+                      Prelude.rnf webvttDestinationSettings
 
 instance Data.ToJSON CaptionDestinationSettings where
   toJSON CaptionDestinationSettings' {..} =

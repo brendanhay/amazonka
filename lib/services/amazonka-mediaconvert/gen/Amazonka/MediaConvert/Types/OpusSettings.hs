@@ -107,9 +107,9 @@ instance Prelude.Hashable OpusSettings where
 
 instance Prelude.NFData OpusSettings where
   rnf OpusSettings' {..} =
-    Prelude.rnf bitrate
-      `Prelude.seq` Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf sampleRate
+    Prelude.rnf bitrate `Prelude.seq`
+      Prelude.rnf channels `Prelude.seq`
+        Prelude.rnf sampleRate
 
 instance Data.ToJSON OpusSettings where
   toJSON OpusSettings' {..} =

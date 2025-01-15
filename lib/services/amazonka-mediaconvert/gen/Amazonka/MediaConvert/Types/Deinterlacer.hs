@@ -145,9 +145,9 @@ instance Prelude.Hashable Deinterlacer where
 
 instance Prelude.NFData Deinterlacer where
   rnf Deinterlacer' {..} =
-    Prelude.rnf algorithm
-      `Prelude.seq` Prelude.rnf control
-      `Prelude.seq` Prelude.rnf mode
+    Prelude.rnf algorithm `Prelude.seq`
+      Prelude.rnf control `Prelude.seq`
+        Prelude.rnf mode
 
 instance Data.ToJSON Deinterlacer where
   toJSON Deinterlacer' {..} =

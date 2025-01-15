@@ -140,8 +140,8 @@ instance Prelude.Hashable WebvttDestinationSettings where
 
 instance Prelude.NFData WebvttDestinationSettings where
   rnf WebvttDestinationSettings' {..} =
-    Prelude.rnf accessibility
-      `Prelude.seq` Prelude.rnf stylePassthrough
+    Prelude.rnf accessibility `Prelude.seq`
+      Prelude.rnf stylePassthrough
 
 instance Data.ToJSON WebvttDestinationSettings where
   toJSON WebvttDestinationSettings' {..} =

@@ -119,9 +119,9 @@ instance Prelude.Hashable EsamSettings where
 
 instance Prelude.NFData EsamSettings where
   rnf EsamSettings' {..} =
-    Prelude.rnf manifestConfirmConditionNotification
-      `Prelude.seq` Prelude.rnf responseSignalPreroll
-      `Prelude.seq` Prelude.rnf signalProcessingNotification
+    Prelude.rnf manifestConfirmConditionNotification `Prelude.seq`
+      Prelude.rnf responseSignalPreroll `Prelude.seq`
+        Prelude.rnf signalProcessingNotification
 
 instance Data.ToJSON EsamSettings where
   toJSON EsamSettings' {..} =

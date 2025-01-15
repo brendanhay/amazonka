@@ -393,16 +393,16 @@ instance Prelude.Hashable VideoSelector where
 
 instance Prelude.NFData VideoSelector where
   rnf VideoSelector' {..} =
-    Prelude.rnf alphaBehavior
-      `Prelude.seq` Prelude.rnf colorSpace
-      `Prelude.seq` Prelude.rnf colorSpaceUsage
-      `Prelude.seq` Prelude.rnf embeddedTimecodeOverride
-      `Prelude.seq` Prelude.rnf hdr10Metadata
-      `Prelude.seq` Prelude.rnf padVideo
-      `Prelude.seq` Prelude.rnf pid
-      `Prelude.seq` Prelude.rnf programNumber
-      `Prelude.seq` Prelude.rnf rotate
-      `Prelude.seq` Prelude.rnf sampleRange
+    Prelude.rnf alphaBehavior `Prelude.seq`
+      Prelude.rnf colorSpace `Prelude.seq`
+        Prelude.rnf colorSpaceUsage `Prelude.seq`
+          Prelude.rnf embeddedTimecodeOverride `Prelude.seq`
+            Prelude.rnf hdr10Metadata `Prelude.seq`
+              Prelude.rnf padVideo `Prelude.seq`
+                Prelude.rnf pid `Prelude.seq`
+                  Prelude.rnf programNumber `Prelude.seq`
+                    Prelude.rnf rotate `Prelude.seq`
+                      Prelude.rnf sampleRange
 
 instance Data.ToJSON VideoSelector where
   toJSON VideoSelector' {..} =

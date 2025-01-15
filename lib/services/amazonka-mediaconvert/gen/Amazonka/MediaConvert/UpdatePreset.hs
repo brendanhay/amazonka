@@ -128,10 +128,10 @@ instance Prelude.Hashable UpdatePreset where
 
 instance Prelude.NFData UpdatePreset where
   rnf UpdatePreset' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf settings `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders UpdatePreset where
   toHeaders =
@@ -208,5 +208,5 @@ updatePresetResponse_httpStatus = Lens.lens (\UpdatePresetResponse' {httpStatus}
 
 instance Prelude.NFData UpdatePresetResponse where
   rnf UpdatePresetResponse' {..} =
-    Prelude.rnf preset
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf preset `Prelude.seq`
+      Prelude.rnf httpStatus

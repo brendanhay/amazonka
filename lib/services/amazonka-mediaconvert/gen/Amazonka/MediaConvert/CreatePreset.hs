@@ -146,11 +146,11 @@ instance Prelude.Hashable CreatePreset where
 
 instance Prelude.NFData CreatePreset where
   rnf CreatePreset' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf category `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf settings `Prelude.seq`
+            Prelude.rnf name
 
 instance Data.ToHeaders CreatePreset where
   toHeaders =
@@ -227,5 +227,5 @@ createPresetResponse_httpStatus = Lens.lens (\CreatePresetResponse' {httpStatus}
 
 instance Prelude.NFData CreatePresetResponse where
   rnf CreatePresetResponse' {..} =
-    Prelude.rnf preset
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf preset `Prelude.seq`
+      Prelude.rnf httpStatus

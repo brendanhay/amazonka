@@ -155,10 +155,10 @@ instance Prelude.Hashable AutomatedAbrSettings where
 
 instance Prelude.NFData AutomatedAbrSettings where
   rnf AutomatedAbrSettings' {..} =
-    Prelude.rnf maxAbrBitrate
-      `Prelude.seq` Prelude.rnf maxRenditions
-      `Prelude.seq` Prelude.rnf minAbrBitrate
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf maxAbrBitrate `Prelude.seq`
+      Prelude.rnf maxRenditions `Prelude.seq`
+        Prelude.rnf minAbrBitrate `Prelude.seq`
+          Prelude.rnf rules
 
 instance Data.ToJSON AutomatedAbrSettings where
   toJSON AutomatedAbrSettings' {..} =

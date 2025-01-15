@@ -211,11 +211,11 @@ instance Prelude.Hashable GetEventPredictionMetadata where
 
 instance Prelude.NFData GetEventPredictionMetadata where
   rnf GetEventPredictionMetadata' {..} =
-    Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventTypeName
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf detectorVersionId
-      `Prelude.seq` Prelude.rnf predictionTimestamp
+    Prelude.rnf eventId `Prelude.seq`
+      Prelude.rnf eventTypeName `Prelude.seq`
+        Prelude.rnf detectorId `Prelude.seq`
+          Prelude.rnf detectorVersionId `Prelude.seq`
+            Prelude.rnf predictionTimestamp
 
 instance Data.ToHeaders GetEventPredictionMetadata where
   toHeaders =
@@ -436,19 +436,19 @@ instance
     GetEventPredictionMetadataResponse
   where
   rnf GetEventPredictionMetadataResponse' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf detectorVersionId
-      `Prelude.seq` Prelude.rnf detectorVersionStatus
-      `Prelude.seq` Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf entityType
-      `Prelude.seq` Prelude.rnf evaluatedExternalModels
-      `Prelude.seq` Prelude.rnf evaluatedModelVersions
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventTimestamp
-      `Prelude.seq` Prelude.rnf eventTypeName
-      `Prelude.seq` Prelude.rnf eventVariables
-      `Prelude.seq` Prelude.rnf outcomes
-      `Prelude.seq` Prelude.rnf predictionTimestamp
-      `Prelude.seq` Prelude.rnf ruleExecutionMode
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf detectorVersionId `Prelude.seq`
+        Prelude.rnf detectorVersionStatus `Prelude.seq`
+          Prelude.rnf entityId `Prelude.seq`
+            Prelude.rnf entityType `Prelude.seq`
+              Prelude.rnf evaluatedExternalModels `Prelude.seq`
+                Prelude.rnf evaluatedModelVersions `Prelude.seq`
+                  Prelude.rnf eventId `Prelude.seq`
+                    Prelude.rnf eventTimestamp `Prelude.seq`
+                      Prelude.rnf eventTypeName `Prelude.seq`
+                        Prelude.rnf eventVariables `Prelude.seq`
+                          Prelude.rnf outcomes `Prelude.seq`
+                            Prelude.rnf predictionTimestamp `Prelude.seq`
+                              Prelude.rnf ruleExecutionMode `Prelude.seq`
+                                Prelude.rnf rules `Prelude.seq`
+                                  Prelude.rnf httpStatus

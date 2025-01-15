@@ -104,7 +104,7 @@ instance Prelude.Hashable DetectorVersionSummary where
 
 instance Prelude.NFData DetectorVersionSummary where
   rnf DetectorVersionSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf detectorVersionId
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf detectorVersionId `Prelude.seq`
+        Prelude.rnf lastUpdatedTime `Prelude.seq`
+          Prelude.rnf status

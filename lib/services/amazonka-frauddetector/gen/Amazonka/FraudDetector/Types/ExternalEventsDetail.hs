@@ -90,8 +90,8 @@ instance Prelude.Hashable ExternalEventsDetail where
 
 instance Prelude.NFData ExternalEventsDetail where
   rnf ExternalEventsDetail' {..} =
-    Prelude.rnf dataLocation
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+    Prelude.rnf dataLocation `Prelude.seq`
+      Prelude.rnf dataAccessRoleArn
 
 instance Data.ToJSON ExternalEventsDetail where
   toJSON ExternalEventsDetail' {..} =

@@ -122,9 +122,9 @@ instance Prelude.Hashable GetOutcomes where
 
 instance Prelude.NFData GetOutcomes where
   rnf GetOutcomes' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders GetOutcomes where
   toHeaders =
@@ -206,6 +206,6 @@ getOutcomesResponse_httpStatus = Lens.lens (\GetOutcomesResponse' {httpStatus} -
 
 instance Prelude.NFData GetOutcomesResponse where
   rnf GetOutcomesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf outcomes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf outcomes `Prelude.seq`
+        Prelude.rnf httpStatus

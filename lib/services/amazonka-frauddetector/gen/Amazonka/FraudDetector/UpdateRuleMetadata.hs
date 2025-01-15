@@ -108,8 +108,8 @@ instance Prelude.Hashable UpdateRuleMetadata where
 
 instance Prelude.NFData UpdateRuleMetadata where
   rnf UpdateRuleMetadata' {..} =
-    Prelude.rnf rule
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf rule `Prelude.seq`
+      Prelude.rnf description
 
 instance Data.ToHeaders UpdateRuleMetadata where
   toHeaders =

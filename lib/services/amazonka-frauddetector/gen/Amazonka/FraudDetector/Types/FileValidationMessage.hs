@@ -91,6 +91,6 @@ instance Prelude.Hashable FileValidationMessage where
 
 instance Prelude.NFData FileValidationMessage where
   rnf FileValidationMessage' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf content `Prelude.seq`
+      Prelude.rnf title `Prelude.seq`
+        Prelude.rnf type'

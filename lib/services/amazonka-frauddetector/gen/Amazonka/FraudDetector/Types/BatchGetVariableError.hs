@@ -91,6 +91,6 @@ instance Prelude.Hashable BatchGetVariableError where
 
 instance Prelude.NFData BatchGetVariableError where
   rnf BatchGetVariableError' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf code `Prelude.seq`
+      Prelude.rnf message `Prelude.seq`
+        Prelude.rnf name

@@ -174,13 +174,13 @@ instance Prelude.Hashable CreateRule where
 
 instance Prelude.NFData CreateRule where
   rnf CreateRule' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf language
-      `Prelude.seq` Prelude.rnf outcomes
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf ruleId `Prelude.seq`
+          Prelude.rnf detectorId `Prelude.seq`
+            Prelude.rnf expression `Prelude.seq`
+              Prelude.rnf language `Prelude.seq`
+                Prelude.rnf outcomes
 
 instance Data.ToHeaders CreateRule where
   toHeaders =
@@ -257,5 +257,5 @@ createRuleResponse_httpStatus = Lens.lens (\CreateRuleResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateRuleResponse where
   rnf CreateRuleResponse' {..} =
-    Prelude.rnf rule
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf rule `Prelude.seq`
+      Prelude.rnf httpStatus

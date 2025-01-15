@@ -87,8 +87,8 @@ instance Prelude.Hashable Entity where
 
 instance Prelude.NFData Entity where
   rnf Entity' {..} =
-    Prelude.rnf entityType
-      `Prelude.seq` Prelude.rnf entityId
+    Prelude.rnf entityType `Prelude.seq`
+      Prelude.rnf entityId
 
 instance Data.ToJSON Entity where
   toJSON Entity' {..} =

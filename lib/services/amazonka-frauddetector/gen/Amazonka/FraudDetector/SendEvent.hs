@@ -184,13 +184,13 @@ instance Prelude.Hashable SendEvent where
 
 instance Prelude.NFData SendEvent where
   rnf SendEvent' {..} =
-    Prelude.rnf assignedLabel
-      `Prelude.seq` Prelude.rnf labelTimestamp
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventTypeName
-      `Prelude.seq` Prelude.rnf eventTimestamp
-      `Prelude.seq` Prelude.rnf eventVariables
-      `Prelude.seq` Prelude.rnf entities
+    Prelude.rnf assignedLabel `Prelude.seq`
+      Prelude.rnf labelTimestamp `Prelude.seq`
+        Prelude.rnf eventId `Prelude.seq`
+          Prelude.rnf eventTypeName `Prelude.seq`
+            Prelude.rnf eventTimestamp `Prelude.seq`
+              Prelude.rnf eventVariables `Prelude.seq`
+                Prelude.rnf entities
 
 instance Data.ToHeaders SendEvent where
   toHeaders =

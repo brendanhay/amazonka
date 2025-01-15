@@ -179,13 +179,13 @@ instance Prelude.Hashable EventType where
 
 instance Prelude.NFData EventType where
   rnf EventType' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf entityTypes
-      `Prelude.seq` Prelude.rnf eventIngestion
-      `Prelude.seq` Prelude.rnf eventVariables
-      `Prelude.seq` Prelude.rnf ingestedEventStatistics
-      `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf entityTypes `Prelude.seq`
+            Prelude.rnf eventIngestion `Prelude.seq`
+              Prelude.rnf eventVariables `Prelude.seq`
+                Prelude.rnf ingestedEventStatistics `Prelude.seq`
+                  Prelude.rnf labels `Prelude.seq`
+                    Prelude.rnf lastUpdatedTime `Prelude.seq`
+                      Prelude.rnf name

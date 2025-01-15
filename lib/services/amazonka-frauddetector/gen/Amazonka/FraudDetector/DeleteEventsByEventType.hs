@@ -184,6 +184,6 @@ instance
     DeleteEventsByEventTypeResponse
   where
   rnf DeleteEventsByEventTypeResponse' {..} =
-    Prelude.rnf eventTypeName
-      `Prelude.seq` Prelude.rnf eventsDeletionStatus
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventTypeName `Prelude.seq`
+      Prelude.rnf eventsDeletionStatus `Prelude.seq`
+        Prelude.rnf httpStatus

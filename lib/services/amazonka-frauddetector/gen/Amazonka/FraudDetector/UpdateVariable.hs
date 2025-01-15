@@ -131,10 +131,10 @@ instance Prelude.Hashable UpdateVariable where
 
 instance Prelude.NFData UpdateVariable where
   rnf UpdateVariable' {..} =
-    Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf variableType
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf defaultValue `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf variableType `Prelude.seq`
+          Prelude.rnf name
 
 instance Data.ToHeaders UpdateVariable where
   toHeaders =

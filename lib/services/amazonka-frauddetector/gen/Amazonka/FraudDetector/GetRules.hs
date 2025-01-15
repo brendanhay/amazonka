@@ -150,11 +150,11 @@ instance Prelude.Hashable GetRules where
 
 instance Prelude.NFData GetRules where
   rnf GetRules' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf ruleVersion
-      `Prelude.seq` Prelude.rnf detectorId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf ruleId `Prelude.seq`
+          Prelude.rnf ruleVersion `Prelude.seq`
+            Prelude.rnf detectorId
 
 instance Data.ToHeaders GetRules where
   toHeaders =
@@ -238,6 +238,6 @@ getRulesResponse_httpStatus = Lens.lens (\GetRulesResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetRulesResponse where
   rnf GetRulesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ruleDetails
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf ruleDetails `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -139,7 +139,7 @@ instance Prelude.Hashable ATIMetricDataPoint where
 
 instance Prelude.NFData ATIMetricDataPoint where
   rnf ATIMetricDataPoint' {..} =
-    Prelude.rnf adr
-      `Prelude.seq` Prelude.rnf atodr
-      `Prelude.seq` Prelude.rnf cr
-      `Prelude.seq` Prelude.rnf threshold
+    Prelude.rnf adr `Prelude.seq`
+      Prelude.rnf atodr `Prelude.seq`
+        Prelude.rnf cr `Prelude.seq`
+          Prelude.rnf threshold

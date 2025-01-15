@@ -82,5 +82,5 @@ instance Prelude.Hashable ExternalModelSummary where
 
 instance Prelude.NFData ExternalModelSummary where
   rnf ExternalModelSummary' {..} =
-    Prelude.rnf modelEndpoint
-      `Prelude.seq` Prelude.rnf modelSource
+    Prelude.rnf modelEndpoint `Prelude.seq`
+      Prelude.rnf modelSource

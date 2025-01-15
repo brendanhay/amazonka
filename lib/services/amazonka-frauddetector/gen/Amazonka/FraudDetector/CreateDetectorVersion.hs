@@ -205,13 +205,13 @@ instance Prelude.Hashable CreateDetectorVersion where
 
 instance Prelude.NFData CreateDetectorVersion where
   rnf CreateDetectorVersion' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf externalModelEndpoints
-      `Prelude.seq` Prelude.rnf modelVersions
-      `Prelude.seq` Prelude.rnf ruleExecutionMode
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf externalModelEndpoints `Prelude.seq`
+        Prelude.rnf modelVersions `Prelude.seq`
+          Prelude.rnf ruleExecutionMode `Prelude.seq`
+            Prelude.rnf tags `Prelude.seq`
+              Prelude.rnf detectorId `Prelude.seq`
+                Prelude.rnf rules
 
 instance Data.ToHeaders CreateDetectorVersion where
   toHeaders =
@@ -309,7 +309,7 @@ createDetectorVersionResponse_httpStatus = Lens.lens (\CreateDetectorVersionResp
 
 instance Prelude.NFData CreateDetectorVersionResponse where
   rnf CreateDetectorVersionResponse' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf detectorVersionId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf detectorVersionId `Prelude.seq`
+        Prelude.rnf status `Prelude.seq`
+          Prelude.rnf httpStatus

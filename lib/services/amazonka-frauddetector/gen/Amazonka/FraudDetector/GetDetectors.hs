@@ -123,9 +123,9 @@ instance Prelude.Hashable GetDetectors where
 
 instance Prelude.NFData GetDetectors where
   rnf GetDetectors' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders GetDetectors where
   toHeaders =
@@ -207,6 +207,6 @@ getDetectorsResponse_httpStatus = Lens.lens (\GetDetectorsResponse' {httpStatus}
 
 instance Prelude.NFData GetDetectorsResponse where
   rnf GetDetectorsResponse' {..} =
-    Prelude.rnf detectors
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf detectors `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

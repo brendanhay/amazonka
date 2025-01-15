@@ -115,9 +115,9 @@ instance Prelude.Hashable PutOutcome where
 
 instance Prelude.NFData PutOutcome where
   rnf PutOutcome' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf name
 
 instance Data.ToHeaders PutOutcome where
   toHeaders =

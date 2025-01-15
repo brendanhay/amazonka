@@ -138,10 +138,10 @@ instance Prelude.Hashable GetModels where
 
 instance Prelude.NFData GetModels where
   rnf GetModels' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf modelType
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf modelId `Prelude.seq`
+        Prelude.rnf modelType `Prelude.seq`
+          Prelude.rnf nextToken
 
 instance Data.ToHeaders GetModels where
   toHeaders =
@@ -224,6 +224,6 @@ getModelsResponse_httpStatus = Lens.lens (\GetModelsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetModelsResponse where
   rnf GetModelsResponse' {..} =
-    Prelude.rnf models
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf models `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

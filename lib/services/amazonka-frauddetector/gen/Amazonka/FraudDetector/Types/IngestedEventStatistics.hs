@@ -114,8 +114,8 @@ instance Prelude.Hashable IngestedEventStatistics where
 
 instance Prelude.NFData IngestedEventStatistics where
   rnf IngestedEventStatistics' {..} =
-    Prelude.rnf eventDataSizeInBytes
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf leastRecentEvent
-      `Prelude.seq` Prelude.rnf mostRecentEvent
-      `Prelude.seq` Prelude.rnf numberOfEvents
+    Prelude.rnf eventDataSizeInBytes `Prelude.seq`
+      Prelude.rnf lastUpdatedTime `Prelude.seq`
+        Prelude.rnf leastRecentEvent `Prelude.seq`
+          Prelude.rnf mostRecentEvent `Prelude.seq`
+            Prelude.rnf numberOfEvents

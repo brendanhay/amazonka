@@ -161,12 +161,12 @@ instance Prelude.Hashable ExternalModel where
 
 instance Prelude.NFData ExternalModel where
   rnf ExternalModel' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf inputConfiguration
-      `Prelude.seq` Prelude.rnf invokeModelEndpointRoleArn
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf modelEndpoint
-      `Prelude.seq` Prelude.rnf modelEndpointStatus
-      `Prelude.seq` Prelude.rnf modelSource
-      `Prelude.seq` Prelude.rnf outputConfiguration
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf inputConfiguration `Prelude.seq`
+          Prelude.rnf invokeModelEndpointRoleArn `Prelude.seq`
+            Prelude.rnf lastUpdatedTime `Prelude.seq`
+              Prelude.rnf modelEndpoint `Prelude.seq`
+                Prelude.rnf modelEndpointStatus `Prelude.seq`
+                  Prelude.rnf modelSource `Prelude.seq`
+                    Prelude.rnf outputConfiguration

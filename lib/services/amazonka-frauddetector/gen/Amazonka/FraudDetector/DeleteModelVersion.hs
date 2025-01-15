@@ -131,9 +131,9 @@ instance Prelude.Hashable DeleteModelVersion where
 
 instance Prelude.NFData DeleteModelVersion where
   rnf DeleteModelVersion' {..} =
-    Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf modelType
-      `Prelude.seq` Prelude.rnf modelVersionNumber
+    Prelude.rnf modelId `Prelude.seq`
+      Prelude.rnf modelType `Prelude.seq`
+        Prelude.rnf modelVersionNumber
 
 instance Data.ToHeaders DeleteModelVersion where
   toHeaders =

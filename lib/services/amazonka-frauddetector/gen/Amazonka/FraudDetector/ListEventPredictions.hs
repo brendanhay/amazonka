@@ -184,13 +184,13 @@ instance Prelude.Hashable ListEventPredictions where
 
 instance Prelude.NFData ListEventPredictions where
   rnf ListEventPredictions' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf detectorVersionId
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf predictionTimeRange
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf detectorVersionId `Prelude.seq`
+        Prelude.rnf eventId `Prelude.seq`
+          Prelude.rnf eventType `Prelude.seq`
+            Prelude.rnf maxResults `Prelude.seq`
+              Prelude.rnf nextToken `Prelude.seq`
+                Prelude.rnf predictionTimeRange
 
 instance Data.ToHeaders ListEventPredictions where
   toHeaders =
@@ -285,6 +285,6 @@ listEventPredictionsResponse_httpStatus = Lens.lens (\ListEventPredictionsRespon
 
 instance Prelude.NFData ListEventPredictionsResponse where
   rnf ListEventPredictionsResponse' {..} =
-    Prelude.rnf eventPredictionSummaries
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf eventPredictionSummaries `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

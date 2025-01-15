@@ -84,8 +84,8 @@ instance Prelude.Hashable IngestedEventsTimeWindow where
 
 instance Prelude.NFData IngestedEventsTimeWindow where
   rnf IngestedEventsTimeWindow' {..} =
-    Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf startTime `Prelude.seq`
+      Prelude.rnf endTime
 
 instance Data.ToJSON IngestedEventsTimeWindow where
   toJSON IngestedEventsTimeWindow' {..} =

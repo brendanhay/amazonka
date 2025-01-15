@@ -112,10 +112,10 @@ instance Prelude.Hashable ModelVersion where
 
 instance Prelude.NFData ModelVersion where
   rnf ModelVersion' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf modelType
-      `Prelude.seq` Prelude.rnf modelVersionNumber
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf modelId `Prelude.seq`
+        Prelude.rnf modelType `Prelude.seq`
+          Prelude.rnf modelVersionNumber
 
 instance Data.ToJSON ModelVersion where
   toJSON ModelVersion' {..} =

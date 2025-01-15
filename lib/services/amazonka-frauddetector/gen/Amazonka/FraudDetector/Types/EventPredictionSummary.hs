@@ -125,9 +125,9 @@ instance Prelude.Hashable EventPredictionSummary where
 
 instance Prelude.NFData EventPredictionSummary where
   rnf EventPredictionSummary' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf detectorVersionId
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventTimestamp
-      `Prelude.seq` Prelude.rnf eventTypeName
-      `Prelude.seq` Prelude.rnf predictionTimestamp
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf detectorVersionId `Prelude.seq`
+        Prelude.rnf eventId `Prelude.seq`
+          Prelude.rnf eventTimestamp `Prelude.seq`
+            Prelude.rnf eventTypeName `Prelude.seq`
+              Prelude.rnf predictionTimestamp

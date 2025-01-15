@@ -173,13 +173,13 @@ instance Prelude.Hashable PutEventType where
 
 instance Prelude.NFData PutEventType where
   rnf PutEventType' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf eventIngestion
-      `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf eventVariables
-      `Prelude.seq` Prelude.rnf entityTypes
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf eventIngestion `Prelude.seq`
+        Prelude.rnf labels `Prelude.seq`
+          Prelude.rnf tags `Prelude.seq`
+            Prelude.rnf name `Prelude.seq`
+              Prelude.rnf eventVariables `Prelude.seq`
+                Prelude.rnf entityTypes
 
 instance Data.ToHeaders PutEventType where
   toHeaders =

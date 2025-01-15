@@ -144,6 +144,6 @@ instance
     AggregatedVariablesImpactExplanation
   where
   rnf AggregatedVariablesImpactExplanation' {..} =
-    Prelude.rnf eventVariableNames
-      `Prelude.seq` Prelude.rnf logOddsImpact
-      `Prelude.seq` Prelude.rnf relativeImpact
+    Prelude.rnf eventVariableNames `Prelude.seq`
+      Prelude.rnf logOddsImpact `Prelude.seq`
+        Prelude.rnf relativeImpact

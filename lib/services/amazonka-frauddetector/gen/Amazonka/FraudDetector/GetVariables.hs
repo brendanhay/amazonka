@@ -122,9 +122,9 @@ instance Prelude.Hashable GetVariables where
 
 instance Prelude.NFData GetVariables where
   rnf GetVariables' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders GetVariables where
   toHeaders =
@@ -206,6 +206,6 @@ getVariablesResponse_httpStatus = Lens.lens (\GetVariablesResponse' {httpStatus}
 
 instance Prelude.NFData GetVariablesResponse where
   rnf GetVariablesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf variables
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf variables `Prelude.seq`
+        Prelude.rnf httpStatus

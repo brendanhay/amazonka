@@ -81,8 +81,8 @@ instance Prelude.Hashable ModelEndpointDataBlob where
 
 instance Prelude.NFData ModelEndpointDataBlob where
   rnf ModelEndpointDataBlob' {..} =
-    Prelude.rnf byteBuffer
-      `Prelude.seq` Prelude.rnf contentType
+    Prelude.rnf byteBuffer `Prelude.seq`
+      Prelude.rnf contentType
 
 instance Data.ToJSON ModelEndpointDataBlob where
   toJSON ModelEndpointDataBlob' {..} =

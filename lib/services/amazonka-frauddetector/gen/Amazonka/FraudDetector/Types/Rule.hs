@@ -97,9 +97,9 @@ instance Prelude.Hashable Rule where
 
 instance Prelude.NFData Rule where
   rnf Rule' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf ruleVersion
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf ruleId `Prelude.seq`
+        Prelude.rnf ruleVersion
 
 instance Data.ToJSON Rule where
   toJSON Rule' {..} =

@@ -135,8 +135,8 @@ instance Prelude.Hashable GetDetectorVersion where
 
 instance Prelude.NFData GetDetectorVersion where
   rnf GetDetectorVersion' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf detectorVersionId
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf detectorVersionId
 
 instance Data.ToHeaders GetDetectorVersion where
   toHeaders =
@@ -323,15 +323,15 @@ getDetectorVersionResponse_httpStatus = Lens.lens (\GetDetectorVersionResponse' 
 
 instance Prelude.NFData GetDetectorVersionResponse where
   rnf GetDetectorVersionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf detectorVersionId
-      `Prelude.seq` Prelude.rnf externalModelEndpoints
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf modelVersions
-      `Prelude.seq` Prelude.rnf ruleExecutionMode
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf arn `Prelude.seq`
+      Prelude.rnf createdTime `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf detectorId `Prelude.seq`
+            Prelude.rnf detectorVersionId `Prelude.seq`
+              Prelude.rnf externalModelEndpoints `Prelude.seq`
+                Prelude.rnf lastUpdatedTime `Prelude.seq`
+                  Prelude.rnf modelVersions `Prelude.seq`
+                    Prelude.rnf ruleExecutionMode `Prelude.seq`
+                      Prelude.rnf rules `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf httpStatus

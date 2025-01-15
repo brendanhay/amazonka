@@ -86,5 +86,5 @@ instance Prelude.Hashable OFITrainingMetricsValue where
 
 instance Prelude.NFData OFITrainingMetricsValue where
   rnf OFITrainingMetricsValue' {..} =
-    Prelude.rnf metricDataPoints
-      `Prelude.seq` Prelude.rnf modelPerformance
+    Prelude.rnf metricDataPoints `Prelude.seq`
+      Prelude.rnf modelPerformance

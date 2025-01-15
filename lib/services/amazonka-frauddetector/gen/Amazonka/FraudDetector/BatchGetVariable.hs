@@ -177,6 +177,6 @@ batchGetVariableResponse_httpStatus = Lens.lens (\BatchGetVariableResponse' {htt
 
 instance Prelude.NFData BatchGetVariableResponse where
   rnf BatchGetVariableResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf variables
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf variables `Prelude.seq`
+        Prelude.rnf httpStatus

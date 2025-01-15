@@ -128,9 +128,9 @@ instance Prelude.Hashable GetBatchPredictionJobs where
 
 instance Prelude.NFData GetBatchPredictionJobs where
   rnf GetBatchPredictionJobs' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf jobId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders GetBatchPredictionJobs where
   toHeaders =
@@ -216,6 +216,6 @@ instance
     GetBatchPredictionJobsResponse
   where
   rnf GetBatchPredictionJobsResponse' {..} =
-    Prelude.rnf batchPredictions
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf batchPredictions `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

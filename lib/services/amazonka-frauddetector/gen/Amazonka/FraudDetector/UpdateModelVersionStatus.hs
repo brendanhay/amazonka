@@ -146,10 +146,10 @@ instance Prelude.Hashable UpdateModelVersionStatus where
 
 instance Prelude.NFData UpdateModelVersionStatus where
   rnf UpdateModelVersionStatus' {..} =
-    Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf modelType
-      `Prelude.seq` Prelude.rnf modelVersionNumber
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf modelId `Prelude.seq`
+      Prelude.rnf modelType `Prelude.seq`
+        Prelude.rnf modelVersionNumber `Prelude.seq`
+          Prelude.rnf status
 
 instance Data.ToHeaders UpdateModelVersionStatus where
   toHeaders =

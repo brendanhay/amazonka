@@ -115,8 +115,8 @@ instance Prelude.Hashable DeleteDetectorVersion where
 
 instance Prelude.NFData DeleteDetectorVersion where
   rnf DeleteDetectorVersion' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf detectorVersionId
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf detectorVersionId
 
 instance Data.ToHeaders DeleteDetectorVersion where
   toHeaders =

@@ -148,10 +148,10 @@ instance Prelude.Hashable Event where
 
 instance Prelude.NFData Event where
   rnf Event' {..} =
-    Prelude.rnf currentLabel
-      `Prelude.seq` Prelude.rnf entities
-      `Prelude.seq` Prelude.rnf eventId
-      `Prelude.seq` Prelude.rnf eventTimestamp
-      `Prelude.seq` Prelude.rnf eventTypeName
-      `Prelude.seq` Prelude.rnf eventVariables
-      `Prelude.seq` Prelude.rnf labelTimestamp
+    Prelude.rnf currentLabel `Prelude.seq`
+      Prelude.rnf entities `Prelude.seq`
+        Prelude.rnf eventId `Prelude.seq`
+          Prelude.rnf eventTimestamp `Prelude.seq`
+            Prelude.rnf eventTypeName `Prelude.seq`
+              Prelude.rnf eventVariables `Prelude.seq`
+                Prelude.rnf labelTimestamp

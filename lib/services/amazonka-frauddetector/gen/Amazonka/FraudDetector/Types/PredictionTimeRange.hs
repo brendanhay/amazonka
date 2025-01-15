@@ -77,8 +77,8 @@ instance Prelude.Hashable PredictionTimeRange where
 
 instance Prelude.NFData PredictionTimeRange where
   rnf PredictionTimeRange' {..} =
-    Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf startTime `Prelude.seq`
+      Prelude.rnf endTime
 
 instance Data.ToJSON PredictionTimeRange where
   toJSON PredictionTimeRange' {..} =

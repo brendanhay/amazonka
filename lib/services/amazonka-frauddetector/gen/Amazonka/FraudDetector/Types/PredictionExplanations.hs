@@ -111,5 +111,5 @@ instance Prelude.Hashable PredictionExplanations where
 
 instance Prelude.NFData PredictionExplanations where
   rnf PredictionExplanations' {..} =
-    Prelude.rnf aggregatedVariablesImpactExplanations
-      `Prelude.seq` Prelude.rnf variableImpactExplanations
+    Prelude.rnf aggregatedVariablesImpactExplanations `Prelude.seq`
+      Prelude.rnf variableImpactExplanations

@@ -147,11 +147,11 @@ instance Prelude.Hashable DescribeModelVersions where
 
 instance Prelude.NFData DescribeModelVersions where
   rnf DescribeModelVersions' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf modelType
-      `Prelude.seq` Prelude.rnf modelVersionNumber
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf modelId `Prelude.seq`
+        Prelude.rnf modelType `Prelude.seq`
+          Prelude.rnf modelVersionNumber `Prelude.seq`
+            Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeModelVersions where
   toHeaders =
@@ -237,6 +237,6 @@ describeModelVersionsResponse_httpStatus = Lens.lens (\DescribeModelVersionsResp
 
 instance Prelude.NFData DescribeModelVersionsResponse where
   rnf DescribeModelVersionsResponse' {..} =
-    Prelude.rnf modelVersionDetails
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf modelVersionDetails `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -132,9 +132,9 @@ instance
 
 instance Prelude.NFData UpdateDetectorVersionMetadata where
   rnf UpdateDetectorVersionMetadata' {..} =
-    Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf detectorVersionId
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf detectorId `Prelude.seq`
+      Prelude.rnf detectorVersionId `Prelude.seq`
+        Prelude.rnf description
 
 instance Data.ToHeaders UpdateDetectorVersionMetadata where
   toHeaders =

@@ -125,9 +125,9 @@ instance Prelude.Hashable GetExternalModels where
 
 instance Prelude.NFData GetExternalModels where
   rnf GetExternalModels' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf modelEndpoint
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf modelEndpoint `Prelude.seq`
+        Prelude.rnf nextToken
 
 instance Data.ToHeaders GetExternalModels where
   toHeaders =
@@ -210,6 +210,6 @@ getExternalModelsResponse_httpStatus = Lens.lens (\GetExternalModelsResponse' {h
 
 instance Prelude.NFData GetExternalModelsResponse where
   rnf GetExternalModelsResponse' {..} =
-    Prelude.rnf externalModels
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf externalModels `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

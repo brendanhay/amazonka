@@ -92,6 +92,6 @@ instance Prelude.Hashable EventVariableSummary where
 
 instance Prelude.NFData EventVariableSummary where
   rnf EventVariableSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf source `Prelude.seq`
+        Prelude.rnf value

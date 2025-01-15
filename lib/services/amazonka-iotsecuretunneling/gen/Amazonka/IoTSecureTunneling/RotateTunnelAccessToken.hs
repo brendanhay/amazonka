@@ -139,9 +139,9 @@ instance Prelude.Hashable RotateTunnelAccessToken where
 
 instance Prelude.NFData RotateTunnelAccessToken where
   rnf RotateTunnelAccessToken' {..} =
-    Prelude.rnf destinationConfig
-      `Prelude.seq` Prelude.rnf tunnelId
-      `Prelude.seq` Prelude.rnf clientMode
+    Prelude.rnf destinationConfig `Prelude.seq`
+      Prelude.rnf tunnelId `Prelude.seq`
+        Prelude.rnf clientMode
 
 instance Data.ToHeaders RotateTunnelAccessToken where
   toHeaders =
@@ -243,7 +243,7 @@ instance
     RotateTunnelAccessTokenResponse
   where
   rnf RotateTunnelAccessTokenResponse' {..} =
-    Prelude.rnf destinationAccessToken
-      `Prelude.seq` Prelude.rnf sourceAccessToken
-      `Prelude.seq` Prelude.rnf tunnelArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf destinationAccessToken `Prelude.seq`
+      Prelude.rnf sourceAccessToken `Prelude.seq`
+        Prelude.rnf tunnelArn `Prelude.seq`
+          Prelude.rnf httpStatus

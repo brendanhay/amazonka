@@ -125,9 +125,9 @@ instance Prelude.Hashable TunnelSummary where
 
 instance Prelude.NFData TunnelSummary where
   rnf TunnelSummary' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tunnelArn
-      `Prelude.seq` Prelude.rnf tunnelId
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lastUpdatedAt `Prelude.seq`
+          Prelude.rnf status `Prelude.seq`
+            Prelude.rnf tunnelArn `Prelude.seq`
+              Prelude.rnf tunnelId

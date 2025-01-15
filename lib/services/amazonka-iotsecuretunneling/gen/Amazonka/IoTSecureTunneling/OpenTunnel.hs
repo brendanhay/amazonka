@@ -137,10 +137,10 @@ instance Prelude.Hashable OpenTunnel where
 
 instance Prelude.NFData OpenTunnel where
   rnf OpenTunnel' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destinationConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeoutConfig
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf destinationConfig `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf timeoutConfig
 
 instance Data.ToHeaders OpenTunnel where
   toHeaders =
@@ -249,8 +249,8 @@ openTunnelResponse_httpStatus = Lens.lens (\OpenTunnelResponse' {httpStatus} -> 
 
 instance Prelude.NFData OpenTunnelResponse where
   rnf OpenTunnelResponse' {..} =
-    Prelude.rnf destinationAccessToken
-      `Prelude.seq` Prelude.rnf sourceAccessToken
-      `Prelude.seq` Prelude.rnf tunnelArn
-      `Prelude.seq` Prelude.rnf tunnelId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf destinationAccessToken `Prelude.seq`
+      Prelude.rnf sourceAccessToken `Prelude.seq`
+        Prelude.rnf tunnelArn `Prelude.seq`
+          Prelude.rnf tunnelId `Prelude.seq`
+            Prelude.rnf httpStatus

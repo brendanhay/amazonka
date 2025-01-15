@@ -190,14 +190,14 @@ instance Prelude.Hashable Tunnel where
 
 instance Prelude.NFData Tunnel where
   rnf Tunnel' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf destinationConfig
-      `Prelude.seq` Prelude.rnf destinationConnectionState
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf sourceConnectionState
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeoutConfig
-      `Prelude.seq` Prelude.rnf tunnelArn
-      `Prelude.seq` Prelude.rnf tunnelId
+    Prelude.rnf createdAt `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf destinationConfig `Prelude.seq`
+          Prelude.rnf destinationConnectionState `Prelude.seq`
+            Prelude.rnf lastUpdatedAt `Prelude.seq`
+              Prelude.rnf sourceConnectionState `Prelude.seq`
+                Prelude.rnf status `Prelude.seq`
+                  Prelude.rnf tags `Prelude.seq`
+                    Prelude.rnf timeoutConfig `Prelude.seq`
+                      Prelude.rnf tunnelArn `Prelude.seq`
+                        Prelude.rnf tunnelId

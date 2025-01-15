@@ -94,8 +94,8 @@ instance Prelude.Hashable DestinationConfig where
 
 instance Prelude.NFData DestinationConfig where
   rnf DestinationConfig' {..} =
-    Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf services
+    Prelude.rnf thingName `Prelude.seq`
+      Prelude.rnf services
 
 instance Data.ToJSON DestinationConfig where
   toJSON DestinationConfig' {..} =

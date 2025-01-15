@@ -10,12 +10,13 @@ where
 
 import qualified Data.Aeson as Aeson
 import Data.Generics.Labels ()
+import Gen.Output.Template.CabalFile (CabalFile)
 import Gen.Prelude
 import qualified Text.EDE as EDE
 
 -- | All the EDE templates that the generator cares about.
 data Templates = Templates
-  { cabalTemplate :: EDE.Template,
+  { cabalTemplate :: Template CabalFile,
     tocTemplate :: EDE.Template,
     waitersTemplate :: EDE.Template,
     licenseTemplate :: EDE.Template,

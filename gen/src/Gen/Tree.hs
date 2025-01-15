@@ -15,6 +15,8 @@ import qualified Data.Text as Text
 import Gen.Import
 import qualified Gen.JSON as JSON
 import Gen.Output.Template (Templates (..))
+import qualified Gen.Output.Template as Template
+import qualified Gen.Output.Template.CabalFile as CabalFile
 import Gen.Prelude hiding (mod)
 import Gen.Types
 import System.Directory.Tree
@@ -22,7 +24,6 @@ import System.Directory.Tree
     DirTree (Dir, Failed, File),
   )
 import qualified System.FilePath as FilePath
-import Text.EDE (Template)
 import qualified Text.EDE as EDE
 
 fold ::
@@ -94,7 +95,7 @@ populate d Templates {..} l = (d :/) . Dir lib <$> layout
                 ]
             ],
           Dir "fixture" (concatMap fixture (l ^.. operations . Lens.each)),
-          file (lib <.> "cabal") cabalTemplate,
+          cabalFile,
           file "LICENSE" licenseTemplate,
           file "README.md" readmeTemplate
         ]
@@ -142,10 +143,15 @@ populate d Templates {..} l = (d :/) . Dir lib <$> layout
       where
         n = typeId (_opName o)
 
-    mod :: NS -> [NS] -> Template -> DirTree (Either String Touch)
+    mod :: NS -> [NS] -> EDE.Template -> DirTree (Either String Touch)
     mod name imports template = write $ module' Module {..}
 
-    file :: FilePath -> Template -> DirTree (Either String Touch)
+    cabalFile :: DirTree (Either String Touch)
+    cabalFile =
+      write . File (lib <.> "cabal") . Template.render cabalTemplate $
+        CabalFile.fromLibrary l
+
+    file :: FilePath -> EDE.Template -> DirTree (Either String Touch)
     file p t = write $ render p t env
 
     env :: Either String Aeson.Value
@@ -153,7 +159,7 @@ populate d Templates {..} l = (d :/) . Dir lib <$> layout
 
 operation' ::
   Library ->
-  Template ->
+  EDE.Template ->
   Operation Identity SData a ->
   DirTree (Either String Rendered)
 operation' l template o =
@@ -172,7 +178,7 @@ operation' l template o =
 
 shape' ::
   Library ->
-  Template ->
+  EDE.Template ->
   SData ->
   DirTree (Either String Rendered)
 shape' l template s =
@@ -192,7 +198,7 @@ shape' l template s =
 
 bootShape' ::
   Library ->
-  Template ->
+  EDE.Template ->
   SData ->
   DirTree (Either String Rendered)
 bootShape' l template s =
@@ -213,7 +219,7 @@ bootShape' l template s =
 data Module a = Module
   { name :: NS,
     imports :: [NS],
-    template :: Template,
+    template :: EDE.Template,
     env :: Either String a
   }
 
@@ -248,13 +254,13 @@ bootModule' Module {..} =
 render ::
   (ToJSON a) =>
   FilePath ->
-  Template ->
+  EDE.Template ->
   Either String a ->
   DirTree (Either String Rendered)
 render p tmpl a =
   File p (a >>= JSON.objectErr p >>= EDE.eitherRender tmpl . Aeson.KeyMap.toHashMapText)
 
-touch :: Text -> Template -> Aeson.Object -> DirTree (Either String Touch)
+touch :: Text -> EDE.Template -> Aeson.Object -> DirTree (Either String Touch)
 touch f tmpl env =
   File (Text.unpack f) $
     Left <$> EDE.eitherRender tmpl (Aeson.KeyMap.toHashMapText env)

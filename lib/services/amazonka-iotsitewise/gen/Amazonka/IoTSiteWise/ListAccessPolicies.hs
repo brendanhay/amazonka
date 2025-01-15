@@ -183,12 +183,12 @@ instance Core.AWSPager ListAccessPolicies where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listAccessPolicies_nextToken
-          Lens..~ rs
-          Lens.^? listAccessPoliciesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listAccessPolicies_nextToken
+              Lens..~ rs
+              Lens.^? listAccessPoliciesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccessPolicies where
   type
@@ -221,13 +221,13 @@ instance Prelude.Hashable ListAccessPolicies where
 
 instance Prelude.NFData ListAccessPolicies where
   rnf ListAccessPolicies' {..} =
-    Prelude.rnf iamArn
-      `Prelude.seq` Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf identityType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf iamArn `Prelude.seq`
+      Prelude.rnf identityId `Prelude.seq`
+        Prelude.rnf identityType `Prelude.seq`
+          Prelude.rnf maxResults `Prelude.seq`
+            Prelude.rnf nextToken `Prelude.seq`
+              Prelude.rnf resourceId `Prelude.seq`
+                Prelude.rnf resourceType
 
 instance Data.ToHeaders ListAccessPolicies where
   toHeaders =
@@ -308,6 +308,6 @@ listAccessPoliciesResponse_accessPolicySummaries = Lens.lens (\ListAccessPolicie
 
 instance Prelude.NFData ListAccessPoliciesResponse where
   rnf ListAccessPoliciesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accessPolicySummaries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf accessPolicySummaries

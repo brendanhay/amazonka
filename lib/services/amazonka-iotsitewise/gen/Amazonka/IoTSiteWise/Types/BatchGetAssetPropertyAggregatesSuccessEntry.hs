@@ -105,5 +105,5 @@ instance
     BatchGetAssetPropertyAggregatesSuccessEntry
   where
   rnf BatchGetAssetPropertyAggregatesSuccessEntry' {..} =
-    Prelude.rnf entryId
-      `Prelude.seq` Prelude.rnf aggregatedValues
+    Prelude.rnf entryId `Prelude.seq`
+      Prelude.rnf aggregatedValues

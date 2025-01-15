@@ -249,12 +249,12 @@ instance Core.AWSPager GetAssetPropertyAggregates where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getAssetPropertyAggregates_nextToken
-          Lens..~ rs
-          Lens.^? getAssetPropertyAggregatesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getAssetPropertyAggregates_nextToken
+              Lens..~ rs
+              Lens.^? getAssetPropertyAggregatesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetAssetPropertyAggregates where
   type
@@ -291,17 +291,17 @@ instance Prelude.Hashable GetAssetPropertyAggregates where
 
 instance Prelude.NFData GetAssetPropertyAggregates where
   rnf GetAssetPropertyAggregates' {..} =
-    Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf propertyAlias
-      `Prelude.seq` Prelude.rnf propertyId
-      `Prelude.seq` Prelude.rnf qualities
-      `Prelude.seq` Prelude.rnf timeOrdering
-      `Prelude.seq` Prelude.rnf aggregateTypes
-      `Prelude.seq` Prelude.rnf resolution
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf endDate
+    Prelude.rnf assetId `Prelude.seq`
+      Prelude.rnf maxResults `Prelude.seq`
+        Prelude.rnf nextToken `Prelude.seq`
+          Prelude.rnf propertyAlias `Prelude.seq`
+            Prelude.rnf propertyId `Prelude.seq`
+              Prelude.rnf qualities `Prelude.seq`
+                Prelude.rnf timeOrdering `Prelude.seq`
+                  Prelude.rnf aggregateTypes `Prelude.seq`
+                    Prelude.rnf resolution `Prelude.seq`
+                      Prelude.rnf startDate `Prelude.seq`
+                        Prelude.rnf endDate
 
 instance Data.ToHeaders GetAssetPropertyAggregates where
   toHeaders =
@@ -392,6 +392,6 @@ instance
     GetAssetPropertyAggregatesResponse
   where
   rnf GetAssetPropertyAggregatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf aggregatedValues
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf aggregatedValues

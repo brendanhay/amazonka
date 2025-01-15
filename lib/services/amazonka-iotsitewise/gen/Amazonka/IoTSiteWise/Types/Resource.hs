@@ -82,8 +82,8 @@ instance Prelude.Hashable Resource where
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
-    Prelude.rnf portal
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf portal `Prelude.seq`
+      Prelude.rnf project
 
 instance Data.ToJSON Resource where
   toJSON Resource' {..} =

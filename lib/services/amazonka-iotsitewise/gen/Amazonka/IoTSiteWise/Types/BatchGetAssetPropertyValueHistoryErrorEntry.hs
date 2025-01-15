@@ -114,6 +114,6 @@ instance
     BatchGetAssetPropertyValueHistoryErrorEntry
   where
   rnf BatchGetAssetPropertyValueHistoryErrorEntry' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf entryId
+    Prelude.rnf errorCode `Prelude.seq`
+      Prelude.rnf errorMessage `Prelude.seq`
+        Prelude.rnf entryId

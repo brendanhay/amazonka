@@ -144,9 +144,9 @@ instance Prelude.Hashable DescribeTimeSeries where
 
 instance Prelude.NFData DescribeTimeSeries where
   rnf DescribeTimeSeries' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf propertyId
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf assetId `Prelude.seq`
+        Prelude.rnf propertyId
 
 instance Data.ToHeaders DescribeTimeSeries where
   toHeaders =
@@ -316,12 +316,12 @@ describeTimeSeriesResponse_timeSeriesLastUpdateDate = Lens.lens (\DescribeTimeSe
 
 instance Prelude.NFData DescribeTimeSeriesResponse where
   rnf DescribeTimeSeriesResponse' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf dataTypeSpec
-      `Prelude.seq` Prelude.rnf propertyId
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf timeSeriesId
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf timeSeriesCreationDate
-      `Prelude.seq` Prelude.rnf timeSeriesLastUpdateDate
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf assetId `Prelude.seq`
+        Prelude.rnf dataTypeSpec `Prelude.seq`
+          Prelude.rnf propertyId `Prelude.seq`
+            Prelude.rnf httpStatus `Prelude.seq`
+              Prelude.rnf timeSeriesId `Prelude.seq`
+                Prelude.rnf dataType `Prelude.seq`
+                  Prelude.rnf timeSeriesCreationDate `Prelude.seq`
+                    Prelude.rnf timeSeriesLastUpdateDate

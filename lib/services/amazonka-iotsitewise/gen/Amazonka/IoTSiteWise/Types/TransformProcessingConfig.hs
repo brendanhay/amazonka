@@ -87,8 +87,8 @@ instance Prelude.Hashable TransformProcessingConfig where
 
 instance Prelude.NFData TransformProcessingConfig where
   rnf TransformProcessingConfig' {..} =
-    Prelude.rnf forwardingConfig
-      `Prelude.seq` Prelude.rnf computeLocation
+    Prelude.rnf forwardingConfig `Prelude.seq`
+      Prelude.rnf computeLocation
 
 instance Data.ToJSON TransformProcessingConfig where
   toJSON TransformProcessingConfig' {..} =

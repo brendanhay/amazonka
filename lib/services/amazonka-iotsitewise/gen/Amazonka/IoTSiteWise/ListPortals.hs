@@ -108,12 +108,12 @@ instance Core.AWSPager ListPortals where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listPortals_nextToken
-          Lens..~ rs
-          Lens.^? listPortalsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listPortals_nextToken
+              Lens..~ rs
+              Lens.^? listPortalsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPortals where
   type AWSResponse ListPortals = ListPortalsResponse
@@ -139,8 +139,8 @@ instance Prelude.Hashable ListPortals where
 
 instance Prelude.NFData ListPortals where
   rnf ListPortals' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPortals where
   toHeaders =
@@ -215,6 +215,6 @@ listPortalsResponse_httpStatus = Lens.lens (\ListPortalsResponse' {httpStatus} -
 
 instance Prelude.NFData ListPortalsResponse where
   rnf ListPortalsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf portalSummaries
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf portalSummaries `Prelude.seq`
+        Prelude.rnf httpStatus

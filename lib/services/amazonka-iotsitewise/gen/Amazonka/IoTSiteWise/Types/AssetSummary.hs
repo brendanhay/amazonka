@@ -195,12 +195,12 @@ instance Prelude.Hashable AssetSummary where
 
 instance Prelude.NFData AssetSummary where
   rnf AssetSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf assetModelId
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf lastUpdateDate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf hierarchies
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf arn `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf assetModelId `Prelude.seq`
+              Prelude.rnf creationDate `Prelude.seq`
+                Prelude.rnf lastUpdateDate `Prelude.seq`
+                  Prelude.rnf status `Prelude.seq`
+                    Prelude.rnf hierarchies

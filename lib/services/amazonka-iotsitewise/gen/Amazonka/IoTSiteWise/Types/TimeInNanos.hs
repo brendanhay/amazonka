@@ -85,8 +85,8 @@ instance Prelude.Hashable TimeInNanos where
 
 instance Prelude.NFData TimeInNanos where
   rnf TimeInNanos' {..} =
-    Prelude.rnf offsetInNanos
-      `Prelude.seq` Prelude.rnf timeInSeconds
+    Prelude.rnf offsetInNanos `Prelude.seq`
+      Prelude.rnf timeInSeconds
 
 instance Data.ToJSON TimeInNanos where
   toJSON TimeInNanos' {..} =

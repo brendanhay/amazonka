@@ -274,12 +274,12 @@ describeDashboardResponse_dashboardLastUpdateDate = Lens.lens (\DescribeDashboar
 
 instance Prelude.NFData DescribeDashboardResponse where
   rnf DescribeDashboardResponse' {..} =
-    Prelude.rnf dashboardDescription
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf dashboardId
-      `Prelude.seq` Prelude.rnf dashboardArn
-      `Prelude.seq` Prelude.rnf dashboardName
-      `Prelude.seq` Prelude.rnf projectId
-      `Prelude.seq` Prelude.rnf dashboardDefinition
-      `Prelude.seq` Prelude.rnf dashboardCreationDate
-      `Prelude.seq` Prelude.rnf dashboardLastUpdateDate
+    Prelude.rnf dashboardDescription `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf dashboardId `Prelude.seq`
+          Prelude.rnf dashboardArn `Prelude.seq`
+            Prelude.rnf dashboardName `Prelude.seq`
+              Prelude.rnf projectId `Prelude.seq`
+                Prelude.rnf dashboardDefinition `Prelude.seq`
+                  Prelude.rnf dashboardCreationDate `Prelude.seq`
+                    Prelude.rnf dashboardLastUpdateDate

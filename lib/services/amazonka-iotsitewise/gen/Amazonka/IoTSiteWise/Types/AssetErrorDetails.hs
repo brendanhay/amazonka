@@ -98,6 +98,6 @@ instance Prelude.Hashable AssetErrorDetails where
 
 instance Prelude.NFData AssetErrorDetails where
   rnf AssetErrorDetails' {..} =
-    Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf code
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf assetId `Prelude.seq`
+      Prelude.rnf code `Prelude.seq`
+        Prelude.rnf message

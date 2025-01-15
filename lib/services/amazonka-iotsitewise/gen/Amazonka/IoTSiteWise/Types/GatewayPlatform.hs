@@ -82,8 +82,8 @@ instance Prelude.Hashable GatewayPlatform where
 
 instance Prelude.NFData GatewayPlatform where
   rnf GatewayPlatform' {..} =
-    Prelude.rnf greengrass
-      `Prelude.seq` Prelude.rnf greengrassV2
+    Prelude.rnf greengrass `Prelude.seq`
+      Prelude.rnf greengrassV2
 
 instance Data.ToJSON GatewayPlatform where
   toJSON GatewayPlatform' {..} =

@@ -178,11 +178,11 @@ instance Prelude.Hashable PortalSummary where
 
 instance Prelude.NFData PortalSummary where
   rnf PortalSummary' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdateDate
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf startUrl
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lastUpdateDate `Prelude.seq`
+          Prelude.rnf roleArn `Prelude.seq`
+            Prelude.rnf id `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf startUrl `Prelude.seq`
+                  Prelude.rnf status

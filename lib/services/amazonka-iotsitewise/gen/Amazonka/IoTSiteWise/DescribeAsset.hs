@@ -137,8 +137,8 @@ instance Prelude.Hashable DescribeAsset where
 
 instance Prelude.NFData DescribeAsset where
   rnf DescribeAsset' {..} =
-    Prelude.rnf excludeProperties
-      `Prelude.seq` Prelude.rnf assetId
+    Prelude.rnf excludeProperties `Prelude.seq`
+      Prelude.rnf assetId
 
 instance Data.ToHeaders DescribeAsset where
   toHeaders =
@@ -345,15 +345,15 @@ describeAssetResponse_assetStatus = Lens.lens (\DescribeAssetResponse' {assetSta
 
 instance Prelude.NFData DescribeAssetResponse where
   rnf DescribeAssetResponse' {..} =
-    Prelude.rnf assetCompositeModels
-      `Prelude.seq` Prelude.rnf assetDescription
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf assetArn
-      `Prelude.seq` Prelude.rnf assetName
-      `Prelude.seq` Prelude.rnf assetModelId
-      `Prelude.seq` Prelude.rnf assetProperties
-      `Prelude.seq` Prelude.rnf assetHierarchies
-      `Prelude.seq` Prelude.rnf assetCreationDate
-      `Prelude.seq` Prelude.rnf assetLastUpdateDate
-      `Prelude.seq` Prelude.rnf assetStatus
+    Prelude.rnf assetCompositeModels `Prelude.seq`
+      Prelude.rnf assetDescription `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf assetId `Prelude.seq`
+            Prelude.rnf assetArn `Prelude.seq`
+              Prelude.rnf assetName `Prelude.seq`
+                Prelude.rnf assetModelId `Prelude.seq`
+                  Prelude.rnf assetProperties `Prelude.seq`
+                    Prelude.rnf assetHierarchies `Prelude.seq`
+                      Prelude.rnf assetCreationDate `Prelude.seq`
+                        Prelude.rnf assetLastUpdateDate `Prelude.seq`
+                          Prelude.rnf assetStatus

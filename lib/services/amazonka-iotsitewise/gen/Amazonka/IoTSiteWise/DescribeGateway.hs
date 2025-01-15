@@ -262,11 +262,11 @@ describeGatewayResponse_lastUpdateDate = Lens.lens (\DescribeGatewayResponse' {l
 
 instance Prelude.NFData DescribeGatewayResponse where
   rnf DescribeGatewayResponse' {..} =
-    Prelude.rnf gatewayPlatform
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf gatewayId
-      `Prelude.seq` Prelude.rnf gatewayName
-      `Prelude.seq` Prelude.rnf gatewayArn
-      `Prelude.seq` Prelude.rnf gatewayCapabilitySummaries
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf lastUpdateDate
+    Prelude.rnf gatewayPlatform `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf gatewayId `Prelude.seq`
+          Prelude.rnf gatewayName `Prelude.seq`
+            Prelude.rnf gatewayArn `Prelude.seq`
+              Prelude.rnf gatewayCapabilitySummaries `Prelude.seq`
+                Prelude.rnf creationDate `Prelude.seq`
+                  Prelude.rnf lastUpdateDate

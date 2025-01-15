@@ -135,12 +135,12 @@ instance Prelude.Hashable AssetModelProperty where
 
 instance Prelude.NFData AssetModelProperty where
   rnf AssetModelProperty' {..} =
-    Prelude.rnf dataTypeSpec
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf dataTypeSpec `Prelude.seq`
+      Prelude.rnf id `Prelude.seq`
+        Prelude.rnf unit `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf dataType `Prelude.seq`
+              Prelude.rnf type'
 
 instance Data.ToJSON AssetModelProperty where
   toJSON AssetModelProperty' {..} =

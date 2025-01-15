@@ -121,6 +121,6 @@ instance
     BatchGetAssetPropertyAggregatesSkippedEntry
   where
   rnf BatchGetAssetPropertyAggregatesSkippedEntry' {..} =
-    Prelude.rnf errorInfo
-      `Prelude.seq` Prelude.rnf entryId
-      `Prelude.seq` Prelude.rnf completionStatus
+    Prelude.rnf errorInfo `Prelude.seq`
+      Prelude.rnf entryId `Prelude.seq`
+        Prelude.rnf completionStatus

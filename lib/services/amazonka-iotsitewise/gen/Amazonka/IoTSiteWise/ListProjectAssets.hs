@@ -118,12 +118,12 @@ instance Core.AWSPager ListProjectAssets where
         (rs Lens.^. listProjectAssetsResponse_assetIds) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listProjectAssets_nextToken
-          Lens..~ rs
-          Lens.^? listProjectAssetsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listProjectAssets_nextToken
+              Lens..~ rs
+              Lens.^? listProjectAssetsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProjectAssets where
   type
@@ -149,9 +149,9 @@ instance Prelude.Hashable ListProjectAssets where
 
 instance Prelude.NFData ListProjectAssets where
   rnf ListProjectAssets' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf projectId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf projectId
 
 instance Data.ToHeaders ListProjectAssets where
   toHeaders =
@@ -229,6 +229,6 @@ listProjectAssetsResponse_assetIds = Lens.lens (\ListProjectAssetsResponse' {ass
 
 instance Prelude.NFData ListProjectAssetsResponse where
   rnf ListProjectAssetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf assetIds
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf assetIds

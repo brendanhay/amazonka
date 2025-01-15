@@ -158,6 +158,6 @@ instance Prelude.Hashable JobSummary where
 
 instance Prelude.NFData JobSummary where
   rnf JobSummary' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf id `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf status

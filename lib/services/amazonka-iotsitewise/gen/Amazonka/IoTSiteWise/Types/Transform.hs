@@ -131,9 +131,9 @@ instance Prelude.Hashable Transform where
 
 instance Prelude.NFData Transform where
   rnf Transform' {..} =
-    Prelude.rnf processingConfig
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf variables
+    Prelude.rnf processingConfig `Prelude.seq`
+      Prelude.rnf expression `Prelude.seq`
+        Prelude.rnf variables
 
 instance Data.ToJSON Transform where
   toJSON Transform' {..} =

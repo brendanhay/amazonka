@@ -253,11 +253,11 @@ describeProjectResponse_projectLastUpdateDate = Lens.lens (\DescribeProjectRespo
 
 instance Prelude.NFData DescribeProjectResponse where
   rnf DescribeProjectResponse' {..} =
-    Prelude.rnf projectDescription
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf projectId
-      `Prelude.seq` Prelude.rnf projectArn
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf portalId
-      `Prelude.seq` Prelude.rnf projectCreationDate
-      `Prelude.seq` Prelude.rnf projectLastUpdateDate
+    Prelude.rnf projectDescription `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf projectId `Prelude.seq`
+          Prelude.rnf projectArn `Prelude.seq`
+            Prelude.rnf projectName `Prelude.seq`
+              Prelude.rnf portalId `Prelude.seq`
+                Prelude.rnf projectCreationDate `Prelude.seq`
+                  Prelude.rnf projectLastUpdateDate

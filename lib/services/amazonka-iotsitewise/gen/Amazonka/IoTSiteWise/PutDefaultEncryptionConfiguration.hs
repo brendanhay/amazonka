@@ -130,8 +130,8 @@ instance
     PutDefaultEncryptionConfiguration
   where
   rnf PutDefaultEncryptionConfiguration' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf encryptionType
+    Prelude.rnf kmsKeyId `Prelude.seq`
+      Prelude.rnf encryptionType
 
 instance
   Data.ToHeaders
@@ -253,7 +253,7 @@ instance
     PutDefaultEncryptionConfigurationResponse
   where
   rnf PutDefaultEncryptionConfigurationResponse' {..} =
-    Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf encryptionType
-      `Prelude.seq` Prelude.rnf configurationStatus
+    Prelude.rnf kmsKeyArn `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf encryptionType `Prelude.seq`
+          Prelude.rnf configurationStatus

@@ -217,12 +217,12 @@ instance Core.AWSPager GetAssetPropertyValueHistory where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& getAssetPropertyValueHistory_nextToken
-          Lens..~ rs
-          Lens.^? getAssetPropertyValueHistoryResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& getAssetPropertyValueHistory_nextToken
+              Lens..~ rs
+              Lens.^? getAssetPropertyValueHistoryResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest GetAssetPropertyValueHistory where
   type
@@ -260,15 +260,15 @@ instance
 
 instance Prelude.NFData GetAssetPropertyValueHistory where
   rnf GetAssetPropertyValueHistory' {..} =
-    Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf propertyAlias
-      `Prelude.seq` Prelude.rnf propertyId
-      `Prelude.seq` Prelude.rnf qualities
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf timeOrdering
+    Prelude.rnf assetId `Prelude.seq`
+      Prelude.rnf endDate `Prelude.seq`
+        Prelude.rnf maxResults `Prelude.seq`
+          Prelude.rnf nextToken `Prelude.seq`
+            Prelude.rnf propertyAlias `Prelude.seq`
+              Prelude.rnf propertyId `Prelude.seq`
+                Prelude.rnf qualities `Prelude.seq`
+                  Prelude.rnf startDate `Prelude.seq`
+                    Prelude.rnf timeOrdering
 
 instance Data.ToHeaders GetAssetPropertyValueHistory where
   toHeaders =
@@ -357,6 +357,6 @@ instance
     GetAssetPropertyValueHistoryResponse
   where
   rnf GetAssetPropertyValueHistoryResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf assetPropertyValueHistory
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf assetPropertyValueHistory

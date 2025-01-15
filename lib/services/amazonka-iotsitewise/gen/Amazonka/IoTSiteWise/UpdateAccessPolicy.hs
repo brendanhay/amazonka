@@ -165,11 +165,11 @@ instance Prelude.Hashable UpdateAccessPolicy where
 
 instance Prelude.NFData UpdateAccessPolicy where
   rnf UpdateAccessPolicy' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf accessPolicyId
-      `Prelude.seq` Prelude.rnf accessPolicyIdentity
-      `Prelude.seq` Prelude.rnf accessPolicyResource
-      `Prelude.seq` Prelude.rnf accessPolicyPermission
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf accessPolicyId `Prelude.seq`
+        Prelude.rnf accessPolicyIdentity `Prelude.seq`
+          Prelude.rnf accessPolicyResource `Prelude.seq`
+            Prelude.rnf accessPolicyPermission
 
 instance Data.ToHeaders UpdateAccessPolicy where
   toHeaders =

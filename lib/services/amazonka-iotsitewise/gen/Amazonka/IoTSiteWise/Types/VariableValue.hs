@@ -109,8 +109,8 @@ instance Prelude.Hashable VariableValue where
 
 instance Prelude.NFData VariableValue where
   rnf VariableValue' {..} =
-    Prelude.rnf hierarchyId
-      `Prelude.seq` Prelude.rnf propertyId
+    Prelude.rnf hierarchyId `Prelude.seq`
+      Prelude.rnf propertyId
 
 instance Data.ToJSON VariableValue where
   toJSON VariableValue' {..} =

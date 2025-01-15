@@ -182,14 +182,14 @@ instance
     BatchGetAssetPropertyValueHistoryEntry
   where
   rnf BatchGetAssetPropertyValueHistoryEntry' {..} =
-    Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf propertyAlias
-      `Prelude.seq` Prelude.rnf propertyId
-      `Prelude.seq` Prelude.rnf qualities
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf timeOrdering
-      `Prelude.seq` Prelude.rnf entryId
+    Prelude.rnf assetId `Prelude.seq`
+      Prelude.rnf endDate `Prelude.seq`
+        Prelude.rnf propertyAlias `Prelude.seq`
+          Prelude.rnf propertyId `Prelude.seq`
+            Prelude.rnf qualities `Prelude.seq`
+              Prelude.rnf startDate `Prelude.seq`
+                Prelude.rnf timeOrdering `Prelude.seq`
+                  Prelude.rnf entryId
 
 instance
   Data.ToJSON

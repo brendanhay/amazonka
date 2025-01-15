@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteDashboard where
 
 instance Prelude.NFData DeleteDashboard where
   rnf DeleteDashboard' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dashboardId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dashboardId
 
 instance Data.ToHeaders DeleteDashboard where
   toHeaders =

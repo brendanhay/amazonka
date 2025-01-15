@@ -161,11 +161,11 @@ instance Prelude.Hashable UpdateDashboard where
 
 instance Prelude.NFData UpdateDashboard where
   rnf UpdateDashboard' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf dashboardDescription
-      `Prelude.seq` Prelude.rnf dashboardId
-      `Prelude.seq` Prelude.rnf dashboardName
-      `Prelude.seq` Prelude.rnf dashboardDefinition
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf dashboardDescription `Prelude.seq`
+        Prelude.rnf dashboardId `Prelude.seq`
+          Prelude.rnf dashboardName `Prelude.seq`
+            Prelude.rnf dashboardDefinition
 
 instance Data.ToHeaders UpdateDashboard where
   toHeaders =

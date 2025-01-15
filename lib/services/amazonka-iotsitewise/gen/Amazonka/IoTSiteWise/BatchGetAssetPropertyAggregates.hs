@@ -162,9 +162,9 @@ instance
     BatchGetAssetPropertyAggregates
   where
   rnf BatchGetAssetPropertyAggregates' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf entries
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf entries
 
 instance
   Data.ToHeaders
@@ -289,8 +289,8 @@ instance
     BatchGetAssetPropertyAggregatesResponse
   where
   rnf BatchGetAssetPropertyAggregatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf errorEntries
-      `Prelude.seq` Prelude.rnf successEntries
-      `Prelude.seq` Prelude.rnf skippedEntries
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf errorEntries `Prelude.seq`
+          Prelude.rnf successEntries `Prelude.seq`
+            Prelude.rnf skippedEntries

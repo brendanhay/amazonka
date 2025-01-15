@@ -143,9 +143,9 @@ instance Prelude.Hashable GetAssetPropertyValue where
 
 instance Prelude.NFData GetAssetPropertyValue where
   rnf GetAssetPropertyValue' {..} =
-    Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf propertyAlias
-      `Prelude.seq` Prelude.rnf propertyId
+    Prelude.rnf assetId `Prelude.seq`
+      Prelude.rnf propertyAlias `Prelude.seq`
+        Prelude.rnf propertyId
 
 instance Data.ToHeaders GetAssetPropertyValue where
   toHeaders =
@@ -210,5 +210,5 @@ getAssetPropertyValueResponse_httpStatus = Lens.lens (\GetAssetPropertyValueResp
 
 instance Prelude.NFData GetAssetPropertyValueResponse where
   rnf GetAssetPropertyValueResponse' {..} =
-    Prelude.rnf propertyValue
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf propertyValue `Prelude.seq`
+      Prelude.rnf httpStatus

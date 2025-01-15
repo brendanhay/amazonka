@@ -117,8 +117,8 @@ instance Prelude.Hashable ProjectSummary where
 
 instance Prelude.NFData ProjectSummary where
   rnf ProjectSummary' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastUpdateDate
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf lastUpdateDate `Prelude.seq`
+          Prelude.rnf id `Prelude.seq`
+            Prelude.rnf name

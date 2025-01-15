@@ -144,5 +144,5 @@ instance
     DescribeLoggingOptionsResponse
   where
   rnf DescribeLoggingOptionsResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf loggingOptions
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf loggingOptions

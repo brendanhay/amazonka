@@ -128,8 +128,8 @@ instance Prelude.Hashable AssetPropertySummary where
 
 instance Prelude.NFData AssetPropertySummary where
   rnf AssetPropertySummary' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf assetCompositeModelId
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf notification
-      `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf assetCompositeModelId `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf notification `Prelude.seq`
+            Prelude.rnf unit

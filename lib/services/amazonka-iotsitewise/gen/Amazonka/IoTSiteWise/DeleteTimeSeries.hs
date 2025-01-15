@@ -140,10 +140,10 @@ instance Prelude.Hashable DeleteTimeSeries where
 
 instance Prelude.NFData DeleteTimeSeries where
   rnf DeleteTimeSeries' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf propertyId
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf assetId `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf propertyId
 
 instance Data.ToHeaders DeleteTimeSeries where
   toHeaders =

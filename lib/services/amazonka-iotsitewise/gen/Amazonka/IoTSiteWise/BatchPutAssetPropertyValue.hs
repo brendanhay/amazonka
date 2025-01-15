@@ -199,5 +199,5 @@ instance
     BatchPutAssetPropertyValueResponse
   where
   rnf BatchPutAssetPropertyValueResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf errorEntries
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf errorEntries

@@ -101,9 +101,9 @@ instance Prelude.Hashable File where
 
 instance Prelude.NFData File where
   rnf File' {..} =
-    Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf versionId `Prelude.seq`
+      Prelude.rnf bucket `Prelude.seq`
+        Prelude.rnf key
 
 instance Data.ToJSON File where
   toJSON File' {..} =

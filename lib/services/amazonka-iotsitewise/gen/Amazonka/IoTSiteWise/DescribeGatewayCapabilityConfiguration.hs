@@ -150,8 +150,8 @@ instance
     DescribeGatewayCapabilityConfiguration
   where
   rnf DescribeGatewayCapabilityConfiguration' {..} =
-    Prelude.rnf gatewayId
-      `Prelude.seq` Prelude.rnf capabilityNamespace
+    Prelude.rnf gatewayId `Prelude.seq`
+      Prelude.rnf capabilityNamespace
 
 instance
   Data.ToHeaders
@@ -306,8 +306,8 @@ instance
   where
   rnf
     DescribeGatewayCapabilityConfigurationResponse' {..} =
-      Prelude.rnf httpStatus
-        `Prelude.seq` Prelude.rnf gatewayId
-        `Prelude.seq` Prelude.rnf capabilityNamespace
-        `Prelude.seq` Prelude.rnf capabilityConfiguration
-        `Prelude.seq` Prelude.rnf capabilitySyncStatus
+      Prelude.rnf httpStatus `Prelude.seq`
+        Prelude.rnf gatewayId `Prelude.seq`
+          Prelude.rnf capabilityNamespace `Prelude.seq`
+            Prelude.rnf capabilityConfiguration `Prelude.seq`
+              Prelude.rnf capabilitySyncStatus

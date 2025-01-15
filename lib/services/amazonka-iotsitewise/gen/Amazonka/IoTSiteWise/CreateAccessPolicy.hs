@@ -176,11 +176,11 @@ instance Prelude.Hashable CreateAccessPolicy where
 
 instance Prelude.NFData CreateAccessPolicy where
   rnf CreateAccessPolicy' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf accessPolicyIdentity
-      `Prelude.seq` Prelude.rnf accessPolicyResource
-      `Prelude.seq` Prelude.rnf accessPolicyPermission
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf tags `Prelude.seq`
+        Prelude.rnf accessPolicyIdentity `Prelude.seq`
+          Prelude.rnf accessPolicyResource `Prelude.seq`
+            Prelude.rnf accessPolicyPermission
 
 instance Data.ToHeaders CreateAccessPolicy where
   toHeaders =
@@ -289,6 +289,6 @@ createAccessPolicyResponse_accessPolicyArn = Lens.lens (\CreateAccessPolicyRespo
 
 instance Prelude.NFData CreateAccessPolicyResponse where
   rnf CreateAccessPolicyResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf accessPolicyId
-      `Prelude.seq` Prelude.rnf accessPolicyArn
+    Prelude.rnf httpStatus `Prelude.seq`
+      Prelude.rnf accessPolicyId `Prelude.seq`
+        Prelude.rnf accessPolicyArn

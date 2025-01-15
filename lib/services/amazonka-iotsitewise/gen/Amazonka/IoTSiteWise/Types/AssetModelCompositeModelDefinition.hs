@@ -108,10 +108,10 @@ instance
     AssetModelCompositeModelDefinition
   where
   rnf AssetModelCompositeModelDefinition' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description `Prelude.seq`
+      Prelude.rnf properties `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf type'
 
 instance
   Data.ToJSON

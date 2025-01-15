@@ -143,11 +143,11 @@ instance
 
 instance Prelude.NFData AssetModelPropertyDefinition where
   rnf AssetModelPropertyDefinition' {..} =
-    Prelude.rnf dataTypeSpec
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf dataTypeSpec `Prelude.seq`
+      Prelude.rnf unit `Prelude.seq`
+        Prelude.rnf name `Prelude.seq`
+          Prelude.rnf dataType `Prelude.seq`
+            Prelude.rnf type'
 
 instance Data.ToJSON AssetModelPropertyDefinition where
   toJSON AssetModelPropertyDefinition' {..} =

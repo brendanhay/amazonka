@@ -103,5 +103,5 @@ instance
   where
   rnf
     BatchGetAssetPropertyValueHistorySuccessEntry' {..} =
-      Prelude.rnf entryId
-        `Prelude.seq` Prelude.rnf assetPropertyValueHistory
+      Prelude.rnf entryId `Prelude.seq`
+        Prelude.rnf assetPropertyValueHistory

@@ -129,9 +129,9 @@ instance Prelude.Hashable BatchAssociateProjectAssets where
 
 instance Prelude.NFData BatchAssociateProjectAssets where
   rnf BatchAssociateProjectAssets' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf projectId
-      `Prelude.seq` Prelude.rnf assetIds
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf projectId `Prelude.seq`
+        Prelude.rnf assetIds
 
 instance Data.ToHeaders BatchAssociateProjectAssets where
   toHeaders =
@@ -208,5 +208,5 @@ instance
     BatchAssociateProjectAssetsResponse
   where
   rnf BatchAssociateProjectAssetsResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf httpStatus

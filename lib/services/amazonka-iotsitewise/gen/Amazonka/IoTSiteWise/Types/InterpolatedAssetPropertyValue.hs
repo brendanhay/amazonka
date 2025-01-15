@@ -93,5 +93,5 @@ instance
     InterpolatedAssetPropertyValue
   where
   rnf InterpolatedAssetPropertyValue' {..} =
-    Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf timestamp `Prelude.seq`
+      Prelude.rnf value

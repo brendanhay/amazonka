@@ -93,8 +93,8 @@ instance
 
 instance Prelude.NFData AssetModelHierarchyDefinition where
   rnf AssetModelHierarchyDefinition' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf childAssetModelId
+    Prelude.rnf name `Prelude.seq`
+      Prelude.rnf childAssetModelId
 
 instance Data.ToJSON AssetModelHierarchyDefinition where
   toJSON AssetModelHierarchyDefinition' {..} =

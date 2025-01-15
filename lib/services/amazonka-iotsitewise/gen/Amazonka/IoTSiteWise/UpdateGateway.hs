@@ -101,8 +101,8 @@ instance Prelude.Hashable UpdateGateway where
 
 instance Prelude.NFData UpdateGateway where
   rnf UpdateGateway' {..} =
-    Prelude.rnf gatewayId
-      `Prelude.seq` Prelude.rnf gatewayName
+    Prelude.rnf gatewayId `Prelude.seq`
+      Prelude.rnf gatewayName
 
 instance Data.ToHeaders UpdateGateway where
   toHeaders =

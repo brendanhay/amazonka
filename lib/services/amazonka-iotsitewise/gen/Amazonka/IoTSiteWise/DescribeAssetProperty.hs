@@ -127,8 +127,8 @@ instance Prelude.Hashable DescribeAssetProperty where
 
 instance Prelude.NFData DescribeAssetProperty where
   rnf DescribeAssetProperty' {..} =
-    Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf propertyId
+    Prelude.rnf assetId `Prelude.seq`
+      Prelude.rnf propertyId
 
 instance Data.ToHeaders DescribeAssetProperty where
   toHeaders =
@@ -255,9 +255,9 @@ describeAssetPropertyResponse_assetModelId = Lens.lens (\DescribeAssetPropertyRe
 
 instance Prelude.NFData DescribeAssetPropertyResponse where
   rnf DescribeAssetPropertyResponse' {..} =
-    Prelude.rnf assetProperty
-      `Prelude.seq` Prelude.rnf compositeModel
-      `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf assetName
-      `Prelude.seq` Prelude.rnf assetModelId
+    Prelude.rnf assetProperty `Prelude.seq`
+      Prelude.rnf compositeModel `Prelude.seq`
+        Prelude.rnf httpStatus `Prelude.seq`
+          Prelude.rnf assetId `Prelude.seq`
+            Prelude.rnf assetName `Prelude.seq`
+              Prelude.rnf assetModelId

@@ -112,8 +112,8 @@ instance Prelude.Hashable DeleteProject where
 
 instance Prelude.NFData DeleteProject where
   rnf DeleteProject' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf projectId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf projectId
 
 instance Data.ToHeaders DeleteProject where
   toHeaders =

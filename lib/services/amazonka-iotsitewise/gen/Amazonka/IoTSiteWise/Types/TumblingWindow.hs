@@ -265,8 +265,8 @@ instance Prelude.Hashable TumblingWindow where
 
 instance Prelude.NFData TumblingWindow where
   rnf TumblingWindow' {..} =
-    Prelude.rnf offset
-      `Prelude.seq` Prelude.rnf interval
+    Prelude.rnf offset `Prelude.seq`
+      Prelude.rnf interval
 
 instance Data.ToJSON TumblingWindow where
   toJSON TumblingWindow' {..} =

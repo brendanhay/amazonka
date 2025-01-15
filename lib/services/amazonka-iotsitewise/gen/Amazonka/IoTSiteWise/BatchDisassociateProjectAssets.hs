@@ -142,9 +142,9 @@ instance
     BatchDisassociateProjectAssets
   where
   rnf BatchDisassociateProjectAssets' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf projectId
-      `Prelude.seq` Prelude.rnf assetIds
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf projectId `Prelude.seq`
+        Prelude.rnf assetIds
 
 instance
   Data.ToHeaders
@@ -225,5 +225,5 @@ instance
     BatchDisassociateProjectAssetsResponse
   where
   rnf BatchDisassociateProjectAssetsResponse' {..} =
-    Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf errors `Prelude.seq`
+      Prelude.rnf httpStatus

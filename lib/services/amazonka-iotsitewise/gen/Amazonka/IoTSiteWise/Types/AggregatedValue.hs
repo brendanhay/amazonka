@@ -98,6 +98,6 @@ instance Prelude.Hashable AggregatedValue where
 
 instance Prelude.NFData AggregatedValue where
   rnf AggregatedValue' {..} =
-    Prelude.rnf quality
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf quality `Prelude.seq`
+      Prelude.rnf timestamp `Prelude.seq`
+        Prelude.rnf value

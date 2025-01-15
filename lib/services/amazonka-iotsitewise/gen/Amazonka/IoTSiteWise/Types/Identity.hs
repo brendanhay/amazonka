@@ -111,10 +111,10 @@ instance Prelude.Hashable Identity where
 
 instance Prelude.NFData Identity where
   rnf Identity' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf iamRole
-      `Prelude.seq` Prelude.rnf iamUser
-      `Prelude.seq` Prelude.rnf user
+    Prelude.rnf group' `Prelude.seq`
+      Prelude.rnf iamRole `Prelude.seq`
+        Prelude.rnf iamUser `Prelude.seq`
+          Prelude.rnf user
 
 instance Data.ToJSON Identity where
   toJSON Identity' {..} =

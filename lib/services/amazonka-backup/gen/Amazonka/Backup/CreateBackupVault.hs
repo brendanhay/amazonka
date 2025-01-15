@@ -173,10 +173,10 @@ instance Prelude.Hashable CreateBackupVault where
 
 instance Prelude.NFData CreateBackupVault where
   rnf CreateBackupVault' {..} =
-    Prelude.rnf backupVaultTags
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf encryptionKeyArn
-      `Prelude.seq` Prelude.rnf backupVaultName
+    Prelude.rnf backupVaultTags `Prelude.seq`
+      Prelude.rnf creatorRequestId `Prelude.seq`
+        Prelude.rnf encryptionKeyArn `Prelude.seq`
+          Prelude.rnf backupVaultName
 
 instance Data.ToHeaders CreateBackupVault where
   toHeaders =
@@ -290,7 +290,7 @@ createBackupVaultResponse_httpStatus = Lens.lens (\CreateBackupVaultResponse' {h
 
 instance Prelude.NFData CreateBackupVaultResponse where
   rnf CreateBackupVaultResponse' {..} =
-    Prelude.rnf backupVaultArn
-      `Prelude.seq` Prelude.rnf backupVaultName
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupVaultArn `Prelude.seq`
+      Prelude.rnf backupVaultName `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf httpStatus

@@ -114,12 +114,12 @@ instance Core.AWSPager ListProtectedResources where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listProtectedResources_nextToken
-          Lens..~ rs
-          Lens.^? listProtectedResourcesResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listProtectedResources_nextToken
+              Lens..~ rs
+              Lens.^? listProtectedResourcesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProtectedResources where
   type
@@ -144,8 +144,8 @@ instance Prelude.Hashable ListProtectedResources where
 
 instance Prelude.NFData ListProtectedResources where
   rnf ListProtectedResources' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListProtectedResources where
   toHeaders =
@@ -236,6 +236,6 @@ instance
     ListProtectedResourcesResponse
   where
   rnf ListProtectedResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf results
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf results `Prelude.seq`
+        Prelude.rnf httpStatus

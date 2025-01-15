@@ -106,8 +106,8 @@ instance Prelude.Hashable DeleteBackupSelection where
 
 instance Prelude.NFData DeleteBackupSelection where
   rnf DeleteBackupSelection' {..} =
-    Prelude.rnf backupPlanId
-      `Prelude.seq` Prelude.rnf selectionId
+    Prelude.rnf backupPlanId `Prelude.seq`
+      Prelude.rnf selectionId
 
 instance Data.ToHeaders DeleteBackupSelection where
   toHeaders =

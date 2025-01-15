@@ -277,13 +277,13 @@ instance Prelude.Hashable BackupRule where
 
 instance Prelude.NFData BackupRule where
   rnf BackupRule' {..} =
-    Prelude.rnf completionWindowMinutes
-      `Prelude.seq` Prelude.rnf copyActions
-      `Prelude.seq` Prelude.rnf enableContinuousBackup
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf recoveryPointTags
-      `Prelude.seq` Prelude.rnf ruleId
-      `Prelude.seq` Prelude.rnf scheduleExpression
-      `Prelude.seq` Prelude.rnf startWindowMinutes
-      `Prelude.seq` Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf targetBackupVaultName
+    Prelude.rnf completionWindowMinutes `Prelude.seq`
+      Prelude.rnf copyActions `Prelude.seq`
+        Prelude.rnf enableContinuousBackup `Prelude.seq`
+          Prelude.rnf lifecycle `Prelude.seq`
+            Prelude.rnf recoveryPointTags `Prelude.seq`
+              Prelude.rnf ruleId `Prelude.seq`
+                Prelude.rnf scheduleExpression `Prelude.seq`
+                  Prelude.rnf startWindowMinutes `Prelude.seq`
+                    Prelude.rnf ruleName `Prelude.seq`
+                      Prelude.rnf targetBackupVaultName

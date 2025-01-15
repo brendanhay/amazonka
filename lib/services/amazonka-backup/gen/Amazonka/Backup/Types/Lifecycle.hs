@@ -98,8 +98,8 @@ instance Prelude.Hashable Lifecycle where
 
 instance Prelude.NFData Lifecycle where
   rnf Lifecycle' {..} =
-    Prelude.rnf deleteAfterDays
-      `Prelude.seq` Prelude.rnf moveToColdStorageAfterDays
+    Prelude.rnf deleteAfterDays `Prelude.seq`
+      Prelude.rnf moveToColdStorageAfterDays
 
 instance Data.ToJSON Lifecycle where
   toJSON Lifecycle' {..} =

@@ -153,9 +153,9 @@ instance Prelude.Hashable Framework where
 
 instance Prelude.NFData Framework where
   rnf Framework' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf deploymentStatus
-      `Prelude.seq` Prelude.rnf frameworkArn
-      `Prelude.seq` Prelude.rnf frameworkDescription
-      `Prelude.seq` Prelude.rnf frameworkName
-      `Prelude.seq` Prelude.rnf numberOfControls
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf deploymentStatus `Prelude.seq`
+        Prelude.rnf frameworkArn `Prelude.seq`
+          Prelude.rnf frameworkDescription `Prelude.seq`
+            Prelude.rnf frameworkName `Prelude.seq`
+              Prelude.rnf numberOfControls

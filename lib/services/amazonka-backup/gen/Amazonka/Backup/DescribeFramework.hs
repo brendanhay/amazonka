@@ -311,12 +311,12 @@ describeFrameworkResponse_httpStatus = Lens.lens (\DescribeFrameworkResponse' {h
 
 instance Prelude.NFData DescribeFrameworkResponse where
   rnf DescribeFrameworkResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf deploymentStatus
-      `Prelude.seq` Prelude.rnf frameworkArn
-      `Prelude.seq` Prelude.rnf frameworkControls
-      `Prelude.seq` Prelude.rnf frameworkDescription
-      `Prelude.seq` Prelude.rnf frameworkName
-      `Prelude.seq` Prelude.rnf frameworkStatus
-      `Prelude.seq` Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf deploymentStatus `Prelude.seq`
+        Prelude.rnf frameworkArn `Prelude.seq`
+          Prelude.rnf frameworkControls `Prelude.seq`
+            Prelude.rnf frameworkDescription `Prelude.seq`
+              Prelude.rnf frameworkName `Prelude.seq`
+                Prelude.rnf frameworkStatus `Prelude.seq`
+                  Prelude.rnf idempotencyToken `Prelude.seq`
+                    Prelude.rnf httpStatus

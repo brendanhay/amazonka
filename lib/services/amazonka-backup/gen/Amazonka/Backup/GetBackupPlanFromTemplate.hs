@@ -168,5 +168,5 @@ instance
     GetBackupPlanFromTemplateResponse
   where
   rnf GetBackupPlanFromTemplateResponse' {..} =
-    Prelude.rnf backupPlanDocument
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupPlanDocument `Prelude.seq`
+      Prelude.rnf httpStatus

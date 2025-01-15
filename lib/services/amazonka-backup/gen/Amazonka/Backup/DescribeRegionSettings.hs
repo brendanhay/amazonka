@@ -201,6 +201,6 @@ instance
     DescribeRegionSettingsResponse
   where
   rnf DescribeRegionSettingsResponse' {..} =
-    Prelude.rnf resourceTypeManagementPreference
-      `Prelude.seq` Prelude.rnf resourceTypeOptInPreference
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf resourceTypeManagementPreference `Prelude.seq`
+      Prelude.rnf resourceTypeOptInPreference `Prelude.seq`
+        Prelude.rnf httpStatus

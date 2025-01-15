@@ -318,12 +318,12 @@ instance Core.AWSPager ListBackupJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listBackupJobs_nextToken
-          Lens..~ rs
-          Lens.^? listBackupJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listBackupJobs_nextToken
+              Lens..~ rs
+              Lens.^? listBackupJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBackupJobs where
   type
@@ -358,18 +358,18 @@ instance Prelude.Hashable ListBackupJobs where
 
 instance Prelude.NFData ListBackupJobs where
   rnf ListBackupJobs' {..} =
-    Prelude.rnf byAccountId
-      `Prelude.seq` Prelude.rnf byBackupVaultName
-      `Prelude.seq` Prelude.rnf byCompleteAfter
-      `Prelude.seq` Prelude.rnf byCompleteBefore
-      `Prelude.seq` Prelude.rnf byCreatedAfter
-      `Prelude.seq` Prelude.rnf byCreatedBefore
-      `Prelude.seq` Prelude.rnf byParentJobId
-      `Prelude.seq` Prelude.rnf byResourceArn
-      `Prelude.seq` Prelude.rnf byResourceType
-      `Prelude.seq` Prelude.rnf byState
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf byAccountId `Prelude.seq`
+      Prelude.rnf byBackupVaultName `Prelude.seq`
+        Prelude.rnf byCompleteAfter `Prelude.seq`
+          Prelude.rnf byCompleteBefore `Prelude.seq`
+            Prelude.rnf byCreatedAfter `Prelude.seq`
+              Prelude.rnf byCreatedBefore `Prelude.seq`
+                Prelude.rnf byParentJobId `Prelude.seq`
+                  Prelude.rnf byResourceArn `Prelude.seq`
+                    Prelude.rnf byResourceType `Prelude.seq`
+                      Prelude.rnf byState `Prelude.seq`
+                        Prelude.rnf maxResults `Prelude.seq`
+                          Prelude.rnf nextToken
 
 instance Data.ToHeaders ListBackupJobs where
   toHeaders =
@@ -464,6 +464,6 @@ listBackupJobsResponse_httpStatus = Lens.lens (\ListBackupJobsResponse' {httpSta
 
 instance Prelude.NFData ListBackupJobsResponse where
   rnf ListBackupJobsResponse' {..} =
-    Prelude.rnf backupJobs
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupJobs `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

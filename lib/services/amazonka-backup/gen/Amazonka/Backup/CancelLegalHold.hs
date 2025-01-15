@@ -127,9 +127,9 @@ instance Prelude.Hashable CancelLegalHold where
 
 instance Prelude.NFData CancelLegalHold where
   rnf CancelLegalHold' {..} =
-    Prelude.rnf retainRecordInDays
-      `Prelude.seq` Prelude.rnf legalHoldId
-      `Prelude.seq` Prelude.rnf cancelDescription
+    Prelude.rnf retainRecordInDays `Prelude.seq`
+      Prelude.rnf legalHoldId `Prelude.seq`
+        Prelude.rnf cancelDescription
 
 instance Data.ToHeaders CancelLegalHold where
   toHeaders =

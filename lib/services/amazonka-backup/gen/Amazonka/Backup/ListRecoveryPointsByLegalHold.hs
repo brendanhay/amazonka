@@ -125,12 +125,12 @@ instance Core.AWSPager ListRecoveryPointsByLegalHold where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRecoveryPointsByLegalHold_nextToken
-          Lens..~ rs
-          Lens.^? listRecoveryPointsByLegalHoldResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRecoveryPointsByLegalHold_nextToken
+              Lens..~ rs
+              Lens.^? listRecoveryPointsByLegalHoldResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -162,9 +162,9 @@ instance
 
 instance Prelude.NFData ListRecoveryPointsByLegalHold where
   rnf ListRecoveryPointsByLegalHold' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf legalHoldId
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf legalHoldId
 
 instance Data.ToHeaders ListRecoveryPointsByLegalHold where
   toHeaders =
@@ -251,6 +251,6 @@ instance
     ListRecoveryPointsByLegalHoldResponse
   where
   rnf ListRecoveryPointsByLegalHoldResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recoveryPoints
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf recoveryPoints `Prelude.seq`
+        Prelude.rnf httpStatus

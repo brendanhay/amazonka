@@ -122,9 +122,9 @@ instance Prelude.Hashable ControlScope where
 
 instance Prelude.NFData ControlScope where
   rnf ControlScope' {..} =
-    Prelude.rnf complianceResourceIds
-      `Prelude.seq` Prelude.rnf complianceResourceTypes
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf complianceResourceIds `Prelude.seq`
+      Prelude.rnf complianceResourceTypes `Prelude.seq`
+        Prelude.rnf tags
 
 instance Data.ToJSON ControlScope where
   toJSON ControlScope' {..} =

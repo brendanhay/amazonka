@@ -136,8 +136,8 @@ instance
     DisassociateRecoveryPointFromParent
   where
   rnf DisassociateRecoveryPointFromParent' {..} =
-    Prelude.rnf backupVaultName
-      `Prelude.seq` Prelude.rnf recoveryPointArn
+    Prelude.rnf backupVaultName `Prelude.seq`
+      Prelude.rnf recoveryPointArn
 
 instance
   Data.ToHeaders

@@ -172,11 +172,11 @@ instance Prelude.Hashable CreateFramework where
 
 instance Prelude.NFData CreateFramework where
   rnf CreateFramework' {..} =
-    Prelude.rnf frameworkDescription
-      `Prelude.seq` Prelude.rnf frameworkTags
-      `Prelude.seq` Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf frameworkName
-      `Prelude.seq` Prelude.rnf frameworkControls
+    Prelude.rnf frameworkDescription `Prelude.seq`
+      Prelude.rnf frameworkTags `Prelude.seq`
+        Prelude.rnf idempotencyToken `Prelude.seq`
+          Prelude.rnf frameworkName `Prelude.seq`
+            Prelude.rnf frameworkControls
 
 instance Data.ToHeaders CreateFramework where
   toHeaders =
@@ -269,6 +269,6 @@ createFrameworkResponse_httpStatus = Lens.lens (\CreateFrameworkResponse' {httpS
 
 instance Prelude.NFData CreateFrameworkResponse where
   rnf CreateFrameworkResponse' {..} =
-    Prelude.rnf frameworkArn
-      `Prelude.seq` Prelude.rnf frameworkName
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf frameworkArn `Prelude.seq`
+      Prelude.rnf frameworkName `Prelude.seq`
+        Prelude.rnf httpStatus

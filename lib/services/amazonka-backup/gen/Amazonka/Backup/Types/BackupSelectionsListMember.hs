@@ -155,9 +155,9 @@ instance Prelude.Hashable BackupSelectionsListMember where
 
 instance Prelude.NFData BackupSelectionsListMember where
   rnf BackupSelectionsListMember' {..} =
-    Prelude.rnf backupPlanId
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf selectionId
-      `Prelude.seq` Prelude.rnf selectionName
+    Prelude.rnf backupPlanId `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf creatorRequestId `Prelude.seq`
+          Prelude.rnf iamRoleArn `Prelude.seq`
+            Prelude.rnf selectionId `Prelude.seq`
+              Prelude.rnf selectionName

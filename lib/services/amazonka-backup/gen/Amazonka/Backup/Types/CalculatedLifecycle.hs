@@ -99,5 +99,5 @@ instance Prelude.Hashable CalculatedLifecycle where
 
 instance Prelude.NFData CalculatedLifecycle where
   rnf CalculatedLifecycle' {..} =
-    Prelude.rnf deleteAt
-      `Prelude.seq` Prelude.rnf moveToColdStorageAt
+    Prelude.rnf deleteAt `Prelude.seq`
+      Prelude.rnf moveToColdStorageAt

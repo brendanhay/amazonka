@@ -116,7 +116,7 @@ instance Prelude.Hashable RecoveryPointCreator where
 
 instance Prelude.NFData RecoveryPointCreator where
   rnf RecoveryPointCreator' {..} =
-    Prelude.rnf backupPlanArn
-      `Prelude.seq` Prelude.rnf backupPlanId
-      `Prelude.seq` Prelude.rnf backupPlanVersion
-      `Prelude.seq` Prelude.rnf backupRuleId
+    Prelude.rnf backupPlanArn `Prelude.seq`
+      Prelude.rnf backupPlanId `Prelude.seq`
+        Prelude.rnf backupPlanVersion `Prelude.seq`
+          Prelude.rnf backupRuleId

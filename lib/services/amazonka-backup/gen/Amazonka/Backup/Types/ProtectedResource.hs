@@ -113,6 +113,6 @@ instance Prelude.Hashable ProtectedResource where
 
 instance Prelude.NFData ProtectedResource where
   rnf ProtectedResource' {..} =
-    Prelude.rnf lastBackupTime
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf lastBackupTime `Prelude.seq`
+      Prelude.rnf resourceArn `Prelude.seq`
+        Prelude.rnf resourceType

@@ -117,8 +117,8 @@ instance Prelude.Hashable StartReportJob where
 
 instance Prelude.NFData StartReportJob where
   rnf StartReportJob' {..} =
-    Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf reportPlanName
+    Prelude.rnf idempotencyToken `Prelude.seq`
+      Prelude.rnf reportPlanName
 
 instance Data.ToHeaders StartReportJob where
   toHeaders =
@@ -195,5 +195,5 @@ startReportJobResponse_httpStatus = Lens.lens (\StartReportJobResponse' {httpSta
 
 instance Prelude.NFData StartReportJobResponse where
   rnf StartReportJobResponse' {..} =
-    Prelude.rnf reportJobId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reportJobId `Prelude.seq`
+      Prelude.rnf httpStatus

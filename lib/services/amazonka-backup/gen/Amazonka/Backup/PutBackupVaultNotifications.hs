@@ -192,9 +192,9 @@ instance Prelude.Hashable PutBackupVaultNotifications where
 
 instance Prelude.NFData PutBackupVaultNotifications where
   rnf PutBackupVaultNotifications' {..} =
-    Prelude.rnf backupVaultName
-      `Prelude.seq` Prelude.rnf sNSTopicArn
-      `Prelude.seq` Prelude.rnf backupVaultEvents
+    Prelude.rnf backupVaultName `Prelude.seq`
+      Prelude.rnf sNSTopicArn `Prelude.seq`
+        Prelude.rnf backupVaultEvents
 
 instance Data.ToHeaders PutBackupVaultNotifications where
   toHeaders =

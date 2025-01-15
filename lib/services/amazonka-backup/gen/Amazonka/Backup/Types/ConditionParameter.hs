@@ -87,8 +87,8 @@ instance Prelude.Hashable ConditionParameter where
 
 instance Prelude.NFData ConditionParameter where
   rnf ConditionParameter' {..} =
-    Prelude.rnf conditionKey
-      `Prelude.seq` Prelude.rnf conditionValue
+    Prelude.rnf conditionKey `Prelude.seq`
+      Prelude.rnf conditionValue
 
 instance Data.ToJSON ConditionParameter where
   toJSON ConditionParameter' {..} =

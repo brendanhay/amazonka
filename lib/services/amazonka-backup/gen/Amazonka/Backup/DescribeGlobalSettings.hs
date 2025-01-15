@@ -166,6 +166,6 @@ instance
     DescribeGlobalSettingsResponse
   where
   rnf DescribeGlobalSettingsResponse' {..} =
-    Prelude.rnf globalSettings
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf globalSettings `Prelude.seq`
+      Prelude.rnf lastUpdateTime `Prelude.seq`
+        Prelude.rnf httpStatus

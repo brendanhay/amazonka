@@ -393,14 +393,14 @@ describeBackupVaultResponse_httpStatus = Lens.lens (\DescribeBackupVaultResponse
 
 instance Prelude.NFData DescribeBackupVaultResponse where
   rnf DescribeBackupVaultResponse' {..} =
-    Prelude.rnf backupVaultArn
-      `Prelude.seq` Prelude.rnf backupVaultName
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf encryptionKeyArn
-      `Prelude.seq` Prelude.rnf lockDate
-      `Prelude.seq` Prelude.rnf locked
-      `Prelude.seq` Prelude.rnf maxRetentionDays
-      `Prelude.seq` Prelude.rnf minRetentionDays
-      `Prelude.seq` Prelude.rnf numberOfRecoveryPoints
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupVaultArn `Prelude.seq`
+      Prelude.rnf backupVaultName `Prelude.seq`
+        Prelude.rnf creationDate `Prelude.seq`
+          Prelude.rnf creatorRequestId `Prelude.seq`
+            Prelude.rnf encryptionKeyArn `Prelude.seq`
+              Prelude.rnf lockDate `Prelude.seq`
+                Prelude.rnf locked `Prelude.seq`
+                  Prelude.rnf maxRetentionDays `Prelude.seq`
+                    Prelude.rnf minRetentionDays `Prelude.seq`
+                      Prelude.rnf numberOfRecoveryPoints `Prelude.seq`
+                        Prelude.rnf httpStatus

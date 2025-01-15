@@ -107,9 +107,9 @@ instance Prelude.Hashable ReportDeliveryChannel where
 
 instance Prelude.NFData ReportDeliveryChannel where
   rnf ReportDeliveryChannel' {..} =
-    Prelude.rnf formats
-      `Prelude.seq` Prelude.rnf s3KeyPrefix
-      `Prelude.seq` Prelude.rnf s3BucketName
+    Prelude.rnf formats `Prelude.seq`
+      Prelude.rnf s3KeyPrefix `Prelude.seq`
+        Prelude.rnf s3BucketName
 
 instance Data.ToJSON ReportDeliveryChannel where
   toJSON ReportDeliveryChannel' {..} =

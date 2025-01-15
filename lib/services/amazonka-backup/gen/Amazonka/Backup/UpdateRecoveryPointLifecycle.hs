@@ -189,9 +189,9 @@ instance
 
 instance Prelude.NFData UpdateRecoveryPointLifecycle where
   rnf UpdateRecoveryPointLifecycle' {..} =
-    Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf backupVaultName
-      `Prelude.seq` Prelude.rnf recoveryPointArn
+    Prelude.rnf lifecycle `Prelude.seq`
+      Prelude.rnf backupVaultName `Prelude.seq`
+        Prelude.rnf recoveryPointArn
 
 instance Data.ToHeaders UpdateRecoveryPointLifecycle where
   toHeaders =
@@ -345,8 +345,8 @@ instance
     UpdateRecoveryPointLifecycleResponse
   where
   rnf UpdateRecoveryPointLifecycleResponse' {..} =
-    Prelude.rnf backupVaultArn
-      `Prelude.seq` Prelude.rnf calculatedLifecycle
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf recoveryPointArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupVaultArn `Prelude.seq`
+      Prelude.rnf calculatedLifecycle `Prelude.seq`
+        Prelude.rnf lifecycle `Prelude.seq`
+          Prelude.rnf recoveryPointArn `Prelude.seq`
+            Prelude.rnf httpStatus

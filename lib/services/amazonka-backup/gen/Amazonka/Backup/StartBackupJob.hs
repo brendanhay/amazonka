@@ -303,15 +303,15 @@ instance Prelude.Hashable StartBackupJob where
 
 instance Prelude.NFData StartBackupJob where
   rnf StartBackupJob' {..} =
-    Prelude.rnf backupOptions
-      `Prelude.seq` Prelude.rnf completeWindowMinutes
-      `Prelude.seq` Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf recoveryPointTags
-      `Prelude.seq` Prelude.rnf startWindowMinutes
-      `Prelude.seq` Prelude.rnf backupVaultName
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf iamRoleArn
+    Prelude.rnf backupOptions `Prelude.seq`
+      Prelude.rnf completeWindowMinutes `Prelude.seq`
+        Prelude.rnf idempotencyToken `Prelude.seq`
+          Prelude.rnf lifecycle `Prelude.seq`
+            Prelude.rnf recoveryPointTags `Prelude.seq`
+              Prelude.rnf startWindowMinutes `Prelude.seq`
+                Prelude.rnf backupVaultName `Prelude.seq`
+                  Prelude.rnf resourceArn `Prelude.seq`
+                    Prelude.rnf iamRoleArn
 
 instance Data.ToHeaders StartBackupJob where
   toHeaders =
@@ -434,8 +434,8 @@ startBackupJobResponse_httpStatus = Lens.lens (\StartBackupJobResponse' {httpSta
 
 instance Prelude.NFData StartBackupJobResponse where
   rnf StartBackupJobResponse' {..} =
-    Prelude.rnf backupJobId
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf isParent
-      `Prelude.seq` Prelude.rnf recoveryPointArn
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupJobId `Prelude.seq`
+      Prelude.rnf creationDate `Prelude.seq`
+        Prelude.rnf isParent `Prelude.seq`
+          Prelude.rnf recoveryPointArn `Prelude.seq`
+            Prelude.rnf httpStatus

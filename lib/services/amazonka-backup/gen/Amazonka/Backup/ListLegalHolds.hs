@@ -111,12 +111,12 @@ instance Core.AWSPager ListLegalHolds where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLegalHolds_nextToken
-          Lens..~ rs
-          Lens.^? listLegalHoldsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLegalHolds_nextToken
+              Lens..~ rs
+              Lens.^? listLegalHoldsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLegalHolds where
   type
@@ -141,8 +141,8 @@ instance Prelude.Hashable ListLegalHolds where
 
 instance Prelude.NFData ListLegalHolds where
   rnf ListLegalHolds' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLegalHolds where
   toHeaders =
@@ -224,6 +224,6 @@ listLegalHoldsResponse_httpStatus = Lens.lens (\ListLegalHoldsResponse' {httpSta
 
 instance Prelude.NFData ListLegalHoldsResponse where
   rnf ListLegalHoldsResponse' {..} =
-    Prelude.rnf legalHolds
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf legalHolds `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

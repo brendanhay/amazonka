@@ -354,23 +354,23 @@ instance Prelude.Hashable CopyJob where
 
 instance Prelude.NFData CopyJob where
   rnf CopyJob' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf backupSizeInBytes
-      `Prelude.seq` Prelude.rnf childJobsInState
-      `Prelude.seq` Prelude.rnf completionDate
-      `Prelude.seq` Prelude.rnf compositeMemberIdentifier
-      `Prelude.seq` Prelude.rnf copyJobId
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf destinationBackupVaultArn
-      `Prelude.seq` Prelude.rnf destinationRecoveryPointArn
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf isParent
-      `Prelude.seq` Prelude.rnf numberOfChildJobs
-      `Prelude.seq` Prelude.rnf parentJobId
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf sourceBackupVaultArn
-      `Prelude.seq` Prelude.rnf sourceRecoveryPointArn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf backupSizeInBytes `Prelude.seq`
+        Prelude.rnf childJobsInState `Prelude.seq`
+          Prelude.rnf completionDate `Prelude.seq`
+            Prelude.rnf compositeMemberIdentifier `Prelude.seq`
+              Prelude.rnf copyJobId `Prelude.seq`
+                Prelude.rnf createdBy `Prelude.seq`
+                  Prelude.rnf creationDate `Prelude.seq`
+                    Prelude.rnf destinationBackupVaultArn `Prelude.seq`
+                      Prelude.rnf destinationRecoveryPointArn `Prelude.seq`
+                        Prelude.rnf iamRoleArn `Prelude.seq`
+                          Prelude.rnf isParent `Prelude.seq`
+                            Prelude.rnf numberOfChildJobs `Prelude.seq`
+                              Prelude.rnf parentJobId `Prelude.seq`
+                                Prelude.rnf resourceArn `Prelude.seq`
+                                  Prelude.rnf resourceType `Prelude.seq`
+                                    Prelude.rnf sourceBackupVaultArn `Prelude.seq`
+                                      Prelude.rnf sourceRecoveryPointArn `Prelude.seq`
+                                        Prelude.rnf state `Prelude.seq`
+                                          Prelude.rnf statusMessage

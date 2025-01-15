@@ -209,7 +209,7 @@ instance
     GetBackupVaultAccessPolicyResponse
   where
   rnf GetBackupVaultAccessPolicyResponse' {..} =
-    Prelude.rnf backupVaultArn
-      `Prelude.seq` Prelude.rnf backupVaultName
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf backupVaultArn `Prelude.seq`
+      Prelude.rnf backupVaultName `Prelude.seq`
+        Prelude.rnf policy `Prelude.seq`
+          Prelude.rnf httpStatus

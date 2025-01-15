@@ -168,5 +168,5 @@ describeReportJobResponse_httpStatus = Lens.lens (\DescribeReportJobResponse' {h
 
 instance Prelude.NFData DescribeReportJobResponse where
   rnf DescribeReportJobResponse' {..} =
-    Prelude.rnf reportJob
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf reportJob `Prelude.seq`
+      Prelude.rnf httpStatus

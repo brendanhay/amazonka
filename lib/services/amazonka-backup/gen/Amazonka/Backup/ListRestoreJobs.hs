@@ -181,12 +181,12 @@ instance Core.AWSPager ListRestoreJobs where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRestoreJobs_nextToken
-          Lens..~ rs
-          Lens.^? listRestoreJobsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRestoreJobs_nextToken
+              Lens..~ rs
+              Lens.^? listRestoreJobsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRestoreJobs where
   type
@@ -217,14 +217,14 @@ instance Prelude.Hashable ListRestoreJobs where
 
 instance Prelude.NFData ListRestoreJobs where
   rnf ListRestoreJobs' {..} =
-    Prelude.rnf byAccountId
-      `Prelude.seq` Prelude.rnf byCompleteAfter
-      `Prelude.seq` Prelude.rnf byCompleteBefore
-      `Prelude.seq` Prelude.rnf byCreatedAfter
-      `Prelude.seq` Prelude.rnf byCreatedBefore
-      `Prelude.seq` Prelude.rnf byStatus
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf byAccountId `Prelude.seq`
+      Prelude.rnf byCompleteAfter `Prelude.seq`
+        Prelude.rnf byCompleteBefore `Prelude.seq`
+          Prelude.rnf byCreatedAfter `Prelude.seq`
+            Prelude.rnf byCreatedBefore `Prelude.seq`
+              Prelude.rnf byStatus `Prelude.seq`
+                Prelude.rnf maxResults `Prelude.seq`
+                  Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRestoreJobs where
   toHeaders =
@@ -315,6 +315,6 @@ listRestoreJobsResponse_httpStatus = Lens.lens (\ListRestoreJobsResponse' {httpS
 
 instance Prelude.NFData ListRestoreJobsResponse where
   rnf ListRestoreJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf restoreJobs
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf restoreJobs `Prelude.seq`
+        Prelude.rnf httpStatus

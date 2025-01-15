@@ -118,8 +118,8 @@ instance Prelude.Hashable ListFrameworks where
 
 instance Prelude.NFData ListFrameworks where
   rnf ListFrameworks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFrameworks where
   toHeaders =
@@ -204,6 +204,6 @@ listFrameworksResponse_httpStatus = Lens.lens (\ListFrameworksResponse' {httpSta
 
 instance Prelude.NFData ListFrameworksResponse where
   rnf ListFrameworksResponse' {..} =
-    Prelude.rnf frameworks
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf frameworks `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

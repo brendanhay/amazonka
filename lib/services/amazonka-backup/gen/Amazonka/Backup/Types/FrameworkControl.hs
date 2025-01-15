@@ -112,9 +112,9 @@ instance Prelude.Hashable FrameworkControl where
 
 instance Prelude.NFData FrameworkControl where
   rnf FrameworkControl' {..} =
-    Prelude.rnf controlInputParameters
-      `Prelude.seq` Prelude.rnf controlScope
-      `Prelude.seq` Prelude.rnf controlName
+    Prelude.rnf controlInputParameters `Prelude.seq`
+      Prelude.rnf controlScope `Prelude.seq`
+        Prelude.rnf controlName
 
 instance Data.ToJSON FrameworkControl where
   toJSON FrameworkControl' {..} =

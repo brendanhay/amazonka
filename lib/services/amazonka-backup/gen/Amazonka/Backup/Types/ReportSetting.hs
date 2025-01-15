@@ -138,12 +138,12 @@ instance Prelude.Hashable ReportSetting where
 
 instance Prelude.NFData ReportSetting where
   rnf ReportSetting' {..} =
-    Prelude.rnf accounts
-      `Prelude.seq` Prelude.rnf frameworkArns
-      `Prelude.seq` Prelude.rnf numberOfFrameworks
-      `Prelude.seq` Prelude.rnf organizationUnits
-      `Prelude.seq` Prelude.rnf regions
-      `Prelude.seq` Prelude.rnf reportTemplate
+    Prelude.rnf accounts `Prelude.seq`
+      Prelude.rnf frameworkArns `Prelude.seq`
+        Prelude.rnf numberOfFrameworks `Prelude.seq`
+          Prelude.rnf organizationUnits `Prelude.seq`
+            Prelude.rnf regions `Prelude.seq`
+              Prelude.rnf reportTemplate
 
 instance Data.ToJSON ReportSetting where
   toJSON ReportSetting' {..} =

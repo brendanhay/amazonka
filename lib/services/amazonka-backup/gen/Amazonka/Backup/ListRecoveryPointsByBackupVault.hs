@@ -218,12 +218,12 @@ instance
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listRecoveryPointsByBackupVault_nextToken
-          Lens..~ rs
-          Lens.^? listRecoveryPointsByBackupVaultResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listRecoveryPointsByBackupVault_nextToken
+              Lens..~ rs
+              Lens.^? listRecoveryPointsByBackupVaultResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -266,15 +266,15 @@ instance
     ListRecoveryPointsByBackupVault
   where
   rnf ListRecoveryPointsByBackupVault' {..} =
-    Prelude.rnf byBackupPlanId
-      `Prelude.seq` Prelude.rnf byCreatedAfter
-      `Prelude.seq` Prelude.rnf byCreatedBefore
-      `Prelude.seq` Prelude.rnf byParentRecoveryPointArn
-      `Prelude.seq` Prelude.rnf byResourceArn
-      `Prelude.seq` Prelude.rnf byResourceType
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf backupVaultName
+    Prelude.rnf byBackupPlanId `Prelude.seq`
+      Prelude.rnf byCreatedAfter `Prelude.seq`
+        Prelude.rnf byCreatedBefore `Prelude.seq`
+          Prelude.rnf byParentRecoveryPointArn `Prelude.seq`
+            Prelude.rnf byResourceArn `Prelude.seq`
+              Prelude.rnf byResourceType `Prelude.seq`
+                Prelude.rnf maxResults `Prelude.seq`
+                  Prelude.rnf nextToken `Prelude.seq`
+                    Prelude.rnf backupVaultName
 
 instance
   Data.ToHeaders
@@ -378,6 +378,6 @@ instance
     ListRecoveryPointsByBackupVaultResponse
   where
   rnf ListRecoveryPointsByBackupVaultResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recoveryPoints
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf recoveryPoints `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -204,7 +204,7 @@ instance
     DescribeProtectedResourceResponse
   where
   rnf DescribeProtectedResourceResponse' {..} =
-    Prelude.rnf lastBackupTime
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lastBackupTime `Prelude.seq`
+      Prelude.rnf resourceArn `Prelude.seq`
+        Prelude.rnf resourceType `Prelude.seq`
+          Prelude.rnf httpStatus

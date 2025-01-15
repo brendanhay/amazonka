@@ -237,12 +237,12 @@ instance Prelude.Hashable ReportPlan where
 
 instance Prelude.NFData ReportPlan where
   rnf ReportPlan' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf deploymentStatus
-      `Prelude.seq` Prelude.rnf lastAttemptedExecutionTime
-      `Prelude.seq` Prelude.rnf lastSuccessfulExecutionTime
-      `Prelude.seq` Prelude.rnf reportDeliveryChannel
-      `Prelude.seq` Prelude.rnf reportPlanArn
-      `Prelude.seq` Prelude.rnf reportPlanDescription
-      `Prelude.seq` Prelude.rnf reportPlanName
-      `Prelude.seq` Prelude.rnf reportSetting
+    Prelude.rnf creationTime `Prelude.seq`
+      Prelude.rnf deploymentStatus `Prelude.seq`
+        Prelude.rnf lastAttemptedExecutionTime `Prelude.seq`
+          Prelude.rnf lastSuccessfulExecutionTime `Prelude.seq`
+            Prelude.rnf reportDeliveryChannel `Prelude.seq`
+              Prelude.rnf reportPlanArn `Prelude.seq`
+                Prelude.rnf reportPlanDescription `Prelude.seq`
+                  Prelude.rnf reportPlanName `Prelude.seq`
+                    Prelude.rnf reportSetting

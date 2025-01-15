@@ -178,11 +178,11 @@ instance Prelude.Hashable CreateLegalHold where
 
 instance Prelude.NFData CreateLegalHold where
   rnf CreateLegalHold' {..} =
-    Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf recoveryPointSelection
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf idempotencyToken `Prelude.seq`
+      Prelude.rnf recoveryPointSelection `Prelude.seq`
+        Prelude.rnf tags `Prelude.seq`
+          Prelude.rnf title `Prelude.seq`
+            Prelude.rnf description
 
 instance Data.ToHeaders CreateLegalHold where
   toHeaders =
@@ -322,11 +322,11 @@ createLegalHoldResponse_httpStatus = Lens.lens (\CreateLegalHoldResponse' {httpS
 
 instance Prelude.NFData CreateLegalHoldResponse where
   rnf CreateLegalHoldResponse' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf legalHoldArn
-      `Prelude.seq` Prelude.rnf legalHoldId
-      `Prelude.seq` Prelude.rnf recoveryPointSelection
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf creationDate `Prelude.seq`
+      Prelude.rnf description `Prelude.seq`
+        Prelude.rnf legalHoldArn `Prelude.seq`
+          Prelude.rnf legalHoldId `Prelude.seq`
+            Prelude.rnf recoveryPointSelection `Prelude.seq`
+              Prelude.rnf status `Prelude.seq`
+                Prelude.rnf title `Prelude.seq`
+                  Prelude.rnf httpStatus

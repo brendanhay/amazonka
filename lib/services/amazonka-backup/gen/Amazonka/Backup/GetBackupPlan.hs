@@ -132,8 +132,8 @@ instance Prelude.Hashable GetBackupPlan where
 
 instance Prelude.NFData GetBackupPlan where
   rnf GetBackupPlan' {..} =
-    Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf backupPlanId
+    Prelude.rnf versionId `Prelude.seq`
+      Prelude.rnf backupPlanId
 
 instance Data.ToHeaders GetBackupPlan where
   toHeaders =
@@ -316,13 +316,13 @@ getBackupPlanResponse_httpStatus = Lens.lens (\GetBackupPlanResponse' {httpStatu
 
 instance Prelude.NFData GetBackupPlanResponse where
   rnf GetBackupPlanResponse' {..} =
-    Prelude.rnf advancedBackupSettings
-      `Prelude.seq` Prelude.rnf backupPlan
-      `Prelude.seq` Prelude.rnf backupPlanArn
-      `Prelude.seq` Prelude.rnf backupPlanId
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf deletionDate
-      `Prelude.seq` Prelude.rnf lastExecutionDate
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf advancedBackupSettings `Prelude.seq`
+      Prelude.rnf backupPlan `Prelude.seq`
+        Prelude.rnf backupPlanArn `Prelude.seq`
+          Prelude.rnf backupPlanId `Prelude.seq`
+            Prelude.rnf creationDate `Prelude.seq`
+              Prelude.rnf creatorRequestId `Prelude.seq`
+                Prelude.rnf deletionDate `Prelude.seq`
+                  Prelude.rnf lastExecutionDate `Prelude.seq`
+                    Prelude.rnf versionId `Prelude.seq`
+                      Prelude.rnf httpStatus

@@ -434,25 +434,25 @@ instance Prelude.Hashable BackupJob where
 
 instance Prelude.NFData BackupJob where
   rnf BackupJob' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf backupJobId
-      `Prelude.seq` Prelude.rnf backupOptions
-      `Prelude.seq` Prelude.rnf backupSizeInBytes
-      `Prelude.seq` Prelude.rnf backupType
-      `Prelude.seq` Prelude.rnf backupVaultArn
-      `Prelude.seq` Prelude.rnf backupVaultName
-      `Prelude.seq` Prelude.rnf bytesTransferred
-      `Prelude.seq` Prelude.rnf completionDate
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf expectedCompletionDate
-      `Prelude.seq` Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf isParent
-      `Prelude.seq` Prelude.rnf parentJobId
-      `Prelude.seq` Prelude.rnf percentDone
-      `Prelude.seq` Prelude.rnf recoveryPointArn
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf startBy
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf accountId `Prelude.seq`
+      Prelude.rnf backupJobId `Prelude.seq`
+        Prelude.rnf backupOptions `Prelude.seq`
+          Prelude.rnf backupSizeInBytes `Prelude.seq`
+            Prelude.rnf backupType `Prelude.seq`
+              Prelude.rnf backupVaultArn `Prelude.seq`
+                Prelude.rnf backupVaultName `Prelude.seq`
+                  Prelude.rnf bytesTransferred `Prelude.seq`
+                    Prelude.rnf completionDate `Prelude.seq`
+                      Prelude.rnf createdBy `Prelude.seq`
+                        Prelude.rnf creationDate `Prelude.seq`
+                          Prelude.rnf expectedCompletionDate `Prelude.seq`
+                            Prelude.rnf iamRoleArn `Prelude.seq`
+                              Prelude.rnf isParent `Prelude.seq`
+                                Prelude.rnf parentJobId `Prelude.seq`
+                                  Prelude.rnf percentDone `Prelude.seq`
+                                    Prelude.rnf recoveryPointArn `Prelude.seq`
+                                      Prelude.rnf resourceArn `Prelude.seq`
+                                        Prelude.rnf resourceType `Prelude.seq`
+                                          Prelude.rnf startBy `Prelude.seq`
+                                            Prelude.rnf state `Prelude.seq`
+                                              Prelude.rnf statusMessage

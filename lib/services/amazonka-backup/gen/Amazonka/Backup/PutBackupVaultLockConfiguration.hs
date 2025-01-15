@@ -292,10 +292,10 @@ instance
     PutBackupVaultLockConfiguration
   where
   rnf PutBackupVaultLockConfiguration' {..} =
-    Prelude.rnf changeableForDays
-      `Prelude.seq` Prelude.rnf maxRetentionDays
-      `Prelude.seq` Prelude.rnf minRetentionDays
-      `Prelude.seq` Prelude.rnf backupVaultName
+    Prelude.rnf changeableForDays `Prelude.seq`
+      Prelude.rnf maxRetentionDays `Prelude.seq`
+        Prelude.rnf minRetentionDays `Prelude.seq`
+          Prelude.rnf backupVaultName
 
 instance
   Data.ToHeaders

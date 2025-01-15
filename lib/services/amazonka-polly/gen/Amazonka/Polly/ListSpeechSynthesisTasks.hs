@@ -118,12 +118,12 @@ instance Core.AWSPager ListSpeechSynthesisTasks where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listSpeechSynthesisTasks_nextToken
-          Lens..~ rs
-          Lens.^? listSpeechSynthesisTasksResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listSpeechSynthesisTasks_nextToken
+              Lens..~ rs
+              Lens.^? listSpeechSynthesisTasksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSpeechSynthesisTasks where
   type
@@ -149,9 +149,9 @@ instance Prelude.Hashable ListSpeechSynthesisTasks where
 
 instance Prelude.NFData ListSpeechSynthesisTasks where
   rnf ListSpeechSynthesisTasks' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf maxResults `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf status
 
 instance Data.ToHeaders ListSpeechSynthesisTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -229,6 +229,6 @@ instance
     ListSpeechSynthesisTasksResponse
   where
   rnf ListSpeechSynthesisTasksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf synthesisTasks
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf synthesisTasks `Prelude.seq`
+        Prelude.rnf httpStatus

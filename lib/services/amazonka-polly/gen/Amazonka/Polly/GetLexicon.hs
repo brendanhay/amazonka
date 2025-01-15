@@ -161,6 +161,6 @@ getLexiconResponse_httpStatus = Lens.lens (\GetLexiconResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetLexiconResponse where
   rnf GetLexiconResponse' {..} =
-    Prelude.rnf lexicon
-      `Prelude.seq` Prelude.rnf lexiconAttributes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lexicon `Prelude.seq`
+      Prelude.rnf lexiconAttributes `Prelude.seq`
+        Prelude.rnf httpStatus

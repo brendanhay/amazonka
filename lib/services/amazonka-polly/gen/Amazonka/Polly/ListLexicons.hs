@@ -95,12 +95,12 @@ instance Core.AWSPager ListLexicons where
         ) =
         Prelude.Nothing
     | Prelude.otherwise =
-        Prelude.Just
-          Prelude.$ rq
-          Prelude.& listLexicons_nextToken
-          Lens..~ rs
-          Lens.^? listLexiconsResponse_nextToken
-          Prelude.. Lens._Just
+        Prelude.Just Prelude.$
+          rq
+            Prelude.& listLexicons_nextToken
+              Lens..~ rs
+              Lens.^? listLexiconsResponse_nextToken
+              Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLexicons where
   type AWSResponse ListLexicons = ListLexiconsResponse
@@ -184,6 +184,6 @@ listLexiconsResponse_httpStatus = Lens.lens (\ListLexiconsResponse' {httpStatus}
 
 instance Prelude.NFData ListLexiconsResponse where
   rnf ListLexiconsResponse' {..} =
-    Prelude.rnf lexicons
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf lexicons `Prelude.seq`
+      Prelude.rnf nextToken `Prelude.seq`
+        Prelude.rnf httpStatus

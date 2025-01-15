@@ -172,10 +172,10 @@ instance Prelude.Hashable Voice where
 
 instance Prelude.NFData Voice where
   rnf Voice' {..} =
-    Prelude.rnf additionalLanguageCodes
-      `Prelude.seq` Prelude.rnf gender
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf languageName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf supportedEngines
+    Prelude.rnf additionalLanguageCodes `Prelude.seq`
+      Prelude.rnf gender `Prelude.seq`
+        Prelude.rnf id `Prelude.seq`
+          Prelude.rnf languageCode `Prelude.seq`
+            Prelude.rnf languageName `Prelude.seq`
+              Prelude.rnf name `Prelude.seq`
+                Prelude.rnf supportedEngines

@@ -156,5 +156,5 @@ instance
     GetSpeechSynthesisTaskResponse
   where
   rnf GetSpeechSynthesisTaskResponse' {..} =
-    Prelude.rnf synthesisTask
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf synthesisTask `Prelude.seq`
+      Prelude.rnf httpStatus

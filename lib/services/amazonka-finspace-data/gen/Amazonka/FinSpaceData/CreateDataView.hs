@@ -175,13 +175,13 @@ instance Prelude.Hashable CreateDataView where
 
 instance Prelude.NFData CreateDataView where
   rnf CreateDataView' {..} =
-    Prelude.rnf asOfTimestamp
-      `Prelude.seq` Prelude.rnf autoUpdate
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf partitionColumns
-      `Prelude.seq` Prelude.rnf sortColumns
-      `Prelude.seq` Prelude.rnf datasetId
-      `Prelude.seq` Prelude.rnf destinationTypeParams
+    Prelude.rnf asOfTimestamp `Prelude.seq`
+      Prelude.rnf autoUpdate `Prelude.seq`
+        Prelude.rnf clientToken `Prelude.seq`
+          Prelude.rnf partitionColumns `Prelude.seq`
+            Prelude.rnf sortColumns `Prelude.seq`
+              Prelude.rnf datasetId `Prelude.seq`
+                Prelude.rnf destinationTypeParams
 
 instance Data.ToHeaders CreateDataView where
   toHeaders =
@@ -271,6 +271,6 @@ createDataViewResponse_httpStatus = Lens.lens (\CreateDataViewResponse' {httpSta
 
 instance Prelude.NFData CreateDataViewResponse where
   rnf CreateDataViewResponse' {..} =
-    Prelude.rnf dataViewId
-      `Prelude.seq` Prelude.rnf datasetId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf dataViewId `Prelude.seq`
+      Prelude.rnf datasetId `Prelude.seq`
+        Prelude.rnf httpStatus

@@ -165,9 +165,9 @@ instance Prelude.Hashable ColumnDefinition where
 
 instance Prelude.NFData ColumnDefinition where
   rnf ColumnDefinition' {..} =
-    Prelude.rnf columnDescription
-      `Prelude.seq` Prelude.rnf columnName
-      `Prelude.seq` Prelude.rnf dataType
+    Prelude.rnf columnDescription `Prelude.seq`
+      Prelude.rnf columnName `Prelude.seq`
+        Prelude.rnf dataType
 
 instance Data.ToJSON ColumnDefinition where
   toJSON ColumnDefinition' {..} =

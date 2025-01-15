@@ -283,16 +283,16 @@ instance Prelude.Hashable ChangesetSummary where
 
 instance Prelude.NFData ChangesetSummary where
   rnf ChangesetSummary' {..} =
-    Prelude.rnf activeFromTimestamp
-      `Prelude.seq` Prelude.rnf activeUntilTimestamp
-      `Prelude.seq` Prelude.rnf changeType
-      `Prelude.seq` Prelude.rnf changesetArn
-      `Prelude.seq` Prelude.rnf changesetId
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf datasetId
-      `Prelude.seq` Prelude.rnf errorInfo
-      `Prelude.seq` Prelude.rnf formatParams
-      `Prelude.seq` Prelude.rnf sourceParams
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updatedByChangesetId
-      `Prelude.seq` Prelude.rnf updatesChangesetId
+    Prelude.rnf activeFromTimestamp `Prelude.seq`
+      Prelude.rnf activeUntilTimestamp `Prelude.seq`
+        Prelude.rnf changeType `Prelude.seq`
+          Prelude.rnf changesetArn `Prelude.seq`
+            Prelude.rnf changesetId `Prelude.seq`
+              Prelude.rnf createTime `Prelude.seq`
+                Prelude.rnf datasetId `Prelude.seq`
+                  Prelude.rnf errorInfo `Prelude.seq`
+                    Prelude.rnf formatParams `Prelude.seq`
+                      Prelude.rnf sourceParams `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf updatedByChangesetId `Prelude.seq`
+                            Prelude.rnf updatesChangesetId

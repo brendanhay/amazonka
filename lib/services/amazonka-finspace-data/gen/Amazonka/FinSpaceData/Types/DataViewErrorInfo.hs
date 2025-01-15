@@ -144,5 +144,5 @@ instance Prelude.Hashable DataViewErrorInfo where
 
 instance Prelude.NFData DataViewErrorInfo where
   rnf DataViewErrorInfo' {..} =
-    Prelude.rnf errorCategory
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorCategory `Prelude.seq`
+      Prelude.rnf errorMessage

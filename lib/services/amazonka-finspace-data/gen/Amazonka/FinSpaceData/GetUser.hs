@@ -360,17 +360,17 @@ getUserResponse_httpStatus = Lens.lens (\GetUserResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData GetUserResponse where
   rnf GetUserResponse' {..} =
-    Prelude.rnf apiAccess
-      `Prelude.seq` Prelude.rnf apiAccessPrincipalArn
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf firstName
-      `Prelude.seq` Prelude.rnf lastDisabledTime
-      `Prelude.seq` Prelude.rnf lastEnabledTime
-      `Prelude.seq` Prelude.rnf lastLoginTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf apiAccess `Prelude.seq`
+      Prelude.rnf apiAccessPrincipalArn `Prelude.seq`
+        Prelude.rnf createTime `Prelude.seq`
+          Prelude.rnf emailAddress `Prelude.seq`
+            Prelude.rnf firstName `Prelude.seq`
+              Prelude.rnf lastDisabledTime `Prelude.seq`
+                Prelude.rnf lastEnabledTime `Prelude.seq`
+                  Prelude.rnf lastLoginTime `Prelude.seq`
+                    Prelude.rnf lastModifiedTime `Prelude.seq`
+                      Prelude.rnf lastName `Prelude.seq`
+                        Prelude.rnf status `Prelude.seq`
+                          Prelude.rnf type' `Prelude.seq`
+                            Prelude.rnf userId `Prelude.seq`
+                              Prelude.rnf httpStatus

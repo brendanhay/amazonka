@@ -124,8 +124,8 @@ instance
     GetProgrammaticAccessCredentials
   where
   rnf GetProgrammaticAccessCredentials' {..} =
-    Prelude.rnf durationInMinutes
-      `Prelude.seq` Prelude.rnf environmentId
+    Prelude.rnf durationInMinutes `Prelude.seq`
+      Prelude.rnf environmentId
 
 instance
   Data.ToHeaders
@@ -211,6 +211,6 @@ instance
     GetProgrammaticAccessCredentialsResponse
   where
   rnf GetProgrammaticAccessCredentialsResponse' {..} =
-    Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf durationInMinutes
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf credentials `Prelude.seq`
+      Prelude.rnf durationInMinutes `Prelude.seq`
+        Prelude.rnf httpStatus

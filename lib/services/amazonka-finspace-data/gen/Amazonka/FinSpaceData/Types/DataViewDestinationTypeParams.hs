@@ -141,9 +141,9 @@ instance
 
 instance Prelude.NFData DataViewDestinationTypeParams where
   rnf DataViewDestinationTypeParams' {..} =
-    Prelude.rnf s3DestinationExportFileFormat
-      `Prelude.seq` Prelude.rnf s3DestinationExportFileFormatOptions
-      `Prelude.seq` Prelude.rnf destinationType
+    Prelude.rnf s3DestinationExportFileFormat `Prelude.seq`
+      Prelude.rnf s3DestinationExportFileFormatOptions `Prelude.seq`
+        Prelude.rnf destinationType
 
 instance Data.ToJSON DataViewDestinationTypeParams where
   toJSON DataViewDestinationTypeParams' {..} =

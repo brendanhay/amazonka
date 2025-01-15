@@ -128,9 +128,9 @@ instance Prelude.Hashable ListPermissionGroupsByUser where
 
 instance Prelude.NFData ListPermissionGroupsByUser where
   rnf ListPermissionGroupsByUser' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf userId `Prelude.seq`
+        Prelude.rnf maxResults
 
 instance Data.ToHeaders ListPermissionGroupsByUser where
   toHeaders =
@@ -208,6 +208,6 @@ instance
     ListPermissionGroupsByUserResponse
   where
   rnf ListPermissionGroupsByUserResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf permissionGroups
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf nextToken `Prelude.seq`
+      Prelude.rnf permissionGroups `Prelude.seq`
+        Prelude.rnf httpStatus

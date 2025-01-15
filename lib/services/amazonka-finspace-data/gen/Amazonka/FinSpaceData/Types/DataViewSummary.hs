@@ -265,15 +265,15 @@ instance Prelude.Hashable DataViewSummary where
 
 instance Prelude.NFData DataViewSummary where
   rnf DataViewSummary' {..} =
-    Prelude.rnf asOfTimestamp
-      `Prelude.seq` Prelude.rnf autoUpdate
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf dataViewArn
-      `Prelude.seq` Prelude.rnf dataViewId
-      `Prelude.seq` Prelude.rnf datasetId
-      `Prelude.seq` Prelude.rnf destinationTypeProperties
-      `Prelude.seq` Prelude.rnf errorInfo
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf partitionColumns
-      `Prelude.seq` Prelude.rnf sortColumns
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf asOfTimestamp `Prelude.seq`
+      Prelude.rnf autoUpdate `Prelude.seq`
+        Prelude.rnf createTime `Prelude.seq`
+          Prelude.rnf dataViewArn `Prelude.seq`
+            Prelude.rnf dataViewId `Prelude.seq`
+              Prelude.rnf datasetId `Prelude.seq`
+                Prelude.rnf destinationTypeProperties `Prelude.seq`
+                  Prelude.rnf errorInfo `Prelude.seq`
+                    Prelude.rnf lastModifiedTime `Prelude.seq`
+                      Prelude.rnf partitionColumns `Prelude.seq`
+                        Prelude.rnf sortColumns `Prelude.seq`
+                          Prelude.rnf status

@@ -181,13 +181,13 @@ instance Prelude.Hashable UpdateDataset where
 
 instance Prelude.NFData UpdateDataset where
   rnf UpdateDataset' {..} =
-    Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf datasetDescription
-      `Prelude.seq` Prelude.rnf schemaDefinition
-      `Prelude.seq` Prelude.rnf datasetId
-      `Prelude.seq` Prelude.rnf datasetTitle
-      `Prelude.seq` Prelude.rnf kind
+    Prelude.rnf alias `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf datasetDescription `Prelude.seq`
+          Prelude.rnf schemaDefinition `Prelude.seq`
+            Prelude.rnf datasetId `Prelude.seq`
+              Prelude.rnf datasetTitle `Prelude.seq`
+                Prelude.rnf kind
 
 instance Data.ToHeaders UpdateDataset where
   toHeaders =
@@ -265,5 +265,5 @@ updateDatasetResponse_httpStatus = Lens.lens (\UpdateDatasetResponse' {httpStatu
 
 instance Prelude.NFData UpdateDatasetResponse where
   rnf UpdateDatasetResponse' {..} =
-    Prelude.rnf datasetId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf datasetId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -221,11 +221,11 @@ instance Prelude.Hashable UpdatePermissionGroup where
 
 instance Prelude.NFData UpdatePermissionGroup where
   rnf UpdatePermissionGroup' {..} =
-    Prelude.rnf applicationPermissions
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf permissionGroupId
+    Prelude.rnf applicationPermissions `Prelude.seq`
+      Prelude.rnf clientToken `Prelude.seq`
+        Prelude.rnf description `Prelude.seq`
+          Prelude.rnf name `Prelude.seq`
+            Prelude.rnf permissionGroupId
 
 instance Data.ToHeaders UpdatePermissionGroup where
   toHeaders =
@@ -299,5 +299,5 @@ updatePermissionGroupResponse_httpStatus = Lens.lens (\UpdatePermissionGroupResp
 
 instance Prelude.NFData UpdatePermissionGroupResponse where
   rnf UpdatePermissionGroupResponse' {..} =
-    Prelude.rnf permissionGroupId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf permissionGroupId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -109,8 +109,8 @@ instance Prelude.Hashable DeletePermissionGroup where
 
 instance Prelude.NFData DeletePermissionGroup where
   rnf DeletePermissionGroup' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf permissionGroupId
+    Prelude.rnf clientToken `Prelude.seq`
+      Prelude.rnf permissionGroupId
 
 instance Data.ToHeaders DeletePermissionGroup where
   toHeaders =
@@ -173,5 +173,5 @@ deletePermissionGroupResponse_httpStatus = Lens.lens (\DeletePermissionGroupResp
 
 instance Prelude.NFData DeletePermissionGroupResponse where
   rnf DeletePermissionGroupResponse' {..} =
-    Prelude.rnf permissionGroupId
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf permissionGroupId `Prelude.seq`
+      Prelude.rnf httpStatus

@@ -76,8 +76,8 @@ instance Prelude.Hashable PermissionGroupParams where
 
 instance Prelude.NFData PermissionGroupParams where
   rnf PermissionGroupParams' {..} =
-    Prelude.rnf datasetPermissions
-      `Prelude.seq` Prelude.rnf permissionGroupId
+    Prelude.rnf datasetPermissions `Prelude.seq`
+      Prelude.rnf permissionGroupId
 
 instance Data.ToJSON PermissionGroupParams where
   toJSON PermissionGroupParams' {..} =

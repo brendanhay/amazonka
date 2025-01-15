@@ -84,8 +84,8 @@ instance Prelude.Hashable SchemaDefinition where
 
 instance Prelude.NFData SchemaDefinition where
   rnf SchemaDefinition' {..} =
-    Prelude.rnf columns
-      `Prelude.seq` Prelude.rnf primaryKeyColumns
+    Prelude.rnf columns `Prelude.seq`
+      Prelude.rnf primaryKeyColumns
 
 instance Data.ToJSON SchemaDefinition where
   toJSON SchemaDefinition' {..} =

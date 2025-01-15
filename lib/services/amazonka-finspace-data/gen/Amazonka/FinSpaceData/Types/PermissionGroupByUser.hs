@@ -120,6 +120,6 @@ instance Prelude.Hashable PermissionGroupByUser where
 
 instance Prelude.NFData PermissionGroupByUser where
   rnf PermissionGroupByUser' {..} =
-    Prelude.rnf membershipStatus
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf permissionGroupId
+    Prelude.rnf membershipStatus `Prelude.seq`
+      Prelude.rnf name `Prelude.seq`
+        Prelude.rnf permissionGroupId

@@ -12,7 +12,7 @@ build-type:    Simple
 
 source-repository head
   type:     git
-  location: git://github.com/brendanhay/amazonka.git
+  location: https://github.com/brendanhay/amazonka.git
   subdir:   examples
 
 library

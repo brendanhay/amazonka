@@ -13,6 +13,8 @@ import qualified Data.Version as Version
 import qualified Gen.AST as AST
 import Gen.IO
 import qualified Gen.JSON as JSON
+import Gen.Output.Template (Templates (..))
+import qualified Gen.Output.Template.CabalFile as CabalFile
 import Gen.Prelude
 import qualified Gen.Tree as Tree
 import Gen.Types hiding (config, info, retry, service)
@@ -97,7 +99,7 @@ versionReader = Options.eitherReader (Right . Version . Text.pack)
 options :: Options.ParserInfo Options
 options = Options.info (Options.helper <*> parser) Options.fullDesc
 
-validate :: MonadIO m => Options -> m Options
+validate :: (MonadIO m) => Options -> m Options
 validate o = flip State.execStateT o $ do
   sequence_
     [ check optionOutput,
@@ -112,7 +114,7 @@ validate o = flip State.execStateT o $ do
     check :: (MonadIO m, MonadState s m) => Lens' s FilePath -> m ()
     check l = State.gets (Lens.view l) >>= canon >>= Lens.assign l
 
-    canon :: MonadIO m => FilePath -> m FilePath
+    canon :: (MonadIO m) => FilePath -> m FilePath
     canon = UnliftIO.canonicalizePath
 
 main :: IO ()
@@ -129,7 +131,8 @@ main = do
   templates <- do
     title ("Loading templates from " ++ _optionTemplates)
 
-    cabalTemplate <- load "cabal.ede"
+    cabalTemplate <-
+      readTypedTemplate CabalFile.arguments _optionTemplates "cabal.ede"
     tocTemplate <- load "toc.ede"
     waitersTemplate <- load "waiters.ede"
     readmeTemplate <- load "readme.ede"

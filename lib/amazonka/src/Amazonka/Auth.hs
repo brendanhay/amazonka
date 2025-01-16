@@ -109,14 +109,14 @@ discover ::
   m Env
 discover =
   runCredentialChain
-    [ fromKeysEnv,
-      fromFileEnv,
-      fromWebIdentityEnv,
-      fromContainerEnv,
-      \env -> do
+    [ \env -> do
         onEC2 <- isEC2 $ manager env
         unless onEC2 $ throwM CredentialChainExhausted
-        fromDefaultInstanceProfile env
+        fromDefaultInstanceProfile env,
+      fromWebIdentityEnv,
+      fromContainerEnv,
+      fromFileEnv,
+      fromKeysEnv
     ]
 
 -- | Compose a list of credential-providing functions by testing each

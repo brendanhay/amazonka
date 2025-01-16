@@ -69,10 +69,10 @@ readTemplate ::
   FilePath ->
   FilePath ->
   m EDE.Template
-readTemplate dir name =
+readTemplate dir file =
   liftIO $
-    readBSFile (dir </> name)
-      >>= EDE.parseWith EDE.defaultSyntax (EDE.includeFile dir) (fromString name)
+    readBSFile (dir </> file)
+      >>= EDE.parseWith EDE.defaultSyntax (EDE.includeFile dir) (Text.pack file)
       >>= EDE.result (UnliftIO.throwString . show) pure
 
 readTypedTemplate ::
@@ -81,8 +81,8 @@ readTypedTemplate ::
   FilePath ->
   FilePath ->
   m (Template input)
-readTypedTemplate arguments dir name =
+readTypedTemplate arguments dir file =
   liftIO $
-    readBSFile (dir </> name)
-      >>= Template.parseWith arguments (EDE.includeFile dir) (Text.pack name)
+    readBSFile (dir </> file)
+      >>= Template.parseWith arguments (EDE.includeFile dir) (Text.pack file)
       >>= either UnliftIO.throwString pure

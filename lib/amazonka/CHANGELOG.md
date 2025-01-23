@@ -32,6 +32,8 @@
 
 ### Fixed
 
+- `.cabal` files name the source repository with a `https://` URL, not a `git://` one (thanks @marinelli)
+[\#1026](https://github.com/brendanhay/amazonka/pull/1026)
 - `amazonka-*`: GHC 9.8 support
 [\#972](https://github.com/brendanhay/amazonka/pull/972)
 - `amazonka`: Allow reading the AWS config file when the credentials file is missing [\#951](https://github.com/brendanhay/amazonka/pull/951).

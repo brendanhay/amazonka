@@ -66,8 +66,7 @@ import Amazonka.EC2.Metadata
 import Amazonka.Env (Env, Env' (..), EnvNoAuth)
 import Amazonka.Prelude
 import Amazonka.Types
-import Control.Exception (fromException)
-import Control.Monad.Catch (MonadCatch (..), catchJust, throwM)
+import Control.Monad.Catch (MonadCatch (..), throwM)
 
 -- | Attempt to fetch credentials in a way similar to the official AWS
 -- SDKs. The <https://github.com/aws/aws-sdk-cpp/blob/fb8cbebf2fd62720b65aeff841ad2950e73d8ebd/Docs/Credentials_Providers.md#default-credential-provider-chain C++ SDK>
@@ -127,12 +126,5 @@ runCredentialChain :: (MonadCatch m) => [a -> m b] -> a -> m b
 runCredentialChain chain env =
   case chain of
     [] -> throwM CredentialChainExhausted
-    provider : chain' -> do
-      cJust
-        fromException
-        (runCredentialChain chain' env)
-        (const $ provider env)
-  where
-    -- Required so that the compiler knows enough about 'e' to use our prism.
-    cJust :: (MonadCatch m, AsAuthError e, Exception e) => (e -> Maybe AuthError) -> m a -> (AuthError -> m a) -> m a
-    cJust = catchJust
+    provider : chain' ->
+      provider env `catch` \(_ :: AuthError) -> runCredentialChain chain' env

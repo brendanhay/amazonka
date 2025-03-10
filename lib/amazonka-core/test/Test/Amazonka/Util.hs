@@ -29,19 +29,19 @@ doc =
 newtype X a = X a
   deriving stock (Eq, Show)
 
-instance ToQuery a => ToQuery (X a) where
+instance (ToQuery a) => ToQuery (X a) where
   toQuery (X x) = "x" =: x
 
-instance FromXML a => FromXML (X a) where
+instance (FromXML a) => FromXML (X a) where
   parseXML = fmap X . parseXML
 
-instance ToXML a => ToElement (X a) where
+instance (ToXML a) => ToElement (X a) where
   toElement (X x) = mkElement "x" x
 
-instance FromJSON a => FromJSON (X a) where
+instance (FromJSON a) => FromJSON (X a) where
   parseJSON = withObject "X" (fmap X . (.: "x"))
 
-instance ToJSON a => ToJSON (X a) where
+instance (ToJSON a) => ToJSON (X a) where
   toJSON (X x) = object ["x" .= x]
 
 testFromText ::
@@ -117,5 +117,5 @@ maxInt = maxBound
 minInt :: Int
 minInt = minBound
 
-toLazyBS :: ToByteString a => a -> ByteStringLazy
+toLazyBS :: (ToByteString a) => a -> ByteStringLazy
 toLazyBS = LBS.fromStrict . toBS

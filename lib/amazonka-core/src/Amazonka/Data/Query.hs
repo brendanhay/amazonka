@@ -7,15 +7,17 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Data.Query where
 
-import Amazonka.Data.ByteString
-import Amazonka.Data.Text
+import Amazonka.Data.ByteString (ToByteString (..))
+import Amazonka.Data.Text (ToText (..))
 import Amazonka.Prelude
+import Control.Category ((>>>))
 import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.List as List
 import qualified Data.Text.Encoding as Text
+import Network.HTTP.Types (QueryItem)
 import qualified Network.HTTP.Types.URI as URI
 
 -- | Structured representation of a query string.
@@ -65,39 +67,49 @@ parseQueryString bs
         "=" -> QValue Nothing
         _ -> QValue (Just (URI.urlDecode True $ BS8.drop 1 x))
 
--- FIXME: use Builder
 instance ToByteString QueryString where
-  toBS = LBS.toStrict . Build.toLazyByteString . cat . List.sort . enc Nothing
+  toBS =
+    toQueryItems Nothing
+      >>> List.sortOn fst
+      >>> catQueryItems
+      >>> Build.toLazyByteString
+      >>> LBS.toStrict
     where
-      enc :: Maybe ByteString -> QueryString -> [ByteString]
-      enc p = \case
-        QList xs -> concatMap (enc p) xs
-        QPair (URI.urlEncode True -> k) x
-          | Just n <- p -> enc (Just (n <> kdelim <> k)) x -- <prev>.key <recur>
-          | otherwise -> enc (Just k) x -- key <recur>
-        QValue (Just (URI.urlEncode True -> v))
-          | Just n <- p -> [n <> vsep <> v] -- key=value
-          | otherwise -> [v <> vsep] -- value= -- note: required for signing.
-        _
-          | Just n <- p -> [n <> vsep] -- key=
-          -- note: this case required for request signing
-          | otherwise -> []
+      -- Carry the "key so far" as an accumulating parameter.
+      toQueryItems :: Maybe ByteString -> QueryString -> [QueryItem]
+      toQueryItems key = \case
+        QList xs ->
+          concatMap (toQueryItems key) xs
+        QValue (Just (URI.urlEncode True -> v)) ->
+          case key of
+            Just k -> [(k, Just v)]
+            Nothing -> [(v, Nothing)] -- Looks odd, required for signing.
+        QValue Nothing ->
+          case key of
+            Just k -> [(k, Nothing)]
+            Nothing -> []
+        QPair (URI.urlEncode True -> k) queryString ->
+          toQueryItems extendedKey queryString
+          where
+            extendedKey :: Maybe ByteString
+            extendedKey = Just $ maybe k (<> "." <> k) key
 
-      cat :: [ByteString] -> ByteStringBuilder
-      cat [] = mempty
-      cat [x] = Build.byteString x
-      cat (x : xs) = Build.byteString x <> ksep <> cat xs
+      catQueryItems :: [QueryItem] -> ByteStringBuilder
+      catQueryItems = \case
+        [] -> mempty
+        [item] -> encode item
+        item : items -> encode item <> "&" <> catQueryItems items
+        where
+          encode :: QueryItem -> ByteStringBuilder
+          encode (k, mv) =
+            Build.byteString k <> "=" <> foldMap Build.byteString mv
 
-      kdelim = "."
-      ksep = "&"
-      vsep = "="
-
-pair :: ToQuery a => ByteString -> a -> QueryString -> QueryString
+pair :: (ToQuery a) => ByteString -> a -> QueryString -> QueryString
 pair k v = mappend (QPair k (toQuery v))
 
 infixr 7 =:
 
-(=:) :: ToQuery a => ByteString -> a -> QueryString
+(=:) :: (ToQuery a) => ByteString -> a -> QueryString
 k =: v = QPair k (toQuery v)
 
 toQueryList ::
@@ -107,7 +119,7 @@ toQueryList ::
   QueryString
 toQueryList k = QPair k . QList . zipWith f [1 ..] . toList
   where
-    f :: ToQuery a => Int -> a -> QueryString
+    f :: (ToQuery a) => Int -> a -> QueryString
     f n v = toBS n =: toQuery v
 
 toQueryMap ::
@@ -123,7 +135,7 @@ toQueryMap e k v = toQueryList e . map f . HashMap.toList
 
 class ToQuery a where
   toQuery :: a -> QueryString
-  default toQuery :: ToText a => a -> QueryString
+  default toQuery :: (ToText a) => a -> QueryString
   toQuery = toQuery . toText
 
 instance ToQuery QueryString where
@@ -149,7 +161,7 @@ instance ToQuery Double where toQuery = toQuery . toBS
 
 instance ToQuery Natural where toQuery = toQuery . toBS
 
-instance ToQuery a => ToQuery (Maybe a) where
+instance (ToQuery a) => ToQuery (Maybe a) where
   toQuery (Just x) = toQuery x
   toQuery Nothing = mempty
 

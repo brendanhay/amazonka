@@ -48,5 +48,43 @@ tests =
                   QPair "baz" (QValue Nothing),
                   QPair "qux" (QValue (Just "3"))
                 ]
+        ],
+      testGroup
+        "toBS"
+        [ testCase "SQS.DeleteMessageBatchRequestEntries" $
+            toBS
+              ( QPair
+                  "DeleteMessageBatchRequestEntry"
+                  ( QList
+                      [ QPair
+                          "1"
+                          ( QList
+                              [ QPair "Id" (QValue (Just "someId")),
+                                QPair "ReceiptHandle" (QValue (Just "someReceiptMessageHandle"))
+                              ]
+                          ),
+                        QPair
+                          "2"
+                          ( QList
+                              [ QPair "Id" (QValue (Just "anotherId")),
+                                QPair "ReceiptHandle" (QValue (Just "anotherReceiptMessageHandle"))
+                              ]
+                          )
+                      ]
+                  )
+              )
+              @?= "DeleteMessageBatchRequestEntry.1.Id=someId&\
+                  \DeleteMessageBatchRequestEntry.1.ReceiptHandle=someReceiptMessageHandle&\
+                  \DeleteMessageBatchRequestEntry.2.Id=anotherId&\
+                  \DeleteMessageBatchRequestEntry.2.ReceiptHandle=anotherReceiptMessageHandle",
+          -- Test for correct canonicalisation. We must sort the query
+          -- entries before joining them to the values, otherwise we
+          -- create incorrect canonical requests during signing.
+          --
+          -- See: https://github.com/brendanhay/amazonka/issues/965#issuecomment-2709868936
+          -- See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv-create-signed-request.html#:~:text=alphabetically%20by%20key%20name
+          testCase "S3.SelectObjectContent" $
+            toBS ("select&select-type=2" :: QueryString)
+              @?= "select=&select-type=2"
         ]
     ]

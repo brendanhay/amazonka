@@ -50,7 +50,7 @@ testFromText ::
   Text ->
   a ->
   TestTree
-testFromText n t x = testCase n (Right x @?= fromText t)
+testFromText n t x = testCase n (Right x @=? fromText t)
 
 testToText ::
   (ToText a, Show a, Eq a) =>
@@ -58,7 +58,7 @@ testToText ::
   Text ->
   a ->
   TestTree
-testToText n t x = testCase n (t @?= toText x)
+testToText n t x = testCase n (t @=? toText x)
 
 testToQuery ::
   (ToQuery a, Show a, Eq a) =>
@@ -76,7 +76,7 @@ testFromXML ::
   TestTree
 testFromXML n bs x =
   testCase n $
-    Right (X x) @?= (decodeXML (wrapXML bs) >>= parseXML)
+    (decodeXML (wrapXML bs) >>= parseXML) @=? Right (X x)
 
 testToXML ::
   (ToXML a, Show a, Eq a) =>
@@ -84,7 +84,7 @@ testToXML ::
   ByteStringLazy ->
   a ->
   TestTree
-testToXML n bs x = testCase n $ wrapXML bs @?= encodeXML (X x)
+testToXML n bs x = testCase n $ wrapXML bs @=? encodeXML (X x)
 
 testFromJSON ::
   (FromJSON a, Show a, Eq a) =>
@@ -94,7 +94,7 @@ testFromJSON ::
   TestTree
 testFromJSON n bs x =
   testCase n $
-    Right (X x) @?= eitherDecode' ("{\"x\":" <> bs <> "}")
+    eitherDecode' ("{\"x\":" <> bs <> "}") @=? Right (X x)
 
 testToJSON ::
   (ToJSON a, Show a, Eq a) =>
@@ -102,7 +102,7 @@ testToJSON ::
   ByteStringLazy ->
   a ->
   TestTree
-testToJSON n bs x = testCase n (bs @?= Aeson.encode x)
+testToJSON n bs x = testCase n (bs @=? Aeson.encode x)
 
 str :: ByteStringLazy -> ByteStringLazy
 str bs = "\"" <> bs <> "\""

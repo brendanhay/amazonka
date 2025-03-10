@@ -32,6 +32,8 @@
 
 ### Fixed
 
+- `amazonka-core`: Accept single-digit days when parsing RFC822 dates
+[\#1032](https://github.com/brendanhay/amazonka/pull/1032)
 - `amazonka`: Attempt to load credentials in the correct order. In particular, this means that the IMDS is queried last and is once again consistent with other SDKs.
 [\#1029](https://github.com/brendanhay/amazonka/pull/1029)
 - `.cabal` files name the source repository with a `https://` URL, not a `git://` one (thanks @marinelli)

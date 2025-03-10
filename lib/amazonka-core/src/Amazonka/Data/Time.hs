@@ -107,7 +107,20 @@ parseFormattedTime = do
                   ++ show s
               )
 
-  parse (format (Proxy @RFC822))
+      -- A more lenient format string for parsing RFC822, whose
+      -- grammar allows single-digit days.
+      --
+      -- We still use `%d` over `%-d` in the `TimeFormat RFC822`
+      -- instance to always produce two-digit days, since that is what
+      -- most people expect to see.
+      --
+      -- This allows us to parse responses from versions of
+      -- `rclone serve s3` circa 2024:
+      -- https://github.com/rclone/rclone/issues/8277
+      rfc822 :: String
+      rfc822 = "%a, %-d %b %Y %H:%M:%S %Z"
+
+  parse rfc822
     <|> parse (format (Proxy @ISO8601))
     <|> parse (format (Proxy @BasicTime))
     <|> parse (format (Proxy @AWSTime))

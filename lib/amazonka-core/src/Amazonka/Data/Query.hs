@@ -7,8 +7,8 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Data.Query where
 
-import Amazonka.Data.ByteString
-import Amazonka.Data.Text
+import Amazonka.Data.ByteString (ToByteString (..))
+import Amazonka.Data.Text (ToText (..))
 import Amazonka.Prelude
 import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Char8 as BS8
@@ -92,12 +92,12 @@ instance ToByteString QueryString where
       ksep = "&"
       vsep = "="
 
-pair :: ToQuery a => ByteString -> a -> QueryString -> QueryString
+pair :: (ToQuery a) => ByteString -> a -> QueryString -> QueryString
 pair k v = mappend (QPair k (toQuery v))
 
 infixr 7 =:
 
-(=:) :: ToQuery a => ByteString -> a -> QueryString
+(=:) :: (ToQuery a) => ByteString -> a -> QueryString
 k =: v = QPair k (toQuery v)
 
 toQueryList ::
@@ -107,7 +107,7 @@ toQueryList ::
   QueryString
 toQueryList k = QPair k . QList . zipWith f [1 ..] . toList
   where
-    f :: ToQuery a => Int -> a -> QueryString
+    f :: (ToQuery a) => Int -> a -> QueryString
     f n v = toBS n =: toQuery v
 
 toQueryMap ::
@@ -123,7 +123,7 @@ toQueryMap e k v = toQueryList e . map f . HashMap.toList
 
 class ToQuery a where
   toQuery :: a -> QueryString
-  default toQuery :: ToText a => a -> QueryString
+  default toQuery :: (ToText a) => a -> QueryString
   toQuery = toQuery . toText
 
 instance ToQuery QueryString where
@@ -149,7 +149,7 @@ instance ToQuery Double where toQuery = toQuery . toBS
 
 instance ToQuery Natural where toQuery = toQuery . toBS
 
-instance ToQuery a => ToQuery (Maybe a) where
+instance (ToQuery a) => ToQuery (Maybe a) where
   toQuery (Just x) = toQuery x
   toQuery Nothing = mempty
 

@@ -76,6 +76,15 @@ tests =
               @?= "DeleteMessageBatchRequestEntry.1.Id=someId&\
                   \DeleteMessageBatchRequestEntry.1.ReceiptHandle=someReceiptMessageHandle&\
                   \DeleteMessageBatchRequestEntry.2.Id=anotherId&\
-                  \DeleteMessageBatchRequestEntry.2.ReceiptHandle=anotherReceiptMessageHandle"
+                  \DeleteMessageBatchRequestEntry.2.ReceiptHandle=anotherReceiptMessageHandle",
+          -- Test for correct canonicalisation. We must sort the query
+          -- entries before joining them to the values, otherwise we
+          -- create incorrect canonical requests during signing.
+          --
+          -- See: https://github.com/brendanhay/amazonka/issues/965#issuecomment-2709868936
+          -- See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv-create-signed-request.html#:~:text=alphabetically%20by%20key%20name
+          testCase "S3.SelectObjectContent" $
+            toBS ("select&select-type=2" :: QueryString)
+              @?= "select=&select-type=2"
         ]
     ]

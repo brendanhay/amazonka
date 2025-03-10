@@ -48,5 +48,34 @@ tests =
                   QPair "baz" (QValue Nothing),
                   QPair "qux" (QValue (Just "3"))
                 ]
+        ],
+      testGroup
+        "toBS"
+        [ testCase "SQS.DeleteMessageBatchRequestEntries" $
+            toBS
+              ( QPair
+                  "DeleteMessageBatchRequestEntry"
+                  ( QList
+                      [ QPair
+                          "1"
+                          ( QList
+                              [ QPair "Id" (QValue (Just "someId")),
+                                QPair "ReceiptHandle" (QValue (Just "someReceiptMessageHandle"))
+                              ]
+                          ),
+                        QPair
+                          "2"
+                          ( QList
+                              [ QPair "Id" (QValue (Just "anotherId")),
+                                QPair "ReceiptHandle" (QValue (Just "anotherReceiptMessageHandle"))
+                              ]
+                          )
+                      ]
+                  )
+              )
+              @?= "DeleteMessageBatchRequestEntry.1.Id=someId&\
+                  \DeleteMessageBatchRequestEntry.1.ReceiptHandle=someReceiptMessageHandle&\
+                  \DeleteMessageBatchRequestEntry.2.Id=anotherId&\
+                  \DeleteMessageBatchRequestEntry.2.ReceiptHandle=anotherReceiptMessageHandle"
         ]
     ]

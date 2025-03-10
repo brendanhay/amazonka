@@ -30,6 +30,10 @@ tests =
                 "Fri, 07 Nov 2014 04:42:13 GMT"
                 (time :: RFC822),
               testFromText
+                "rfc822 - GMT - single-digit day"
+                "Fri, 7 Nov 2014 04:42:13 GMT"
+                (time :: RFC822),
+              testFromText
                 "rfc822 - PST"
                 "Fri, 06 Nov 2014 20:42:13 PST"
                 (time :: RFC822),

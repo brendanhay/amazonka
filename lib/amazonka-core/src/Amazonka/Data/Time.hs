@@ -138,7 +138,7 @@ instance ToText AWSTime where
 instance ToText POSIX where
   toText (Time t) = toText (truncate (utcTimeToPOSIXSeconds t) :: Integer)
 
-renderFormattedTime :: forall a. TimeFormat (Time a) => Time a -> String
+renderFormattedTime :: forall a. (TimeFormat (Time a)) => Time a -> String
 renderFormattedTime (Time t) =
   formatTime
     defaultTimeLocale

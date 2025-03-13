@@ -604,6 +604,14 @@ latest = "http://169.254.169.254/latest/"
 
 -- | Test whether the underlying host is running on EC2 by
 -- making an HTTP request to @http://instance-data/latest@.
+--
+-- __NOTE__: This function is deprecated as it is unreliable, and can
+-- return both false positives (if it makes a successful request to
+-- non-IMDS @http://instance-data/latest@) and false negatives (if DNS
+-- is disabled in your VPC). It will be removed in the next major
+-- version (@v2.2@). Please comment on
+-- [#1033](https://github.com/brendanhay/amazonka/issues/1033) if you
+-- think you need it.
 isEC2 :: (MonadIO m) => Client.Manager -> m Bool
 isEC2 m = liftIO (Exception.catch req err)
   where
@@ -614,6 +622,7 @@ isEC2 m = liftIO (Exception.catch req err)
 
     err :: Client.HttpException -> IO Bool
     err = const (return False)
+{-# DEPRECATED isEC2 "this function will be removed in the next major version" #-}
 
 -- | Retrieve the specified 'Dynamic' data.
 --

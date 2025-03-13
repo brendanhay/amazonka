@@ -4,6 +4,7 @@
 
 ### Changed
 
+- `amazonka`: Stop using `isEC2` in `discover` and deprecate it. [\#1034](https://github.com/brendanhay/amazonka/pull/1034) (thanks @pbrisbin). This function can return false positives and false negatives, so we have chosen to stop relying on it. The AWS Python SDK and CLI make no attempt to check whether they're on EC2 before requesting an instance profile, so we have stopped for consistency.
 - `amazonka-dynamodb`: `TransactWriteItem` is now a sum type (thanks @Tristano8).
 [\#1020](https://github.com/brendanhay/amazonka/pull/1020)
 - `amazonka-core`: Add regions: `Malaysia` (`ap-southeast-5`), `Thailand` (`ap-southeast-7`), `Calgary` (`ca-west-1`), and `TelAviv` (`il-central-1`)

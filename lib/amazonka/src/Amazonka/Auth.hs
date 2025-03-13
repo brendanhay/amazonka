@@ -88,13 +88,9 @@ import Control.Monad.Catch (MonadCatch (..), throwM)
 --     @AWS_CONTAINER_CREDENTIALS_RELATIVE_URI@ environment variable is
 --     set.
 --
--- *   If we think we're running on EC2, retrieve the first available
---     IAM profile from the instance identity document, and use this to
---     set the 'Region'. We attempt to resolve <http://instance-data>
---     rather than directly retrieving <http://169.254.169.254> for IAM
---     profile information. This ensures that the DNS lookup terminates
---     promptly if not running on EC2, but means that your VPC must have
---     @enableDnsSupport@ and @enableDnsHostnames@ set.
+-- *   Attempt to retrieve the first available IAM profile from the instance
+--     identity document, by trying to contact an IMDS at
+--     http://169.254.169.254. On success, also use this to set the 'Region'.
 --
 --     __NOTE__: This is not 100% consistent with the AWS SDKs,
 --     which does not attempt to query the ECS service if either
@@ -112,10 +108,7 @@ discover =
       fromFileEnv,
       fromWebIdentityEnv,
       fromContainerEnv,
-      \env -> do
-        onEC2 <- isEC2 $ manager env
-        unless onEC2 $ throwM CredentialChainExhausted
-        fromDefaultInstanceProfile env
+      fromDefaultInstanceProfile
     ]
 
 -- | Compose a list of credential-providing functions by testing each

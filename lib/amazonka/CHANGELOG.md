@@ -33,6 +33,8 @@
 
 ### Fixed
 
+- `amazonka-core`: `containers ^>= 0.7` is now supported. `containers-0.7` is shipped with GHC 9.10 and 9.12.
+[\#1036](https://github.com/brendanhay/amazonka/pull/1036)
 - `amazonka-core`: Accept single-digit days when parsing RFC822 dates
 [\#1032](https://github.com/brendanhay/amazonka/pull/1032)
 - `amazonka-core`: Fixed the sorting of query parameters during request canonicalisation. In rare cases, it could sort incorrectly, resulting in requests that failed signature verification.

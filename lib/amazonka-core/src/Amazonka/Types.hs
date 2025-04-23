@@ -152,6 +152,7 @@ module Amazonka.Types
         TelAviv,
         Bahrain,
         UAE,
+        MexicoCentral,
         SaoPaulo,
         GovCloudEast,
         GovCloudWest,
@@ -954,6 +955,11 @@ pattern Bahrain = Region' "me-south-1"
 pattern UAE :: Region
 pattern UAE = Region' "me-central-1"
 
+-- Mexico
+
+pattern MexicoCentral :: Region
+pattern MexicoCentral = Region' "mx-central-1"
+
 -- South America
 
 pattern SaoPaulo :: Region
@@ -1006,6 +1012,7 @@ pattern Ningxia = Region' "cn-northwest-1"
   TelAviv,
   Bahrain,
   UAE,
+  MexicoCentral,
   SaoPaulo,
   GovCloudEast,
   GovCloudWest,

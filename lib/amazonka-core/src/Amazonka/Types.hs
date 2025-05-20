@@ -133,6 +133,7 @@ module Amazonka.Types
         Malaysia,
         Melbourne,
         Mumbai,
+        MexicoCentral,
         Osaka,
         Seoul,
         Singapore,
@@ -864,6 +865,11 @@ pattern NorthCalifornia = Region' "us-west-1"
 pattern Oregon :: Region
 pattern Oregon = Region' "us-west-2"
 
+-- North America
+
+pattern MexicoCentral :: Region
+pattern MexicoCentral = Region' "mx-central-1"
+
 -- Africa
 
 pattern CapeTown :: Region
@@ -987,6 +993,7 @@ pattern Ningxia = Region' "cn-northwest-1"
   Malaysia,
   Melbourne,
   Mumbai,
+  MexicoCentral,
   Osaka,
   Seoul,
   Singapore,

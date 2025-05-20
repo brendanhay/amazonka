@@ -81,6 +81,7 @@ getHostedZoneId = \case
   Malaysia -> Just "Z08660063OXLMA7F1FJHU"
   Melbourne -> Just "Z0312387243XT5FE14WFO"
   Mumbai -> Just "Z11RGJOFQNVJUP"
+  MexicoCentral -> Just "Z057606446ZNVQJJ8WOP"
   Osaka -> Just "Z2YQB5RD63NC85"
   Seoul -> Just "Z3W03O7B5YMIYP"
   Singapore -> Just "Z3O0J2DXBE1FTB"

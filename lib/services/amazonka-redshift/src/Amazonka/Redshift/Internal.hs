@@ -74,6 +74,7 @@ getCloudTrailAccountId = \case
   Malaysia -> Just "590184011157"
   Melbourne -> Just "945512339897"
   Mumbai -> Just "408097707231"
+  MexicoCentral -> Just "058264411980"
   Osaka -> Just "398671365691"
   Seoul -> Just "713597048934"
   Singapore -> Just "960118270566"

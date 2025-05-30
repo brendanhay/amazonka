@@ -99,6 +99,7 @@ getHostedZoneId = \case
   Stockholm -> Just "Z3BAZG2TWCNX0D"
   Zurich -> Just "Z030506016YDQGETNASS"
   TelAviv -> Just "Z09640613K4A3MN55U7GU"
+  MexicoCentral -> Just "Z057606446ZNVQJJ8WOP"
   Bahrain -> Just "Z1MPMWCPA7YB62"
   UAE -> Just "Z06143092I8HRXZRUZROF"
   SaoPaulo -> Just "Z7KQH4QJS55SO"

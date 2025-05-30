@@ -150,6 +150,7 @@ module Amazonka.Types
         Stockholm,
         Zurich,
         TelAviv,
+        MexicoCentral,
         Bahrain,
         UAE,
         SaoPaulo,
@@ -946,6 +947,12 @@ pattern Zurich = Region' "eu-central-2"
 pattern TelAviv :: Region
 pattern TelAviv = Region' "il-central-1"
 
+-- Mexico
+
+pattern MexicoCentral :: Region
+pattern MexicoCentral = Region' "mx-central-1"
+
+
 -- Middle East
 
 pattern Bahrain :: Region
@@ -1004,6 +1011,7 @@ pattern Ningxia = Region' "cn-northwest-1"
   Stockholm,
   Zurich,
   TelAviv,
+  MexicoCentral,
   Bahrain,
   UAE,
   SaoPaulo,

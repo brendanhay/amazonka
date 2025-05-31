@@ -18,11 +18,13 @@ import Control.Exception (fromException, toException)
 -- | An error thrown when attempting to read AuthN/AuthZ information.
 data AuthError
   = RetrievalError HttpException
+  | AuthServiceError ServiceError
   | MissingEnvError Text
   | MissingFileError FilePath
   | InvalidFileError Text
   | InvalidIAMError Text
   | CredentialChainExhausted
+  | UnknownAuthError SomeException
   deriving stock (Show, Generic)
 
 instance Exception AuthError
@@ -30,11 +32,13 @@ instance Exception AuthError
 instance ToLog AuthError where
   build = \case
     RetrievalError e -> build e
+    AuthServiceError e -> "[AuthServiceError] { serviceError = " <> build e <> "}"
     MissingEnvError e -> "[MissingEnvError]  { message = " <> build e <> "}"
     MissingFileError f -> "[MissingFileError] { path = " <> build f <> "}"
     InvalidFileError e -> "[InvalidFileError] { message = " <> build e <> "}"
     InvalidIAMError e -> "[InvalidIAMError]  { message = " <> build e <> "}"
     CredentialChainExhausted -> "[CredentialChainExhausted]"
+    UnknownAuthError e -> "[UnknownAuthError] { message = " <> build (show e) <> "}"
 
 class AsAuthError a where
   -- | A general authentication error.

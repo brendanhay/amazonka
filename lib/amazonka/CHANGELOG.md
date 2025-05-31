@@ -4,6 +4,10 @@
 
 ### Changed
 
+- `amazonka`: Improve error handling during periodic credential refresh in `fetchAuthInBackground`.
+  Exceptions thrown by the refresh action are now categorized and rethrown to the parent thread as
+  `RetrievalError`, `AuthServiceError`, or `OtherAuthError` (instead of just `RetrievalError` which was a bug). (thanks @kushagarr)
+[\#1039](https://github.com/brendanhay/amazonka/pull/1039)
 - The hooks interface is now much harder to misuse. [\#1042](https://github.com/brendanhay/amazonka/pull/1042)
 
   It was previously extremely easy to write hook-using functions that typechecked but did not ever run. The main change is to provide specialised hook-changing functions named for each field in the `Hooks` record, so that it is much easier to get the types correct.

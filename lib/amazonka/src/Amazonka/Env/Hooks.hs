@@ -186,10 +186,6 @@ module Amazonka.Env.Hooks
 
     -- * Composing hooks
 
-    -- ** Functions for any hook
-    noHook,
-    noHook_,
-
     -- ** Functions for specific field hooks
 
     -- *** @requestHook@
@@ -245,6 +241,10 @@ module Amazonka.Env.Hooks
     addErrorHookFor,
     silenceError,
     removeErrorHooksFor,
+
+    -- ** Functions for any hook
+    noHook,
+    noHook_,
 
     -- * Building 'Hooks'
     addLoggingHooks,
@@ -509,28 +509,6 @@ errorHook ::
 errorHook f hooks@Hooks {error} =
   hooks {error = f error}
 {-# INLINE errorHook #-}
-
--- | Turn a @'Hook' a@ into another @'Hook' a@ that does nothing.
---
--- @
--- -- Example: remove all request hooks:
--- requestHook noHook :: Hooks -> Hooks
--- @
---
--- @since 2.0
-noHook :: Hook a -> Hook a
-noHook _ _ = pure
-
--- | Turn a @'Hook_' a@ into another @'Hook_' a@ that does nothing.
---
--- @
--- -- Example: Remove all response hooks:
--- responseHook noHook_ :: Hooks -> Hooks
--- @
---
--- @since 2.0
-noHook_ :: Hook_ a -> Hook_ a
-noHook_ _ _ _ = pure ()
 
 -- | Add a hook for every AWS request type. Designed to be used with
 -- 'requestHook'.
@@ -891,6 +869,28 @@ removeErrorHooksFor ::
   Hook_ (Finality, Request b, Error) ->
   Hook_ (Finality, Request b, Error)
 removeErrorHooksFor = removeHooksFor_ @(Finality, Request a, Error)
+
+-- | Turn a @'Hook' a@ into another @'Hook' a@ that does nothing.
+--
+-- @
+-- -- Example: remove all request hooks:
+-- requestHook noHook :: Hooks -> Hooks
+-- @
+--
+-- @since 2.0
+noHook :: Hook a -> Hook a
+noHook _ _ = pure
+
+-- | Turn a @'Hook_' a@ into another @'Hook_' a@ that does nothing.
+--
+-- @
+-- -- Example: Remove all response hooks:
+-- responseHook noHook_ :: Hooks -> Hooks
+-- @
+--
+-- @since 2.0
+noHook_ :: Hook_ a -> Hook_ a
+noHook_ _ _ _ = pure ()
 
 -- | Add default logging hooks. The default 'Env'' from
 -- 'Amazonka.Env.newEnv' already has logging hooks installed, so you

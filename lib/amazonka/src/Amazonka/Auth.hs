@@ -62,7 +62,6 @@ import Amazonka.Auth.InstanceProfile (fromDefaultInstanceProfile, fromNamedInsta
 import Amazonka.Auth.Keys (fromKeys, fromKeysEnv, fromSession, fromTemporarySession)
 import Amazonka.Auth.SSO (fromSSO)
 import Amazonka.Auth.STS (fromAssumedRole, fromWebIdentity, fromWebIdentityEnv)
-import Amazonka.EC2.Metadata
 import Amazonka.Env (Env, Env' (..), EnvNoAuth)
 import Amazonka.Prelude
 import Amazonka.Types

@@ -622,7 +622,7 @@ isEC2 m = liftIO (Exception.catch req err)
 
     err :: Client.HttpException -> IO Bool
     err = const (return False)
-{-# DEPRECATED isEC2 "this function will be removed in the next major version" #-}
+{-# DEPRECATED isEC2 "this function will be removed in Amazonka 2.2" #-}
 
 -- | Retrieve the specified 'Dynamic' data.
 --

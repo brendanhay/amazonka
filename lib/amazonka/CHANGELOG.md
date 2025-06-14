@@ -4,6 +4,63 @@
 
 ### Changed
 
+- The hooks interface is now much harder to misuse. [\#1042](https://github.com/brendanhay/amazonka/pull/1042)
+
+  It was previously extremely easy to write hook-using functions that typechecked but did not ever run. The main change is to provide specialised hook-changing functions named for each field in the `Hooks` record, so that it is much easier to get the types correct.
+
+  These are the changes to the `Amazonka.Env.Hooks` module:
+  - Functions for manipulating each hook have been added:
+    - For `requestHook`:
+      - `addRequestHook`
+      - `addRequestHookFor`
+      - `removeRequestHooksFor`
+    - For `configuredRequestHook`:
+      - `addConfiguredRequestHook`
+      - `addConfiguredRequestHookFor`
+      - `removeConfiguredRequestHooksFor`
+    - For `waitHook`:
+      - `addWaitHook`
+      - `addWaitHookFor`
+      - `removeWaitHooksFor`
+    - For `signedRequestHook`:
+      - `addSignedRequestHook`
+      - `addSignedRequestHookFor`
+      - `removeSignedRequestHooksFor`
+    - For `clientRequestHook`:
+      - `addClientRequestHook`
+      - `removeClientRequestHooks`
+    - For `clientResponseHook`:
+      - `addClientResponseHook`
+      - `addClientResponseHookFor`
+      - `removeClientResponseHooksFor`
+    - For `rawResponseBodyHook`
+      - `addRawResponseBodyHook`
+      - `removeRawResponseBodyHooks`
+    - For `requestRetryHook`:
+      - `addRequestRetryHook`
+      - `addRequestRetryHookFor`
+      - `removeRequestRetryHooksFor`
+    - For `awaitRetryHook`:
+      - `addAwaitRetryHook`
+      - `addAwaitRetryHookFor`
+      - `removeAwaitRetryHooksFor`
+    - For `responseHook`:
+      - `addResponseHook`
+      - `addResponseHookFor`
+      - `removeResponseHooksFor`
+    - For `errorHook`:
+      - `addErrorHook`
+      - `addErrorHookFor`
+      - `removeErrorHooksFor`
+  - Hard-to-use or near-useless functions have been deprecated:
+    - `addHook` (will be made internal in 2.2)
+    - `addHook_` (will be made internal in 2.2)
+    - `addAWSRequestHook` (will be removed in 2.2)
+    - `addAWSRequestHook_` (will be removed in 2.2)
+    - `addHookFor` (will be made internal in 2.2)
+    - `addHookFor_` (will be made internal in 2.2)
+    - `removeHooksFor` (will be made internal in 2.2)
+    - `removeHooksFor_` (will be made internal in 2.2)
 - `amazonka-core`: Add regions: `Mexico` (`mx-central-1`) (thanks @kushagarr)
 [\#1038](https://github.com/brendanhay/amazonka/pull/1038)
 - `amazonka`: Stop using `isEC2` in `discover` and deprecate it. [\#1034](https://github.com/brendanhay/amazonka/pull/1034) (thanks @pbrisbin). This function can return false positives and false negatives, so we have chosen to stop relying on it. The AWS Python SDK and CLI make no attempt to check whether they're on EC2 before requesting an instance profile, so we have stopped for consistency.

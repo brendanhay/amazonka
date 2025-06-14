@@ -12,8 +12,14 @@
 -- 3. Log the owner name returned by any ListBuckets calls.
 module Hooks where
 
-import Amazonka (ClientResponse, Request, discover, newEnv, runResourceT, send)
-import Amazonka.Env.Hooks (addHook, addHookFor, addHookFor_, requestHook, responseHook)
+import Amazonka (discover, newEnv, runResourceT, send)
+import Amazonka.Env.Hooks
+  ( addRequestHook,
+    addRequestHookFor,
+    addResponseHookFor,
+    requestHook,
+    responseHook,
+  )
 import Amazonka.S3
 import Control.Lens
 import Control.Monad.IO.Class (liftIO)
@@ -35,22 +41,23 @@ main = do
             -- have a Typeable constraint in scope, so we can capture
             -- the TypeRep (and here print its name), as well as doing
             -- other tricks using Data.Typeable.
-            addHook $ \_env (req :: req) -> do
+            addRequestHook $ \_env (req :: req) -> do
               putStr "Requesting: "
               print (typeRep (Proxy @req))
               pure req
           )
           . requestHook
             ( -- A request hook for a specific request type.
-              addHookFor @GetObject $ \_env req -> do
+              addRequestHookFor @GetObject $ \_env req -> do
                 putStrLn "This hook fires when you call GetObject"
                 putStrLn "(This code doesn't, so you won't see this printed.)"
                 pure req
             )
           . responseHook
-            ( -- A response hook. Note that you have to match the type
-              -- of the hook argument exactly, or it won't get called.
-              addHookFor_ @(Request ListBuckets, ClientResponse ListBucketsResponse) $
+            ( -- A response hook. Note that the type parameter is only
+              -- the AWS request type, not the full type of the
+              -- argument to the hook.
+              addResponseHookFor @ListBuckets $
                 \_env (_, resp) -> do
                   putStr "Received ListBucketsResponse with "
                   case responseBody resp ^? #owner . folded . #displayName . folded of

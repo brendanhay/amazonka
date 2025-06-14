@@ -32,7 +32,8 @@
 --     -- argument to the lambda, which captures the type of `req` as
 --     -- a type variable `req` (needs `-XScopedTypeVariables`).
 --     env <- newEnv discover
---       \<&\> #hooks %~ 'requestHook' ('addAWSRequestHook' $ \\_env (req :: req) -> req <$ logRequest ('typeRep' (Proxy @req)))
+--       \<&\> #hooks %~ 'requestHook'
+--         ('addRequestHook' $ \\_env (req :: req) -> req <$ logRequest ('typeRep' (Proxy @req)))
 --     ...
 --
 --   logRequest :: AWSRequest a => a -> IO ()
@@ -52,7 +53,8 @@
 --   main :: IO ()
 --   main = do
 --     env <- newEnv discover
---       \<&\> #hooks %~ 'configuredRequestHook' ('addHook' $ \\_env req -> req & #headers %~ addXRayIdHeader)
+--       \<&\> #hooks %~ 'configuredRequestHook'
+--         ('addConfiguredRequestHook' $ \\_env req -> req & #headers %~ addXRayIdHeader)
 --     ...
 --
 --   -- The actual header would normally come from whatever calls into your program,
@@ -76,23 +78,28 @@
 --     env <- newEnv discover
 --     putItemResponse <- runResourceT $
 --       send
---         (env & #hooks %~ 'errorHook' ('silenceError' DynamoDB._ConditionalCheckFailedException))
+--         (env & #hooks %~ 'errorHook'
+--           ('silenceError' DynamoDB._ConditionalCheckFailedException))
 --         (DynamoDB.newPutItem ...)
 --     ...
 --   @
 --
--- Most functions with names ending in @Hook@ ('requestHook', etc.)
--- are intended for use with lenses: partially apply them to get a
--- function @'Hook' a -> 'Hook' a@ that can go on the RHS of @(%~)@
--- (the lens modify function). You then use functions like
--- 'addHookFor' to selectively extend the hooks used at any particular
--- time.
+-- =Function Conventions
 --
--- Names ending in @_@ ('Hook_', 'addHookFor_', etc.) concern hooks
--- that return @()@ instead of the hook's input type. These hooks
--- respond to some event but lack the ability to change Amazonka's
--- behaviour; either because it is unsafe to do so, or because it is
--- difficult to do anything meaningful with the updated value.
+-- * Functions named @...Hook@ ('requestHook', etc.) are intended for
+--   use with lens operators: partially apply them to get a function
+--   @'Hooks' -> 'Hooks'@ that can go on the RHS of @(%~)@ (the lens
+--   modify function). Use functions like 'addRequestHookFor' to
+--   selectively adjust the hook at a particular field.
+--
+-- * Function names ending in @For@ ('addRequestHookFor',
+--   'addConfiguredRequestHookFor', 'removeRequestHooksFor', ...) are
+--   designed to work on a single AWS request type. You will need to
+--   pin this type with a type application in @remove...HooksFor@
+--   functions, and you may want to do so in @add...HooksFor@
+--   functions for consistency.
+--
+-- =Request/Response Flow
 --
 -- The request/response flow for a standard 'Amazonka.send' looks like
 -- this:
@@ -177,9 +184,73 @@ module Amazonka.Env.Hooks
     responseHook,
     errorHook,
 
-    -- * Functions to use with the ones above
+    -- * Composing hooks
+
+    -- ** Functions for specific field hooks
+
+    -- *** @requestHook@
+    addRequestHook,
+    addRequestHookFor,
+    removeRequestHooksFor,
+
+    -- *** @configuredRequestHook@
+    addConfiguredRequestHook,
+    addConfiguredRequestHookFor,
+    removeConfiguredRequestHooksFor,
+
+    -- *** @waitHook@
+    addWaitHook,
+    addWaitHookFor,
+    removeWaitHooksFor,
+
+    -- *** @signedRequestHook@
+    addSignedRequestHook,
+    addSignedRequestHookFor,
+    removeSignedRequestHooksFor,
+
+    -- *** @clientRequestHook@
+    addClientRequestHook,
+    removeClientRequestHooks,
+
+    -- *** @clientResponseHook@
+    addClientResponseHook,
+    addClientResponseHookFor,
+    removeClientResponseHooksFor,
+
+    -- *** @rawResponseBodyHook@
+    addRawResponseBodyHook,
+    removeRawResponseBodyHooks,
+
+    -- *** @requestRetryHook@
+    addRequestRetryHook,
+    addRequestRetryHookFor,
+    removeRequestRetryHooksFor,
+
+    -- *** @awaitRetryHook@
+    addAwaitRetryHook,
+    addAwaitRetryHookFor,
+    removeAwaitRetryHooksFor,
+
+    -- *** @responseHook@
+    addResponseHook,
+    addResponseHookFor,
+    removeResponseHooksFor,
+
+    -- *** @errorHook@
+    addErrorHook,
+    addErrorHookFor,
+    silenceError,
+    removeErrorHooksFor,
+
+    -- ** Functions for any hook
     noHook,
     noHook_,
+
+    -- * Building 'Hooks'
+    addLoggingHooks,
+    noHooks,
+
+    -- * Deprecated functions
     addHook,
     addHook_,
     addAWSRequestHook,
@@ -188,13 +259,6 @@ module Amazonka.Env.Hooks
     addHookFor_,
     removeHooksFor,
     removeHooksFor_,
-
-    -- ** Specialty combinators
-    silenceError,
-
-    -- * Building 'Hooks'
-    addLoggingHooks,
-    noHooks,
   )
 where
 
@@ -218,21 +282,35 @@ import Data.Monoid (Any)
 import Data.Typeable (Typeable, eqT, (:~:) (..))
 
 -- | A hook that returns an updated version of its arguments.
+--
+-- @since 2.0
 type Hook a = forall withAuth. Env' withAuth -> a -> IO a
 
 -- | A hook that cannot return an updated version of its argument.
+--
+-- These hooks respond to some event but lack the ability to change
+-- Amazonka's behaviour; either because it is unsafe to do so, or
+-- because it is difficult to do anything meaningful with the updated
+-- value.
+--
+-- @since 2.0
 type Hook_ a = forall withAuth. Env' withAuth -> a -> IO ()
 
 -- | Indicates whether an error hook is potentially going to be
 -- retried.
 --
 -- /See:/ 'error'
+--
+-- @since 2.0
 data Finality = NotFinal | Final
   deriving stock (Bounded, Enum, Eq, Ord, Show, Generic)
 
+-- | The collection of lifecycle hooks stored in an 'Amazonka.Env.Env'.
+--
+-- @since 2.0
 data Hooks = Hooks
   { -- | Called at the start of request processing, before the request
-    -- is configured. This is always the first hook that runs, and
+    -- is configured. This is always the first hook that runs, and its
     -- argument is usually a request record type like @amazonka-s3@'s
     -- @GetObjectRequest@.
     request :: forall a. (AWSRequest a) => Hook a,
@@ -254,7 +332,7 @@ data Hooks = Hooks
     -- | Called on a
     -- @Network.HTTP.Client.'Network.HTTP.Client.Request'@, just
     -- before it is sent. While you can retrieve a 'ClientRequest'
-    -- from the 'signedRequest' hook, this hook captures unsigned
+    -- from the @signedRequest@ hook, this hook captures unsigned
     -- requests too.
     --
     -- Changing the contents of a signed request is highly likely to
@@ -272,10 +350,10 @@ data Hooks = Hooks
     -- the @Network.HTTP.Client.'Network.HTTP.Client.Response'@.
     rawResponseBody :: Hook ByteStringLazy,
     -- | Called when Amazonka decides to retry a failed request. The
-    -- 'Text' argument is an error code like @"http_error"@,
-    -- @"request_throttled_exception"@. Check the retry check
-    -- function for your particular 'Service', usually found somewhere
-    -- like @Amazonka.S3.Types.defaultService@.
+    -- 'Text' argument is an error code like @"http_error"@ or
+    -- @"request_throttled_exception"@. Check the retry check function
+    -- for your particular 'Service', usually found somewhere like
+    -- @Amazonka.S3.Types.defaultService@.
     requestRetry ::
       forall a.
       (AWSRequest a) =>
@@ -305,23 +383,25 @@ data Hooks = Hooks
       Hook_ (Finality, Request a, Error)
   }
 
-{-# INLINE requestHook #-}
+-- | @since 2.0
 requestHook ::
   (forall a. (AWSRequest a) => Hook a -> Hook a) ->
   Hooks ->
   Hooks
 requestHook f hooks@Hooks {request} =
   hooks {request = f request}
+{-# INLINE requestHook #-}
 
-{-# INLINE waitHook #-}
+-- | @since 2.0
 waitHook ::
   (forall a. (AWSRequest a) => Hook (Wait a) -> Hook (Wait a)) ->
   Hooks ->
   Hooks
 waitHook f hooks@Hooks {wait} =
   hooks {wait = f wait}
+{-# INLINE waitHook #-}
 
-{-# INLINE configuredRequestHook #-}
+-- | @since 2.0
 configuredRequestHook ::
   ( forall a.
     (AWSRequest a) =>
@@ -332,8 +412,9 @@ configuredRequestHook ::
   Hooks
 configuredRequestHook f hooks@Hooks {configuredRequest} =
   hooks {configuredRequest = f configuredRequest}
+{-# INLINE configuredRequestHook #-}
 
-{-# INLINE signedRequestHook #-}
+-- | @since 2.0
 signedRequestHook ::
   ( forall a.
     (AWSRequest a) =>
@@ -344,16 +425,18 @@ signedRequestHook ::
   Hooks
 signedRequestHook f hooks@Hooks {signedRequest} =
   hooks {signedRequest = f signedRequest}
+{-# INLINE signedRequestHook #-}
 
-{-# INLINE clientRequestHook #-}
+-- | @since 2.0
 clientRequestHook ::
   (Hook ClientRequest -> Hook ClientRequest) ->
   Hooks ->
   Hooks
 clientRequestHook f hooks@Hooks {clientRequest} =
   hooks {clientRequest = f clientRequest}
+{-# INLINE clientRequestHook #-}
 
-{-# INLINE clientResponseHook #-}
+-- | @since 2.0
 clientResponseHook ::
   ( forall a.
     (AWSRequest a) =>
@@ -364,16 +447,18 @@ clientResponseHook ::
   Hooks
 clientResponseHook f hooks@Hooks {clientResponse} =
   hooks {clientResponse = f clientResponse}
+{-# INLINE clientResponseHook #-}
 
-{-# INLINE rawResponseBodyHook #-}
+-- | @since 2.0
 rawResponseBodyHook ::
   (Hook ByteStringLazy -> Hook ByteStringLazy) ->
   Hooks ->
   Hooks
 rawResponseBodyHook f hooks@Hooks {rawResponseBody} =
   hooks {rawResponseBody = f rawResponseBody}
+{-# INLINE rawResponseBodyHook #-}
 
-{-# INLINE requestRetryHook #-}
+-- | @since 2.0
 requestRetryHook ::
   ( forall a.
     (AWSRequest a) =>
@@ -384,8 +469,9 @@ requestRetryHook ::
   Hooks
 requestRetryHook f hooks@Hooks {requestRetry} =
   hooks {requestRetry = f requestRetry}
+{-# INLINE requestRetryHook #-}
 
-{-# INLINE awaitRetryHook #-}
+-- | @since 2.0
 awaitRetryHook ::
   ( forall a.
     (AWSRequest a) =>
@@ -396,8 +482,9 @@ awaitRetryHook ::
   Hooks
 awaitRetryHook f hooks@Hooks {awaitRetry} =
   hooks {awaitRetry = f awaitRetry}
+{-# INLINE awaitRetryHook #-}
 
-{-# INLINE responseHook #-}
+-- | @since 2.0
 responseHook ::
   ( forall a.
     (AWSRequest a) =>
@@ -408,8 +495,9 @@ responseHook ::
   Hooks
 responseHook f hooks@Hooks {response} =
   hooks {response = f response}
+{-# INLINE responseHook #-}
 
-{-# INLINE errorHook #-}
+-- | @since 2.0
 errorHook ::
   ( forall a.
     (AWSRequest a) =>
@@ -420,98 +508,329 @@ errorHook ::
   Hooks
 errorHook f hooks@Hooks {error} =
   hooks {error = f error}
+{-# INLINE errorHook #-}
 
--- | Turn a @'Hook' a@ into another @'Hook' a@ that does nothing.
+-- | Add a hook for every AWS request type. Designed to be used with
+-- 'requestHook'.
 --
 -- @
--- -- Example: remove all request hooks:
--- requestHook noHook :: Hooks -> Hooks
+-- -- Example: A hook modification that logs every AWS request,
+-- -- where `logRequest :: AWSRequest a => Hook a`.
+-- requestHook (addRequestHook logRequest) :: Hooks -> Hooks
 -- @
-noHook :: Hook a -> Hook a
-noHook _ _ = pure
+--
+-- @since 2.1
+addRequestHook :: (AWSRequest a) => Hook a -> Hook a -> Hook a
+addRequestHook = addHook
 
--- | Turn a @'Hook_' a@ into another @'Hook_' a@ that does nothing.
+-- | Add a hook for one specific AWS request type. Designed to be used
+-- with 'requestHook'.
 --
 -- @
--- -- Example: Remove all response hooks:
--- responseHook noHook_ :: Hooks -> Hooks
+-- -- Example: Run @getObjectRequestHook@ on anything that is a @GetObjectRequest@
+-- -- Assumes getObjectRequestHook :: Hook GetObjectRequest
+-- requestHook (addRequestHookFor getObjectRequestHook) :: Hooks -> Hooks
 -- @
-noHook_ :: Hook_ a -> Hook_ a
-noHook_ _ _ _ = pure ()
+--
+-- @since 2.1
+addRequestHookFor ::
+  forall a b. (AWSRequest a, AWSRequest b) => Hook a -> Hook b -> Hook b
+addRequestHookFor = addHookFor
 
--- | Unconditionally add a @'Hook' a@ to the chain of hooks. If you
--- need to do something with specific request types, you want
--- 'addHookFor', instead.
-addHook :: Hook a -> Hook a -> Hook a
-addHook newHook oldHook env = oldHook env >=> newHook env
-
--- | Unconditionally add a @'Hook_' a@ to the chain of hooks. If you
--- need to do something with specific request types, you want
--- 'addHookFor_', instead.
-addHook_ :: Hook_ a -> Hook_ a -> Hook_ a
-addHook_ newHook oldHook env a = oldHook env a *> newHook env a
-
--- | Like 'addHook', adds an unconditional hook, but it also captures
--- the @'AWSRequest' a@ constraint. Useful for handling every AWS
--- request type in a generic way.
-addAWSRequestHook :: (AWSRequest a) => Hook a -> Hook a -> Hook a
-addAWSRequestHook = addHook
-
--- | 'addAWSRequestHook_' is 'addAWSRequestHook' but for 'Hook_'s.
-addAWSRequestHook_ :: (AWSRequest a) => Hook_ a -> Hook_ a -> Hook_ a
-addAWSRequestHook_ = addHook_
-
--- | @addHookFor \@a newHook oldHook@ When @a@ and @b@ are the same
--- type, run the given 'Hook a' after all others, otherwise only run
--- the existing hooks.
+-- | Remove all hooks for one AWS request type. Designed to be used
+-- with 'requestHook'.
 --
 -- @
--- -- Example: Run @getObjectRequestHook@ on anything that is a @GetObjectRequest@:
--- requestHook (addHookFor @GetObjectRequest getObjectRequestHook) :: Hooks -> Hooks
+-- -- Example: Don't run 'request' hooks on a @GetObjectRequest@:
+-- requestHook (removeRequestHooksFor @GetObjectRequest) :: Hooks -> Hooks
 -- @
-addHookFor ::
-  forall a b. (Typeable a, Typeable b) => Hook a -> Hook b -> Hook b
-addHookFor newHook oldHook env =
-  oldHook env >=> case eqT @a @b of
-    Just Refl -> newHook env
-    Nothing -> pure
-
--- | When @a@ and @b@ are the same type, run the given 'Hook_ a' after
--- all other hooks have run.
 --
--- @
--- -- Example: Run @aSignedRequestHook@ on anything that is a @Signed GetObjectRequest@:
--- requestHook (addHookFor_ @(Signed GetObjectRequest) aSignedRequestHook) :: Hooks -> Hooks
--- @
-addHookFor_ ::
-  forall a b. (Typeable a, Typeable b) => Hook_ a -> Hook_ b -> Hook_ b
-addHookFor_ newHook oldHook env a = do
-  oldHook env a
-  case eqT @a @b of
-    Just Refl -> newHook env a
-    Nothing -> pure ()
+-- @since 2.1
+removeRequestHooksFor ::
+  forall a b. (AWSRequest a, AWSRequest b) => Hook b -> Hook b
+removeRequestHooksFor = removeHooksFor @a
 
--- | When @a@ and @b@ are the same type, do not call any more hooks.
+-- | Add a hook for every configured AWS request type. Designed
+-- to be used with 'configuredRequestHook'.
 --
--- @
--- -- Example: Prevent any request hooks from running against a @PutObjectRequest@:
--- requestHook (removeHooksFor @PutObjectRequest) :: Hooks -> Hooks
--- @
-removeHooksFor :: forall a b. (Typeable a, Typeable b) => Hook b -> Hook b
-removeHooksFor oldHook env = case eqT @a @b of
-  Just Refl -> pure
-  Nothing -> oldHook env
+-- @since 2.1
+addConfiguredRequestHook ::
+  (AWSRequest a) => Hook (Request a) -> Hook (Request a) -> Hook (Request a)
+addConfiguredRequestHook = addHook
 
--- | When @a@ and @b@ are the same type, do not call any more hooks.
+-- | Add a hook for one specific configured AWS request type. Designed
+-- to be used with 'configuredRequestHook'.
 --
--- @
--- -- Example: Prevent any error hooks from running against errors caused by a @PutObjectRequest@:
--- errorHook (removeHooksFor @(Finality, Request PutObjectRequest, Error)) :: Hooks -> Hooks
--- @
-removeHooksFor_ :: forall a b. (Typeable a, Typeable b) => Hook_ b -> Hook_ b
-removeHooksFor_ oldHook env a = case eqT @a @b of
-  Just Refl -> pure ()
-  Nothing -> oldHook env a
+-- @since 2.1
+addConfiguredRequestHookFor ::
+  (AWSRequest a, AWSRequest b) =>
+  Hook (Request a) ->
+  Hook (Request b) ->
+  Hook (Request b)
+addConfiguredRequestHookFor = addHookFor
+
+-- | Remove all hooks for one specific type of configured
+-- request. Designed to be used with 'configuredRequestHook'.
+--
+-- @since 2.1
+removeConfiguredRequestHooksFor ::
+  forall a b.
+  (AWSRequest a, AWSRequest b) =>
+  Hook (Request b) ->
+  Hook (Request b)
+removeConfiguredRequestHooksFor = removeHooksFor @(Request a)
+
+-- | Add a hook for every @'Wait' a@ configuration. Designed to
+-- be used with 'waitHook'.
+--
+-- @since 2.1
+addWaitHook ::
+  (AWSRequest a) => Hook (Wait a) -> Hook (Wait a) -> Hook (Wait a)
+addWaitHook = addHook
+
+-- | Add a hook for one specific @'Wait' a@ configuration. Designed to
+-- be used with 'waitHook'.
+--
+-- @since 2.1
+addWaitHookFor ::
+  (AWSRequest a, AWSRequest b) =>
+  Hook (Wait a) ->
+  Hook (Wait b) ->
+  Hook (Wait b)
+addWaitHookFor = addHookFor
+
+-- | Remove all hooks for one specific type of @'Wait' a@. Designed to
+-- be used with 'waitHook'.
+--
+-- @since 2.1
+removeWaitHooksFor ::
+  forall a b.
+  (AWSRequest a, AWSRequest b) =>
+  Hook (Wait b) ->
+  Hook (Wait b)
+removeWaitHooksFor = removeHooksFor @(Wait a)
+
+-- | Add a hook for every @'Signed' a@ request. Designed to be used
+-- with 'signedRequestHook'.
+--
+-- @since 2.1
+addSignedRequestHook ::
+  (AWSRequest a) => Hook_ (Signed a) -> Hook_ (Signed a) -> Hook_ (Signed a)
+addSignedRequestHook = addHook_
+
+-- | Add a hook for one specific @'Signed' a@ request type. Designed
+-- to be used with 'signedRequestHook'.
+--
+-- @since 2.1
+addSignedRequestHookFor ::
+  (AWSRequest a, AWSRequest b) =>
+  Hook_ (Signed a) ->
+  Hook_ (Signed b) ->
+  Hook_ (Signed b)
+addSignedRequestHookFor = addHookFor_
+
+-- | Remove all hooks for one specific type of @'Signed' a@
+-- request. Designed to be used with 'signedRequestHook'.
+--
+-- @since 2.1
+removeSignedRequestHooksFor ::
+  forall a b.
+  (AWSRequest a, AWSRequest b) =>
+  Hook_ (Signed b) ->
+  Hook_ (Signed b)
+removeSignedRequestHooksFor = removeHooksFor_ @(Signed a)
+
+-- | Add a hook for 'ClientRequest'. This is an alias for 'addHook',
+-- provided for consistency and designed to be used with
+-- 'clientRequestHook'.
+--
+-- @since 2.1
+addClientRequestHook ::
+  Hook ClientRequest -> Hook ClientRequest -> Hook ClientRequest
+addClientRequestHook = addHook
+
+-- | Remove all hooks for 'ClientRequest'. This is an alias for
+-- 'noHook', provided for consistency and designed to be used with
+-- 'clientRequestHook'.
+--
+-- @since 2.1
+removeClientRequestHooks :: Hook ClientRequest -> Hook ClientRequest
+removeClientRequestHooks = noHook
+
+-- | Add a hook for every type of client response. Designed to
+-- be used with 'clientResponseHook'.
+--
+-- @since 2.1
+addClientResponseHook ::
+  (AWSRequest a) =>
+  Hook_ (Request a, ClientResponse ()) ->
+  Hook_ (Request a, ClientResponse ()) ->
+  Hook_ (Request a, ClientResponse ())
+addClientResponseHook = addHook_
+
+-- | Add a hook for one specific type of client response. Designed to
+-- be used with 'clientResponseHook'.
+--
+-- @since 2.1
+addClientResponseHookFor ::
+  (AWSRequest a, AWSRequest b) =>
+  Hook_ (Request a, ClientResponse ()) ->
+  Hook_ (Request b, ClientResponse ()) ->
+  Hook_ (Request b, ClientResponse ())
+addClientResponseHookFor = addHookFor_
+
+-- | Remove all hooks for one specific type of client
+-- response. Designed to be used with 'clientResponseHook'.
+--
+-- @since 2.1
+removeClientResponseHooksFor ::
+  forall a b.
+  (AWSRequest a, AWSRequest b) =>
+  Hook_ (Request b, ClientResponse ()) ->
+  Hook_ (Request b, ClientResponse ())
+removeClientResponseHooksFor = removeHooksFor_ @(Request a, ClientResponse ())
+
+-- | Add a hook for the raw response body. This is an alias for
+-- 'addHook', provided for consistency and designed to be used with
+-- 'rawResponseBodyHook'.
+--
+-- @since 2.1
+addRawResponseBodyHook ::
+  Hook ByteStringLazy -> Hook ByteStringLazy -> Hook ByteStringLazy
+addRawResponseBodyHook = addHook
+
+-- | Remove all hooks for the raw response body. This is an alias for
+-- 'noHook', provided for consistency and designed to be used with
+-- 'rawResponseBodyHook'.
+--
+-- @since 2.1
+removeRawResponseBodyHooks :: Hook ByteStringLazy -> Hook ByteStringLazy
+removeRawResponseBodyHooks = noHook
+
+-- | Add a request retry hook for every AWS request type. Designed to
+-- be used with 'requestRetryHook'.
+--
+-- @since 2.1
+addRequestRetryHook ::
+  (AWSRequest a) =>
+  Hook_ (Request a, Text, Retry.RetryStatus) ->
+  Hook_ (Request a, Text, Retry.RetryStatus) ->
+  Hook_ (Request a, Text, Retry.RetryStatus)
+addRequestRetryHook = addHook_
+
+-- | Add a request retry hook for one specific AWS request
+-- type. Designed to be used with 'requestRetryHook'.
+--
+-- @since 2.1
+addRequestRetryHookFor ::
+  forall a b.
+  (AWSRequest a, AWSRequest b) =>
+  Hook_ (Request a, Text, Retry.RetryStatus) ->
+  Hook_ (Request b, Text, Retry.RetryStatus) ->
+  Hook_ (Request b, Text, Retry.RetryStatus)
+addRequestRetryHookFor = addHookFor_
+
+-- | Remove all request retry hooks for one specific AWS request
+-- type. Designed to be used with 'requestRetryHook'.
+--
+-- @since 2.1
+removeRequestRetryHooksFor ::
+  forall a b.
+  (AWSRequest a, AWSRequest b) =>
+  Hook_ (Request b, Text, Retry.RetryStatus) ->
+  Hook_ (Request b, Text, Retry.RetryStatus)
+removeRequestRetryHooksFor =
+  removeHooksFor_ @(Request a, Text, Retry.RetryStatus)
+
+-- | Add an await retry hook for every AWS request type. Designed to
+-- be used with 'awaitRetryHook'.
+--
+-- @since 2.1
+addAwaitRetryHook ::
+  (AWSRequest a) =>
+  Hook_ (Request a, Wait a, Accept, Retry.RetryStatus) ->
+  Hook_ (Request a, Wait a, Accept, Retry.RetryStatus) ->
+  Hook_ (Request a, Wait a, Accept, Retry.RetryStatus)
+addAwaitRetryHook = addHook_
+
+-- | Add an await retry hook for a specific AWS request type. Designed
+-- to be used with 'awaitRetryHook'.
+--
+-- @since 2.1
+addAwaitRetryHookFor ::
+  (AWSRequest a, AWSRequest b) =>
+  Hook_ (Request a, Wait a, Accept, Retry.RetryStatus) ->
+  Hook_ (Request b, Wait b, Accept, Retry.RetryStatus) ->
+  Hook_ (Request b, Wait b, Accept, Retry.RetryStatus)
+addAwaitRetryHookFor = addHookFor_
+
+-- | Remove all await retry hooks for one specific AWS request
+-- type. Designed to be used with 'awaitRetryHook'.
+--
+-- @since 2.1
+removeAwaitRetryHooksFor ::
+  forall a b.
+  (AWSRequest a, AWSRequest b) =>
+  Hook_ (Request b, Wait b, Accept, Retry.RetryStatus) ->
+  Hook_ (Request b, Wait b, Accept, Retry.RetryStatus)
+removeAwaitRetryHooksFor =
+  removeHooksFor_ @(Request a, Wait a, Accept, Retry.RetryStatus)
+
+-- | Add a repsonse hook for every AWS request type. Designed to be
+-- used with 'responseHook'.
+--
+-- @since 2.1
+addResponseHook ::
+  (AWSRequest a) =>
+  Hook_ (Request a, ClientResponse (AWSResponse a)) ->
+  Hook_ (Request a, ClientResponse (AWSResponse a)) ->
+  Hook_ (Request a, ClientResponse (AWSResponse a))
+addResponseHook = addHook_
+
+-- | Add a repsonse hook for one specific AWS request type. Designed
+-- to be used with 'responseHook'.
+--
+-- @since 2.1
+addResponseHookFor ::
+  (AWSRequest a, AWSRequest b) =>
+  Hook_ (Request a, ClientResponse (AWSResponse a)) ->
+  Hook_ (Request b, ClientResponse (AWSResponse b)) ->
+  Hook_ (Request b, ClientResponse (AWSResponse b))
+addResponseHookFor = addHookFor_
+
+-- | Remove all response hooks for one specific AWS request
+-- type. Designed to be used with 'responseHook'.
+--
+-- @since 2.1
+removeResponseHooksFor ::
+  forall a b.
+  (AWSRequest a, AWSRequest b) =>
+  Hook_ (Request b, ClientResponse (AWSResponse b)) ->
+  Hook_ (Request b, ClientResponse (AWSResponse b))
+removeResponseHooksFor =
+  removeHooksFor_ @(Request a, ClientResponse (AWSResponse a))
+
+-- | Add an error hook for every AWS request type. Designed to be used
+-- with 'errorHook'.
+--
+-- @since 2.1
+addErrorHook ::
+  (AWSRequest a) =>
+  Hook_ (Finality, Request a, Error) ->
+  Hook_ (Finality, Request a, Error) ->
+  Hook_ (Finality, Request a, Error)
+addErrorHook = addHook_
+
+-- | Add an error hook for one specific AWS request type. Designed to
+-- be used with 'errorHook'.
+--
+-- @since 2.1
+addErrorHookFor ::
+  (AWSRequest a, AWSRequest b) =>
+  Hook_ (Finality, Request a, Error) ->
+  Hook_ (Finality, Request b, Error) ->
+  Hook_ (Finality, Request b, Error)
+addErrorHookFor = addHookFor_
 
 -- | Run the wrapped hook unless the given 'Fold' or 'Traversal'
 -- matches the error. You will probably want to use this with the
@@ -531,6 +850,8 @@ removeHooksFor_ oldHook env a = case eqT @a @b of
 -- 'silenceError' :: Lens' Error e      -> 'Hook_' ('Finality', Request a, Error) -> 'Hook_' ('Finality', Request a, Error)
 -- 'silenceError' :: Traversal' Error e -> 'Hook_' ('Finality', Request a, Error) -> 'Hook_' ('Finality', Request a, Error)
 -- @
+--
+-- @since 2.0
 silenceError ::
   Getting Any Error e ->
   Hook_ (Finality, Request a, Error) ->
@@ -538,10 +859,45 @@ silenceError ::
 silenceError g oldHook env t@(_, _, err) =
   if has g err then pure () else oldHook env t
 
+-- | Remove all error hooks for one specific AWS request
+-- type. Designed to be used with 'errorHook'.
+--
+-- @since 2.1
+removeErrorHooksFor ::
+  forall a b.
+  (AWSRequest a, AWSRequest b) =>
+  Hook_ (Finality, Request b, Error) ->
+  Hook_ (Finality, Request b, Error)
+removeErrorHooksFor = removeHooksFor_ @(Finality, Request a, Error)
+
+-- | Turn a @'Hook' a@ into another @'Hook' a@ that does nothing.
+--
+-- @
+-- -- Example: remove all request hooks:
+-- requestHook noHook :: Hooks -> Hooks
+-- @
+--
+-- @since 2.0
+noHook :: Hook a -> Hook a
+noHook _ _ = pure
+
+-- | Turn a @'Hook_' a@ into another @'Hook_' a@ that does nothing.
+--
+-- @
+-- -- Example: Remove all response hooks:
+-- responseHook noHook_ :: Hooks -> Hooks
+-- @
+--
+-- @since 2.0
+noHook_ :: Hook_ a -> Hook_ a
+noHook_ _ _ _ = pure ()
+
 -- | Add default logging hooks. The default 'Env'' from
 -- 'Amazonka.Env.newEnv' already has logging hooks installed, so you
 -- probably only want this if you are building your own 'Hooks' from
 -- scratch.
+--
+-- @since 2.0
 addLoggingHooks :: Hooks -> Hooks
 addLoggingHooks
   hooks@Hooks
@@ -595,6 +951,8 @@ addLoggingHooks
       munwords = mconcat . intersperse " "
 
 -- | Empty 'Hooks' structure which returns everything unmodified.
+--
+-- @since 2.0
 noHooks :: Hooks
 noHooks =
   Hooks
@@ -610,3 +968,138 @@ noHooks =
       response = \_ _ -> pure (),
       error = \_ _ -> pure ()
     }
+
+-- | Unconditionally add a @'Hook' a@ to the chain of hooks. If you
+-- need to do something with specific request types, you want
+-- 'addHookFor', instead.
+--
+-- __NOTE__: This function has been deprecated because it's almost
+-- impossible to do anything useful with. Instead, you should use one
+-- of the hook-specific functions in this module.
+--
+-- @since 2.0
+addHook :: Hook a -> Hook a -> Hook a
+addHook newHook oldHook env = oldHook env >=> newHook env
+{-# DEPRECATED addHook "this function will be internal in Amazonka 2.2" #-}
+
+-- | Unconditionally add a @'Hook_' a@ to the chain of hooks. If you
+-- need to do something with specific request types, you want
+-- 'addHookFor_', instead.
+--
+-- __NOTE__: This function has been deprecated because it's almost
+-- impossible to do anything useful with. Instead, you should use one
+-- of the hook-specific functions in this module.
+--
+-- @since 2.0
+addHook_ :: Hook_ a -> Hook_ a -> Hook_ a
+addHook_ newHook oldHook env a = oldHook env a *> newHook env a
+{-# DEPRECATED addHook_ "this function will be internal in Amazonka 2.2" #-}
+
+-- | Like 'addHook', adds an unconditional hook, but it also captures
+-- the @'AWSRequest' a@ constraint.
+--
+-- __NOTE__: This function has been deprecated because it's very easy
+-- to accidentally write code which typechecks but never fires the new
+-- hook. Instead, you should use one of the hook-specific functions in
+-- this module.
+--
+-- @since 2.0
+addAWSRequestHook :: (AWSRequest a) => Hook a -> Hook a -> Hook a
+addAWSRequestHook = addHook
+{-# DEPRECATED addAWSRequestHook "this function will be removed in Amazonka 2.2" #-}
+
+-- | 'addAWSRequestHook_' is 'addAWSRequestHook' but for 'Hook_'s.
+--
+-- __NOTE__: This function has been deprecated because it's very easy
+-- to accidentally write code which typechecks but never fires the new
+-- hook. Instead, you should use one of the hook-specific functions in
+-- this module.
+--
+-- @since 2.0
+addAWSRequestHook_ :: (AWSRequest a) => Hook_ a -> Hook_ a -> Hook_ a
+addAWSRequestHook_ = addHookFor_
+{-# DEPRECATED addAWSRequestHook_ "this function will be removed in Amazonka 2.2" #-}
+
+-- | @addHookFor \@a newHook oldHook@ When @a@ and @b@ are the same
+-- type, run the given 'Hook a' after all others, otherwise only run
+-- the existing hooks.
+--
+-- @
+-- -- Example: Run @getObjectRequestHook@ on anything that is a @GetObjectRequest@:
+-- requestHook (addHookFor @GetObjectRequest getObjectRequestHook) :: Hooks -> Hooks
+-- @
+--
+-- __NOTE__: This function has been deprecated because it's very easy
+-- to accidentally write code which typechecks but never fires the new
+-- hook. Instead, you should use one of the hook-specific functions in
+-- this module.
+--
+-- @since 2.0
+addHookFor ::
+  forall a b. (Typeable a, Typeable b) => Hook a -> Hook b -> Hook b
+addHookFor newHook oldHook env =
+  oldHook env >=> case eqT @a @b of
+    Just Refl -> newHook env
+    Nothing -> pure
+{-# DEPRECATED addHookFor "this function will be internal in Amazonka 2.2" #-}
+
+-- | When @a@ and @b@ are the same type, run the given 'Hook_ a' after
+-- all other hooks have run.
+--
+-- @
+-- -- Example: Run @aSignedRequestHook@ on anything that is a @Signed GetObjectRequest@:
+-- requestHook (addHookFor_ @(Signed GetObjectRequest) aSignedRequestHook) :: Hooks -> Hooks
+-- @
+--
+-- __NOTE__: This function has been deprecated because it's very easy
+-- to accidentally write code which typechecks but never fires the new
+-- hook. Instead, you should use one of the hook-specific functions in
+-- this module.
+--
+-- @since 2.0
+addHookFor_ ::
+  forall a b. (Typeable a, Typeable b) => Hook_ a -> Hook_ b -> Hook_ b
+addHookFor_ newHook oldHook env a = do
+  oldHook env a
+  case eqT @a @b of
+    Just Refl -> newHook env a
+    Nothing -> pure ()
+{-# DEPRECATED addHookFor_ "this function will be internal in Amazonka 2.2" #-}
+
+-- | When @a@ and @b@ are the same type, do not call any more hooks.
+--
+-- @
+-- -- Example: Prevent any request hooks from running against a @PutObjectRequest@:
+-- requestHook (removeHooksFor @PutObjectRequest) :: Hooks -> Hooks
+-- @
+--
+-- __NOTE__: This function has been deprecated because it's very easy
+-- to accidentally write code which typechecks but never suppresses
+-- the hook. Instead, you should use one of the hook-specific
+-- functions in this module.
+--
+-- @since 2.0
+removeHooksFor :: forall a b. (Typeable a, Typeable b) => Hook b -> Hook b
+removeHooksFor oldHook env = case eqT @a @b of
+  Just Refl -> pure
+  Nothing -> oldHook env
+{-# DEPRECATED removeHooksFor "this function will be internal in Amazonka 2.2" #-}
+
+-- | When @a@ and @b@ are the same type, do not call any more hooks.
+--
+-- @
+-- -- Example: Prevent any error hooks from running against errors caused by a @PutObjectRequest@:
+-- errorHook (removeHooksFor @(Finality, Request PutObjectRequest, Error)) :: Hooks -> Hooks
+-- @
+--
+-- __NOTE__: This function has been deprecated because it's very easy
+-- to accidentally write code which typechecks but never suppresses
+-- the hook. Instead, you should use one of the hook-specific
+-- functions in this module.
+--
+-- @since 2.0
+removeHooksFor_ :: forall a b. (Typeable a, Typeable b) => Hook_ b -> Hook_ b
+removeHooksFor_ oldHook env a = case eqT @a @b of
+  Just Refl -> pure ()
+  Nothing -> oldHook env a
+{-# DEPRECATED removeHooksFor_ "this function will be internal in Amazonka 2.2" #-}

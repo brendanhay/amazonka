@@ -60,9 +60,12 @@ fetchAuthInBackground menv =
           then untilExpiry - fiveMinutes
           else untilExpiry `div` 2
 
-      env <- Exception.try ma
+      env <- Exception.try @SomeException ma
       case env of
-        Left e -> Exception.throwTo p (RetrievalError e)
+        Left e -> case Exception.fromException e of
+          Just (RetrievalError e') -> Exception.throwTo p (RetrievalError e')
+          Just (AuthServiceError e') -> Exception.throwTo p (AuthServiceError e')
+          _ -> Exception.throwTo p (UnknownAuthError e)
         Right a -> do
           mr <- Weak.deRefWeak w
           case mr of

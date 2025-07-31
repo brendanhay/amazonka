@@ -43,12 +43,15 @@ module Amazonka.Env
 where
 
 import Amazonka.Core.Lens.Internal (Lens)
+import Amazonka.Data.Text (toText)
 import Amazonka.Env.Hooks (Hooks, addLoggingHooks, noHooks)
 import Amazonka.Logger (Logger)
 import Amazonka.Prelude
 import Amazonka.Types hiding (timeout)
+import qualified Amazonka.Endpoint as Endpoint
 import qualified Amazonka.Types as Service (Service (..))
 import qualified Data.Function as Function
+import qualified Data.List as List
 import qualified Data.Text as Text
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit
@@ -160,16 +163,61 @@ newEnvNoAuth =
 newEnvNoAuthFromManager :: (MonadIO m) => Client.Manager -> m EnvNoAuth
 newEnvNoAuthFromManager manager = do
   mRegion <- lookupRegion
+  endpointOverrides <- customEndpoints
   pure
     Env
       { region = fromMaybe NorthVirginia mRegion,
         logger = \_ _ -> pure (),
         hooks = addLoggingHooks noHooks,
         retryCheck = retryConnectionFailure 3,
-        overrides = id,
+        overrides = endpointOverrides,
         manager,
         auth = Proxy
       }
+
+-- | Retrieve custom endpoints from environment variables:
+--
+-- * @AWS_ENDPOINT_URL@
+-- * @AWS_ENDPOINT_URL_<SERVICE>@
+--
+-- The latter takes precedence over the former.
+--
+-- If @AWS_IGNORE_CONFIGURED_ENDPOINT_URLS@ is set, all other custom endpoint
+-- settings are ignored.
+--
+-- See
+-- <https://docs.aws.amazon.com/sdkref/latest/guide/feature-ss-endpoints.html>
+customEndpoints :: (MonadIO m) => m (Service -> Service)
+customEndpoints = do
+  environment <- liftIO Environment.getEnvironment
+  pure $ case lookup "AWS_IGNORE_CONFIGURED_ENDPOINT_URLS" environment of
+    Just _ -> id
+    _ -> go environment
+  where
+    go environment =
+      let globalUrl = lookup "AWS_ENDPOINT_URL" environment >>= Client.parseRequest
+          serviceUrls = environment
+            & mapMaybe getEndpoint
+            & map (first (Text.toLower . Text.pack))
+          override s =
+            case lookup (Text.toLower . toText $ Service.abbrev s) serviceUrls of
+              Just x -> setEndpointMaybe (Client.parseRequest x) s
+              Nothing -> setEndpointMaybe globalUrl s
+      in override
+
+    getEndpoint (k, v) = (,v) <$> removePrefix "AWS_ENDPOINT_URL_" k
+
+    removePrefix :: String -> String -> Maybe String
+    removePrefix prefix s =
+      if prefix `List.isPrefixOf` s
+        then Just $ drop (length prefix) s
+        else Nothing
+
+    setEndpointMaybe :: Maybe Client.Request -> Service -> Service
+    setEndpointMaybe mreq s =
+      case mreq of
+        Just req -> Endpoint.setEndpoint (Client.secure req) (Client.host req) (Client.port req) s
+        Nothing -> s
 
 -- | Get "the" 'Auth' from an 'Env'', if we can.
 authMaybe :: (Foldable withAuth) => Env' withAuth -> Maybe Auth

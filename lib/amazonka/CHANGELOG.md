@@ -4,6 +4,7 @@
 
 ### Changed
 
+- `amazonka`: Add support for `AWS_ENDPOINT_URL*` environment variables to override service-specific endpoints. [\#1046](https://github.com/brendanhay/amazonka/pull/1046)
 - The hooks interface is now much harder to misuse. [\#1042](https://github.com/brendanhay/amazonka/pull/1042)
 
   It was previously extremely easy to write hook-using functions that typechecked but did not ever run. The main change is to provide specialised hook-changing functions named for each field in the `Hooks` record, so that it is much easier to get the types correct.

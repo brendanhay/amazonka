@@ -23,6 +23,8 @@ data AuthError
   | InvalidFileError Text
   | InvalidIAMError Text
   | CredentialChainExhausted
+  | AuthServiceError ServiceError
+  | OtherAuthError SomeException
   deriving stock (Show, Generic)
 
 instance Exception AuthError
@@ -35,6 +37,8 @@ instance ToLog AuthError where
     InvalidFileError e -> "[InvalidFileError] { message = " <> build e <> "}"
     InvalidIAMError e -> "[InvalidIAMError]  { message = " <> build e <> "}"
     CredentialChainExhausted -> "[CredentialChainExhausted]"
+    AuthServiceError e -> "[AuthServiceError] { serviceError = " <> build e <> "}"
+    OtherAuthError e -> "[OtherAuthError] { message = " <> build (show e) <> "}"
 
 class AsAuthError a where
   -- | A general authentication error.

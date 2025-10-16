@@ -102,4 +102,4 @@ defaultEndpoint Service {endpointPrefix = p} r = go (CI.mk p)
     shouldMakeURLFromRegionSTS :: Bool
     shouldMakeURLFromRegionSTS =
       let mval = unsafePerformIO $ Environment.lookupEnv "SHOULD_MAKE_URL_FROM_REGION_STS"
-      in maybe False (\x -> (Text.toLower . Text.pack) x == "true") mval
+      in maybe True (\x -> (Text.toLower . Text.pack) x == "true") mval

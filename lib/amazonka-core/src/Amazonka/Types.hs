@@ -677,6 +677,17 @@ class (Typeable a, Typeable (AWSResponse a)) => AWSRequest a where
     ClientResponse ClientBody ->
     m (Either Error (ClientResponse (AWSResponse a)))
 
+  -- | For some requests, botocore will designate one field of a
+  -- request as an "idempotency token", which the caller can manually
+  -- fill in to defend against deduplication. If he does not, it needs
+  -- to be filled in by the SDK.
+  --
+  -- This is a 'Lens.LensLike'' and not a true 'Lens.Lens'' because if
+  -- the request type does not contain an idempotency token, it will
+  -- do nothing (violating the get/set law).
+  updateIdempotencyToken ::
+    (Functor f) => Lens.LensLike' f a (Maybe Text)
+
 -- | An access key ID.
 --
 -- For example: @AKIAIOSFODNN7EXAMPLE@
@@ -951,7 +962,6 @@ pattern TelAviv = Region' "il-central-1"
 
 pattern MexicoCentral :: Region
 pattern MexicoCentral = Region' "mx-central-1"
-
 
 -- Middle East
 

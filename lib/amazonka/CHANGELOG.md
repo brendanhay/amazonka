@@ -4,6 +4,9 @@
 
 ### Changed
 
+- `amazonka` will now store idempotency tokens into requests that support them but have not been set by the caller.
+  - `amazonka-core`: Class `AWSRequest` has an new function `updateIdempotencyToken`. If a request type can contain an idempotency token, this function will allow it to be updated.
+
 - `amazonka`: Improve error handling during periodic credential refresh in `fetchAuthInBackground`.
   Exceptions thrown by the refresh action are now categorized and rethrown to the parent thread as
   `RetrievalError`, `AuthServiceError`, or `OtherAuthError` (instead of just `RetrievalError` which was a bug). (thanks @kushagarr)

@@ -18,6 +18,9 @@
 -- the ones here exist to ease legacy code-migration.
 module Amazonka.Prelude
   ( module Export,
+    ALens (..),
+    ALens',
+    cloneLens,
     TextLazy,
     TextBuilder,
     ByteStringLazy,
@@ -82,3 +85,13 @@ type TextBuilder = Text.Lazy.Builder.Builder
 type ByteStringLazy = ByteString.Lazy.ByteString
 
 type ByteStringBuilder = ByteString.Builder.Builder
+
+-- | A first-class lens that can be stored inside a data structure.
+newtype ALens s t a b
+  = ALens (forall f. (Functor f) => (a -> f b) -> s -> f t)
+
+type ALens' s a = ALens s s a a
+
+-- | Use an 'ALens' as an ordinary 'Lens''.
+cloneLens :: (Functor f) => ALens s t a b -> (a -> f b) -> s -> f t
+cloneLens (ALens l) = l

@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `amazonka` will now store idempotency tokens into requests that support them but have not been set by the caller.
+  - `amazonka-core`: Class `AWSRequest` has an new function `updateIdempotencyToken`. If a request type can contain an idempotency token, this function will allow it to be updated.
 - `amazonka`: `Amazonka.Auth.SSO.fromSSO` throws an `AuthError` now.  Previously
   it could throw a `Amazonka.Types.Error`.
   [\#1060](https://github.com/brendanhay/amazonka/pull/1060)

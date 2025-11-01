@@ -28,6 +28,8 @@ import Control.Monad.Trans.Resource (liftResourceT, transResourceT)
 import qualified Control.Retry as Retry
 import Data.Foldable (traverse_)
 import qualified Data.Time as Time
+import qualified Data.UUID as UUID
+import qualified Data.UUID.V4 as UUIDv4
 import qualified Network.HTTP.Conduit as Client.Conduit
 
 retryRequest ::
@@ -152,10 +154,16 @@ httpRequest env@Env {hooks, manager, region} cfgRq =
 -- (Request a).
 configureRequest ::
   (AWSRequest a, MonadIO m) => Env' withAuth -> a -> m (Request a)
-configureRequest env@Env {overrides, hooks} =
-  liftIO
-    . Hooks.configuredRequest hooks env
-    . request overrides
+configureRequest env@Env {overrides, hooks} awsRequest = do
+  -- If the idempotency token is not set, create a v4 UUID
+  -- for consistency with botocore:
+  -- https://github.com/boto/botocore/blob/1122d80bfeb3a52a7ae7138a9e9abdb538eae895/botocore/handlers.py#L285
+  let uuidV4IfAbsent = \case
+        Nothing -> liftIO $ Just . UUID.toText <$> UUIDv4.nextRandom
+        Just token -> pure $ Just token
+  configuredRequest <-
+    request overrides <$> updateIdempotencyToken uuidV4IfAbsent awsRequest
+  liftIO $ Hooks.configuredRequest hooks env configuredRequest
 
 retryStream :: Request a -> Retry.RetryPolicy
 retryStream Request {body} =

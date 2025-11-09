@@ -42,7 +42,7 @@ operationData cfg m o = do
 
   xis <- addInstances xa xs <$> requestInsts m (_opName o) h xr xs
 
-  cls <- pp Print $ AWSRequest.instanceD cfg m h (xr, xis) (yr, ys)
+  cls <- pp Print $ AWSRequest.instanceD cfg (m ^. metadata) h (xr, xis) (yr, ys)
   mpage <- pagerFields m o >>= traverse (pp Print . pagerD xn)
 
   yis' <- renderInsts p yn (responseInsts ys)

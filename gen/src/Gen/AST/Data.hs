@@ -21,6 +21,7 @@ import qualified Data.Text.Lazy as Text.Lazy
 import Gen.AST.Data.Field
 import Gen.AST.Data.Instance
 import Gen.AST.Data.Syntax as Syntax
+import qualified Gen.AST.Data.Syntax.AWSRequest as AWSRequest
 import Gen.Prelude
 import Gen.Types
 import qualified Language.Haskell.Exts as Exts
@@ -41,7 +42,7 @@ operationData cfg m o = do
 
   xis <- addInstances xa xs <$> requestInsts m (_opName o) h xr xs
 
-  cls <- pp Print $ requestD cfg m h (xr, xis) (yr, ys)
+  cls <- pp Print $ AWSRequest.instanceD cfg m h (xr, xis) (yr, ys)
   mpage <- pagerFields m o >>= traverse (pp Print . pagerD xn)
 
   yis' <- renderInsts p yn (responseInsts ys)

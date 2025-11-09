@@ -95,6 +95,7 @@ library
     Gen.AST.Data.Field
     Gen.AST.Data.Instance
     Gen.AST.Data.Syntax
+    Gen.AST.Data.Syntax.AWSRequest
     Gen.AST.Override
     Gen.AST.Prefix
     Gen.AST.Subst

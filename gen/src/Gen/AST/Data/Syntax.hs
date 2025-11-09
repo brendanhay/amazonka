@@ -360,14 +360,14 @@ requestD ::
   (Ref, [Inst]) ->
   (Ref, [Field]) ->
   Decl
-requestD c m h (a, as) (b, bs) =
+requestD c m h (requestRef, requestInstances) (responseRef, responseFields) =
   instD
     "Core.AWSRequest"
-    (identifier a)
+    (identifier requestRef)
     $ Just
-      [ assocD (identifier a) "AWSResponse" (typeId (identifier b)),
-        funArgsD "request" ["overrides"] (requestF c m h a as),
-        funD "response" (responseE (m ^. protocol) b bs)
+      [ assocD (identifier requestRef) "AWSResponse" (typeId (identifier responseRef)),
+        funArgsD "request" ["overrides"] (requestF c m h requestRef requestInstances),
+        funD "response" (responseE (m ^. protocol) responseRef responseFields)
       ]
 
 responseE :: Protocol -> Ref -> [Field] -> Exp

@@ -407,20 +407,20 @@ deriving instance Show (Metadata Identity)
 $(Lens.makeClassy ''Metadata)
 
 instance FromJSON (Metadata Maybe) where
-  parseJSON = Aeson.withObject "meta" $ \o ->
-    Metadata
-      <$> o .: "protocol"
-      <*> o .: "serviceAbbreviation"
-      <*> (o .: "serviceAbbreviation" <&> renameServiceFunction)
-      <*> (o .: "serviceFullName" <&> renameService)
-      <*> (o .: "signingName" <|> o .: "endpointPrefix")
-      <*> o .: "apiVersion"
-      <*> o .: "signatureVersion"
-      <*> o .: "endpointPrefix"
-      <*> o .:? "checksumFormat"
-      <*> o .:? "xmlNamespace"
-      <*> o .:? "jsonVersion"
-      <*> o .:? "targetPrefix"
+  parseJSON = Aeson.withObject "meta" $ \o -> do
+    _protocol <- o .: "protocol"
+    _serviceAbbrev <- o .: "serviceAbbreviation"
+    _serviceConfig <- o .: "serviceAbbreviation" <&> renameServiceFunction
+    _serviceFullName <- o .: "serviceFullName" <&> renameService
+    _signingName <- o .: "signingName" <|> o .: "endpointPrefix"
+    _apiVersion <- o .: "apiVersion"
+    _signatureVersion <- o .: "signatureVersion"
+    _endpointPrefix <- o .: "endpointPrefix"
+    _checksumFormat <- o .:? "checksumFormat"
+    _xmlNamespace <- o .:? "xmlNamespace"
+    _jsonVersion <- o .:? "jsonVersion"
+    _targetPrefix <- o .:? "targetPrefix"
+    pure Metadata {..}
 
 instance ToJSON (Metadata Identity) where
   toJSON = gToJSON' camel

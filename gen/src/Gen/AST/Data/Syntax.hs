@@ -181,7 +181,6 @@ recordD :: (HasMetadata a Identity) => a -> Id -> [Field] -> QualConDecl
 recordD m n =
   conD . \case
     [] -> Exts.ConDecl () c []
-    [x] -> Exts.RecDecl () c [fieldDecl (internal m) x]
     xs -> Exts.RecDecl () c (map (fieldDecl (internal m)) xs)
   where
     fieldDecl h f = Exts.FieldDecl () [ident (fieldAccessor f)] (h f)

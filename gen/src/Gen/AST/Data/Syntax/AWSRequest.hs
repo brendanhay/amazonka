@@ -33,9 +33,8 @@ import Gen.Types
 import qualified Language.Haskell.Exts as Exts
 
 instanceD ::
-  (HasMetadata a Identity) =>
   Config ->
-  a ->
+  Metadata f ->
   HTTP ->
   (Ref, [Inst]) ->
   (Ref, [Field]) ->
@@ -54,9 +53,8 @@ assocD :: Id -> Text -> Text -> Exts.InstDecl ()
 assocD n x y = Exts.InsType () (tyapp (tycon x) (tycon (typeId n))) (tycon y)
 
 requestF ::
-  (HasMetadata a Identity) =>
   Config ->
-  a ->
+  Metadata f ->
   HTTP ->
   Ref ->
   [Inst] ->

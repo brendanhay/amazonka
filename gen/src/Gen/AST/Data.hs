@@ -23,7 +23,7 @@ import Gen.AST.Data.Instance
 import Gen.AST.Data.Syntax as Syntax
 import qualified Gen.AST.Data.Syntax.AWSRequest as AWSRequest
 import Gen.Prelude
-import Gen.Types
+import Gen.Types hiding (method)
 import qualified Language.Haskell.Exts as Exts
 import Language.Haskell.Exts.Pretty (Pretty)
 
@@ -42,7 +42,37 @@ operationData cfg m o = do
 
   xis <- addInstances xa xs <$> requestInsts m (_opName o) h xr xs
 
-  cls <- pp Print $ AWSRequest.instanceD cfg (m ^. metadata) h (xr, xis) (yr, ys)
+  let requestFunction = method <> format
+        where
+          method = methodToText $ _method h
+          format =
+            case (mapMaybe fromInstance xis, _method h, m ^. protocol) of
+              (f : _, _, _) -> f
+              ([], POST, Query) -> "Query"
+              ([], POST, EC2) -> "Query"
+              _ -> ""
+          fromInstance = \case
+            ToBody {} -> Just "Body"
+            ToJSON {} -> Just "JSON"
+            ToElement {} -> Just "XML"
+            _ -> Nothing
+
+  cls <-
+    pp Print $
+      AWSRequest.instanceD
+        AWSRequest.Config
+          { -- Lookup a specific operationPlugins key before checking
+            -- for the wildcard.
+            operationPlugins =
+              fromMaybe [] $
+                (cfg ^. operationPlugins . Lens.at (identifier xr))
+                  <|> (cfg ^. operationPlugins . Lens.at (mkId "*")),
+            requestFunction,
+            serviceConfig = m ^. serviceConfig
+          }
+        (m ^. metadata)
+        xr
+        (yr, ys)
   mpage <- pagerFields m o >>= traverse (pp Print . pagerD xn)
 
   yis' <- renderInsts p yn (responseInsts ys)

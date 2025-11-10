@@ -55,15 +55,16 @@ instanceD c m requestRef (responseRef, responseFields) =
     (identifier requestRef)
     $ Just
       [ assocD (identifier requestRef) "AWSResponse" (typeId (identifier responseRef)),
-        funArgsD "request" ["overrides"] (requestF c),
+        requestD c,
         funD "response" (responseE (m ^. protocol) responseRef responseFields)
       ]
 
 assocD :: Id -> Text -> Text -> Exts.InstDecl ()
 assocD n x y = Exts.InsType () (tyapp (tycon x) (tycon (typeId n))) (tycon y)
 
-requestF :: Config -> Exts.Exp ()
-requestF Config {..} = foldr applyPlugin e operationPlugins
+requestD :: Config -> Exts.InstDecl ()
+requestD Config {..} =
+  funArgsD "request" ["overrides"] $ foldr applyPlugin e operationPlugins
   where
     -- Plugin functions are of the form :: Request a -> Request a
     applyPlugin x = Exts.infixApp (var x) "Prelude.."

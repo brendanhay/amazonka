@@ -2,9 +2,7 @@ module Gen.AST.Data.Syntax.AWSRequest where
 
 import qualified Control.Comonad as Comonad
 import qualified Control.Lens as Lens
-import qualified Data.HashMap.Strict as HashMap
 import Gen.AST.Data.Field (Field, fieldBody, fieldIsParam, fieldLit, fieldLitPayload, fieldLocation, fieldMaybe, fieldPayload, fieldStream)
-import Gen.AST.Data.Instance (Inst (..))
 import Gen.AST.Data.Syntax
   ( ctorE,
     decodeE,
@@ -29,73 +27,51 @@ import Gen.AST.Data.Syntax
   )
 import Gen.Prelude
 import qualified Gen.Protocol as Proto
-import Gen.Types
+import Gen.Types hiding (Config, operationPlugins, serviceConfig)
 import qualified Language.Haskell.Exts as Exts
+
+data Config = Config
+  { -- | List of function names to apply to computed request the
+    -- implementation of the @request@ function.
+    operationPlugins :: [Text],
+    -- | Name of the request function to call (@putBody@, @postQuery@, ...).
+    -- from the @"Request"@ module.
+    requestFunction :: Text,
+    -- | Name of the service config value to use by default. As of
+    -- 2025-11, always @"defaultService"@; the parser for 'Metadata'
+    -- would override the service abbrev in all cases.
+    serviceConfig :: Text
+  }
 
 instanceD ::
   Config ->
   Metadata f ->
-  HTTP ->
-  (Ref, [Inst]) ->
+  Ref ->
   (Ref, [Field]) ->
   Exts.Decl ()
-instanceD c m h (requestRef, requestInstances) (responseRef, responseFields) =
+instanceD c m requestRef (responseRef, responseFields) =
   instD
     "Core.AWSRequest"
     (identifier requestRef)
     $ Just
       [ assocD (identifier requestRef) "AWSResponse" (typeId (identifier responseRef)),
-        funArgsD "request" ["overrides"] (requestF c m h requestRef requestInstances),
+        funArgsD "request" ["overrides"] (requestF c),
         funD "response" (responseE (m ^. protocol) responseRef responseFields)
       ]
 
 assocD :: Id -> Text -> Text -> Exts.InstDecl ()
 assocD n x y = Exts.InsType () (tyapp (tycon x) (tycon (typeId n))) (tycon y)
 
-requestF ::
-  Config ->
-  Metadata f ->
-  HTTP ->
-  Ref ->
-  [Inst] ->
-  Exts.Exp ()
-requestF c meta h r is =
-  maybe e (foldr applyPlugin e) selectedPlugins
+requestF :: Config -> Exts.Exp ()
+requestF Config {..} = foldr applyPlugin e operationPlugins
   where
-    applyPlugin x =
-      -- Plugin functions are of the form :: Request a -> Request a
-      Exts.infixApp (var x) "Prelude.."
+    -- Plugin functions are of the form :: Request a -> Request a
+    applyPlugin x = Exts.infixApp (var x) "Prelude.."
 
-    selectedPlugins =
-      -- Lookup a specific operationPlugins key before the wildcard.
-      HashMap.lookup (identifier r) (c ^. operationPlugins)
-        <|> HashMap.lookup (mkId "*") (c ^. operationPlugins)
-
-    e = Exts.app v (Exts.app (var "overrides") (var $ meta ^. serviceConfig))
-
-    v =
-      var
-        . mappend ("Request." <> methodToText m)
-        . fromMaybe mempty
-        . listToMaybe
-        $ mapMaybe f is
-
-    f = \case
-      ToBody {} -> Just "Body"
-      ToJSON {} -> Just "JSON"
-      ToElement {} -> Just "XML"
-      _
-        | p == Query,
-          m == POST ->
-            Just "Query"
-      _
-        | p == EC2,
-          m == POST ->
-            Just "Query"
-      _ -> Nothing
-
-    m = h ^. method
-    p = meta ^. protocol
+    e =
+      Exts.app
+        (var $ "Request." <> requestFunction)
+        (Exts.app (var "overrides") (var serviceConfig))
 
 responseE :: Protocol -> Ref -> [Field] -> Exts.Exp ()
 responseE p r fs = Exts.app (responseF p r fs) bdy

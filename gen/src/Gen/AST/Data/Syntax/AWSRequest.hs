@@ -31,12 +31,18 @@ import Gen.Types hiding (Config, operationPlugins, serviceConfig)
 import qualified Language.Haskell.Exts as Exts
 
 data Config = Config
-  { -- | List of function names to apply to computed request the
-    -- implementation of the @request@ function.
-    operationPlugins :: [Text],
+  { -- | Name of the data type we generate to represent the input
+    -- shape from botocore.
+    requestType :: Id,
     -- | Name of the request function to call (@putBody@, @postQuery@, ...).
     -- from the @"Request"@ module.
     requestFunction :: Text,
+    -- | List of function names to apply to the computed request in
+    -- the implementation of the @request@ function.
+    operationPlugins :: [Text],
+    -- | Name of the data type we generate for the botocore output
+    -- shape that corresponds to 'requestType'.
+    responseType :: Id,
     -- | Name of the service config value to use by default. As of
     -- 2025-11, always @"defaultService"@; the parser for 'Metadata'
     -- would override the service abbrev in all cases.
@@ -46,21 +52,22 @@ data Config = Config
 instanceD ::
   Config ->
   Metadata f ->
-  Ref ->
   (Ref, [Field]) ->
   Exts.Decl ()
-instanceD c m requestRef (responseRef, responseFields) =
-  instD
-    "Core.AWSRequest"
-    (identifier requestRef)
-    $ Just
-      [ assocD (identifier requestRef) "AWSResponse" (typeId (identifier responseRef)),
+instanceD c@Config {requestType} m (responseRef, responseFields) =
+  instD "Core.AWSRequest" requestType $
+    Just
+      [ awsResponseD c,
         requestD c,
         funD "response" (responseE (m ^. protocol) responseRef responseFields)
       ]
 
-assocD :: Id -> Text -> Text -> Exts.InstDecl ()
-assocD n x y = Exts.InsType () (tyapp (tycon x) (tycon (typeId n))) (tycon y)
+awsResponseD :: Config -> Exts.InstDecl ()
+awsResponseD Config {..} =
+  Exts.InsType
+    ()
+    (tycon "AWSResponse" `tyapp` tycon (typeId requestType))
+    (tycon (typeId responseType))
 
 requestD :: Config -> Exts.InstDecl ()
 requestD Config {..} =

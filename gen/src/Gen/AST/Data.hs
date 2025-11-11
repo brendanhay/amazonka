@@ -61,17 +61,18 @@ operationData cfg m o = do
     pp Print $
       AWSRequest.instanceD
         AWSRequest.Config
-          { -- Lookup a specific operationPlugins key before checking
+          { requestType = identifier xr,
+            requestFunction,
+            responseType = identifier yr,
+            -- Lookup a specific operationPlugins key before checking
             -- for the wildcard.
             operationPlugins =
               fromMaybe [] $
                 (cfg ^. operationPlugins . Lens.at (identifier xr))
                   <|> (cfg ^. operationPlugins . Lens.at (mkId "*")),
-            requestFunction,
             serviceConfig = m ^. serviceConfig
           }
         (m ^. metadata)
-        xr
         (yr, ys)
   mpage <- pagerFields m o >>= traverse (pp Print . pagerD xn)
 

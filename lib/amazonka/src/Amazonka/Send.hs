@@ -142,7 +142,7 @@ await env wait =
 hoistEither :: (MonadIO m) => Either Error a -> m a
 hoistEither = either (liftIO . Exception.throwIO) pure
 
-forceRight :: NFData b => Either e b -> Either e b
+forceRight :: (NFData b) => Either e b -> Either e b
 forceRight = \case
   Left e -> Left e
   Right b -> rnf b `seq` Right b

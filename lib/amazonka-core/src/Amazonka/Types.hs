@@ -958,7 +958,6 @@ pattern TelAviv = Region' "il-central-1"
 pattern MexicoCentral :: Region
 pattern MexicoCentral = Region' "mx-central-1"
 
-
 -- Middle East
 
 pattern Bahrain :: Region

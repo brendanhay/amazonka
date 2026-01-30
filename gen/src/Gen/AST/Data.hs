@@ -8,6 +8,7 @@ module Gen.AST.Data
   )
 where
 
+import Control.Comonad (extract)
 import qualified Control.Lens as Lens
 import qualified Control.Monad.Trans.State as State
 import qualified Data.ByteString.Char8 as ByteString.Char8
@@ -57,19 +58,34 @@ operationData cfg m o = do
             ToElement {} -> Just "XML"
             _ -> Nothing
 
+      responseParser
+        | null ys = AWSRequest.ParseNull
+        | isShared . extract $ yr ^. refAnn,
+          all fieldBody ys =
+            let wrapper = yr ^. refResultWrapper
+             in case m ^. protocol of
+                  APIGateway -> AWSRequest.ParseAllJSON
+                  JSON -> AWSRequest.ParseAllJSON
+                  RestJSON -> AWSRequest.ParseAllJSON
+                  EC2 -> AWSRequest.ParseAllXML wrapper
+                  Query -> AWSRequest.ParseAllXML wrapper
+                  RestXML -> AWSRequest.ParseAllXML wrapper
+        | otherwise = AWSRequest.FigureItOut
+
   cls <-
     pp Print $
       AWSRequest.instanceD
         AWSRequest.Config
           { requestType = identifier xr,
-            requestFunction,
-            responseType = identifier yr,
             -- Lookup a specific operationPlugins key before checking
             -- for the wildcard.
-            operationPlugins =
+            requestOperationPlugins =
               fromMaybe [] $
                 (cfg ^. operationPlugins . Lens.at (identifier xr))
                   <|> (cfg ^. operationPlugins . Lens.at (mkId "*")),
+            requestFunction,
+            responseType = identifier yr,
+            responseParser,
             serviceConfig = m ^. serviceConfig
           }
         (m ^. metadata)

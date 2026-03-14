@@ -10,10 +10,11 @@
 -- the connection. This is needed to avoid hitting this issue:
 -- <https://github.com/brendanhay/amazonka/issues/490>.
 --
--- The only exception is 'receiveBody', which passes a streaming response
--- body to a callback and thus is not allowed to close the connection. Users
--- of streaming functions are advised to be careful and consume the response
--- body manually if they want the connection to be closed promptly.
+-- The only exception is 'receiveStreamingBody', which passes a streaming
+-- response body to a callback and thus is not allowed to close the
+-- connection. Users of streaming functions are advised to be careful and
+-- consume the response body manually if they want the connection to be closed
+-- promptly.
 --
 -- Note that using 'runResourceT' will always close the connection.
 module Amazonka.Response
@@ -24,6 +25,7 @@ module Amazonka.Response
     receiveJSON,
     receiveBytes,
     receiveBody,
+    receiveStreamingBody,
   )
 where
 
@@ -43,7 +45,7 @@ import Network.HTTP.Types (ResponseHeaders)
 import qualified Text.XML as XML
 
 receiveNull ::
-  MonadResource m =>
+  (MonadResource m) =>
   AWSResponse a ->
   (ByteStringLazy -> IO ByteStringLazy) ->
   Service ->
@@ -55,7 +57,7 @@ receiveNull rs _ =
     liftIO (Client.responseClose r) $> Right rs
 
 receiveEmpty ::
-  MonadResource m =>
+  (MonadResource m) =>
   (Int -> ResponseHeaders -> () -> Either String (AWSResponse a)) ->
   (ByteStringLazy -> IO ByteStringLazy) ->
   Service ->
@@ -67,7 +69,7 @@ receiveEmpty f _ =
     liftIO (Client.responseClose r) $> f s h ()
 
 receiveXMLWrapper ::
-  MonadResource m =>
+  (MonadResource m) =>
   Text ->
   (Int -> ResponseHeaders -> [XML.Node] -> Either String (AWSResponse a)) ->
   (ByteStringLazy -> IO ByteStringLazy) ->
@@ -78,7 +80,7 @@ receiveXMLWrapper ::
 receiveXMLWrapper n f = receiveXML (\s h x -> x .@ n >>= f s h)
 
 receiveXML ::
-  MonadResource m =>
+  (MonadResource m) =>
   (Int -> ResponseHeaders -> [XML.Node] -> Either String (AWSResponse a)) ->
   (ByteStringLazy -> IO ByteStringLazy) ->
   Service ->
@@ -88,7 +90,7 @@ receiveXML ::
 receiveXML = deserialise decodeXML
 
 receiveJSON ::
-  MonadResource m =>
+  (MonadResource m) =>
   (Int -> ResponseHeaders -> Aeson.Object -> Either String (AWSResponse a)) ->
   (ByteStringLazy -> IO ByteStringLazy) ->
   Service ->
@@ -98,7 +100,7 @@ receiveJSON ::
 receiveJSON = deserialise Aeson.eitherDecode'
 
 receiveBytes ::
-  MonadResource m =>
+  (MonadResource m) =>
   (Int -> ResponseHeaders -> ByteString -> Either String (AWSResponse a)) ->
   (ByteStringLazy -> IO ByteStringLazy) ->
   Service ->
@@ -107,21 +109,33 @@ receiveBytes ::
   m (Either Error (ClientResponse (AWSResponse a)))
 receiveBytes = deserialise (Right . LBS.toStrict)
 
+-- | Deprecated alias for 'receiveStreamingBody'.
 receiveBody ::
-  MonadResource m =>
+  (MonadResource m) =>
   (Int -> ResponseHeaders -> ResponseBody -> Either String (AWSResponse a)) ->
   (ByteStringLazy -> IO ByteStringLazy) ->
   Service ->
   Proxy a ->
   ClientResponse ClientBody ->
   m (Either Error (ClientResponse (AWSResponse a)))
-receiveBody f _ =
+receiveBody = receiveStreamingBody
+{-# DEPRECATED receiveBody "this function will be removed in Amazonka 2.2" #-}
+
+receiveStreamingBody ::
+  (MonadResource m) =>
+  (Int -> ResponseHeaders -> ResponseBody -> Either String (AWSResponse a)) ->
+  (ByteStringLazy -> IO ByteStringLazy) ->
+  Service ->
+  Proxy a ->
+  ClientResponse ClientBody ->
+  m (Either Error (ClientResponse (AWSResponse a)))
+receiveStreamingBody f _ =
   stream $ \_ s h x ->
     pure (f s h (ResponseBody x))
 
 -- | Deserialise an entire response body, such as an XML or JSON payload.
 deserialise ::
-  MonadResource m =>
+  (MonadResource m) =>
   (ByteStringLazy -> Either String b) ->
   (Int -> ResponseHeaders -> b -> Either String (AWSResponse a)) ->
   (ByteStringLazy -> IO ByteStringLazy) ->
@@ -146,7 +160,7 @@ deserialise reader parser responseBodyHook Service {..} _ rs =
 
 -- | Stream a raw response body, such as an S3 object payload.
 stream ::
-  MonadResource m =>
+  (MonadResource m) =>
   ( ClientResponse () ->
     Int ->
     ResponseHeaders ->
@@ -173,5 +187,5 @@ stream parser Service {..} _ rs =
         Except.throwE $
           SerializeError (SerializeError' abbrev status Nothing err)
 
-sinkLBS :: MonadResource m => ClientBody -> m ByteStringLazy
+sinkLBS :: (MonadResource m) => ClientBody -> m ByteStringLazy
 sinkLBS bdy = liftResourceT (bdy `Conduit.connect` Conduit.Binary.sinkLbs)

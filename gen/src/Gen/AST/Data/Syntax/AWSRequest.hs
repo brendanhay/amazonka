@@ -169,7 +169,7 @@ responseE Config {..} p r fs =
     -- etc, particuarly when the body might be totally empty.
     responseF :: Exts.Exp ()
     responseF
-      | any fieldStream fs = var "Response.receiveBody"
+      | any fieldStream fs = var "Response.receiveStreamingBody"
       | any fieldLitPayload fs = var "Response.receiveBytes"
       | Just x <- r ^. refResultWrapper = Exts.app (var (suf <> "Wrapper")) (str x)
       | not $ any fieldBody fs = var "Response.receiveEmpty"

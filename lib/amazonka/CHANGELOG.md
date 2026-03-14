@@ -122,7 +122,8 @@
 [\#955](https://github.com/brendanhay/amazonka/pull/955)
 - `amazonka-core`: Support Cloudflare R2 by adjusting which headers get signed
 [\#977](https://github.com/brendanhay/amazonka/pull/977)
-
+- `amazonka-core`: `Amazonka.Response.receiveBody` has been renamed to `Amazonka.Response.receiveStreamingBody`. This is an internal function used in service bindings and should not affect normal users. `Amazonka.Response.receiveBody` will remain as a deprecated alias until Amazonka 2.2.
+[\#???](https://github.com/brendanhay/amazonka/pull/???)
 
 ## [2.0.0](https://github.com/brendanhay/amazonka/tree/2.0.0)
 Released: **28 July 2023**, Compare: [2.0.0-rc2](https://github.com/brendanhay/amazonka/compare/2.0.0-rc2...2.0.0)

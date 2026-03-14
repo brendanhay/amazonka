@@ -1,7 +1,5 @@
 module Gen.AST.Data.Syntax.AWSRequest where
 
-import qualified Control.Comonad as Comonad
-import qualified Control.Lens as Lens
 import Gen.AST.Data.Field (Field, fieldBody, fieldIsParam, fieldLit, fieldLitPayload, fieldLocation, fieldMaybe, fieldPayload, fieldStream)
 import Gen.AST.Data.Syntax
   ( ctorE,
@@ -112,10 +110,8 @@ responseE Config {..} p r fs =
         `Exts.app` lam (var "Data.parseXML" `Exts.app` var "x")
     FigureItOut -> Exts.app responseF bdy
   where
-    n = r ^. Lens.to identifier
-
     bdy :: Exts.Exp ()
-    bdy = lam . ctorE n $ map parseField fs
+    bdy = lam . ctorE (identifier r) $ map parseField fs
 
     lam :: Exts.Exp () -> Exts.Exp ()
     lam = Exts.lamE [Exts.pvar "s", Exts.pvar "h", Exts.pvar "x"]

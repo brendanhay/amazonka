@@ -585,7 +585,7 @@ instance Core.AWSRequest GetObject where
     Request.s3vhost
       Prelude.. Request.get (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetObjectResponse'
             Prelude.<$> (h Data..#? "accept-ranges")

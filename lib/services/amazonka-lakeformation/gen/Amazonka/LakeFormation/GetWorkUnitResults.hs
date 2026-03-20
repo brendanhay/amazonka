@@ -121,7 +121,7 @@ instance Core.AWSRequest GetWorkUnitResults where
   request overrides =
     Request.postJSON (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetWorkUnitResultsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))

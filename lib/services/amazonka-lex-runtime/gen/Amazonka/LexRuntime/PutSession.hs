@@ -333,7 +333,7 @@ instance Core.AWSRequest PutSession where
   request overrides =
     Request.postJSON (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           PutSessionResponse'
             Prelude.<$> (h Data..#? "x-amz-lex-active-contexts")

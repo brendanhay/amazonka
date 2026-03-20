@@ -159,7 +159,7 @@ instance Core.AWSRequest GetClip where
   request overrides =
     Request.postJSON (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetClipResponse'
             Prelude.<$> (h Data..#? "Content-Type")

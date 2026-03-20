@@ -70,7 +70,11 @@ operationData cfg m o = do
                   EC2 -> AWSRequest.ParseAllXML wrapper
                   Query -> AWSRequest.ParseAllXML wrapper
                   RestXML -> AWSRequest.ParseAllXML wrapper
+        | any fieldStream ys =
+          AWSRequest.ParseStreamingBody responseFieldParsers
         | otherwise = AWSRequest.FigureItOut
+
+      responseFieldParsers = AWSRequest.FigureTheFieldOut <$> ys
 
   cls <-
     pp Print $

@@ -59,7 +59,16 @@ data ResponseParser
     ParseAllJSON
   | -- | Parse the entire resposne as XML, with an optional wrapper.
     ParseAllXML (Maybe Text)
+  | -- | Parse a streaming response from AWS into a
+    -- 'Amazonka.Body.ResponseBody'.
+    ParseStreamingBody [ResponseFieldParser]
   | FigureItOut
+  deriving (Show)
+
+-- | How to generate the parser for a single field, for response
+-- parsers which do per-field parsing.
+newtype ResponseFieldParser
+  = FigureTheFieldOut Field
   deriving (Show)
 
 instanceD ::
@@ -108,16 +117,23 @@ responseE Config {..} p r fs =
       var "Response.receiveXMLWrapper"
         `Exts.app` str wrapper
         `Exts.app` lam (var "Data.parseXML" `Exts.app` var "x")
+    ParseStreamingBody fieldParsers ->
+      var "Response.receiveStreamingBody"
+        `Exts.app` lam (ctorE responseType $ map parseField fieldParsers)
     FigureItOut -> Exts.app responseF bdy
   where
     bdy :: Exts.Exp ()
-    bdy = lam . ctorE (identifier r) $ map parseField fs
+    bdy = lam . ctorE (identifier r) $ map parseField' fs
 
     lam :: Exts.Exp () -> Exts.Exp ()
     lam = Exts.lamE [Exts.pvar "s", Exts.pvar "h", Exts.pvar "x"]
 
-    parseField :: Field -> Exts.Exp ()
-    parseField x =
+    parseField :: ResponseFieldParser -> Exts.Exp ()
+    parseField = \case
+      FigureTheFieldOut field -> parseField' field
+
+    parseField' :: Field -> Exts.Exp ()
+    parseField' x =
       case fieldLocation x of
         Just Headers -> parseHeadersE p x
         Just Header -> parseHeadersE p x
@@ -169,11 +185,10 @@ responseE Config {..} p r fs =
     -- etc, particuarly when the body might be totally empty.
     responseF :: Exts.Exp ()
     responseF
-      | any fieldStream fs = var "Response.receiveStreamingBody"
-      | any fieldLitPayload fs = var "Response.receiveBytes"
-      | Just x <- r ^. refResultWrapper = Exts.app (var (suf <> "Wrapper")) (str x)
-      | not $ any fieldBody fs = var "Response.receiveEmpty"
-      | otherwise = var suf
+      | any fieldLitPayload fs = trace "responseF(fieldLitPayload)" $ var "Response.receiveBytes"
+      | Just x <- r ^. refResultWrapper = trace "responseF(Wrapper)" $ Exts.app (var (suf <> "Wrapper")) (str x)
+      | not $ any fieldBody fs = trace "responseF(receiveEmpty)" $ var "Response.receiveEmpty"
+      | otherwise = trace "responseF(var suf)" $ var suf
       where
         suf = "Response.receive" <> Proto.suffix p
 

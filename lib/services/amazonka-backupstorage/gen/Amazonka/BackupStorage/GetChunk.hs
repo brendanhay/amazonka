@@ -96,7 +96,7 @@ instance Core.AWSRequest GetChunk where
   request overrides =
     Request.get (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetChunkResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))

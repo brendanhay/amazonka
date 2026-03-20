@@ -99,7 +99,7 @@ instance Core.AWSRequest GetObjectMetadata where
   request overrides =
     Request.get (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetObjectMetadataResponse'
             Prelude.<$> (h Data..#? "x-amz-checksum")

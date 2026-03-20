@@ -271,7 +271,7 @@ instance Core.AWSRequest GetJobOutput where
     Request.glacierVersionHeader (Core.version defaultService)
       Prelude.. Request.get (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetJobOutputResponse'
             Prelude.<$> (h Data..#? "Accept-Ranges")

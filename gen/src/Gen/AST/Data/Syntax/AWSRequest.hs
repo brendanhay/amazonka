@@ -161,7 +161,6 @@ responseE Config {..} p r fs =
     parseField' x =
       case fieldLocation x of
         Just Headers -> parseHeadersE (memberName p Output x) (typeOf x)
-        Just Header -> parseHeadersE (memberName p Output x) (typeOf x)
         Just StatusCode -> parseStatusE x
         Just Body | body -> Exts.app pureE (var "x")
         Nothing | body -> Exts.app pureE (var "x")

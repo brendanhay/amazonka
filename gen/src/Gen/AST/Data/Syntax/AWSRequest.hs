@@ -3,15 +3,11 @@ module Gen.AST.Data.Syntax.AWSRequest where
 import Gen.AST.Data.Field (Field, fieldBody, fieldIsParam, fieldLit, fieldLitPayload, fieldLocation, fieldMaybe, fieldPayload, fieldStream)
 import Gen.AST.Data.Syntax
   ( ctorE,
-    decodeE,
     funArgsD,
     funD,
     instD,
     justE,
     memberName,
-    pH,
-    pHMap,
-    pHMay,
     pJE,
     pJEDef,
     pJEMay,
@@ -135,8 +131,8 @@ responseE Config {..} p r fs =
     parseField' :: Field -> Exts.Exp ()
     parseField' x =
       case fieldLocation x of
-        Just Headers -> parseHeadersE p x
-        Just Header -> parseHeadersE p x
+        Just Headers -> parseHeadersE (memberName p Output x) (typeOf x)
+        Just Header -> parseHeadersE (memberName p Output x) (typeOf x)
         Just StatusCode -> parseStatusE x
         Just Body | body -> Exts.app pureE (var "x")
         Nothing | body -> Exts.app pureE (var "x")
@@ -192,13 +188,13 @@ responseE Config {..} p r fs =
       where
         suf = "Response.receive" <> Proto.suffix p
 
-parseHeadersE :: Protocol -> Field -> Exts.Exp ()
-parseHeadersE p f
-  | TMap {} <- typeOf f = Exts.appFun pHMap [str n, h]
-  | fieldMaybe f = decodeE h pHMay n
-  | otherwise = decodeE h pH n
+parseHeadersE :: Text -> TType -> Exts.Exp ()
+parseHeadersE headerName = \case
+  TMap {} -> Exts.appFun (var "Data.parseHeadersMap") [n, h]
+  TMaybe {} -> Exts.infixApp h "Data..#?" n
+  _ -> Exts.infixApp h "Data..#" n
   where
-    n = memberName p Output f
+    n = str headerName
     h = var "h"
 
 parseStatusE :: Field -> Exts.Exp ()

@@ -77,15 +77,7 @@ operationData cfg m o = do
       responseFieldParsers =
         ys <&> \f ->
           case fieldLocation f of
-            -- TODO: Unify the 'Headers' and 'Header' location constructors.
             Just Headers -> AWSRequest.ParseHeaderField hName hParser
-              where
-                hName = memberName (m ^. protocol) Output f
-                hParser = case typeOf f of
-                  TMap {} -> AWSRequest.HeaderFieldMap
-                  TMaybe {} -> AWSRequest.HeaderFieldOptional
-                  _ -> AWSRequest.HeaderFieldRequired
-            Just Header -> AWSRequest.ParseHeaderField hName hParser
               where
                 hName = memberName (m ^. protocol) Output f
                 hParser = case typeOf f of

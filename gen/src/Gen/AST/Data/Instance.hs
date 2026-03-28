@@ -130,7 +130,7 @@ requestInsts m oname h r fs = do
       where
         merged xs =
           let ys =
-                map Right (satisfies [Querystring] fs) <> xs
+                map Right (satisfies [QueryString] fs) <> xs
                   ++ map Left protocolQuery
            in case List.find f is of
                 Just (ToQuery zs) -> ToQuery (ys <> zs)
@@ -217,7 +217,7 @@ requestInsts m oname h r fs = do
         v = ("Version", Just version)
 
     headers :: [Field]
-    headers = satisfies [Header, Headers] fs
+    headers = [f | f <- fs, fieldLocation f == Just Headers]
 
     target = (<> ("." <> action)) <$> m ^. targetPrefix
 

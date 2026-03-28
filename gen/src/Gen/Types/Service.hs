@@ -97,18 +97,22 @@ instance ToJSON Checksum where
 
 data Location
   = Headers
-  | Header
   | Uri
-  | Querystring
+  | QueryString
   | StatusCode
-  | Body
+  | -- | Not present in @botocore@, but we explicitly annotate fields
+    -- with it.
+    Body
   deriving stock (Eq, Show, Generic)
 
 instance FromJSON Location where
-  parseJSON = gParseJSON' camel
-
-instance ToJSON Location where
-  toJSON = gToJSON' camel
+  parseJSON = Aeson.withText "Location" $ \t -> case t of
+    "header" -> pure Headers -- Present in e.g. accessanalyzer
+    "headers" -> pure Headers -- Present in e.g. dataexchange
+    "querystring" -> pure QueryString
+    "statusCode" -> pure StatusCode
+    "uri" -> pure Uri
+    _ -> fail $ "Unknown location: " <> show t
 
 data XML = XML'
   { _xmlPrefix :: Maybe Text,

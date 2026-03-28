@@ -58,15 +58,10 @@ pJE = "Data..:>"
 pJEMay = "Data..?>"
 pJEDef = pXDef
 
-pH, pHMay :: QOp
-pH = "Data..#"
-pHMay = "Data..#?"
-
-pXMap, pXList, pXList1, pHMap :: Exp
+pXMap, pXList, pXList1 :: Exp
 pXMap = var "Data.parseXMLMap"
 pXList = var "Data.parseXMLList"
 pXList1 = var "Data.parseXMLList1"
-pHMap = var "Data.parseHeadersMap"
 
 toX, toXAttr, toJ, toQ, toH :: QOp
 toX = "Data.@="

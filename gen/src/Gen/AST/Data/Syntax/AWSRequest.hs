@@ -1,7 +1,7 @@
 module Gen.AST.Data.Syntax.AWSRequest
   ( instanceD,
     Config (..),
-    ResponseParser (..),
+    ResponseReceiver (..),
     ResponseFieldParser (..),
     HeaderFieldParser (..),
   )
@@ -44,8 +44,8 @@ data Config = Config
     -- | Name of the data type we generate for the botocore output
     -- shape that corresponds to 'requestType'.
     responseType :: Id,
-    -- | How to parse the response from AWS.
-    responseParser :: ResponseParser,
+    -- | How to receive and parse the response from AWS.
+    responseReceiver :: ResponseReceiver,
     -- | Name of the service config value to use by default. As of
     -- 2025-11, always @"defaultService"@; the parser for 'Metadata'
     -- would override the service abbrev in all cases.
@@ -53,18 +53,21 @@ data Config = Config
   }
   deriving (Show)
 
--- | How to generate the parser for AWS's response to an API call.
-data ResponseParser
-  = -- | Perform no parsing and return an empty response. The response
-    -- constructor in 'responseType' must take no arguments.
-    ParseNull
-  | -- | Parse the entire response as JSON.
-    ParseAllJSON
-  | -- | Parse the entire resposne as XML, with an optional wrapper.
-    ParseAllXML (Maybe Text)
-  | -- | Parse a streaming response from AWS into a
-    -- 'Amazonka.Body.ResponseBody'.
-    ParseStreamingBody [ResponseFieldParser]
+-- | Which Amazonka function should be used to parse AWS's response to
+-- an API call, and additional arguments are necessary to actually
+-- perform the parse.
+data ResponseReceiver
+  = -- | Perform no parsing and return an empty response using
+    -- @receiveNull@. The response constructor in 'responseType' must
+    -- take no arguments.
+    ReceiveNull
+  | -- | Parse the entire response as JSON using @receiveJSON@.
+    ReceiveJsonAll
+  | -- | Parse the entire response as (optionally wrapped) XML, using
+    -- @receiveXML@ or @receiveXMLWrapper@.
+    ReceiveXmlAll (Maybe Text)
+  | -- | Parse a streaming response from AWS using @receiveStreamingBody@.
+    ReceiveStreamingBody [ResponseFieldParser]
   | FigureItOut
   deriving (Show)
 
@@ -125,19 +128,20 @@ requestD Config {..} =
 
 responseE :: Config -> Protocol -> Ref -> [Field] -> Exts.Exp ()
 responseE Config {..} p r fs =
-  case responseParser of
-    ParseNull -> var "Response.receiveNull" `Exts.app` var (ctorId responseType)
-    ParseAllJSON ->
+  case responseReceiver of
+    ReceiveNull ->
+      var "Response.receiveNull" `Exts.app` var (ctorId responseType)
+    ReceiveJsonAll ->
       var "Response.receiveJSON"
         `Exts.app` lam (var "Data.eitherParseJSON" `Exts.app` var "x")
-    ParseAllXML Nothing ->
+    ReceiveXmlAll Nothing ->
       var "Response.receiveXML"
         `Exts.app` lam (var "Data.parseXML" `Exts.app` var "x")
-    ParseAllXML (Just wrapper) ->
+    ReceiveXmlAll (Just wrapper) ->
       var "Response.receiveXMLWrapper"
         `Exts.app` str wrapper
         `Exts.app` lam (var "Data.parseXML" `Exts.app` var "x")
-    ParseStreamingBody fieldParsers ->
+    ReceiveStreamingBody fieldParsers ->
       var "Response.receiveStreamingBody"
         `Exts.app` lam (ctorE responseType $ map parseField fieldParsers)
     FigureItOut -> Exts.app responseF bdy

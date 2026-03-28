@@ -58,20 +58,20 @@ operationData cfg m o = do
             ToElement {} -> Just "XML"
             _ -> Nothing
 
-      responseParser
-        | null ys = AWSRequest.ParseNull
+      responseReceiver
+        | null ys = AWSRequest.ReceiveNull
         | isShared . extract $ yr ^. refAnn,
           all fieldBody ys =
             let wrapper = yr ^. refResultWrapper
              in case m ^. protocol of
-                  APIGateway -> AWSRequest.ParseAllJSON
-                  JSON -> AWSRequest.ParseAllJSON
-                  RestJSON -> AWSRequest.ParseAllJSON
-                  EC2 -> AWSRequest.ParseAllXML wrapper
-                  Query -> AWSRequest.ParseAllXML wrapper
-                  RestXML -> AWSRequest.ParseAllXML wrapper
+                  APIGateway -> AWSRequest.ReceiveJsonAll
+                  JSON -> AWSRequest.ReceiveJsonAll
+                  RestJSON -> AWSRequest.ReceiveJsonAll
+                  EC2 -> AWSRequest.ReceiveXmlAll wrapper
+                  Query -> AWSRequest.ReceiveXmlAll wrapper
+                  RestXML -> AWSRequest.ReceiveXmlAll wrapper
         | any fieldStream ys =
-            AWSRequest.ParseStreamingBody responseFieldParsers
+            AWSRequest.ReceiveStreamingBody responseFieldParsers
         | otherwise = AWSRequest.FigureItOut
 
       responseFieldParsers =
@@ -99,7 +99,7 @@ operationData cfg m o = do
                   <|> (cfg ^. operationPlugins . Lens.at (mkId "*")),
             requestFunction,
             responseType = identifier yr,
-            responseParser,
+            responseReceiver,
             serviceConfig = m ^. serviceConfig
           }
         (m ^. metadata)

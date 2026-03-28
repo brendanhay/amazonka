@@ -71,10 +71,28 @@ operationData cfg m o = do
                   Query -> AWSRequest.ParseAllXML wrapper
                   RestXML -> AWSRequest.ParseAllXML wrapper
         | any fieldStream ys =
-          AWSRequest.ParseStreamingBody responseFieldParsers
+            AWSRequest.ParseStreamingBody responseFieldParsers
         | otherwise = AWSRequest.FigureItOut
 
-      responseFieldParsers = AWSRequest.FigureTheFieldOut <$> ys
+      responseFieldParsers =
+        ys <&> \f ->
+          case fieldLocation f of
+            -- TODO: Unify the 'Headers' and 'Header' location constructors.
+            Just Headers -> AWSRequest.ParseHeaderField hName hParser
+              where
+                hName = memberName (m ^. protocol) Output f
+                hParser = case typeOf f of
+                  TMap {} -> AWSRequest.HeaderFieldMap
+                  TMaybe {} -> AWSRequest.HeaderFieldOptional
+                  _ -> AWSRequest.HeaderFieldRequired
+            Just Header -> AWSRequest.ParseHeaderField hName hParser
+              where
+                hName = memberName (m ^. protocol) Output f
+                hParser = case typeOf f of
+                  TMap {} -> AWSRequest.HeaderFieldMap
+                  TMaybe {} -> AWSRequest.HeaderFieldOptional
+                  _ -> AWSRequest.HeaderFieldRequired
+            _ -> AWSRequest.FigureTheFieldOut f
 
   cls <-
     pp Print $

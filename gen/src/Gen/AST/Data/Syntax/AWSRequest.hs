@@ -1,4 +1,11 @@
-module Gen.AST.Data.Syntax.AWSRequest where
+module Gen.AST.Data.Syntax.AWSRequest
+  ( instanceD,
+    Config (..),
+    ResponseParser (..),
+    ResponseFieldParser (..),
+    HeaderFieldParser (..),
+  )
+where
 
 import Gen.AST.Data.Field (Field, fieldBody, fieldIsParam, fieldLit, fieldLitPayload, fieldLocation, fieldMaybe, fieldPayload, fieldStream)
 import Gen.AST.Data.Syntax
@@ -63,8 +70,25 @@ data ResponseParser
 
 -- | How to generate the parser for a single field, for response
 -- parsers which do per-field parsing.
-newtype ResponseFieldParser
-  = FigureTheFieldOut Field
+data ResponseFieldParser
+  = -- | Parse the repsonse field from the HTTP response headers named
+    -- like the given 'Text'.
+    ParseHeaderField Text HeaderFieldParser
+  | FigureTheFieldOut Field
+  deriving (Show)
+
+-- | How to parse a single field from the HTTP response headers.
+--
+-- A 'HeaderFieldParser' does not parse a single header, because some
+-- AWS services represent structured data by breaking it across
+-- multiple similarly-named headers.
+data HeaderFieldParser
+  = -- | Parse a required field from headers using @(.#)@.
+    HeaderFieldRequired
+  | -- | Parse an optional field from headers using @(.#?)@.
+    HeaderFieldOptional
+  | -- | Parse a map field from headers using @parseHeadersMap@.
+    HeaderFieldMap
   deriving (Show)
 
 instanceD ::
@@ -126,6 +150,11 @@ responseE Config {..} p r fs =
 
     parseField :: ResponseFieldParser -> Exts.Exp ()
     parseField = \case
+      ParseHeaderField hName hField -> case hField of
+        HeaderFieldRequired -> Exts.infixApp (var "h") "Data..#" (str hName)
+        HeaderFieldOptional -> Exts.infixApp (var "h") "Data..#?" (str hName)
+        HeaderFieldMap ->
+          Exts.appFun (var "Data.parseHeadersMap") [str hName, var "h"]
       FigureTheFieldOut field -> parseField' field
 
     parseField' :: Field -> Exts.Exp ()

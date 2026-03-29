@@ -68,6 +68,9 @@ data ResponseReceiver
     ReceiveXmlAll (Maybe Text)
   | -- | Parse a streaming response from AWS using @receiveStreamingBody@.
     ReceiveStreamingBody [ResponseFieldParser]
+  | -- | Parse a response from AWS, accepting the body as an unparsed
+    -- 'ByteString'. Uses @receiveBytes@.
+    ReceiveBytes [ResponseFieldParser]
   | FigureItOut
   deriving (Show)
 
@@ -144,6 +147,9 @@ responseE Config {..} p r fs =
     ReceiveStreamingBody fieldParsers ->
       var "Response.receiveStreamingBody"
         `Exts.app` lam (ctorE responseType $ map parseField fieldParsers)
+    ReceiveBytes fieldParsers ->
+      var "Response.receiveBytes"
+        `Exts.app` lam (ctorE responseType $ map parseField fieldParsers)
     FigureItOut -> Exts.app responseF bdy
   where
     bdy :: Exts.Exp ()
@@ -213,7 +219,6 @@ responseE Config {..} p r fs =
     -- etc, particuarly when the body might be totally empty.
     responseF :: Exts.Exp ()
     responseF
-      | any fieldLitPayload fs = trace "responseF(fieldLitPayload)" $ var "Response.receiveBytes"
       | Just x <- r ^. refResultWrapper = trace "responseF(Wrapper)" $ Exts.app (var (suf <> "Wrapper")) (str x)
       | not $ any fieldBody fs = trace "responseF(receiveEmpty)" $ var "Response.receiveEmpty"
       | otherwise = trace "responseF(var suf)" $ var suf

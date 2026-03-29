@@ -72,6 +72,8 @@ operationData cfg m o = do
                   RestXML -> AWSRequest.ReceiveXmlAll wrapper
         | any fieldStream ys =
             AWSRequest.ReceiveStreamingBody responseFieldParsers
+        | any fieldLitPayload ys =
+            AWSRequest.ReceiveBytes responseFieldParsers
         | otherwise = AWSRequest.FigureItOut
 
       responseFieldParsers =

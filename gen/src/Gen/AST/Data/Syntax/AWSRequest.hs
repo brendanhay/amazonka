@@ -71,6 +71,9 @@ data ResponseReceiver
   | -- | Parse a response from AWS, accepting the body as an unparsed
     -- 'ByteString'. Uses @receiveBytes@.
     ReceiveBytes [ResponseFieldParser]
+  | -- | Parse (optionally wrapped) XML response by field using either
+    -- @receiveXML@ or @receiveXMLWrapper@.
+    ReceiveXml (Maybe Text) [ResponseFieldParser]
   | FigureItOut
   deriving (Show)
 
@@ -150,6 +153,13 @@ responseE Config {..} p r fs =
     ReceiveBytes fieldParsers ->
       var "Response.receiveBytes"
         `Exts.app` lam (ctorE responseType $ map parseField fieldParsers)
+    ReceiveXml Nothing fieldParsers ->
+      var "Response.receiveXML"
+        `Exts.app` lam (ctorE responseType $ map parseField fieldParsers)
+    ReceiveXml (Just wrapper) fieldParsers ->
+      var "Response.receiveXMLWrapper"
+        `Exts.app` str wrapper
+        `Exts.app` lam (ctorE responseType $ map parseField fieldParsers)
     FigureItOut -> Exts.app responseF bdy
   where
     bdy :: Exts.Exp ()
@@ -219,7 +229,6 @@ responseE Config {..} p r fs =
     -- etc, particuarly when the body might be totally empty.
     responseF :: Exts.Exp ()
     responseF
-      | Just x <- r ^. refResultWrapper = trace "responseF(Wrapper)" $ Exts.app (var (suf <> "Wrapper")) (str x)
       | not $ any fieldBody fs = trace "responseF(receiveEmpty)" $ var "Response.receiveEmpty"
       | otherwise = trace "responseF(var suf)" $ var suf
       where

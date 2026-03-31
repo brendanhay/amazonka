@@ -61,20 +61,32 @@ operationData cfg m o = do
       responseReceiver
         | null ys = AWSRequest.ReceiveNull
         | isShared . extract $ yr ^. refAnn,
-          all fieldBody ys =
-            let wrapper = yr ^. refResultWrapper
-             in case m ^. protocol of
-                  APIGateway -> AWSRequest.ReceiveJsonAll
-                  JSON -> AWSRequest.ReceiveJsonAll
-                  RestJSON -> AWSRequest.ReceiveJsonAll
-                  EC2 -> AWSRequest.ReceiveXmlAll wrapper
-                  Query -> AWSRequest.ReceiveXmlAll wrapper
-                  RestXML -> AWSRequest.ReceiveXmlAll wrapper
+          all fieldBody ys = case m ^. protocol of
+            APIGateway -> AWSRequest.ReceiveJsonAll
+            JSON -> AWSRequest.ReceiveJsonAll
+            RestJSON -> AWSRequest.ReceiveJsonAll
+            EC2 -> AWSRequest.ReceiveXmlAll wrapper
+            Query -> AWSRequest.ReceiveXmlAll wrapper
+            RestXML -> AWSRequest.ReceiveXmlAll wrapper
         | any fieldStream ys =
             AWSRequest.ReceiveStreamingBody responseFieldParsers
         | any fieldLitPayload ys =
             AWSRequest.ReceiveBytes responseFieldParsers
+        | -- Check if we should parse wrapped XML before considering
+          -- ReceiveEmpty, because fieldBody is not true for fields
+          -- parsed from within wrapped XML.
+          isXml && isJust wrapper =
+            AWSRequest.ReceiveXml wrapper responseFieldParsers
         | otherwise = AWSRequest.FigureItOut
+        where
+          wrapper = yr ^. refResultWrapper
+          isXml = case m ^. protocol of
+            APIGateway -> False
+            JSON -> False
+            RestJSON -> False
+            EC2 -> True
+            Query -> True
+            RestXML -> True
 
       responseFieldParsers =
         ys <&> \f ->

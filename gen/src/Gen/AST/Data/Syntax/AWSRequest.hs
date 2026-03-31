@@ -7,7 +7,7 @@ module Gen.AST.Data.Syntax.AWSRequest
   )
 where
 
-import Gen.AST.Data.Field (Field, fieldBody, fieldIsParam, fieldLit, fieldLitPayload, fieldLocation, fieldMaybe, fieldPayload, fieldStream)
+import Gen.AST.Data.Field (Field, fieldIsParam, fieldLit, fieldLitPayload, fieldLocation, fieldMaybe, fieldPayload, fieldStream)
 import Gen.AST.Data.Syntax
   ( ctorE,
     funArgsD,
@@ -74,6 +74,10 @@ data ResponseReceiver
   | -- | Parse (optionally wrapped) XML response by field using either
     -- @receiveXML@ or @receiveXMLWrapper@.
     ReceiveXml (Maybe Text) [ResponseFieldParser]
+  | -- | Parse an empty response using @receiveEmpty@. The body will
+    -- not be available to parse and all fields will come from headers
+    -- or status.
+    ReceiveEmpty [ResponseFieldParser]
   | FigureItOut
   deriving (Show)
 
@@ -160,6 +164,9 @@ responseE Config {..} p r fs =
       var "Response.receiveXMLWrapper"
         `Exts.app` str wrapper
         `Exts.app` lam (ctorE responseType $ map parseField fieldParsers)
+    ReceiveEmpty fieldParsers ->
+      var "Response.receiveEmpty"
+        `Exts.app` lam (ctorE responseType $ map parseField fieldParsers)
     FigureItOut -> Exts.app responseF bdy
   where
     bdy :: Exts.Exp ()
@@ -228,9 +235,7 @@ responseE Config {..} p r fs =
     -- FIXME: take method into account for responses, such as HEAD
     -- etc, particuarly when the body might be totally empty.
     responseF :: Exts.Exp ()
-    responseF
-      | not $ any fieldBody fs = trace "responseF(receiveEmpty)" $ var "Response.receiveEmpty"
-      | otherwise = trace "responseF(var suf)" $ var suf
+    responseF = trace "responseF(var suf)" $ var suf
       where
         suf = "Response.receive" <> Proto.suffix p
 

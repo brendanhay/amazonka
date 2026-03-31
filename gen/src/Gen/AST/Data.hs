@@ -77,6 +77,8 @@ operationData cfg m o = do
           -- parsed from within wrapped XML.
           isXml && isJust wrapper =
             AWSRequest.ReceiveXml wrapper responseFieldParsers
+        | not $ any fieldBody ys =
+            AWSRequest.ReceiveEmpty responseFieldParsers
         | otherwise = AWSRequest.FigureItOut
         where
           wrapper = yr ^. refResultWrapper

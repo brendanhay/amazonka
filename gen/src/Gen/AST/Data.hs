@@ -68,20 +68,29 @@ operationData cfg m o = do
             EC2 -> AWSRequest.ReceiveXmlAll wrapper
             Query -> AWSRequest.ReceiveXmlAll wrapper
             RestXML -> AWSRequest.ReceiveXmlAll wrapper
+        -- FIXME: take method into account for responses, such as HEAD
+        -- etc, particuarly when the body might be totally empty.
         | any fieldStream ys =
             AWSRequest.ReceiveStreamingBody responseFieldParsers
         | any fieldLitPayload ys =
             AWSRequest.ReceiveBytes responseFieldParsers
         | -- Check if we should parse wrapped XML before considering
-          -- ReceiveEmpty, because fieldBody is not true for fields
+          -- ReceiveEmpty, because fieldBody is false for fields
           -- parsed from within wrapped XML.
           isXml && isJust wrapper =
             AWSRequest.ReceiveXml wrapper responseFieldParsers
-        | not $ any fieldBody ys =
+        | -- Then check for responses that don't use the field body,
+          -- to avoid trying to `receiveXml` on API calls where AWS
+          -- might send us an empty body.
+          not $ any fieldBody ys =
             AWSRequest.ReceiveEmpty responseFieldParsers
+        | -- Finally, check for unwrapped XML, parsed fieldwise.
+          isXml && isNothing wrapper =
+            AWSRequest.ReceiveXml wrapper responseFieldParsers
         | isJson =
             AWSRequest.ReceiveJson responseFieldParsers
-        | otherwise = AWSRequest.FigureItOut
+        | otherwise =
+            error "Gen.AST.Data.operationData(responseReceiver): don't know how to parse"
         where
           wrapper = yr ^. refResultWrapper
 
@@ -130,7 +139,7 @@ operationData cfg m o = do
             serviceConfig = m ^. serviceConfig
           }
         (m ^. metadata)
-        (yr, ys)
+        ys
   mpage <- pagerFields m o >>= traverse (pp Print . pagerD xn)
 
   yis' <- renderInsts p yn (responseInsts ys)

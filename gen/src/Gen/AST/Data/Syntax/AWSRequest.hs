@@ -85,7 +85,7 @@ data ResponseReceiver
 data ResponseFieldParser
   = -- | Parse the repsonse field from the HTTP response headers named
     -- like the given 'Text'.
-    ParseHeaderField Text HeaderFieldParser
+    ParseHeader Text HeaderFieldParser
   | FigureTheFieldOut Field
   deriving (Show)
 
@@ -175,7 +175,7 @@ responseE Config {..} p fs =
 
     parseField :: ResponseFieldParser -> Exts.Exp ()
     parseField = \case
-      ParseHeaderField hName hField -> case hField of
+      ParseHeader hName hField -> case hField of
         HeaderFieldRequired -> Exts.infixApp (var "h") "Data..#" (str hName)
         HeaderFieldOptional -> Exts.infixApp (var "h") "Data..#?" (str hName)
         HeaderFieldMap ->

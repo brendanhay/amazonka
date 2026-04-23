@@ -113,7 +113,7 @@ operationData cfg m o = do
       responseFieldParsers =
         ys <&> \f ->
           case fieldLocation f of
-            Just Headers -> AWSRequest.ParseHeaderField hName hParser
+            Just Headers -> AWSRequest.ParseHeader hName hParser
               where
                 hName = memberName (m ^. protocol) Output f
                 hParser = case typeOf f of

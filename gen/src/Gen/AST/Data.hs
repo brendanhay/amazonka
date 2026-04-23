@@ -79,9 +79,20 @@ operationData cfg m o = do
             AWSRequest.ReceiveXml wrapper responseFieldParsers
         | not $ any fieldBody ys =
             AWSRequest.ReceiveEmpty responseFieldParsers
+        | isJson =
+            AWSRequest.ReceiveJson responseFieldParsers
         | otherwise = AWSRequest.FigureItOut
         where
           wrapper = yr ^. refResultWrapper
+
+          isJson = case m ^. protocol of
+            APIGateway -> True
+            JSON -> True
+            RestJSON -> True
+            EC2 -> False
+            Query -> False
+            RestXML -> False
+
           isXml = case m ^. protocol of
             APIGateway -> False
             JSON -> False

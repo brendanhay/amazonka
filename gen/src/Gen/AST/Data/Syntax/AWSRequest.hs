@@ -71,7 +71,9 @@ data ResponseReceiver
   | -- | Parse a response from AWS, accepting the body as an unparsed
     -- 'ByteString'. Uses @receiveBytes@.
     ReceiveBytes [ResponseFieldParser]
-  | -- | Parse (optionally wrapped) XML response by field using either
+  | -- | Parse a JSON response from AWS fieldwise using @receiveJSON@.
+    ReceiveJson [ResponseFieldParser]
+  | -- | Parse (optionally wrapped) XML response fieldwise using either
     -- @receiveXML@ or @receiveXMLWrapper@.
     ReceiveXml (Maybe Text) [ResponseFieldParser]
   | -- | Parse an empty response using @receiveEmpty@. The body will
@@ -156,6 +158,9 @@ responseE Config {..} p r fs =
         `Exts.app` lam (ctorE responseType $ map parseField fieldParsers)
     ReceiveBytes fieldParsers ->
       var "Response.receiveBytes"
+        `Exts.app` lam (ctorE responseType $ map parseField fieldParsers)
+    ReceiveJson fieldParsers ->
+      var "Response.receiveJSON"
         `Exts.app` lam (ctorE responseType $ map parseField fieldParsers)
     ReceiveXml Nothing fieldParsers ->
       var "Response.receiveXML"

@@ -14,7 +14,6 @@ import Gen.AST.Data.Syntax
     funD,
     instD,
     justE,
-    memberName,
     pJE,
     pJEDef,
     pJEMay,
@@ -27,7 +26,6 @@ import Gen.AST.Data.Syntax
     var,
   )
 import Gen.Prelude
-import qualified Gen.Protocol as Proto
 import Gen.Types hiding (Config, serviceConfig)
 import qualified Language.Haskell.Exts as Exts
 
@@ -80,7 +78,6 @@ data ResponseReceiver
     -- not be available to parse and all fields will come from headers
     -- or status.
     ReceiveEmpty [ResponseFieldParser]
-  | FigureItOut
   deriving (Show)
 
 -- | How to generate the parser for a single field, for response
@@ -109,14 +106,14 @@ data HeaderFieldParser
 instanceD ::
   Config ->
   Metadata f ->
-  (Ref, [Field]) ->
+  [Field] ->
   Exts.Decl ()
-instanceD c@Config {requestType} m (responseRef, responseFields) =
+instanceD c@Config {requestType} m responseFields =
   instD "Core.AWSRequest" requestType $
     Just
       [ awsResponseD c,
         requestD c,
-        funD "response" (responseE c (m ^. protocol) responseRef responseFields)
+        funD "response" (responseE c (m ^. protocol) responseFields)
       ]
 
 awsResponseD :: Config -> Exts.InstDecl ()
@@ -138,8 +135,8 @@ requestD Config {..} =
         (var $ "Request." <> requestFunction)
         (Exts.app (var "overrides") (var serviceConfig))
 
-responseE :: Config -> Protocol -> Ref -> [Field] -> Exts.Exp ()
-responseE Config {..} p r fs =
+responseE :: Config -> Protocol -> [Field] -> Exts.Exp ()
+responseE Config {..} p fs =
   case responseReceiver of
     ReceiveNull ->
       var "Response.receiveNull" `Exts.app` var (ctorId responseType)
@@ -172,11 +169,7 @@ responseE Config {..} p r fs =
     ReceiveEmpty fieldParsers ->
       var "Response.receiveEmpty"
         `Exts.app` lam (ctorE responseType $ map parseField fieldParsers)
-    FigureItOut -> Exts.app responseF bdy
   where
-    bdy :: Exts.Exp ()
-    bdy = lam . ctorE (identifier r) $ map parseField' fs
-
     lam :: Exts.Exp () -> Exts.Exp ()
     lam = Exts.lamE [Exts.pvar "s", Exts.pvar "h", Exts.pvar "x"]
 
@@ -192,7 +185,6 @@ responseE Config {..} p r fs =
     parseField' :: Field -> Exts.Exp ()
     parseField' x =
       case fieldLocation x of
-        Just Headers -> parseHeadersE (memberName p Output x) (typeOf x)
         Just StatusCode -> parseStatusE x
         Just Body | body -> Exts.app pureE (var "x")
         Nothing | body -> Exts.app pureE (var "x")
@@ -236,22 +228,6 @@ responseE Config {..} p r fs =
             _ -> var "Data.parseXML"
 
     body = any fieldStream fs
-
-    -- FIXME: take method into account for responses, such as HEAD
-    -- etc, particuarly when the body might be totally empty.
-    responseF :: Exts.Exp ()
-    responseF = trace "responseF(var suf)" $ var suf
-      where
-        suf = "Response.receive" <> Proto.suffix p
-
-parseHeadersE :: Text -> TType -> Exts.Exp ()
-parseHeadersE headerName = \case
-  TMap {} -> Exts.appFun (var "Data.parseHeadersMap") [n, h]
-  TMaybe {} -> Exts.infixApp h "Data..#?" n
-  _ -> Exts.infixApp h "Data..#" n
-  where
-    n = str headerName
-    h = var "h"
 
 parseStatusE :: Field -> Exts.Exp ()
 parseStatusE f

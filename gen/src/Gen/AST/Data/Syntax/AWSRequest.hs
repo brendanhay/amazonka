@@ -7,7 +7,7 @@ module Gen.AST.Data.Syntax.AWSRequest
   )
 where
 
-import Gen.AST.Data.Field (Field, fieldIsParam, fieldLit, fieldLitPayload, fieldLocation, fieldMaybe, fieldPayload, fieldStream)
+import Gen.AST.Data.Field (Field, fieldIsParam, fieldLit, fieldLitPayload, fieldLocation, fieldPayload, fieldStream)
 import Gen.AST.Data.Syntax
   ( ctorE,
     funArgsD,
@@ -185,7 +185,8 @@ responseE Config {..} p fs =
     parseField' :: Field -> Exts.Exp ()
     parseField' x =
       case fieldLocation x of
-        Just StatusCode -> parseStatusE x
+        Just StatusCode ->
+          pureE `Exts.app` Exts.paren (var "Prelude.fromEnum" `Exts.app` var "s")
         Just Body | body -> Exts.app pureE (var "x")
         Nothing | body -> Exts.app pureE (var "x")
         _ -> parseProto x
@@ -228,10 +229,3 @@ responseE Config {..} p fs =
             _ -> var "Data.parseXML"
 
     body = any fieldStream fs
-
-parseStatusE :: Field -> Exts.Exp ()
-parseStatusE f
-  | fieldMaybe f = Exts.app pureE (Exts.app justE v)
-  | otherwise = Exts.app pureE v
-  where
-    v = Exts.paren $ Exts.app (var "Prelude.fromEnum") (var "s")

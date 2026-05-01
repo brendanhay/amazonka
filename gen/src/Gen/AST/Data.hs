@@ -70,7 +70,7 @@ operationData cfg m o = do
             RestXML -> AWSRequest.ReceiveXmlAll wrapper
         -- FIXME: take method into account for responses, such as HEAD
         -- etc, particuarly when the body might be totally empty.
-        | any fieldStream ys =
+        | hasStreamingBody =
             AWSRequest.ReceiveStreamingBody responseFieldParsers
         | any fieldLitPayload ys =
             AWSRequest.ReceiveBytes responseFieldParsers
@@ -121,7 +121,11 @@ operationData cfg m o = do
                   TMaybe {} -> AWSRequest.HeaderFieldOptional
                   _ -> AWSRequest.HeaderFieldRequired
             Just StatusCode -> AWSRequest.ParseStatus
+            Just Body | hasStreamingBody -> AWSRequest.ParseBody
+            Nothing | hasStreamingBody -> AWSRequest.ParseBody
             _ -> AWSRequest.FigureTheFieldOut f
+
+      hasStreamingBody = any fieldStream ys
 
   cls <-
     pp Print $

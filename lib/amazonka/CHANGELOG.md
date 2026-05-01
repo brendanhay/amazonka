@@ -96,6 +96,8 @@
 
 ### Fixed
 
+- `amazonka`: `Amazonka.Auth.SSO.relativeCachedTokenFile` is now pure
+[\#1056](https://github.com/brendanhay/amazonka/pull/1056)
 - `amazonka-core`: `containers ^>= 0.7` is now supported. `containers-0.7` is shipped with GHC 9.10 and 9.12.
 [\#1036](https://github.com/brendanhay/amazonka/pull/1036)
 - `amazonka-core`: Accept single-digit days when parsing RFC822 dates

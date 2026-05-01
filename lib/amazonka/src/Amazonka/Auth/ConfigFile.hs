@@ -181,8 +181,7 @@ fromFilePath profile credentialsFile configFile env = liftIO $ do
                 fromWebIdentity tokenFile roleArn mRoleSessionName env
               AssumeRoleViaSSO startUrl ssoRegion accountId roleName -> do
                 cachedTokenFile <-
-                  liftIO $
-                    configPathRelative =<< relativeCachedTokenFile startUrl
+                  liftIO . configPathRelative $ relativeCachedTokenFile startUrl
                 fromSSO cachedTokenFile ssoRegion accountId roleName env
 
             -- Once we have the env from the profile, apply the region

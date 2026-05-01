@@ -7,7 +7,7 @@ module Gen.AST.Data.Syntax.AWSRequest
   )
 where
 
-import Gen.AST.Data.Field (Field, fieldIsParam, fieldLit, fieldLitPayload, fieldLocation, fieldPayload, fieldStream)
+import Gen.AST.Data.Field (Field, fieldIsParam, fieldLit, fieldLitPayload, fieldPayload)
 import Gen.AST.Data.Syntax
   ( ctorE,
     funArgsD,
@@ -88,6 +88,8 @@ data ResponseFieldParser
     ParseHeader Text HeaderFieldParser
   | -- | Parse the status code from the HTTP response.
     ParseStatus
+  | -- | Parse the field from the response body.
+    ParseBody
   | FigureTheFieldOut Field
   deriving (Show)
 
@@ -184,14 +186,9 @@ responseE Config {..} p fs =
           Exts.appFun (var "Data.parseHeadersMap") [str hName, var "h"]
       ParseStatus ->
         pureE `Exts.app` Exts.paren (var "Prelude.fromEnum" `Exts.app` var "s")
-      FigureTheFieldOut field -> parseField' field
-
-    parseField' :: Field -> Exts.Exp ()
-    parseField' x =
-      case fieldLocation x of
-        Just Body | body -> Exts.app pureE (var "x")
-        Nothing | body -> Exts.app pureE (var "x")
-        _ -> parseProto x
+      ParseBody ->
+        pureE `Exts.app` var "x"
+      FigureTheFieldOut field -> parseProto field
 
     parseProto :: Field -> Exts.Exp ()
     parseProto f =
@@ -229,5 +226,3 @@ responseE Config {..} p fs =
             RestJSON -> var "Data.eitherParseJSON"
             APIGateway -> var "Data.eitherParseJSON"
             _ -> var "Data.parseXML"
-
-    body = any fieldStream fs

@@ -101,10 +101,10 @@ fromSSO cachedTokenFile ssoRegion accountId roleName env = do
 -- Matches
 -- [botocore](https://github.com/boto/botocore/blob/c02f3561f56085b8a3f98501d25b9857b916c10e/botocore/utils.py#L2596-L2597),
 -- so that we find tokens produced by @aws sso login@.
-relativeCachedTokenFile :: (MonadIO m) => Text -> m FilePath
-relativeCachedTokenFile startUrl = do
-  let sha1 = show . Crypto.hashSHA1 $ Text.encodeUtf8 startUrl
-  pure $ "/.aws/sso/cache/" <> sha1 <> ".json"
+relativeCachedTokenFile :: Text -> FilePath
+relativeCachedTokenFile startUrl = "/.aws/sso/cache/" <> sha1 <> ".json"
+  where
+    sha1 = show . Crypto.hashSHA1 $ Text.encodeUtf8 startUrl
 
 readCachedAccessToken :: (MonadIO m) => FilePath -> m CachedAccessToken
 readCachedAccessToken p = liftIO $

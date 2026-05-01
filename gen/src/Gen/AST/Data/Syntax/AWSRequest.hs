@@ -2,8 +2,8 @@ module Gen.AST.Data.Syntax.AWSRequest
   ( instanceD,
     Config (..),
     ResponseReceiver (..),
-    ResponseFieldParser (..),
-    HeaderFieldParser (..),
+    ResponseField (..),
+    HeaderField (..),
   )
 where
 
@@ -65,31 +65,31 @@ data ResponseReceiver
     -- @receiveXML@ or @receiveXMLWrapper@.
     ReceiveXmlAll (Maybe Text)
   | -- | Parse a streaming response from AWS using @receiveStreamingBody@.
-    ReceiveStreamingBody [ResponseFieldParser]
+    ReceiveStreamingBody [ResponseField]
   | -- | Parse a response from AWS, accepting the body as an unparsed
     -- 'ByteString'. Uses @receiveBytes@.
-    ReceiveBytes [ResponseFieldParser]
+    ReceiveBytes [ResponseField]
   | -- | Parse a JSON response from AWS fieldwise using @receiveJSON@.
-    ReceiveJson [ResponseFieldParser]
+    ReceiveJson [ResponseField]
   | -- | Parse (optionally wrapped) XML response fieldwise using either
     -- @receiveXML@ or @receiveXMLWrapper@.
-    ReceiveXml (Maybe Text) [ResponseFieldParser]
+    ReceiveXml (Maybe Text) [ResponseField]
   | -- | Parse an empty response using @receiveEmpty@. The body will
     -- not be available to parse and all fields will come from headers
     -- or status.
-    ReceiveEmpty [ResponseFieldParser]
+    ReceiveEmpty [ResponseField]
   deriving (Show)
 
 -- | How to generate the parser for a single field, for response
 -- parsers which do per-field parsing.
-data ResponseFieldParser
+data ResponseField
   = -- | Parse the repsonse field from the HTTP response headers named
     -- like the given 'Text'.
-    ParseHeader Text HeaderFieldParser
+    ResponseFieldHeader Text HeaderField
   | -- | Parse the status code from the HTTP response.
-    ParseStatus
+    ResponseFieldStatus
   | -- | Parse the field from the response body.
-    ParseBody
+    ResponseFieldBody
   | FigureTheFieldOut Field
   deriving (Show)
 
@@ -98,7 +98,7 @@ data ResponseFieldParser
 -- A 'HeaderFieldParser' does not parse a single header, because some
 -- AWS services represent structured data by breaking it across
 -- multiple similarly-named headers.
-data HeaderFieldParser
+data HeaderField
   = -- | Parse a required field from headers using @(.#)@.
     HeaderFieldRequired
   | -- | Parse an optional field from headers using @(.#?)@.
@@ -177,16 +177,16 @@ responseE Config {..} p fs =
     lam :: Exts.Exp () -> Exts.Exp ()
     lam = Exts.lamE [Exts.pvar "s", Exts.pvar "h", Exts.pvar "x"]
 
-    parseField :: ResponseFieldParser -> Exts.Exp ()
+    parseField :: ResponseField -> Exts.Exp ()
     parseField = \case
-      ParseHeader hName hField -> case hField of
+      ResponseFieldHeader hName hField -> case hField of
         HeaderFieldRequired -> Exts.infixApp (var "h") "Data..#" (str hName)
         HeaderFieldOptional -> Exts.infixApp (var "h") "Data..#?" (str hName)
         HeaderFieldMap ->
           Exts.appFun (var "Data.parseHeadersMap") [str hName, var "h"]
-      ParseStatus ->
+      ResponseFieldStatus ->
         pureE `Exts.app` Exts.paren (var "Prelude.fromEnum" `Exts.app` var "s")
-      ParseBody ->
+      ResponseFieldBody ->
         pureE `Exts.app` var "x"
       FigureTheFieldOut field -> parseProto field
 

@@ -113,16 +113,16 @@ operationData cfg m o = do
       responseFieldParsers =
         ys <&> \f ->
           case fieldLocation f of
-            Just Headers -> AWSRequest.ParseHeader hName hParser
+            Just Headers -> AWSRequest.ResponseFieldHeader hName hParser
               where
                 hName = memberName (m ^. protocol) Output f
                 hParser = case typeOf f of
                   TMap {} -> AWSRequest.HeaderFieldMap
                   TMaybe {} -> AWSRequest.HeaderFieldOptional
                   _ -> AWSRequest.HeaderFieldRequired
-            Just StatusCode -> AWSRequest.ParseStatus
-            Just Body | hasStreamingBody -> AWSRequest.ParseBody
-            Nothing | hasStreamingBody -> AWSRequest.ParseBody
+            Just StatusCode -> AWSRequest.ResponseFieldStatus
+            Just Body | hasStreamingBody -> AWSRequest.ResponseFieldBody
+            Nothing | hasStreamingBody -> AWSRequest.ResponseFieldBody
             _ -> AWSRequest.FigureTheFieldOut f
 
       hasStreamingBody = any fieldStream ys

@@ -95,6 +95,7 @@ library
     Gen.AST.Data.Field
     Gen.AST.Data.Instance
     Gen.AST.Data.Syntax
+    Gen.AST.Data.Syntax.AWSRequest
     Gen.AST.Override
     Gen.AST.Prefix
     Gen.AST.Subst
@@ -124,13 +125,13 @@ library
     Gen.Types.URI
     Gen.Types.Waiter
     Gen.WordFrequency
-    Paths_amazonka_gen
 
 executable gen
   import:         base
   hs-source-dirs: bin
   main-is:        gen.hs
   ghc-options:    -threaded -rtsopts "-with-rtsopts=-A128m -I0 -qg0"
+  other-modules:  Paths_amazonka_gen
   build-depends:
     , amazonka-gen
     , filepath

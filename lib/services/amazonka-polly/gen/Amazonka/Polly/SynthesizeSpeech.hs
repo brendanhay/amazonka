@@ -333,7 +333,7 @@ instance Core.AWSRequest SynthesizeSpeech where
   request overrides =
     Request.postJSON (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           SynthesizeSpeechResponse'
             Prelude.<$> (h Data..#? "Content-Type")

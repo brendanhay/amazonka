@@ -50,13 +50,7 @@ instance TypeOf Field where
           TList {} -> True
           _ -> False
 
-      isHeader =
-        fieldLocation f
-          `elem` map
-            Just
-            [ Headers,
-              Header
-            ]
+      isHeader = fieldLocation f == Just Headers
 
       ref = f ^. fieldRef
       typ = fmap unBase64 (typeOf ref)
@@ -71,7 +65,7 @@ instance HasInfo Field where
 -- FIXME: Can just add the metadata to field as well since
 -- the protocol/timestamp are passed in everywhere in the .Syntax module.
 mkFields ::
-  HasMetadata a Identity =>
+  (HasMetadata a Identity) =>
   a ->
   Solved ->
   StructF (Shape Solved) ->

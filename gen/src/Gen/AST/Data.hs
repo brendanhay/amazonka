@@ -8,6 +8,7 @@ module Gen.AST.Data
   )
 where
 
+import Control.Comonad (extract)
 import qualified Control.Lens as Lens
 import qualified Control.Monad.Trans.State as State
 import qualified Data.ByteString.Char8 as ByteString.Char8
@@ -21,8 +22,9 @@ import qualified Data.Text.Lazy as Text.Lazy
 import Gen.AST.Data.Field
 import Gen.AST.Data.Instance
 import Gen.AST.Data.Syntax as Syntax
+import qualified Gen.AST.Data.Syntax.AWSRequest as AWSRequest
 import Gen.Prelude
-import Gen.Types
+import Gen.Types hiding (method)
 import qualified Language.Haskell.Exts as Exts
 import Language.Haskell.Exts.Pretty (Pretty)
 
@@ -41,7 +43,103 @@ operationData cfg m o = do
 
   xis <- addInstances xa xs <$> requestInsts m (_opName o) h xr xs
 
-  cls <- pp Print $ requestD cfg m h (xr, xis) (yr, ys)
+  let requestFunction = method <> format
+        where
+          method = methodToText $ _method h
+          format =
+            case (mapMaybe fromInstance xis, _method h, m ^. protocol) of
+              (f : _, _, _) -> f
+              ([], POST, Query) -> "Query"
+              ([], POST, EC2) -> "Query"
+              _ -> ""
+          fromInstance = \case
+            ToBody {} -> Just "Body"
+            ToJSON {} -> Just "JSON"
+            ToElement {} -> Just "XML"
+            _ -> Nothing
+
+      responseReceiver
+        | null ys = AWSRequest.ReceiveNull
+        | isShared . extract $ yr ^. refAnn,
+          all fieldBody ys = case m ^. protocol of
+            APIGateway -> AWSRequest.ReceiveJsonAll
+            JSON -> AWSRequest.ReceiveJsonAll
+            RestJSON -> AWSRequest.ReceiveJsonAll
+            EC2 -> AWSRequest.ReceiveXmlAll wrapper
+            Query -> AWSRequest.ReceiveXmlAll wrapper
+            RestXML -> AWSRequest.ReceiveXmlAll wrapper
+        -- FIXME: take method into account for responses, such as HEAD
+        -- etc, particuarly when the body might be totally empty.
+        | any fieldStream ys =
+            AWSRequest.ReceiveStreamingBody responseFieldParsers
+        | any fieldLitPayload ys =
+            AWSRequest.ReceiveBytes responseFieldParsers
+        | -- Check if we should parse wrapped XML before considering
+          -- ReceiveEmpty, because fieldBody is false for fields
+          -- parsed from within wrapped XML.
+          isXml && isJust wrapper =
+            AWSRequest.ReceiveXml wrapper responseFieldParsers
+        | -- Then check for responses that don't use the field body,
+          -- to avoid trying to `receiveXml` on API calls where AWS
+          -- might send us an empty body.
+          not $ any fieldBody ys =
+            AWSRequest.ReceiveEmpty responseFieldParsers
+        | -- Finally, check for unwrapped XML, parsed fieldwise.
+          isXml && isNothing wrapper =
+            AWSRequest.ReceiveXml wrapper responseFieldParsers
+        | isJson =
+            AWSRequest.ReceiveJson responseFieldParsers
+        | otherwise =
+            error "Gen.AST.Data.operationData(responseReceiver): don't know how to parse"
+        where
+          wrapper = yr ^. refResultWrapper
+
+          isJson = case m ^. protocol of
+            APIGateway -> True
+            JSON -> True
+            RestJSON -> True
+            EC2 -> False
+            Query -> False
+            RestXML -> False
+
+          isXml = case m ^. protocol of
+            APIGateway -> False
+            JSON -> False
+            RestJSON -> False
+            EC2 -> True
+            Query -> True
+            RestXML -> True
+
+      responseFieldParsers =
+        ys <&> \f ->
+          case fieldLocation f of
+            Just Headers -> AWSRequest.ParseHeader hName hParser
+              where
+                hName = memberName (m ^. protocol) Output f
+                hParser = case typeOf f of
+                  TMap {} -> AWSRequest.HeaderFieldMap
+                  TMaybe {} -> AWSRequest.HeaderFieldOptional
+                  _ -> AWSRequest.HeaderFieldRequired
+            _ -> AWSRequest.FigureTheFieldOut f
+
+  cls <-
+    pp Print $
+      AWSRequest.instanceD
+        AWSRequest.Config
+          { requestType = identifier xr,
+            -- Lookup a specific operationPlugins key before checking
+            -- for the wildcard.
+            requestOperationPlugins =
+              fromMaybe [] $
+                (cfg ^. operationPlugins . Lens.at (identifier xr))
+                  <|> (cfg ^. operationPlugins . Lens.at (mkId "*")),
+            requestFunction,
+            responseType = identifier yr,
+            responseReceiver,
+            serviceConfig = m ^. serviceConfig
+          }
+        (m ^. metadata)
+        ys
   mpage <- pagerFields m o >>= traverse (pp Print . pagerD xn)
 
   yis' <- renderInsts p yn (responseInsts ys)

@@ -183,7 +183,7 @@ instance Core.AWSRequest GetObject where
   request overrides =
     Request.get (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetObjectResponse'
             Prelude.<$> (h Data..#? "Cache-Control")

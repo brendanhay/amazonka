@@ -82,7 +82,7 @@ instance Core.AWSRequest GetRawMessageContent where
   request overrides =
     Request.get (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetRawMessageContentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))

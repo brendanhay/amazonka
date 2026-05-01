@@ -1,3 +1,4 @@
+{-# LANGUAGE ApplicativeDo #-}
 {-# LANGUAGE TemplateHaskell #-}
 
 module Gen.Types.Service where
@@ -96,18 +97,22 @@ instance ToJSON Checksum where
 
 data Location
   = Headers
-  | Header
   | Uri
-  | Querystring
+  | QueryString
   | StatusCode
-  | Body
+  | -- | Not present in @botocore@, but we explicitly annotate fields
+    -- with it.
+    Body
   deriving stock (Eq, Show, Generic)
 
 instance FromJSON Location where
-  parseJSON = gParseJSON' camel
-
-instance ToJSON Location where
-  toJSON = gToJSON' camel
+  parseJSON = Aeson.withText "Location" $ \t -> case t of
+    "header" -> pure Headers -- Present in e.g. accessanalyzer
+    "headers" -> pure Headers -- Present in e.g. dataexchange
+    "querystring" -> pure QueryString
+    "statusCode" -> pure StatusCode
+    "uri" -> pure Uri
+    _ -> fail $ "Unknown location: " <> show t
 
 data XML = XML'
   { _xmlPrefix :: Maybe Text,
@@ -141,17 +146,18 @@ instance HasId (RefF a) where
   identifier = identifier . _refShape
 
 instance FromJSON (RefF ()) where
-  parseJSON = Aeson.withObject "ref" $ \o ->
-    RefF ()
-      <$> o .: "shape"
-      <*> o .:? "documentation"
-      <*> o .:? "location"
-      <*> o .:? "locationName"
-      <*> o .:? "resultWrapper"
-      <*> o .:? "queryName"
-      <*> o .:? "streaming" .!= False
-      <*> o .:? "xmlAttribute" .!= False
-      <*> o .:? "xmlNamespace"
+  parseJSON = Aeson.withObject "ref" $ \o -> do
+    let _refAnn = ()
+    _refShape <- o .: "shape"
+    _refDocumentation <- o .:? "documentation"
+    _refLocation <- o .:? "location"
+    _refLocationName <- o .:? "locationName"
+    _refResultWrapper <- o .:? "resultWrapper"
+    _refQueryName <- o .:? "queryName"
+    _refStreaming <- o .:? "streaming" .!= False
+    _refXMLAttribute <- o .:? "xmlAttribute" .!= False
+    _refXMLNamespace <- o .:? "xmlNamespace"
+    pure RefF {..}
 
 class HasRefs f where
   references :: Lens.Traversal (f a) (f b) (RefF a) (RefF b)
@@ -198,7 +204,7 @@ instance FromJSON Info where
       <*> o .:? "exception" .!= False
       <*> o .:? "error"
 
-nonEmpty :: HasInfo a => a -> Bool
+nonEmpty :: (HasInfo a) => a -> Bool
 nonEmpty = (> Just 0) . Lens.view infoMin
 
 data ListF a = ListF
@@ -354,7 +360,7 @@ $(Lens.makeLenses ''Operation)
 operationNS :: NS -> Id -> NS
 operationNS ns = mappend ns . mkNS . typeId
 
-inputName, outputName :: HasId a => Operation Identity a b -> Id
+inputName, outputName :: (HasId a) => Operation Identity a b -> Id
 inputName = identifier . Lens.view (opInput . _Identity)
 outputName = identifier . Lens.view (opOutput . _Identity)
 
@@ -372,7 +378,7 @@ instance FromJSON (Operation Maybe (RefF ()) ()) where
       <*> o .:? "output"
       <*> pure Nothing
 
-instance ToJSON a => ToJSON (Operation Identity a b) where
+instance (ToJSON a) => ToJSON (Operation Identity a b) where
   toJSON o =
     Aeson.object
       [ "name" .= (o ^. opName),
@@ -405,25 +411,25 @@ deriving instance Show (Metadata Identity)
 $(Lens.makeClassy ''Metadata)
 
 instance FromJSON (Metadata Maybe) where
-  parseJSON = Aeson.withObject "meta" $ \o ->
-    Metadata
-      <$> o .: "protocol"
-      <*> o .: "serviceAbbreviation"
-      <*> (o .: "serviceAbbreviation" <&> renameServiceFunction)
-      <*> (o .: "serviceFullName" <&> renameService)
-      <*> (o .: "signingName" <|> o .: "endpointPrefix")
-      <*> o .: "apiVersion"
-      <*> o .: "signatureVersion"
-      <*> o .: "endpointPrefix"
-      <*> o .:? "checksumFormat"
-      <*> o .:? "xmlNamespace"
-      <*> o .:? "jsonVersion"
-      <*> o .:? "targetPrefix"
+  parseJSON = Aeson.withObject "meta" $ \o -> do
+    _protocol <- o .: "protocol"
+    _serviceAbbrev <- o .: "serviceAbbreviation"
+    _serviceConfig <- o .: "serviceAbbreviation" <&> renameServiceFunction
+    _serviceFullName <- o .: "serviceFullName" <&> renameService
+    _signingName <- o .: "signingName" <|> o .: "endpointPrefix"
+    _apiVersion <- o .: "apiVersion"
+    _signatureVersion <- o .: "signatureVersion"
+    _endpointPrefix <- o .: "endpointPrefix"
+    _checksumFormat <- o .:? "checksumFormat"
+    _xmlNamespace <- o .:? "xmlNamespace"
+    _jsonVersion <- o .:? "jsonVersion"
+    _targetPrefix <- o .:? "targetPrefix"
+    pure Metadata {..}
 
 instance ToJSON (Metadata Identity) where
   toJSON = gToJSON' camel
 
-serviceError :: HasMetadata a f => a -> Text
+serviceError :: (HasMetadata a f) => a -> Text
 serviceError m =
   case m ^. protocol of
     JSON -> "parseJSONError"
@@ -472,7 +478,7 @@ type Ref = RefF (Shape Solved)
 
 class IsStreaming a where
   isStreaming :: a -> Bool
-  default isStreaming :: HasInfo a => a -> Bool
+  default isStreaming :: (HasInfo a) => a -> Bool
   isStreaming = Lens.view infoStreaming
 
 instance IsStreaming Info
@@ -483,7 +489,7 @@ instance IsStreaming (ShapeF a)
 
 instance IsStreaming (Shape a)
 
-instance IsStreaming a => IsStreaming (RefF a) where
+instance (IsStreaming a) => IsStreaming (RefF a) where
   isStreaming r = _refStreaming r || isStreaming (_refAnn r)
 
 instance IsStreaming TType where

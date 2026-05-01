@@ -2,7 +2,6 @@
 
 module Gen.AST.Data.Syntax where
 
-import qualified Control.Comonad as Comonad
 import qualified Control.Lens as Lens
 import qualified Data.Char as Char
 import qualified Data.Foldable as Fold
@@ -59,15 +58,10 @@ pJE = "Data..:>"
 pJEMay = "Data..?>"
 pJEDef = pXDef
 
-pH, pHMay :: QOp
-pH = "Data..#"
-pHMay = "Data..#?"
-
-pXMap, pXList, pXList1, pHMap :: Exp
+pXMap, pXList, pXList1 :: Exp
 pXMap = var "Data.parseXMLMap"
 pXList = var "Data.parseXMLList"
 pXList1 = var "Data.parseXMLList1"
-pHMap = var "Data.parseHeadersMap"
 
 toX, toXAttr, toJ, toQ, toH :: QOp
 toX = "Data.@="
@@ -181,7 +175,6 @@ recordD :: (HasMetadata a Identity) => a -> Id -> [Field] -> QualConDecl
 recordD m n =
   conD . \case
     [] -> Exts.ConDecl () c []
-    [x] -> Exts.RecDecl () c [fieldDecl (internal m) x]
     xs -> Exts.RecDecl () c (map (fieldDecl (internal m)) xs)
   where
     fieldDecl h f = Exts.FieldDecl () [ident (fieldAccessor f)] (h f)
@@ -353,88 +346,6 @@ notationE' withLensIso = \case
       TMaybe x -> var "Lens._Just" : lensIso x
       _other -> []
 
-requestD ::
-  (HasMetadata a Identity) =>
-  Config ->
-  a ->
-  HTTP ->
-  (Ref, [Inst]) ->
-  (Ref, [Field]) ->
-  Decl
-requestD c m h (a, as) (b, bs) =
-  instD
-    "Core.AWSRequest"
-    (identifier a)
-    $ Just
-      [ assocD (identifier a) "AWSResponse" (typeId (identifier b)),
-        funArgsD "request" ["overrides"] (requestF c m h a as),
-        funD "response" (responseE (m ^. protocol) b bs)
-      ]
-
-responseE :: Protocol -> Ref -> [Field] -> Exp
-responseE p r fs = Exts.app (responseF p r fs) bdy
-  where
-    n = r ^. Lens.to identifier
-    s = r ^. refAnn . Lens.to Comonad.extract
-
-    bdy :: Exp
-    bdy
-      | null fs = var (ctorId n)
-      | isShared s, all fieldBody fs = lam parseAll
-      | otherwise = lam . ctorE n $ map parseField fs
-
-    lam :: Exp -> Exp
-    lam = Exts.lamE [Exts.pvar "s", Exts.pvar "h", Exts.pvar "x"]
-
-    parseField :: Field -> Exp
-    parseField x =
-      case fieldLocation x of
-        Just Headers -> parseHeadersE p x
-        Just Header -> parseHeadersE p x
-        Just StatusCode -> parseStatusE x
-        Just Body | body -> Exts.app pureE (var "x")
-        Nothing | body -> Exts.app pureE (var "x")
-        _ -> parseProto x
-
-    parseProto :: Field -> Exp
-    parseProto f =
-      case p of
-        _ | f ^. fieldPayload -> parseOne f
-        JSON -> parseJSONE p pJE pJEMay pJEDef f
-        RestJSON -> parseJSONE p pJE pJEMay pJEDef f
-        APIGateway -> parseJSONE p pJE pJEMay pJEDef f
-        _ -> parseXMLE p f
-
-    parseOne :: Field -> Exp
-    parseOne f
-      | fieldLit f =
-          if fieldIsParam f
-            then Exts.app (var "Prelude.pure") (var "x")
-            else -- Coerce is inserted here to handle newtypes such as Sensitive.
-
-              Exts.app (var "Prelude.pure")
-                . Exts.paren
-                . Exts.app justE
-                . Exts.paren
-                . Exts.app (var "Prelude.coerce")
-                $ var "x"
-      -- This ensures anything which is set as a payload,
-      -- but is a primitive type is just consumed as a bytestring.
-      | otherwise = parseAll
-
-    parseAll :: Exp
-    parseAll =
-      flip Exts.app (var "x") $
-        if any fieldLitPayload fs
-          then var "Prelude.pure"
-          else case p of
-            JSON -> var "Data.eitherParseJSON"
-            RestJSON -> var "Data.eitherParseJSON"
-            APIGateway -> var "Data.eitherParseJSON"
-            _ -> var "Data.parseXML"
-
-    body = any fieldStream fs
-
 instanceD :: Protocol -> Id -> Inst -> Decl
 instanceD p n = \case
   FromXML fs -> fromXMLD p n fs
@@ -595,9 +506,6 @@ funArgsD f as e =
   Exts.InsDecl () $
     Exts.sfun (ident f) (map ident as) (unguarded e) Exts.noBinds
 
-assocD :: Id -> Text -> Text -> InstDecl
-assocD n x y = Exts.InsType () (tyapp (tycon x) (tycon (typeId n))) (tycon y)
-
 decodeD :: Text -> Id -> Text -> ([a] -> Exp) -> [a] -> Decl
 decodeD c n f dec =
   instD1 c n . \case
@@ -649,22 +557,6 @@ parseJSONE p d dm dd f
   where
     n = memberName p Output f
     x = var "x"
-
-parseHeadersE :: Protocol -> Field -> Exp
-parseHeadersE p f
-  | TMap {} <- typeOf f = Exts.appFun pHMap [str n, h]
-  | fieldMaybe f = decodeE h pHMay n
-  | otherwise = decodeE h pH n
-  where
-    n = memberName p Output f
-    h = var "h"
-
-parseStatusE :: Field -> Exp
-parseStatusE f
-  | fieldMaybe f = Exts.app pureE (Exts.app justE v)
-  | otherwise = Exts.app pureE v
-  where
-    v = Exts.paren $ Exts.app (var "Prelude.fromEnum") (var "s")
 
 toXMLE :: Protocol -> Field -> Exp
 toXMLE p f = toGenericE p opX "Data.toXML" toXMap toXList f
@@ -785,65 +677,6 @@ memberName p d f = Proto.memberName p d (f ^. fieldId) (f ^. fieldRef)
 inputNames, outputNames :: Protocol -> Field -> Names
 inputNames p f = Proto.nestedNames p Input (f ^. fieldId) (f ^. fieldRef)
 outputNames p f = Proto.nestedNames p Output (f ^. fieldId) (f ^. fieldRef)
-
-requestF ::
-  (HasMetadata a Identity) =>
-  Config ->
-  a ->
-  HTTP ->
-  Ref ->
-  [Inst] ->
-  Exp
-requestF c meta h r is =
-  maybe e (foldr applyPlugin e) selectedPlugins
-  where
-    applyPlugin x =
-      -- Plugin functions are of the form :: Request a -> Request a
-      Exts.infixApp (var x) "Prelude.."
-
-    selectedPlugins =
-      -- Lookup a specific operationPlugins key before the wildcard.
-      HashMap.lookup (identifier r) (c ^. operationPlugins)
-        <|> HashMap.lookup (mkId "*") (c ^. operationPlugins)
-
-    e = Exts.app v (Exts.app (var "overrides") (var $ meta ^. serviceConfig))
-
-    v =
-      var
-        . mappend ("Request." <> methodToText m)
-        . fromMaybe mempty
-        . listToMaybe
-        $ mapMaybe f is
-
-    f = \case
-      ToBody {} -> Just "Body"
-      ToJSON {} -> Just "JSON"
-      ToElement {} -> Just "XML"
-      _
-        | p == Query,
-          m == POST ->
-            Just "Query"
-      _
-        | p == EC2,
-          m == POST ->
-            Just "Query"
-      _ -> Nothing
-
-    m = h ^. method
-    p = meta ^. protocol
-
--- FIXME: take method into account for responses, such as HEAD etc, particuarly
--- when the body might be totally empty.
-responseF :: Protocol -> RefF a -> [Field] -> Exp
-responseF p r fs
-  | null fs = var "Response.receiveNull"
-  | any fieldStream fs = var "Response.receiveBody"
-  | any fieldLitPayload fs = var "Response.receiveBytes"
-  | Just x <- r ^. refResultWrapper = Exts.app (var (suf <> "Wrapper")) (str x)
-  | not $ any fieldBody fs = var "Response.receiveEmpty"
-  | otherwise = var suf
-  where
-    suf = "Response.receive" <> Proto.suffix p
 
 waiterS :: Id -> Waiter a -> Decl
 waiterS n w = Exts.TypeSig () [ident c] $ tyapp (tycon "Core.Wait") (tycon k)

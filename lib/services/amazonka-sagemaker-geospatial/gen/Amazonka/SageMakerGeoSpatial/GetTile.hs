@@ -197,7 +197,7 @@ instance Core.AWSRequest GetTile where
   request overrides =
     Request.get (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetTileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))

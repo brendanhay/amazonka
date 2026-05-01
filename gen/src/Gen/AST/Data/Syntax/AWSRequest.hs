@@ -86,6 +86,8 @@ data ResponseFieldParser
   = -- | Parse the repsonse field from the HTTP response headers named
     -- like the given 'Text'.
     ParseHeader Text HeaderFieldParser
+  | -- | Parse the status code from the HTTP response.
+    ParseStatus
   | FigureTheFieldOut Field
   deriving (Show)
 
@@ -180,13 +182,13 @@ responseE Config {..} p fs =
         HeaderFieldOptional -> Exts.infixApp (var "h") "Data..#?" (str hName)
         HeaderFieldMap ->
           Exts.appFun (var "Data.parseHeadersMap") [str hName, var "h"]
+      ParseStatus ->
+        pureE `Exts.app` Exts.paren (var "Prelude.fromEnum" `Exts.app` var "s")
       FigureTheFieldOut field -> parseField' field
 
     parseField' :: Field -> Exts.Exp ()
     parseField' x =
       case fieldLocation x of
-        Just StatusCode ->
-          pureE `Exts.app` Exts.paren (var "Prelude.fromEnum" `Exts.app` var "s")
         Just Body | body -> Exts.app pureE (var "x")
         Nothing | body -> Exts.app pureE (var "x")
         _ -> parseProto x

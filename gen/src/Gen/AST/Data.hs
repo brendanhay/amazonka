@@ -120,6 +120,7 @@ operationData cfg m o = do
                   TMap {} -> AWSRequest.HeaderFieldMap
                   TMaybe {} -> AWSRequest.HeaderFieldOptional
                   _ -> AWSRequest.HeaderFieldRequired
+            Just StatusCode -> AWSRequest.ParseStatus
             _ -> AWSRequest.FigureTheFieldOut f
 
   cls <-

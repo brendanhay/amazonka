@@ -52,7 +52,7 @@
 
         renameVersion = version: "ghc" + (pkgs.lib.replaceStrings [ "." ] [ "" ] version);
 
-        mkDevShell = hsPkgs: pkgs.mkShell {
+        mkDevShell = hsPkgs: pkgs.mkShell ({
           name = "amazonka-${renameVersion hsPkgs.ghc.version}";
 
           buildInputs = [
@@ -81,10 +81,10 @@
           shellHook = pre-commit.shellHook + ''
             export BOTOCORE=${botocore.outPath}
             echo "botocore: $BOTOCORE"
-          '' + pkgs.lib.optionalString pkgs.stdenv.isLinux ''
-            export PKG_CONFIG_PATH=${pkgs.lib.makeSearchPath "lib/pkgconfig" [ pkgs.zlib.dev ]}
           '';
-        };
+        } // pkgs.lib.optionalAttrs pkgs.stdenv.isLinux {
+          PKG_CONFIG_PATH = pkgs.lib.makeSearchPath "lib/pkgconfig" [ pkgs.zlib.dev ];
+        });
 
         amazonka-gen =
           # Use ghc92 because we want hashable ==1.3.* for actual

@@ -83,6 +83,8 @@
             echo "botocore: $BOTOCORE"
           '';
         } // pkgs.lib.optionalAttrs pkgs.stdenv.isLinux {
+          # Fix build failure of Haskell zlib package ("error: *** stack smashing detected ***: terminated").
+          # Without this, pkg-config resolves zlib to whatever zlib is installed on ubuntu GitHub action runners
           PKG_CONFIG_PATH = pkgs.lib.makeSearchPath "lib/pkgconfig" [ pkgs.zlib.dev ];
         });
 

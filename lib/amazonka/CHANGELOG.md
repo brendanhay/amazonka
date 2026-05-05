@@ -96,6 +96,8 @@
 
 ### Fixed
 
+- Fix GitHub actions CI config issues (not following schema, actually building with different GHC version on ubuntu runners), bump to latest gh action dependencies (fixing deprecated nodejs runtime warnings).
+[\#1057](https://github.com/brendanhay/amazonka/pull/1057)
 - `amazonka`: `Amazonka.Auth.SSO.relativeCachedTokenFile` is now pure
 [\#1056](https://github.com/brendanhay/amazonka/pull/1056)
 - `amazonka-core`: `containers ^>= 0.7` is now supported. `containers-0.7` is shipped with GHC 9.10 and 9.12.

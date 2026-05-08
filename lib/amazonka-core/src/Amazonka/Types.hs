@@ -658,7 +658,13 @@ requestUnsigned Request {service = Service {..}, ..} r =
     end = endpoint r
 
 -- | Specify how a request can be de/serialised.
-class (Typeable a, Typeable (AWSResponse a)) => AWSRequest a where
+class
+  ( Typeable a,
+    Typeable (AWSResponse a),
+    NFData (AWSResponse a)
+  ) =>
+  AWSRequest a
+  where
   -- | The successful, expected response associated with a request.
   type AWSResponse a :: Type
 
@@ -951,7 +957,6 @@ pattern TelAviv = Region' "il-central-1"
 
 pattern MexicoCentral :: Region
 pattern MexicoCentral = Region' "mx-central-1"
-
 
 -- Middle East
 

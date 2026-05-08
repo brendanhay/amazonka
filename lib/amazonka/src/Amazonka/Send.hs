@@ -29,8 +29,10 @@ sendEither ::
   Env ->
   a ->
   m (Either Error (AWSResponse a))
-sendEither env =
-  fmap (second Client.responseBody) . HTTP.retryRequest env
+sendEither env rq =
+  HTTP.retryRequest env rq <&> strictResponse
+  where
+    strictResponse = forceRight . fmap Client.responseBody
 
 -- | Send a request, returning the associated response if successful.
 --
@@ -59,8 +61,10 @@ sendUnsignedEither ::
   Env' withAuth ->
   a ->
   m (Either Error (AWSResponse a))
-sendUnsignedEither env =
-  fmap (second Client.responseBody) . HTTP.retryRequest (env {auth = Proxy})
+sendUnsignedEither env rq =
+  HTTP.retryRequest (env {auth = Proxy}) rq <&> strictResponse
+  where
+    strictResponse = forceRight . fmap Client.responseBody
 
 -- | Make an unsigned request, returning the associated response if successful.
 --
@@ -137,3 +141,8 @@ await env wait =
 
 hoistEither :: (MonadIO m) => Either Error a -> m a
 hoistEither = either (liftIO . Exception.throwIO) pure
+
+forceRight :: (NFData b) => Either e b -> Either e b
+forceRight = \case
+  Left e -> Left e
+  Right b -> rnf b `seq` Right b

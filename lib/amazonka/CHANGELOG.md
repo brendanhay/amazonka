@@ -4,6 +4,9 @@
 
 ### Changed
 
+- `amazonka`: `Amazonka.Auth.SSO.fromSSO` throws an `AuthError` now.  Previously
+  it could throw a `Amazonka.Types.Error`.
+  [\#1060](https://github.com/brendanhay/amazonka/pull/1060)
 - `amazonka`: Improve error handling during periodic credential refresh in `fetchAuthInBackground`.
   Exceptions thrown by the refresh action are now categorized and rethrown to the parent thread as
   `RetrievalError`, `AuthServiceError`, or `OtherAuthError` (instead of just `RetrievalError` which was a bug). (thanks @kushagarr)

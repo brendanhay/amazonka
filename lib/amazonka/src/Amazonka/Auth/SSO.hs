@@ -17,7 +17,7 @@ import Amazonka.Env (Env, Env' (..))
 import Amazonka.Prelude
 import Amazonka.SSO.GetRoleCredentials as SSO
 import qualified Amazonka.SSO.Types as SSO (RoleCredentials (..))
-import Amazonka.Send (sendUnsigned)
+import Amazonka.Send (sendUnsignedEither)
 import Amazonka.Types
 import Control.Exception (IOException)
 import qualified Control.Exception as Exception
@@ -92,9 +92,16 @@ fromSSO cachedTokenFile ssoRegion accountId roleName env = do
               accountId
               (fromSensitive accessToken)
 
-      resp <- runResourceT $ sendUnsigned ssoEnv getRoleCredentials
-      pure . roleCredentialsToAuthEnv $
-        resp ^. SSO.getRoleCredentialsResponse_roleCredentials
+      runResourceT (sendUnsignedEither ssoEnv getRoleCredentials) >>= \case
+        Left err -> Exception.throwIO (errorAsAuthError err)
+        Right resp ->
+          pure . roleCredentialsToAuthEnv $
+            resp ^. SSO.getRoleCredentialsResponse_roleCredentials
+
+    errorAsAuthError = \case
+      ServiceError err -> AuthServiceError err
+      TransportError err -> RetrievalError err
+      other -> OtherAuthError (Exception.toException other)
 
 -- | Return the cached token file for a given @sso_start_url@
 --

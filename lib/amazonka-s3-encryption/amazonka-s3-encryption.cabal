@@ -93,7 +93,7 @@ library
     Amazonka.S3.Encryption.Types
 
   build-depends:
-    , aeson                 ^>=1.5.0.0 || ^>=2.0 || ^>=2.1   || ^>=2.2
+    , aeson                 ^>=1.5.0.0 || ^>=2.0 || ^>=2.1   || ^>=2.2 || ^>=2.3
     , amazonka              ^>=2.0
     , amazonka-core         ^>=2.0
     , amazonka-kms          ^>=2.0

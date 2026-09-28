@@ -19,7 +19,6 @@ import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Char8 as BS8
 import Data.Conduit (ConduitM)
 import qualified Data.Conduit as Conduit
-import qualified Network.HTTP.Types as HTTP
 import qualified Numeric
 
 chunked :: ChunkedBody -> Algorithm a
@@ -45,8 +44,7 @@ chunked
         r
           { headers =
               headers
-                <> [ (hAMZDecodedContentLength, toBS len),
-                     (HTTP.hContentLength, toBS (metadataLength c))
+                <> [ (hAMZDecodedContentLength, toBS len)
                    ]
           }
 

@@ -65,6 +65,8 @@ piExtension = Lens.lens _piExt (\s a -> s {_piExt = a})
 instance AWSRequest PutInstructions where
   type AWSResponse PutInstructions = S3.PutObjectResponse
 
+  evaluateResponse _ = rnf
+
   request overrides x =
     coerce . request overrides $
       _piPut x & S3.putObject_key %~ appendExtension (_piExt x)
@@ -129,6 +131,8 @@ diExtension = Lens.lens _diExt (\s a -> s {_diExt = a})
 
 instance AWSRequest DeleteInstructions where
   type AWSResponse DeleteInstructions = S3.DeleteObjectResponse
+
+  evaluateResponse _ = rnf
 
   request overrides x =
     coerce . request overrides $

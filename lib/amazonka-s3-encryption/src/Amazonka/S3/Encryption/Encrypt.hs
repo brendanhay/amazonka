@@ -61,6 +61,8 @@ envelope = _encEnvelope
 instance (AWSRequest a) => AWSRequest (Encrypted a) where
   type AWSResponse (Encrypted a) = AWSResponse a
 
+  evaluateResponse (Encrypted x _ _ _) = evaluateResponse x
+
   request overrides (Encrypted x xs l e) =
     coerce (request overrides x) & updateBodyAndHeaders
     where

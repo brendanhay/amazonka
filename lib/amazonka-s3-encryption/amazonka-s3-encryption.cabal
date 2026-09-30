@@ -120,7 +120,9 @@ test-suite amazonka-s3-encryption-test
   -- This section is encoded by the template and any modules added by
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
-  other-modules:    Test.Amazonka.S3.Encryption.Envelope
+  other-modules:
+    Test.Amazonka.S3.Encryption.Encrypt
+    Test.Amazonka.S3.Encryption.Envelope
   build-depends:
     , amazonka-core
     , amazonka-s3-encryption

@@ -662,6 +662,18 @@ class (Typeable a, Typeable (AWSResponse a)) => AWSRequest a where
   -- | The successful, expected response associated with a request.
   type AWSResponse a :: Type
 
+  -- | Evaluate a successful response before returning it from a send operation
+  -- or passing it to a waiter acceptor.
+  --
+  -- The default evaluates only the outer constructor, which preserves
+  -- streaming responses. Generated non-streaming requests override this
+  -- with 'rnf'.
+  --
+  -- Evaluation happens after response hooks. Any exception raised by this
+  -- method is propagated through IO and is not converted to 'Error'.
+  evaluateResponse :: a -> AWSResponse a -> ()
+  evaluateResponse _ result = result `seq` ()
+
   request ::
     -- | Overrides applied to the default 'Service'.
     (Service -> Service) ->
@@ -951,7 +963,6 @@ pattern TelAviv = Region' "il-central-1"
 
 pattern MexicoCentral :: Region
 pattern MexicoCentral = Region' "mx-central-1"
-
 
 -- Middle East
 

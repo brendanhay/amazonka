@@ -28,6 +28,7 @@ import Control.Monad.Trans.Resource (liftResourceT, transResourceT)
 import qualified Control.Retry as Retry
 import Data.Foldable (traverse_)
 import qualified Data.Time as Time
+import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit
 
 retryRequest ::
@@ -67,7 +68,7 @@ retryRequest env@Env {hooks} rq = do
 
   Retry.retrying policy shouldRetry attempt >>= \case
     Left e -> Left e <$ liftIO (Hooks.error hooks env (Final, cfgRq, e))
-    Right a -> pure $ Right a
+    Right a -> Right a <$ evaluateSuccessfulResponse rq' a
 
 awaitRequest ::
   ( MonadResource m,
@@ -84,7 +85,10 @@ awaitRequest env@Env {hooks} w rq = do
   w'@Wait {..} <- liftIO $ Hooks.wait hooks env w
 
   let handleResult res = (fromMaybe AcceptRetry $ accept w' cfgRq res, res)
-      attempt _ = handleResult <$> httpRequest env cfgRq
+      attempt _ = do
+        result <- httpRequest env cfgRq
+        traverse_ (evaluateSuccessfulResponse rq') result
+        pure (handleResult result)
       policy =
         Retry.limitRetries attempts
           <> Retry.constantDelay (toMicroseconds delay)
@@ -146,6 +150,17 @@ httpRequest env@Env {hooks, manager, region} cfgRq =
 
     proxy :: Request a -> Proxy a
     proxy _ = Proxy
+
+evaluateSuccessfulResponse ::
+  (MonadIO m, AWSRequest a) =>
+  a ->
+  ClientResponse (AWSResponse a) ->
+  m ()
+evaluateSuccessfulResponse rq =
+  liftIO
+    . Exception.evaluate
+    . evaluateResponse rq
+    . Client.responseBody
 
 -- Configures an AWS request `a` into its `Request a` form, applying
 -- service overrides from `env` and running hooks on the configured

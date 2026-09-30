@@ -366,10 +366,14 @@ requestD c m h (a, as) (b, bs) =
     "Core.AWSRequest"
     (identifier a)
     $ Just
-      [ assocD (identifier a) "AWSResponse" (typeId (identifier b)),
-        funArgsD "request" ["overrides"] (requestF c m h a as),
-        funD "response" (responseE (m ^. protocol) b bs)
-      ]
+      ( [assocD (identifier a) "AWSResponse" (typeId (identifier b))]
+          ++ [ funArgsD "evaluateResponse" ["_"] (var "Prelude.rnf")
+             | not (any fieldStream (notLocated bs))
+             ]
+          ++ [ funArgsD "request" ["overrides"] (requestF c m h a as),
+               funD "response" (responseE (m ^. protocol) b bs)
+             ]
+      )
 
 responseE :: Protocol -> Ref -> [Field] -> Exp
 responseE p r fs = Exts.app (responseF p r fs) bdy

@@ -29,8 +29,8 @@ sendEither ::
   Env ->
   a ->
   m (Either Error (AWSResponse a))
-sendEither env =
-  fmap (second Client.responseBody) . HTTP.retryRequest env
+sendEither env rq =
+  fmap Client.responseBody <$> HTTP.retryRequest env rq
 
 -- | Send a request, returning the associated response if successful.
 --
@@ -59,8 +59,8 @@ sendUnsignedEither ::
   Env' withAuth ->
   a ->
   m (Either Error (AWSResponse a))
-sendUnsignedEither env =
-  fmap (second Client.responseBody) . HTTP.retryRequest (env {auth = Proxy})
+sendUnsignedEither env rq =
+  fmap Client.responseBody <$> HTTP.retryRequest (env {auth = Proxy}) rq
 
 -- | Make an unsigned request, returning the associated response if successful.
 --

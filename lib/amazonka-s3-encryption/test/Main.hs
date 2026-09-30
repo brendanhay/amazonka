@@ -2,6 +2,7 @@
 
 module Main (main) where
 
+import Test.Amazonka.S3.Encryption.Encrypt
 import Test.Amazonka.S3.Encryption.Envelope
 import Test.Tasty
 
@@ -10,5 +11,6 @@ main =
   defaultMain $
     testGroup
       "S3-encryption"
-      [ testGroup "envelope" envelopeTests
+      [ testGroup "envelope" envelopeTests,
+        encryptTests
       ]

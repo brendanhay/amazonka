@@ -2,7 +2,11 @@
 {-# LANGUAGE NamedFieldPuns #-}
 {-# LANGUAGE OverloadedStrings #-}
 
-module Test.Amazonka.S3.Encryption.Envelope (envelopeTests) where
+module Test.Amazonka.S3.Encryption.Envelope
+  ( envelopeTests,
+    mkTestAESV2Envelope,
+  )
+where
 
 import Amazonka.Core
 import Amazonka.S3.Encryption.Envelope

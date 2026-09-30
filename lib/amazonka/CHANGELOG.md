@@ -99,6 +99,10 @@
 
 ### Fixed
 
+- `amazonka`: Fully evaluate successful non-streaming service responses before
+  returning them from send operations or passing them to waiter acceptors.
+  Streaming response bodies remain lazy.
+  [\#1050](https://github.com/brendanhay/amazonka/pull/1050)
 - `amazonka`: `Amazonka.Auth.SSO.relativeCachedTokenFile` is now pure
 [\#1056](https://github.com/brendanhay/amazonka/pull/1056)
 - `amazonka-core`: `containers ^>= 0.7` is now supported. `containers-0.7` is shipped with GHC 9.10 and 9.12.

@@ -122,16 +122,25 @@ library
     , uuid                  >=1.2.6     && <1.4
 
 test-suite tests
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  other-modules:  Test.Amazonka.Auth.Background
+  import:            base
+  type:              exitcode-stdio-1.0
+  hs-source-dirs:    test
+  main-is:           Main.hs
+  other-modules:
+    Test.Amazonka.Auth.Background
+    Test.Amazonka.Send
   build-depends:
     , amazonka
     , amazonka-core
+    , amazonka-dynamodb
+    , amazonka-sts
+    , bytestring
+    , conduit
+    , deepseq
+    , network
+    , resourcet
+    , tasty              >=0.10
+    , tasty-hunit        >=0.9
+    , time
     , http-client
     , http-types
-    , tasty          >=0.10
-    , tasty-hunit    >=0.9
-    , time

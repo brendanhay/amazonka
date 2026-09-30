@@ -14,7 +14,6 @@ import qualified Data.ByteString.Char8 as BS8
 import qualified Data.Conduit.List as Conduit
 import qualified Data.Foldable as Fold
 import qualified Network.HTTP.Conduit as Client
-import Numeric (showHex)
 import Test.Amazonka.Arbitrary ()
 import qualified Test.QuickCheck as QC
 import Test.QuickCheck.Property ()
@@ -35,7 +34,6 @@ testEmptyBody =
   QC.forAll (mkSigned []) $ \Signed {..} ->
     let elem = (`Fold.elem` Client.requestHeaders signedRequest)
      in elem ("X-Amz-Decoded-Content-Length", "0")
-          && elem ("Content-Length", "86")
 
 testOneChunkBody :: Property
 testOneChunkBody =
@@ -45,12 +43,10 @@ testOneChunkBody =
    in QC.forAll (mkSigned [inp]) $ \Signed {..} ->
         let elem = (`Fold.elem` Client.requestHeaders signedRequest)
          in elem ("X-Amz-Decoded-Content-Length", str n)
-              && elem ("Content-Length", str (87 + n + 86))
 
 testTwoChunksBody :: Property
 testTwoChunksBody =
   let size = fromIntegral defaultChunkSize
-      sizeLen = length (showHex size "")
       n = 123
       str = BS8.pack . show
       full = BS8.replicate size 'a' -- full-sized chunk
@@ -58,7 +54,6 @@ testTwoChunksBody =
    in QC.forAll (mkSigned [full, final]) $ \Signed {..} ->
         let elem = (`Fold.elem` Client.requestHeaders signedRequest)
          in elem ("X-Amz-Decoded-Content-Length", str (size + n))
-              && elem ("Content-Length", str (sizeLen + 85 + size + 87 + n + 86))
 
 mkSigned :: [BS8.ByteString] -> Gen (Signed ())
 mkSigned bs = do

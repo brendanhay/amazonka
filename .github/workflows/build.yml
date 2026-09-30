@@ -6,13 +6,13 @@ concurrency:
 
 on:
   pull_request:
-    branches: main
+    branches: [ main ]
     types:
       - opened
       - synchronize
 
   push:
-    branches: main
+    branches: [ main ]
     paths-ignore:
       - "configs/**"
       - "scripts/**"
@@ -23,13 +23,10 @@ on:
 
 jobs:
   amazonka-gen:
-    strategy:
-      fail-fast: false
-
     runs-on: ubuntu-latest
 
     steps:
-      - uses: cachix/install-nix-action@v22
+      - uses: cachix/install-nix-action@v31
         with:
           nix_path: nixpkgs=channel:nixos-unstable
           extra_nix_config: |
@@ -37,12 +34,12 @@ jobs:
             extra-substituters = https://cache.iog.io
             experimental-features = nix-command flakes
 
-      - uses: cachix/cachix-action@v12
+      - uses: cachix/cachix-action@v17
         with:
           name: amazonka
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - run: nix build
 
@@ -68,7 +65,7 @@ jobs:
         run: |-
           sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt &
 
-      - uses: cachix/install-nix-action@v22
+      - uses: cachix/install-nix-action@v31
         with:
           nix_path: nixpkgs=channel:nixos-unstable
           extra_nix_config: |
@@ -76,19 +73,19 @@ jobs:
             extra-substituters = https://cache.iog.io
             experimental-features = nix-command flakes
 
-      - uses: cachix/cachix-action@v12
+      - uses: cachix/cachix-action@v17
         with:
           name: amazonka
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - name: cabal update && cabal freeze
         run: |
-          nix develop --print-build-logs --command \
-              bash -c 'cabal update && cabal freeze' '.#${{matrix.ghc}}'
+          nix develop '.#${{matrix.ghc}}' --print-build-logs --command \
+              bash -c 'cabal update && cabal freeze'
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v5
         with:
           key: v1-${{ runner.os }}-${{ matrix.ghc }}-${{ hashFiles('cabal.project.freeze') }}
           restore-keys: |
@@ -99,15 +96,15 @@ jobs:
 
       - name: cabal build core
         run: |
-          nix develop --print-build-logs --command \
-              bash -c 'cabal build amazonka-core amazonka' '.#${{matrix.ghc}}'
+          nix develop '.#${{matrix.ghc}}' --print-build-logs --command \
+              bash -c 'cabal build amazonka-core amazonka'
 
       - name: cabal build s3-encryption
         run: |
-          nix develop --print-build-logs --command \
-              bash -c 'cabal build amazonka-s3-encryption' '.#${{matrix.ghc}}'
+          nix develop '.#${{matrix.ghc}}' --print-build-logs --command \
+              bash -c 'cabal build amazonka-s3-encryption'
 
       - name: cabal build all
         run: |
-          nix develop --print-build-logs --command \
-              bash -c 'cabal test all' '.#${{matrix.ghc}}'
+          nix develop '.#${{matrix.ghc}}' --print-build-logs --command \
+              bash -c 'cabal test all'

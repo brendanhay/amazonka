@@ -46,6 +46,8 @@
         ghc94 = pkgs.haskell.packages."ghc94";
         ghc96 = pkgs.haskell.packages."ghc96";
         ghc98 = pkgs.haskell.packages."ghc98";
+        ghc910 = pkgs.haskell.packages."ghc910";
+        ghc912 = pkgs.haskell.packages."ghc912";
 
         # The default ghc to use when entering `nix develop`.
         ghcDefault = ghc94;
@@ -145,6 +147,8 @@
           ghc94 = mkDevShell ghc94;
           ghc96 = mkDevShell ghc96;
           ghc98 = mkDevShell ghc98;
+          ghc910 = mkDevShell ghc910;
+          ghc912 = mkDevShell ghc912;
           default = mkDevShell ghcDefault;
         };
       });

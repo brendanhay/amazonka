@@ -3,11 +3,12 @@ module Gen.AST.Data.Syntax.AWSRequest
     Config (..),
     ResponseReceiver (..),
     ResponseField (..),
+    ResponseFieldCoercion (..),
     HeaderField (..),
   )
 where
 
-import Gen.AST.Data.Field (Field, fieldIsParam, fieldLit, fieldLitPayload, fieldPayload)
+import Gen.AST.Data.Field (Field, fieldLitPayload, fieldPayload)
 import Gen.AST.Data.Syntax
   ( ctorE,
     funArgsD,
@@ -89,8 +90,13 @@ data ResponseField
   | -- | Parse the status code from the HTTP response.
     ResponseFieldStatus
   | -- | Parse the field from the response body.
-    ResponseFieldBody
+    ResponseFieldBody ResponseFieldCoercion
   | FigureTheFieldOut Field
+  deriving (Show)
+
+-- | Whether to coerce the API response body when installing it into
+-- the Amazonka response record.
+data ResponseFieldCoercion = Uncoerced | Coerced
   deriving (Show)
 
 -- | How to parse a single field from the HTTP response headers.
@@ -186,38 +192,30 @@ responseE Config {..} p fs =
           Exts.appFun (var "Data.parseHeadersMap") [str hName, var "h"]
       ResponseFieldStatus ->
         pureE `Exts.app` Exts.paren (var "Prelude.fromEnum" `Exts.app` var "s")
-      ResponseFieldBody ->
+      ResponseFieldBody Uncoerced ->
         pureE `Exts.app` var "x"
+      ResponseFieldBody Coerced ->
+        -- TODO: If we unconditionally inject a `Just`, can we instead
+        -- ensure these response fields are never Maybe?
+        pureE
+          `Exts.app` ( justE
+                         `Exts.app` (var "Prelude.coerce" `Exts.app` var "x")
+                     )
       FigureTheFieldOut field -> parseProto field
 
     parseProto :: Field -> Exts.Exp ()
     parseProto f =
       case p of
-        _ | f ^. fieldPayload -> parseOne f
+        -- This ensures anything which is set as a payload,
+        -- but is a primitive type is just consumed as a bytestring.
+        _ | f ^. fieldPayload -> parsePayload
         JSON -> parseJSONE p pJE pJEMay pJEDef f
         RestJSON -> parseJSONE p pJE pJEMay pJEDef f
         APIGateway -> parseJSONE p pJE pJEMay pJEDef f
         _ -> parseXMLE p f
 
-    parseOne :: Field -> Exts.Exp ()
-    parseOne f
-      | fieldLit f =
-          if fieldIsParam f
-            then Exts.app (var "Prelude.pure") (var "x")
-            else -- Coerce is inserted here to handle newtypes such as Sensitive.
-
-              Exts.app (var "Prelude.pure")
-                . Exts.paren
-                . Exts.app justE
-                . Exts.paren
-                . Exts.app (var "Prelude.coerce")
-                $ var "x"
-      -- This ensures anything which is set as a payload,
-      -- but is a primitive type is just consumed as a bytestring.
-      | otherwise = parseAll
-
-    parseAll :: Exts.Exp ()
-    parseAll
+    parsePayload :: Exts.Exp ()
+    parsePayload
       | any fieldLitPayload fs = var "Prelude.pure" `Exts.app` var "x"
       | otherwise = case p of
           JSON -> var "Data.eitherParseJSON" `Exts.app` var "x"

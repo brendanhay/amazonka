@@ -196,6 +196,6 @@ fieldMonoid = elem DMonoid . derivingOf . Lens.view fieldAnn
 
 fieldList1, fieldList, fieldMap, fieldLit :: Field -> Bool
 fieldList1 f = fieldList f && nonEmpty f
-fieldList = not . Lens.isn't _List . Cofree.unwrap . Lens.view fieldAnn
-fieldMap = not . Lens.isn't _Map . Cofree.unwrap . Lens.view fieldAnn
-fieldLit = not . Lens.isn't _Lit . Cofree.unwrap . Lens.view fieldAnn
+fieldList = Lens.has _List . Cofree.unwrap . Lens.view fieldAnn
+fieldMap = Lens.has _Map . Cofree.unwrap . Lens.view fieldAnn
+fieldLit = Lens.has _Lit . Cofree.unwrap . Lens.view fieldAnn

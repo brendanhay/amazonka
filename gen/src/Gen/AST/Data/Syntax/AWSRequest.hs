@@ -217,12 +217,10 @@ responseE Config {..} p fs =
       | otherwise = parseAll
 
     parseAll :: Exts.Exp ()
-    parseAll =
-      flip Exts.app (var "x") $
-        if any fieldLitPayload fs
-          then var "Prelude.pure"
-          else case p of
-            JSON -> var "Data.eitherParseJSON"
-            RestJSON -> var "Data.eitherParseJSON"
-            APIGateway -> var "Data.eitherParseJSON"
-            _ -> var "Data.parseXML"
+    parseAll
+      | any fieldLitPayload fs = var "Prelude.pure" `Exts.app` var "x"
+      | otherwise = case p of
+          JSON -> var "Data.eitherParseJSON" `Exts.app` var "x"
+          RestJSON -> var "Data.eitherParseJSON" `Exts.app` var "x"
+          APIGateway -> var "Data.eitherParseJSON" `Exts.app` var "x"
+          _ -> var "Data.parseXML" `Exts.app` var "x"

@@ -121,8 +121,16 @@ operationData cfg m o = do
                   TMaybe {} -> AWSRequest.HeaderFieldOptional
                   _ -> AWSRequest.HeaderFieldRequired
             Just StatusCode -> AWSRequest.ResponseFieldStatus
-            Just Body | hasStreamingBody -> AWSRequest.ResponseFieldBody
-            Nothing | hasStreamingBody -> AWSRequest.ResponseFieldBody
+            Just Body
+              | hasStreamingBody ->
+                  AWSRequest.ResponseFieldBody AWSRequest.Uncoerced
+              | fieldLit f && fieldIsParam f ->
+                  AWSRequest.ResponseFieldBody AWSRequest.Uncoerced
+              | fieldLit f && not (fieldIsParam f) ->
+                  AWSRequest.ResponseFieldBody AWSRequest.Coerced
+            Nothing
+              | hasStreamingBody ->
+                  AWSRequest.ResponseFieldBody AWSRequest.Uncoerced
             _ -> AWSRequest.FigureTheFieldOut f
 
       hasStreamingBody = any fieldStream ys

@@ -48,16 +48,6 @@ pX = "Data..@"
 pXMay = "Data..@?"
 pXDef = "Core..!@"
 
-pJ, pJMay, pJDef :: QOp
-pJ = "Data..:"
-pJMay = "Data..:?"
-pJDef = "Data..!="
-
-pJE, pJEMay, pJEDef :: QOp
-pJE = "Data..:>"
-pJEMay = "Data..?>"
-pJEDef = pXDef
-
 pXMap, pXList, pXList1 :: Exp
 pXMap = var "Data.parseXMLMap"
 pXList = var "Data.parseXMLList"
@@ -409,7 +399,19 @@ fromJSOND p n fs = instD1 "Data.FromJSON" n with
           (Exts.app (var "Data.withObject") (str (typeId n)))
           (Exts.lamE [Exts.pvar "x"] es)
 
-    es = ctorE n $ map (parseJSONE p pJ pJMay pJDef) fs
+    es = ctorE n $ map parseJSONE fs
+
+    parseJSONE :: Field -> Exp
+    parseJSONE f
+      | fieldMonoid f =
+          Exts.infixApp
+            (Exts.infixApp (var "x") "Data..:?" name)
+            "Data..!="
+            memptyE
+      | fieldMaybe f = Exts.infixApp (var "x") "Data..:?" name
+      | otherwise = Exts.infixApp (var "x") "Data..:" name
+      where
+        name = str $ memberName p Output f
 
 toElementD :: Protocol -> Id -> Maybe Text -> Either Text Field -> Decl
 toElementD p n ns ef =
@@ -548,15 +550,6 @@ parseXMLE p f = case outputNames p f of
 
     required = not (fieldMaybe f)
     sensitive = fieldSensitive f
-
-parseJSONE :: Protocol -> QOp -> QOp -> QOp -> Field -> Exp
-parseJSONE p d dm dd f
-  | fieldMonoid f = defaultMonoidE x n dm dd
-  | fieldMaybe f = decodeE x dm n
-  | otherwise = decodeE x d n
-  where
-    n = memberName p Output f
-    x = var "x"
 
 toXMLE :: Protocol -> Field -> Exp
 toXMLE p f = toGenericE p opX "Data.toXML" toXMap toXList f

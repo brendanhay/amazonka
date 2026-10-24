@@ -139,7 +139,22 @@ operationData cfg m o = do
             Nothing
               | hasStreamingBody ->
                   AWSRequest.ResponseFieldBody AWSRequest.PureBody
-            _ -> AWSRequest.FigureTheFieldOut f
+            _ -> case p of
+              JSON -> jsonField
+              RestJSON -> jsonField
+              APIGateway -> jsonField
+              RestXML -> AWSRequest.FigureTheFieldOut f
+              Query -> AWSRequest.FigureTheFieldOut f
+              EC2 -> AWSRequest.FigureTheFieldOut f
+              where
+                jsonField =
+                  AWSRequest.ResponseFieldJson
+                    (memberName p Output f)
+                    jsonParser
+                jsonParser
+                  | fieldMonoid f = AWSRequest.JsonMonoid
+                  | fieldMaybe f = AWSRequest.JsonOptional
+                  | otherwise = AWSRequest.JsonRequired
 
       hasStreamingBody = any fieldStream ys
 

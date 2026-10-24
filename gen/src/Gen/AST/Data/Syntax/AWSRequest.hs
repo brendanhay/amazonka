@@ -4,6 +4,7 @@ module Gen.AST.Data.Syntax.AWSRequest
     ResponseReceiver (..),
     ResponseField (..),
     FieldBodyParser (..),
+    FieldJsonParser (..),
     HeaderField (..),
   )
 where
@@ -15,10 +16,6 @@ import Gen.AST.Data.Syntax
     funD,
     instD,
     justE,
-    pJE,
-    pJEDef,
-    pJEMay,
-    parseJSONE,
     parseXMLE,
     pureE,
     str,
@@ -89,8 +86,10 @@ data ResponseField
     ResponseFieldHeader Text HeaderField
   | -- | Parse the status code from the HTTP response.
     ResponseFieldStatus
-  | -- | Parse the field from the response body.
+  | -- | Parse the field from the response body as a whole.
     ResponseFieldBody FieldBodyParser
+  | -- | Parse one member from a JSON response body.
+    ResponseFieldJson Text FieldJsonParser
   | FigureTheFieldOut Field
   deriving (Show)
 
@@ -105,6 +104,20 @@ data FieldBodyParser
     JsonBody
   | -- | @parseXML x@
     XmlBody
+  deriving (Show)
+
+-- | How to parse one member of a JSON response document. The
+-- member name is carried separately by 'ResponseFieldJson'.
+--
+-- 'JsonMonoid' emits a @.!\@ mempty@ for list and map members even
+-- when the member is required.
+data FieldJsonParser
+  = -- | @x .:> name@
+    JsonRequired
+  | -- | @x .?> name@
+    JsonOptional
+  | -- | @x .?> name .!\@ mempty@
+    JsonMonoid
   deriving (Show)
 
 -- | How to parse a single field from the HTTP response headers.
@@ -213,12 +226,28 @@ responseE Config {..} p fs =
         var "Data.eitherParseJSON" `Exts.app` var "x"
       ResponseFieldBody XmlBody ->
         var "Data.parseXML" `Exts.app` var "x"
+      ResponseFieldJson name parser -> case parser of
+        JsonRequired ->
+          Exts.infixApp (var "x") "Data..:>" (str name)
+        JsonOptional ->
+          Exts.infixApp (var "x") "Data..?>" (str name)
+        JsonMonoid ->
+          Exts.infixApp
+            (Exts.infixApp (var "x") "Data..?>" (str name))
+            "Core..!@"
+            (var "Prelude.mempty")
       FigureTheFieldOut field -> parseProto field
 
     parseProto :: Field -> Exts.Exp ()
     parseProto f =
       case p of
-        JSON -> parseJSONE p pJE pJEMay pJEDef f
-        RestJSON -> parseJSONE p pJE pJEMay pJEDef f
-        APIGateway -> parseJSONE p pJE pJEMay pJEDef f
-        _ -> parseXMLE p f
+        RestXML -> parseXMLE p f
+        Query -> parseXMLE p f
+        EC2 -> parseXMLE p f
+        JSON -> unexpectedJson
+        RestJSON -> unexpectedJson
+        APIGateway -> unexpectedJson
+      where
+        unexpectedJson =
+          error
+            "Gen.AST.Data.Syntax.AWSRequest.parseProto: JSON field was not classified"

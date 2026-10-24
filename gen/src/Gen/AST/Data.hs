@@ -123,14 +123,14 @@ operationData cfg m o = do
             Just StatusCode -> AWSRequest.ResponseFieldStatus
             Just Body
               | hasStreamingBody ->
-                  AWSRequest.ResponseFieldBody AWSRequest.Uncoerced
+                  AWSRequest.ResponseFieldBody AWSRequest.PureBody
               | fieldLit f && fieldIsParam f ->
-                  AWSRequest.ResponseFieldBody AWSRequest.Uncoerced
+                  AWSRequest.ResponseFieldBody AWSRequest.PureBody
               | fieldLit f && not (fieldIsParam f) ->
-                  AWSRequest.ResponseFieldBody AWSRequest.Coerced
+                  AWSRequest.ResponseFieldBody AWSRequest.PureCoercedBody
             Nothing
               | hasStreamingBody ->
-                  AWSRequest.ResponseFieldBody AWSRequest.Uncoerced
+                  AWSRequest.ResponseFieldBody AWSRequest.PureBody
             _ -> AWSRequest.FigureTheFieldOut f
 
       hasStreamingBody = any fieldStream ys

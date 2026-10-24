@@ -128,6 +128,14 @@ operationData cfg m o = do
                   AWSRequest.ResponseFieldBody AWSRequest.PureBody
               | fieldLit f && not (fieldIsParam f) ->
                   AWSRequest.ResponseFieldBody AWSRequest.PureCoercedBody
+              | f ^. fieldPayload ->
+                  AWSRequest.ResponseFieldBody $ case p of
+                    JSON -> AWSRequest.JsonBody
+                    RestJSON -> AWSRequest.JsonBody
+                    APIGateway -> AWSRequest.JsonBody
+                    RestXML -> AWSRequest.XmlBody
+                    Query -> AWSRequest.XmlBody
+                    EC2 -> AWSRequest.XmlBody
             Nothing
               | hasStreamingBody ->
                   AWSRequest.ResponseFieldBody AWSRequest.PureBody

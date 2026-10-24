@@ -8,7 +8,7 @@ module Gen.AST.Data.Syntax.AWSRequest
   )
 where
 
-import Gen.AST.Data.Field (Field, fieldPayload)
+import Gen.AST.Data.Field (Field)
 import Gen.AST.Data.Syntax
   ( ctorE,
     funArgsD,
@@ -218,17 +218,7 @@ responseE Config {..} p fs =
     parseProto :: Field -> Exts.Exp ()
     parseProto f =
       case p of
-        -- This ensures anything which is set as a payload,
-        -- but is a primitive type is just consumed as a bytestring.
-        _ | f ^. fieldPayload -> parsePayload
         JSON -> parseJSONE p pJE pJEMay pJEDef f
         RestJSON -> parseJSONE p pJE pJEMay pJEDef f
         APIGateway -> parseJSONE p pJE pJEMay pJEDef f
         _ -> parseXMLE p f
-
-    parsePayload :: Exts.Exp ()
-    parsePayload = case p of
-      JSON -> var "Data.eitherParseJSON" `Exts.app` var "x"
-      RestJSON -> var "Data.eitherParseJSON" `Exts.app` var "x"
-      APIGateway -> var "Data.eitherParseJSON" `Exts.app` var "x"
-      _ -> var "Data.parseXML" `Exts.app` var "x"

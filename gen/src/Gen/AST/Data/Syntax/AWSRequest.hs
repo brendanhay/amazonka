@@ -3,12 +3,12 @@ module Gen.AST.Data.Syntax.AWSRequest
     Config (..),
     ResponseReceiver (..),
     ResponseField (..),
-    ResponseFieldCoercion (..),
+    FieldBodyParser (..),
     HeaderField (..),
   )
 where
 
-import Gen.AST.Data.Field (Field, fieldLitPayload, fieldPayload)
+import Gen.AST.Data.Field (Field, fieldPayload)
 import Gen.AST.Data.Syntax
   ( ctorE,
     funArgsD,
@@ -90,13 +90,21 @@ data ResponseField
   | -- | Parse the status code from the HTTP response.
     ResponseFieldStatus
   | -- | Parse the field from the response body.
-    ResponseFieldBody ResponseFieldCoercion
+    ResponseFieldBody FieldBodyParser
   | FigureTheFieldOut Field
   deriving (Show)
 
--- | Whether to coerce the API response body when installing it into
--- the Amazonka response record.
-data ResponseFieldCoercion = Uncoerced | Coerced
+-- | How to consume the HTTP response body when installing it into one
+-- field of the Amazonka response record.
+data FieldBodyParser
+  = -- | @pure x@
+    PureBody
+  | -- | @pure (Just (coerce x))@
+    PureCoercedBody
+  | -- | @eitherParseJSON x@
+    JsonBody
+  | -- | @parseXML x@
+    XmlBody
   deriving (Show)
 
 -- | How to parse a single field from the HTTP response headers.
@@ -192,15 +200,19 @@ responseE Config {..} p fs =
           Exts.appFun (var "Data.parseHeadersMap") [str hName, var "h"]
       ResponseFieldStatus ->
         pureE `Exts.app` Exts.paren (var "Prelude.fromEnum" `Exts.app` var "s")
-      ResponseFieldBody Uncoerced ->
+      ResponseFieldBody PureBody ->
         pureE `Exts.app` var "x"
-      ResponseFieldBody Coerced ->
+      ResponseFieldBody PureCoercedBody ->
         -- TODO: If we unconditionally inject a `Just`, can we instead
         -- ensure these response fields are never Maybe?
         pureE
           `Exts.app` ( justE
                          `Exts.app` (var "Prelude.coerce" `Exts.app` var "x")
                      )
+      ResponseFieldBody JsonBody ->
+        var "Data.eitherParseJSON" `Exts.app` var "x"
+      ResponseFieldBody XmlBody ->
+        var "Data.parseXML" `Exts.app` var "x"
       FigureTheFieldOut field -> parseProto field
 
     parseProto :: Field -> Exts.Exp ()

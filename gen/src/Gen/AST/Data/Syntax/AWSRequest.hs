@@ -3,12 +3,13 @@ module Gen.AST.Data.Syntax.AWSRequest
     Config (..),
     ResponseReceiver (..),
     ResponseField (..),
-    FieldBodyParser (..),
-    FieldJsonParser (..),
     HeaderField (..),
+    BodyField (..),
+    JsonField (..),
   )
 where
 
+import Debug.Trace
 import Gen.AST.Data.Field (Field)
 import Gen.AST.Data.Syntax
   ( ctorE,
@@ -87,37 +88,10 @@ data ResponseField
   | -- | Parse the status code from the HTTP response.
     ResponseFieldStatus
   | -- | Parse the field from the response body as a whole.
-    ResponseFieldBody FieldBodyParser
+    ResponseFieldBody BodyField
   | -- | Parse one member from a JSON response body.
-    ResponseFieldJson Text FieldJsonParser
+    ResponseFieldJson Text JsonField
   | FigureTheFieldOut Field
-  deriving (Show)
-
--- | How to consume the HTTP response body when installing it into one
--- field of the Amazonka response record.
-data FieldBodyParser
-  = -- | @pure x@
-    PureBody
-  | -- | @pure (Just (coerce x))@
-    PureCoercedBody
-  | -- | @eitherParseJSON x@
-    JsonBody
-  | -- | @parseXML x@
-    XmlBody
-  deriving (Show)
-
--- | How to parse one member of a JSON response document. The
--- member name is carried separately by 'ResponseFieldJson'.
---
--- 'JsonMonoid' emits a @.!\@ mempty@ for list and map members even
--- when the member is required.
-data FieldJsonParser
-  = -- | @x .:> name@
-    JsonRequired
-  | -- | @x .?> name@
-    JsonOptional
-  | -- | @x .?> name .!\@ mempty@
-    JsonMonoid
   deriving (Show)
 
 -- | How to parse a single field from the HTTP response headers.
@@ -132,6 +106,35 @@ data HeaderField
     HeaderFieldOptional
   | -- | Parse a map field from headers using @parseHeadersMap@.
     HeaderFieldMap
+  deriving (Show)
+
+-- | How to consume the HTTP response body when installing it into one
+-- field of an Amazonka response record.
+data BodyField
+  = -- | @pure x@
+    PureBody
+  | -- | @pure (Just (coerce x))@
+    PureCoercedBody
+  | -- | Parse the entire body as a single JSON document using
+    -- @eitherParseJSON x@
+    JsonBody
+  | -- | Parse the enture body as a single XML document using
+    -- @parseXML x@
+    XmlBody
+  deriving (Show)
+
+-- | How to parse one member of a JSON response body. The
+-- member name is carried separately by 'ResponseFieldJson'.
+--
+-- 'JsonMonoid' emits a @.!\@ mempty@ for list and map members even
+-- when the member is required.
+data JsonField
+  = -- | @x .:> name@
+    JsonRequired
+  | -- | @x .?> name@
+    JsonOptional
+  | -- | @x .?> name .!\@ mempty@
+    JsonMonoid
   deriving (Show)
 
 instanceD ::

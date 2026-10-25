@@ -15,5 +15,4 @@ packages:
    lib/amazonka-s3-encryption/
 
 optional-packages:
-   gen/
    lib/services/*/

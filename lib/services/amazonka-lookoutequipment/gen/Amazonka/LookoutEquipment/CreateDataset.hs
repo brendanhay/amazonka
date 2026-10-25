@@ -71,7 +71,7 @@ data CreateDataset = CreateDataset'
     datasetName :: Prelude.Text,
     -- | A unique identifier for the request. If you do not set the client
     -- request token, Amazon Lookout for Equipment generates one.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,16 +98,14 @@ data CreateDataset = CreateDataset'
 newCreateDataset ::
   -- | 'datasetName'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateDataset
-newCreateDataset pDatasetName_ pClientToken_ =
+newCreateDataset pDatasetName_ =
   CreateDataset'
     { datasetSchema = Prelude.Nothing,
       serverSideKmsKeyId = Prelude.Nothing,
       tags = Prelude.Nothing,
       datasetName = pDatasetName_,
-      clientToken = pClientToken_
+      clientToken = Prelude.Nothing
     }
 
 -- | A JSON description of the data that is in each time series dataset,
@@ -130,7 +128,7 @@ createDataset_datasetName = Lens.lens (\CreateDataset' {datasetName} -> datasetN
 
 -- | A unique identifier for the request. If you do not set the client
 -- request token, Amazon Lookout for Equipment generates one.
-createDataset_clientToken :: Lens.Lens' CreateDataset Prelude.Text
+createDataset_clientToken :: Lens.Lens' CreateDataset (Prelude.Maybe Prelude.Text)
 createDataset_clientToken = Lens.lens (\CreateDataset' {clientToken} -> clientToken) (\s@CreateDataset' {} a -> s {clientToken = a} :: CreateDataset)
 
 instance Core.AWSRequest CreateDataset where
@@ -148,6 +146,13 @@ instance Core.AWSRequest CreateDataset where
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateDataset' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateDataset
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateDataset where
   hashWithSalt _salt CreateDataset' {..} =
@@ -190,7 +195,7 @@ instance Data.ToJSON CreateDataset where
               Prelude.<$> serverSideKmsKeyId,
             ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("DatasetName" Data..= datasetName),
-            Prelude.Just ("ClientToken" Data..= clientToken)
+            ("ClientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

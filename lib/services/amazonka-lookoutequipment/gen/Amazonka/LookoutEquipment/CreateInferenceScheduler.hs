@@ -109,7 +109,7 @@ data CreateInferenceScheduler = CreateInferenceScheduler'
     roleArn :: Prelude.Text,
     -- | A unique identifier for the request. If you do not set the client
     -- request token, Amazon Lookout for Equipment generates one.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -178,8 +178,6 @@ newCreateInferenceScheduler ::
   InferenceOutputConfiguration ->
   -- | 'roleArn'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateInferenceScheduler
 newCreateInferenceScheduler
   pModelName_
@@ -187,8 +185,7 @@ newCreateInferenceScheduler
   pDataUploadFrequency_
   pDataInputConfiguration_
   pDataOutputConfiguration_
-  pRoleArn_
-  pClientToken_ =
+  pRoleArn_ =
     CreateInferenceScheduler'
       { dataDelayOffsetInMinutes =
           Prelude.Nothing,
@@ -201,7 +198,7 @@ newCreateInferenceScheduler
         dataOutputConfiguration =
           pDataOutputConfiguration_,
         roleArn = pRoleArn_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | The interval (in minutes) of planned delay at the start of each
@@ -266,7 +263,7 @@ createInferenceScheduler_roleArn = Lens.lens (\CreateInferenceScheduler' {roleAr
 
 -- | A unique identifier for the request. If you do not set the client
 -- request token, Amazon Lookout for Equipment generates one.
-createInferenceScheduler_clientToken :: Lens.Lens' CreateInferenceScheduler Prelude.Text
+createInferenceScheduler_clientToken :: Lens.Lens' CreateInferenceScheduler (Prelude.Maybe Prelude.Text)
 createInferenceScheduler_clientToken = Lens.lens (\CreateInferenceScheduler' {clientToken} -> clientToken) (\s@CreateInferenceScheduler' {} a -> s {clientToken = a} :: CreateInferenceScheduler)
 
 instance Core.AWSRequest CreateInferenceScheduler where
@@ -284,6 +281,14 @@ instance Core.AWSRequest CreateInferenceScheduler where
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateInferenceScheduler' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateInferenceScheduler
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateInferenceScheduler where
   hashWithSalt _salt CreateInferenceScheduler' {..} =
@@ -352,7 +357,7 @@ instance Data.ToJSON CreateInferenceScheduler where
                   Data..= dataOutputConfiguration
               ),
             Prelude.Just ("RoleArn" Data..= roleArn),
-            Prelude.Just ("ClientToken" Data..= clientToken)
+            ("ClientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

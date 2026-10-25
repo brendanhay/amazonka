@@ -121,7 +121,7 @@ data CreateModel = CreateModel'
     datasetName :: Prelude.Text,
     -- | A unique identifier for the request. If you do not set the client
     -- request token, Amazon Lookout for Equipment generates one.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -184,30 +184,25 @@ newCreateModel ::
   Prelude.Text ->
   -- | 'datasetName'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateModel
-newCreateModel
-  pModelName_
-  pDatasetName_
-  pClientToken_ =
-    CreateModel'
-      { dataPreProcessingConfiguration =
-          Prelude.Nothing,
-        datasetSchema = Prelude.Nothing,
-        evaluationDataEndTime = Prelude.Nothing,
-        evaluationDataStartTime = Prelude.Nothing,
-        labelsInputConfiguration = Prelude.Nothing,
-        offCondition = Prelude.Nothing,
-        roleArn = Prelude.Nothing,
-        serverSideKmsKeyId = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        trainingDataEndTime = Prelude.Nothing,
-        trainingDataStartTime = Prelude.Nothing,
-        modelName = pModelName_,
-        datasetName = pDatasetName_,
-        clientToken = pClientToken_
-      }
+newCreateModel pModelName_ pDatasetName_ =
+  CreateModel'
+    { dataPreProcessingConfiguration =
+        Prelude.Nothing,
+      datasetSchema = Prelude.Nothing,
+      evaluationDataEndTime = Prelude.Nothing,
+      evaluationDataStartTime = Prelude.Nothing,
+      labelsInputConfiguration = Prelude.Nothing,
+      offCondition = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      serverSideKmsKeyId = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      trainingDataEndTime = Prelude.Nothing,
+      trainingDataStartTime = Prelude.Nothing,
+      modelName = pModelName_,
+      datasetName = pDatasetName_,
+      clientToken = Prelude.Nothing
+    }
 
 -- | The configuration is the @TargetSamplingRate@, which is the sampling
 -- rate of the data after post processing by Amazon Lookout for Equipment.
@@ -281,7 +276,7 @@ createModel_datasetName = Lens.lens (\CreateModel' {datasetName} -> datasetName)
 
 -- | A unique identifier for the request. If you do not set the client
 -- request token, Amazon Lookout for Equipment generates one.
-createModel_clientToken :: Lens.Lens' CreateModel Prelude.Text
+createModel_clientToken :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.Text)
 createModel_clientToken = Lens.lens (\CreateModel' {clientToken} -> clientToken) (\s@CreateModel' {} a -> s {clientToken = a} :: CreateModel)
 
 instance Core.AWSRequest CreateModel where
@@ -296,6 +291,11 @@ instance Core.AWSRequest CreateModel where
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@CreateModel' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateModel
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateModel where
   hashWithSalt _salt CreateModel' {..} =
@@ -371,7 +371,7 @@ instance Data.ToJSON CreateModel where
               Prelude.<$> trainingDataStartTime,
             Prelude.Just ("ModelName" Data..= modelName),
             Prelude.Just ("DatasetName" Data..= datasetName),
-            Prelude.Just ("ClientToken" Data..= clientToken)
+            ("ClientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

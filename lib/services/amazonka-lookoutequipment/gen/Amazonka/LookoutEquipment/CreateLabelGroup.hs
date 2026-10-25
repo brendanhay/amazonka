@@ -71,7 +71,7 @@ data CreateLabelGroup = CreateLabelGroup'
     labelGroupName :: Prelude.Text,
     -- | A unique identifier for the request to create a label group. If you do
     -- not set the client request token, Lookout for Equipment generates one.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -104,15 +104,13 @@ data CreateLabelGroup = CreateLabelGroup'
 newCreateLabelGroup ::
   -- | 'labelGroupName'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateLabelGroup
-newCreateLabelGroup pLabelGroupName_ pClientToken_ =
+newCreateLabelGroup pLabelGroupName_ =
   CreateLabelGroup'
     { faultCodes = Prelude.Nothing,
       tags = Prelude.Nothing,
       labelGroupName = pLabelGroupName_,
-      clientToken = pClientToken_
+      clientToken = Prelude.Nothing
     }
 
 -- | The acceptable fault codes (indicating the type of anomaly associated
@@ -139,7 +137,7 @@ createLabelGroup_labelGroupName = Lens.lens (\CreateLabelGroup' {labelGroupName}
 
 -- | A unique identifier for the request to create a label group. If you do
 -- not set the client request token, Lookout for Equipment generates one.
-createLabelGroup_clientToken :: Lens.Lens' CreateLabelGroup Prelude.Text
+createLabelGroup_clientToken :: Lens.Lens' CreateLabelGroup (Prelude.Maybe Prelude.Text)
 createLabelGroup_clientToken = Lens.lens (\CreateLabelGroup' {clientToken} -> clientToken) (\s@CreateLabelGroup' {} a -> s {clientToken = a} :: CreateLabelGroup)
 
 instance Core.AWSRequest CreateLabelGroup where
@@ -156,6 +154,13 @@ instance Core.AWSRequest CreateLabelGroup where
             Prelude.<*> (x Data..?> "LabelGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateLabelGroup' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateLabelGroup
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateLabelGroup where
   hashWithSalt _salt CreateLabelGroup' {..} =
@@ -195,7 +200,7 @@ instance Data.ToJSON CreateLabelGroup where
             ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("LabelGroupName" Data..= labelGroupName),
-            Prelude.Just ("ClientToken" Data..= clientToken)
+            ("ClientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

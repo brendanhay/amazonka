@@ -102,6 +102,8 @@ instance Core.AWSRequest UpdateLabelGroup where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateLabelGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateLabelGroup where
   hashWithSalt _salt UpdateLabelGroup' {..} =

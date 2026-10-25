@@ -129,6 +129,8 @@ instance Core.AWSRequest DescribeModel where
             Prelude.<*> (x Data..?> "TrainingExecutionStartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeModel where
   hashWithSalt _salt DescribeModel' {..} =

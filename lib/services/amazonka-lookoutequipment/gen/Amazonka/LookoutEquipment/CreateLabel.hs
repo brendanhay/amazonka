@@ -85,7 +85,7 @@ data CreateLabel = CreateLabel'
     rating :: LabelRating,
     -- | A unique identifier for the request to create a label. If you do not set
     -- the client request token, Lookout for Equipment generates one.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -135,15 +135,12 @@ newCreateLabel ::
   Prelude.UTCTime ->
   -- | 'rating'
   LabelRating ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateLabel
 newCreateLabel
   pLabelGroupName_
   pStartTime_
   pEndTime_
-  pRating_
-  pClientToken_ =
+  pRating_ =
     CreateLabel'
       { equipment = Prelude.Nothing,
         faultCode = Prelude.Nothing,
@@ -152,7 +149,7 @@ newCreateLabel
         startTime = Data._Time Lens.# pStartTime_,
         endTime = Data._Time Lens.# pEndTime_,
         rating = pRating_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | Indicates that a label pertains to a particular piece of equipment.
@@ -198,7 +195,7 @@ createLabel_rating = Lens.lens (\CreateLabel' {rating} -> rating) (\s@CreateLabe
 
 -- | A unique identifier for the request to create a label. If you do not set
 -- the client request token, Lookout for Equipment generates one.
-createLabel_clientToken :: Lens.Lens' CreateLabel Prelude.Text
+createLabel_clientToken :: Lens.Lens' CreateLabel (Prelude.Maybe Prelude.Text)
 createLabel_clientToken = Lens.lens (\CreateLabel' {clientToken} -> clientToken) (\s@CreateLabel' {} a -> s {clientToken = a} :: CreateLabel)
 
 instance Core.AWSRequest CreateLabel where
@@ -212,6 +209,11 @@ instance Core.AWSRequest CreateLabel where
             Prelude.<$> (x Data..?> "LabelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@CreateLabel' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateLabel
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateLabel where
   hashWithSalt _salt CreateLabel' {..} =
@@ -263,7 +265,7 @@ instance Data.ToJSON CreateLabel where
             Prelude.Just ("StartTime" Data..= startTime),
             Prelude.Just ("EndTime" Data..= endTime),
             Prelude.Just ("Rating" Data..= rating),
-            Prelude.Just ("ClientToken" Data..= clientToken)
+            ("ClientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

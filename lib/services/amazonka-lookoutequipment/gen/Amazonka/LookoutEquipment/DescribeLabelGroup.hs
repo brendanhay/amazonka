@@ -98,6 +98,8 @@ instance Core.AWSRequest DescribeLabelGroup where
             Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeLabelGroup where
   hashWithSalt _salt DescribeLabelGroup' {..} =

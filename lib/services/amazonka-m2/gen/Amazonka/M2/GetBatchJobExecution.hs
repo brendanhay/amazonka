@@ -121,6 +121,8 @@ instance Core.AWSRequest GetBatchJobExecution where
             Prelude.<*> (x Data..:> "startTime")
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBatchJobExecution where
   hashWithSalt _salt GetBatchJobExecution' {..} =

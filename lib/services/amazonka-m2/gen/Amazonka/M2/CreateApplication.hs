@@ -176,6 +176,13 @@ instance Core.AWSRequest CreateApplication where
             Prelude.<*> (x Data..:> "applicationId")
             Prelude.<*> (x Data..:> "applicationVersion")
       )
+  updateIdempotencyToken
+    f
+    s@CreateApplication' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateApplication
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =

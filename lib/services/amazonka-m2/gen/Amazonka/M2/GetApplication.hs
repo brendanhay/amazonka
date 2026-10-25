@@ -123,6 +123,8 @@ instance Core.AWSRequest GetApplication where
             Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetApplication where
   hashWithSalt _salt GetApplication' {..} =

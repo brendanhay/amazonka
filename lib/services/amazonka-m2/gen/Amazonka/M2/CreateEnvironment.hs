@@ -256,6 +256,13 @@ instance Core.AWSRequest CreateEnvironment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "environmentId")
       )
+  updateIdempotencyToken
+    f
+    s@CreateEnvironment' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateEnvironment
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateEnvironment where
   hashWithSalt _salt CreateEnvironment' {..} =

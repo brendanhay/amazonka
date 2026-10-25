@@ -135,6 +135,8 @@ instance Core.AWSRequest GetEnvironment where
             Prelude.<*> (x Data..?> "subnetIds" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..:> "vpcId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetEnvironment where
   hashWithSalt _salt GetEnvironment' {..} =

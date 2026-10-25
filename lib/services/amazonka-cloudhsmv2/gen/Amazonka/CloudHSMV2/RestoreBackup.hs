@@ -92,6 +92,8 @@ instance Core.AWSRequest RestoreBackup where
             Prelude.<$> (x Data..?> "Backup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RestoreBackup where
   hashWithSalt _salt RestoreBackup' {..} =

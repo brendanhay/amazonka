@@ -120,6 +120,8 @@ instance Core.AWSRequest CopyBackupToRegion where
             Prelude.<$> (x Data..?> "DestinationBackup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CopyBackupToRegion where
   hashWithSalt _salt CopyBackupToRegion' {..} =

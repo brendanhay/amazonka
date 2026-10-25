@@ -103,6 +103,8 @@ instance Core.AWSRequest GetServiceQuota where
             Prelude.<$> (x Data..?> "Quota")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetServiceQuota where
   hashWithSalt _salt GetServiceQuota' {..} =

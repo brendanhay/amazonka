@@ -117,6 +117,8 @@ instance Core.AWSRequest RequestServiceQuotaIncrease where
             Prelude.<$> (x Data..?> "RequestedQuota")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RequestServiceQuotaIncrease where
   hashWithSalt _salt RequestServiceQuotaIncrease' {..} =

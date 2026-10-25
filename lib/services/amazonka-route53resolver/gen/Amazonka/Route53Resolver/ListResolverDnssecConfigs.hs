@@ -171,6 +171,8 @@ instance Core.AWSRequest ListResolverDnssecConfigs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListResolverDnssecConfigs where
   hashWithSalt _salt ListResolverDnssecConfigs' {..} =

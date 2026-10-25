@@ -89,6 +89,8 @@ instance Core.AWSRequest GetFirewallConfig where
             Prelude.<$> (x Data..?> "FirewallConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetFirewallConfig where
   hashWithSalt _salt GetFirewallConfig' {..} =

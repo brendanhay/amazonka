@@ -68,7 +68,7 @@ data AssociateFirewallRuleGroup = AssociateFirewallRuleGroup'
     -- requests to be retried without the risk of running the operation twice.
     -- @CreatorRequestId@ can be any unique string, for example, a date\/time
     -- stamp.
-    creatorRequestId :: Prelude.Text,
+    creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the firewall rule group.
     firewallRuleGroupId :: Prelude.Text,
     -- | The unique identifier of the VPC that you want to associate with the
@@ -133,8 +133,6 @@ data AssociateFirewallRuleGroup = AssociateFirewallRuleGroup'
 --
 -- 'name', 'associateFirewallRuleGroup_name' - A name that lets you identify the association, to manage and use it.
 newAssociateFirewallRuleGroup ::
-  -- | 'creatorRequestId'
-  Prelude.Text ->
   -- | 'firewallRuleGroupId'
   Prelude.Text ->
   -- | 'vpcId'
@@ -145,7 +143,6 @@ newAssociateFirewallRuleGroup ::
   Prelude.Text ->
   AssociateFirewallRuleGroup
 newAssociateFirewallRuleGroup
-  pCreatorRequestId_
   pFirewallRuleGroupId_
   pVpcId_
   pPriority_
@@ -154,7 +151,7 @@ newAssociateFirewallRuleGroup
       { mutationProtection =
           Prelude.Nothing,
         tags = Prelude.Nothing,
-        creatorRequestId = pCreatorRequestId_,
+        creatorRequestId = Prelude.Nothing,
         firewallRuleGroupId = pFirewallRuleGroupId_,
         vpcId = pVpcId_,
         priority = pPriority_,
@@ -177,7 +174,7 @@ associateFirewallRuleGroup_tags = Lens.lens (\AssociateFirewallRuleGroup' {tags}
 -- requests to be retried without the risk of running the operation twice.
 -- @CreatorRequestId@ can be any unique string, for example, a date\/time
 -- stamp.
-associateFirewallRuleGroup_creatorRequestId :: Lens.Lens' AssociateFirewallRuleGroup Prelude.Text
+associateFirewallRuleGroup_creatorRequestId :: Lens.Lens' AssociateFirewallRuleGroup (Prelude.Maybe Prelude.Text)
 associateFirewallRuleGroup_creatorRequestId = Lens.lens (\AssociateFirewallRuleGroup' {creatorRequestId} -> creatorRequestId) (\s@AssociateFirewallRuleGroup' {} a -> s {creatorRequestId = a} :: AssociateFirewallRuleGroup)
 
 -- | The unique identifier of the firewall rule group.
@@ -221,6 +218,14 @@ instance Core.AWSRequest AssociateFirewallRuleGroup where
             Prelude.<$> (x Data..?> "FirewallRuleGroupAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@AssociateFirewallRuleGroup' {creatorRequestId} =
+      ( \creatorRequestId' ->
+          s {creatorRequestId = creatorRequestId'} ::
+            AssociateFirewallRuleGroup
+      )
+        Prelude.<$> f creatorRequestId
 
 instance Prelude.Hashable AssociateFirewallRuleGroup where
   hashWithSalt _salt AssociateFirewallRuleGroup' {..} =
@@ -265,8 +270,8 @@ instance Data.ToJSON AssociateFirewallRuleGroup where
           [ ("MutationProtection" Data..=)
               Prelude.<$> mutationProtection,
             ("Tags" Data..=) Prelude.<$> tags,
-            Prelude.Just
-              ("CreatorRequestId" Data..= creatorRequestId),
+            ("CreatorRequestId" Data..=)
+              Prelude.<$> creatorRequestId,
             Prelude.Just
               ("FirewallRuleGroupId" Data..= firewallRuleGroupId),
             Prelude.Just ("VpcId" Data..= vpcId),

@@ -108,6 +108,8 @@ instance Core.AWSRequest DeleteResolverQueryLogConfig where
             Prelude.<$> (x Data..?> "ResolverQueryLogConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

@@ -158,6 +158,8 @@ instance Core.AWSRequest ImportFirewallDomains where
             Prelude.<*> (x Data..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportFirewallDomains where
   hashWithSalt _salt ImportFirewallDomains' {..} =

@@ -128,6 +128,8 @@ instance Core.AWSRequest UpdateResolverConfig where
             Prelude.<$> (x Data..?> "ResolverConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateResolverConfig where
   hashWithSalt _salt UpdateResolverConfig' {..} =

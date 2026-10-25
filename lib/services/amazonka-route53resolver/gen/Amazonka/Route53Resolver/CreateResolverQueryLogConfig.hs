@@ -95,7 +95,7 @@ data CreateResolverQueryLogConfig = CreateResolverQueryLogConfig'
     -- requests to be retried without the risk of running the operation twice.
     -- @CreatorRequestId@ can be any unique string, for example, a date\/time
     -- stamp.
-    creatorRequestId :: Prelude.Text
+    creatorRequestId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -142,19 +142,16 @@ newCreateResolverQueryLogConfig ::
   Prelude.Text ->
   -- | 'destinationArn'
   Prelude.Text ->
-  -- | 'creatorRequestId'
-  Prelude.Text ->
   CreateResolverQueryLogConfig
 newCreateResolverQueryLogConfig
   pName_
-  pDestinationArn_
-  pCreatorRequestId_ =
+  pDestinationArn_ =
     CreateResolverQueryLogConfig'
       { tags =
           Prelude.Nothing,
         name = pName_,
         destinationArn = pDestinationArn_,
-        creatorRequestId = pCreatorRequestId_
+        creatorRequestId = Prelude.Nothing
       }
 
 -- | A list of the tag keys and values that you want to associate with the
@@ -193,7 +190,7 @@ createResolverQueryLogConfig_destinationArn = Lens.lens (\CreateResolverQueryLog
 -- requests to be retried without the risk of running the operation twice.
 -- @CreatorRequestId@ can be any unique string, for example, a date\/time
 -- stamp.
-createResolverQueryLogConfig_creatorRequestId :: Lens.Lens' CreateResolverQueryLogConfig Prelude.Text
+createResolverQueryLogConfig_creatorRequestId :: Lens.Lens' CreateResolverQueryLogConfig (Prelude.Maybe Prelude.Text)
 createResolverQueryLogConfig_creatorRequestId = Lens.lens (\CreateResolverQueryLogConfig' {creatorRequestId} -> creatorRequestId) (\s@CreateResolverQueryLogConfig' {} a -> s {creatorRequestId = a} :: CreateResolverQueryLogConfig)
 
 instance Core.AWSRequest CreateResolverQueryLogConfig where
@@ -209,6 +206,14 @@ instance Core.AWSRequest CreateResolverQueryLogConfig where
             Prelude.<$> (x Data..?> "ResolverQueryLogConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateResolverQueryLogConfig' {creatorRequestId} =
+      ( \creatorRequestId' ->
+          s {creatorRequestId = creatorRequestId'} ::
+            CreateResolverQueryLogConfig
+      )
+        Prelude.<$> f creatorRequestId
 
 instance
   Prelude.Hashable
@@ -251,8 +256,8 @@ instance Data.ToJSON CreateResolverQueryLogConfig where
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("DestinationArn" Data..= destinationArn),
-            Prelude.Just
-              ("CreatorRequestId" Data..= creatorRequestId)
+            ("CreatorRequestId" Data..=)
+              Prelude.<$> creatorRequestId
           ]
       )
 

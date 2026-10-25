@@ -168,6 +168,8 @@ instance Core.AWSRequest ListFirewallDomainLists where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListFirewallDomainLists where
   hashWithSalt _salt ListFirewallDomainLists' {..} =

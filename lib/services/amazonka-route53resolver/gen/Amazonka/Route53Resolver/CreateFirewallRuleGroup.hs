@@ -59,7 +59,7 @@ data CreateFirewallRuleGroup = CreateFirewallRuleGroup'
     -- | A unique string defined by you to identify the request. This allows you
     -- to retry failed requests without the risk of running the operation
     -- twice. This can be any unique string, for example, a timestamp.
-    creatorRequestId :: Prelude.Text,
+    creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | A name that lets you identify the rule group, to manage and use it.
     name :: Prelude.Text
   }
@@ -82,15 +82,13 @@ data CreateFirewallRuleGroup = CreateFirewallRuleGroup'
 --
 -- 'name', 'createFirewallRuleGroup_name' - A name that lets you identify the rule group, to manage and use it.
 newCreateFirewallRuleGroup ::
-  -- | 'creatorRequestId'
-  Prelude.Text ->
   -- | 'name'
   Prelude.Text ->
   CreateFirewallRuleGroup
-newCreateFirewallRuleGroup pCreatorRequestId_ pName_ =
+newCreateFirewallRuleGroup pName_ =
   CreateFirewallRuleGroup'
     { tags = Prelude.Nothing,
-      creatorRequestId = pCreatorRequestId_,
+      creatorRequestId = Prelude.Nothing,
       name = pName_
     }
 
@@ -102,7 +100,7 @@ createFirewallRuleGroup_tags = Lens.lens (\CreateFirewallRuleGroup' {tags} -> ta
 -- | A unique string defined by you to identify the request. This allows you
 -- to retry failed requests without the risk of running the operation
 -- twice. This can be any unique string, for example, a timestamp.
-createFirewallRuleGroup_creatorRequestId :: Lens.Lens' CreateFirewallRuleGroup Prelude.Text
+createFirewallRuleGroup_creatorRequestId :: Lens.Lens' CreateFirewallRuleGroup (Prelude.Maybe Prelude.Text)
 createFirewallRuleGroup_creatorRequestId = Lens.lens (\CreateFirewallRuleGroup' {creatorRequestId} -> creatorRequestId) (\s@CreateFirewallRuleGroup' {} a -> s {creatorRequestId = a} :: CreateFirewallRuleGroup)
 
 -- | A name that lets you identify the rule group, to manage and use it.
@@ -122,6 +120,14 @@ instance Core.AWSRequest CreateFirewallRuleGroup where
             Prelude.<$> (x Data..?> "FirewallRuleGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateFirewallRuleGroup' {creatorRequestId} =
+      ( \creatorRequestId' ->
+          s {creatorRequestId = creatorRequestId'} ::
+            CreateFirewallRuleGroup
+      )
+        Prelude.<$> f creatorRequestId
 
 instance Prelude.Hashable CreateFirewallRuleGroup where
   hashWithSalt _salt CreateFirewallRuleGroup' {..} =
@@ -156,8 +162,8 @@ instance Data.ToJSON CreateFirewallRuleGroup where
     Data.object
       ( Prelude.catMaybes
           [ ("Tags" Data..=) Prelude.<$> tags,
-            Prelude.Just
-              ("CreatorRequestId" Data..= creatorRequestId),
+            ("CreatorRequestId" Data..=)
+              Prelude.<$> creatorRequestId,
             Prelude.Just ("Name" Data..= name)
           ]
       )

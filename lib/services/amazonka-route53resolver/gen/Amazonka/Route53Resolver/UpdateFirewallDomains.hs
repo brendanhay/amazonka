@@ -180,6 +180,8 @@ instance Core.AWSRequest UpdateFirewallDomains where
             Prelude.<*> (x Data..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateFirewallDomains where
   hashWithSalt _salt UpdateFirewallDomains' {..} =

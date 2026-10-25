@@ -100,6 +100,8 @@ instance Core.AWSRequest ValidateMatchmakingRuleSet where
             Prelude.<$> (x Data..?> "Valid")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ValidateMatchmakingRuleSet where
   hashWithSalt _salt ValidateMatchmakingRuleSet' {..} =

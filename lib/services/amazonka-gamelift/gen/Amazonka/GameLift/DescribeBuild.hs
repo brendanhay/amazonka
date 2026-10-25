@@ -98,6 +98,8 @@ instance Core.AWSRequest DescribeBuild where
             Prelude.<$> (x Data..?> "Build")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeBuild where
   hashWithSalt _salt DescribeBuild' {..} =

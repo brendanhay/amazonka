@@ -95,6 +95,8 @@ instance Core.AWSRequest DeleteGameSessionQueue where
           DeleteGameSessionQueueResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteGameSessionQueue where
   hashWithSalt _salt DeleteGameSessionQueue' {..} =

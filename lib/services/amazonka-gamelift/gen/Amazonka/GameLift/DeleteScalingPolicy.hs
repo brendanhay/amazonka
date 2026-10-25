@@ -105,6 +105,8 @@ instance Core.AWSRequest DeleteScalingPolicy where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteScalingPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteScalingPolicy where
   hashWithSalt _salt DeleteScalingPolicy' {..} =

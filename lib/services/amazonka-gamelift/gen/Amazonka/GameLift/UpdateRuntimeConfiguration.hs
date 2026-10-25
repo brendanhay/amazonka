@@ -136,6 +136,8 @@ instance Core.AWSRequest UpdateRuntimeConfiguration where
             Prelude.<$> (x Data..?> "RuntimeConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRuntimeConfiguration where
   hashWithSalt _salt UpdateRuntimeConfiguration' {..} =

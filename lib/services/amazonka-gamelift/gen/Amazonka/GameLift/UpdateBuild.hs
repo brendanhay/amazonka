@@ -125,6 +125,8 @@ instance Core.AWSRequest UpdateBuild where
             Prelude.<$> (x Data..?> "Build")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateBuild where
   hashWithSalt _salt UpdateBuild' {..} =

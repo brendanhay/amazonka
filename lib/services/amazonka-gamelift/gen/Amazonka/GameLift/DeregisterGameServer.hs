@@ -111,6 +111,8 @@ instance Core.AWSRequest DeregisterGameServer where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeregisterGameServerResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterGameServer where
   hashWithSalt _salt DeregisterGameServer' {..} =

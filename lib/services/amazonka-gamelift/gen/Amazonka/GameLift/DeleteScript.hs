@@ -94,6 +94,8 @@ instance Core.AWSRequest DeleteScript where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteScriptResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteScript where
   hashWithSalt _salt DeleteScript' {..} =

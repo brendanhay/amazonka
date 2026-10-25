@@ -125,6 +125,8 @@ instance Core.AWSRequest DeleteFleetLocations where
             Prelude.<*> (x Data..?> "LocationStates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFleetLocations where
   hashWithSalt _salt DeleteFleetLocations' {..} =

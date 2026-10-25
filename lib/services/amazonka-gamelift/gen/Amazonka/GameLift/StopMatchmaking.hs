@@ -101,6 +101,8 @@ instance Core.AWSRequest StopMatchmaking where
           StopMatchmakingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopMatchmaking where
   hashWithSalt _salt StopMatchmaking' {..} =

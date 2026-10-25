@@ -454,6 +454,8 @@ instance Core.AWSRequest SearchGameSessions where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SearchGameSessions where
   hashWithSalt _salt SearchGameSessions' {..} =

@@ -103,6 +103,8 @@ instance Core.AWSRequest DeregisterCompute where
           DeregisterComputeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterCompute where
   hashWithSalt _salt DeregisterCompute' {..} =

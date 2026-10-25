@@ -207,6 +207,8 @@ instance Core.AWSRequest UpdateScript where
             Prelude.<$> (x Data..?> "Script")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateScript where
   hashWithSalt _salt UpdateScript' {..} =

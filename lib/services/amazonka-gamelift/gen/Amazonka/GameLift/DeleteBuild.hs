@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteBuild where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteBuildResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBuild where
   hashWithSalt _salt DeleteBuild' {..} =

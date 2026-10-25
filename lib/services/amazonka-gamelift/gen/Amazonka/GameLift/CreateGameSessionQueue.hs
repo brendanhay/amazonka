@@ -297,6 +297,8 @@ instance Core.AWSRequest CreateGameSessionQueue where
             Prelude.<$> (x Data..?> "GameSessionQueue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateGameSessionQueue where
   hashWithSalt _salt CreateGameSessionQueue' {..} =

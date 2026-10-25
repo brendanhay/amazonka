@@ -132,6 +132,8 @@ instance Core.AWSRequest UpdateFleetPortSettings where
             Prelude.<*> (x Data..?> "FleetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateFleetPortSettings where
   hashWithSalt _salt UpdateFleetPortSettings' {..} =

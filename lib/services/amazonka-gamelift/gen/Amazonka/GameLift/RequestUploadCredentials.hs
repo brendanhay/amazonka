@@ -106,6 +106,8 @@ instance Core.AWSRequest RequestUploadCredentials where
             Prelude.<*> (x Data..?> "UploadCredentials")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RequestUploadCredentials where
   hashWithSalt _salt RequestUploadCredentials' {..} =

@@ -92,6 +92,8 @@ instance Core.AWSRequest StopGameSessionPlacement where
             Prelude.<$> (x Data..?> "GameSessionPlacement")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopGameSessionPlacement where
   hashWithSalt _salt StopGameSessionPlacement' {..} =

@@ -122,6 +122,8 @@ instance Core.AWSRequest DescribeGameServer where
             Prelude.<$> (x Data..?> "GameServer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeGameServer where
   hashWithSalt _salt DescribeGameServer' {..} =

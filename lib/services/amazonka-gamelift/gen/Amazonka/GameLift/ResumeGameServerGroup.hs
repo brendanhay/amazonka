@@ -126,6 +126,8 @@ instance Core.AWSRequest ResumeGameServerGroup where
             Prelude.<$> (x Data..?> "GameServerGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResumeGameServerGroup where
   hashWithSalt _salt ResumeGameServerGroup' {..} =

@@ -99,6 +99,8 @@ instance Core.AWSRequest ModifyReportDefinition where
           ModifyReportDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyReportDefinition where
   hashWithSalt _salt ModifyReportDefinition' {..} =

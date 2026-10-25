@@ -82,6 +82,8 @@ instance Core.AWSRequest DeleteQueue where
           DeleteQueueResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteQueue where
   hashWithSalt _salt DeleteQueue' {..} =

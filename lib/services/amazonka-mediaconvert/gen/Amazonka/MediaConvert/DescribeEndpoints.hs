@@ -151,6 +151,8 @@ instance Core.AWSRequest DescribeEndpoints where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEndpoints where
   hashWithSalt _salt DescribeEndpoints' {..} =

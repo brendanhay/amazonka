@@ -162,6 +162,8 @@ instance Core.AWSRequest UpdateFlowMediaStream where
             Prelude.<*> (x Data..?> "mediaStream")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateFlowMediaStream where
   hashWithSalt _salt UpdateFlowMediaStream' {..} =

@@ -155,6 +155,8 @@ instance Core.AWSRequest ListFlows where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListFlows where
   hashWithSalt _salt ListFlows' {..} =

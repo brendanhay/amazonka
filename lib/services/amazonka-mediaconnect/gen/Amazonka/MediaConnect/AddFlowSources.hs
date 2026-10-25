@@ -103,6 +103,8 @@ instance Core.AWSRequest AddFlowSources where
             Prelude.<*> (x Data..?> "sources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddFlowSources where
   hashWithSalt _salt AddFlowSources' {..} =

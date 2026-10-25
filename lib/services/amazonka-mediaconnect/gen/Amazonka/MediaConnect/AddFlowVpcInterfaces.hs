@@ -103,6 +103,8 @@ instance Core.AWSRequest AddFlowVpcInterfaces where
             Prelude.<*> (x Data..?> "vpcInterfaces" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddFlowVpcInterfaces where
   hashWithSalt _salt AddFlowVpcInterfaces' {..} =

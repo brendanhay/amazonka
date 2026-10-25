@@ -87,6 +87,8 @@ instance Core.AWSRequest GetApiAssociation where
             Prelude.<$> (x Data..?> "apiAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetApiAssociation where
   hashWithSalt _salt GetApiAssociation' {..} =

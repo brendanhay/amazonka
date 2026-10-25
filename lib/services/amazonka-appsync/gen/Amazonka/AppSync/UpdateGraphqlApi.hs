@@ -175,6 +175,8 @@ instance Core.AWSRequest UpdateGraphqlApi where
             Prelude.<$> (x Data..?> "graphqlApi")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateGraphqlApi where
   hashWithSalt _salt UpdateGraphqlApi' {..} =

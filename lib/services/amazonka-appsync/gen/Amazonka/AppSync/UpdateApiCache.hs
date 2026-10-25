@@ -263,6 +263,8 @@ instance Core.AWSRequest UpdateApiCache where
             Prelude.<$> (x Data..?> "apiCache")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateApiCache where
   hashWithSalt _salt UpdateApiCache' {..} =

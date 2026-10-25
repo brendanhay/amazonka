@@ -122,6 +122,8 @@ instance Core.AWSRequest UpdateApiKey where
             Prelude.<$> (x Data..?> "apiKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateApiKey where
   hashWithSalt _salt UpdateApiKey' {..} =

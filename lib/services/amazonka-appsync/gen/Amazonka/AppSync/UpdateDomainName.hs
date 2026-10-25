@@ -99,6 +99,8 @@ instance Core.AWSRequest UpdateDomainName where
             Prelude.<$> (x Data..?> "domainNameConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDomainName where
   hashWithSalt _salt UpdateDomainName' {..} =

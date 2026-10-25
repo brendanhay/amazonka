@@ -87,6 +87,8 @@ instance Core.AWSRequest FlushApiCache where
           FlushApiCacheResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable FlushApiCache where
   hashWithSalt _salt FlushApiCache' {..} =

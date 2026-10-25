@@ -121,6 +121,8 @@ instance Core.AWSRequest UpdateType where
             Prelude.<$> (x Data..?> "type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateType where
   hashWithSalt _salt UpdateType' {..} =

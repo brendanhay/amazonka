@@ -97,6 +97,8 @@ instance Core.AWSRequest ExportProject where
             Prelude.<*> (x Data..?> "snapshotId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ExportProject where
   hashWithSalt _salt ExportProject' {..} =

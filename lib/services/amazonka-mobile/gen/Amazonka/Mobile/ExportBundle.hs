@@ -113,6 +113,8 @@ instance Core.AWSRequest ExportBundle where
             Prelude.<$> (x Data..?> "downloadUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ExportBundle where
   hashWithSalt _salt ExportBundle' {..} =

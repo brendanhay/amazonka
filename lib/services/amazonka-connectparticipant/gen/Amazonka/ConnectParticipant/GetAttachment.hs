@@ -110,6 +110,8 @@ instance Core.AWSRequest GetAttachment where
             Prelude.<*> (x Data..?> "UrlExpiry")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAttachment where
   hashWithSalt _salt GetAttachment' {..} =

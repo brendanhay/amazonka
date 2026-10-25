@@ -118,6 +118,8 @@ instance Core.AWSRequest UpdateConnectorRegistration where
             Prelude.<$> (x Data..?> "connectorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateConnectorRegistration where
   hashWithSalt _salt UpdateConnectorRegistration' {..} =

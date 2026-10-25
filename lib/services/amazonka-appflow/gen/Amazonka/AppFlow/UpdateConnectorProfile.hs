@@ -120,6 +120,8 @@ instance Core.AWSRequest UpdateConnectorProfile where
             Prelude.<$> (x Data..?> "connectorProfileArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateConnectorProfile where
   hashWithSalt _salt UpdateConnectorProfile' {..} =

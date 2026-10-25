@@ -172,6 +172,8 @@ instance Core.AWSRequest ListConnectorEntities where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListConnectorEntities where
   hashWithSalt _salt ListConnectorEntities' {..} =

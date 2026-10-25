@@ -142,6 +142,8 @@ instance Core.AWSRequest CreateSqlInjectionMatchSet where
             Prelude.<*> (x Data..?> "SqlInjectionMatchSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateSqlInjectionMatchSet where
   hashWithSalt _salt CreateSqlInjectionMatchSet' {..} =

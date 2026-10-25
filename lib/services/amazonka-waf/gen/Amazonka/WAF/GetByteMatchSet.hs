@@ -102,6 +102,8 @@ instance Core.AWSRequest GetByteMatchSet where
             Prelude.<$> (x Data..?> "ByteMatchSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetByteMatchSet where
   hashWithSalt _salt GetByteMatchSet' {..} =

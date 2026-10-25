@@ -97,6 +97,8 @@ instance Core.AWSRequest GetIPSet where
             Prelude.<$> (x Data..?> "IPSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetIPSet where
   hashWithSalt _salt GetIPSet' {..} =

@@ -103,6 +103,8 @@ instance Core.AWSRequest DescribeJobRun where
             Prelude.<$> (x Data..?> "jobRun")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeJobRun where
   hashWithSalt _salt DescribeJobRun' {..} =

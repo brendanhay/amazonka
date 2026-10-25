@@ -103,6 +103,8 @@ instance Core.AWSRequest DescribeManagedEndpoint where
             Prelude.<$> (x Data..?> "endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeManagedEndpoint where
   hashWithSalt _salt DescribeManagedEndpoint' {..} =

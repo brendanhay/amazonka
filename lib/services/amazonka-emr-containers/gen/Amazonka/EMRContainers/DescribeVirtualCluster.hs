@@ -93,6 +93,8 @@ instance Core.AWSRequest DescribeVirtualCluster where
             Prelude.<$> (x Data..?> "virtualCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeVirtualCluster where
   hashWithSalt _salt DescribeVirtualCluster' {..} =

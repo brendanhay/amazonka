@@ -102,6 +102,8 @@ instance Core.AWSRequest CancelJobRun where
             Prelude.<*> (x Data..?> "virtualClusterId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelJobRun where
   hashWithSalt _salt CancelJobRun' {..} =

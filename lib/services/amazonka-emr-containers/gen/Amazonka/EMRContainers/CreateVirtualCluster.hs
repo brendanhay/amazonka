@@ -66,7 +66,7 @@ data CreateVirtualCluster = CreateVirtualCluster'
     -- | The container provider of the virtual cluster.
     containerProvider :: ContainerProvider,
     -- | The client token of the virtual cluster.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,19 +90,14 @@ newCreateVirtualCluster ::
   Prelude.Text ->
   -- | 'containerProvider'
   ContainerProvider ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateVirtualCluster
-newCreateVirtualCluster
-  pName_
-  pContainerProvider_
-  pClientToken_ =
-    CreateVirtualCluster'
-      { tags = Prelude.Nothing,
-        name = pName_,
-        containerProvider = pContainerProvider_,
-        clientToken = pClientToken_
-      }
+newCreateVirtualCluster pName_ pContainerProvider_ =
+  CreateVirtualCluster'
+    { tags = Prelude.Nothing,
+      name = pName_,
+      containerProvider = pContainerProvider_,
+      clientToken = Prelude.Nothing
+    }
 
 -- | The tags assigned to the virtual cluster.
 createVirtualCluster_tags :: Lens.Lens' CreateVirtualCluster (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -117,7 +112,7 @@ createVirtualCluster_containerProvider :: Lens.Lens' CreateVirtualCluster Contai
 createVirtualCluster_containerProvider = Lens.lens (\CreateVirtualCluster' {containerProvider} -> containerProvider) (\s@CreateVirtualCluster' {} a -> s {containerProvider = a} :: CreateVirtualCluster)
 
 -- | The client token of the virtual cluster.
-createVirtualCluster_clientToken :: Lens.Lens' CreateVirtualCluster Prelude.Text
+createVirtualCluster_clientToken :: Lens.Lens' CreateVirtualCluster (Prelude.Maybe Prelude.Text)
 createVirtualCluster_clientToken = Lens.lens (\CreateVirtualCluster' {clientToken} -> clientToken) (\s@CreateVirtualCluster' {} a -> s {clientToken = a} :: CreateVirtualCluster)
 
 instance Core.AWSRequest CreateVirtualCluster where
@@ -135,6 +130,14 @@ instance Core.AWSRequest CreateVirtualCluster where
             Prelude.<*> (x Data..?> "name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateVirtualCluster' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateVirtualCluster
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateVirtualCluster where
   hashWithSalt _salt CreateVirtualCluster' {..} =
@@ -170,7 +173,7 @@ instance Data.ToJSON CreateVirtualCluster where
             Prelude.Just ("name" Data..= name),
             Prelude.Just
               ("containerProvider" Data..= containerProvider),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

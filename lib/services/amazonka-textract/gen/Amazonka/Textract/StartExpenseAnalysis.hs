@@ -205,6 +205,8 @@ instance Core.AWSRequest StartExpenseAnalysis where
             Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartExpenseAnalysis where
   hashWithSalt _salt StartExpenseAnalysis' {..} =

@@ -204,6 +204,8 @@ instance Core.AWSRequest StartDocumentTextDetection where
             Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartDocumentTextDetection where
   hashWithSalt _salt StartDocumentTextDetection' {..} =

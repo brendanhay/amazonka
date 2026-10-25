@@ -218,6 +218,8 @@ instance Core.AWSRequest AnalyzeDocument where
             Prelude.<*> (x Data..?> "HumanLoopActivationOutput")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AnalyzeDocument where
   hashWithSalt _salt AnalyzeDocument' {..} =

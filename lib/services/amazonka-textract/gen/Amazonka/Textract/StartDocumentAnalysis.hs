@@ -238,6 +238,8 @@ instance Core.AWSRequest StartDocumentAnalysis where
             Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartDocumentAnalysis where
   hashWithSalt _salt StartDocumentAnalysis' {..} =

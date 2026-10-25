@@ -122,6 +122,8 @@ instance Core.AWSRequest DetectDocumentText where
             Prelude.<*> (x Data..?> "DocumentMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetectDocumentText where
   hashWithSalt _salt DetectDocumentText' {..} =

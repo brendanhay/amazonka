@@ -98,6 +98,8 @@ instance Core.AWSRequest DisassociateLenses where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveNull DisassociateLensesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateLenses where
   hashWithSalt _salt DisassociateLenses' {..} =

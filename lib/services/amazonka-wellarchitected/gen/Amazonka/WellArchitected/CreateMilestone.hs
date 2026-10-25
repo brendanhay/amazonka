@@ -56,7 +56,7 @@ import Amazonka.WellArchitected.Types
 data CreateMilestone = CreateMilestone'
   { workloadId :: Prelude.Text,
     milestoneName :: Prelude.Text,
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,18 +78,13 @@ newCreateMilestone ::
   Prelude.Text ->
   -- | 'milestoneName'
   Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   CreateMilestone
-newCreateMilestone
-  pWorkloadId_
-  pMilestoneName_
-  pClientRequestToken_ =
-    CreateMilestone'
-      { workloadId = pWorkloadId_,
-        milestoneName = pMilestoneName_,
-        clientRequestToken = pClientRequestToken_
-      }
+newCreateMilestone pWorkloadId_ pMilestoneName_ =
+  CreateMilestone'
+    { workloadId = pWorkloadId_,
+      milestoneName = pMilestoneName_,
+      clientRequestToken = Prelude.Nothing
+    }
 
 -- | Undocumented member.
 createMilestone_workloadId :: Lens.Lens' CreateMilestone Prelude.Text
@@ -100,7 +95,7 @@ createMilestone_milestoneName :: Lens.Lens' CreateMilestone Prelude.Text
 createMilestone_milestoneName = Lens.lens (\CreateMilestone' {milestoneName} -> milestoneName) (\s@CreateMilestone' {} a -> s {milestoneName = a} :: CreateMilestone)
 
 -- | Undocumented member.
-createMilestone_clientRequestToken :: Lens.Lens' CreateMilestone Prelude.Text
+createMilestone_clientRequestToken :: Lens.Lens' CreateMilestone (Prelude.Maybe Prelude.Text)
 createMilestone_clientRequestToken = Lens.lens (\CreateMilestone' {clientRequestToken} -> clientRequestToken) (\s@CreateMilestone' {} a -> s {clientRequestToken = a} :: CreateMilestone)
 
 instance Core.AWSRequest CreateMilestone where
@@ -117,6 +112,14 @@ instance Core.AWSRequest CreateMilestone where
             Prelude.<*> (x Data..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateMilestone' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateMilestone
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateMilestone where
   hashWithSalt _salt CreateMilestone' {..} =
@@ -148,8 +151,8 @@ instance Data.ToJSON CreateMilestone where
       ( Prelude.catMaybes
           [ Prelude.Just
               ("MilestoneName" Data..= milestoneName),
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken)
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

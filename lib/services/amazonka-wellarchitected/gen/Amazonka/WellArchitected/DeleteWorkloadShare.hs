@@ -51,7 +51,7 @@ import Amazonka.WellArchitected.Types
 data DeleteWorkloadShare = DeleteWorkloadShare'
   { shareId :: Prelude.Text,
     workloadId :: Prelude.Text,
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,18 +73,13 @@ newDeleteWorkloadShare ::
   Prelude.Text ->
   -- | 'workloadId'
   Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   DeleteWorkloadShare
-newDeleteWorkloadShare
-  pShareId_
-  pWorkloadId_
-  pClientRequestToken_ =
-    DeleteWorkloadShare'
-      { shareId = pShareId_,
-        workloadId = pWorkloadId_,
-        clientRequestToken = pClientRequestToken_
-      }
+newDeleteWorkloadShare pShareId_ pWorkloadId_ =
+  DeleteWorkloadShare'
+    { shareId = pShareId_,
+      workloadId = pWorkloadId_,
+      clientRequestToken = Prelude.Nothing
+    }
 
 -- | Undocumented member.
 deleteWorkloadShare_shareId :: Lens.Lens' DeleteWorkloadShare Prelude.Text
@@ -95,7 +90,7 @@ deleteWorkloadShare_workloadId :: Lens.Lens' DeleteWorkloadShare Prelude.Text
 deleteWorkloadShare_workloadId = Lens.lens (\DeleteWorkloadShare' {workloadId} -> workloadId) (\s@DeleteWorkloadShare' {} a -> s {workloadId = a} :: DeleteWorkloadShare)
 
 -- | Undocumented member.
-deleteWorkloadShare_clientRequestToken :: Lens.Lens' DeleteWorkloadShare Prelude.Text
+deleteWorkloadShare_clientRequestToken :: Lens.Lens' DeleteWorkloadShare (Prelude.Maybe Prelude.Text)
 deleteWorkloadShare_clientRequestToken = Lens.lens (\DeleteWorkloadShare' {clientRequestToken} -> clientRequestToken) (\s@DeleteWorkloadShare' {} a -> s {clientRequestToken = a} :: DeleteWorkloadShare)
 
 instance Core.AWSRequest DeleteWorkloadShare where
@@ -106,6 +101,14 @@ instance Core.AWSRequest DeleteWorkloadShare where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteWorkloadShareResponse'
+  updateIdempotencyToken
+    f
+    s@DeleteWorkloadShare' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            DeleteWorkloadShare
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable DeleteWorkloadShare where
   hashWithSalt _salt DeleteWorkloadShare' {..} =

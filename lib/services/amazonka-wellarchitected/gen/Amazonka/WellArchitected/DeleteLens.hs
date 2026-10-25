@@ -62,7 +62,7 @@ import Amazonka.WellArchitected.Types
 -- | /See:/ 'newDeleteLens' smart constructor.
 data DeleteLens = DeleteLens'
   { lensAlias :: Prelude.Text,
-    clientRequestToken :: Prelude.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The status of the lens to be deleted.
     lensStatus :: LensStatusType
   }
@@ -84,27 +84,22 @@ data DeleteLens = DeleteLens'
 newDeleteLens ::
   -- | 'lensAlias'
   Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   -- | 'lensStatus'
   LensStatusType ->
   DeleteLens
-newDeleteLens
-  pLensAlias_
-  pClientRequestToken_
-  pLensStatus_ =
-    DeleteLens'
-      { lensAlias = pLensAlias_,
-        clientRequestToken = pClientRequestToken_,
-        lensStatus = pLensStatus_
-      }
+newDeleteLens pLensAlias_ pLensStatus_ =
+  DeleteLens'
+    { lensAlias = pLensAlias_,
+      clientRequestToken = Prelude.Nothing,
+      lensStatus = pLensStatus_
+    }
 
 -- | Undocumented member.
 deleteLens_lensAlias :: Lens.Lens' DeleteLens Prelude.Text
 deleteLens_lensAlias = Lens.lens (\DeleteLens' {lensAlias} -> lensAlias) (\s@DeleteLens' {} a -> s {lensAlias = a} :: DeleteLens)
 
 -- | Undocumented member.
-deleteLens_clientRequestToken :: Lens.Lens' DeleteLens Prelude.Text
+deleteLens_clientRequestToken :: Lens.Lens' DeleteLens (Prelude.Maybe Prelude.Text)
 deleteLens_clientRequestToken = Lens.lens (\DeleteLens' {clientRequestToken} -> clientRequestToken) (\s@DeleteLens' {} a -> s {clientRequestToken = a} :: DeleteLens)
 
 -- | The status of the lens to be deleted.
@@ -116,6 +111,14 @@ instance Core.AWSRequest DeleteLens where
   request overrides =
     Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteLensResponse'
+  updateIdempotencyToken
+    f
+    s@DeleteLens' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            DeleteLens
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable DeleteLens where
   hashWithSalt _salt DeleteLens' {..} =

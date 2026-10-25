@@ -138,6 +138,8 @@ instance Core.AWSRequest ListWorkloadShares where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListWorkloadShares where
   hashWithSalt _salt ListWorkloadShares' {..} =

@@ -80,6 +80,8 @@ instance Core.AWSRequest UpdateGlobalSettings where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateGlobalSettingsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateGlobalSettings where
   hashWithSalt _salt UpdateGlobalSettings' {..} =

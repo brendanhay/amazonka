@@ -102,6 +102,8 @@ instance Core.AWSRequest AssociateLenses where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveNull AssociateLensesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateLenses where
   hashWithSalt _salt AssociateLenses' {..} =

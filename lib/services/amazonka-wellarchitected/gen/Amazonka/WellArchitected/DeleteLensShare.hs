@@ -63,7 +63,7 @@ import Amazonka.WellArchitected.Types
 data DeleteLensShare = DeleteLensShare'
   { shareId :: Prelude.Text,
     lensAlias :: Prelude.Text,
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,18 +85,13 @@ newDeleteLensShare ::
   Prelude.Text ->
   -- | 'lensAlias'
   Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   DeleteLensShare
-newDeleteLensShare
-  pShareId_
-  pLensAlias_
-  pClientRequestToken_ =
-    DeleteLensShare'
-      { shareId = pShareId_,
-        lensAlias = pLensAlias_,
-        clientRequestToken = pClientRequestToken_
-      }
+newDeleteLensShare pShareId_ pLensAlias_ =
+  DeleteLensShare'
+    { shareId = pShareId_,
+      lensAlias = pLensAlias_,
+      clientRequestToken = Prelude.Nothing
+    }
 
 -- | Undocumented member.
 deleteLensShare_shareId :: Lens.Lens' DeleteLensShare Prelude.Text
@@ -107,7 +102,7 @@ deleteLensShare_lensAlias :: Lens.Lens' DeleteLensShare Prelude.Text
 deleteLensShare_lensAlias = Lens.lens (\DeleteLensShare' {lensAlias} -> lensAlias) (\s@DeleteLensShare' {} a -> s {lensAlias = a} :: DeleteLensShare)
 
 -- | Undocumented member.
-deleteLensShare_clientRequestToken :: Lens.Lens' DeleteLensShare Prelude.Text
+deleteLensShare_clientRequestToken :: Lens.Lens' DeleteLensShare (Prelude.Maybe Prelude.Text)
 deleteLensShare_clientRequestToken = Lens.lens (\DeleteLensShare' {clientRequestToken} -> clientRequestToken) (\s@DeleteLensShare' {} a -> s {clientRequestToken = a} :: DeleteLensShare)
 
 instance Core.AWSRequest DeleteLensShare where
@@ -118,6 +113,14 @@ instance Core.AWSRequest DeleteLensShare where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteLensShareResponse'
+  updateIdempotencyToken
+    f
+    s@DeleteLensShare' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            DeleteLensShare
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable DeleteLensShare where
   hashWithSalt _salt DeleteLensShare' {..} =

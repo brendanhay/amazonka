@@ -77,7 +77,7 @@ data ImportLens = ImportLens'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The JSON representation of a lens.
     jSONString :: Prelude.Text,
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,15 +99,13 @@ data ImportLens = ImportLens'
 newImportLens ::
   -- | 'jSONString'
   Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   ImportLens
-newImportLens pJSONString_ pClientRequestToken_ =
+newImportLens pJSONString_ =
   ImportLens'
     { lensAlias = Prelude.Nothing,
       tags = Prelude.Nothing,
       jSONString = pJSONString_,
-      clientRequestToken = pClientRequestToken_
+      clientRequestToken = Prelude.Nothing
     }
 
 -- | Undocumented member.
@@ -123,7 +121,7 @@ importLens_jSONString :: Lens.Lens' ImportLens Prelude.Text
 importLens_jSONString = Lens.lens (\ImportLens' {jSONString} -> jSONString) (\s@ImportLens' {} a -> s {jSONString = a} :: ImportLens)
 
 -- | Undocumented member.
-importLens_clientRequestToken :: Lens.Lens' ImportLens Prelude.Text
+importLens_clientRequestToken :: Lens.Lens' ImportLens (Prelude.Maybe Prelude.Text)
 importLens_clientRequestToken = Lens.lens (\ImportLens' {clientRequestToken} -> clientRequestToken) (\s@ImportLens' {} a -> s {clientRequestToken = a} :: ImportLens)
 
 instance Core.AWSRequest ImportLens where
@@ -138,6 +136,14 @@ instance Core.AWSRequest ImportLens where
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@ImportLens' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            ImportLens
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable ImportLens where
   hashWithSalt _salt ImportLens' {..} =
@@ -172,8 +178,8 @@ instance Data.ToJSON ImportLens where
           [ ("LensAlias" Data..=) Prelude.<$> lensAlias,
             ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("JSONString" Data..= jSONString),
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken)
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

@@ -111,6 +111,8 @@ instance Core.AWSRequest GetRegions where
             Prelude.<$> (x Data..?> "regions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRegions where
   hashWithSalt _salt GetRegions' {..} =

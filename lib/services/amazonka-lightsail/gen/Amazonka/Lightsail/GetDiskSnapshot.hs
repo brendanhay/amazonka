@@ -90,6 +90,8 @@ instance Core.AWSRequest GetDiskSnapshot where
             Prelude.<$> (x Data..?> "diskSnapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDiskSnapshot where
   hashWithSalt _salt GetDiskSnapshot' {..} =

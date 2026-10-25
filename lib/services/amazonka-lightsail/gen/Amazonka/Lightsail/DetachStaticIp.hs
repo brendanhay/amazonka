@@ -88,6 +88,8 @@ instance Core.AWSRequest DetachStaticIp where
             Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetachStaticIp where
   hashWithSalt _salt DetachStaticIp' {..} =

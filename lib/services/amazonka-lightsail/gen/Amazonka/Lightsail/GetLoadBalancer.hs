@@ -90,6 +90,8 @@ instance Core.AWSRequest GetLoadBalancer where
             Prelude.<$> (x Data..?> "loadBalancer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetLoadBalancer where
   hashWithSalt _salt GetLoadBalancer' {..} =

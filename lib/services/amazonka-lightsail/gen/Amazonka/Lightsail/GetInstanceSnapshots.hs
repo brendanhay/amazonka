@@ -126,6 +126,8 @@ instance Core.AWSRequest GetInstanceSnapshots where
             Prelude.<*> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetInstanceSnapshots where
   hashWithSalt _salt GetInstanceSnapshots' {..} =

@@ -106,6 +106,8 @@ instance Core.AWSRequest CloseInstancePublicPorts where
             Prelude.<$> (x Data..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CloseInstancePublicPorts where
   hashWithSalt _salt CloseInstancePublicPorts' {..} =

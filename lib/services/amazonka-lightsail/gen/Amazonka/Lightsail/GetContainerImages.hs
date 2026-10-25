@@ -99,6 +99,8 @@ instance Core.AWSRequest GetContainerImages where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetContainerImages where
   hashWithSalt _salt GetContainerImages' {..} =

@@ -96,6 +96,8 @@ instance Core.AWSRequest GetAutoSnapshots where
             Prelude.<*> (x Data..?> "resourceType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAutoSnapshots where
   hashWithSalt _salt GetAutoSnapshots' {..} =

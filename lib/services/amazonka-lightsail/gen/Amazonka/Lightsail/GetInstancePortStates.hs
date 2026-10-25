@@ -92,6 +92,8 @@ instance Core.AWSRequest GetInstancePortStates where
             Prelude.<$> (x Data..?> "portStates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetInstancePortStates where
   hashWithSalt _salt GetInstancePortStates' {..} =

@@ -85,6 +85,8 @@ instance Core.AWSRequest GetDisk where
             Prelude.<$> (x Data..?> "disk")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDisk where
   hashWithSalt _salt GetDisk' {..} =

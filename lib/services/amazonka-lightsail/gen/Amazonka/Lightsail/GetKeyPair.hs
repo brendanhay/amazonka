@@ -85,6 +85,8 @@ instance Core.AWSRequest GetKeyPair where
             Prelude.<$> (x Data..?> "keyPair")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetKeyPair where
   hashWithSalt _salt GetKeyPair' {..} =

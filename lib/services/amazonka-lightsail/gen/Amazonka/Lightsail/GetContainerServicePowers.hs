@@ -76,6 +76,8 @@ instance Core.AWSRequest GetContainerServicePowers where
             Prelude.<$> (x Data..?> "powers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetContainerServicePowers where
   hashWithSalt _salt _ =

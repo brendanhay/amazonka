@@ -138,6 +138,8 @@ instance Core.AWSRequest GetExportSnapshotRecords where
             Prelude.<*> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetExportSnapshotRecords where
   hashWithSalt _salt GetExportSnapshotRecords' {..} =

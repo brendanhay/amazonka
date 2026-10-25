@@ -130,6 +130,8 @@ instance Core.AWSRequest DeleteContainerImage where
           DeleteContainerImageResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteContainerImage where
   hashWithSalt _salt DeleteContainerImage' {..} =

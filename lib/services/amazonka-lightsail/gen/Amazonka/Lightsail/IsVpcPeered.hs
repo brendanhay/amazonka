@@ -69,6 +69,8 @@ instance Core.AWSRequest IsVpcPeered where
             Prelude.<$> (x Data..?> "isPeered")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable IsVpcPeered where
   hashWithSalt _salt _ =

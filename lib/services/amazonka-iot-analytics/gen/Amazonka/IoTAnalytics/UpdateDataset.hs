@@ -173,6 +173,8 @@ instance Core.AWSRequest UpdateDataset where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateDatasetResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDataset where
   hashWithSalt _salt UpdateDataset' {..} =

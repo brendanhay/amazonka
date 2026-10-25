@@ -78,6 +78,8 @@ instance Core.AWSRequest DeletePipeline where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeletePipelineResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePipeline where
   hashWithSalt _salt DeletePipeline' {..} =

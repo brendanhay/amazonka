@@ -137,6 +137,8 @@ instance Core.AWSRequest CreateChannel where
             Prelude.<*> (x Data..?> "retentionPeriod")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateChannel where
   hashWithSalt _salt CreateChannel' {..} =

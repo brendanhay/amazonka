@@ -115,6 +115,8 @@ instance Core.AWSRequest UpdateChannel where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateChannelResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateChannel where
   hashWithSalt _salt UpdateChannel' {..} =

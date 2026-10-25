@@ -125,6 +125,8 @@ instance Core.AWSRequest UpdatePipeline where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull UpdatePipelineResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdatePipeline where
   hashWithSalt _salt UpdatePipeline' {..} =

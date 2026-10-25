@@ -150,6 +150,8 @@ instance Core.AWSRequest StartPipelineReprocessing where
             Prelude.<$> (x Data..?> "reprocessingId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartPipelineReprocessing where
   hashWithSalt _salt StartPipelineReprocessing' {..} =

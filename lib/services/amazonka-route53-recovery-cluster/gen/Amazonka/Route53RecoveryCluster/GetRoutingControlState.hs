@@ -123,6 +123,8 @@ instance Core.AWSRequest GetRoutingControlState where
             Prelude.<*> (x Data..:> "RoutingControlArn")
             Prelude.<*> (x Data..:> "RoutingControlState")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRoutingControlState where
   hashWithSalt _salt GetRoutingControlState' {..} =

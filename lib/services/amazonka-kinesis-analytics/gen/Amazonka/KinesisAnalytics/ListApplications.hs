@@ -134,6 +134,8 @@ instance Core.AWSRequest ListApplications where
                         )
             Prelude.<*> (x Data..:> "HasMoreApplications")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListApplications where
   hashWithSalt _salt ListApplications' {..} =

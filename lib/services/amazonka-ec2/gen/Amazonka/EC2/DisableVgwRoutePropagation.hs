@@ -118,6 +118,8 @@ instance Core.AWSRequest DisableVgwRoutePropagation where
   response =
     Response.receiveNull
       DisableVgwRoutePropagationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisableVgwRoutePropagation where
   hashWithSalt _salt DisableVgwRoutePropagation' {..} =

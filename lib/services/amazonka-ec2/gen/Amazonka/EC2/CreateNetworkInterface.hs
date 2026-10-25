@@ -410,6 +410,14 @@ instance Core.AWSRequest CreateNetworkInterface where
             Prelude.<*> (x Data..@? "networkInterface")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateNetworkInterface' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateNetworkInterface
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateNetworkInterface where
   hashWithSalt _salt CreateNetworkInterface' {..} =

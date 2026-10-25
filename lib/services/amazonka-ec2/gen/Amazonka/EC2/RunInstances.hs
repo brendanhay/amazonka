@@ -1092,6 +1092,11 @@ instance Core.AWSRequest RunInstances where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s@RunInstances' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: RunInstances
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable RunInstances where
   hashWithSalt _salt RunInstances' {..} =

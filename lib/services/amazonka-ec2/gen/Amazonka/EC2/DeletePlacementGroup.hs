@@ -103,6 +103,8 @@ instance Core.AWSRequest DeletePlacementGroup where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeletePlacementGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePlacementGroup where
   hashWithSalt _salt DeletePlacementGroup' {..} =

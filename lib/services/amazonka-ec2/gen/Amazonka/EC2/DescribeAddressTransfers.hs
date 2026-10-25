@@ -165,6 +165,8 @@ instance Core.AWSRequest DescribeAddressTransfers where
             Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAddressTransfers where
   hashWithSalt _salt DescribeAddressTransfers' {..} =

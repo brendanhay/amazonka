@@ -146,6 +146,8 @@ instance Core.AWSRequest GetConsoleOutput where
             Prelude.<*> (x Data..@? "timestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetConsoleOutput where
   hashWithSalt _salt GetConsoleOutput' {..} =

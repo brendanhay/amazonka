@@ -155,6 +155,8 @@ instance Core.AWSRequest BundleInstance where
             Prelude.<$> (x Data..@? "bundleInstanceTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BundleInstance where
   hashWithSalt _salt BundleInstance' {..} =

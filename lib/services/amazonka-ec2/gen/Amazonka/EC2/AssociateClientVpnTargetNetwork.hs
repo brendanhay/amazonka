@@ -155,6 +155,14 @@ instance
             Prelude.<*> (x Data..@? "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@AssociateClientVpnTargetNetwork' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            AssociateClientVpnTargetNetwork
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

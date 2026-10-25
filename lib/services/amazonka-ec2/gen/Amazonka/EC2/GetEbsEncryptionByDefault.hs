@@ -102,6 +102,8 @@ instance Core.AWSRequest GetEbsEncryptionByDefault where
             Prelude.<$> (x Data..@? "ebsEncryptionByDefault")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetEbsEncryptionByDefault where
   hashWithSalt _salt GetEbsEncryptionByDefault' {..} =

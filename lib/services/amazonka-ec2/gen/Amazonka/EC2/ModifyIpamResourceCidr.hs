@@ -188,6 +188,8 @@ instance Core.AWSRequest ModifyIpamResourceCidr where
             Prelude.<$> (x Data..@? "ipamResourceCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyIpamResourceCidr where
   hashWithSalt _salt ModifyIpamResourceCidr' {..} =

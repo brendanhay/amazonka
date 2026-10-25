@@ -480,6 +480,8 @@ instance Core.AWSRequest ImportImage where
             Prelude.<*> (x Data..@? "usageOperation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportImage where
   hashWithSalt _salt ImportImage' {..} =

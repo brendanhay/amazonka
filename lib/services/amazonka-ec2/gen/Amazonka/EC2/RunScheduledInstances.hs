@@ -173,6 +173,14 @@ instance Core.AWSRequest RunScheduledInstances where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@RunScheduledInstances' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            RunScheduledInstances
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable RunScheduledInstances where
   hashWithSalt _salt RunScheduledInstances' {..} =

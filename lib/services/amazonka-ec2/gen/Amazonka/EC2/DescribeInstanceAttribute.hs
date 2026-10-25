@@ -172,6 +172,8 @@ instance Core.AWSRequest DescribeInstanceAttribute where
             Prelude.<*> (x Data..@? "userData")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeInstanceAttribute where
   hashWithSalt _salt DescribeInstanceAttribute' {..} =

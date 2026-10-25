@@ -102,6 +102,8 @@ instance Core.AWSRequest DeleteCustomerGateway where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeleteCustomerGatewayResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCustomerGateway where
   hashWithSalt _salt DeleteCustomerGateway' {..} =

@@ -101,6 +101,8 @@ instance Core.AWSRequest DeleteRouteTable where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeleteRouteTableResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRouteTable where
   hashWithSalt _salt DeleteRouteTable' {..} =

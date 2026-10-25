@@ -331,6 +331,14 @@ instance
             Prelude.<*> (x Data..@? "totalTargetCapacity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateCapacityReservationFleet' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateCapacityReservationFleet
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

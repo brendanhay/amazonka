@@ -123,6 +123,8 @@ instance Core.AWSRequest UnassignIpv6Addresses where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UnassignIpv6Addresses where
   hashWithSalt _salt UnassignIpv6Addresses' {..} =

@@ -139,6 +139,8 @@ instance Core.AWSRequest AssociateRouteTable where
             Prelude.<*> (x Data..@? "associationState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateRouteTable where
   hashWithSalt _salt AssociateRouteTable' {..} =

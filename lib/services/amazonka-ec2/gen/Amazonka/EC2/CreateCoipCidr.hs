@@ -120,6 +120,8 @@ instance Core.AWSRequest CreateCoipCidr where
             Prelude.<$> (x Data..@? "coipCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateCoipCidr where
   hashWithSalt _salt CreateCoipCidr' {..} =

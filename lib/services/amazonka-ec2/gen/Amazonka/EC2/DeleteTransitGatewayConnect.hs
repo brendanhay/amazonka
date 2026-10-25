@@ -112,6 +112,8 @@ instance Core.AWSRequest DeleteTransitGatewayConnect where
             Prelude.<$> (x Data..@? "transitGatewayConnect")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTransitGatewayConnect where
   hashWithSalt _salt DeleteTransitGatewayConnect' {..} =

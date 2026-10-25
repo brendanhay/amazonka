@@ -155,6 +155,14 @@ instance
             Prelude.<*> (x Data..@? "policyEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@ModifyVerifiedAccessGroupPolicy' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            ModifyVerifiedAccessGroupPolicy
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

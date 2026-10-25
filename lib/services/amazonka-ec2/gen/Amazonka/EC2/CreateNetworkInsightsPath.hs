@@ -86,7 +86,7 @@ data CreateNetworkInsightsPath = CreateNetworkInsightsPath'
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -129,14 +129,11 @@ newCreateNetworkInsightsPath ::
   Prelude.Text ->
   -- | 'protocol'
   Protocol ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateNetworkInsightsPath
 newCreateNetworkInsightsPath
   pSource_
   pDestination_
-  pProtocol_
-  pClientToken_ =
+  pProtocol_ =
     CreateNetworkInsightsPath'
       { destinationIp =
           Prelude.Nothing,
@@ -147,7 +144,7 @@ newCreateNetworkInsightsPath
         source = pSource_,
         destination = pDestination_,
         protocol = pProtocol_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | The IP address of the Amazon Web Services resource that is the
@@ -190,7 +187,7 @@ createNetworkInsightsPath_protocol = Lens.lens (\CreateNetworkInsightsPath' {pro
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
-createNetworkInsightsPath_clientToken :: Lens.Lens' CreateNetworkInsightsPath Prelude.Text
+createNetworkInsightsPath_clientToken :: Lens.Lens' CreateNetworkInsightsPath (Prelude.Maybe Prelude.Text)
 createNetworkInsightsPath_clientToken = Lens.lens (\CreateNetworkInsightsPath' {clientToken} -> clientToken) (\s@CreateNetworkInsightsPath' {} a -> s {clientToken = a} :: CreateNetworkInsightsPath)
 
 instance Core.AWSRequest CreateNetworkInsightsPath where
@@ -206,6 +203,14 @@ instance Core.AWSRequest CreateNetworkInsightsPath where
             Prelude.<$> (x Data..@? "networkInsightsPath")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateNetworkInsightsPath' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateNetworkInsightsPath
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateNetworkInsightsPath where
   hashWithSalt _salt CreateNetworkInsightsPath' {..} =

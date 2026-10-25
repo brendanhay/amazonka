@@ -389,6 +389,8 @@ instance Core.AWSRequest DescribeRouteTables where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeRouteTables where
   hashWithSalt _salt DescribeRouteTables' {..} =

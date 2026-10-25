@@ -304,6 +304,8 @@ instance Core.AWSRequest CreateVpcEndpoint where
             Prelude.<*> (x Data..@? "vpcEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateVpcEndpoint where
   hashWithSalt _salt CreateVpcEndpoint' {..} =

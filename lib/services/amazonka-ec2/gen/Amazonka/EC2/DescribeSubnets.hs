@@ -441,6 +441,8 @@ instance Core.AWSRequest DescribeSubnets where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSubnets where
   hashWithSalt _salt DescribeSubnets' {..} =

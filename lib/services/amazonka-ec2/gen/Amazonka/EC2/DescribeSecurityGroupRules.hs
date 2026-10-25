@@ -206,6 +206,8 @@ instance Core.AWSRequest DescribeSecurityGroupRules where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSecurityGroupRules where
   hashWithSalt _salt DescribeSecurityGroupRules' {..} =

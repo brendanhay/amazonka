@@ -115,6 +115,8 @@ instance Core.AWSRequest DeleteSnapshot where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeleteSnapshotResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSnapshot where
   hashWithSalt _salt DeleteSnapshot' {..} =

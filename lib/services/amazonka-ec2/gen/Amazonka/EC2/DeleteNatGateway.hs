@@ -111,6 +111,8 @@ instance Core.AWSRequest DeleteNatGateway where
             Prelude.<$> (x Data..@? "natGatewayId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteNatGateway where
   hashWithSalt _salt DeleteNatGateway' {..} =

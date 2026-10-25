@@ -110,6 +110,8 @@ instance Core.AWSRequest DisableAddressTransfer where
             Prelude.<$> (x Data..@? "addressTransfer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisableAddressTransfer where
   hashWithSalt _salt DisableAddressTransfer' {..} =

@@ -188,6 +188,8 @@ instance Core.AWSRequest CreateVpnConnection where
             Prelude.<$> (x Data..@? "vpnConnection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateVpnConnection where
   hashWithSalt _salt CreateVpnConnection' {..} =

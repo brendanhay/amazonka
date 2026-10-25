@@ -116,6 +116,8 @@ instance Core.AWSRequest CancelConversionTask where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull CancelConversionTaskResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelConversionTask where
   hashWithSalt _salt CancelConversionTask' {..} =

@@ -252,6 +252,8 @@ instance Core.AWSRequest DescribeFlowLogs where
             Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeFlowLogs where
   hashWithSalt _salt DescribeFlowLogs' {..} =

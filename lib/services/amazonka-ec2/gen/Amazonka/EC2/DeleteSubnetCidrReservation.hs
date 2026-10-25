@@ -111,6 +111,8 @@ instance Core.AWSRequest DeleteSubnetCidrReservation where
             Prelude.<$> (x Data..@? "deletedSubnetCidrReservation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSubnetCidrReservation where
   hashWithSalt _salt DeleteSubnetCidrReservation' {..} =

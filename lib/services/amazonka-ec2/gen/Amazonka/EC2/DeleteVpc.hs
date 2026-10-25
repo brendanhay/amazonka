@@ -101,6 +101,8 @@ instance Core.AWSRequest DeleteVpc where
   request overrides =
     Request.postQuery (overrides defaultService)
   response = Response.receiveNull DeleteVpcResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVpc where
   hashWithSalt _salt DeleteVpc' {..} =

@@ -113,6 +113,8 @@ instance Core.AWSRequest DeleteCarrierGateway where
             Prelude.<$> (x Data..@? "carrierGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCarrierGateway where
   hashWithSalt _salt DeleteCarrierGateway' {..} =

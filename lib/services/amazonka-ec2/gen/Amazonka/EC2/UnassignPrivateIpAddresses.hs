@@ -111,6 +111,8 @@ instance Core.AWSRequest UnassignPrivateIpAddresses where
   response =
     Response.receiveNull
       UnassignPrivateIpAddressesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UnassignPrivateIpAddresses where
   hashWithSalt _salt UnassignPrivateIpAddresses' {..} =

@@ -64,7 +64,7 @@ data StartNetworkInsightsAccessScopeAnalysis = StartNetworkInsightsAccessScopeAn
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,12 +91,9 @@ data StartNetworkInsightsAccessScopeAnalysis = StartNetworkInsightsAccessScopeAn
 newStartNetworkInsightsAccessScopeAnalysis ::
   -- | 'networkInsightsAccessScopeId'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   StartNetworkInsightsAccessScopeAnalysis
 newStartNetworkInsightsAccessScopeAnalysis
-  pNetworkInsightsAccessScopeId_
-  pClientToken_ =
+  pNetworkInsightsAccessScopeId_ =
     StartNetworkInsightsAccessScopeAnalysis'
       { dryRun =
           Prelude.Nothing,
@@ -104,7 +101,7 @@ newStartNetworkInsightsAccessScopeAnalysis
           Prelude.Nothing,
         networkInsightsAccessScopeId =
           pNetworkInsightsAccessScopeId_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -125,7 +122,7 @@ startNetworkInsightsAccessScopeAnalysis_networkInsightsAccessScopeId = Lens.lens
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
-startNetworkInsightsAccessScopeAnalysis_clientToken :: Lens.Lens' StartNetworkInsightsAccessScopeAnalysis Prelude.Text
+startNetworkInsightsAccessScopeAnalysis_clientToken :: Lens.Lens' StartNetworkInsightsAccessScopeAnalysis (Prelude.Maybe Prelude.Text)
 startNetworkInsightsAccessScopeAnalysis_clientToken = Lens.lens (\StartNetworkInsightsAccessScopeAnalysis' {clientToken} -> clientToken) (\s@StartNetworkInsightsAccessScopeAnalysis' {} a -> s {clientToken = a} :: StartNetworkInsightsAccessScopeAnalysis)
 
 instance
@@ -145,6 +142,14 @@ instance
             Prelude.<$> (x Data..@? "networkInsightsAccessScopeAnalysis")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartNetworkInsightsAccessScopeAnalysis' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            StartNetworkInsightsAccessScopeAnalysis
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

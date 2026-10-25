@@ -145,6 +145,8 @@ instance Core.AWSRequest CreateInstanceExportTask where
             Prelude.<$> (x Data..@? "exportTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateInstanceExportTask where
   hashWithSalt _salt CreateInstanceExportTask' {..} =

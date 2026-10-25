@@ -266,6 +266,8 @@ instance Core.AWSRequest AllocateAddress where
             Prelude.<*> (x Data..@? "publicIpv4Pool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AllocateAddress where
   hashWithSalt _salt AllocateAddress' {..} =

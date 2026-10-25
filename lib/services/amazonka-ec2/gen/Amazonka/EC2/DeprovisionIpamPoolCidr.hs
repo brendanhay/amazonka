@@ -122,6 +122,8 @@ instance Core.AWSRequest DeprovisionIpamPoolCidr where
             Prelude.<$> (x Data..@? "ipamPoolCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeprovisionIpamPoolCidr where
   hashWithSalt _salt DeprovisionIpamPoolCidr' {..} =

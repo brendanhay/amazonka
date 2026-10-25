@@ -339,6 +339,8 @@ instance Core.AWSRequest DescribeVolumeStatus where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeVolumeStatus where
   hashWithSalt _salt DescribeVolumeStatus' {..} =

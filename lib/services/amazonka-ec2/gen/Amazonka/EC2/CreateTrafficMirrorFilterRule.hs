@@ -261,6 +261,14 @@ instance
             Prelude.<*> (x Data..@? "trafficMirrorFilterRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateTrafficMirrorFilterRule' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateTrafficMirrorFilterRule
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

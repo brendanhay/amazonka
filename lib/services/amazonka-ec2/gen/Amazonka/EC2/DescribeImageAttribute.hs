@@ -172,6 +172,8 @@ instance Core.AWSRequest DescribeImageAttribute where
             Prelude.<*> (x Data..@? "uefiData")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeImageAttribute where
   hashWithSalt _salt DescribeImageAttribute' {..} =

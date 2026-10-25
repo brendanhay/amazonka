@@ -220,6 +220,8 @@ instance Core.AWSRequest DescribeVpnGateways where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeVpnGateways where
   hashWithSalt _salt DescribeVpnGateways' {..} =

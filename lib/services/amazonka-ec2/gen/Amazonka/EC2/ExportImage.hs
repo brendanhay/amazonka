@@ -208,6 +208,11 @@ instance Core.AWSRequest ExportImage where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@ExportImage' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: ExportImage
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable ExportImage where
   hashWithSalt _salt ExportImage' {..} =

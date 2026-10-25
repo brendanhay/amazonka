@@ -163,6 +163,14 @@ instance Core.AWSRequest CreateVerifiedAccessGroup where
             Prelude.<$> (x Data..@? "verifiedAccessGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateVerifiedAccessGroup' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateVerifiedAccessGroup
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateVerifiedAccessGroup where
   hashWithSalt _salt CreateVerifiedAccessGroup' {..} =

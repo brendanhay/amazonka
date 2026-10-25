@@ -264,6 +264,8 @@ instance Core.AWSRequest CreateNetworkAclEntry where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull CreateNetworkAclEntryResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateNetworkAclEntry where
   hashWithSalt _salt CreateNetworkAclEntry' {..} =

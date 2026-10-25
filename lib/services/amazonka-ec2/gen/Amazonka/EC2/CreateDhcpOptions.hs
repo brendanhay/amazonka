@@ -161,6 +161,8 @@ instance Core.AWSRequest CreateDhcpOptions where
             Prelude.<$> (x Data..@? "dhcpOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDhcpOptions where
   hashWithSalt _salt CreateDhcpOptions' {..} =

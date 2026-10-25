@@ -127,6 +127,14 @@ instance Core.AWSRequest DeleteVerifiedAccessEndpoint where
             Prelude.<$> (x Data..@? "verifiedAccessEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteVerifiedAccessEndpoint' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            DeleteVerifiedAccessEndpoint
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

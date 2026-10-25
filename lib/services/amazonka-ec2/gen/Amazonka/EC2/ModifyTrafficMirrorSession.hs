@@ -217,6 +217,8 @@ instance Core.AWSRequest ModifyTrafficMirrorSession where
             Prelude.<$> (x Data..@? "trafficMirrorSession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyTrafficMirrorSession where
   hashWithSalt _salt ModifyTrafficMirrorSession' {..} =

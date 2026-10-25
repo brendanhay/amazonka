@@ -145,6 +145,14 @@ instance Core.AWSRequest CreateTrafficMirrorFilter where
             Prelude.<*> (x Data..@? "trafficMirrorFilter")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateTrafficMirrorFilter' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateTrafficMirrorFilter
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateTrafficMirrorFilter where
   hashWithSalt _salt CreateTrafficMirrorFilter' {..} =

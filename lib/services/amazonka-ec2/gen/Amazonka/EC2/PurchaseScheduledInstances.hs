@@ -144,6 +144,14 @@ instance Core.AWSRequest PurchaseScheduledInstances where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@PurchaseScheduledInstances' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            PurchaseScheduledInstances
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable PurchaseScheduledInstances where
   hashWithSalt _salt PurchaseScheduledInstances' {..} =

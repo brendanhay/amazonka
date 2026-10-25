@@ -287,6 +287,8 @@ instance Core.AWSRequest GetSpotPlacementScores where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSpotPlacementScores where
   hashWithSalt _salt GetSpotPlacementScores' {..} =

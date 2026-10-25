@@ -121,6 +121,8 @@ instance Core.AWSRequest ModifyAddressAttribute where
             Prelude.<$> (x Data..@? "address")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyAddressAttribute where
   hashWithSalt _salt ModifyAddressAttribute' {..} =

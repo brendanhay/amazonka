@@ -170,6 +170,14 @@ instance Core.AWSRequest AssociateTrunkInterface where
             Prelude.<*> (x Data..@? "interfaceAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@AssociateTrunkInterface' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            AssociateTrunkInterface
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable AssociateTrunkInterface where
   hashWithSalt _salt AssociateTrunkInterface' {..} =

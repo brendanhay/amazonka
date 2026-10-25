@@ -117,6 +117,8 @@ instance Core.AWSRequest CancelCapacityReservation where
             Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelCapacityReservation where
   hashWithSalt _salt CancelCapacityReservation' {..} =

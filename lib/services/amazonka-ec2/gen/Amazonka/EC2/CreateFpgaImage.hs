@@ -178,6 +178,8 @@ instance Core.AWSRequest CreateFpgaImage where
             Prelude.<*> (x Data..@? "fpgaImageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateFpgaImage where
   hashWithSalt _salt CreateFpgaImage' {..} =

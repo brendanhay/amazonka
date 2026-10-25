@@ -149,6 +149,14 @@ instance
             Prelude.<*> (x Data..@? "verifiedAccessTrustProvider")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@AttachVerifiedAccessTrustProvider' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            AttachVerifiedAccessTrustProvider
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

@@ -147,6 +147,8 @@ instance Core.AWSRequest CreateTransitGatewayRoute where
             Prelude.<$> (x Data..@? "route")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateTransitGatewayRoute where
   hashWithSalt _salt CreateTransitGatewayRoute' {..} =

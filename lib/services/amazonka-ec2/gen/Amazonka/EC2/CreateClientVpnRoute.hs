@@ -213,6 +213,14 @@ instance Core.AWSRequest CreateClientVpnRoute where
             Prelude.<$> (x Data..@? "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateClientVpnRoute' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateClientVpnRoute
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateClientVpnRoute where
   hashWithSalt _salt CreateClientVpnRoute' {..} =

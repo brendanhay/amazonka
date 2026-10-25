@@ -134,6 +134,8 @@ instance Core.AWSRequest GetPasswordData where
             Prelude.<*> (x Data..@ "passwordData")
             Prelude.<*> (x Data..@ "timestamp")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPasswordData where
   hashWithSalt _salt GetPasswordData' {..} =

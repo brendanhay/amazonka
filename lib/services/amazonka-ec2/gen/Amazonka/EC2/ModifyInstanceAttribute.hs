@@ -436,6 +436,8 @@ instance Core.AWSRequest ModifyInstanceAttribute where
   response =
     Response.receiveNull
       ModifyInstanceAttributeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyInstanceAttribute where
   hashWithSalt _salt ModifyInstanceAttribute' {..} =

@@ -173,6 +173,8 @@ instance Core.AWSRequest DescribeImportSnapshotTasks where
             Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeImportSnapshotTasks where
   hashWithSalt _salt DescribeImportSnapshotTasks' {..} =

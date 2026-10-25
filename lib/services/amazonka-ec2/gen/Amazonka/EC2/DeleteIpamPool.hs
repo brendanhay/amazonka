@@ -118,6 +118,8 @@ instance Core.AWSRequest DeleteIpamPool where
             Prelude.<$> (x Data..@? "ipamPool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteIpamPool where
   hashWithSalt _salt DeleteIpamPool' {..} =

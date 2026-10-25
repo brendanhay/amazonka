@@ -156,6 +156,8 @@ instance Core.AWSRequest CopyFpgaImage where
             Prelude.<$> (x Data..@? "fpgaImageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CopyFpgaImage where
   hashWithSalt _salt CopyFpgaImage' {..} =

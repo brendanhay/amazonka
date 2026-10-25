@@ -125,6 +125,14 @@ instance Core.AWSRequest DeleteVerifiedAccessGroup where
             Prelude.<$> (x Data..@? "verifiedAccessGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteVerifiedAccessGroup' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            DeleteVerifiedAccessGroup
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteVerifiedAccessGroup where
   hashWithSalt _salt DeleteVerifiedAccessGroup' {..} =

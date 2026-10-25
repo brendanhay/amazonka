@@ -118,6 +118,8 @@ instance Core.AWSRequest ModifyIpamScope where
             Prelude.<$> (x Data..@? "ipamScope")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyIpamScope where
   hashWithSalt _salt ModifyIpamScope' {..} =

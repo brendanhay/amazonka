@@ -207,6 +207,13 @@ instance Core.AWSRequest CreateNatGateway where
             Prelude.<*> (x Data..@? "natGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateNatGateway' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateNatGateway
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateNatGateway where
   hashWithSalt _salt CreateNatGateway' {..} =

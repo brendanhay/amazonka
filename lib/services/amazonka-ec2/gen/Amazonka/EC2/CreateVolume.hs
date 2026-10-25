@@ -518,6 +518,11 @@ instance Core.AWSRequest CreateVolume where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s@CreateVolume' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateVolume
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateVolume where
   hashWithSalt _salt CreateVolume' {..} =

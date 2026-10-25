@@ -117,6 +117,8 @@ instance Core.AWSRequest DeprovisionByoipCidr where
             Prelude.<$> (x Data..@? "byoipCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeprovisionByoipCidr where
   hashWithSalt _salt DeprovisionByoipCidr' {..} =

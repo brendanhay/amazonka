@@ -109,6 +109,8 @@ instance Core.AWSRequest DisassociateRouteTable where
   response =
     Response.receiveNull
       DisassociateRouteTableResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateRouteTable where
   hashWithSalt _salt DisassociateRouteTable' {..} =

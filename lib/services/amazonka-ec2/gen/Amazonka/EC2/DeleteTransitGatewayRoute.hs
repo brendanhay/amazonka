@@ -128,6 +128,8 @@ instance Core.AWSRequest DeleteTransitGatewayRoute where
             Prelude.<$> (x Data..@? "route")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTransitGatewayRoute where
   hashWithSalt _salt DeleteTransitGatewayRoute' {..} =

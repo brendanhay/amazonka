@@ -110,6 +110,8 @@ instance Core.AWSRequest CreateInternetGateway where
             Prelude.<$> (x Data..@? "internetGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateInternetGateway where
   hashWithSalt _salt CreateInternetGateway' {..} =

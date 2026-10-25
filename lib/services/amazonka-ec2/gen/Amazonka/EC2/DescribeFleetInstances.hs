@@ -165,6 +165,8 @@ instance Core.AWSRequest DescribeFleetInstances where
             Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeFleetInstances where
   hashWithSalt _salt DescribeFleetInstances' {..} =

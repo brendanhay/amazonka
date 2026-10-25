@@ -137,6 +137,8 @@ instance Core.AWSRequest DescribeIdFormat where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeIdFormat where
   hashWithSalt _salt DescribeIdFormat' {..} =

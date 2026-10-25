@@ -148,6 +148,14 @@ instance
             Prelude.<$> (x Data..@? "loggingConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@ModifyVerifiedAccessInstanceLoggingConfiguration' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            ModifyVerifiedAccessInstanceLoggingConfiguration
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

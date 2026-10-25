@@ -185,6 +185,8 @@ instance Core.AWSRequest CreateKeyPair where
             Prelude.<*> (x Data..@ "keyFingerprint")
             Prelude.<*> (x Data..@ "keyMaterial")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateKeyPair where
   hashWithSalt _salt CreateKeyPair' {..} =

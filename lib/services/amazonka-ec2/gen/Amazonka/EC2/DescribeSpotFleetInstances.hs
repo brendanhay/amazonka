@@ -172,6 +172,8 @@ instance Core.AWSRequest DescribeSpotFleetInstances where
             Prelude.<*> (x Data..@? "spotFleetRequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSpotFleetInstances where
   hashWithSalt _salt DescribeSpotFleetInstances' {..} =

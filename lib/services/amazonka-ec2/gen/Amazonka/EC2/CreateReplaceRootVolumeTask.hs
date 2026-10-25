@@ -224,6 +224,14 @@ instance Core.AWSRequest CreateReplaceRootVolumeTask where
             Prelude.<$> (x Data..@? "replaceRootVolumeTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateReplaceRootVolumeTask' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateReplaceRootVolumeTask
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateReplaceRootVolumeTask where
   hashWithSalt _salt CreateReplaceRootVolumeTask' {..} =

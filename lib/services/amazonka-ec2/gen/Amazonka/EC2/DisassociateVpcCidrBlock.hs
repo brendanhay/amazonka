@@ -100,6 +100,8 @@ instance Core.AWSRequest DisassociateVpcCidrBlock where
             Prelude.<*> (x Data..@? "vpcId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateVpcCidrBlock where
   hashWithSalt _salt DisassociateVpcCidrBlock' {..} =

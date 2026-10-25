@@ -103,6 +103,8 @@ instance Core.AWSRequest DeleteNetworkInterface where
   response =
     Response.receiveNull
       DeleteNetworkInterfaceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteNetworkInterface where
   hashWithSalt _salt DeleteNetworkInterface' {..} =

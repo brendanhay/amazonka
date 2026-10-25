@@ -111,6 +111,8 @@ instance Core.AWSRequest AssociateSubnetCidrBlock where
             Prelude.<*> (x Data..@? "subnetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateSubnetCidrBlock where
   hashWithSalt _salt AssociateSubnetCidrBlock' {..} =

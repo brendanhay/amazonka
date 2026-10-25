@@ -166,6 +166,8 @@ instance Core.AWSRequest DescribeRegions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeRegions where
   hashWithSalt _salt DescribeRegions' {..} =

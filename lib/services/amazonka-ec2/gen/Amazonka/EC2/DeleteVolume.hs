@@ -103,6 +103,8 @@ instance Core.AWSRequest DeleteVolume where
   request overrides =
     Request.postQuery (overrides defaultService)
   response = Response.receiveNull DeleteVolumeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVolume where
   hashWithSalt _salt DeleteVolume' {..} =

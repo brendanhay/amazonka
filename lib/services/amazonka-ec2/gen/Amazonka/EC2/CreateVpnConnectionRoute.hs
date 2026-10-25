@@ -105,6 +105,8 @@ instance Core.AWSRequest CreateVpnConnectionRoute where
   response =
     Response.receiveNull
       CreateVpnConnectionRouteResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateVpnConnectionRoute where
   hashWithSalt _salt CreateVpnConnectionRoute' {..} =

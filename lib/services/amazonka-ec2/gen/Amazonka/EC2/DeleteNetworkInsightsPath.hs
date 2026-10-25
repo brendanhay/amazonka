@@ -109,6 +109,8 @@ instance Core.AWSRequest DeleteNetworkInsightsPath where
             Prelude.<$> (x Data..@? "networkInsightsPathId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteNetworkInsightsPath where
   hashWithSalt _salt DeleteNetworkInsightsPath' {..} =

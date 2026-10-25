@@ -116,6 +116,8 @@ instance Core.AWSRequest ResetImageAttribute where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull ResetImageAttributeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResetImageAttribute where
   hashWithSalt _salt ResetImageAttribute' {..} =

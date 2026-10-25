@@ -142,6 +142,8 @@ instance Core.AWSRequest EnableImageDeprecation where
             Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable EnableImageDeprecation where
   hashWithSalt _salt EnableImageDeprecation' {..} =

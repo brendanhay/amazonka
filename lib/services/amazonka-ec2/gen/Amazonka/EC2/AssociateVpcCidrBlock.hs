@@ -275,6 +275,8 @@ instance Core.AWSRequest AssociateVpcCidrBlock where
             Prelude.<*> (x Data..@? "vpcId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateVpcCidrBlock where
   hashWithSalt _salt AssociateVpcCidrBlock' {..} =

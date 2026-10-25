@@ -210,6 +210,8 @@ instance Core.AWSRequest DescribeReservedNodes where
             Prelude.<*> (x Data..?> "ReservedNodes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeReservedNodes where
   hashWithSalt _salt DescribeReservedNodes' {..} =

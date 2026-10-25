@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteParameterGroup where
             Prelude.<$> (x Data..?> "ParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteParameterGroup where
   hashWithSalt _salt DeleteParameterGroup' {..} =

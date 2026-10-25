@@ -105,6 +105,8 @@ instance Core.AWSRequest FailoverShard where
             Prelude.<$> (x Data..?> "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable FailoverShard where
   hashWithSalt _salt FailoverShard' {..} =

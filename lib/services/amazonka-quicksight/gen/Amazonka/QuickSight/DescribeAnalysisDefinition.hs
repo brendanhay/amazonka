@@ -131,6 +131,8 @@ instance Core.AWSRequest DescribeAnalysisDefinition where
             Prelude.<*> (x Data..?> "ThemeArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAnalysisDefinition where
   hashWithSalt _salt DescribeAnalysisDefinition' {..} =

@@ -212,6 +212,8 @@ instance
             Prelude.<*> (x Data..:> "EmbedUrl")
             Prelude.<*> (x Data..:> "RequestId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

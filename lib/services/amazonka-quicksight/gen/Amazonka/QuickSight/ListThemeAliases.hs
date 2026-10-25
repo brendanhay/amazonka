@@ -131,6 +131,8 @@ instance Core.AWSRequest ListThemeAliases where
             Prelude.<*> (x Data..?> "ThemeAliasList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListThemeAliases where
   hashWithSalt _salt ListThemeAliases' {..} =

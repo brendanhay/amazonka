@@ -340,6 +340,8 @@ instance Core.AWSRequest CreateDashboard where
             Prelude.<*> (x Data..?> "VersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDashboard where
   hashWithSalt _salt CreateDashboard' {..} =

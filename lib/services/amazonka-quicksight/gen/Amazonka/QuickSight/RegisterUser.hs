@@ -443,6 +443,8 @@ instance Core.AWSRequest RegisterUser where
             Prelude.<*> (x Data..?> "UserInvitationUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterUser where
   hashWithSalt _salt RegisterUser' {..} =

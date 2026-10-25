@@ -146,6 +146,8 @@ instance Core.AWSRequest UpdateTemplateAlias where
             Prelude.<*> (x Data..?> "TemplateAlias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateTemplateAlias where
   hashWithSalt _salt UpdateTemplateAlias' {..} =

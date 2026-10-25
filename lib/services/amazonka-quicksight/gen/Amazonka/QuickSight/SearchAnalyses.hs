@@ -161,6 +161,8 @@ instance Core.AWSRequest SearchAnalyses where
             Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SearchAnalyses where
   hashWithSalt _salt SearchAnalyses' {..} =

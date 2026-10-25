@@ -142,6 +142,8 @@ instance Core.AWSRequest CreateIngestion where
             Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateIngestion where
   hashWithSalt _salt CreateIngestion' {..} =

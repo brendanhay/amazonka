@@ -131,6 +131,8 @@ instance Core.AWSRequest ListFolderMembers where
             Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListFolderMembers where
   hashWithSalt _salt ListFolderMembers' {..} =

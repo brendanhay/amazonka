@@ -180,6 +180,8 @@ instance Core.AWSRequest UpdateDataSource where
             Prelude.<*> (x Data..?> "UpdateStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDataSource where
   hashWithSalt _salt UpdateDataSource' {..} =

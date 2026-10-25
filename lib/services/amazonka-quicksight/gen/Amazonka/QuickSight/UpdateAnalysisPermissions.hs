@@ -145,6 +145,8 @@ instance Core.AWSRequest UpdateAnalysisPermissions where
             Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateAnalysisPermissions where
   hashWithSalt _salt UpdateAnalysisPermissions' {..} =

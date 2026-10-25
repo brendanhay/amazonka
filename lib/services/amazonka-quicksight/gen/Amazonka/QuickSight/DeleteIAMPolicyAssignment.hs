@@ -122,6 +122,8 @@ instance Core.AWSRequest DeleteIAMPolicyAssignment where
             Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteIAMPolicyAssignment where
   hashWithSalt _salt DeleteIAMPolicyAssignment' {..} =

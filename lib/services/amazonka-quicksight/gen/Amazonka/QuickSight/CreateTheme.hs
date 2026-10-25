@@ -210,6 +210,8 @@ instance Core.AWSRequest CreateTheme where
             Prelude.<*> (x Data..?> "VersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateTheme where
   hashWithSalt _salt CreateTheme' {..} =

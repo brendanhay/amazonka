@@ -124,6 +124,8 @@ instance Core.AWSRequest CreateDocumentationPart where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDocumentationPart where
   hashWithSalt _salt CreateDocumentationPart' {..} =

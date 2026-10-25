@@ -95,6 +95,8 @@ instance Core.AWSRequest TagResource where
   request overrides =
     Request.putJSON (overrides defaultService)
   response = Response.receiveNull TagResourceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =

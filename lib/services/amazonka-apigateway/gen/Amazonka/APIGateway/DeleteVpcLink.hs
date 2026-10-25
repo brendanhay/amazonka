@@ -83,6 +83,8 @@ instance Core.AWSRequest DeleteVpcLink where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteVpcLinkResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVpcLink where
   hashWithSalt _salt DeleteVpcLink' {..} =

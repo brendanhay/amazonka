@@ -94,6 +94,8 @@ instance Core.AWSRequest FlushStageCache where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull FlushStageCacheResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable FlushStageCache where
   hashWithSalt _salt FlushStageCache' {..} =

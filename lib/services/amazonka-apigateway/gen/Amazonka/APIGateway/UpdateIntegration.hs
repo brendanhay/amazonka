@@ -139,6 +139,8 @@ instance Core.AWSRequest UpdateIntegration where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateIntegration where
   hashWithSalt _salt UpdateIntegration' {..} =

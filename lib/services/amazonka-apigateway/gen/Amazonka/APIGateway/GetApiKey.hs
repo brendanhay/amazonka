@@ -106,6 +106,8 @@ instance Core.AWSRequest GetApiKey where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetApiKey where
   hashWithSalt _salt GetApiKey' {..} =

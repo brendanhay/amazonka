@@ -77,6 +77,8 @@ instance Core.AWSRequest DeleteApiKey where
   request overrides =
     Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteApiKeyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteApiKey where
   hashWithSalt _salt DeleteApiKey' {..} =

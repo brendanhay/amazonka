@@ -99,6 +99,8 @@ instance Core.AWSRequest DeleteUsagePlanKey where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteUsagePlanKeyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteUsagePlanKey where
   hashWithSalt _salt DeleteUsagePlanKey' {..} =

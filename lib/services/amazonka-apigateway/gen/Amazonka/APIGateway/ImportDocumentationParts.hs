@@ -142,6 +142,8 @@ instance Core.AWSRequest ImportDocumentationParts where
             Prelude.<*> (x Data..?> "warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportDocumentationParts where
   hashWithSalt _salt ImportDocumentationParts' {..} =

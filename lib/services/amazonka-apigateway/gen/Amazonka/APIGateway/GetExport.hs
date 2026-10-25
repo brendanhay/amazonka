@@ -170,6 +170,8 @@ instance Core.AWSRequest GetExport where
             Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetExport where
   hashWithSalt _salt GetExport' {..} =

@@ -91,6 +91,8 @@ instance Core.AWSRequest DeleteModel where
   request overrides =
     Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteModelResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteModel where
   hashWithSalt _salt DeleteModel' {..} =

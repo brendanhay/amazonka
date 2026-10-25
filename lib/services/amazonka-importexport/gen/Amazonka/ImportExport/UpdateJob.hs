@@ -145,6 +145,8 @@ instance Core.AWSRequest UpdateJob where
             Prelude.<*> (x Data..@? "WarningMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateJob where
   hashWithSalt _salt UpdateJob' {..} =

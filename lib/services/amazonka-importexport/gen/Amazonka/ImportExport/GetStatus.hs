@@ -133,6 +133,8 @@ instance Core.AWSRequest GetStatus where
             Prelude.<*> (x Data..@? "TrackingNumber")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetStatus where
   hashWithSalt _salt GetStatus' {..} =

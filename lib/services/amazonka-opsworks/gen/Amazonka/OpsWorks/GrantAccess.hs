@@ -108,6 +108,8 @@ instance Core.AWSRequest GrantAccess where
             Prelude.<$> (x Data..?> "TemporaryCredential")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GrantAccess where
   hashWithSalt _salt GrantAccess' {..} =

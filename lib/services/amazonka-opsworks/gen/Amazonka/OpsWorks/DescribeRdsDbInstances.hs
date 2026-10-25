@@ -111,6 +111,8 @@ instance Core.AWSRequest DescribeRdsDbInstances where
             Prelude.<$> (x Data..?> "RdsDbInstances" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeRdsDbInstances where
   hashWithSalt _salt DescribeRdsDbInstances' {..} =

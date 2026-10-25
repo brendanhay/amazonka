@@ -105,6 +105,8 @@ instance Core.AWSRequest UpdateVolume where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull UpdateVolumeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateVolume where
   hashWithSalt _salt UpdateVolume' {..} =

@@ -86,6 +86,8 @@ instance Core.AWSRequest UnassignVolume where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UnassignVolumeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UnassignVolume where
   hashWithSalt _salt UnassignVolume' {..} =

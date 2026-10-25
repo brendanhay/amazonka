@@ -84,6 +84,8 @@ instance Core.AWSRequest DeleteLayer where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteLayerResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteLayer where
   hashWithSalt _salt DeleteLayer' {..} =

@@ -84,6 +84,8 @@ instance Core.AWSRequest UpdateMyUserProfile where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateMyUserProfileResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateMyUserProfile where
   hashWithSalt _salt UpdateMyUserProfile' {..} =

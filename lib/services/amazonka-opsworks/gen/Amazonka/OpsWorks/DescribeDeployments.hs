@@ -127,6 +127,8 @@ instance Core.AWSRequest DescribeDeployments where
             Prelude.<$> (x Data..?> "Deployments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDeployments where
   hashWithSalt _salt DescribeDeployments' {..} =

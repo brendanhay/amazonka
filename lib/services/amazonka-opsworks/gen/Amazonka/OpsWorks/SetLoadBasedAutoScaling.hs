@@ -143,6 +143,8 @@ instance Core.AWSRequest SetLoadBasedAutoScaling where
   response =
     Response.receiveNull
       SetLoadBasedAutoScalingResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetLoadBasedAutoScaling where
   hashWithSalt _salt SetLoadBasedAutoScaling' {..} =

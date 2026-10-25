@@ -110,6 +110,8 @@ instance Core.AWSRequest DeleteInstance where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteInstanceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteInstance where
   hashWithSalt _salt DeleteInstance' {..} =

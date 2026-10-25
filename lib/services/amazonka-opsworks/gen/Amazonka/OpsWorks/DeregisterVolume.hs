@@ -92,6 +92,8 @@ instance Core.AWSRequest DeregisterVolume where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeregisterVolumeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterVolume where
   hashWithSalt _salt DeregisterVolume' {..} =

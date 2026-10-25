@@ -133,6 +133,8 @@ instance Core.AWSRequest DescribeCommands where
             Prelude.<$> (x Data..?> "Commands" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeCommands where
   hashWithSalt _salt DescribeCommands' {..} =

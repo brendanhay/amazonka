@@ -391,6 +391,8 @@ instance Core.AWSRequest CreateLayer where
             Prelude.<$> (x Data..?> "LayerId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLayer where
   hashWithSalt _salt CreateLayer' {..} =

@@ -331,6 +331,8 @@ instance Core.AWSRequest UpdateLayer where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull UpdateLayerResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateLayer where
   hashWithSalt _salt UpdateLayer' {..} =

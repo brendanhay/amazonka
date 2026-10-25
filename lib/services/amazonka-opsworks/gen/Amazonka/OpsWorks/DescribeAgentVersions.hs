@@ -101,6 +101,8 @@ instance Core.AWSRequest DescribeAgentVersions where
             Prelude.<$> (x Data..?> "AgentVersions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAgentVersions where
   hashWithSalt _salt DescribeAgentVersions' {..} =

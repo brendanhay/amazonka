@@ -137,6 +137,8 @@ instance Core.AWSRequest DescribeElasticIps where
             Prelude.<$> (x Data..?> "ElasticIps" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeElasticIps where
   hashWithSalt _salt DescribeElasticIps' {..} =

@@ -100,6 +100,8 @@ instance Core.AWSRequest SetTimeBasedAutoScaling where
   response =
     Response.receiveNull
       SetTimeBasedAutoScalingResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetTimeBasedAutoScaling where
   hashWithSalt _salt SetTimeBasedAutoScaling' {..} =

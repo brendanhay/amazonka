@@ -99,6 +99,8 @@ instance Core.AWSRequest AssociateElasticIp where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull AssociateElasticIpResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateElasticIp where
   hashWithSalt _salt AssociateElasticIp' {..} =

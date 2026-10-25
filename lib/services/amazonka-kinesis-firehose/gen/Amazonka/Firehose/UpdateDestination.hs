@@ -252,6 +252,8 @@ instance Core.AWSRequest UpdateDestination where
           UpdateDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDestination where
   hashWithSalt _salt UpdateDestination' {..} =

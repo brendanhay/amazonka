@@ -109,6 +109,8 @@ instance Core.AWSRequest UntagDeliveryStream where
           UntagDeliveryStreamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UntagDeliveryStream where
   hashWithSalt _salt UntagDeliveryStream' {..} =

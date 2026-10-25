@@ -115,6 +115,13 @@ instance Core.AWSRequest DeleteCollection where
             Prelude.<$> (x Data..?> "deleteCollectionDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteCollection' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: DeleteCollection
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteCollection where
   hashWithSalt _salt DeleteCollection' {..} =

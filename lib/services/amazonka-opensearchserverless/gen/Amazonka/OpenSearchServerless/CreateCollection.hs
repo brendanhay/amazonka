@@ -134,6 +134,13 @@ instance Core.AWSRequest CreateCollection where
             Prelude.<$> (x Data..?> "createCollectionDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateCollection' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateCollection
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateCollection where
   hashWithSalt _salt CreateCollection' {..} =

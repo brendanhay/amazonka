@@ -144,6 +144,14 @@ instance Core.AWSRequest CreateSecurityPolicy where
             Prelude.<$> (x Data..?> "securityPolicyDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateSecurityPolicy' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateSecurityPolicy
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateSecurityPolicy where
   hashWithSalt _salt CreateSecurityPolicy' {..} =

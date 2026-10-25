@@ -89,6 +89,8 @@ instance Core.AWSRequest GetSecurityConfig where
             Prelude.<$> (x Data..?> "securityConfigDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSecurityConfig where
   hashWithSalt _salt GetSecurityConfig' {..} =

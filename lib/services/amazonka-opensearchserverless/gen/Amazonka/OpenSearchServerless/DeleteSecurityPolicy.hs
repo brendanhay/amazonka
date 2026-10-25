@@ -110,6 +110,14 @@ instance Core.AWSRequest DeleteSecurityPolicy where
           DeleteSecurityPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteSecurityPolicy' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            DeleteSecurityPolicy
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteSecurityPolicy where
   hashWithSalt _salt DeleteSecurityPolicy' {..} =

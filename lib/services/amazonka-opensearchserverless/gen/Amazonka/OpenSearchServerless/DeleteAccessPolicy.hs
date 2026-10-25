@@ -111,6 +111,13 @@ instance Core.AWSRequest DeleteAccessPolicy where
           DeleteAccessPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteAccessPolicy' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: DeleteAccessPolicy
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteAccessPolicy where
   hashWithSalt _salt DeleteAccessPolicy' {..} =

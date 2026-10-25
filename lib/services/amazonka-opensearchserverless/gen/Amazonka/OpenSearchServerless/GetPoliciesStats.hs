@@ -78,6 +78,8 @@ instance Core.AWSRequest GetPoliciesStats where
             Prelude.<*> (x Data..?> "TotalPolicyCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPoliciesStats where
   hashWithSalt _salt _ =

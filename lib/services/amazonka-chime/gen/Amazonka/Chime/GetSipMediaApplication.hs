@@ -91,6 +91,8 @@ instance Core.AWSRequest GetSipMediaApplication where
             Prelude.<$> (x Data..?> "SipMediaApplication")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSipMediaApplication where
   hashWithSalt _salt GetSipMediaApplication' {..} =

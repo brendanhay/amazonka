@@ -129,6 +129,8 @@ instance Core.AWSRequest UpdateRoomMembership where
             Prelude.<$> (x Data..?> "RoomMembership")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRoomMembership where
   hashWithSalt _salt UpdateRoomMembership' {..} =

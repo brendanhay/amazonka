@@ -91,6 +91,8 @@ instance Core.AWSRequest GetVoiceConnectorProxy where
             Prelude.<$> (x Data..?> "Proxy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetVoiceConnectorProxy where
   hashWithSalt _salt GetVoiceConnectorProxy' {..} =

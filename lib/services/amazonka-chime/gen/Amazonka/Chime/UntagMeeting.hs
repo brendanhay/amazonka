@@ -89,6 +89,8 @@ instance Core.AWSRequest UntagMeeting where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull UntagMeetingResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UntagMeeting where
   hashWithSalt _salt UntagMeeting' {..} =

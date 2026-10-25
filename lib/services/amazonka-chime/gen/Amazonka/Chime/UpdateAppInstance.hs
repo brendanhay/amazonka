@@ -111,6 +111,8 @@ instance Core.AWSRequest UpdateAppInstance where
             Prelude.<$> (x Data..?> "AppInstanceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateAppInstance where
   hashWithSalt _salt UpdateAppInstance' {..} =

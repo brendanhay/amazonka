@@ -138,6 +138,8 @@ instance Core.AWSRequest UpdateChannelMessage where
             Prelude.<*> (x Data..?> "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateChannelMessage where
   hashWithSalt _salt UpdateChannelMessage' {..} =

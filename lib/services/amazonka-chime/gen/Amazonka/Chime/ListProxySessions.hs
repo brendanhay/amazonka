@@ -121,6 +121,8 @@ instance Core.AWSRequest ListProxySessions where
             Prelude.<*> (x Data..?> "ProxySessions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListProxySessions where
   hashWithSalt _salt ListProxySessions' {..} =

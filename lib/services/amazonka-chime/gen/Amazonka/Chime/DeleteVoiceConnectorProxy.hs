@@ -83,6 +83,8 @@ instance Core.AWSRequest DeleteVoiceConnectorProxy where
   response =
     Response.receiveNull
       DeleteVoiceConnectorProxyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVoiceConnectorProxy where
   hashWithSalt _salt DeleteVoiceConnectorProxy' {..} =

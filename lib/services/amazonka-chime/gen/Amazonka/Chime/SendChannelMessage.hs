@@ -78,7 +78,7 @@ data SendChannelMessage = SendChannelMessage'
     -- Required.
     persistence :: ChannelMessagePersistenceType,
     -- | The @Idempotency@ token for each client request.
-    clientRequestToken :: Data.Sensitive Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -113,15 +113,12 @@ newSendChannelMessage ::
   ChannelMessageType ->
   -- | 'persistence'
   ChannelMessagePersistenceType ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   SendChannelMessage
 newSendChannelMessage
   pChannelArn_
   pContent_
   pType_
-  pPersistence_
-  pClientRequestToken_ =
+  pPersistence_ =
     SendChannelMessage'
       { chimeBearer = Prelude.Nothing,
         metadata = Prelude.Nothing,
@@ -129,8 +126,7 @@ newSendChannelMessage
         content = Data._Sensitive Lens.# pContent_,
         type' = pType_,
         persistence = pPersistence_,
-        clientRequestToken =
-          Data._Sensitive Lens.# pClientRequestToken_
+        clientRequestToken = Prelude.Nothing
       }
 
 -- | The @AppInstanceUserArn@ of the user that makes the API call.
@@ -159,8 +155,8 @@ sendChannelMessage_persistence :: Lens.Lens' SendChannelMessage ChannelMessagePe
 sendChannelMessage_persistence = Lens.lens (\SendChannelMessage' {persistence} -> persistence) (\s@SendChannelMessage' {} a -> s {persistence = a} :: SendChannelMessage)
 
 -- | The @Idempotency@ token for each client request.
-sendChannelMessage_clientRequestToken :: Lens.Lens' SendChannelMessage Prelude.Text
-sendChannelMessage_clientRequestToken = Lens.lens (\SendChannelMessage' {clientRequestToken} -> clientRequestToken) (\s@SendChannelMessage' {} a -> s {clientRequestToken = a} :: SendChannelMessage) Prelude.. Data._Sensitive
+sendChannelMessage_clientRequestToken :: Lens.Lens' SendChannelMessage (Prelude.Maybe Prelude.Text)
+sendChannelMessage_clientRequestToken = Lens.lens (\SendChannelMessage' {clientRequestToken} -> clientRequestToken) (\s@SendChannelMessage' {} a -> s {clientRequestToken = a} :: SendChannelMessage)
 
 instance Core.AWSRequest SendChannelMessage where
   type
@@ -176,6 +172,14 @@ instance Core.AWSRequest SendChannelMessage where
             Prelude.<*> (x Data..?> "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@SendChannelMessage' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            SendChannelMessage
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable SendChannelMessage where
   hashWithSalt _salt SendChannelMessage' {..} =
@@ -211,8 +215,8 @@ instance Data.ToJSON SendChannelMessage where
             Prelude.Just ("Content" Data..= content),
             Prelude.Just ("Type" Data..= type'),
             Prelude.Just ("Persistence" Data..= persistence),
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken)
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

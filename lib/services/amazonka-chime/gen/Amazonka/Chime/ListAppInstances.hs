@@ -103,6 +103,8 @@ instance Core.AWSRequest ListAppInstances where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAppInstances where
   hashWithSalt _salt ListAppInstances' {..} =

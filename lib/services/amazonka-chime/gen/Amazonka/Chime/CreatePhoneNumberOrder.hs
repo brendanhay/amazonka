@@ -103,6 +103,8 @@ instance Core.AWSRequest CreatePhoneNumberOrder where
             Prelude.<$> (x Data..?> "PhoneNumberOrder")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreatePhoneNumberOrder where
   hashWithSalt _salt CreatePhoneNumberOrder' {..} =

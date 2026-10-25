@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteRoom where
   request overrides =
     Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteRoomResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRoom where
   hashWithSalt _salt DeleteRoom' {..} =

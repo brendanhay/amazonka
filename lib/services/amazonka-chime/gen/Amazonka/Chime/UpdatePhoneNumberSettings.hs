@@ -85,6 +85,8 @@ instance Core.AWSRequest UpdatePhoneNumberSettings where
   response =
     Response.receiveNull
       UpdatePhoneNumberSettingsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdatePhoneNumberSettings where
   hashWithSalt _salt UpdatePhoneNumberSettings' {..} =

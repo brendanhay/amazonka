@@ -147,6 +147,8 @@ instance Core.AWSRequest CreateMeetingDialOut where
             Prelude.<$> (x Data..?> "TransactionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateMeetingDialOut where
   hashWithSalt _salt CreateMeetingDialOut' {..} =

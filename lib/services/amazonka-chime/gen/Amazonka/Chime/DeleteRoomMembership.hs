@@ -107,6 +107,8 @@ instance Core.AWSRequest DeleteRoomMembership where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteRoomMembershipResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRoomMembership where
   hashWithSalt _salt DeleteRoomMembership' {..} =

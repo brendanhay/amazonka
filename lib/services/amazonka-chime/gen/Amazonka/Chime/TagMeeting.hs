@@ -89,6 +89,8 @@ instance Core.AWSRequest TagMeeting where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull TagMeetingResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TagMeeting where
   hashWithSalt _salt TagMeeting' {..} =

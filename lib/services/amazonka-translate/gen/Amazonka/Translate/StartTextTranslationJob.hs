@@ -141,7 +141,7 @@ data StartTextTranslationJob = StartTextTranslationJob'
     targetLanguageCodes :: Prelude.NonEmpty Prelude.Text,
     -- | A unique identifier for the request. This token is generated for you
     -- when using the Amazon Translate SDK.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -235,16 +235,13 @@ newStartTextTranslationJob ::
   Prelude.Text ->
   -- | 'targetLanguageCodes'
   Prelude.NonEmpty Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   StartTextTranslationJob
 newStartTextTranslationJob
   pInputDataConfig_
   pOutputDataConfig_
   pDataAccessRoleArn_
   pSourceLanguageCode_
-  pTargetLanguageCodes_
-  pClientToken_ =
+  pTargetLanguageCodes_ =
     StartTextTranslationJob'
       { jobName = Prelude.Nothing,
         parallelDataNames = Prelude.Nothing,
@@ -256,7 +253,7 @@ newStartTextTranslationJob
         sourceLanguageCode = pSourceLanguageCode_,
         targetLanguageCodes =
           Lens.coerced Lens.# pTargetLanguageCodes_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | The name of the batch translation job to be performed.
@@ -348,7 +345,7 @@ startTextTranslationJob_targetLanguageCodes = Lens.lens (\StartTextTranslationJo
 
 -- | A unique identifier for the request. This token is generated for you
 -- when using the Amazon Translate SDK.
-startTextTranslationJob_clientToken :: Lens.Lens' StartTextTranslationJob Prelude.Text
+startTextTranslationJob_clientToken :: Lens.Lens' StartTextTranslationJob (Prelude.Maybe Prelude.Text)
 startTextTranslationJob_clientToken = Lens.lens (\StartTextTranslationJob' {clientToken} -> clientToken) (\s@StartTextTranslationJob' {} a -> s {clientToken = a} :: StartTextTranslationJob)
 
 instance Core.AWSRequest StartTextTranslationJob where
@@ -365,6 +362,14 @@ instance Core.AWSRequest StartTextTranslationJob where
             Prelude.<*> (x Data..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartTextTranslationJob' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            StartTextTranslationJob
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartTextTranslationJob where
   hashWithSalt _salt StartTextTranslationJob' {..} =
@@ -428,7 +433,7 @@ instance Data.ToJSON StartTextTranslationJob where
               ("SourceLanguageCode" Data..= sourceLanguageCode),
             Prelude.Just
               ("TargetLanguageCodes" Data..= targetLanguageCodes),
-            Prelude.Just ("ClientToken" Data..= clientToken)
+            ("ClientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

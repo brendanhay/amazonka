@@ -209,6 +209,8 @@ instance Core.AWSRequest TranslateText where
             Prelude.<*> (x Data..:> "SourceLanguageCode")
             Prelude.<*> (x Data..:> "TargetLanguageCode")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TranslateText where
   hashWithSalt _salt TranslateText' {..} =

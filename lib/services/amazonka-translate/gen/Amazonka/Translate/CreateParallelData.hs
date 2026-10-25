@@ -74,7 +74,7 @@ data CreateParallelData = CreateParallelData'
     parallelDataConfig :: ParallelDataConfig,
     -- | A unique identifier for the request. This token is automatically
     -- generated when you use Amazon Translate through an AWS SDK.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -107,21 +107,16 @@ newCreateParallelData ::
   Prelude.Text ->
   -- | 'parallelDataConfig'
   ParallelDataConfig ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateParallelData
-newCreateParallelData
-  pName_
-  pParallelDataConfig_
-  pClientToken_ =
-    CreateParallelData'
-      { description = Prelude.Nothing,
-        encryptionKey = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        name = pName_,
-        parallelDataConfig = pParallelDataConfig_,
-        clientToken = pClientToken_
-      }
+newCreateParallelData pName_ pParallelDataConfig_ =
+  CreateParallelData'
+    { description = Prelude.Nothing,
+      encryptionKey = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      name = pName_,
+      parallelDataConfig = pParallelDataConfig_,
+      clientToken = Prelude.Nothing
+    }
 
 -- | A custom description for the parallel data resource in Amazon Translate.
 createParallelData_description :: Lens.Lens' CreateParallelData (Prelude.Maybe Prelude.Text)
@@ -149,7 +144,7 @@ createParallelData_parallelDataConfig = Lens.lens (\CreateParallelData' {paralle
 
 -- | A unique identifier for the request. This token is automatically
 -- generated when you use Amazon Translate through an AWS SDK.
-createParallelData_clientToken :: Lens.Lens' CreateParallelData Prelude.Text
+createParallelData_clientToken :: Lens.Lens' CreateParallelData (Prelude.Maybe Prelude.Text)
 createParallelData_clientToken = Lens.lens (\CreateParallelData' {clientToken} -> clientToken) (\s@CreateParallelData' {} a -> s {clientToken = a} :: CreateParallelData)
 
 instance Core.AWSRequest CreateParallelData where
@@ -166,6 +161,13 @@ instance Core.AWSRequest CreateParallelData where
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateParallelData' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateParallelData
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateParallelData where
   hashWithSalt _salt CreateParallelData' {..} =
@@ -211,7 +213,7 @@ instance Data.ToJSON CreateParallelData where
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("ParallelDataConfig" Data..= parallelDataConfig),
-            Prelude.Just ("ClientToken" Data..= clientToken)
+            ("ClientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

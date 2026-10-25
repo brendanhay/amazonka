@@ -95,6 +95,8 @@ instance Core.AWSRequest GetParallelData where
             Prelude.<*> (x Data..?> "ParallelDataProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetParallelData where
   hashWithSalt _salt GetParallelData' {..} =

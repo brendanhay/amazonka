@@ -252,6 +252,8 @@ instance Core.AWSRequest PutEventSelectors where
             Prelude.<*> (x Data..?> "TrailARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutEventSelectors where
   hashWithSalt _salt PutEventSelectors' {..} =

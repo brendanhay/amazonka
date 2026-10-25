@@ -120,6 +120,8 @@ instance Core.AWSRequest RestoreEventDataStore where
             Prelude.<*> (x Data..?> "UpdatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RestoreEventDataStore where
   hashWithSalt _salt RestoreEventDataStore' {..} =

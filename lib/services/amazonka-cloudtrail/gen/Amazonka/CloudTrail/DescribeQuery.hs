@@ -116,6 +116,8 @@ instance Core.AWSRequest DescribeQuery where
             Prelude.<*> (x Data..?> "QueryString")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeQuery where
   hashWithSalt _salt DescribeQuery' {..} =

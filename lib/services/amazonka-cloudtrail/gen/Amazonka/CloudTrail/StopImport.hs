@@ -101,6 +101,8 @@ instance Core.AWSRequest StopImport where
             Prelude.<*> (x Data..?> "UpdatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopImport where
   hashWithSalt _salt StopImport' {..} =

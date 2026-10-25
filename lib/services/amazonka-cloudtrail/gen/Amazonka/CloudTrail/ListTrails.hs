@@ -121,6 +121,8 @@ instance Core.AWSRequest ListTrails where
             Prelude.<*> (x Data..?> "Trails" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTrails where
   hashWithSalt _salt ListTrails' {..} =

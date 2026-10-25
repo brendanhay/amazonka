@@ -100,6 +100,8 @@ instance Core.AWSRequest StartQuery where
             Prelude.<$> (x Data..?> "QueryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartQuery where
   hashWithSalt _salt StartQuery' {..} =

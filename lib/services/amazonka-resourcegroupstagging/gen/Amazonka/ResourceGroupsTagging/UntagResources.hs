@@ -149,6 +149,8 @@ instance Core.AWSRequest UntagResources where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UntagResources where
   hashWithSalt _salt UntagResources' {..} =

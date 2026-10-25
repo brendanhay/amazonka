@@ -261,6 +261,8 @@ instance Core.AWSRequest CreateDatasetGroup where
             Prelude.<$> (x Data..?> "DatasetGroupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDatasetGroup where
   hashWithSalt _salt CreateDatasetGroup' {..} =

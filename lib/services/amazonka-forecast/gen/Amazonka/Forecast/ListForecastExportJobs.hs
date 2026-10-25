@@ -210,6 +210,8 @@ instance Core.AWSRequest ListForecastExportJobs where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListForecastExportJobs where
   hashWithSalt _salt ListForecastExportJobs' {..} =

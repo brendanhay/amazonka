@@ -90,6 +90,8 @@ instance Core.AWSRequest DeleteWhatIfAnalysis where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteWhatIfAnalysisResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteWhatIfAnalysis where
   hashWithSalt _salt DeleteWhatIfAnalysis' {..} =

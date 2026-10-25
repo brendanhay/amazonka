@@ -78,6 +78,8 @@ instance Core.AWSRequest ResumeResource where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull ResumeResourceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResumeResource where
   hashWithSalt _salt ResumeResource' {..} =

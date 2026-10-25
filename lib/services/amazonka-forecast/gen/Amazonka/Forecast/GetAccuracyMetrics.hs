@@ -116,6 +116,8 @@ instance Core.AWSRequest GetAccuracyMetrics where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAccuracyMetrics where
   hashWithSalt _salt GetAccuracyMetrics' {..} =

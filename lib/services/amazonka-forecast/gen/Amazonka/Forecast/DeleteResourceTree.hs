@@ -102,6 +102,8 @@ instance Core.AWSRequest DeleteResourceTree where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteResourceTreeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteResourceTree where
   hashWithSalt _salt DeleteResourceTree' {..} =

@@ -188,6 +188,8 @@ instance Core.AWSRequest ListExplainabilities where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListExplainabilities where
   hashWithSalt _salt ListExplainabilities' {..} =

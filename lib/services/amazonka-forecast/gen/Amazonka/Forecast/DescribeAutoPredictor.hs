@@ -129,6 +129,8 @@ instance Core.AWSRequest DescribeAutoPredictor where
             Prelude.<*> (x Data..?> "TimeAlignmentBoundary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAutoPredictor where
   hashWithSalt _salt DescribeAutoPredictor' {..} =

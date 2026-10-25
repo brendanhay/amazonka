@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteWhatIfForecastExport where
   response =
     Response.receiveNull
       DeleteWhatIfForecastExportResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteWhatIfForecastExport where
   hashWithSalt _salt DeleteWhatIfForecastExport' {..} =

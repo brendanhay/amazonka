@@ -418,6 +418,8 @@ instance Core.AWSRequest CreateDatasetImportJob where
             Prelude.<$> (x Data..?> "DatasetImportJobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDatasetImportJob where
   hashWithSalt _salt CreateDatasetImportJob' {..} =

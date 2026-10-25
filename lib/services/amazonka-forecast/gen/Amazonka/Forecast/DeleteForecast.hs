@@ -83,6 +83,8 @@ instance Core.AWSRequest DeleteForecast where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteForecastResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteForecast where
   hashWithSalt _salt DeleteForecast' {..} =

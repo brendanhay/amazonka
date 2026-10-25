@@ -356,6 +356,8 @@ instance Core.AWSRequest CreateExplainability where
             Prelude.<$> (x Data..?> "ExplainabilityArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateExplainability where
   hashWithSalt _salt CreateExplainability' {..} =

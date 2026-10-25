@@ -81,6 +81,8 @@ instance Core.AWSRequest DeletePredictor where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeletePredictorResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePredictor where
   hashWithSalt _salt DeletePredictor' {..} =

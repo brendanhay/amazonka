@@ -612,6 +612,8 @@ instance Core.AWSRequest CreatePredictor where
             Prelude.<$> (x Data..?> "PredictorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreatePredictor where
   hashWithSalt _salt CreatePredictor' {..} =

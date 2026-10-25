@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteForecastExportJob where
   response =
     Response.receiveNull
       DeleteForecastExportJobResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteForecastExportJob where
   hashWithSalt _salt DeleteForecastExportJob' {..} =

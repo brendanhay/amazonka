@@ -121,6 +121,8 @@ instance Core.AWSRequest DescribeForecast where
             Prelude.<*> (x Data..?> "TimeSeriesSelector")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeForecast where
   hashWithSalt _salt DescribeForecast' {..} =

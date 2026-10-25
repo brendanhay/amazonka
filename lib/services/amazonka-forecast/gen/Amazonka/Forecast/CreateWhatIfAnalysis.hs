@@ -184,6 +184,8 @@ instance Core.AWSRequest CreateWhatIfAnalysis where
             Prelude.<$> (x Data..?> "WhatIfAnalysisArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateWhatIfAnalysis where
   hashWithSalt _salt CreateWhatIfAnalysis' {..} =

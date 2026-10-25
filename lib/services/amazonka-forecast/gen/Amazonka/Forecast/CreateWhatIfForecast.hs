@@ -195,6 +195,8 @@ instance Core.AWSRequest CreateWhatIfForecast where
             Prelude.<$> (x Data..?> "WhatIfForecastArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateWhatIfForecast where
   hashWithSalt _salt CreateWhatIfForecast' {..} =

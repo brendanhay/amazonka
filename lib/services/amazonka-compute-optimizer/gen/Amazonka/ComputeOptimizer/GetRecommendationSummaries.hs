@@ -187,6 +187,8 @@ instance Core.AWSRequest GetRecommendationSummaries where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRecommendationSummaries where
   hashWithSalt _salt GetRecommendationSummaries' {..} =

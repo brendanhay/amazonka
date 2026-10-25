@@ -151,6 +151,8 @@ instance Core.AWSRequest GetGeneratedPolicy where
             Prelude.<*> (x Data..:> "jobDetails")
             Prelude.<*> (x Data..:> "generatedPolicyResult")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetGeneratedPolicy where
   hashWithSalt _salt GetGeneratedPolicy' {..} =

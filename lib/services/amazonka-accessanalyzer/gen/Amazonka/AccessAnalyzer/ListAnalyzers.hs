@@ -132,6 +132,8 @@ instance Core.AWSRequest ListAnalyzers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "analyzers" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAnalyzers where
   hashWithSalt _salt ListAnalyzers' {..} =

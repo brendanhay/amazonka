@@ -105,6 +105,13 @@ instance Core.AWSRequest ApplyArchiveRule where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull ApplyArchiveRuleResponse'
+  updateIdempotencyToken
+    f
+    s@ApplyArchiveRule' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: ApplyArchiveRule
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable ApplyArchiveRule where
   hashWithSalt _salt ApplyArchiveRule' {..} =

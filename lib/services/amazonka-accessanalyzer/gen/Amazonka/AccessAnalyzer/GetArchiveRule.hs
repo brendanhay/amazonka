@@ -108,6 +108,8 @@ instance Core.AWSRequest GetArchiveRule where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "archiveRule")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetArchiveRule where
   hashWithSalt _salt GetArchiveRule' {..} =

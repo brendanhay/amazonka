@@ -94,6 +94,8 @@ instance Core.AWSRequest CancelPolicyGeneration where
           CancelPolicyGenerationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelPolicyGeneration where
   hashWithSalt _salt CancelPolicyGeneration' {..} =

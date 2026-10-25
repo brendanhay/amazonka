@@ -128,6 +128,13 @@ instance Core.AWSRequest CreateAccessPreview where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "id")
       )
+  updateIdempotencyToken
+    f
+    s@CreateAccessPreview' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateAccessPreview
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateAccessPreview where
   hashWithSalt _salt CreateAccessPreview' {..} =

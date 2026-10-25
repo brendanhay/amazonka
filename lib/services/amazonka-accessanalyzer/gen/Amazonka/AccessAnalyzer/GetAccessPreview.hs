@@ -109,6 +109,8 @@ instance Core.AWSRequest GetAccessPreview where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "accessPreview")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAccessPreview where
   hashWithSalt _salt GetAccessPreview' {..} =

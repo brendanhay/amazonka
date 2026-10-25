@@ -107,6 +107,8 @@ instance Core.AWSRequest GetSuiteRunReport where
             Prelude.<$> (x Data..?> "qualificationReportDownloadUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSuiteRunReport where
   hashWithSalt _salt GetSuiteRunReport' {..} =

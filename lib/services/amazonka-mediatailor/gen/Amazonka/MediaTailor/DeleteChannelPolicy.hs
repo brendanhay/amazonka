@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteChannelPolicy where
           DeleteChannelPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteChannelPolicy where
   hashWithSalt _salt DeleteChannelPolicy' {..} =

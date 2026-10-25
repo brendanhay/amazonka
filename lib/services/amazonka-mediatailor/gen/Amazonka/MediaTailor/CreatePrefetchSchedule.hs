@@ -188,6 +188,8 @@ instance Core.AWSRequest CreatePrefetchSchedule where
             Prelude.<*> (x Data..?> "StreamId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreatePrefetchSchedule where
   hashWithSalt _salt CreatePrefetchSchedule' {..} =

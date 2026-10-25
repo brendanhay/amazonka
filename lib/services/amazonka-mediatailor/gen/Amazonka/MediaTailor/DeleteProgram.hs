@@ -101,6 +101,8 @@ instance Core.AWSRequest DeleteProgram where
           DeleteProgramResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteProgram where
   hashWithSalt _salt DeleteProgram' {..} =

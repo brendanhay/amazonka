@@ -128,6 +128,8 @@ instance Core.AWSRequest GetPlaybackConfiguration where
             Prelude.<*> (x Data..?> "VideoContentSourceUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPlaybackConfiguration where
   hashWithSalt _salt GetPlaybackConfiguration' {..} =

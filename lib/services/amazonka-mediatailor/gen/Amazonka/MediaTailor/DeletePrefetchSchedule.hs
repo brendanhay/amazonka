@@ -110,6 +110,8 @@ instance Core.AWSRequest DeletePrefetchSchedule where
           DeletePrefetchScheduleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePrefetchSchedule where
   hashWithSalt _salt DeletePrefetchSchedule' {..} =

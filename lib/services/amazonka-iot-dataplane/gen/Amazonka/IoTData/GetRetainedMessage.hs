@@ -107,6 +107,8 @@ instance Core.AWSRequest GetRetainedMessage where
             Prelude.<*> (x Data..?> "topic")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRetainedMessage where
   hashWithSalt _salt GetRetainedMessage' {..} =

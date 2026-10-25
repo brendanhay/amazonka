@@ -109,6 +109,8 @@ instance Core.AWSRequest GetThingShadow where
             Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetThingShadow where
   hashWithSalt _salt GetThingShadow' {..} =

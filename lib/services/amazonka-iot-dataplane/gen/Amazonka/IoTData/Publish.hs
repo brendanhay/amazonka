@@ -276,6 +276,8 @@ instance Core.AWSRequest Publish where
   request overrides =
     Request.postBody (overrides defaultService)
   response = Response.receiveNull PublishResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable Publish where
   hashWithSalt _salt Publish' {..} =

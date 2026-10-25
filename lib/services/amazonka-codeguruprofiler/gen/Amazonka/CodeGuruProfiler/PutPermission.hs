@@ -159,6 +159,8 @@ instance Core.AWSRequest PutPermission where
             Prelude.<*> (x Data..:> "policy")
             Prelude.<*> (x Data..:> "revisionId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutPermission where
   hashWithSalt _salt PutPermission' {..} =

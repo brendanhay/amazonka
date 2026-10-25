@@ -249,6 +249,8 @@ instance Core.AWSRequest ListProfileTimes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "profileTimes" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListProfileTimes where
   hashWithSalt _salt ListProfileTimes' {..} =

@@ -69,7 +69,7 @@ data CreateProfilingGroup = CreateProfilingGroup'
     -- | Amazon CodeGuru Profiler uses this universally unique identifier (UUID)
     -- to prevent the accidental creation of duplicate profiling groups if
     -- there are failures and retries.
-    clientToken :: Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the profiling group to create.
     profilingGroupName :: Prelude.Text
   }
@@ -100,22 +100,18 @@ data CreateProfilingGroup = CreateProfilingGroup'
 --
 -- 'profilingGroupName', 'createProfilingGroup_profilingGroupName' - The name of the profiling group to create.
 newCreateProfilingGroup ::
-  -- | 'clientToken'
-  Prelude.Text ->
   -- | 'profilingGroupName'
   Prelude.Text ->
   CreateProfilingGroup
-newCreateProfilingGroup
-  pClientToken_
-  pProfilingGroupName_ =
-    CreateProfilingGroup'
-      { agentOrchestrationConfig =
-          Prelude.Nothing,
-        computePlatform = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        clientToken = pClientToken_,
-        profilingGroupName = pProfilingGroupName_
-      }
+newCreateProfilingGroup pProfilingGroupName_ =
+  CreateProfilingGroup'
+    { agentOrchestrationConfig =
+        Prelude.Nothing,
+      computePlatform = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      profilingGroupName = pProfilingGroupName_
+    }
 
 -- | Specifies whether profiling is enabled or disabled for the created
 -- profiling group.
@@ -137,7 +133,7 @@ createProfilingGroup_tags = Lens.lens (\CreateProfilingGroup' {tags} -> tags) (\
 -- | Amazon CodeGuru Profiler uses this universally unique identifier (UUID)
 -- to prevent the accidental creation of duplicate profiling groups if
 -- there are failures and retries.
-createProfilingGroup_clientToken :: Lens.Lens' CreateProfilingGroup Prelude.Text
+createProfilingGroup_clientToken :: Lens.Lens' CreateProfilingGroup (Prelude.Maybe Prelude.Text)
 createProfilingGroup_clientToken = Lens.lens (\CreateProfilingGroup' {clientToken} -> clientToken) (\s@CreateProfilingGroup' {} a -> s {clientToken = a} :: CreateProfilingGroup)
 
 -- | The name of the profiling group to create.
@@ -157,6 +153,14 @@ instance Core.AWSRequest CreateProfilingGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken
+    f
+    s@CreateProfilingGroup' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateProfilingGroup
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateProfilingGroup where
   hashWithSalt _salt CreateProfilingGroup' {..} =

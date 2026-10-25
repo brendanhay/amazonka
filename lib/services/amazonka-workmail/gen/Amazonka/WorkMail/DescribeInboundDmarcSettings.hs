@@ -90,6 +90,8 @@ instance Core.AWSRequest DescribeInboundDmarcSettings where
             Prelude.<$> (x Data..?> "Enforced")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

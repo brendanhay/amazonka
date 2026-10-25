@@ -129,6 +129,8 @@ instance Core.AWSRequest PutRetentionPolicy where
           PutRetentionPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutRetentionPolicy where
   hashWithSalt _salt PutRetentionPolicy' {..} =

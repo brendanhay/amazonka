@@ -63,7 +63,7 @@ data StartMailboxExportJob = StartMailboxExportJob'
   { -- | The mailbox export job description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The idempotency token for the client request.
-    clientToken :: Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier associated with the organization.
     organizationId :: Prelude.Text,
     -- | The identifier of the user or resource associated with the mailbox.
@@ -107,8 +107,6 @@ data StartMailboxExportJob = StartMailboxExportJob'
 --
 -- 's3Prefix', 'startMailboxExportJob_s3Prefix' - The S3 bucket prefix.
 newStartMailboxExportJob ::
-  -- | 'clientToken'
-  Prelude.Text ->
   -- | 'organizationId'
   Prelude.Text ->
   -- | 'entityId'
@@ -123,7 +121,6 @@ newStartMailboxExportJob ::
   Prelude.Text ->
   StartMailboxExportJob
 newStartMailboxExportJob
-  pClientToken_
   pOrganizationId_
   pEntityId_
   pRoleArn_
@@ -133,7 +130,7 @@ newStartMailboxExportJob
     StartMailboxExportJob'
       { description =
           Prelude.Nothing,
-        clientToken = pClientToken_,
+        clientToken = Prelude.Nothing,
         organizationId = pOrganizationId_,
         entityId = pEntityId_,
         roleArn = pRoleArn_,
@@ -147,7 +144,7 @@ startMailboxExportJob_description :: Lens.Lens' StartMailboxExportJob (Prelude.M
 startMailboxExportJob_description = Lens.lens (\StartMailboxExportJob' {description} -> description) (\s@StartMailboxExportJob' {} a -> s {description = a} :: StartMailboxExportJob)
 
 -- | The idempotency token for the client request.
-startMailboxExportJob_clientToken :: Lens.Lens' StartMailboxExportJob Prelude.Text
+startMailboxExportJob_clientToken :: Lens.Lens' StartMailboxExportJob (Prelude.Maybe Prelude.Text)
 startMailboxExportJob_clientToken = Lens.lens (\StartMailboxExportJob' {clientToken} -> clientToken) (\s@StartMailboxExportJob' {} a -> s {clientToken = a} :: StartMailboxExportJob)
 
 -- | The identifier associated with the organization.
@@ -189,6 +186,14 @@ instance Core.AWSRequest StartMailboxExportJob where
             Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartMailboxExportJob' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            StartMailboxExportJob
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartMailboxExportJob where
   hashWithSalt _salt StartMailboxExportJob' {..} =
@@ -233,7 +238,7 @@ instance Data.ToJSON StartMailboxExportJob where
     Data.object
       ( Prelude.catMaybes
           [ ("Description" Data..=) Prelude.<$> description,
-            Prelude.Just ("ClientToken" Data..= clientToken),
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
               ("OrganizationId" Data..= organizationId),
             Prelude.Just ("EntityId" Data..= entityId),

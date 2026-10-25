@@ -100,6 +100,8 @@ instance Core.AWSRequest DeleteRetentionPolicy where
           DeleteRetentionPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRetentionPolicy where
   hashWithSalt _salt DeleteRetentionPolicy' {..} =

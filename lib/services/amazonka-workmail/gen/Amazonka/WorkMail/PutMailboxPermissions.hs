@@ -153,6 +153,8 @@ instance Core.AWSRequest PutMailboxPermissions where
           PutMailboxPermissionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutMailboxPermissions where
   hashWithSalt _salt PutMailboxPermissions' {..} =

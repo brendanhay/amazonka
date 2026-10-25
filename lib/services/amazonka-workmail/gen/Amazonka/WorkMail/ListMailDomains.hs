@@ -114,6 +114,8 @@ instance Core.AWSRequest ListMailDomains where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListMailDomains where
   hashWithSalt _salt ListMailDomains' {..} =

@@ -154,6 +154,14 @@ instance
           CreateAvailabilityConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateAvailabilityConfiguration' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateAvailabilityConfiguration
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

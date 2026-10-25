@@ -121,6 +121,8 @@ instance Core.AWSRequest DeleteMailboxPermissions where
           DeleteMailboxPermissionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteMailboxPermissions where
   hashWithSalt _salt DeleteMailboxPermissions' {..} =

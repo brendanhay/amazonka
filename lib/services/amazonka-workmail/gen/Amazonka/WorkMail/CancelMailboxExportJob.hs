@@ -54,7 +54,7 @@ import Amazonka.WorkMail.Types
 -- | /See:/ 'newCancelMailboxExportJob' smart constructor.
 data CancelMailboxExportJob = CancelMailboxExportJob'
   { -- | The idempotency token for the client request.
-    clientToken :: Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The job ID.
     jobId :: Prelude.Text,
     -- | The organization ID.
@@ -76,26 +76,21 @@ data CancelMailboxExportJob = CancelMailboxExportJob'
 --
 -- 'organizationId', 'cancelMailboxExportJob_organizationId' - The organization ID.
 newCancelMailboxExportJob ::
-  -- | 'clientToken'
-  Prelude.Text ->
   -- | 'jobId'
   Prelude.Text ->
   -- | 'organizationId'
   Prelude.Text ->
   CancelMailboxExportJob
-newCancelMailboxExportJob
-  pClientToken_
-  pJobId_
-  pOrganizationId_ =
-    CancelMailboxExportJob'
-      { clientToken =
-          pClientToken_,
-        jobId = pJobId_,
-        organizationId = pOrganizationId_
-      }
+newCancelMailboxExportJob pJobId_ pOrganizationId_ =
+  CancelMailboxExportJob'
+    { clientToken =
+        Prelude.Nothing,
+      jobId = pJobId_,
+      organizationId = pOrganizationId_
+    }
 
 -- | The idempotency token for the client request.
-cancelMailboxExportJob_clientToken :: Lens.Lens' CancelMailboxExportJob Prelude.Text
+cancelMailboxExportJob_clientToken :: Lens.Lens' CancelMailboxExportJob (Prelude.Maybe Prelude.Text)
 cancelMailboxExportJob_clientToken = Lens.lens (\CancelMailboxExportJob' {clientToken} -> clientToken) (\s@CancelMailboxExportJob' {} a -> s {clientToken = a} :: CancelMailboxExportJob)
 
 -- | The job ID.
@@ -118,6 +113,14 @@ instance Core.AWSRequest CancelMailboxExportJob where
           CancelMailboxExportJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CancelMailboxExportJob' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CancelMailboxExportJob
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CancelMailboxExportJob where
   hashWithSalt _salt CancelMailboxExportJob' {..} =
@@ -151,7 +154,7 @@ instance Data.ToJSON CancelMailboxExportJob where
   toJSON CancelMailboxExportJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ClientToken" Data..= clientToken),
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just ("JobId" Data..= jobId),
             Prelude.Just
               ("OrganizationId" Data..= organizationId)

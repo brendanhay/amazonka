@@ -154,6 +154,8 @@ instance Core.AWSRequest ListGroupMembers where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListGroupMembers where
   hashWithSalt _salt ListGroupMembers' {..} =

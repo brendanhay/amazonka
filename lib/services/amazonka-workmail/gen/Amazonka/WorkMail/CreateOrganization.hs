@@ -166,6 +166,13 @@ instance Core.AWSRequest CreateOrganization where
             Prelude.<$> (x Data..?> "OrganizationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateOrganization' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateOrganization
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateOrganization where
   hashWithSalt _salt CreateOrganization' {..} =

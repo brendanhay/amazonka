@@ -110,6 +110,8 @@ instance Core.AWSRequest GetMailDomain where
             Prelude.<*> (x Data..?> "Records" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMailDomain where
   hashWithSalt _salt GetMailDomain' {..} =

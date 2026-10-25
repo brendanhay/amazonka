@@ -146,6 +146,8 @@ instance Core.AWSRequest GetImpersonationRoleEffect where
             Prelude.<*> (x Data..?> "Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetImpersonationRoleEffect where
   hashWithSalt _salt GetImpersonationRoleEffect' {..} =

@@ -113,6 +113,8 @@ instance Core.AWSRequest ListMailboxExportJobs where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListMailboxExportJobs where
   hashWithSalt _salt ListMailboxExportJobs' {..} =

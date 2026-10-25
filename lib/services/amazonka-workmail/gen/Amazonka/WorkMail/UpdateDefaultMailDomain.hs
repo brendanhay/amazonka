@@ -104,6 +104,8 @@ instance Core.AWSRequest UpdateDefaultMailDomain where
           UpdateDefaultMailDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDefaultMailDomain where
   hashWithSalt _salt UpdateDefaultMailDomain' {..} =

@@ -112,6 +112,13 @@ instance Core.AWSRequest RegisterMailDomain where
           RegisterMailDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@RegisterMailDomain' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: RegisterMailDomain
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable RegisterMailDomain where
   hashWithSalt _salt RegisterMailDomain' {..} =

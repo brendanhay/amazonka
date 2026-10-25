@@ -111,6 +111,8 @@ instance Core.AWSRequest DescribeGroup where
             Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeGroup where
   hashWithSalt _salt DescribeGroup' {..} =

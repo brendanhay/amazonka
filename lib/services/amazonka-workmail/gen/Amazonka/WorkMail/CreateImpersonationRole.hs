@@ -155,6 +155,14 @@ instance Core.AWSRequest CreateImpersonationRole where
             Prelude.<$> (x Data..?> "ImpersonationRoleId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateImpersonationRole' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateImpersonationRole
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateImpersonationRole where
   hashWithSalt _salt CreateImpersonationRole' {..} =

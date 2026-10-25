@@ -108,6 +108,8 @@ instance Core.AWSRequest GetMailboxDetails where
             Prelude.<*> (x Data..?> "MailboxSize")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMailboxDetails where
   hashWithSalt _salt GetMailboxDetails' {..} =

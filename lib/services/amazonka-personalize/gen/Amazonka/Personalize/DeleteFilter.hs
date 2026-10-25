@@ -75,6 +75,8 @@ instance Core.AWSRequest DeleteFilter where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteFilterResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFilter where
   hashWithSalt _salt DeleteFilter' {..} =

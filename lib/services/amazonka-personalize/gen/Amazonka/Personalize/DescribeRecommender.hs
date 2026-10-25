@@ -108,6 +108,8 @@ instance Core.AWSRequest DescribeRecommender where
             Prelude.<$> (x Data..?> "recommender")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeRecommender where
   hashWithSalt _salt DescribeRecommender' {..} =

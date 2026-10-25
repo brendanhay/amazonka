@@ -87,6 +87,8 @@ instance Core.AWSRequest DescribeFilter where
             Prelude.<$> (x Data..?> "filter")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeFilter where
   hashWithSalt _salt DescribeFilter' {..} =

@@ -84,6 +84,8 @@ instance Core.AWSRequest DeleteRecommender where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteRecommenderResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRecommender where
   hashWithSalt _salt DeleteRecommender' {..} =

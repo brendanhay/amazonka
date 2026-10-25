@@ -148,6 +148,8 @@ instance Core.AWSRequest ListRecommenders where
             Prelude.<*> (x Data..?> "recommenders" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListRecommenders where
   hashWithSalt _salt ListRecommenders' {..} =

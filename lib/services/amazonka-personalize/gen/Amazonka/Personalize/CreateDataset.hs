@@ -208,6 +208,8 @@ instance Core.AWSRequest CreateDataset where
             Prelude.<$> (x Data..?> "datasetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDataset where
   hashWithSalt _salt CreateDataset' {..} =

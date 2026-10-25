@@ -82,6 +82,8 @@ instance Core.AWSRequest DeleteMetricAttribution where
   response =
     Response.receiveNull
       DeleteMetricAttributionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteMetricAttribution where
   hashWithSalt _salt DeleteMetricAttribution' {..} =

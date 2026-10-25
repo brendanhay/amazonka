@@ -84,6 +84,8 @@ instance Core.AWSRequest DeleteEventTracker where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteEventTrackerResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteEventTracker where
   hashWithSalt _salt DeleteEventTracker' {..} =

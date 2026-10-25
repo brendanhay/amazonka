@@ -83,6 +83,8 @@ instance Core.AWSRequest DeleteCampaign where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteCampaignResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCampaign where
   hashWithSalt _salt DeleteCampaign' {..} =

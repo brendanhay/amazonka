@@ -92,6 +92,8 @@ instance Core.AWSRequest DescribeBatchSegmentJob where
             Prelude.<$> (x Data..?> "batchSegmentJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeBatchSegmentJob where
   hashWithSalt _salt DescribeBatchSegmentJob' {..} =

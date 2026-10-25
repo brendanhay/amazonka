@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteSolution where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteSolutionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSolution where
   hashWithSalt _salt DeleteSolution' {..} =

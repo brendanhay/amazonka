@@ -205,6 +205,8 @@ instance Core.AWSRequest CreateBatchSegmentJob where
             Prelude.<$> (x Data..?> "batchSegmentJobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateBatchSegmentJob where
   hashWithSalt _salt CreateBatchSegmentJob' {..} =

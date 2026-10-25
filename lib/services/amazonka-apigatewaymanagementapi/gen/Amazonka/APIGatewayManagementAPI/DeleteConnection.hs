@@ -77,6 +77,8 @@ instance Core.AWSRequest DeleteConnection where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteConnectionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteConnection where
   hashWithSalt _salt DeleteConnection' {..} =

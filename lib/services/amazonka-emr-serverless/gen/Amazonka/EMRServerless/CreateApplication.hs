@@ -102,7 +102,7 @@ data CreateApplication = CreateApplication'
     type' :: Prelude.Text,
     -- | The client idempotency token of the application to create. Its value
     -- must be unique for each request.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -158,28 +158,23 @@ newCreateApplication ::
   Prelude.Text ->
   -- | 'type''
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateApplication
-newCreateApplication
-  pReleaseLabel_
-  pType_
-  pClientToken_ =
-    CreateApplication'
-      { architecture = Prelude.Nothing,
-        autoStartConfiguration = Prelude.Nothing,
-        autoStopConfiguration = Prelude.Nothing,
-        imageConfiguration = Prelude.Nothing,
-        initialCapacity = Prelude.Nothing,
-        maximumCapacity = Prelude.Nothing,
-        name = Prelude.Nothing,
-        networkConfiguration = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        workerTypeSpecifications = Prelude.Nothing,
-        releaseLabel = pReleaseLabel_,
-        type' = pType_,
-        clientToken = pClientToken_
-      }
+newCreateApplication pReleaseLabel_ pType_ =
+  CreateApplication'
+    { architecture = Prelude.Nothing,
+      autoStartConfiguration = Prelude.Nothing,
+      autoStopConfiguration = Prelude.Nothing,
+      imageConfiguration = Prelude.Nothing,
+      initialCapacity = Prelude.Nothing,
+      maximumCapacity = Prelude.Nothing,
+      name = Prelude.Nothing,
+      networkConfiguration = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      workerTypeSpecifications = Prelude.Nothing,
+      releaseLabel = pReleaseLabel_,
+      type' = pType_,
+      clientToken = Prelude.Nothing
+    }
 
 -- | The CPU architecture of an application.
 createApplication_architecture :: Lens.Lens' CreateApplication (Prelude.Maybe Architecture)
@@ -244,7 +239,7 @@ createApplication_type = Lens.lens (\CreateApplication' {type'} -> type') (\s@Cr
 
 -- | The client idempotency token of the application to create. Its value
 -- must be unique for each request.
-createApplication_clientToken :: Lens.Lens' CreateApplication Prelude.Text
+createApplication_clientToken :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
 createApplication_clientToken = Lens.lens (\CreateApplication' {clientToken} -> clientToken) (\s@CreateApplication' {} a -> s {clientToken = a} :: CreateApplication)
 
 instance Core.AWSRequest CreateApplication where
@@ -262,6 +257,13 @@ instance Core.AWSRequest CreateApplication where
             Prelude.<*> (x Data..:> "applicationId")
             Prelude.<*> (x Data..:> "arn")
       )
+  updateIdempotencyToken
+    f
+    s@CreateApplication' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateApplication
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
@@ -330,7 +332,7 @@ instance Data.ToJSON CreateApplication where
               Prelude.<$> workerTypeSpecifications,
             Prelude.Just ("releaseLabel" Data..= releaseLabel),
             Prelude.Just ("type" Data..= type'),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

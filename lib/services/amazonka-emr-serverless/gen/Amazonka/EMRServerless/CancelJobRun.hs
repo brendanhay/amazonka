@@ -101,6 +101,8 @@ instance Core.AWSRequest CancelJobRun where
             Prelude.<*> (x Data..:> "applicationId")
             Prelude.<*> (x Data..:> "jobRunId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelJobRun where
   hashWithSalt _salt CancelJobRun' {..} =

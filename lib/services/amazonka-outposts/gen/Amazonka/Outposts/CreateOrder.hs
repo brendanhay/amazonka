@@ -124,6 +124,8 @@ instance Core.AWSRequest CreateOrder where
             Prelude.<$> (x Data..?> "Order")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateOrder where
   hashWithSalt _salt CreateOrder' {..} =

@@ -114,6 +114,8 @@ instance Core.AWSRequest GetOutpostInstanceTypes where
             Prelude.<*> (x Data..?> "OutpostId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetOutpostInstanceTypes where
   hashWithSalt _salt GetOutpostInstanceTypes' {..} =

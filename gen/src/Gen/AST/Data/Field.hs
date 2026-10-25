@@ -28,7 +28,12 @@ data Field = Field
     _fieldPayload :: Bool,
     _fieldPrefix :: Maybe Text,
     _fieldNamespace :: Maybe Text,
-    _fieldDirection :: Maybe Direction
+    _fieldDirection :: Maybe Direction,
+    -- | The fully resolved Haskell type of the field, including the
+    -- '(Maybe ...)' wrapper, 'TSensitive' (or its absence for
+    -- idempotency tokens), and payload 'Base64' handling. Computed
+    -- once in 'mkFields' rather than stored raw and munged on read.
+    _fieldType :: TType
   }
   deriving stock (Show)
 
@@ -38,26 +43,7 @@ instance IsStreaming Field where
   isStreaming = isStreaming . _fieldRef
 
 instance TypeOf Field where
-  typeOf f
-    | isStreaming ref = typ
-    | isKinded, isHeader = typ
-    | f ^. fieldRequire = typ
-    | otherwise = TMaybe typ
-    where
-      isKinded =
-        case typ of
-          TMap {} -> True
-          TList {} -> True
-          _ -> False
-
-      isHeader = fieldLocation f == Just Headers
-
-      ref = f ^. fieldRef
-      typ = fmap unBase64 (typeOf ref)
-
-      unBase64 = \case
-        Base64 | f ^. fieldPayload -> Bytes
-        lit -> lit
+  typeOf = _fieldType
 
 instance HasInfo Field where
   info = fieldAnn . info
@@ -71,7 +57,7 @@ mkFields ::
   StructF (Shape Solved) ->
   [Field]
 mkFields (Lens.view metadata -> m) s st =
-  sortFields rs
+  sortFields requireds
     . zipWith mk [1 ..]
     . List.sortOn fst
     $ HashMap.toList (st ^. members)
@@ -84,25 +70,58 @@ mkFields (Lens.view metadata -> m) s st =
           _fieldId = k,
           _fieldRef = v,
           _fieldRequire = req,
-          _fieldPayload = pay,
-          _fieldPrefix = p,
+          _fieldPayload = isPayload,
+          _fieldPrefix = s ^. annPrefix,
           _fieldNamespace = ns,
-          _fieldDirection = d
+          _fieldDirection = case s ^. relMode of
+            Uni x -> Just x
+            Bi -> Nothing,
+          _fieldType =
+            -- Streaming fields are always present; so are kinds in the
+            -- headers (which can't be wrapped in 'Maybe'); anything
+            -- else not in the required set gets a 'TMaybe'.
+            if
+              | isStreaming v -> typ
+              | isHeader && isKinded -> typ
+              | req -> typ
+              | otherwise -> TMaybe typ
         }
       where
-        req = k `elem` rs
-        pay = Just k == st ^. payload
+        isPayload = Just k == st ^. payload
+        isHeader = v ^. refLocation == Just Headers
+        isKinded =
+          case typ of
+            TMap {} -> True
+            TList {} -> True
+            _ -> False
+
+        -- Idempotency tokens are special-cased: even if they appear
+        -- in `requireds`, we consider them optional, so that end
+        -- users can omit them and amazonka-core can inject a default
+        -- token. And they should never be considered sensitive, so we
+        -- drop 'TSensitive' to keep the field a plain '(Maybe Text)'
+        -- for the 'updateIdempotencyToken' lens.
+        req = k `elem` requireds && not (v ^. refIdempotencyToken)
+
+        -- The resolved type: payload 'Base64' members are stored as raw
+        -- 'Bytes', and idempotency tokens are desensitised.
+        typ =
+          desensitizeIdempotencyToken
+            (fmap unBase64 (typeOf v))
+
+        unBase64 = \case
+          Base64 | isPayload -> Bytes
+          lit -> lit
+
+        desensitizeIdempotencyToken (TSensitive ty)
+          | v ^. refIdempotencyToken = desensitizeIdempotencyToken ty
+        desensitizeIdempotencyToken ty = ty
 
         ns =
           (Lens.view xmlUri <$> v ^. refXMLNamespace)
             <|> (m ^. xmlNamespace)
 
-    rs = st ^.. getRequired
-    p = s ^. annPrefix
-
-    d = case s ^. relMode of
-      Uni x -> Just x
-      Bi -> Nothing
+    requireds = st ^.. getRequired
 
 -- | Ensures that isStreaming fields appear last in the parameter ordering,
 -- but doesn't affect the rest of the order which is determined by parsing

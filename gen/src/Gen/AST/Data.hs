@@ -184,6 +184,27 @@ operationData cfg m o = do
 
       hasStreamingBody = any fieldStream ys
 
+  idempotencyTokenField <-
+    case List.filter (Lens.view (fieldRef . refIdempotencyToken)) xs of
+      [] -> pure Nothing
+      [f]
+        | typeOf f == TMaybe (TLit Text) -> pure (Just (fieldAccessor f))
+        | otherwise ->
+            Left $
+              mconcat
+                [ "Idempotency token field '",
+                  Text.unpack (memberId (_fieldId f)),
+                  "' in operation '",
+                  Text.unpack (memberId (identifier xr)),
+                  "' is not of type (Maybe Text)"
+                ]
+      fs ->
+        Left $
+          "Multiple idempotency token fields in operation '"
+            ++ Text.unpack (memberId (identifier xr))
+            ++ "': "
+            ++ List.intercalate ", " (map (Text.unpack . memberId . _fieldId) fs)
+
   cls <-
     pp Print $
       AWSRequest.instanceD
@@ -199,9 +220,7 @@ operationData cfg m o = do
             responseType = identifier yr,
             responseReceiver,
             serviceConfig = m ^. serviceConfig,
-            -- TODO: populate from the botocore @idempotencyToken@
-            -- member trait once the parser supports it.
-            idempotencyTokenField = Nothing
+            idempotencyTokenField
           }
   mpage <- pagerFields m o >>= traverse (pp Print . pagerD xn)
 

@@ -133,6 +133,7 @@ data RefF a = RefF
     _refLocationName :: Maybe Text,
     _refResultWrapper :: Maybe Text,
     _refQueryName :: Maybe Text,
+    _refIdempotencyToken :: Bool,
     _refStreaming :: Bool,
     _refXMLAttribute :: Bool,
     _refXMLNamespace :: Maybe XML
@@ -154,6 +155,7 @@ instance FromJSON (RefF ()) where
     _refLocationName <- o .:? "locationName"
     _refResultWrapper <- o .:? "resultWrapper"
     _refQueryName <- o .:? "queryName"
+    _refIdempotencyToken <- o .:? "idempotencyToken" .!= False
     _refStreaming <- o .:? "streaming" .!= False
     _refXMLAttribute <- o .:? "xmlAttribute" .!= False
     _refXMLNamespace <- o .:? "xmlNamespace"

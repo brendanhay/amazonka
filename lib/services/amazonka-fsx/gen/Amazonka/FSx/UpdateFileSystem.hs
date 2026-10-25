@@ -346,6 +346,14 @@ instance Core.AWSRequest UpdateFileSystem where
             Prelude.<$> (x Data..?> "FileSystem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateFileSystem' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            UpdateFileSystem
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable UpdateFileSystem where
   hashWithSalt _salt UpdateFileSystem' {..} =

@@ -110,6 +110,14 @@ instance Core.AWSRequest UpdateFileCache where
             Prelude.<$> (x Data..?> "FileCache")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateFileCache' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            UpdateFileCache
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable UpdateFileCache where
   hashWithSalt _salt UpdateFileCache' {..} =

@@ -128,6 +128,14 @@ instance
             Prelude.<$> (x Data..?> "Aliases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DisassociateFileSystemAliases' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            DisassociateFileSystemAliases
+      )
+        Prelude.<$> f clientRequestToken
 
 instance
   Prelude.Hashable

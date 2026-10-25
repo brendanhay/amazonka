@@ -188,6 +188,14 @@ instance Core.AWSRequest CreateBackup where
             Prelude.<$> (x Data..?> "Backup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateBackup' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateBackup
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateBackup where
   hashWithSalt _salt CreateBackup' {..} =

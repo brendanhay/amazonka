@@ -132,6 +132,8 @@ instance Core.AWSRequest DescribeFileCaches where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeFileCaches where
   hashWithSalt _salt DescribeFileCaches' {..} =

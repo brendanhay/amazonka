@@ -279,6 +279,14 @@ instance
             Prelude.<$> (x Data..?> "Association")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateDataRepositoryAssociation' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateDataRepositoryAssociation
+      )
+        Prelude.<$> f clientRequestToken
 
 instance
   Prelude.Hashable

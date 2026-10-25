@@ -206,6 +206,14 @@ instance Core.AWSRequest CopyBackup where
             Prelude.<$> (x Data..?> "Backup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CopyBackup' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CopyBackup
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CopyBackup where
   hashWithSalt _salt CopyBackup' {..} =

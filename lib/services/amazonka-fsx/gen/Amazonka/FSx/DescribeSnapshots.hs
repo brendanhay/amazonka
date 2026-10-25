@@ -151,6 +151,8 @@ instance Core.AWSRequest DescribeSnapshots where
             Prelude.<*> (x Data..?> "Snapshots" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSnapshots where
   hashWithSalt _salt DescribeSnapshots' {..} =

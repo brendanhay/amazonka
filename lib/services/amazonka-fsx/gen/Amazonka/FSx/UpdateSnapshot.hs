@@ -114,6 +114,14 @@ instance Core.AWSRequest UpdateSnapshot where
             Prelude.<$> (x Data..?> "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateSnapshot' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            UpdateSnapshot
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable UpdateSnapshot where
   hashWithSalt _salt UpdateSnapshot' {..} =

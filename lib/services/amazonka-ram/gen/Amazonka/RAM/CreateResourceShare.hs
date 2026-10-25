@@ -302,6 +302,8 @@ instance Core.AWSRequest CreateResourceShare where
             Prelude.<*> (x Data..?> "resourceShare")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateResourceShare where
   hashWithSalt _salt CreateResourceShare' {..} =

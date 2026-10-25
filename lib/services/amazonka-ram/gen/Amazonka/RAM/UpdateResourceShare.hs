@@ -161,6 +161,8 @@ instance Core.AWSRequest UpdateResourceShare where
             Prelude.<*> (x Data..?> "resourceShare")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateResourceShare where
   hashWithSalt _salt UpdateResourceShare' {..} =

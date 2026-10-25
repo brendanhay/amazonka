@@ -163,6 +163,8 @@ instance Core.AWSRequest ListPermissionVersions where
             Prelude.<*> (x Data..?> "permissions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPermissionVersions where
   hashWithSalt _salt ListPermissionVersions' {..} =

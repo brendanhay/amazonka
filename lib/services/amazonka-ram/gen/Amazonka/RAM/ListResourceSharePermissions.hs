@@ -160,6 +160,8 @@ instance Core.AWSRequest ListResourceSharePermissions where
             Prelude.<*> (x Data..?> "permissions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

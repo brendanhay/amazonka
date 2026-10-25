@@ -96,6 +96,8 @@ instance Core.AWSRequest EnableDomainTransferLock where
             Prelude.<$> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable EnableDomainTransferLock where
   hashWithSalt _salt EnableDomainTransferLock' {..} =

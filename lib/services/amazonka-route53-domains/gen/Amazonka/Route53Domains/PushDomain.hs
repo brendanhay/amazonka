@@ -95,6 +95,8 @@ instance Core.AWSRequest PushDomain where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull PushDomainResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PushDomain where
   hashWithSalt _salt PushDomain' {..} =

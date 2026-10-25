@@ -86,6 +86,8 @@ instance Core.AWSRequest DisableDomainAutoRenew where
           DisableDomainAutoRenewResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisableDomainAutoRenew where
   hashWithSalt _salt DisableDomainAutoRenew' {..} =

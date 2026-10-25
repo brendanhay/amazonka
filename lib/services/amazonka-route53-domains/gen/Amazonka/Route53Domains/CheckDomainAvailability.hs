@@ -173,6 +173,8 @@ instance Core.AWSRequest CheckDomainAvailability where
             Prelude.<$> (x Data..?> "Availability")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CheckDomainAvailability where
   hashWithSalt _salt CheckDomainAvailability' {..} =

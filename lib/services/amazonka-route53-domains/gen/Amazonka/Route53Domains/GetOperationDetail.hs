@@ -112,6 +112,8 @@ instance Core.AWSRequest GetOperationDetail where
             Prelude.<*> (x Data..?> "Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetOperationDetail where
   hashWithSalt _salt GetOperationDetail' {..} =

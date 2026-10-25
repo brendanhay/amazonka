@@ -91,6 +91,8 @@ instance Core.AWSRequest DescribeTunnel where
             Prelude.<$> (x Data..?> "tunnel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeTunnel where
   hashWithSalt _salt DescribeTunnel' {..} =

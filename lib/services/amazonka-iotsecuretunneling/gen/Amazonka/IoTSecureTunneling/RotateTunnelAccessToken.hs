@@ -129,6 +129,8 @@ instance Core.AWSRequest RotateTunnelAccessToken where
             Prelude.<*> (x Data..?> "tunnelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RotateTunnelAccessToken where
   hashWithSalt _salt RotateTunnelAccessToken' {..} =

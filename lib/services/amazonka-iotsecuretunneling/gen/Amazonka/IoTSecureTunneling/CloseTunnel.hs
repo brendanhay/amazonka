@@ -104,6 +104,8 @@ instance Core.AWSRequest CloseTunnel where
           CloseTunnelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CloseTunnel where
   hashWithSalt _salt CloseTunnel' {..} =

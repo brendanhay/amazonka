@@ -126,6 +126,8 @@ instance Core.AWSRequest OpenTunnel where
             Prelude.<*> (x Data..?> "tunnelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable OpenTunnel where
   hashWithSalt _salt OpenTunnel' {..} =

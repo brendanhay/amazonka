@@ -103,6 +103,8 @@ instance Core.AWSRequest DeleteConfigurationTemplate where
   response =
     Response.receiveNull
       DeleteConfigurationTemplateResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteConfigurationTemplate where
   hashWithSalt _salt DeleteConfigurationTemplate' {..} =

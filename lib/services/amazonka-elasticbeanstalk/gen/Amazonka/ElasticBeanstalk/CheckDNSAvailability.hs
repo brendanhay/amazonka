@@ -92,6 +92,8 @@ instance Core.AWSRequest CheckDNSAvailability where
             Prelude.<*> (x Data..@? "FullyQualifiedCNAME")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CheckDNSAvailability where
   hashWithSalt _salt CheckDNSAvailability' {..} =

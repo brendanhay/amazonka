@@ -77,6 +77,8 @@ instance Core.AWSRequest CreateStorageLocation where
             Prelude.<$> (x Data..@? "S3Bucket")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateStorageLocation where
   hashWithSalt _salt _ =

@@ -162,6 +162,8 @@ instance Core.AWSRequest RequestEnvironmentInfo where
   response =
     Response.receiveNull
       RequestEnvironmentInfoResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RequestEnvironmentInfo where
   hashWithSalt _salt RequestEnvironmentInfo' {..} =

@@ -141,6 +141,8 @@ instance Core.AWSRequest ComposeEnvironments where
     Response.receiveXMLWrapper
       "ComposeEnvironmentsResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ComposeEnvironments where
   hashWithSalt _salt ComposeEnvironments' {..} =

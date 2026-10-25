@@ -318,6 +318,8 @@ instance Core.AWSRequest UpdateEnvironment where
     Response.receiveXMLWrapper
       "UpdateEnvironmentResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateEnvironment where
   hashWithSalt _salt UpdateEnvironment' {..} =

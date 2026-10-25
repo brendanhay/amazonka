@@ -235,6 +235,8 @@ instance Core.AWSRequest DescribeEnvironments where
     Response.receiveXMLWrapper
       "DescribeEnvironmentsResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEnvironments where
   hashWithSalt _salt DescribeEnvironments' {..} =

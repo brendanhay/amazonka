@@ -208,6 +208,8 @@ instance Core.AWSRequest TerminateEnvironment where
     Response.receiveXMLWrapper
       "TerminateEnvironmentResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TerminateEnvironment where
   hashWithSalt _salt TerminateEnvironment' {..} =

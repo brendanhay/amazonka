@@ -145,6 +145,8 @@ instance Core.AWSRequest UpdateTagsForResource where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull UpdateTagsForResourceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateTagsForResource where
   hashWithSalt _salt UpdateTagsForResource' {..} =

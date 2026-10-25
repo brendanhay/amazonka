@@ -229,6 +229,8 @@ instance Core.AWSRequest ListPlatformBranches where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPlatformBranches where
   hashWithSalt _salt ListPlatformBranches' {..} =

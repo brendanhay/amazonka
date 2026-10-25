@@ -119,6 +119,8 @@ instance Core.AWSRequest RollbackApplication where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ApplicationDetail")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RollbackApplication where
   hashWithSalt _salt RollbackApplication' {..} =

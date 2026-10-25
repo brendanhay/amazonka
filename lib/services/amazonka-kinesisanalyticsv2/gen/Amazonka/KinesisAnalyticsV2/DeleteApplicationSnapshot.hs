@@ -119,6 +119,8 @@ instance Core.AWSRequest DeleteApplicationSnapshot where
           DeleteApplicationSnapshotResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteApplicationSnapshot where
   hashWithSalt _salt DeleteApplicationSnapshot' {..} =

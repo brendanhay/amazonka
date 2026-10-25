@@ -115,6 +115,8 @@ instance Core.AWSRequest DescribeApplicationVersion where
             Prelude.<$> (x Data..?> "ApplicationVersionDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeApplicationVersion where
   hashWithSalt _salt DescribeApplicationVersion' {..} =

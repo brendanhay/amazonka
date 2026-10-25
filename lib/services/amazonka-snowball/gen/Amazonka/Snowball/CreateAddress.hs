@@ -90,6 +90,8 @@ instance Core.AWSRequest CreateAddress where
             Prelude.<$> (x Data..?> "AddressId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateAddress where
   hashWithSalt _salt CreateAddress' {..} =

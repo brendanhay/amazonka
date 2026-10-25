@@ -95,6 +95,8 @@ instance Core.AWSRequest DescribeReturnShippingLabel where
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeReturnShippingLabel where
   hashWithSalt _salt DescribeReturnShippingLabel' {..} =

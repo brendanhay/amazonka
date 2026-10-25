@@ -78,6 +78,8 @@ instance Core.AWSRequest GetSnowballUsage where
             Prelude.<*> (x Data..?> "SnowballsInUse")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSnowballUsage where
   hashWithSalt _salt _ =

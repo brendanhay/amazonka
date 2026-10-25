@@ -88,6 +88,8 @@ instance Core.AWSRequest DescribeAddress where
             Prelude.<$> (x Data..?> "Address")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAddress where
   hashWithSalt _salt DescribeAddress' {..} =

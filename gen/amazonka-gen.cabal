@@ -95,13 +95,13 @@ library
     Gen.AST.Data.Field
     Gen.AST.Data.Instance
     Gen.AST.Data.Syntax
-    Gen.AST.Data.Syntax.AWSRequest
     Gen.AST.Override
     Gen.AST.Prefix
     Gen.AST.Subst
     Gen.Import
     Gen.IO
     Gen.JSON
+    Gen.Output.Operation.AWSRequest
     Gen.Output.Template
     Gen.Output.Template.CabalFile
     Gen.Prelude

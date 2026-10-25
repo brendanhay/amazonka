@@ -1,4 +1,4 @@
-module Gen.AST.Data.Syntax.AWSRequest
+module Gen.Output.Operation.AWSRequest
   ( instanceD,
     Config (..),
     ResponseReceiver (..),

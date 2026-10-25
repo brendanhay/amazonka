@@ -22,7 +22,7 @@ import qualified Data.Text.Lazy as Text.Lazy
 import Gen.AST.Data.Field
 import Gen.AST.Data.Instance
 import Gen.AST.Data.Syntax as Syntax
-import qualified Gen.AST.Data.Syntax.AWSRequest as AWSRequest
+import qualified Gen.Output.Operation.AWSRequest as AWSRequest
 import Gen.Prelude
 import Gen.Protocol (Names (..))
 import Gen.Types hiding (method)

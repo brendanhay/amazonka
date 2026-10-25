@@ -160,6 +160,8 @@ instance Core.AWSRequest DescribeSubscriptionFilters where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSubscriptionFilters where
   hashWithSalt _salt DescribeSubscriptionFilters' {..} =

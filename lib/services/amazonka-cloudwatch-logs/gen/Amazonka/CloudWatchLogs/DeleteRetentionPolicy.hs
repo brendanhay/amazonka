@@ -84,6 +84,8 @@ instance Core.AWSRequest DeleteRetentionPolicy where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteRetentionPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRetentionPolicy where
   hashWithSalt _salt DeleteRetentionPolicy' {..} =

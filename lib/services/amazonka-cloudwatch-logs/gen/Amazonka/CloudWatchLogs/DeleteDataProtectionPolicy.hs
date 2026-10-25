@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteDataProtectionPolicy where
   response =
     Response.receiveNull
       DeleteDataProtectionPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDataProtectionPolicy where
   hashWithSalt _salt DeleteDataProtectionPolicy' {..} =

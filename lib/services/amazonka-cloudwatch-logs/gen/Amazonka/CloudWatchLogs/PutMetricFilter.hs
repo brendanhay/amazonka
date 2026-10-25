@@ -144,6 +144,8 @@ instance Core.AWSRequest PutMetricFilter where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull PutMetricFilterResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutMetricFilter where
   hashWithSalt _salt PutMetricFilter' {..} =

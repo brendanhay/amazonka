@@ -260,6 +260,8 @@ instance Core.AWSRequest GetLogEvents where
             Prelude.<*> (x Data..?> "nextForwardToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetLogEvents where
   hashWithSalt _salt GetLogEvents' {..} =

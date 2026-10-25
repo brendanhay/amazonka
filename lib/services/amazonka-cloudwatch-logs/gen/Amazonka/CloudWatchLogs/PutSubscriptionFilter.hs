@@ -252,6 +252,8 @@ instance Core.AWSRequest PutSubscriptionFilter where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull PutSubscriptionFilterResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutSubscriptionFilter where
   hashWithSalt _salt PutSubscriptionFilter' {..} =

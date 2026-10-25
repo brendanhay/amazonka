@@ -80,6 +80,8 @@ instance Core.AWSRequest CancelExportTask where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull CancelExportTaskResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelExportTask where
   hashWithSalt _salt CancelExportTask' {..} =

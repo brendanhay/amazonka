@@ -93,6 +93,8 @@ instance Core.AWSRequest DeleteLogStream where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteLogStreamResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteLogStream where
   hashWithSalt _salt DeleteLogStream' {..} =

@@ -85,6 +85,8 @@ instance Core.AWSRequest DisassociateKmsKey where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DisassociateKmsKeyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateKmsKey where
   hashWithSalt _salt DisassociateKmsKey' {..} =

@@ -163,6 +163,8 @@ instance Core.AWSRequest CreateLogGroup where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull CreateLogGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLogGroup where
   hashWithSalt _salt CreateLogGroup' {..} =

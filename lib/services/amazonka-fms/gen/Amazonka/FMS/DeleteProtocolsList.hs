@@ -84,6 +84,8 @@ instance Core.AWSRequest DeleteProtocolsList where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteProtocolsListResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteProtocolsList where
   hashWithSalt _salt DeleteProtocolsList' {..} =

@@ -127,6 +127,8 @@ instance Core.AWSRequest GetComplianceDetail where
             Prelude.<$> (x Data..?> "PolicyComplianceDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetComplianceDetail where
   hashWithSalt _salt GetComplianceDetail' {..} =

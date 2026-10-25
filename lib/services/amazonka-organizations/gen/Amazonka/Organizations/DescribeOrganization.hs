@@ -78,6 +78,8 @@ instance Core.AWSRequest DescribeOrganization where
             Prelude.<$> (x Data..?> "Organization")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeOrganization where
   hashWithSalt _salt _ =

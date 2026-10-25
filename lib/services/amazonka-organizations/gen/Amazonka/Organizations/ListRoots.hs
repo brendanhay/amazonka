@@ -177,6 +177,8 @@ instance Core.AWSRequest ListRoots where
             Prelude.<*> (x Data..?> "Roots" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListRoots where
   hashWithSalt _salt ListRoots' {..} =

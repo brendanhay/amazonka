@@ -220,6 +220,8 @@ instance Core.AWSRequest ListParents where
             Prelude.<*> (x Data..?> "Parents" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListParents where
   hashWithSalt _salt ListParents' {..} =

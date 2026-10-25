@@ -111,6 +111,8 @@ instance Core.AWSRequest CancelHandshake where
             Prelude.<$> (x Data..?> "Handshake")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelHandshake where
   hashWithSalt _salt CancelHandshake' {..} =

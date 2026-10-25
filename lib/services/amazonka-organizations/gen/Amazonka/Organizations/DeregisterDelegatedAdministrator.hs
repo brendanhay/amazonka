@@ -138,6 +138,8 @@ instance
   response =
     Response.receiveNull
       DeregisterDelegatedAdministratorResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

@@ -189,6 +189,8 @@ instance Core.AWSRequest MoveAccount where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull MoveAccountResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable MoveAccount where
   hashWithSalt _salt MoveAccount' {..} =

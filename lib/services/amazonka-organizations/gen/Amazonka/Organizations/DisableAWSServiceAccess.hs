@@ -154,6 +154,8 @@ instance Core.AWSRequest DisableAWSServiceAccess where
   response =
     Response.receiveNull
       DisableAWSServiceAccessResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisableAWSServiceAccess where
   hashWithSalt _salt DisableAWSServiceAccess' {..} =

@@ -118,6 +118,8 @@ instance Core.AWSRequest CloseAccount where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull CloseAccountResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CloseAccount where
   hashWithSalt _salt CloseAccount' {..} =

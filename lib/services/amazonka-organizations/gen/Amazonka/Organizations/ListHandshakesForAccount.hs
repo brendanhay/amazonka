@@ -204,6 +204,8 @@ instance Core.AWSRequest ListHandshakesForAccount where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListHandshakesForAccount where
   hashWithSalt _salt ListHandshakesForAccount' {..} =

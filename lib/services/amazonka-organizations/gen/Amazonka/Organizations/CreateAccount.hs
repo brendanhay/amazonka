@@ -415,6 +415,8 @@ instance Core.AWSRequest CreateAccount where
             Prelude.<$> (x Data..?> "CreateAccountStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateAccount where
   hashWithSalt _salt CreateAccount' {..} =

@@ -118,6 +118,8 @@ instance Core.AWSRequest DescribeOrganizationalUnit where
             Prelude.<$> (x Data..?> "OrganizationalUnit")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeOrganizationalUnit where
   hashWithSalt _salt DescribeOrganizationalUnit' {..} =

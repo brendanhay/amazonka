@@ -137,6 +137,8 @@ instance Core.AWSRequest UpdateOrganizationalUnit where
             Prelude.<$> (x Data..?> "OrganizationalUnit")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateOrganizationalUnit where
   hashWithSalt _salt UpdateOrganizationalUnit' {..} =

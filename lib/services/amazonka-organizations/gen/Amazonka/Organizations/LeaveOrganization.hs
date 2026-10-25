@@ -116,6 +116,8 @@ instance Core.AWSRequest LeaveOrganization where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull LeaveOrganizationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable LeaveOrganization where
   hashWithSalt _salt _ =

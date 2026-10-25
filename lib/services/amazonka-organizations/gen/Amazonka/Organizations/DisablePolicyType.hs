@@ -159,6 +159,8 @@ instance Core.AWSRequest DisablePolicyType where
             Prelude.<$> (x Data..?> "Root")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisablePolicyType where
   hashWithSalt _salt DisablePolicyType' {..} =

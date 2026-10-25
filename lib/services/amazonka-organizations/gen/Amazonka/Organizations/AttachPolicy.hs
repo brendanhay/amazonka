@@ -166,6 +166,8 @@ instance Core.AWSRequest AttachPolicy where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull AttachPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AttachPolicy where
   hashWithSalt _salt AttachPolicy' {..} =

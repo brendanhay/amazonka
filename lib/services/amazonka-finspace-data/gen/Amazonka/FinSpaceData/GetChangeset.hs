@@ -128,6 +128,8 @@ instance Core.AWSRequest GetChangeset where
             Prelude.<*> (x Data..?> "updatesChangesetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetChangeset where
   hashWithSalt _salt GetChangeset' {..} =

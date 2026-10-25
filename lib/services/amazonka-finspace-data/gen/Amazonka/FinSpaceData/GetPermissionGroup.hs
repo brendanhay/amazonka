@@ -90,6 +90,8 @@ instance Core.AWSRequest GetPermissionGroup where
             Prelude.<$> (x Data..?> "permissionGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPermissionGroup where
   hashWithSalt _salt GetPermissionGroup' {..} =

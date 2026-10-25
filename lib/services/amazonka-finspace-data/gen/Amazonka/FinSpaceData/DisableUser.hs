@@ -98,6 +98,11 @@ instance Core.AWSRequest DisableUser where
             Prelude.<$> (x Data..?> "userId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@DisableUser' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: DisableUser
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable DisableUser where
   hashWithSalt _salt DisableUser' {..} =

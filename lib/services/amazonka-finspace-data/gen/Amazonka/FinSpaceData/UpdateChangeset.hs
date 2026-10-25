@@ -249,6 +249,13 @@ instance Core.AWSRequest UpdateChangeset where
             Prelude.<*> (x Data..?> "datasetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateChangeset' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: UpdateChangeset
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateChangeset where
   hashWithSalt _salt UpdateChangeset' {..} =

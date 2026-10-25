@@ -161,6 +161,13 @@ instance Core.AWSRequest CreateDataView where
             Prelude.<*> (x Data..?> "datasetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateDataView' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateDataView
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateDataView where
   hashWithSalt _salt CreateDataView' {..} =

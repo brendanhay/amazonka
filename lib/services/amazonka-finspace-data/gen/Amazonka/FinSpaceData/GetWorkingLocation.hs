@@ -114,6 +114,8 @@ instance Core.AWSRequest GetWorkingLocation where
             Prelude.<*> (x Data..?> "s3Uri")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetWorkingLocation where
   hashWithSalt _salt GetWorkingLocation' {..} =

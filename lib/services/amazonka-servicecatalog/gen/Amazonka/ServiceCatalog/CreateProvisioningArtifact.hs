@@ -78,7 +78,7 @@ data CreateProvisioningArtifact = CreateProvisioningArtifact'
     -- | A unique identifier that you provide to ensure idempotency. If multiple
     -- requests differ only by the idempotency token, the same response is
     -- returned for each repeated request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -110,19 +110,16 @@ newCreateProvisioningArtifact ::
   Prelude.Text ->
   -- | 'parameters'
   ProvisioningArtifactProperties ->
-  -- | 'idempotencyToken'
-  Prelude.Text ->
   CreateProvisioningArtifact
 newCreateProvisioningArtifact
   pProductId_
-  pParameters_
-  pIdempotencyToken_ =
+  pParameters_ =
     CreateProvisioningArtifact'
       { acceptLanguage =
           Prelude.Nothing,
         productId = pProductId_,
         parameters = pParameters_,
-        idempotencyToken = pIdempotencyToken_
+        idempotencyToken = Prelude.Nothing
       }
 
 -- | The language code.
@@ -146,7 +143,7 @@ createProvisioningArtifact_parameters = Lens.lens (\CreateProvisioningArtifact' 
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
-createProvisioningArtifact_idempotencyToken :: Lens.Lens' CreateProvisioningArtifact Prelude.Text
+createProvisioningArtifact_idempotencyToken :: Lens.Lens' CreateProvisioningArtifact (Prelude.Maybe Prelude.Text)
 createProvisioningArtifact_idempotencyToken = Lens.lens (\CreateProvisioningArtifact' {idempotencyToken} -> idempotencyToken) (\s@CreateProvisioningArtifact' {} a -> s {idempotencyToken = a} :: CreateProvisioningArtifact)
 
 instance Core.AWSRequest CreateProvisioningArtifact where
@@ -164,6 +161,14 @@ instance Core.AWSRequest CreateProvisioningArtifact where
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateProvisioningArtifact' {idempotencyToken} =
+      ( \idempotencyToken' ->
+          s {idempotencyToken = idempotencyToken'} ::
+            CreateProvisioningArtifact
+      )
+        Prelude.<$> f idempotencyToken
 
 instance Prelude.Hashable CreateProvisioningArtifact where
   hashWithSalt _salt CreateProvisioningArtifact' {..} =
@@ -203,8 +208,8 @@ instance Data.ToJSON CreateProvisioningArtifact where
               Prelude.<$> acceptLanguage,
             Prelude.Just ("ProductId" Data..= productId),
             Prelude.Just ("Parameters" Data..= parameters),
-            Prelude.Just
-              ("IdempotencyToken" Data..= idempotencyToken)
+            ("IdempotencyToken" Data..=)
+              Prelude.<$> idempotencyToken
           ]
       )
 

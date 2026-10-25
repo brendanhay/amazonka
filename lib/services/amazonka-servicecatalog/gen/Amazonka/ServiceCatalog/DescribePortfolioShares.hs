@@ -173,6 +173,8 @@ instance Core.AWSRequest DescribePortfolioShares where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePortfolioShares where
   hashWithSalt _salt DescribePortfolioShares' {..} =

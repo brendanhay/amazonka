@@ -114,7 +114,7 @@ data CreateProvisionedProductPlan = CreateProvisionedProductPlan'
     -- | A unique identifier that you provide to ensure idempotency. If multiple
     -- requests differ only by the idempotency token, the same response is
     -- returned for each repeated request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -176,16 +176,13 @@ newCreateProvisionedProductPlan ::
   Prelude.Text ->
   -- | 'provisioningArtifactId'
   Prelude.Text ->
-  -- | 'idempotencyToken'
-  Prelude.Text ->
   CreateProvisionedProductPlan
 newCreateProvisionedProductPlan
   pPlanName_
   pPlanType_
   pProductId_
   pProvisionedProductName_
-  pProvisioningArtifactId_
-  pIdempotencyToken_ =
+  pProvisioningArtifactId_ =
     CreateProvisionedProductPlan'
       { acceptLanguage =
           Prelude.Nothing,
@@ -200,7 +197,7 @@ newCreateProvisionedProductPlan
           pProvisionedProductName_,
         provisioningArtifactId =
           pProvisioningArtifactId_,
-        idempotencyToken = pIdempotencyToken_
+        idempotencyToken = Prelude.Nothing
       }
 
 -- | The language code.
@@ -262,7 +259,7 @@ createProvisionedProductPlan_provisioningArtifactId = Lens.lens (\CreateProvisio
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
-createProvisionedProductPlan_idempotencyToken :: Lens.Lens' CreateProvisionedProductPlan Prelude.Text
+createProvisionedProductPlan_idempotencyToken :: Lens.Lens' CreateProvisionedProductPlan (Prelude.Maybe Prelude.Text)
 createProvisionedProductPlan_idempotencyToken = Lens.lens (\CreateProvisionedProductPlan' {idempotencyToken} -> idempotencyToken) (\s@CreateProvisionedProductPlan' {} a -> s {idempotencyToken = a} :: CreateProvisionedProductPlan)
 
 instance Core.AWSRequest CreateProvisionedProductPlan where
@@ -282,6 +279,14 @@ instance Core.AWSRequest CreateProvisionedProductPlan where
             Prelude.<*> (x Data..?> "ProvisioningArtifactId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateProvisionedProductPlan' {idempotencyToken} =
+      ( \idempotencyToken' ->
+          s {idempotencyToken = idempotencyToken'} ::
+            CreateProvisionedProductPlan
+      )
+        Prelude.<$> f idempotencyToken
 
 instance
   Prelude.Hashable
@@ -353,8 +358,8 @@ instance Data.ToJSON CreateProvisionedProductPlan where
               ( "ProvisioningArtifactId"
                   Data..= provisioningArtifactId
               ),
-            Prelude.Just
-              ("IdempotencyToken" Data..= idempotencyToken)
+            ("IdempotencyToken" Data..=)
+              Prelude.<$> idempotencyToken
           ]
       )
 

@@ -112,7 +112,7 @@ data CreateProduct = CreateProduct'
     -- | A unique identifier that you provide to ensure idempotency. If multiple
     -- requests differ only by the idempotency token, the same response is
     -- returned for each repeated request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -173,29 +173,23 @@ newCreateProduct ::
   Prelude.Text ->
   -- | 'productType'
   ProductType ->
-  -- | 'idempotencyToken'
-  Prelude.Text ->
   CreateProduct
-newCreateProduct
-  pName_
-  pOwner_
-  pProductType_
-  pIdempotencyToken_ =
-    CreateProduct'
-      { acceptLanguage = Prelude.Nothing,
-        description = Prelude.Nothing,
-        distributor = Prelude.Nothing,
-        provisioningArtifactParameters = Prelude.Nothing,
-        sourceConnection = Prelude.Nothing,
-        supportDescription = Prelude.Nothing,
-        supportEmail = Prelude.Nothing,
-        supportUrl = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        name = pName_,
-        owner = pOwner_,
-        productType = pProductType_,
-        idempotencyToken = pIdempotencyToken_
-      }
+newCreateProduct pName_ pOwner_ pProductType_ =
+  CreateProduct'
+    { acceptLanguage = Prelude.Nothing,
+      description = Prelude.Nothing,
+      distributor = Prelude.Nothing,
+      provisioningArtifactParameters = Prelude.Nothing,
+      sourceConnection = Prelude.Nothing,
+      supportDescription = Prelude.Nothing,
+      supportEmail = Prelude.Nothing,
+      supportUrl = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      name = pName_,
+      owner = pOwner_,
+      productType = pProductType_,
+      idempotencyToken = Prelude.Nothing
+    }
 
 -- | The language code.
 --
@@ -263,7 +257,7 @@ createProduct_productType = Lens.lens (\CreateProduct' {productType} -> productT
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
-createProduct_idempotencyToken :: Lens.Lens' CreateProduct Prelude.Text
+createProduct_idempotencyToken :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
 createProduct_idempotencyToken = Lens.lens (\CreateProduct' {idempotencyToken} -> idempotencyToken) (\s@CreateProduct' {} a -> s {idempotencyToken = a} :: CreateProduct)
 
 instance Core.AWSRequest CreateProduct where
@@ -281,6 +275,14 @@ instance Core.AWSRequest CreateProduct where
             Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateProduct' {idempotencyToken} =
+      ( \idempotencyToken' ->
+          s {idempotencyToken = idempotencyToken'} ::
+            CreateProduct
+      )
+        Prelude.<$> f idempotencyToken
 
 instance Prelude.Hashable CreateProduct where
   hashWithSalt _salt CreateProduct' {..} =
@@ -350,8 +352,8 @@ instance Data.ToJSON CreateProduct where
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Owner" Data..= owner),
             Prelude.Just ("ProductType" Data..= productType),
-            Prelude.Just
-              ("IdempotencyToken" Data..= idempotencyToken)
+            ("IdempotencyToken" Data..=)
+              Prelude.<$> idempotencyToken
           ]
       )
 

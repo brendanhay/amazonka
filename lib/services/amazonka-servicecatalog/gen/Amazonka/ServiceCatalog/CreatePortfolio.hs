@@ -76,7 +76,7 @@ data CreatePortfolio = CreatePortfolio'
     -- | A unique identifier that you provide to ensure idempotency. If multiple
     -- requests differ only by the idempotency token, the same response is
     -- returned for each repeated request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -112,21 +112,16 @@ newCreatePortfolio ::
   Prelude.Text ->
   -- | 'providerName'
   Prelude.Text ->
-  -- | 'idempotencyToken'
-  Prelude.Text ->
   CreatePortfolio
-newCreatePortfolio
-  pDisplayName_
-  pProviderName_
-  pIdempotencyToken_ =
-    CreatePortfolio'
-      { acceptLanguage = Prelude.Nothing,
-        description = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        displayName = pDisplayName_,
-        providerName = pProviderName_,
-        idempotencyToken = pIdempotencyToken_
-      }
+newCreatePortfolio pDisplayName_ pProviderName_ =
+  CreatePortfolio'
+    { acceptLanguage = Prelude.Nothing,
+      description = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      displayName = pDisplayName_,
+      providerName = pProviderName_,
+      idempotencyToken = Prelude.Nothing
+    }
 
 -- | The language code.
 --
@@ -157,7 +152,7 @@ createPortfolio_providerName = Lens.lens (\CreatePortfolio' {providerName} -> pr
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
-createPortfolio_idempotencyToken :: Lens.Lens' CreatePortfolio Prelude.Text
+createPortfolio_idempotencyToken :: Lens.Lens' CreatePortfolio (Prelude.Maybe Prelude.Text)
 createPortfolio_idempotencyToken = Lens.lens (\CreatePortfolio' {idempotencyToken} -> idempotencyToken) (\s@CreatePortfolio' {} a -> s {idempotencyToken = a} :: CreatePortfolio)
 
 instance Core.AWSRequest CreatePortfolio where
@@ -174,6 +169,14 @@ instance Core.AWSRequest CreatePortfolio where
             Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreatePortfolio' {idempotencyToken} =
+      ( \idempotencyToken' ->
+          s {idempotencyToken = idempotencyToken'} ::
+            CreatePortfolio
+      )
+        Prelude.<$> f idempotencyToken
 
 instance Prelude.Hashable CreatePortfolio where
   hashWithSalt _salt CreatePortfolio' {..} =
@@ -219,8 +222,8 @@ instance Data.ToJSON CreatePortfolio where
             ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("DisplayName" Data..= displayName),
             Prelude.Just ("ProviderName" Data..= providerName),
-            Prelude.Just
-              ("IdempotencyToken" Data..= idempotencyToken)
+            ("IdempotencyToken" Data..=)
+              Prelude.<$> idempotencyToken
           ]
       )
 

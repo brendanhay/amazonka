@@ -148,7 +148,7 @@ data CreateConstraint = CreateConstraint'
     -- | A unique identifier that you provide to ensure idempotency. If multiple
     -- requests differ only by the idempotency token, the same response is
     -- returned for each repeated request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -258,15 +258,12 @@ newCreateConstraint ::
   Prelude.Text ->
   -- | 'type''
   Prelude.Text ->
-  -- | 'idempotencyToken'
-  Prelude.Text ->
   CreateConstraint
 newCreateConstraint
   pPortfolioId_
   pProductId_
   pParameters_
-  pType_
-  pIdempotencyToken_ =
+  pType_ =
     CreateConstraint'
       { acceptLanguage = Prelude.Nothing,
         description = Prelude.Nothing,
@@ -274,7 +271,7 @@ newCreateConstraint
         productId = pProductId_,
         parameters = pParameters_,
         type' = pType_,
-        idempotencyToken = pIdempotencyToken_
+        idempotencyToken = Prelude.Nothing
       }
 
 -- | The language code.
@@ -378,7 +375,7 @@ createConstraint_type = Lens.lens (\CreateConstraint' {type'} -> type') (\s@Crea
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
-createConstraint_idempotencyToken :: Lens.Lens' CreateConstraint Prelude.Text
+createConstraint_idempotencyToken :: Lens.Lens' CreateConstraint (Prelude.Maybe Prelude.Text)
 createConstraint_idempotencyToken = Lens.lens (\CreateConstraint' {idempotencyToken} -> idempotencyToken) (\s@CreateConstraint' {} a -> s {idempotencyToken = a} :: CreateConstraint)
 
 instance Core.AWSRequest CreateConstraint where
@@ -396,6 +393,14 @@ instance Core.AWSRequest CreateConstraint where
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateConstraint' {idempotencyToken} =
+      ( \idempotencyToken' ->
+          s {idempotencyToken = idempotencyToken'} ::
+            CreateConstraint
+      )
+        Prelude.<$> f idempotencyToken
 
 instance Prelude.Hashable CreateConstraint where
   hashWithSalt _salt CreateConstraint' {..} =
@@ -444,8 +449,8 @@ instance Data.ToJSON CreateConstraint where
             Prelude.Just ("ProductId" Data..= productId),
             Prelude.Just ("Parameters" Data..= parameters),
             Prelude.Just ("Type" Data..= type'),
-            Prelude.Just
-              ("IdempotencyToken" Data..= idempotencyToken)
+            ("IdempotencyToken" Data..=)
+              Prelude.<$> idempotencyToken
           ]
       )
 

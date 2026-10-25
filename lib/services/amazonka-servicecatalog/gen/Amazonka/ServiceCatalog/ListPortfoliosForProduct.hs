@@ -170,6 +170,8 @@ instance Core.AWSRequest ListPortfoliosForProduct where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPortfoliosForProduct where
   hashWithSalt _salt ListPortfoliosForProduct' {..} =

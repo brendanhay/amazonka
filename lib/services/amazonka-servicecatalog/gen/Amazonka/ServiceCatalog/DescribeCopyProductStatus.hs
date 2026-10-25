@@ -125,6 +125,8 @@ instance Core.AWSRequest DescribeCopyProductStatus where
             Prelude.<*> (x Data..?> "TargetProductId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeCopyProductStatus where
   hashWithSalt _salt DescribeCopyProductStatus' {..} =

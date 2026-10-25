@@ -171,6 +171,8 @@ instance Core.AWSRequest ListLaunchPaths where
             Prelude.<*> (x Data..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListLaunchPaths where
   hashWithSalt _salt ListLaunchPaths' {..} =

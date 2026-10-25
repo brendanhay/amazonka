@@ -102,6 +102,8 @@ instance Core.AWSRequest AssociateBudgetWithResource where
           AssociateBudgetWithResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateBudgetWithResource where
   hashWithSalt _salt AssociateBudgetWithResource' {..} =

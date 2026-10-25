@@ -169,6 +169,8 @@ instance Core.AWSRequest DescribeProductAsAdmin where
             Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeProductAsAdmin where
   hashWithSalt _salt DescribeProductAsAdmin' {..} =

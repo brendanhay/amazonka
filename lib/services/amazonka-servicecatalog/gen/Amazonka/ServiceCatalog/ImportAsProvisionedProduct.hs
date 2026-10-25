@@ -94,7 +94,7 @@ data ImportAsProvisionedProduct = ImportAsProvisionedProduct'
     -- | A unique identifier that you provide to ensure idempotency. If multiple
     -- requests differ only by the idempotency token, the same response is
     -- returned for each repeated request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -137,15 +137,12 @@ newImportAsProvisionedProduct ::
   Prelude.Text ->
   -- | 'physicalId'
   Prelude.Text ->
-  -- | 'idempotencyToken'
-  Prelude.Text ->
   ImportAsProvisionedProduct
 newImportAsProvisionedProduct
   pProductId_
   pProvisioningArtifactId_
   pProvisionedProductName_
-  pPhysicalId_
-  pIdempotencyToken_ =
+  pPhysicalId_ =
     ImportAsProvisionedProduct'
       { acceptLanguage =
           Prelude.Nothing,
@@ -155,7 +152,7 @@ newImportAsProvisionedProduct
         provisionedProductName =
           pProvisionedProductName_,
         physicalId = pPhysicalId_,
-        idempotencyToken = pIdempotencyToken_
+        idempotencyToken = Prelude.Nothing
       }
 
 -- | The language code.
@@ -190,7 +187,7 @@ importAsProvisionedProduct_physicalId = Lens.lens (\ImportAsProvisionedProduct' 
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
-importAsProvisionedProduct_idempotencyToken :: Lens.Lens' ImportAsProvisionedProduct Prelude.Text
+importAsProvisionedProduct_idempotencyToken :: Lens.Lens' ImportAsProvisionedProduct (Prelude.Maybe Prelude.Text)
 importAsProvisionedProduct_idempotencyToken = Lens.lens (\ImportAsProvisionedProduct' {idempotencyToken} -> idempotencyToken) (\s@ImportAsProvisionedProduct' {} a -> s {idempotencyToken = a} :: ImportAsProvisionedProduct)
 
 instance Core.AWSRequest ImportAsProvisionedProduct where
@@ -206,6 +203,14 @@ instance Core.AWSRequest ImportAsProvisionedProduct where
             Prelude.<$> (x Data..?> "RecordDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@ImportAsProvisionedProduct' {idempotencyToken} =
+      ( \idempotencyToken' ->
+          s {idempotencyToken = idempotencyToken'} ::
+            ImportAsProvisionedProduct
+      )
+        Prelude.<$> f idempotencyToken
 
 instance Prelude.Hashable ImportAsProvisionedProduct where
   hashWithSalt _salt ImportAsProvisionedProduct' {..} =
@@ -257,8 +262,8 @@ instance Data.ToJSON ImportAsProvisionedProduct where
                   Data..= provisionedProductName
               ),
             Prelude.Just ("PhysicalId" Data..= physicalId),
-            Prelude.Just
-              ("IdempotencyToken" Data..= idempotencyToken)
+            ("IdempotencyToken" Data..=)
+              Prelude.<$> idempotencyToken
           ]
       )
 

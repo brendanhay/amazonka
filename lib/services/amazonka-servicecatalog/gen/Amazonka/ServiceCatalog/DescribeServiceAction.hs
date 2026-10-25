@@ -118,6 +118,8 @@ instance Core.AWSRequest DescribeServiceAction where
             Prelude.<$> (x Data..?> "ServiceActionDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeServiceAction where
   hashWithSalt _salt DescribeServiceAction' {..} =

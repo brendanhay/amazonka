@@ -99,7 +99,7 @@ data CreateServiceAction = CreateServiceAction'
     -- | A unique identifier that you provide to ensure idempotency. If multiple
     -- requests differ only by the idempotency token, the same response is
     -- returned for each repeated request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -161,22 +161,17 @@ newCreateServiceAction ::
   Prelude.Text ->
   -- | 'definitionType'
   ServiceActionDefinitionType ->
-  -- | 'idempotencyToken'
-  Prelude.Text ->
   CreateServiceAction
-newCreateServiceAction
-  pName_
-  pDefinitionType_
-  pIdempotencyToken_ =
-    CreateServiceAction'
-      { acceptLanguage =
-          Prelude.Nothing,
-        description = Prelude.Nothing,
-        name = pName_,
-        definitionType = pDefinitionType_,
-        definition = Prelude.mempty,
-        idempotencyToken = pIdempotencyToken_
-      }
+newCreateServiceAction pName_ pDefinitionType_ =
+  CreateServiceAction'
+    { acceptLanguage =
+        Prelude.Nothing,
+      description = Prelude.Nothing,
+      name = pName_,
+      definitionType = pDefinitionType_,
+      definition = Prelude.mempty,
+      idempotencyToken = Prelude.Nothing
+    }
 
 -- | The language code.
 --
@@ -233,7 +228,7 @@ createServiceAction_definition = Lens.lens (\CreateServiceAction' {definition} -
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
-createServiceAction_idempotencyToken :: Lens.Lens' CreateServiceAction Prelude.Text
+createServiceAction_idempotencyToken :: Lens.Lens' CreateServiceAction (Prelude.Maybe Prelude.Text)
 createServiceAction_idempotencyToken = Lens.lens (\CreateServiceAction' {idempotencyToken} -> idempotencyToken) (\s@CreateServiceAction' {} a -> s {idempotencyToken = a} :: CreateServiceAction)
 
 instance Core.AWSRequest CreateServiceAction where
@@ -249,6 +244,14 @@ instance Core.AWSRequest CreateServiceAction where
             Prelude.<$> (x Data..?> "ServiceActionDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateServiceAction' {idempotencyToken} =
+      ( \idempotencyToken' ->
+          s {idempotencyToken = idempotencyToken'} ::
+            CreateServiceAction
+      )
+        Prelude.<$> f idempotencyToken
 
 instance Prelude.Hashable CreateServiceAction where
   hashWithSalt _salt CreateServiceAction' {..} =
@@ -295,8 +298,8 @@ instance Data.ToJSON CreateServiceAction where
             Prelude.Just
               ("DefinitionType" Data..= definitionType),
             Prelude.Just ("Definition" Data..= definition),
-            Prelude.Just
-              ("IdempotencyToken" Data..= idempotencyToken)
+            ("IdempotencyToken" Data..=)
+              Prelude.<$> idempotencyToken
           ]
       )
 

@@ -73,7 +73,7 @@ data ExecuteProvisionedProductServiceAction = ExecuteProvisionedProductServiceAc
     -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.
     serviceActionId :: Prelude.Text,
     -- | An idempotency token that uniquely identifies the execute request.
-    executeToken :: Prelude.Text
+    executeToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -110,13 +110,10 @@ newExecuteProvisionedProductServiceAction ::
   Prelude.Text ->
   -- | 'serviceActionId'
   Prelude.Text ->
-  -- | 'executeToken'
-  Prelude.Text ->
   ExecuteProvisionedProductServiceAction
 newExecuteProvisionedProductServiceAction
   pProvisionedProductId_
-  pServiceActionId_
-  pExecuteToken_ =
+  pServiceActionId_ =
     ExecuteProvisionedProductServiceAction'
       { acceptLanguage =
           Prelude.Nothing,
@@ -124,7 +121,7 @@ newExecuteProvisionedProductServiceAction
         provisionedProductId =
           pProvisionedProductId_,
         serviceActionId = pServiceActionId_,
-        executeToken = pExecuteToken_
+        executeToken = Prelude.Nothing
       }
 
 -- | The language code.
@@ -155,7 +152,7 @@ executeProvisionedProductServiceAction_serviceActionId :: Lens.Lens' ExecuteProv
 executeProvisionedProductServiceAction_serviceActionId = Lens.lens (\ExecuteProvisionedProductServiceAction' {serviceActionId} -> serviceActionId) (\s@ExecuteProvisionedProductServiceAction' {} a -> s {serviceActionId = a} :: ExecuteProvisionedProductServiceAction)
 
 -- | An idempotency token that uniquely identifies the execute request.
-executeProvisionedProductServiceAction_executeToken :: Lens.Lens' ExecuteProvisionedProductServiceAction Prelude.Text
+executeProvisionedProductServiceAction_executeToken :: Lens.Lens' ExecuteProvisionedProductServiceAction (Prelude.Maybe Prelude.Text)
 executeProvisionedProductServiceAction_executeToken = Lens.lens (\ExecuteProvisionedProductServiceAction' {executeToken} -> executeToken) (\s@ExecuteProvisionedProductServiceAction' {} a -> s {executeToken = a} :: ExecuteProvisionedProductServiceAction)
 
 instance
@@ -175,6 +172,14 @@ instance
             Prelude.<$> (x Data..?> "RecordDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@ExecuteProvisionedProductServiceAction' {executeToken} =
+      ( \executeToken' ->
+          s {executeToken = executeToken'} ::
+            ExecuteProvisionedProductServiceAction
+      )
+        Prelude.<$> f executeToken
 
 instance
   Prelude.Hashable
@@ -235,7 +240,7 @@ instance
               ),
             Prelude.Just
               ("ServiceActionId" Data..= serviceActionId),
-            Prelude.Just ("ExecuteToken" Data..= executeToken)
+            ("ExecuteToken" Data..=) Prelude.<$> executeToken
           ]
       )
 

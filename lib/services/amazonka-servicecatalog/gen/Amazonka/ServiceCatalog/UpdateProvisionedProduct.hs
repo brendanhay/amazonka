@@ -110,7 +110,7 @@ data UpdateProvisionedProduct = UpdateProvisionedProduct'
     tags :: Prelude.Maybe [Tag],
     -- | The idempotency token that uniquely identifies the provisioning update
     -- request.
-    updateToken :: Prelude.Text
+    updateToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -164,10 +164,8 @@ data UpdateProvisionedProduct = UpdateProvisionedProduct'
 -- 'updateToken', 'updateProvisionedProduct_updateToken' - The idempotency token that uniquely identifies the provisioning update
 -- request.
 newUpdateProvisionedProduct ::
-  -- | 'updateToken'
-  Prelude.Text ->
   UpdateProvisionedProduct
-newUpdateProvisionedProduct pUpdateToken_ =
+newUpdateProvisionedProduct =
   UpdateProvisionedProduct'
     { acceptLanguage =
         Prelude.Nothing,
@@ -182,7 +180,7 @@ newUpdateProvisionedProduct pUpdateToken_ =
       provisioningParameters = Prelude.Nothing,
       provisioningPreferences = Prelude.Nothing,
       tags = Prelude.Nothing,
-      updateToken = pUpdateToken_
+      updateToken = Prelude.Nothing
     }
 
 -- | The language code.
@@ -250,7 +248,7 @@ updateProvisionedProduct_tags = Lens.lens (\UpdateProvisionedProduct' {tags} -> 
 
 -- | The idempotency token that uniquely identifies the provisioning update
 -- request.
-updateProvisionedProduct_updateToken :: Lens.Lens' UpdateProvisionedProduct Prelude.Text
+updateProvisionedProduct_updateToken :: Lens.Lens' UpdateProvisionedProduct (Prelude.Maybe Prelude.Text)
 updateProvisionedProduct_updateToken = Lens.lens (\UpdateProvisionedProduct' {updateToken} -> updateToken) (\s@UpdateProvisionedProduct' {} a -> s {updateToken = a} :: UpdateProvisionedProduct)
 
 instance Core.AWSRequest UpdateProvisionedProduct where
@@ -266,6 +264,14 @@ instance Core.AWSRequest UpdateProvisionedProduct where
             Prelude.<$> (x Data..?> "RecordDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateProvisionedProduct' {updateToken} =
+      ( \updateToken' ->
+          s {updateToken = updateToken'} ::
+            UpdateProvisionedProduct
+      )
+        Prelude.<$> f updateToken
 
 instance Prelude.Hashable UpdateProvisionedProduct where
   hashWithSalt _salt UpdateProvisionedProduct' {..} =
@@ -338,7 +344,7 @@ instance Data.ToJSON UpdateProvisionedProduct where
             ("ProvisioningPreferences" Data..=)
               Prelude.<$> provisioningPreferences,
             ("Tags" Data..=) Prelude.<$> tags,
-            Prelude.Just ("UpdateToken" Data..= updateToken)
+            ("UpdateToken" Data..=) Prelude.<$> updateToken
           ]
       )
 

@@ -86,7 +86,7 @@ data TerminateProvisionedProduct = TerminateProvisionedProduct'
     -- This token is only valid during the termination process. After the
     -- provisioned product is terminated, subsequent requests to terminate the
     -- same provisioned product always return __ResourceNotFound__.
-    terminateToken :: Prelude.Text
+    terminateToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -126,10 +126,8 @@ data TerminateProvisionedProduct = TerminateProvisionedProduct'
 -- provisioned product is terminated, subsequent requests to terminate the
 -- same provisioned product always return __ResourceNotFound__.
 newTerminateProvisionedProduct ::
-  -- | 'terminateToken'
-  Prelude.Text ->
   TerminateProvisionedProduct
-newTerminateProvisionedProduct pTerminateToken_ =
+newTerminateProvisionedProduct =
   TerminateProvisionedProduct'
     { acceptLanguage =
         Prelude.Nothing,
@@ -137,7 +135,7 @@ newTerminateProvisionedProduct pTerminateToken_ =
       provisionedProductId = Prelude.Nothing,
       provisionedProductName = Prelude.Nothing,
       retainPhysicalResources = Prelude.Nothing,
-      terminateToken = pTerminateToken_
+      terminateToken = Prelude.Nothing
     }
 
 -- | The language code.
@@ -177,7 +175,7 @@ terminateProvisionedProduct_retainPhysicalResources = Lens.lens (\TerminateProvi
 -- This token is only valid during the termination process. After the
 -- provisioned product is terminated, subsequent requests to terminate the
 -- same provisioned product always return __ResourceNotFound__.
-terminateProvisionedProduct_terminateToken :: Lens.Lens' TerminateProvisionedProduct Prelude.Text
+terminateProvisionedProduct_terminateToken :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Text)
 terminateProvisionedProduct_terminateToken = Lens.lens (\TerminateProvisionedProduct' {terminateToken} -> terminateToken) (\s@TerminateProvisionedProduct' {} a -> s {terminateToken = a} :: TerminateProvisionedProduct)
 
 instance Core.AWSRequest TerminateProvisionedProduct where
@@ -193,6 +191,14 @@ instance Core.AWSRequest TerminateProvisionedProduct where
             Prelude.<$> (x Data..?> "RecordDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@TerminateProvisionedProduct' {terminateToken} =
+      ( \terminateToken' ->
+          s {terminateToken = terminateToken'} ::
+            TerminateProvisionedProduct
+      )
+        Prelude.<$> f terminateToken
 
 instance Prelude.Hashable TerminateProvisionedProduct where
   hashWithSalt _salt TerminateProvisionedProduct' {..} =
@@ -241,8 +247,8 @@ instance Data.ToJSON TerminateProvisionedProduct where
               Prelude.<$> provisionedProductName,
             ("RetainPhysicalResources" Data..=)
               Prelude.<$> retainPhysicalResources,
-            Prelude.Just
-              ("TerminateToken" Data..= terminateToken)
+            ("TerminateToken" Data..=)
+              Prelude.<$> terminateToken
           ]
       )
 

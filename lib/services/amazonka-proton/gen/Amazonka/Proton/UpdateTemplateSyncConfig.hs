@@ -160,6 +160,8 @@ instance Core.AWSRequest UpdateTemplateSyncConfig where
             Prelude.<$> (x Data..?> "templateSyncConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateTemplateSyncConfig where
   hashWithSalt _salt UpdateTemplateSyncConfig' {..} =

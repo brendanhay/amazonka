@@ -89,6 +89,8 @@ instance Core.AWSRequest AssociateCertificate where
           AssociateCertificateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateCertificate where
   hashWithSalt _salt AssociateCertificate' {..} =

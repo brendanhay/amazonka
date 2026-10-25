@@ -107,6 +107,8 @@ instance Core.AWSRequest GetDataSetImportTask where
             Prelude.<*> (x Data..:> "status")
             Prelude.<*> (x Data..:> "taskId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDataSetImportTask where
   hashWithSalt _salt GetDataSetImportTask' {..} =

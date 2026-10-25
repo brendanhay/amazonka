@@ -86,7 +86,7 @@ data CreateListener = CreateListener'
     protocol :: Protocol,
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency—that is, the uniqueness—of the request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -136,20 +136,17 @@ newCreateListener ::
   Prelude.NonEmpty PortRange ->
   -- | 'protocol'
   Protocol ->
-  -- | 'idempotencyToken'
-  Prelude.Text ->
   CreateListener
 newCreateListener
   pAcceleratorArn_
   pPortRanges_
-  pProtocol_
-  pIdempotencyToken_ =
+  pProtocol_ =
     CreateListener'
       { clientAffinity = Prelude.Nothing,
         acceleratorArn = pAcceleratorArn_,
         portRanges = Lens.coerced Lens.# pPortRanges_,
         protocol = pProtocol_,
-        idempotencyToken = pIdempotencyToken_
+        idempotencyToken = Prelude.Nothing
       }
 
 -- | Client affinity lets you direct all requests from a user to the same
@@ -191,7 +188,7 @@ createListener_protocol = Lens.lens (\CreateListener' {protocol} -> protocol) (\
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency—that is, the uniqueness—of the request.
-createListener_idempotencyToken :: Lens.Lens' CreateListener Prelude.Text
+createListener_idempotencyToken :: Lens.Lens' CreateListener (Prelude.Maybe Prelude.Text)
 createListener_idempotencyToken = Lens.lens (\CreateListener' {idempotencyToken} -> idempotencyToken) (\s@CreateListener' {} a -> s {idempotencyToken = a} :: CreateListener)
 
 instance Core.AWSRequest CreateListener where
@@ -207,6 +204,14 @@ instance Core.AWSRequest CreateListener where
             Prelude.<$> (x Data..?> "Listener")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateListener' {idempotencyToken} =
+      ( \idempotencyToken' ->
+          s {idempotencyToken = idempotencyToken'} ::
+            CreateListener
+      )
+        Prelude.<$> f idempotencyToken
 
 instance Prelude.Hashable CreateListener where
   hashWithSalt _salt CreateListener' {..} =
@@ -250,8 +255,8 @@ instance Data.ToJSON CreateListener where
               ("AcceleratorArn" Data..= acceleratorArn),
             Prelude.Just ("PortRanges" Data..= portRanges),
             Prelude.Just ("Protocol" Data..= protocol),
-            Prelude.Just
-              ("IdempotencyToken" Data..= idempotencyToken)
+            ("IdempotencyToken" Data..=)
+              Prelude.<$> idempotencyToken
           ]
       )
 

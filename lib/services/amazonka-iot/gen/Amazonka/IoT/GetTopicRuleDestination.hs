@@ -91,6 +91,8 @@ instance Core.AWSRequest GetTopicRuleDestination where
             Prelude.<$> (x Data..?> "topicRuleDestination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTopicRuleDestination where
   hashWithSalt _salt GetTopicRuleDestination' {..} =

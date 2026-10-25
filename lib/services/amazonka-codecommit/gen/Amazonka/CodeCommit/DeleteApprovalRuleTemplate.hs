@@ -93,6 +93,8 @@ instance Core.AWSRequest DeleteApprovalRuleTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "approvalRuleTemplateId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteApprovalRuleTemplate where
   hashWithSalt _salt DeleteApprovalRuleTemplate' {..} =

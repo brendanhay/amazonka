@@ -87,6 +87,8 @@ instance Core.AWSRequest GetSampleData where
             Prelude.<*> (x Data..?> "SampleRows" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSampleData where
   hashWithSalt _salt GetSampleData' {..} =

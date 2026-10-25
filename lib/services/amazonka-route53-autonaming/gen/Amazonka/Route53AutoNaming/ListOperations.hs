@@ -184,6 +184,8 @@ instance Core.AWSRequest ListOperations where
             Prelude.<*> (x Data..?> "Operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListOperations where
   hashWithSalt _salt ListOperations' {..} =

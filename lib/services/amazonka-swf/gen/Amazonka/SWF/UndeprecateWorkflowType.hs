@@ -124,6 +124,8 @@ instance Core.AWSRequest UndeprecateWorkflowType where
   response =
     Response.receiveNull
       UndeprecateWorkflowTypeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UndeprecateWorkflowType where
   hashWithSalt _salt UndeprecateWorkflowType' {..} =

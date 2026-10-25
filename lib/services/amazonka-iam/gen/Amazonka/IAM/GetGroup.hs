@@ -189,6 +189,8 @@ instance Core.AWSRequest GetGroup where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetGroup where
   hashWithSalt _salt GetGroup' {..} =

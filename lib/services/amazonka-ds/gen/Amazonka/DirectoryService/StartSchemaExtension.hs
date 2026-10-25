@@ -145,6 +145,8 @@ instance Core.AWSRequest StartSchemaExtension where
             Prelude.<$> (x Data..?> "SchemaExtensionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartSchemaExtension where
   hashWithSalt _salt StartSchemaExtension' {..} =

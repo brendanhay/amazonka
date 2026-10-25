@@ -101,6 +101,8 @@ instance Core.AWSRequest DeleteForm where
   request overrides =
     Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteFormResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteForm where
   hashWithSalt _salt DeleteForm' {..} =

@@ -127,6 +127,8 @@ instance Core.AWSRequest EnableVgwRoutePropagation where
   response =
     Response.receiveNull
       EnableVgwRoutePropagationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable EnableVgwRoutePropagation where
   hashWithSalt _salt EnableVgwRoutePropagation' {..} =

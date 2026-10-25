@@ -155,6 +155,8 @@ instance Core.AWSRequest CreateAppBlock where
             Prelude.<$> (x Data..?> "AppBlock")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateAppBlock where
   hashWithSalt _salt CreateAppBlock' {..} =

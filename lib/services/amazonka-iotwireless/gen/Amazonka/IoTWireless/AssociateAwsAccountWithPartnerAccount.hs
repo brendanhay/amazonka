@@ -128,6 +128,14 @@ instance
             Prelude.<*> (x Data..?> "Sidewalk")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@AssociateAwsAccountWithPartnerAccount' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            AssociateAwsAccountWithPartnerAccount
+      )
+        Prelude.<$> f clientRequestToken
 
 instance
   Prelude.Hashable

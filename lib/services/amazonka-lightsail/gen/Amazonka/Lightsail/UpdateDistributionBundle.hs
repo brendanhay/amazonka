@@ -129,6 +129,8 @@ instance Core.AWSRequest UpdateDistributionBundle where
             Prelude.<$> (x Data..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDistributionBundle where
   hashWithSalt _salt UpdateDistributionBundle' {..} =

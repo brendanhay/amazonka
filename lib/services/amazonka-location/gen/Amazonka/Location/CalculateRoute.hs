@@ -475,6 +475,8 @@ instance Core.AWSRequest CalculateRoute where
             Prelude.<*> (x Data..?> "Legs" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..:> "Summary")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CalculateRoute where
   hashWithSalt _salt CalculateRoute' {..} =

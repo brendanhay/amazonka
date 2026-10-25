@@ -97,6 +97,8 @@ instance Core.AWSRequest ResumeSession where
             Prelude.<*> (x Data..?> "TokenValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResumeSession where
   hashWithSalt _salt ResumeSession' {..} =

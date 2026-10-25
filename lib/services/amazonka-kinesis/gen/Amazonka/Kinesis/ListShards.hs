@@ -385,6 +385,8 @@ instance Core.AWSRequest ListShards where
             Prelude.<*> (x Data..?> "Shards" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListShards where
   hashWithSalt _salt ListShards' {..} =

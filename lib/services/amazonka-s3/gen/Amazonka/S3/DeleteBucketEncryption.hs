@@ -121,6 +121,8 @@ instance Core.AWSRequest DeleteBucketEncryption where
   response =
     Response.receiveNull
       DeleteBucketEncryptionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBucketEncryption where
   hashWithSalt _salt DeleteBucketEncryption' {..} =

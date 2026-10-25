@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteLabelGroup where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteLabelGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteLabelGroup where
   hashWithSalt _salt DeleteLabelGroup' {..} =

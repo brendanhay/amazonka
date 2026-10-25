@@ -81,6 +81,8 @@ instance Core.AWSRequest DeleteVcenterClient where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteVcenterClientResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVcenterClient where
   hashWithSalt _salt DeleteVcenterClient' {..} =

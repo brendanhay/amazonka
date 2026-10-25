@@ -82,6 +82,8 @@ instance Core.AWSRequest DeleteModelBiasJobDefinition where
   response =
     Response.receiveNull
       DeleteModelBiasJobDefinitionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

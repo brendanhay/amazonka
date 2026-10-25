@@ -162,6 +162,8 @@ instance
   response =
     Response.receiveNull
       PutBucketMetricsConfigurationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

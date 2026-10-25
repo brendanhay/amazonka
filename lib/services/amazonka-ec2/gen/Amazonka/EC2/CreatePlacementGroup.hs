@@ -183,6 +183,8 @@ instance Core.AWSRequest CreatePlacementGroup where
             Prelude.<$> (x Data..@? "placementGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreatePlacementGroup where
   hashWithSalt _salt CreatePlacementGroup' {..} =

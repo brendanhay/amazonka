@@ -117,6 +117,8 @@ instance Core.AWSRequest UpdateWorkloadShare where
             Prelude.<*> (x Data..?> "WorkloadShare")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateWorkloadShare where
   hashWithSalt _salt UpdateWorkloadShare' {..} =

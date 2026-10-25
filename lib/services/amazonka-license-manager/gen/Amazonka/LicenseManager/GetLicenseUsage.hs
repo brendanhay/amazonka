@@ -87,6 +87,8 @@ instance Core.AWSRequest GetLicenseUsage where
             Prelude.<$> (x Data..?> "LicenseUsage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetLicenseUsage where
   hashWithSalt _salt GetLicenseUsage' {..} =

@@ -270,6 +270,8 @@ instance Core.AWSRequest ListPackages where
             Prelude.<*> (x Data..?> "packages" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPackages where
   hashWithSalt _salt ListPackages' {..} =

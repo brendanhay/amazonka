@@ -144,6 +144,8 @@ instance Core.AWSRequest ListRulesets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Rulesets" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListRulesets where
   hashWithSalt _salt ListRulesets' {..} =

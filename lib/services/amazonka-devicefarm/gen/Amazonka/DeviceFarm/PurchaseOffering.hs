@@ -119,6 +119,8 @@ instance Core.AWSRequest PurchaseOffering where
             Prelude.<$> (x Data..?> "offeringTransaction")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PurchaseOffering where
   hashWithSalt _salt PurchaseOffering' {..} =

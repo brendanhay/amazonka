@@ -131,6 +131,8 @@ instance Core.AWSRequest RebootDBInstance where
             Prelude.<$> (x Data..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RebootDBInstance where
   hashWithSalt _salt RebootDBInstance' {..} =

@@ -84,6 +84,8 @@ instance Core.AWSRequest DeleteExtensionAssociation where
   response =
     Response.receiveNull
       DeleteExtensionAssociationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteExtensionAssociation where
   hashWithSalt _salt DeleteExtensionAssociation' {..} =

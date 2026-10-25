@@ -450,6 +450,8 @@ instance Core.AWSRequest IssueCertificate where
             Prelude.<$> (x Data..?> "CertificateArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable IssueCertificate where
   hashWithSalt _salt IssueCertificate' {..} =

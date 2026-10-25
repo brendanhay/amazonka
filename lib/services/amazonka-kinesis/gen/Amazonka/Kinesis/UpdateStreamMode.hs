@@ -106,6 +106,8 @@ instance Core.AWSRequest UpdateStreamMode where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateStreamModeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateStreamMode where
   hashWithSalt _salt UpdateStreamMode' {..} =

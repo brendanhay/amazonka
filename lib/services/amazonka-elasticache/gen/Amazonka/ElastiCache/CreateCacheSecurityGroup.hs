@@ -144,6 +144,8 @@ instance Core.AWSRequest CreateCacheSecurityGroup where
             Prelude.<$> (x Data..@? "CacheSecurityGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateCacheSecurityGroup where
   hashWithSalt _salt CreateCacheSecurityGroup' {..} =

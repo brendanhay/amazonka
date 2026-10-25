@@ -102,6 +102,8 @@ instance Core.AWSRequest GetCommit where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "commit")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCommit where
   hashWithSalt _salt GetCommit' {..} =

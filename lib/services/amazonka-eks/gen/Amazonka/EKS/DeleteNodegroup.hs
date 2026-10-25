@@ -104,6 +104,8 @@ instance Core.AWSRequest DeleteNodegroup where
             Prelude.<$> (x Data..?> "nodegroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteNodegroup where
   hashWithSalt _salt DeleteNodegroup' {..} =

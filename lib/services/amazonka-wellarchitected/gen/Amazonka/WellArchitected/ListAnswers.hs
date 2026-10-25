@@ -149,6 +149,8 @@ instance Core.AWSRequest ListAnswers where
             Prelude.<*> (x Data..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAnswers where
   hashWithSalt _salt ListAnswers' {..} =

@@ -85,6 +85,8 @@ instance Core.AWSRequest DescribeJobs where
             Prelude.<$> (x Data..?> "jobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeJobs where
   hashWithSalt _salt DescribeJobs' {..} =

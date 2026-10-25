@@ -74,6 +74,8 @@ instance Core.AWSRequest DeleteRun where
   request overrides =
     Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteRunResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRun where
   hashWithSalt _salt DeleteRun' {..} =

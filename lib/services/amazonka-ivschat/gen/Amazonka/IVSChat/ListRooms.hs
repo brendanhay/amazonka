@@ -133,6 +133,8 @@ instance Core.AWSRequest ListRooms where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "rooms" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListRooms where
   hashWithSalt _salt ListRooms' {..} =

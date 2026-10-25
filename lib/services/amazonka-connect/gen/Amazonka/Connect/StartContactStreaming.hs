@@ -68,7 +68,7 @@ data StartContactStreaming = StartContactStreaming'
     -- idempotency of the request. If not provided, the Amazon Web Services SDK
     -- populates this field. For more information about idempotency, see
     -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,20 +99,17 @@ newStartContactStreaming ::
   Prelude.Text ->
   -- | 'chatStreamingConfiguration'
   ChatStreamingConfiguration ->
-  -- | 'clientToken'
-  Prelude.Text ->
   StartContactStreaming
 newStartContactStreaming
   pInstanceId_
   pContactId_
-  pChatStreamingConfiguration_
-  pClientToken_ =
+  pChatStreamingConfiguration_ =
     StartContactStreaming'
       { instanceId = pInstanceId_,
         contactId = pContactId_,
         chatStreamingConfiguration =
           pChatStreamingConfiguration_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | The identifier of the Amazon Connect instance. You can find the
@@ -133,7 +130,7 @@ startContactStreaming_chatStreamingConfiguration = Lens.lens (\StartContactStrea
 -- idempotency of the request. If not provided, the Amazon Web Services SDK
 -- populates this field. For more information about idempotency, see
 -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
-startContactStreaming_clientToken :: Lens.Lens' StartContactStreaming Prelude.Text
+startContactStreaming_clientToken :: Lens.Lens' StartContactStreaming (Prelude.Maybe Prelude.Text)
 startContactStreaming_clientToken = Lens.lens (\StartContactStreaming' {clientToken} -> clientToken) (\s@StartContactStreaming' {} a -> s {clientToken = a} :: StartContactStreaming)
 
 instance Core.AWSRequest StartContactStreaming where
@@ -149,6 +146,14 @@ instance Core.AWSRequest StartContactStreaming where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "StreamingId")
       )
+  updateIdempotencyToken
+    f
+    s@StartContactStreaming' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            StartContactStreaming
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartContactStreaming where
   hashWithSalt _salt StartContactStreaming' {..} =
@@ -186,7 +191,7 @@ instance Data.ToJSON StartContactStreaming where
               ( "ChatStreamingConfiguration"
                   Data..= chatStreamingConfiguration
               ),
-            Prelude.Just ("ClientToken" Data..= clientToken)
+            ("ClientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

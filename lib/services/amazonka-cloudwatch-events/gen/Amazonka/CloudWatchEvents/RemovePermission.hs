@@ -109,6 +109,8 @@ instance Core.AWSRequest RemovePermission where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull RemovePermissionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemovePermission where
   hashWithSalt _salt RemovePermission' {..} =

@@ -107,6 +107,8 @@ instance Core.AWSRequest GetRasterDataCollection where
                         )
             Prelude.<*> (x Data..:> "Type")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRasterDataCollection where
   hashWithSalt _salt GetRasterDataCollection' {..} =

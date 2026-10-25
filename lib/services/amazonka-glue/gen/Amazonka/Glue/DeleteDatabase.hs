@@ -115,6 +115,8 @@ instance Core.AWSRequest DeleteDatabase where
           DeleteDatabaseResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDatabase where
   hashWithSalt _salt DeleteDatabase' {..} =

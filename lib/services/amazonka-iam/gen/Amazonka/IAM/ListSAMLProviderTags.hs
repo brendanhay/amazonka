@@ -174,6 +174,8 @@ instance Core.AWSRequest ListSAMLProviderTags where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSAMLProviderTags where
   hashWithSalt _salt ListSAMLProviderTags' {..} =

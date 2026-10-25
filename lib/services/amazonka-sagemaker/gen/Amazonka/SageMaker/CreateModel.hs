@@ -246,6 +246,8 @@ instance Core.AWSRequest CreateModel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ModelArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateModel where
   hashWithSalt _salt CreateModel' {..} =

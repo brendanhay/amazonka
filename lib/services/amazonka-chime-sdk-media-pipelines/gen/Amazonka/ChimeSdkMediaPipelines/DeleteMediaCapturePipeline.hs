@@ -82,6 +82,8 @@ instance Core.AWSRequest DeleteMediaCapturePipeline where
   response =
     Response.receiveNull
       DeleteMediaCapturePipelineResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteMediaCapturePipeline where
   hashWithSalt _salt DeleteMediaCapturePipeline' {..} =

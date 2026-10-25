@@ -266,6 +266,8 @@ instance Core.AWSRequest UpdateQuerySuggestionsConfig where
   response =
     Response.receiveNull
       UpdateQuerySuggestionsConfigResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

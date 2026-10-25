@@ -167,6 +167,8 @@ instance Core.AWSRequest GetExpenseAnalysis where
             Prelude.<*> (x Data..?> "Warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetExpenseAnalysis where
   hashWithSalt _salt GetExpenseAnalysis' {..} =

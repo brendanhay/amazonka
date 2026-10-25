@@ -162,6 +162,14 @@ instance Core.AWSRequest CreateCodeReview where
             Prelude.<$> (x Data..?> "CodeReview")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateCodeReview' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateCodeReview
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateCodeReview where
   hashWithSalt _salt CreateCodeReview' {..} =

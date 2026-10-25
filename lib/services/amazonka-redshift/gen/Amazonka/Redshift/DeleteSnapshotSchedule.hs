@@ -82,6 +82,8 @@ instance Core.AWSRequest DeleteSnapshotSchedule where
   response =
     Response.receiveNull
       DeleteSnapshotScheduleResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSnapshotSchedule where
   hashWithSalt _salt DeleteSnapshotSchedule' {..} =

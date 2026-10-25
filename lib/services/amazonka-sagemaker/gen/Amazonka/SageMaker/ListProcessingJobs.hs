@@ -227,6 +227,8 @@ instance Core.AWSRequest ListProcessingJobs where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListProcessingJobs where
   hashWithSalt _salt ListProcessingJobs' {..} =

@@ -138,6 +138,8 @@ instance Core.AWSRequest CreateEnvironmentMembership where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "membership")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateEnvironmentMembership where
   hashWithSalt _salt CreateEnvironmentMembership' {..} =

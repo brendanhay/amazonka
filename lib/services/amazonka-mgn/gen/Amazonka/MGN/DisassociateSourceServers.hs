@@ -103,6 +103,8 @@ instance Core.AWSRequest DisassociateSourceServers where
           DisassociateSourceServersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateSourceServers where
   hashWithSalt _salt DisassociateSourceServers' {..} =

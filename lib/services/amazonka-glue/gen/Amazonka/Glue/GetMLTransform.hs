@@ -134,6 +134,8 @@ instance Core.AWSRequest GetMLTransform where
             Prelude.<*> (x Data..?> "WorkerType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMLTransform where
   hashWithSalt _salt GetMLTransform' {..} =

@@ -153,6 +153,8 @@ instance Core.AWSRequest GetCoreNetworkChangeEvents where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCoreNetworkChangeEvents where
   hashWithSalt _salt GetCoreNetworkChangeEvents' {..} =

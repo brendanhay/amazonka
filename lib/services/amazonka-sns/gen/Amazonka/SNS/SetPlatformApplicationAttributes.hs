@@ -284,6 +284,8 @@ instance
   response =
     Response.receiveNull
       SetPlatformApplicationAttributesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

@@ -153,6 +153,8 @@ instance Core.AWSRequest CreateDecoderManifest where
             Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "arn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDecoderManifest where
   hashWithSalt _salt CreateDecoderManifest' {..} =

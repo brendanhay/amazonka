@@ -107,6 +107,8 @@ instance Core.AWSRequest GetDiscoveredSchema where
             Prelude.<$> (x Data..?> "Content")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDiscoveredSchema where
   hashWithSalt _salt GetDiscoveredSchema' {..} =

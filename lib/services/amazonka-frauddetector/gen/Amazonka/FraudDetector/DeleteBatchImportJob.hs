@@ -86,6 +86,8 @@ instance Core.AWSRequest DeleteBatchImportJob where
           DeleteBatchImportJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBatchImportJob where
   hashWithSalt _salt DeleteBatchImportJob' {..} =

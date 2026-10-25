@@ -228,6 +228,8 @@ instance Core.AWSRequest CreateAgreement where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "AgreementId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateAgreement where
   hashWithSalt _salt CreateAgreement' {..} =

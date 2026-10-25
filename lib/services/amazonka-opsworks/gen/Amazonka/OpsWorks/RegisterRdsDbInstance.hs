@@ -126,6 +126,8 @@ instance Core.AWSRequest RegisterRdsDbInstance where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull RegisterRdsDbInstanceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterRdsDbInstance where
   hashWithSalt _salt RegisterRdsDbInstance' {..} =

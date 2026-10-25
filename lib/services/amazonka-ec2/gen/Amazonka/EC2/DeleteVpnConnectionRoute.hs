@@ -101,6 +101,8 @@ instance Core.AWSRequest DeleteVpnConnectionRoute where
   response =
     Response.receiveNull
       DeleteVpnConnectionRouteResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVpnConnectionRoute where
   hashWithSalt _salt DeleteVpnConnectionRoute' {..} =

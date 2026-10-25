@@ -135,6 +135,8 @@ instance Core.AWSRequest TransferCertificate where
             Prelude.<$> (x Data..?> "transferredCertificateArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TransferCertificate where
   hashWithSalt _salt TransferCertificate' {..} =

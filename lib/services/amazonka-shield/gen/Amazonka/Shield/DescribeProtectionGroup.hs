@@ -96,6 +96,8 @@ instance Core.AWSRequest DescribeProtectionGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ProtectionGroup")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeProtectionGroup where
   hashWithSalt _salt DescribeProtectionGroup' {..} =

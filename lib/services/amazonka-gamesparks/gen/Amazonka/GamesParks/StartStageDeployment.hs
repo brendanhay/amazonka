@@ -139,6 +139,8 @@ instance Core.AWSRequest StartStageDeployment where
             Prelude.<$> (x Data..?> "StageDeployment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartStageDeployment where
   hashWithSalt _salt StartStageDeployment' {..} =

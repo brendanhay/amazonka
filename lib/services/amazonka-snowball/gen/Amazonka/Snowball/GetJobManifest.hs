@@ -110,6 +110,8 @@ instance Core.AWSRequest GetJobManifest where
             Prelude.<$> (x Data..?> "ManifestURI")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetJobManifest where
   hashWithSalt _salt GetJobManifest' {..} =

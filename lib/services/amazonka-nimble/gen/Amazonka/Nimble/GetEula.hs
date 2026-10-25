@@ -84,6 +84,8 @@ instance Core.AWSRequest GetEula where
             Prelude.<$> (x Data..?> "eula")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetEula where
   hashWithSalt _salt GetEula' {..} =

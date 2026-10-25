@@ -145,6 +145,8 @@ instance Core.AWSRequest GetViolationDetails where
             Prelude.<$> (x Data..?> "ViolationDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetViolationDetails where
   hashWithSalt _salt GetViolationDetails' {..} =

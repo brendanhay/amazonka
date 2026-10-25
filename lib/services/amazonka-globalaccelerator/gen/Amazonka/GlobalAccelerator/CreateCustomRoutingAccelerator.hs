@@ -114,7 +114,7 @@ data CreateCustomRoutingAccelerator = CreateCustomRoutingAccelerator'
     name :: Prelude.Text,
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency—that is, the uniqueness—of the request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -174,21 +174,17 @@ data CreateCustomRoutingAccelerator = CreateCustomRoutingAccelerator'
 newCreateCustomRoutingAccelerator ::
   -- | 'name'
   Prelude.Text ->
-  -- | 'idempotencyToken'
-  Prelude.Text ->
   CreateCustomRoutingAccelerator
-newCreateCustomRoutingAccelerator
-  pName_
-  pIdempotencyToken_ =
-    CreateCustomRoutingAccelerator'
-      { enabled =
-          Prelude.Nothing,
-        ipAddressType = Prelude.Nothing,
-        ipAddresses = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        name = pName_,
-        idempotencyToken = pIdempotencyToken_
-      }
+newCreateCustomRoutingAccelerator pName_ =
+  CreateCustomRoutingAccelerator'
+    { enabled =
+        Prelude.Nothing,
+      ipAddressType = Prelude.Nothing,
+      ipAddresses = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      name = pName_,
+      idempotencyToken = Prelude.Nothing
+    }
 
 -- | Indicates whether an accelerator is enabled. The value is true or false.
 -- The default value is true.
@@ -245,7 +241,7 @@ createCustomRoutingAccelerator_name = Lens.lens (\CreateCustomRoutingAccelerator
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency—that is, the uniqueness—of the request.
-createCustomRoutingAccelerator_idempotencyToken :: Lens.Lens' CreateCustomRoutingAccelerator Prelude.Text
+createCustomRoutingAccelerator_idempotencyToken :: Lens.Lens' CreateCustomRoutingAccelerator (Prelude.Maybe Prelude.Text)
 createCustomRoutingAccelerator_idempotencyToken = Lens.lens (\CreateCustomRoutingAccelerator' {idempotencyToken} -> idempotencyToken) (\s@CreateCustomRoutingAccelerator' {} a -> s {idempotencyToken = a} :: CreateCustomRoutingAccelerator)
 
 instance
@@ -264,6 +260,14 @@ instance
             Prelude.<$> (x Data..?> "Accelerator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateCustomRoutingAccelerator' {idempotencyToken} =
+      ( \idempotencyToken' ->
+          s {idempotencyToken = idempotencyToken'} ::
+            CreateCustomRoutingAccelerator
+      )
+        Prelude.<$> f idempotencyToken
 
 instance
   Prelude.Hashable
@@ -319,8 +323,8 @@ instance Data.ToJSON CreateCustomRoutingAccelerator where
             ("IpAddresses" Data..=) Prelude.<$> ipAddresses,
             ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
-            Prelude.Just
-              ("IdempotencyToken" Data..= idempotencyToken)
+            ("IdempotencyToken" Data..=)
+              Prelude.<$> idempotencyToken
           ]
       )
 

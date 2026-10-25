@@ -123,6 +123,8 @@ instance Core.AWSRequest AddRoleToDBInstance where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull AddRoleToDBInstanceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddRoleToDBInstance where
   hashWithSalt _salt AddRoleToDBInstance' {..} =

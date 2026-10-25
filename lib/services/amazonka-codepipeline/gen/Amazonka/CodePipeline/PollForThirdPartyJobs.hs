@@ -107,6 +107,8 @@ instance Core.AWSRequest PollForThirdPartyJobs where
             Prelude.<$> (x Data..?> "jobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PollForThirdPartyJobs where
   hashWithSalt _salt PollForThirdPartyJobs' {..} =

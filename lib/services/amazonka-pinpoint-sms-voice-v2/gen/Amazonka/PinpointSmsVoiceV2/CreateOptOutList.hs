@@ -135,6 +135,13 @@ instance Core.AWSRequest CreateOptOutList where
             Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateOptOutList' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateOptOutList
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateOptOutList where
   hashWithSalt _salt CreateOptOutList' {..} =

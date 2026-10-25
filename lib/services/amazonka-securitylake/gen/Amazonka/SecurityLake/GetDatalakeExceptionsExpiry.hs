@@ -75,6 +75,8 @@ instance Core.AWSRequest GetDatalakeExceptionsExpiry where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "exceptionMessageExpiry")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDatalakeExceptionsExpiry where
   hashWithSalt _salt _ =

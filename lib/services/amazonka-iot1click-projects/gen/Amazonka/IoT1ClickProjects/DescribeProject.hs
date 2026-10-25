@@ -87,6 +87,8 @@ instance Core.AWSRequest DescribeProject where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "project")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeProject where
   hashWithSalt _salt DescribeProject' {..} =

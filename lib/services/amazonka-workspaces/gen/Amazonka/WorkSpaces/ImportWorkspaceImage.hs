@@ -215,6 +215,8 @@ instance Core.AWSRequest ImportWorkspaceImage where
             Prelude.<$> (x Data..?> "ImageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportWorkspaceImage where
   hashWithSalt _salt ImportWorkspaceImage' {..} =

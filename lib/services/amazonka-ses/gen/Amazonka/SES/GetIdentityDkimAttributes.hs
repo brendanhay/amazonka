@@ -123,6 +123,8 @@ instance Core.AWSRequest GetIdentityDkimAttributes where
                             Prelude.>>= Data.parseXMLMap "entry" "key" "value"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetIdentityDkimAttributes where
   hashWithSalt _salt GetIdentityDkimAttributes' {..} =

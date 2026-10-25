@@ -91,6 +91,8 @@ instance Core.AWSRequest SendActivationCode where
           SendActivationCodeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SendActivationCode where
   hashWithSalt _salt SendActivationCode' {..} =

@@ -104,6 +104,8 @@ instance Core.AWSRequest DeleteThreatIntelSet where
           DeleteThreatIntelSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteThreatIntelSet where
   hashWithSalt _salt DeleteThreatIntelSet' {..} =

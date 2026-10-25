@@ -78,6 +78,8 @@ instance Core.AWSRequest DescribeReportCreation where
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeReportCreation where
   hashWithSalt _salt _ =

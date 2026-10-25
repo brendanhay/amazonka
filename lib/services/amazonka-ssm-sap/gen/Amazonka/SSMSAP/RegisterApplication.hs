@@ -158,6 +158,8 @@ instance Core.AWSRequest RegisterApplication where
             Prelude.<*> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterApplication where
   hashWithSalt _salt RegisterApplication' {..} =

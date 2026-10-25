@@ -151,6 +151,8 @@ instance Core.AWSRequest CreateStoreImageTask where
             Prelude.<$> (x Data..@? "objectKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateStoreImageTask where
   hashWithSalt _salt CreateStoreImageTask' {..} =

@@ -106,6 +106,8 @@ instance Core.AWSRequest UpdateRdsDbInstance where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateRdsDbInstanceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRdsDbInstance where
   hashWithSalt _salt UpdateRdsDbInstance' {..} =

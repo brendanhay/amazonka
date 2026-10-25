@@ -186,6 +186,8 @@ instance Core.AWSRequest SendBounce where
             Prelude.<$> (x Data..@? "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SendBounce where
   hashWithSalt _salt SendBounce' {..} =

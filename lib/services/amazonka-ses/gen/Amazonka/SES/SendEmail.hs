@@ -396,6 +396,8 @@ instance Core.AWSRequest SendEmail where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "MessageId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SendEmail where
   hashWithSalt _salt SendEmail' {..} =

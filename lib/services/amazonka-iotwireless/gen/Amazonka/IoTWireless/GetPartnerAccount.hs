@@ -105,6 +105,8 @@ instance Core.AWSRequest GetPartnerAccount where
             Prelude.<*> (x Data..?> "Sidewalk")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPartnerAccount where
   hashWithSalt _salt GetPartnerAccount' {..} =

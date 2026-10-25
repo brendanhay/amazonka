@@ -92,6 +92,8 @@ instance Core.AWSRequest DescribeAlert where
             Prelude.<$> (x Data..?> "Alert")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAlert where
   hashWithSalt _salt DescribeAlert' {..} =

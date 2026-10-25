@@ -170,6 +170,13 @@ instance Core.AWSRequest CreateBillingGroup where
             Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateBillingGroup' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateBillingGroup
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateBillingGroup where
   hashWithSalt _salt CreateBillingGroup' {..} =

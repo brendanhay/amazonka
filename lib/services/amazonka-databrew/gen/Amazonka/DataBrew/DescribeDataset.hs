@@ -109,6 +109,8 @@ instance Core.AWSRequest DescribeDataset where
             Prelude.<*> (x Data..:> "Name")
             Prelude.<*> (x Data..:> "Input")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDataset where
   hashWithSalt _salt DescribeDataset' {..} =

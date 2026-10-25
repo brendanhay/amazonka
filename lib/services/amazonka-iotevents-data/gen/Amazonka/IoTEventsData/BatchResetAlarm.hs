@@ -94,6 +94,8 @@ instance Core.AWSRequest BatchResetAlarm where
             Prelude.<$> (x Data..?> "errorEntries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchResetAlarm where
   hashWithSalt _salt BatchResetAlarm' {..} =

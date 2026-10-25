@@ -111,6 +111,8 @@ instance Core.AWSRequest RegisterEcsCluster where
             Prelude.<$> (x Data..?> "EcsClusterArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterEcsCluster where
   hashWithSalt _salt RegisterEcsCluster' {..} =

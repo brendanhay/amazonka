@@ -91,6 +91,8 @@ instance Core.AWSRequest DeleteAdmChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAdmChannel where
   hashWithSalt _salt DeleteAdmChannel' {..} =

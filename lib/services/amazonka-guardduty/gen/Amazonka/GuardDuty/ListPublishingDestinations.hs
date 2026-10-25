@@ -122,6 +122,8 @@ instance Core.AWSRequest ListPublishingDestinations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "destinations" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPublishingDestinations where
   hashWithSalt _salt ListPublishingDestinations' {..} =

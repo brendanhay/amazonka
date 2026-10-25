@@ -78,6 +78,8 @@ instance Core.AWSRequest DeleteTerminology where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteTerminologyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTerminology where
   hashWithSalt _salt DeleteTerminology' {..} =

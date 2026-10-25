@@ -109,6 +109,8 @@ instance Core.AWSRequest ListDataQualityResults where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Results" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDataQualityResults where
   hashWithSalt _salt ListDataQualityResults' {..} =

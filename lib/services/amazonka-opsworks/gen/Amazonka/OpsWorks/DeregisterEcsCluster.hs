@@ -89,6 +89,8 @@ instance Core.AWSRequest DeregisterEcsCluster where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeregisterEcsClusterResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterEcsCluster where
   hashWithSalt _salt DeregisterEcsCluster' {..} =

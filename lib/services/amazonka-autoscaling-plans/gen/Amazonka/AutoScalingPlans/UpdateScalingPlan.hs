@@ -152,6 +152,8 @@ instance Core.AWSRequest UpdateScalingPlan where
           UpdateScalingPlanResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateScalingPlan where
   hashWithSalt _salt UpdateScalingPlan' {..} =

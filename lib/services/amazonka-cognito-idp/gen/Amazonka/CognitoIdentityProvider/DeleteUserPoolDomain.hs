@@ -105,6 +105,8 @@ instance Core.AWSRequest DeleteUserPoolDomain where
           DeleteUserPoolDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteUserPoolDomain where
   hashWithSalt _salt DeleteUserPoolDomain' {..} =

@@ -100,6 +100,8 @@ instance Core.AWSRequest RemoveIpRoutes where
           RemoveIpRoutesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveIpRoutes where
   hashWithSalt _salt RemoveIpRoutes' {..} =

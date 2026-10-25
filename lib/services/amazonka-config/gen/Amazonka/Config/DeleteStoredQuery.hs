@@ -86,6 +86,8 @@ instance Core.AWSRequest DeleteStoredQuery where
           DeleteStoredQueryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteStoredQuery where
   hashWithSalt _salt DeleteStoredQuery' {..} =

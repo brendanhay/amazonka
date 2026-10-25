@@ -79,6 +79,8 @@ instance Core.AWSRequest GetServicesInScope where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetServicesInScope where
   hashWithSalt _salt _ =

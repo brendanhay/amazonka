@@ -88,6 +88,8 @@ instance Core.AWSRequest StopTrainingJob where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull StopTrainingJobResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopTrainingJob where
   hashWithSalt _salt StopTrainingJob' {..} =

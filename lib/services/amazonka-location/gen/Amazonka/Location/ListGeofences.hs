@@ -147,6 +147,8 @@ instance Core.AWSRequest ListGeofences where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Entries" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListGeofences where
   hashWithSalt _salt ListGeofences' {..} =

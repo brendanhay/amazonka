@@ -90,6 +90,8 @@ instance Core.AWSRequest AddTags where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull AddTagsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddTags where
   hashWithSalt _salt AddTags' {..} =

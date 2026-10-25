@@ -151,6 +151,8 @@ instance Core.AWSRequest GetLendingAnalysis where
             Prelude.<*> (x Data..?> "Warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetLendingAnalysis where
   hashWithSalt _salt GetLendingAnalysis' {..} =

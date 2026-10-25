@@ -560,6 +560,11 @@ instance Core.AWSRequest CreateFilter where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "name")
       )
+  updateIdempotencyToken f s@CreateFilter' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateFilter
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateFilter where
   hashWithSalt _salt CreateFilter' {..} =

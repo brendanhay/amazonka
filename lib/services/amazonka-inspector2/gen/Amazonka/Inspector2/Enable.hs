@@ -110,6 +110,11 @@ instance Core.AWSRequest Enable where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "accounts" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s@Enable' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: Enable
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable Enable where
   hashWithSalt _salt Enable' {..} =

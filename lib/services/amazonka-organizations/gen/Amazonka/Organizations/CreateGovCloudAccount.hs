@@ -496,6 +496,8 @@ instance Core.AWSRequest CreateGovCloudAccount where
             Prelude.<$> (x Data..?> "CreateAccountStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateGovCloudAccount where
   hashWithSalt _salt CreateGovCloudAccount' {..} =

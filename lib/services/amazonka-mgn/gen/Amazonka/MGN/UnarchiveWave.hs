@@ -88,6 +88,8 @@ instance Core.AWSRequest UnarchiveWave where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UnarchiveWave where
   hashWithSalt _salt UnarchiveWave' {..} =

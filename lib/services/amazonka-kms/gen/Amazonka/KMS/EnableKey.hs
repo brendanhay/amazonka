@@ -126,6 +126,8 @@ instance Core.AWSRequest EnableKey where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull EnableKeyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable EnableKey where
   hashWithSalt _salt EnableKey' {..} =

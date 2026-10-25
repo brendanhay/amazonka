@@ -186,6 +186,11 @@ instance Core.AWSRequest ImportTable where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ImportTableDescription")
       )
+  updateIdempotencyToken f s@ImportTable' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: ImportTable
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable ImportTable where
   hashWithSalt _salt ImportTable' {..} =

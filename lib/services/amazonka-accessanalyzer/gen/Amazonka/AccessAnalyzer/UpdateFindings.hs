@@ -136,6 +136,13 @@ instance Core.AWSRequest UpdateFindings where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateFindingsResponse'
+  updateIdempotencyToken
+    f
+    s@UpdateFindings' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: UpdateFindings
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateFindings where
   hashWithSalt _salt UpdateFindings' {..} =

@@ -93,6 +93,8 @@ instance Core.AWSRequest PutUsers where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull PutUsersResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutUsers where
   hashWithSalt _salt PutUsers' {..} =

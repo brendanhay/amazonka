@@ -123,6 +123,8 @@ instance Core.AWSRequest GetParameters where
                         )
             Prelude.<*> (x Data..?> "Parameters" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetParameters where
   hashWithSalt _salt GetParameters' {..} =

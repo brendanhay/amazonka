@@ -107,6 +107,8 @@ instance Core.AWSRequest DeleteLifecycleHook where
           DeleteLifecycleHookResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteLifecycleHook where
   hashWithSalt _salt DeleteLifecycleHook' {..} =

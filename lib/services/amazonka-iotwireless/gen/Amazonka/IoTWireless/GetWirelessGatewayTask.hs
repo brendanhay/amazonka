@@ -95,6 +95,8 @@ instance Core.AWSRequest GetWirelessGatewayTask where
             Prelude.<*> (x Data..?> "WirelessGatewayTaskDefinitionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetWirelessGatewayTask where
   hashWithSalt _salt GetWirelessGatewayTask' {..} =

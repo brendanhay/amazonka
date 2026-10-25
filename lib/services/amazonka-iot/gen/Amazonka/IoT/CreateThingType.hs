@@ -125,6 +125,8 @@ instance Core.AWSRequest CreateThingType where
             Prelude.<*> (x Data..?> "thingTypeName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateThingType where
   hashWithSalt _salt CreateThingType' {..} =

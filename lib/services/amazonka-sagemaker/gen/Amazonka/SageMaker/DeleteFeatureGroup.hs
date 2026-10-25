@@ -93,6 +93,8 @@ instance Core.AWSRequest DeleteFeatureGroup where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteFeatureGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFeatureGroup where
   hashWithSalt _salt DeleteFeatureGroup' {..} =

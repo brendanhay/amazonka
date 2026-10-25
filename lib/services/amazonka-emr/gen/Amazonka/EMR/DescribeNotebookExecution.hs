@@ -90,6 +90,8 @@ instance Core.AWSRequest DescribeNotebookExecution where
             Prelude.<$> (x Data..?> "NotebookExecution")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeNotebookExecution where
   hashWithSalt _salt DescribeNotebookExecution' {..} =

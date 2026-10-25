@@ -96,6 +96,8 @@ instance Core.AWSRequest StartMetricStreams where
           StartMetricStreamsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartMetricStreams where
   hashWithSalt _salt StartMetricStreams' {..} =

@@ -206,6 +206,8 @@ instance Core.AWSRequest CreateSAMLProvider where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateSAMLProvider where
   hashWithSalt _salt CreateSAMLProvider' {..} =

@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteFindingsFilter where
           DeleteFindingsFilterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFindingsFilter where
   hashWithSalt _salt DeleteFindingsFilter' {..} =

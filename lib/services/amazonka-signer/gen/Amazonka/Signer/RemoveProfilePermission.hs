@@ -122,6 +122,8 @@ instance Core.AWSRequest RemoveProfilePermission where
             Prelude.<$> (x Data..?> "revisionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveProfilePermission where
   hashWithSalt _salt RemoveProfilePermission' {..} =

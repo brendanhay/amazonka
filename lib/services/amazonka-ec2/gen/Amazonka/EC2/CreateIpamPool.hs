@@ -382,6 +382,13 @@ instance Core.AWSRequest CreateIpamPool where
             Prelude.<$> (x Data..@? "ipamPool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateIpamPool' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateIpamPool
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateIpamPool where
   hashWithSalt _salt CreateIpamPool' {..} =

@@ -202,6 +202,8 @@ instance Core.AWSRequest AllowCustomRoutingTraffic where
   response =
     Response.receiveNull
       AllowCustomRoutingTrafficResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AllowCustomRoutingTraffic where
   hashWithSalt _salt AllowCustomRoutingTraffic' {..} =

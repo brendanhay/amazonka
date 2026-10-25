@@ -155,6 +155,8 @@ instance Core.AWSRequest ListFileSystemAssociations where
             Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListFileSystemAssociations where
   hashWithSalt _salt ListFileSystemAssociations' {..} =

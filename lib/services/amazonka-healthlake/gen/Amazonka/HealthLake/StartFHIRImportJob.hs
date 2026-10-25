@@ -68,7 +68,7 @@ data StartFHIRImportJob = StartFHIRImportJob'
     -- permission.
     dataAccessRoleArn :: Prelude.Text,
     -- | Optional user provided token used for ensuring idempotency.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -102,22 +102,19 @@ newStartFHIRImportJob ::
   Prelude.Text ->
   -- | 'dataAccessRoleArn'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   StartFHIRImportJob
 newStartFHIRImportJob
   pInputDataConfig_
   pJobOutputDataConfig_
   pDatastoreId_
-  pDataAccessRoleArn_
-  pClientToken_ =
+  pDataAccessRoleArn_ =
     StartFHIRImportJob'
       { jobName = Prelude.Nothing,
         inputDataConfig = pInputDataConfig_,
         jobOutputDataConfig = pJobOutputDataConfig_,
         datastoreId = pDatastoreId_,
         dataAccessRoleArn = pDataAccessRoleArn_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | The name of the FHIR Import job in the StartFHIRImport job request.
@@ -143,7 +140,7 @@ startFHIRImportJob_dataAccessRoleArn :: Lens.Lens' StartFHIRImportJob Prelude.Te
 startFHIRImportJob_dataAccessRoleArn = Lens.lens (\StartFHIRImportJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartFHIRImportJob' {} a -> s {dataAccessRoleArn = a} :: StartFHIRImportJob)
 
 -- | Optional user provided token used for ensuring idempotency.
-startFHIRImportJob_clientToken :: Lens.Lens' StartFHIRImportJob Prelude.Text
+startFHIRImportJob_clientToken :: Lens.Lens' StartFHIRImportJob (Prelude.Maybe Prelude.Text)
 startFHIRImportJob_clientToken = Lens.lens (\StartFHIRImportJob' {clientToken} -> clientToken) (\s@StartFHIRImportJob' {} a -> s {clientToken = a} :: StartFHIRImportJob)
 
 instance Core.AWSRequest StartFHIRImportJob where
@@ -161,6 +158,13 @@ instance Core.AWSRequest StartFHIRImportJob where
             Prelude.<*> (x Data..:> "JobId")
             Prelude.<*> (x Data..:> "JobStatus")
       )
+  updateIdempotencyToken
+    f
+    s@StartFHIRImportJob' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: StartFHIRImportJob
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartFHIRImportJob where
   hashWithSalt _salt StartFHIRImportJob' {..} =
@@ -208,7 +212,7 @@ instance Data.ToJSON StartFHIRImportJob where
             Prelude.Just ("DatastoreId" Data..= datastoreId),
             Prelude.Just
               ("DataAccessRoleArn" Data..= dataAccessRoleArn),
-            Prelude.Just ("ClientToken" Data..= clientToken)
+            ("ClientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

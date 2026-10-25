@@ -203,6 +203,11 @@ instance Core.AWSRequest CreateUser where
             Prelude.<$> (x Data..?> "userId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@CreateUser' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateUser
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =

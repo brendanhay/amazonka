@@ -80,6 +80,8 @@ instance Core.AWSRequest GetInvitationConfiguration where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetInvitationConfiguration where
   hashWithSalt _salt _ =

@@ -112,6 +112,8 @@ instance Core.AWSRequest AssociateAttributeGroup where
             Prelude.<*> (x Data..?> "attributeGroupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateAttributeGroup where
   hashWithSalt _salt AssociateAttributeGroup' {..} =

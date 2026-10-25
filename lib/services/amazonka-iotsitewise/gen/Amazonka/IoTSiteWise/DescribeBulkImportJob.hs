@@ -106,6 +106,8 @@ instance Core.AWSRequest DescribeBulkImportJob where
             Prelude.<*> (x Data..:> "jobCreationDate")
             Prelude.<*> (x Data..:> "jobLastUpdateDate")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeBulkImportJob where
   hashWithSalt _salt DescribeBulkImportJob' {..} =

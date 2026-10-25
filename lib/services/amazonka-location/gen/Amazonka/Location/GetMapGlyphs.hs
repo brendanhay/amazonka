@@ -263,6 +263,8 @@ instance Core.AWSRequest GetMapGlyphs where
             Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMapGlyphs where
   hashWithSalt _salt GetMapGlyphs' {..} =

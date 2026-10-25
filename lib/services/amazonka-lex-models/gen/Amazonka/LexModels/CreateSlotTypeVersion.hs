@@ -155,6 +155,8 @@ instance Core.AWSRequest CreateSlotTypeVersion where
             Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateSlotTypeVersion where
   hashWithSalt _salt CreateSlotTypeVersion' {..} =

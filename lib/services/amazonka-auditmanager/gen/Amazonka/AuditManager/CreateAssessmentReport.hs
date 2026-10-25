@@ -176,6 +176,8 @@ instance Core.AWSRequest CreateAssessmentReport where
             Prelude.<$> (x Data..?> "assessmentReport")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateAssessmentReport where
   hashWithSalt _salt CreateAssessmentReport' {..} =

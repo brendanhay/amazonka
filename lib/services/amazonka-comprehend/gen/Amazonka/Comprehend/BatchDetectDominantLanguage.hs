@@ -103,6 +103,8 @@ instance Core.AWSRequest BatchDetectDominantLanguage where
             Prelude.<*> (x Data..?> "ResultList" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "ErrorList" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchDetectDominantLanguage where
   hashWithSalt _salt BatchDetectDominantLanguage' {..} =

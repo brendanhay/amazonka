@@ -93,6 +93,8 @@ instance Core.AWSRequest CreateCliToken where
             Prelude.<*> (x Data..?> "WebServerHostname")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateCliToken where
   hashWithSalt _salt CreateCliToken' {..} =

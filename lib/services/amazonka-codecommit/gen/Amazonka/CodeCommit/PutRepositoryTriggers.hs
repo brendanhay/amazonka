@@ -106,6 +106,8 @@ instance Core.AWSRequest PutRepositoryTriggers where
             Prelude.<$> (x Data..?> "configurationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutRepositoryTriggers where
   hashWithSalt _salt PutRepositoryTriggers' {..} =

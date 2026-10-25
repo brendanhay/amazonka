@@ -102,6 +102,8 @@ instance Core.AWSRequest DeleteDBClusterEndpoint where
     Response.receiveXMLWrapper
       "DeleteDBClusterEndpointResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDBClusterEndpoint where
   hashWithSalt _salt DeleteDBClusterEndpoint' {..} =

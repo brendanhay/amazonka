@@ -210,6 +210,8 @@ instance Core.AWSRequest ListWhatIfForecasts where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListWhatIfForecasts where
   hashWithSalt _salt ListWhatIfForecasts' {..} =

@@ -115,6 +115,8 @@ instance Core.AWSRequest PutAggregationAuthorization where
             Prelude.<$> (x Data..?> "AggregationAuthorization")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutAggregationAuthorization where
   hashWithSalt _salt PutAggregationAuthorization' {..} =

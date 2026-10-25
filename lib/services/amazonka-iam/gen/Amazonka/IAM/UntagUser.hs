@@ -108,6 +108,8 @@ instance Core.AWSRequest UntagUser where
   request overrides =
     Request.postQuery (overrides defaultService)
   response = Response.receiveNull UntagUserResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UntagUser where
   hashWithSalt _salt UntagUser' {..} =

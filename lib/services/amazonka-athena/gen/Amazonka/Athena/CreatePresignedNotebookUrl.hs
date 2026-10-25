@@ -96,6 +96,8 @@ instance Core.AWSRequest CreatePresignedNotebookUrl where
             Prelude.<*> (x Data..:> "AuthToken")
             Prelude.<*> (x Data..:> "AuthTokenExpirationTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreatePresignedNotebookUrl where
   hashWithSalt _salt CreatePresignedNotebookUrl' {..} =

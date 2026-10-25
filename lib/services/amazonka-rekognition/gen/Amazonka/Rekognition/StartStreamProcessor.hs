@@ -150,6 +150,8 @@ instance Core.AWSRequest StartStreamProcessor where
             Prelude.<$> (x Data..?> "SessionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartStreamProcessor where
   hashWithSalt _salt StartStreamProcessor' {..} =

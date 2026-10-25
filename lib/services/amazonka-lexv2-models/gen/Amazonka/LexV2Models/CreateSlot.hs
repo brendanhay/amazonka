@@ -284,6 +284,8 @@ instance Core.AWSRequest CreateSlot where
             Prelude.<*> (x Data..?> "valueElicitationSetting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateSlot where
   hashWithSalt _salt CreateSlot' {..} =

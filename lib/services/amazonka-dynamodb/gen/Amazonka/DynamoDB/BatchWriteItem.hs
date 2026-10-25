@@ -295,6 +295,8 @@ instance Core.AWSRequest BatchWriteItem where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchWriteItem where
   hashWithSalt _salt BatchWriteItem' {..} =

@@ -120,6 +120,8 @@ instance Core.AWSRequest RunPipelineActivity where
             Prelude.<*> (x Data..?> "payloads")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RunPipelineActivity where
   hashWithSalt _salt RunPipelineActivity' {..} =

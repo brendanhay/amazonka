@@ -224,6 +224,8 @@ instance Core.AWSRequest SearchAssociatedTranscripts where
             Prelude.<*> (x Data..?> "totalResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SearchAssociatedTranscripts where
   hashWithSalt _salt SearchAssociatedTranscripts' {..} =

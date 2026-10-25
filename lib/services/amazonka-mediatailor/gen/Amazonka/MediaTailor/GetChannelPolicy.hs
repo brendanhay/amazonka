@@ -88,6 +88,8 @@ instance Core.AWSRequest GetChannelPolicy where
             Prelude.<$> (x Data..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetChannelPolicy where
   hashWithSalt _salt GetChannelPolicy' {..} =

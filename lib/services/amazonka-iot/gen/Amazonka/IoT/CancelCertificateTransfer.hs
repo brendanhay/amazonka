@@ -101,6 +101,8 @@ instance Core.AWSRequest CancelCertificateTransfer where
   response =
     Response.receiveNull
       CancelCertificateTransferResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelCertificateTransfer where
   hashWithSalt _salt CancelCertificateTransfer' {..} =

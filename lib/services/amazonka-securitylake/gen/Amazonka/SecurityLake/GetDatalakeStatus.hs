@@ -167,6 +167,8 @@ instance Core.AWSRequest GetDatalakeStatus where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDatalakeStatus where
   hashWithSalt _salt GetDatalakeStatus' {..} =

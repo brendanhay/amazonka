@@ -66,6 +66,8 @@ instance Core.AWSRequest DeleteNotificationChannel where
   response =
     Response.receiveNull
       DeleteNotificationChannelResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteNotificationChannel where
   hashWithSalt _salt _ =

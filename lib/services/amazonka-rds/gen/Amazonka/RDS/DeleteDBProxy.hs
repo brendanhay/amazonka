@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteDBProxy where
             Prelude.<$> (x Data..@? "DBProxy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDBProxy where
   hashWithSalt _salt DeleteDBProxy' {..} =

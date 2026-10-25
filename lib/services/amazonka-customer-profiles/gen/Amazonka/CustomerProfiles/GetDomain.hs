@@ -101,6 +101,8 @@ instance Core.AWSRequest GetDomain where
             Prelude.<*> (x Data..:> "CreatedAt")
             Prelude.<*> (x Data..:> "LastUpdatedAt")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDomain where
   hashWithSalt _salt GetDomain' {..} =

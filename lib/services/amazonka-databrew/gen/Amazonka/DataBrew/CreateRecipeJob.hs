@@ -271,6 +271,8 @@ instance Core.AWSRequest CreateRecipeJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Name")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateRecipeJob where
   hashWithSalt _salt CreateRecipeJob' {..} =

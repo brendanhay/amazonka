@@ -141,6 +141,8 @@ instance Core.AWSRequest DescribeEffectivePolicy where
             Prelude.<$> (x Data..?> "EffectivePolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEffectivePolicy where
   hashWithSalt _salt DescribeEffectivePolicy' {..} =

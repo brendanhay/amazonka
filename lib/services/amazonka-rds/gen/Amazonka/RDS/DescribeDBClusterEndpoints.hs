@@ -227,6 +227,8 @@ instance Core.AWSRequest DescribeDBClusterEndpoints where
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDBClusterEndpoints where
   hashWithSalt _salt DescribeDBClusterEndpoints' {..} =

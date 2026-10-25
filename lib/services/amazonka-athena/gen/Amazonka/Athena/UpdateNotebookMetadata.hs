@@ -131,6 +131,8 @@ instance Core.AWSRequest UpdateNotebookMetadata where
           UpdateNotebookMetadataResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateNotebookMetadata where
   hashWithSalt _salt UpdateNotebookMetadata' {..} =

@@ -103,6 +103,8 @@ instance Core.AWSRequest DeleteDomainAssociation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "domainAssociation")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDomainAssociation where
   hashWithSalt _salt DeleteDomainAssociation' {..} =

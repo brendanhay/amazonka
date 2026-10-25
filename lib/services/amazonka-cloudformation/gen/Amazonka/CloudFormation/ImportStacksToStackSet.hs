@@ -190,6 +190,14 @@ instance Core.AWSRequest ImportStacksToStackSet where
             Prelude.<$> (x Data..@? "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@ImportStacksToStackSet' {operationId} =
+      ( \operationId' ->
+          s {operationId = operationId'} ::
+            ImportStacksToStackSet
+      )
+        Prelude.<$> f operationId
 
 instance Prelude.Hashable ImportStacksToStackSet where
   hashWithSalt _salt ImportStacksToStackSet' {..} =

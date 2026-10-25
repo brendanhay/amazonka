@@ -152,6 +152,8 @@ instance Core.AWSRequest GetRevision where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Revision")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRevision where
   hashWithSalt _salt GetRevision' {..} =

@@ -81,7 +81,7 @@ data CreateManagedEndpoint = CreateManagedEndpoint'
     -- | The ARN of the execution role.
     executionRoleArn :: Prelude.Text,
     -- | The client idempotency token for this create call.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -123,16 +123,13 @@ newCreateManagedEndpoint ::
   Prelude.Text ->
   -- | 'executionRoleArn'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateManagedEndpoint
 newCreateManagedEndpoint
   pName_
   pVirtualClusterId_
   pType_
   pReleaseLabel_
-  pExecutionRoleArn_
-  pClientToken_ =
+  pExecutionRoleArn_ =
     CreateManagedEndpoint'
       { certificateArn =
           Prelude.Nothing,
@@ -143,7 +140,7 @@ newCreateManagedEndpoint
         type' = pType_,
         releaseLabel = pReleaseLabel_,
         executionRoleArn = pExecutionRoleArn_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | The certificate ARN provided by users for the managed endpoint. This
@@ -181,7 +178,7 @@ createManagedEndpoint_executionRoleArn :: Lens.Lens' CreateManagedEndpoint Prelu
 createManagedEndpoint_executionRoleArn = Lens.lens (\CreateManagedEndpoint' {executionRoleArn} -> executionRoleArn) (\s@CreateManagedEndpoint' {} a -> s {executionRoleArn = a} :: CreateManagedEndpoint)
 
 -- | The client idempotency token for this create call.
-createManagedEndpoint_clientToken :: Lens.Lens' CreateManagedEndpoint Prelude.Text
+createManagedEndpoint_clientToken :: Lens.Lens' CreateManagedEndpoint (Prelude.Maybe Prelude.Text)
 createManagedEndpoint_clientToken = Lens.lens (\CreateManagedEndpoint' {clientToken} -> clientToken) (\s@CreateManagedEndpoint' {} a -> s {clientToken = a} :: CreateManagedEndpoint)
 
 instance Core.AWSRequest CreateManagedEndpoint where
@@ -200,6 +197,14 @@ instance Core.AWSRequest CreateManagedEndpoint where
             Prelude.<*> (x Data..?> "virtualClusterId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateManagedEndpoint' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateManagedEndpoint
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateManagedEndpoint where
   hashWithSalt _salt CreateManagedEndpoint' {..} =
@@ -251,7 +256,7 @@ instance Data.ToJSON CreateManagedEndpoint where
             Prelude.Just ("releaseLabel" Data..= releaseLabel),
             Prelude.Just
               ("executionRoleArn" Data..= executionRoleArn),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

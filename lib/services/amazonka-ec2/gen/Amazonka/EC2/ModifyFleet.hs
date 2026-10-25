@@ -182,6 +182,8 @@ instance Core.AWSRequest ModifyFleet where
             Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyFleet where
   hashWithSalt _salt ModifyFleet' {..} =

@@ -162,6 +162,11 @@ instance Core.AWSRequest SendMessage where
             Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@SendMessage' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: SendMessage
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable SendMessage where
   hashWithSalt _salt SendMessage' {..} =

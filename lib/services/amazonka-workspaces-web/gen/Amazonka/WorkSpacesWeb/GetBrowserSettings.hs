@@ -90,6 +90,8 @@ instance Core.AWSRequest GetBrowserSettings where
             Prelude.<$> (x Data..?> "browserSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBrowserSettings where
   hashWithSalt _salt GetBrowserSettings' {..} =

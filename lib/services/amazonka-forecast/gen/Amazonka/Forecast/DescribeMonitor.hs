@@ -125,6 +125,8 @@ instance Core.AWSRequest DescribeMonitor where
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeMonitor where
   hashWithSalt _salt DescribeMonitor' {..} =

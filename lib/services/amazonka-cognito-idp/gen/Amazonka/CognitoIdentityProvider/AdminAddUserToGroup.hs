@@ -109,6 +109,8 @@ instance Core.AWSRequest AdminAddUserToGroup where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull AdminAddUserToGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AdminAddUserToGroup where
   hashWithSalt _salt AdminAddUserToGroup' {..} =

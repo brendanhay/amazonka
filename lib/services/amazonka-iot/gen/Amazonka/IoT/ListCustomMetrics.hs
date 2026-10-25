@@ -127,6 +127,8 @@ instance Core.AWSRequest ListCustomMetrics where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListCustomMetrics where
   hashWithSalt _salt ListCustomMetrics' {..} =

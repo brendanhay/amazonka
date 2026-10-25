@@ -163,6 +163,8 @@ instance Core.AWSRequest SearchUsers where
             Prelude.<*> (x Data..?> "Users" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SearchUsers where
   hashWithSalt _salt SearchUsers' {..} =

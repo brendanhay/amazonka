@@ -86,6 +86,8 @@ instance Core.AWSRequest StopBuildBatch where
             Prelude.<$> (x Data..?> "buildBatch")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopBuildBatch where
   hashWithSalt _salt StopBuildBatch' {..} =

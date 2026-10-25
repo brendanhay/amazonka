@@ -143,6 +143,8 @@ instance Core.AWSRequest StartConnection where
             Prelude.<*> (x Data..?> "UnderlayIpAddress")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartConnection where
   hashWithSalt _salt StartConnection' {..} =

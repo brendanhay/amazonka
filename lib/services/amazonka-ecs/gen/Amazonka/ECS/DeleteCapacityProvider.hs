@@ -108,6 +108,8 @@ instance Core.AWSRequest DeleteCapacityProvider where
             Prelude.<$> (x Data..?> "capacityProvider")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCapacityProvider where
   hashWithSalt _salt DeleteCapacityProvider' {..} =

@@ -80,6 +80,8 @@ instance Core.AWSRequest GetMacieSession where
             Prelude.<*> (x Data..?> "updatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMacieSession where
   hashWithSalt _salt _ =

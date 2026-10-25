@@ -98,6 +98,8 @@ instance Core.AWSRequest UnshareApplication where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UnshareApplicationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UnshareApplication where
   hashWithSalt _salt UnshareApplication' {..} =

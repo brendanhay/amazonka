@@ -125,6 +125,8 @@ instance Core.AWSRequest SetTerminationProtection where
   response =
     Response.receiveNull
       SetTerminationProtectionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetTerminationProtection where
   hashWithSalt _salt SetTerminationProtection' {..} =

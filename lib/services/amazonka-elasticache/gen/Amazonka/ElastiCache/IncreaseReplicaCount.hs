@@ -152,6 +152,8 @@ instance Core.AWSRequest IncreaseReplicaCount where
             Prelude.<$> (x Data..@? "ReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable IncreaseReplicaCount where
   hashWithSalt _salt IncreaseReplicaCount' {..} =

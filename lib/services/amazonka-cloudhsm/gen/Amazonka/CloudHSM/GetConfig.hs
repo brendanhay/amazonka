@@ -131,6 +131,8 @@ instance Core.AWSRequest GetConfig where
             Prelude.<*> (x Data..?> "ConfigType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetConfig where
   hashWithSalt _salt GetConfig' {..} =

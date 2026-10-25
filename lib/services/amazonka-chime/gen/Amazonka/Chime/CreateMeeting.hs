@@ -80,7 +80,7 @@ data CreateMeeting = CreateMeeting'
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The unique identifier for the client request. Use a different token for
     -- different meetings.
-    clientRequestToken :: Data.Sensitive Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -112,18 +112,15 @@ data CreateMeeting = CreateMeeting'
 -- 'clientRequestToken', 'createMeeting_clientRequestToken' - The unique identifier for the client request. Use a different token for
 -- different meetings.
 newCreateMeeting ::
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   CreateMeeting
-newCreateMeeting pClientRequestToken_ =
+newCreateMeeting =
   CreateMeeting'
     { externalMeetingId = Prelude.Nothing,
       mediaRegion = Prelude.Nothing,
       meetingHostId = Prelude.Nothing,
       notificationsConfiguration = Prelude.Nothing,
       tags = Prelude.Nothing,
-      clientRequestToken =
-        Data._Sensitive Lens.# pClientRequestToken_
+      clientRequestToken = Prelude.Nothing
     }
 
 -- | The external meeting ID.
@@ -155,8 +152,8 @@ createMeeting_tags = Lens.lens (\CreateMeeting' {tags} -> tags) (\s@CreateMeetin
 
 -- | The unique identifier for the client request. Use a different token for
 -- different meetings.
-createMeeting_clientRequestToken :: Lens.Lens' CreateMeeting Prelude.Text
-createMeeting_clientRequestToken = Lens.lens (\CreateMeeting' {clientRequestToken} -> clientRequestToken) (\s@CreateMeeting' {} a -> s {clientRequestToken = a} :: CreateMeeting) Prelude.. Data._Sensitive
+createMeeting_clientRequestToken :: Lens.Lens' CreateMeeting (Prelude.Maybe Prelude.Text)
+createMeeting_clientRequestToken = Lens.lens (\CreateMeeting' {clientRequestToken} -> clientRequestToken) (\s@CreateMeeting' {} a -> s {clientRequestToken = a} :: CreateMeeting)
 
 instance Core.AWSRequest CreateMeeting where
   type
@@ -171,6 +168,14 @@ instance Core.AWSRequest CreateMeeting where
             Prelude.<$> (x Data..?> "Meeting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateMeeting' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateMeeting
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateMeeting where
   hashWithSalt _salt CreateMeeting' {..} =
@@ -205,8 +210,8 @@ instance Data.ToJSON CreateMeeting where
             ("NotificationsConfiguration" Data..=)
               Prelude.<$> notificationsConfiguration,
             ("Tags" Data..=) Prelude.<$> tags,
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken)
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

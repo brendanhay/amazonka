@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteApiMapping where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteApiMappingResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteApiMapping where
   hashWithSalt _salt DeleteApiMapping' {..} =

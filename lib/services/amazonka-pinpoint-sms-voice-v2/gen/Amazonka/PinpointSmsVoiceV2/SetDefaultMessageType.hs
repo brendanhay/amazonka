@@ -124,6 +124,8 @@ instance Core.AWSRequest SetDefaultMessageType where
             Prelude.<*> (x Data..?> "MessageType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetDefaultMessageType where
   hashWithSalt _salt SetDefaultMessageType' {..} =

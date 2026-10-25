@@ -135,6 +135,8 @@ instance Core.AWSRequest DescribeEdgeDeploymentPlan where
             Prelude.<*> (x Data..:> "DeviceFleetName")
             Prelude.<*> (x Data..?> "Stages" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEdgeDeploymentPlan where
   hashWithSalt _salt DescribeEdgeDeploymentPlan' {..} =

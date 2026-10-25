@@ -116,6 +116,8 @@ instance Core.AWSRequest CreateLFTag where
           CreateLFTagResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLFTag where
   hashWithSalt _salt CreateLFTag' {..} =

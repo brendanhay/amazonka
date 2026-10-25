@@ -105,6 +105,8 @@ instance Core.AWSRequest GetLaunchProfile where
             Prelude.<$> (x Data..?> "launchProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetLaunchProfile where
   hashWithSalt _salt GetLaunchProfile' {..} =

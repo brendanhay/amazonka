@@ -94,6 +94,8 @@ instance Core.AWSRequest DescribePHIDetectionJob where
             Prelude.<$> (x Data..?> "ComprehendMedicalAsyncJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePHIDetectionJob where
   hashWithSalt _salt DescribePHIDetectionJob' {..} =

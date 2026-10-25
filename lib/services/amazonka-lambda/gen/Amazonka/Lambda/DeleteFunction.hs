@@ -142,6 +142,8 @@ instance Core.AWSRequest DeleteFunction where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteFunctionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFunction where
   hashWithSalt _salt DeleteFunction' {..} =

@@ -156,6 +156,8 @@ instance Core.AWSRequest ListRateBasedRules where
             Prelude.<*> (x Data..?> "Rules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListRateBasedRules where
   hashWithSalt _salt ListRateBasedRules' {..} =

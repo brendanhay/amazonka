@@ -93,6 +93,8 @@ instance
   response =
     Response.receiveNull
       EnableHealthServiceAccessForOrganizationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

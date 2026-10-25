@@ -219,6 +219,8 @@ instance Core.AWSRequest ListEdgePackagingJobs where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListEdgePackagingJobs where
   hashWithSalt _salt ListEdgePackagingJobs' {..} =

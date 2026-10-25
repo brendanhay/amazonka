@@ -109,6 +109,8 @@ instance Core.AWSRequest ListEngineVersions where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListEngineVersions where
   hashWithSalt _salt ListEngineVersions' {..} =

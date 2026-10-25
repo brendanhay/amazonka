@@ -91,6 +91,8 @@ instance Core.AWSRequest RemoveManagedScalingPolicy where
           RemoveManagedScalingPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveManagedScalingPolicy where
   hashWithSalt _salt RemoveManagedScalingPolicy' {..} =

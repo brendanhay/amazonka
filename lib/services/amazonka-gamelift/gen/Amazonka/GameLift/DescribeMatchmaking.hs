@@ -106,6 +106,8 @@ instance Core.AWSRequest DescribeMatchmaking where
             Prelude.<$> (x Data..?> "TicketList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeMatchmaking where
   hashWithSalt _salt DescribeMatchmaking' {..} =

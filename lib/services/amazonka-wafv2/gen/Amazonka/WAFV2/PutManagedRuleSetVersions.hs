@@ -250,6 +250,8 @@ instance Core.AWSRequest PutManagedRuleSetVersions where
             Prelude.<$> (x Data..?> "NextLockToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutManagedRuleSetVersions where
   hashWithSalt _salt PutManagedRuleSetVersions' {..} =

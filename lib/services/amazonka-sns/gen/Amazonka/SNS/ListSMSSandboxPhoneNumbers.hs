@@ -141,6 +141,8 @@ instance Core.AWSRequest ListSMSSandboxPhoneNumbers where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSMSSandboxPhoneNumbers where
   hashWithSalt _salt ListSMSSandboxPhoneNumbers' {..} =

@@ -157,6 +157,8 @@ instance Core.AWSRequest UpdateFilter where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "name")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateFilter where
   hashWithSalt _salt UpdateFilter' {..} =

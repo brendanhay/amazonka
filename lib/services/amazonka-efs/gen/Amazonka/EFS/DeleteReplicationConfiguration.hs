@@ -92,6 +92,8 @@ instance
   response =
     Response.receiveNull
       DeleteReplicationConfigurationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

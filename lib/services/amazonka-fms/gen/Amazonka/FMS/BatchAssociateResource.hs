@@ -111,6 +111,8 @@ instance Core.AWSRequest BatchAssociateResource where
             Prelude.<*> (x Data..:> "ResourceSetIdentifier")
             Prelude.<*> (x Data..?> "FailedItems" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchAssociateResource where
   hashWithSalt _salt BatchAssociateResource' {..} =

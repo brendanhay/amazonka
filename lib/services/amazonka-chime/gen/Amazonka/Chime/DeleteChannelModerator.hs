@@ -110,6 +110,8 @@ instance Core.AWSRequest DeleteChannelModerator where
   response =
     Response.receiveNull
       DeleteChannelModeratorResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteChannelModerator where
   hashWithSalt _salt DeleteChannelModerator' {..} =

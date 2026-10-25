@@ -107,6 +107,8 @@ instance Core.AWSRequest DeleteFirewallRule where
             Prelude.<$> (x Data..?> "FirewallRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFirewallRule where
   hashWithSalt _salt DeleteFirewallRule' {..} =

@@ -96,6 +96,8 @@ instance Core.AWSRequest DeleteProxySession where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteProxySessionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteProxySession where
   hashWithSalt _salt DeleteProxySession' {..} =

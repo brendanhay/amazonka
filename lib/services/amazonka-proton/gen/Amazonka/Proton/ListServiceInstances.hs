@@ -199,6 +199,8 @@ instance Core.AWSRequest ListServiceInstances where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListServiceInstances where
   hashWithSalt _salt ListServiceInstances' {..} =

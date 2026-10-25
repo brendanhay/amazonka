@@ -104,6 +104,8 @@ instance Core.AWSRequest PutRegistryPolicy where
             Prelude.<*> (x Data..?> "registryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutRegistryPolicy where
   hashWithSalt _salt PutRegistryPolicy' {..} =

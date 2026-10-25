@@ -158,6 +158,8 @@ instance Core.AWSRequest UpdateModelPackage where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ModelPackageArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateModelPackage where
   hashWithSalt _salt UpdateModelPackage' {..} =

@@ -127,6 +127,8 @@ instance Core.AWSRequest GetDataEndpoint where
             Prelude.<$> (x Data..?> "DataEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDataEndpoint where
   hashWithSalt _salt GetDataEndpoint' {..} =

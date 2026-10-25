@@ -115,6 +115,8 @@ instance Core.AWSRequest DescribeAccountPreferences where
             Prelude.<*> (x Data..?> "ResourceIdPreference")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAccountPreferences where
   hashWithSalt _salt DescribeAccountPreferences' {..} =

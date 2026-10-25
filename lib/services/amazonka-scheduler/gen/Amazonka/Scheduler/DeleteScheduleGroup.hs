@@ -114,6 +114,13 @@ instance Core.AWSRequest DeleteScheduleGroup where
           DeleteScheduleGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteScheduleGroup' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: DeleteScheduleGroup
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteScheduleGroup where
   hashWithSalt _salt DeleteScheduleGroup' {..} =

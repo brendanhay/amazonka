@@ -211,6 +211,8 @@ instance Core.AWSRequest GetJourneyDateRangeKpi where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetJourneyDateRangeKpi where
   hashWithSalt _salt GetJourneyDateRangeKpi' {..} =

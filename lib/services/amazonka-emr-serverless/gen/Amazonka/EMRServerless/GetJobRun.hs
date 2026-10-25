@@ -99,6 +99,8 @@ instance Core.AWSRequest GetJobRun where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "jobRun")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetJobRun where
   hashWithSalt _salt GetJobRun' {..} =

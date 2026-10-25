@@ -87,6 +87,8 @@ instance Core.AWSRequest DescribeCopyJob where
             Prelude.<$> (x Data..?> "CopyJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeCopyJob where
   hashWithSalt _salt DescribeCopyJob' {..} =

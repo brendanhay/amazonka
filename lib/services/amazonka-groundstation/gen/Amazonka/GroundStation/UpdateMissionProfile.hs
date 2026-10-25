@@ -166,6 +166,8 @@ instance Core.AWSRequest UpdateMissionProfile where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateMissionProfile where
   hashWithSalt _salt UpdateMissionProfile' {..} =

@@ -373,6 +373,8 @@ instance Core.AWSRequest DescribeBatchPredictions where
             Prelude.<*> (x Data..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeBatchPredictions where
   hashWithSalt _salt DescribeBatchPredictions' {..} =

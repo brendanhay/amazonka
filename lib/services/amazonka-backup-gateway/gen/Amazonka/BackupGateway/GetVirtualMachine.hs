@@ -88,6 +88,8 @@ instance Core.AWSRequest GetVirtualMachine where
             Prelude.<$> (x Data..?> "VirtualMachine")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetVirtualMachine where
   hashWithSalt _salt GetVirtualMachine' {..} =

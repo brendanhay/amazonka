@@ -122,6 +122,8 @@ instance Core.AWSRequest MoveAddressToVpc where
             Prelude.<*> (x Data..@? "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable MoveAddressToVpc where
   hashWithSalt _salt MoveAddressToVpc' {..} =

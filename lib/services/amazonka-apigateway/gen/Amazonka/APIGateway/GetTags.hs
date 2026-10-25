@@ -115,6 +115,8 @@ instance Core.AWSRequest GetTags where
             Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTags where
   hashWithSalt _salt GetTags' {..} =

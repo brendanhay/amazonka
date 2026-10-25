@@ -90,6 +90,8 @@ instance Core.AWSRequest GetCodeSigningConfig where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "CodeSigningConfig")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCodeSigningConfig where
   hashWithSalt _salt GetCodeSigningConfig' {..} =

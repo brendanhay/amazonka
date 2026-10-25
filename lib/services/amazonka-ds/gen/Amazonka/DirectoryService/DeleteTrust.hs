@@ -102,6 +102,8 @@ instance Core.AWSRequest DeleteTrust where
             Prelude.<$> (x Data..?> "TrustId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTrust where
   hashWithSalt _salt DeleteTrust' {..} =

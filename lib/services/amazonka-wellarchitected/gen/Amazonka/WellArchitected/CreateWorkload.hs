@@ -97,7 +97,7 @@ data CreateWorkload = CreateWorkload'
     description :: Prelude.Text,
     environment :: WorkloadEnvironment,
     lenses :: [Prelude.Text],
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -150,14 +150,11 @@ newCreateWorkload ::
   Prelude.Text ->
   -- | 'environment'
   WorkloadEnvironment ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   CreateWorkload
 newCreateWorkload
   pWorkloadName_
   pDescription_
-  pEnvironment_
-  pClientRequestToken_ =
+  pEnvironment_ =
     CreateWorkload'
       { accountIds = Prelude.Nothing,
         applications = Prelude.Nothing,
@@ -175,7 +172,7 @@ newCreateWorkload
         description = pDescription_,
         environment = pEnvironment_,
         lenses = Prelude.mempty,
-        clientRequestToken = pClientRequestToken_
+        clientRequestToken = Prelude.Nothing
       }
 
 -- | Undocumented member.
@@ -244,7 +241,7 @@ createWorkload_lenses :: Lens.Lens' CreateWorkload [Prelude.Text]
 createWorkload_lenses = Lens.lens (\CreateWorkload' {lenses} -> lenses) (\s@CreateWorkload' {} a -> s {lenses = a} :: CreateWorkload) Prelude.. Lens.coerced
 
 -- | Undocumented member.
-createWorkload_clientRequestToken :: Lens.Lens' CreateWorkload Prelude.Text
+createWorkload_clientRequestToken :: Lens.Lens' CreateWorkload (Prelude.Maybe Prelude.Text)
 createWorkload_clientRequestToken = Lens.lens (\CreateWorkload' {clientRequestToken} -> clientRequestToken) (\s@CreateWorkload' {} a -> s {clientRequestToken = a} :: CreateWorkload)
 
 instance Core.AWSRequest CreateWorkload where
@@ -261,6 +258,14 @@ instance Core.AWSRequest CreateWorkload where
             Prelude.<*> (x Data..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateWorkload' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateWorkload
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateWorkload where
   hashWithSalt _salt CreateWorkload' {..} =
@@ -337,8 +342,8 @@ instance Data.ToJSON CreateWorkload where
             Prelude.Just ("Description" Data..= description),
             Prelude.Just ("Environment" Data..= environment),
             Prelude.Just ("Lenses" Data..= lenses),
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken)
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

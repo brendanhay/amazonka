@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteVpcLink where
           DeleteVpcLinkResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVpcLink where
   hashWithSalt _salt DeleteVpcLink' {..} =

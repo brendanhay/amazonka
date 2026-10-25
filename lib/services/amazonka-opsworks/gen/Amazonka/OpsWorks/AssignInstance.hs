@@ -107,6 +107,8 @@ instance Core.AWSRequest AssignInstance where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull AssignInstanceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssignInstance where
   hashWithSalt _salt AssignInstance' {..} =

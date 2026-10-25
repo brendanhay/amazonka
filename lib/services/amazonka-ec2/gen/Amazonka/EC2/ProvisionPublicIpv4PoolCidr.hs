@@ -145,6 +145,8 @@ instance Core.AWSRequest ProvisionPublicIpv4PoolCidr where
             Prelude.<*> (x Data..@? "poolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ProvisionPublicIpv4PoolCidr where
   hashWithSalt _salt ProvisionPublicIpv4PoolCidr' {..} =

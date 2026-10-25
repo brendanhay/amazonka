@@ -156,6 +156,13 @@ instance Core.AWSRequest MonitorContact where
             Prelude.<*> (x Data..?> "ContactId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@MonitorContact' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: MonitorContact
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable MonitorContact where
   hashWithSalt _salt MonitorContact' {..} =

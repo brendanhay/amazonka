@@ -102,6 +102,8 @@ instance Core.AWSRequest DeleteTagsForDomain where
           DeleteTagsForDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTagsForDomain where
   hashWithSalt _salt DeleteTagsForDomain' {..} =

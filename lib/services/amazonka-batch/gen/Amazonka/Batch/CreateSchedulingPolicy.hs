@@ -150,6 +150,8 @@ instance Core.AWSRequest CreateSchedulingPolicy where
             Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "arn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateSchedulingPolicy where
   hashWithSalt _salt CreateSchedulingPolicy' {..} =

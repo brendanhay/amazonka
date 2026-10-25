@@ -83,6 +83,8 @@ instance Core.AWSRequest DescribeLags where
             Prelude.<$> (x Data..?> "lags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeLags where
   hashWithSalt _salt DescribeLags' {..} =

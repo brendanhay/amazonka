@@ -135,6 +135,8 @@ instance Core.AWSRequest ListFacetNames where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListFacetNames where
   hashWithSalt _salt ListFacetNames' {..} =

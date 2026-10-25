@@ -66,7 +66,7 @@ data CreateCustomRoutingEndpointGroup = CreateCustomRoutingEndpointGroup'
     destinationConfigurations :: Prelude.NonEmpty CustomRoutingDestinationConfiguration,
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency—that is, the uniqueness—of the request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,14 +97,11 @@ newCreateCustomRoutingEndpointGroup ::
   Prelude.Text ->
   -- | 'destinationConfigurations'
   Prelude.NonEmpty CustomRoutingDestinationConfiguration ->
-  -- | 'idempotencyToken'
-  Prelude.Text ->
   CreateCustomRoutingEndpointGroup
 newCreateCustomRoutingEndpointGroup
   pListenerArn_
   pEndpointGroupRegion_
-  pDestinationConfigurations_
-  pIdempotencyToken_ =
+  pDestinationConfigurations_ =
     CreateCustomRoutingEndpointGroup'
       { listenerArn =
           pListenerArn_,
@@ -113,7 +110,7 @@ newCreateCustomRoutingEndpointGroup
         destinationConfigurations =
           Lens.coerced
             Lens.# pDestinationConfigurations_,
-        idempotencyToken = pIdempotencyToken_
+        idempotencyToken = Prelude.Nothing
       }
 
 -- | The Amazon Resource Name (ARN) of the listener for a custom routing
@@ -134,7 +131,7 @@ createCustomRoutingEndpointGroup_destinationConfigurations = Lens.lens (\CreateC
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency—that is, the uniqueness—of the request.
-createCustomRoutingEndpointGroup_idempotencyToken :: Lens.Lens' CreateCustomRoutingEndpointGroup Prelude.Text
+createCustomRoutingEndpointGroup_idempotencyToken :: Lens.Lens' CreateCustomRoutingEndpointGroup (Prelude.Maybe Prelude.Text)
 createCustomRoutingEndpointGroup_idempotencyToken = Lens.lens (\CreateCustomRoutingEndpointGroup' {idempotencyToken} -> idempotencyToken) (\s@CreateCustomRoutingEndpointGroup' {} a -> s {idempotencyToken = a} :: CreateCustomRoutingEndpointGroup)
 
 instance
@@ -153,6 +150,14 @@ instance
             Prelude.<$> (x Data..?> "EndpointGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateCustomRoutingEndpointGroup' {idempotencyToken} =
+      ( \idempotencyToken' ->
+          s {idempotencyToken = idempotencyToken'} ::
+            CreateCustomRoutingEndpointGroup
+      )
+        Prelude.<$> f idempotencyToken
 
 instance
   Prelude.Hashable
@@ -206,8 +211,8 @@ instance Data.ToJSON CreateCustomRoutingEndpointGroup where
               ( "DestinationConfigurations"
                   Data..= destinationConfigurations
               ),
-            Prelude.Just
-              ("IdempotencyToken" Data..= idempotencyToken)
+            ("IdempotencyToken" Data..=)
+              Prelude.<$> idempotencyToken
           ]
       )
 

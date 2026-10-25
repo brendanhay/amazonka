@@ -186,6 +186,8 @@ instance Core.AWSRequest PurchaseHostReservation where
             Prelude.<*> (x Data..@? "totalUpfrontPrice")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PurchaseHostReservation where
   hashWithSalt _salt PurchaseHostReservation' {..} =

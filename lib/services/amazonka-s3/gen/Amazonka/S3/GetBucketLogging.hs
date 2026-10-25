@@ -114,6 +114,8 @@ instance Core.AWSRequest GetBucketLogging where
             Prelude.<$> (x Data..@? "LoggingEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBucketLogging where
   hashWithSalt _salt GetBucketLogging' {..} =

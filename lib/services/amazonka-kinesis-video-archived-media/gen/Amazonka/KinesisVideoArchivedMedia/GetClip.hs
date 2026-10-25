@@ -159,13 +159,15 @@ instance Core.AWSRequest GetClip where
   request overrides =
     Request.postJSON (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetClipResponse'
             Prelude.<$> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetClip where
   hashWithSalt _salt GetClip' {..} =

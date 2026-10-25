@@ -211,6 +211,8 @@ instance Core.AWSRequest CreateContactMethod where
             Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateContactMethod where
   hashWithSalt _salt CreateContactMethod' {..} =

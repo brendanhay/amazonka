@@ -113,6 +113,8 @@ instance Core.AWSRequest GetEarthObservationJob where
             Prelude.<*> (x Data..:> "Name")
             Prelude.<*> (x Data..:> "Status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetEarthObservationJob where
   hashWithSalt _salt GetEarthObservationJob' {..} =

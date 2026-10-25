@@ -117,6 +117,8 @@ instance Core.AWSRequest PutStoredQuery where
             Prelude.<$> (x Data..?> "QueryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutStoredQuery where
   hashWithSalt _salt PutStoredQuery' {..} =

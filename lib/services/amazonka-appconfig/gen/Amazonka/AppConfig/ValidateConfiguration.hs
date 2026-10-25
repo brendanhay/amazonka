@@ -109,6 +109,8 @@ instance Core.AWSRequest ValidateConfiguration where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull ValidateConfigurationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ValidateConfiguration where
   hashWithSalt _salt ValidateConfiguration' {..} =

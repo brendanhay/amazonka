@@ -131,6 +131,8 @@ instance Core.AWSRequest AddPartner where
     Response.receiveXMLWrapper
       "AddPartnerResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddPartner where
   hashWithSalt _salt AddPartner' {..} =

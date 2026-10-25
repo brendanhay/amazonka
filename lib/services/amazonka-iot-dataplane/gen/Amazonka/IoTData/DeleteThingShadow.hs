@@ -109,6 +109,8 @@ instance Core.AWSRequest DeleteThingShadow where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteThingShadow where
   hashWithSalt _salt DeleteThingShadow' {..} =

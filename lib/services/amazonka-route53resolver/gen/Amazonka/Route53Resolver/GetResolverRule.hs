@@ -89,6 +89,8 @@ instance Core.AWSRequest GetResolverRule where
             Prelude.<$> (x Data..?> "ResolverRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetResolverRule where
   hashWithSalt _salt GetResolverRule' {..} =

@@ -164,6 +164,8 @@ instance Core.AWSRequest DeleteBucket where
             Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBucket where
   hashWithSalt _salt DeleteBucket' {..} =

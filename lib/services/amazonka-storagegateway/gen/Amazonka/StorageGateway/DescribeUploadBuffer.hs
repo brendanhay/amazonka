@@ -98,6 +98,8 @@ instance Core.AWSRequest DescribeUploadBuffer where
             Prelude.<*> (x Data..?> "UploadBufferUsedInBytes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeUploadBuffer where
   hashWithSalt _salt DescribeUploadBuffer' {..} =

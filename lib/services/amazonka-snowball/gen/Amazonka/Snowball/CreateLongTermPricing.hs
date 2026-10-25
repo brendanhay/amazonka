@@ -125,6 +125,8 @@ instance Core.AWSRequest CreateLongTermPricing where
             Prelude.<$> (x Data..?> "LongTermPricingId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLongTermPricing where
   hashWithSalt _salt CreateLongTermPricing' {..} =

@@ -97,6 +97,8 @@ instance Core.AWSRequest UpdateLoggerDefinition where
           UpdateLoggerDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateLoggerDefinition where
   hashWithSalt _salt UpdateLoggerDefinition' {..} =

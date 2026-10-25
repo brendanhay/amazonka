@@ -227,6 +227,11 @@ instance Core.AWSRequest CreateChannel' where
             Prelude.<$> (x Data..?> "channel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@CreateChannel'' {requestId} =
+    ( \requestId' ->
+        s {requestId = requestId'} :: CreateChannel'
+    )
+      Prelude.<$> f requestId
 
 instance Prelude.Hashable CreateChannel' where
   hashWithSalt _salt CreateChannel'' {..} =

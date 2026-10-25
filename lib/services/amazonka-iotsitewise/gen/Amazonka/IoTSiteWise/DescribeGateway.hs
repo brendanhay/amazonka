@@ -102,6 +102,8 @@ instance Core.AWSRequest DescribeGateway where
             Prelude.<*> (x Data..:> "creationDate")
             Prelude.<*> (x Data..:> "lastUpdateDate")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeGateway where
   hashWithSalt _salt DescribeGateway' {..} =

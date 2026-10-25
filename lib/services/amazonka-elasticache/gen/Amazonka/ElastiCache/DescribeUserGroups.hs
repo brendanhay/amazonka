@@ -151,6 +151,8 @@ instance Core.AWSRequest DescribeUserGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeUserGroups where
   hashWithSalt _salt DescribeUserGroups' {..} =

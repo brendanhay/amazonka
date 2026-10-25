@@ -239,6 +239,8 @@ instance Core.AWSRequest StartMatchBackfill where
             Prelude.<$> (x Data..?> "MatchmakingTicket")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartMatchBackfill where
   hashWithSalt _salt StartMatchBackfill' {..} =

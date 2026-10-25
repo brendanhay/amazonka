@@ -67,7 +67,7 @@ data CreateWorkloadShare = CreateWorkloadShare'
   { workloadId :: Prelude.Text,
     sharedWith :: Prelude.Text,
     permissionType :: PermissionType,
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,19 +93,16 @@ newCreateWorkloadShare ::
   Prelude.Text ->
   -- | 'permissionType'
   PermissionType ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   CreateWorkloadShare
 newCreateWorkloadShare
   pWorkloadId_
   pSharedWith_
-  pPermissionType_
-  pClientRequestToken_ =
+  pPermissionType_ =
     CreateWorkloadShare'
       { workloadId = pWorkloadId_,
         sharedWith = pSharedWith_,
         permissionType = pPermissionType_,
-        clientRequestToken = pClientRequestToken_
+        clientRequestToken = Prelude.Nothing
       }
 
 -- | Undocumented member.
@@ -121,7 +118,7 @@ createWorkloadShare_permissionType :: Lens.Lens' CreateWorkloadShare PermissionT
 createWorkloadShare_permissionType = Lens.lens (\CreateWorkloadShare' {permissionType} -> permissionType) (\s@CreateWorkloadShare' {} a -> s {permissionType = a} :: CreateWorkloadShare)
 
 -- | Undocumented member.
-createWorkloadShare_clientRequestToken :: Lens.Lens' CreateWorkloadShare Prelude.Text
+createWorkloadShare_clientRequestToken :: Lens.Lens' CreateWorkloadShare (Prelude.Maybe Prelude.Text)
 createWorkloadShare_clientRequestToken = Lens.lens (\CreateWorkloadShare' {clientRequestToken} -> clientRequestToken) (\s@CreateWorkloadShare' {} a -> s {clientRequestToken = a} :: CreateWorkloadShare)
 
 instance Core.AWSRequest CreateWorkloadShare where
@@ -138,6 +135,14 @@ instance Core.AWSRequest CreateWorkloadShare where
             Prelude.<*> (x Data..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateWorkloadShare' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateWorkloadShare
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateWorkloadShare where
   hashWithSalt _salt CreateWorkloadShare' {..} =
@@ -172,8 +177,8 @@ instance Data.ToJSON CreateWorkloadShare where
           [ Prelude.Just ("SharedWith" Data..= sharedWith),
             Prelude.Just
               ("PermissionType" Data..= permissionType),
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken)
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

@@ -100,6 +100,8 @@ instance Core.AWSRequest DescribeResourcePolicy where
             Prelude.<*> (x Data..?> "ResourcePolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeResourcePolicy where
   hashWithSalt _salt DescribeResourcePolicy' {..} =

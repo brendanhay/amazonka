@@ -113,6 +113,8 @@ instance Core.AWSRequest DeleteFirewallPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "FirewallPolicyResponse")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFirewallPolicy where
   hashWithSalt _salt DeleteFirewallPolicy' {..} =

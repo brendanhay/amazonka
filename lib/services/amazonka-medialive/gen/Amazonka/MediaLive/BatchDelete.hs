@@ -119,6 +119,8 @@ instance Core.AWSRequest BatchDelete' where
             Prelude.<*> (x Data..?> "successful" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchDelete' where
   hashWithSalt _salt BatchDelete'' {..} =

@@ -89,6 +89,8 @@ instance Core.AWSRequest StopReplication where
             Prelude.<$> (x Data..?> "sourceServer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopReplication where
   hashWithSalt _salt StopReplication' {..} =

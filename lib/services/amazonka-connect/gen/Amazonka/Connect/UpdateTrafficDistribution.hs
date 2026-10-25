@@ -111,6 +111,8 @@ instance Core.AWSRequest UpdateTrafficDistribution where
           UpdateTrafficDistributionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateTrafficDistribution where
   hashWithSalt _salt UpdateTrafficDistribution' {..} =

@@ -175,6 +175,8 @@ instance Core.AWSRequest DescribeEvents where
             Prelude.<*> (x Data..?> "ServerEvents" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEvents where
   hashWithSalt _salt DescribeEvents' {..} =

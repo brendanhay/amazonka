@@ -117,6 +117,8 @@ instance Core.AWSRequest CreateCachePolicy where
             Prelude.<*> (h Data..#? "Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateCachePolicy where
   hashWithSalt _salt CreateCachePolicy' {..} =

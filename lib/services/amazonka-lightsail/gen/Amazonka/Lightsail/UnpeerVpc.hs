@@ -69,6 +69,8 @@ instance Core.AWSRequest UnpeerVpc where
             Prelude.<$> (x Data..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UnpeerVpc where
   hashWithSalt _salt _ =

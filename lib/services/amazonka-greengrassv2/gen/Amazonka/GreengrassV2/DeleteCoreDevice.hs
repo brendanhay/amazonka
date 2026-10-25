@@ -86,6 +86,8 @@ instance Core.AWSRequest DeleteCoreDevice where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteCoreDeviceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCoreDevice where
   hashWithSalt _salt DeleteCoreDevice' {..} =

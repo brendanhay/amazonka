@@ -113,6 +113,8 @@ instance Core.AWSRequest DetachInternetGateway where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DetachInternetGatewayResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetachInternetGateway where
   hashWithSalt _salt DetachInternetGateway' {..} =

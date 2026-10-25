@@ -95,6 +95,8 @@ instance Core.AWSRequest DisassociateSubnetCidrBlock where
             Prelude.<*> (x Data..@? "subnetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateSubnetCidrBlock where
   hashWithSalt _salt DisassociateSubnetCidrBlock' {..} =

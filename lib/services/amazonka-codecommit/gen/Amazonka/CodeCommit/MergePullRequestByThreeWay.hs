@@ -235,6 +235,8 @@ instance Core.AWSRequest MergePullRequestByThreeWay where
             Prelude.<$> (x Data..?> "pullRequest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable MergePullRequestByThreeWay where
   hashWithSalt _salt MergePullRequestByThreeWay' {..} =

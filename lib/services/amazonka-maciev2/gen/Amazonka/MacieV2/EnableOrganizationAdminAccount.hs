@@ -108,6 +108,14 @@ instance
           EnableOrganizationAdminAccountResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@EnableOrganizationAdminAccount' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            EnableOrganizationAdminAccount
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

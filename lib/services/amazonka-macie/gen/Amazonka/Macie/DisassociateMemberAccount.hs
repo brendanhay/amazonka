@@ -86,6 +86,8 @@ instance Core.AWSRequest DisassociateMemberAccount where
   response =
     Response.receiveNull
       DisassociateMemberAccountResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateMemberAccount where
   hashWithSalt _salt DisassociateMemberAccount' {..} =

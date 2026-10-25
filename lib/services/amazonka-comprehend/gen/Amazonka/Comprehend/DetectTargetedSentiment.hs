@@ -109,6 +109,8 @@ instance Core.AWSRequest DetectTargetedSentiment where
             Prelude.<$> (x Data..?> "Entities" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetectTargetedSentiment where
   hashWithSalt _salt DetectTargetedSentiment' {..} =

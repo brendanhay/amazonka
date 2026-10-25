@@ -97,6 +97,8 @@ instance Core.AWSRequest DeleteStage where
           DeleteStageResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteStage where
   hashWithSalt _salt DeleteStage' {..} =

@@ -81,6 +81,8 @@ instance Core.AWSRequest DeleteAppImageConfig where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteAppImageConfigResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAppImageConfig where
   hashWithSalt _salt DeleteAppImageConfig' {..} =

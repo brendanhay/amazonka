@@ -132,6 +132,8 @@ instance Core.AWSRequest UpdateResourcePosition where
           UpdateResourcePositionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateResourcePosition where
   hashWithSalt _salt UpdateResourcePosition' {..} =

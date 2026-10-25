@@ -112,6 +112,8 @@ instance Core.AWSRequest DescribePipelineExecution where
             Prelude.<*> (x Data..?> "PipelineExperimentConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePipelineExecution where
   hashWithSalt _salt DescribePipelineExecution' {..} =

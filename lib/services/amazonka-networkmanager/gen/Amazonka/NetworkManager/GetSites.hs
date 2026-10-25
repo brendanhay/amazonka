@@ -143,6 +143,8 @@ instance Core.AWSRequest GetSites where
             Prelude.<*> (x Data..?> "Sites" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSites where
   hashWithSalt _salt GetSites' {..} =

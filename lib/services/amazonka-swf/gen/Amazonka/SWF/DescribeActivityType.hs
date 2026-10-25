@@ -138,6 +138,8 @@ instance Core.AWSRequest DescribeActivityType where
             Prelude.<*> (x Data..:> "typeInfo")
             Prelude.<*> (x Data..:> "configuration")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeActivityType where
   hashWithSalt _salt DescribeActivityType' {..} =

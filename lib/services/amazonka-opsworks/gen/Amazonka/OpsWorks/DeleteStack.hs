@@ -83,6 +83,8 @@ instance Core.AWSRequest DeleteStack where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteStackResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteStack where
   hashWithSalt _salt DeleteStack' {..} =

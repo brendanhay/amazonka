@@ -83,6 +83,8 @@ instance Core.AWSRequest DeleteGame where
           DeleteGameResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteGame where
   hashWithSalt _salt DeleteGame' {..} =

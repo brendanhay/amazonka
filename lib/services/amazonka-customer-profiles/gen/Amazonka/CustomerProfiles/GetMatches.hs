@@ -164,6 +164,8 @@ instance Core.AWSRequest GetMatches where
             Prelude.<*> (x Data..?> "PotentialMatches")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMatches where
   hashWithSalt _salt GetMatches' {..} =

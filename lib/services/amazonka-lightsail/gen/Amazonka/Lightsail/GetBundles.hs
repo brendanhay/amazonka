@@ -143,6 +143,8 @@ instance Core.AWSRequest GetBundles where
             Prelude.<*> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBundles where
   hashWithSalt _salt GetBundles' {..} =

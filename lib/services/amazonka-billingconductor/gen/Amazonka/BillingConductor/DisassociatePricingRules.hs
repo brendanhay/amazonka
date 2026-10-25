@@ -108,6 +108,8 @@ instance Core.AWSRequest DisassociatePricingRules where
             Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociatePricingRules where
   hashWithSalt _salt DisassociatePricingRules' {..} =

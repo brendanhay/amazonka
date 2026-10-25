@@ -194,6 +194,14 @@ instance Core.AWSRequest StartEventsDetectionJob where
             Prelude.<*> (x Data..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartEventsDetectionJob' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            StartEventsDetectionJob
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable StartEventsDetectionJob where
   hashWithSalt _salt StartEventsDetectionJob' {..} =

@@ -93,6 +93,8 @@ instance Core.AWSRequest UpdateScheduledQuery where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateScheduledQueryResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateScheduledQuery where
   hashWithSalt _salt UpdateScheduledQuery' {..} =

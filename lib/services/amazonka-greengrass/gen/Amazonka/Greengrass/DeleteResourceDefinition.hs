@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteResourceDefinition where
           DeleteResourceDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteResourceDefinition where
   hashWithSalt _salt DeleteResourceDefinition' {..} =

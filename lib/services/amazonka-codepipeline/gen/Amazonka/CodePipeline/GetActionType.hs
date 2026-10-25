@@ -177,6 +177,8 @@ instance Core.AWSRequest GetActionType where
             Prelude.<$> (x Data..?> "actionType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetActionType where
   hashWithSalt _salt GetActionType' {..} =

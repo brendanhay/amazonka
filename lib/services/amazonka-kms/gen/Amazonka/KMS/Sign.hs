@@ -322,6 +322,8 @@ instance Core.AWSRequest Sign where
             Prelude.<*> (x Data..?> "SigningAlgorithm")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable Sign where
   hashWithSalt _salt Sign' {..} =

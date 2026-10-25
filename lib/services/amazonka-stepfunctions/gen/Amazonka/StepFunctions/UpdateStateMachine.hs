@@ -154,6 +154,8 @@ instance Core.AWSRequest UpdateStateMachine where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "updateDate")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateStateMachine where
   hashWithSalt _salt UpdateStateMachine' {..} =

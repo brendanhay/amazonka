@@ -89,6 +89,8 @@ instance Core.AWSRequest DescribeInterconnects where
             Prelude.<$> (x Data..?> "interconnects" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeInterconnects where
   hashWithSalt _salt DescribeInterconnects' {..} =

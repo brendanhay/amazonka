@@ -103,6 +103,8 @@ instance Core.AWSRequest PutReplicationConfiguration where
             Prelude.<$> (x Data..?> "replicationConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutReplicationConfiguration where
   hashWithSalt _salt PutReplicationConfiguration' {..} =

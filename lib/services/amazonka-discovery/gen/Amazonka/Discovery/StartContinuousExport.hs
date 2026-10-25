@@ -83,6 +83,8 @@ instance Core.AWSRequest StartContinuousExport where
             Prelude.<*> (x Data..?> "startTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartContinuousExport where
   hashWithSalt _salt _ =

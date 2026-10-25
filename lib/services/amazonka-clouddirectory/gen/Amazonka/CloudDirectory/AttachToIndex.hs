@@ -119,6 +119,8 @@ instance Core.AWSRequest AttachToIndex where
             Prelude.<$> (x Data..?> "AttachedObjectIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AttachToIndex where
   hashWithSalt _salt AttachToIndex' {..} =

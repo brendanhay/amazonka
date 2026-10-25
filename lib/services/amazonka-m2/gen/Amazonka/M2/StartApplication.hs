@@ -85,6 +85,8 @@ instance Core.AWSRequest StartApplication where
           StartApplicationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartApplication where
   hashWithSalt _salt StartApplication' {..} =

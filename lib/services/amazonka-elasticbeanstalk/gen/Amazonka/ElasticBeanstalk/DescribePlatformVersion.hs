@@ -95,6 +95,8 @@ instance Core.AWSRequest DescribePlatformVersion where
             Prelude.<$> (x Data..@? "PlatformDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePlatformVersion where
   hashWithSalt _salt DescribePlatformVersion' {..} =

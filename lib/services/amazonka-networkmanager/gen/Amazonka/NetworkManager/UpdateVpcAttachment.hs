@@ -120,6 +120,8 @@ instance Core.AWSRequest UpdateVpcAttachment where
             Prelude.<$> (x Data..?> "VpcAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateVpcAttachment where
   hashWithSalt _salt UpdateVpcAttachment' {..} =

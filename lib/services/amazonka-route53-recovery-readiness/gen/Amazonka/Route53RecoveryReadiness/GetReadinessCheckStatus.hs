@@ -143,6 +143,8 @@ instance Core.AWSRequest GetReadinessCheckStatus where
             Prelude.<*> (x Data..?> "resources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetReadinessCheckStatus where
   hashWithSalt _salt GetReadinessCheckStatus' {..} =

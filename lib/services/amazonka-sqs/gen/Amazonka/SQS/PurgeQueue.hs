@@ -98,6 +98,8 @@ instance Core.AWSRequest PurgeQueue where
   request overrides =
     Request.postQuery (overrides defaultService)
   response = Response.receiveNull PurgeQueueResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PurgeQueue where
   hashWithSalt _salt PurgeQueue' {..} =

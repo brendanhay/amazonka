@@ -127,6 +127,8 @@ instance Core.AWSRequest DeleteNetworkAclEntry where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeleteNetworkAclEntryResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteNetworkAclEntry where
   hashWithSalt _salt DeleteNetworkAclEntry' {..} =

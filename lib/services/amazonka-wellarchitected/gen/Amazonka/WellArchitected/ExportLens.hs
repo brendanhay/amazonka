@@ -111,6 +111,8 @@ instance Core.AWSRequest ExportLens where
             Prelude.<$> (x Data..?> "LensJSON")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ExportLens where
   hashWithSalt _salt ExportLens' {..} =

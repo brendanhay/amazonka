@@ -164,6 +164,8 @@ instance Core.AWSRequest InitiateVaultLock where
             Prelude.<$> (h Data..#? "x-amz-lock-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable InitiateVaultLock where
   hashWithSalt _salt InitiateVaultLock' {..} =

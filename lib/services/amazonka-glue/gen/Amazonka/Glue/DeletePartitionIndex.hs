@@ -130,6 +130,8 @@ instance Core.AWSRequest DeletePartitionIndex where
           DeletePartitionIndexResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePartitionIndex where
   hashWithSalt _salt DeletePartitionIndex' {..} =

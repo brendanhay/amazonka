@@ -173,6 +173,8 @@ instance Core.AWSRequest CreateRecordingConfiguration where
             Prelude.<$> (x Data..?> "recordingConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

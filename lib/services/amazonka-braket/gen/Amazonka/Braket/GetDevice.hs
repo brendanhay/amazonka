@@ -105,6 +105,8 @@ instance Core.AWSRequest GetDevice where
             Prelude.<*> (x Data..:> "deviceType")
             Prelude.<*> (x Data..:> "providerName")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDevice where
   hashWithSalt _salt GetDevice' {..} =

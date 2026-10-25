@@ -275,6 +275,8 @@ instance Core.AWSRequest UpdateGameServerGroup where
             Prelude.<$> (x Data..?> "GameServerGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateGameServerGroup where
   hashWithSalt _salt UpdateGameServerGroup' {..} =

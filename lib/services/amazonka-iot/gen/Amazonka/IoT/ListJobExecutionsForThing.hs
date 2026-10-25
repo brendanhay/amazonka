@@ -199,6 +199,8 @@ instance Core.AWSRequest ListJobExecutionsForThing where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListJobExecutionsForThing where
   hashWithSalt _salt ListJobExecutionsForThing' {..} =

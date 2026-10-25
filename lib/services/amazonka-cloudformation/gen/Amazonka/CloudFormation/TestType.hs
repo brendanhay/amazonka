@@ -242,6 +242,8 @@ instance Core.AWSRequest TestType where
             Prelude.<$> (x Data..@? "TypeVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TestType where
   hashWithSalt _salt TestType' {..} =

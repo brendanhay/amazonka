@@ -78,6 +78,8 @@ instance Core.AWSRequest DeleteDiscoverer where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteDiscovererResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDiscoverer where
   hashWithSalt _salt DeleteDiscoverer' {..} =

@@ -275,6 +275,8 @@ instance Core.AWSRequest CreateProjectVersion where
             Prelude.<$> (x Data..?> "ProjectVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateProjectVersion where
   hashWithSalt _salt CreateProjectVersion' {..} =

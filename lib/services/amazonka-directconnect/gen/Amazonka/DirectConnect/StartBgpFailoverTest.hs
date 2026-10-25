@@ -134,6 +134,8 @@ instance Core.AWSRequest StartBgpFailoverTest where
             Prelude.<$> (x Data..?> "virtualInterfaceTest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartBgpFailoverTest where
   hashWithSalt _salt StartBgpFailoverTest' {..} =

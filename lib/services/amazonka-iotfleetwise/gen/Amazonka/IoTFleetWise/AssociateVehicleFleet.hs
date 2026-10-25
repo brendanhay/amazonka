@@ -99,6 +99,8 @@ instance Core.AWSRequest AssociateVehicleFleet where
           AssociateVehicleFleetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateVehicleFleet where
   hashWithSalt _salt AssociateVehicleFleet' {..} =

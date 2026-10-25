@@ -224,6 +224,8 @@ instance Core.AWSRequest ListEndpoints where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Endpoints" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListEndpoints where
   hashWithSalt _salt ListEndpoints' {..} =

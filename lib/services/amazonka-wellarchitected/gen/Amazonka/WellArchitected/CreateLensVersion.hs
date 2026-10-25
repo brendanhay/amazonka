@@ -65,7 +65,7 @@ data CreateLensVersion = CreateLensVersion'
     lensAlias :: Prelude.Text,
     -- | The version of the lens being created.
     lensVersion :: Prelude.Text,
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,20 +89,15 @@ newCreateLensVersion ::
   Prelude.Text ->
   -- | 'lensVersion'
   Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   CreateLensVersion
-newCreateLensVersion
-  pLensAlias_
-  pLensVersion_
-  pClientRequestToken_ =
-    CreateLensVersion'
-      { isMajorVersion =
-          Prelude.Nothing,
-        lensAlias = pLensAlias_,
-        lensVersion = pLensVersion_,
-        clientRequestToken = pClientRequestToken_
-      }
+newCreateLensVersion pLensAlias_ pLensVersion_ =
+  CreateLensVersion'
+    { isMajorVersion =
+        Prelude.Nothing,
+      lensAlias = pLensAlias_,
+      lensVersion = pLensVersion_,
+      clientRequestToken = Prelude.Nothing
+    }
 
 -- | Set to true if this new major lens version.
 createLensVersion_isMajorVersion :: Lens.Lens' CreateLensVersion (Prelude.Maybe Prelude.Bool)
@@ -117,7 +112,7 @@ createLensVersion_lensVersion :: Lens.Lens' CreateLensVersion Prelude.Text
 createLensVersion_lensVersion = Lens.lens (\CreateLensVersion' {lensVersion} -> lensVersion) (\s@CreateLensVersion' {} a -> s {lensVersion = a} :: CreateLensVersion)
 
 -- | Undocumented member.
-createLensVersion_clientRequestToken :: Lens.Lens' CreateLensVersion Prelude.Text
+createLensVersion_clientRequestToken :: Lens.Lens' CreateLensVersion (Prelude.Maybe Prelude.Text)
 createLensVersion_clientRequestToken = Lens.lens (\CreateLensVersion' {clientRequestToken} -> clientRequestToken) (\s@CreateLensVersion' {} a -> s {clientRequestToken = a} :: CreateLensVersion)
 
 instance Core.AWSRequest CreateLensVersion where
@@ -134,6 +129,14 @@ instance Core.AWSRequest CreateLensVersion where
             Prelude.<*> (x Data..?> "LensVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateLensVersion' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateLensVersion
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateLensVersion where
   hashWithSalt _salt CreateLensVersion' {..} =
@@ -168,8 +171,8 @@ instance Data.ToJSON CreateLensVersion where
           [ ("IsMajorVersion" Data..=)
               Prelude.<$> isMajorVersion,
             Prelude.Just ("LensVersion" Data..= lensVersion),
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken)
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

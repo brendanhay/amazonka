@@ -91,6 +91,8 @@ instance Core.AWSRequest GetSoftwareUpdates where
             Prelude.<$> (x Data..?> "UpdatesURI")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSoftwareUpdates where
   hashWithSalt _salt GetSoftwareUpdates' {..} =

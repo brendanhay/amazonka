@@ -104,6 +104,8 @@ instance Core.AWSRequest GetXssMatchSet where
             Prelude.<$> (x Data..?> "XssMatchSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetXssMatchSet where
   hashWithSalt _salt GetXssMatchSet' {..} =

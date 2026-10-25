@@ -102,6 +102,8 @@ instance Core.AWSRequest CreateApplicationSnapshot where
           CreateApplicationSnapshotResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateApplicationSnapshot where
   hashWithSalt _salt CreateApplicationSnapshot' {..} =

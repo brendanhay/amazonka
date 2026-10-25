@@ -210,6 +210,8 @@ instance Core.AWSRequest BatchUpsertTableRows where
             Prelude.<*> (x Data..?> "rows" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..:> "workbookCursor")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchUpsertTableRows where
   hashWithSalt _salt BatchUpsertTableRows' {..} =

@@ -102,6 +102,8 @@ instance Core.AWSRequest Unsubscribe where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Arn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable Unsubscribe where
   hashWithSalt _salt Unsubscribe' {..} =

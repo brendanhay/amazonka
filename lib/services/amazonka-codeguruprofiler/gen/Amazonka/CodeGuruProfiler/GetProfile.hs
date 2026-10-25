@@ -210,6 +210,8 @@ instance Core.AWSRequest GetProfile where
             Prelude.<*> (h Data..# "Content-Type")
             Prelude.<*> (Prelude.pure x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetProfile where
   hashWithSalt _salt GetProfile' {..} =

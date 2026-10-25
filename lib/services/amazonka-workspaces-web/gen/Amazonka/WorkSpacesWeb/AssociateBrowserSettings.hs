@@ -106,6 +106,8 @@ instance Core.AWSRequest AssociateBrowserSettings where
             Prelude.<*> (x Data..:> "browserSettingsArn")
             Prelude.<*> (x Data..:> "portalArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateBrowserSettings where
   hashWithSalt _salt AssociateBrowserSettings' {..} =

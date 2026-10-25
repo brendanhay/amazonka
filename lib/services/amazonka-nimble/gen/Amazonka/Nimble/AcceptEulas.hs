@@ -119,6 +119,11 @@ instance Core.AWSRequest AcceptEulas where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@AcceptEulas' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: AcceptEulas
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable AcceptEulas where
   hashWithSalt _salt AcceptEulas' {..} =

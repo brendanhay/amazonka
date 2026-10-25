@@ -104,6 +104,8 @@ instance Core.AWSRequest DescribeFindings where
             Prelude.<*> (x Data..?> "findings" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "failedItems" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeFindings where
   hashWithSalt _salt DescribeFindings' {..} =

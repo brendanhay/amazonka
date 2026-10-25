@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteTranscriptionJob where
   response =
     Response.receiveNull
       DeleteTranscriptionJobResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTranscriptionJob where
   hashWithSalt _salt DeleteTranscriptionJob' {..} =

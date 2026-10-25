@@ -85,6 +85,8 @@ instance Core.AWSRequest DisassociateUserSettings where
           DisassociateUserSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateUserSettings where
   hashWithSalt _salt DisassociateUserSettings' {..} =

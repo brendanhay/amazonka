@@ -105,6 +105,8 @@ instance Core.AWSRequest DetectMetricSetConfig where
             Prelude.<$> (x Data..?> "DetectedMetricSetConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetectMetricSetConfig where
   hashWithSalt _salt DetectMetricSetConfig' {..} =

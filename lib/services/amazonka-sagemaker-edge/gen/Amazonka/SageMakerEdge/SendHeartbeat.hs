@@ -141,6 +141,8 @@ instance Core.AWSRequest SendHeartbeat where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull SendHeartbeatResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SendHeartbeat where
   hashWithSalt _salt SendHeartbeat' {..} =

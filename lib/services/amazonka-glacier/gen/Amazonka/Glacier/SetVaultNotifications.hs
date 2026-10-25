@@ -154,6 +154,8 @@ instance Core.AWSRequest SetVaultNotifications where
       Prelude.. Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull SetVaultNotificationsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetVaultNotifications where
   hashWithSalt _salt SetVaultNotifications' {..} =

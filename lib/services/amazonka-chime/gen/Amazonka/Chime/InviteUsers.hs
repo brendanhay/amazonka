@@ -109,6 +109,8 @@ instance Core.AWSRequest InviteUsers where
             Prelude.<$> (x Data..?> "Invites" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable InviteUsers where
   hashWithSalt _salt InviteUsers' {..} =

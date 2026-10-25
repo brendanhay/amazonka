@@ -304,6 +304,14 @@ instance Core.AWSRequest CreateSimulationJob where
             Prelude.<*> (x Data..?> "vpcConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateSimulationJob' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateSimulationJob
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateSimulationJob where
   hashWithSalt _salt CreateSimulationJob' {..} =

@@ -66,7 +66,7 @@ data StartFHIRExportJob = StartFHIRExportJob'
     -- | The Amazon Resource Name used during the initiation of the job.
     dataAccessRoleArn :: Prelude.Text,
     -- | An optional user provided token used for ensuring idempotency.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,20 +96,17 @@ newStartFHIRExportJob ::
   Prelude.Text ->
   -- | 'dataAccessRoleArn'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   StartFHIRExportJob
 newStartFHIRExportJob
   pOutputDataConfig_
   pDatastoreId_
-  pDataAccessRoleArn_
-  pClientToken_ =
+  pDataAccessRoleArn_ =
     StartFHIRExportJob'
       { jobName = Prelude.Nothing,
         outputDataConfig = pOutputDataConfig_,
         datastoreId = pDatastoreId_,
         dataAccessRoleArn = pDataAccessRoleArn_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | The user generated name for an export job.
@@ -131,7 +128,7 @@ startFHIRExportJob_dataAccessRoleArn :: Lens.Lens' StartFHIRExportJob Prelude.Te
 startFHIRExportJob_dataAccessRoleArn = Lens.lens (\StartFHIRExportJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartFHIRExportJob' {} a -> s {dataAccessRoleArn = a} :: StartFHIRExportJob)
 
 -- | An optional user provided token used for ensuring idempotency.
-startFHIRExportJob_clientToken :: Lens.Lens' StartFHIRExportJob Prelude.Text
+startFHIRExportJob_clientToken :: Lens.Lens' StartFHIRExportJob (Prelude.Maybe Prelude.Text)
 startFHIRExportJob_clientToken = Lens.lens (\StartFHIRExportJob' {clientToken} -> clientToken) (\s@StartFHIRExportJob' {} a -> s {clientToken = a} :: StartFHIRExportJob)
 
 instance Core.AWSRequest StartFHIRExportJob where
@@ -149,6 +146,13 @@ instance Core.AWSRequest StartFHIRExportJob where
             Prelude.<*> (x Data..:> "JobId")
             Prelude.<*> (x Data..:> "JobStatus")
       )
+  updateIdempotencyToken
+    f
+    s@StartFHIRExportJob' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: StartFHIRExportJob
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartFHIRExportJob where
   hashWithSalt _salt StartFHIRExportJob' {..} =
@@ -192,7 +196,7 @@ instance Data.ToJSON StartFHIRExportJob where
             Prelude.Just ("DatastoreId" Data..= datastoreId),
             Prelude.Just
               ("DataAccessRoleArn" Data..= dataAccessRoleArn),
-            Prelude.Just ("ClientToken" Data..= clientToken)
+            ("ClientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

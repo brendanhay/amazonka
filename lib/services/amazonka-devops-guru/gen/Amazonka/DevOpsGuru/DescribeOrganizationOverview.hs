@@ -139,6 +139,8 @@ instance Core.AWSRequest DescribeOrganizationOverview where
             Prelude.<*> (x Data..:> "ReactiveInsights")
             Prelude.<*> (x Data..:> "ProactiveInsights")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

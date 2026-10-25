@@ -143,6 +143,8 @@ instance Core.AWSRequest ListBudgetsForResource where
             Prelude.<*> (x Data..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListBudgetsForResource where
   hashWithSalt _salt ListBudgetsForResource' {..} =

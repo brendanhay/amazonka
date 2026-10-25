@@ -107,6 +107,8 @@ instance Core.AWSRequest DeleteSyncJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "state")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSyncJob where
   hashWithSalt _salt DeleteSyncJob' {..} =

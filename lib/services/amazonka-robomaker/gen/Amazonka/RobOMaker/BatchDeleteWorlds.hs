@@ -93,6 +93,8 @@ instance Core.AWSRequest BatchDeleteWorlds where
             Prelude.<$> (x Data..?> "unprocessedWorlds")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchDeleteWorlds where
   hashWithSalt _salt BatchDeleteWorlds' {..} =

@@ -171,6 +171,8 @@ instance Core.AWSRequest ListResourceRequests where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListResourceRequests where
   hashWithSalt _salt ListResourceRequests' {..} =

@@ -103,6 +103,8 @@ instance Core.AWSRequest DescribeRuleGroupsNamespace where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ruleGroupsNamespace")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeRuleGroupsNamespace where
   hashWithSalt _salt DescribeRuleGroupsNamespace' {..} =

@@ -135,6 +135,8 @@ instance Core.AWSRequest DeleteLaunchTemplate where
             Prelude.<$> (x Data..@? "launchTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteLaunchTemplate where
   hashWithSalt _salt DeleteLaunchTemplate' {..} =

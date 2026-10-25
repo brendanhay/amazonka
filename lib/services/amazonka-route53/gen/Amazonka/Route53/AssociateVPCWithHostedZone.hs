@@ -157,6 +157,8 @@ instance Core.AWSRequest AssociateVPCWithHostedZone where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "ChangeInfo")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateVPCWithHostedZone where
   hashWithSalt _salt AssociateVPCWithHostedZone' {..} =

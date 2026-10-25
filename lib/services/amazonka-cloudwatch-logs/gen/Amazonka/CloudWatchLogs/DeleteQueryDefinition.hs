@@ -103,6 +103,8 @@ instance Core.AWSRequest DeleteQueryDefinition where
             Prelude.<$> (x Data..?> "success")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteQueryDefinition where
   hashWithSalt _salt DeleteQueryDefinition' {..} =

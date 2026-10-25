@@ -90,7 +90,7 @@ data StartSigningJob = StartSigningJob'
     profileName :: Prelude.Text,
     -- | String that identifies the signing request. All calls after the first
     -- that use this token return the same response as the first call.
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -121,20 +121,17 @@ newStartSigningJob ::
   Destination ->
   -- | 'profileName'
   Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   StartSigningJob
 newStartSigningJob
   pSource_
   pDestination_
-  pProfileName_
-  pClientRequestToken_ =
+  pProfileName_ =
     StartSigningJob'
       { profileOwner = Prelude.Nothing,
         source = pSource_,
         destination = pDestination_,
         profileName = pProfileName_,
-        clientRequestToken = pClientRequestToken_
+        clientRequestToken = Prelude.Nothing
       }
 
 -- | The AWS account ID of the signing profile owner.
@@ -157,7 +154,7 @@ startSigningJob_profileName = Lens.lens (\StartSigningJob' {profileName} -> prof
 
 -- | String that identifies the signing request. All calls after the first
 -- that use this token return the same response as the first call.
-startSigningJob_clientRequestToken :: Lens.Lens' StartSigningJob Prelude.Text
+startSigningJob_clientRequestToken :: Lens.Lens' StartSigningJob (Prelude.Maybe Prelude.Text)
 startSigningJob_clientRequestToken = Lens.lens (\StartSigningJob' {clientRequestToken} -> clientRequestToken) (\s@StartSigningJob' {} a -> s {clientRequestToken = a} :: StartSigningJob)
 
 instance Core.AWSRequest StartSigningJob where
@@ -174,6 +171,14 @@ instance Core.AWSRequest StartSigningJob where
             Prelude.<*> (x Data..?> "jobOwner")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartSigningJob' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            StartSigningJob
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable StartSigningJob where
   hashWithSalt _salt StartSigningJob' {..} =
@@ -211,8 +216,8 @@ instance Data.ToJSON StartSigningJob where
             Prelude.Just ("source" Data..= source),
             Prelude.Just ("destination" Data..= destination),
             Prelude.Just ("profileName" Data..= profileName),
-            Prelude.Just
-              ("clientRequestToken" Data..= clientRequestToken)
+            ("clientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

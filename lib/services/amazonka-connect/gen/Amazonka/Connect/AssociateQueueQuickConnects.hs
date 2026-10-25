@@ -116,6 +116,8 @@ instance Core.AWSRequest AssociateQueueQuickConnects where
   response =
     Response.receiveNull
       AssociateQueueQuickConnectsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateQueueQuickConnects where
   hashWithSalt _salt AssociateQueueQuickConnects' {..} =

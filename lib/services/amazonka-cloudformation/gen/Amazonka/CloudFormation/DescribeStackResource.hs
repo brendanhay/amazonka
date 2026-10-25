@@ -139,6 +139,8 @@ instance Core.AWSRequest DescribeStackResource where
             Prelude.<$> (x Data..@? "StackResourceDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeStackResource where
   hashWithSalt _salt DescribeStackResource' {..} =

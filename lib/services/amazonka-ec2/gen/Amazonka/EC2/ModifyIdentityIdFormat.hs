@@ -174,6 +174,8 @@ instance Core.AWSRequest ModifyIdentityIdFormat where
   response =
     Response.receiveNull
       ModifyIdentityIdFormatResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyIdentityIdFormat where
   hashWithSalt _salt ModifyIdentityIdFormat' {..} =

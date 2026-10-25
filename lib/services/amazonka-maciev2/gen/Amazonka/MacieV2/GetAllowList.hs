@@ -103,6 +103,8 @@ instance Core.AWSRequest GetAllowList where
             Prelude.<*> (x Data..?> "updatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAllowList where
   hashWithSalt _salt GetAllowList' {..} =

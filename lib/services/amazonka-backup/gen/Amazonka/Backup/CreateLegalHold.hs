@@ -166,6 +166,8 @@ instance Core.AWSRequest CreateLegalHold where
             Prelude.<*> (x Data..?> "Title")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLegalHold where
   hashWithSalt _salt CreateLegalHold' {..} =

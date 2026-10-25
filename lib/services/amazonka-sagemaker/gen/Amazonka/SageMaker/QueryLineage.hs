@@ -221,6 +221,8 @@ instance Core.AWSRequest QueryLineage where
             Prelude.<*> (x Data..?> "Vertices" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable QueryLineage where
   hashWithSalt _salt QueryLineage' {..} =

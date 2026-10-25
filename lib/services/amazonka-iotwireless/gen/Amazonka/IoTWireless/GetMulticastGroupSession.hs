@@ -86,6 +86,8 @@ instance Core.AWSRequest GetMulticastGroupSession where
             Prelude.<$> (x Data..?> "LoRaWAN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMulticastGroupSession where
   hashWithSalt _salt GetMulticastGroupSession' {..} =

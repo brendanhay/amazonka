@@ -117,6 +117,8 @@ instance Core.AWSRequest UpdateLongTermPricing where
           UpdateLongTermPricingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateLongTermPricing where
   hashWithSalt _salt UpdateLongTermPricing' {..} =

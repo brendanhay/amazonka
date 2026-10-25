@@ -158,6 +158,8 @@ instance Core.AWSRequest ListVolumes where
             Prelude.<*> (x Data..?> "VolumeInfos" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListVolumes where
   hashWithSalt _salt ListVolumes' {..} =

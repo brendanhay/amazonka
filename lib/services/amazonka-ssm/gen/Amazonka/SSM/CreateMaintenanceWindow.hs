@@ -351,6 +351,14 @@ instance Core.AWSRequest CreateMaintenanceWindow where
             Prelude.<$> (x Data..?> "WindowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateMaintenanceWindow' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateMaintenanceWindow
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateMaintenanceWindow where
   hashWithSalt _salt CreateMaintenanceWindow' {..} =

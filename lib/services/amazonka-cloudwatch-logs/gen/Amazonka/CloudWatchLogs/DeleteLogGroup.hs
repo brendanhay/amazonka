@@ -79,6 +79,8 @@ instance Core.AWSRequest DeleteLogGroup where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteLogGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteLogGroup where
   hashWithSalt _salt DeleteLogGroup' {..} =

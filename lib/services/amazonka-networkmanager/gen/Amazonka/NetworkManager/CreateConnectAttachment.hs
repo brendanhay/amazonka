@@ -156,6 +156,14 @@ instance Core.AWSRequest CreateConnectAttachment where
             Prelude.<$> (x Data..?> "ConnectAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateConnectAttachment' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateConnectAttachment
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateConnectAttachment where
   hashWithSalt _salt CreateConnectAttachment' {..} =

@@ -187,6 +187,8 @@ instance Core.AWSRequest DescribeDBProxyTargetGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDBProxyTargetGroups where
   hashWithSalt _salt DescribeDBProxyTargetGroups' {..} =

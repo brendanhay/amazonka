@@ -348,6 +348,14 @@ instance Core.AWSRequest CreateService where
             Prelude.<$> (x Data..?> "Service")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateService' {creatorRequestId} =
+      ( \creatorRequestId' ->
+          s {creatorRequestId = creatorRequestId'} ::
+            CreateService
+      )
+        Prelude.<$> f creatorRequestId
 
 instance Prelude.Hashable CreateService where
   hashWithSalt _salt CreateService' {..} =

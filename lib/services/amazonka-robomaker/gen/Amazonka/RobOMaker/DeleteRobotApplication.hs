@@ -98,6 +98,8 @@ instance Core.AWSRequest DeleteRobotApplication where
           DeleteRobotApplicationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRobotApplication where
   hashWithSalt _salt DeleteRobotApplication' {..} =

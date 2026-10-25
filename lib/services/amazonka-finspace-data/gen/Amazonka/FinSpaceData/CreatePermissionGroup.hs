@@ -199,6 +199,14 @@ instance Core.AWSRequest CreatePermissionGroup where
             Prelude.<$> (x Data..?> "permissionGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreatePermissionGroup' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreatePermissionGroup
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreatePermissionGroup where
   hashWithSalt _salt CreatePermissionGroup' {..} =

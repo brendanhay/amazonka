@@ -242,6 +242,8 @@ instance Core.AWSRequest DescribeType where
             Prelude.<*> (x Data..@? "Visibility")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeType where
   hashWithSalt _salt DescribeType' {..} =

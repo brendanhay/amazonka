@@ -106,6 +106,8 @@ instance Core.AWSRequest UpdateDatasetGroup where
           UpdateDatasetGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDatasetGroup where
   hashWithSalt _salt UpdateDatasetGroup' {..} =

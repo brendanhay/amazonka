@@ -93,6 +93,8 @@ instance Core.AWSRequest ModifyInstanceGroups where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull ModifyInstanceGroupsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyInstanceGroups where
   hashWithSalt _salt ModifyInstanceGroups' {..} =

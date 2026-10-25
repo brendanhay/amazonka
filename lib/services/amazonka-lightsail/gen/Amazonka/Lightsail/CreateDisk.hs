@@ -163,6 +163,8 @@ instance Core.AWSRequest CreateDisk where
             Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDisk where
   hashWithSalt _salt CreateDisk' {..} =

@@ -151,6 +151,14 @@ instance Core.AWSRequest DescribeFileSystemAliases where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DescribeFileSystemAliases' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            DescribeFileSystemAliases
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable DescribeFileSystemAliases where
   hashWithSalt _salt DescribeFileSystemAliases' {..} =

@@ -416,6 +416,8 @@ instance Core.AWSRequest TransferDomain where
             Prelude.<$> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TransferDomain where
   hashWithSalt _salt TransferDomain' {..} =

@@ -106,6 +106,8 @@ instance Core.AWSRequest DescribeHub where
             Prelude.<*> (x Data..:> "CreationTime")
             Prelude.<*> (x Data..:> "LastModifiedTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeHub where
   hashWithSalt _salt DescribeHub' {..} =

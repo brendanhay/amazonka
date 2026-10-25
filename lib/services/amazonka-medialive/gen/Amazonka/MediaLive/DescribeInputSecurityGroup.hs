@@ -102,6 +102,8 @@ instance Core.AWSRequest DescribeInputSecurityGroup where
             Prelude.<*> (x Data..?> "whitelistRules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeInputSecurityGroup where
   hashWithSalt _salt DescribeInputSecurityGroup' {..} =

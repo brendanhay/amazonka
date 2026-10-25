@@ -92,6 +92,8 @@ instance Core.AWSRequest RebootInstance where
             Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RebootInstance where
   hashWithSalt _salt RebootInstance' {..} =

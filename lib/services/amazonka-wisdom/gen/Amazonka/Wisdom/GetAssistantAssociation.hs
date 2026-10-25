@@ -110,6 +110,8 @@ instance Core.AWSRequest GetAssistantAssociation where
             Prelude.<$> (x Data..?> "assistantAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAssistantAssociation where
   hashWithSalt _salt GetAssistantAssociation' {..} =

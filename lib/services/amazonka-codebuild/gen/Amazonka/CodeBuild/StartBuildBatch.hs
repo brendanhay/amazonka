@@ -687,6 +687,8 @@ instance Core.AWSRequest StartBuildBatch where
             Prelude.<$> (x Data..?> "buildBatch")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartBuildBatch where
   hashWithSalt _salt StartBuildBatch' {..} =

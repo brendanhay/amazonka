@@ -111,6 +111,8 @@ instance Core.AWSRequest CreateGraph where
             Prelude.<$> (x Data..?> "GraphArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateGraph where
   hashWithSalt _salt CreateGraph' {..} =

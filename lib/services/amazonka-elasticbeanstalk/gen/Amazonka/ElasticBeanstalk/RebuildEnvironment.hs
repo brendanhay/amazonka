@@ -117,6 +117,8 @@ instance Core.AWSRequest RebuildEnvironment where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull RebuildEnvironmentResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RebuildEnvironment where
   hashWithSalt _salt RebuildEnvironment' {..} =

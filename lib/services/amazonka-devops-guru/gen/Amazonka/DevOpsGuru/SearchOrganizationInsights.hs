@@ -205,6 +205,8 @@ instance Core.AWSRequest SearchOrganizationInsights where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SearchOrganizationInsights where
   hashWithSalt _salt SearchOrganizationInsights' {..} =

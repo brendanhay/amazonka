@@ -54,7 +54,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeleteNamedQuery' smart constructor.
 data DeleteNamedQuery = DeleteNamedQuery'
   { -- | The unique ID of the query to delete.
-    namedQueryId :: Prelude.Text
+    namedQueryId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,14 +68,12 @@ data DeleteNamedQuery = DeleteNamedQuery'
 --
 -- 'namedQueryId', 'deleteNamedQuery_namedQueryId' - The unique ID of the query to delete.
 newDeleteNamedQuery ::
-  -- | 'namedQueryId'
-  Prelude.Text ->
   DeleteNamedQuery
-newDeleteNamedQuery pNamedQueryId_ =
-  DeleteNamedQuery' {namedQueryId = pNamedQueryId_}
+newDeleteNamedQuery =
+  DeleteNamedQuery' {namedQueryId = Prelude.Nothing}
 
 -- | The unique ID of the query to delete.
-deleteNamedQuery_namedQueryId :: Lens.Lens' DeleteNamedQuery Prelude.Text
+deleteNamedQuery_namedQueryId :: Lens.Lens' DeleteNamedQuery (Prelude.Maybe Prelude.Text)
 deleteNamedQuery_namedQueryId = Lens.lens (\DeleteNamedQuery' {namedQueryId} -> namedQueryId) (\s@DeleteNamedQuery' {} a -> s {namedQueryId = a} :: DeleteNamedQuery)
 
 instance Core.AWSRequest DeleteNamedQuery where
@@ -90,6 +88,13 @@ instance Core.AWSRequest DeleteNamedQuery where
           DeleteNamedQueryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteNamedQuery' {namedQueryId} =
+      ( \namedQueryId' ->
+          s {namedQueryId = namedQueryId'} :: DeleteNamedQuery
+      )
+        Prelude.<$> f namedQueryId
 
 instance Prelude.Hashable DeleteNamedQuery where
   hashWithSalt _salt DeleteNamedQuery' {..} =
@@ -117,7 +122,7 @@ instance Data.ToJSON DeleteNamedQuery where
   toJSON DeleteNamedQuery' {..} =
     Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("NamedQueryId" Data..= namedQueryId)]
+          [("NamedQueryId" Data..=) Prelude.<$> namedQueryId]
       )
 
 instance Data.ToPath DeleteNamedQuery where

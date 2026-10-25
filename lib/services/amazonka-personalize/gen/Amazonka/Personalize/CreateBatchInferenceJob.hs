@@ -210,6 +210,8 @@ instance Core.AWSRequest CreateBatchInferenceJob where
             Prelude.<$> (x Data..?> "batchInferenceJobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateBatchInferenceJob where
   hashWithSalt _salt CreateBatchInferenceJob' {..} =

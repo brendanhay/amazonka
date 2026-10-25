@@ -90,6 +90,8 @@ instance Core.AWSRequest DeleteCorsPolicy where
           DeleteCorsPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCorsPolicy where
   hashWithSalt _salt DeleteCorsPolicy' {..} =

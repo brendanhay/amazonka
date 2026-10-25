@@ -122,6 +122,8 @@ instance Core.AWSRequest AddUserToGroup where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull AddUserToGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddUserToGroup where
   hashWithSalt _salt AddUserToGroup' {..} =

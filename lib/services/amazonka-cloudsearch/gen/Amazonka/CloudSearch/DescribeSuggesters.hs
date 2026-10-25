@@ -128,6 +128,8 @@ instance Core.AWSRequest DescribeSuggesters where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSuggesters where
   hashWithSalt _salt DescribeSuggesters' {..} =

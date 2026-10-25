@@ -107,6 +107,8 @@ instance Core.AWSRequest DescribePage where
             Prelude.<*> (x Data..:> "Subject")
             Prelude.<*> (x Data..:> "Content")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePage where
   hashWithSalt _salt DescribePage' {..} =

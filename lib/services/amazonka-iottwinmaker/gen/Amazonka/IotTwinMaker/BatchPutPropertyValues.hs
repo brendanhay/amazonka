@@ -105,6 +105,8 @@ instance Core.AWSRequest BatchPutPropertyValues where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "errorEntries")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchPutPropertyValues where
   hashWithSalt _salt BatchPutPropertyValues' {..} =

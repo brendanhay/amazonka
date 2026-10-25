@@ -133,6 +133,8 @@ instance Core.AWSRequest GetDomainDetail where
             Prelude.<*> (x Data..?> "WhoIsServer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDomainDetail where
   hashWithSalt _salt GetDomainDetail' {..} =

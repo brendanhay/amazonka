@@ -124,6 +124,8 @@ instance Core.AWSRequest DeleteMessageBatch where
             Prelude.<*> (Data.parseXMLList "DeleteMessageBatchResultEntry" x)
             Prelude.<*> (Data.parseXMLList "BatchResultErrorEntry" x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteMessageBatch where
   hashWithSalt _salt DeleteMessageBatch' {..} =

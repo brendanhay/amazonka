@@ -186,6 +186,14 @@ instance Core.AWSRequest StartEngagement where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "EngagementArn")
       )
+  updateIdempotencyToken
+    f
+    s@StartEngagement' {idempotencyToken} =
+      ( \idempotencyToken' ->
+          s {idempotencyToken = idempotencyToken'} ::
+            StartEngagement
+      )
+        Prelude.<$> f idempotencyToken
 
 instance Prelude.Hashable StartEngagement where
   hashWithSalt _salt StartEngagement' {..} =

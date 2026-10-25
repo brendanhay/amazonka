@@ -186,6 +186,14 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "environmentTemplateVersion")
       )
+  updateIdempotencyToken
+    f
+    s@CreateEnvironmentTemplateVersion' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateEnvironmentTemplateVersion
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

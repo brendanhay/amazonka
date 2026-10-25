@@ -994,6 +994,8 @@ instance Core.AWSRequest PutObject where
             Prelude.<*> (h Data..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Data.ToBody PutObject where
   toBody PutObject' {..} = Data.toBody body

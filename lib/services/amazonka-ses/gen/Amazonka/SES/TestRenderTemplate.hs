@@ -111,6 +111,8 @@ instance Core.AWSRequest TestRenderTemplate where
             Prelude.<$> (x Data..@? "RenderedTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TestRenderTemplate where
   hashWithSalt _salt TestRenderTemplate' {..} =

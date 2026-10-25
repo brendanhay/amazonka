@@ -101,6 +101,8 @@ instance Core.AWSRequest ImportKeyPair where
             Prelude.<$> (x Data..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportKeyPair where
   hashWithSalt _salt ImportKeyPair' {..} =

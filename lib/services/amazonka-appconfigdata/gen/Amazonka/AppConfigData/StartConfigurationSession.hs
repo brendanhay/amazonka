@@ -139,6 +139,8 @@ instance Core.AWSRequest StartConfigurationSession where
             Prelude.<$> (x Data..?> "InitialConfigurationToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartConfigurationSession where
   hashWithSalt _salt StartConfigurationSession' {..} =

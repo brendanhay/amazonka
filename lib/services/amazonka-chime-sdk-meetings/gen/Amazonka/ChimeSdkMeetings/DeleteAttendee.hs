@@ -97,6 +97,8 @@ instance Core.AWSRequest DeleteAttendee where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteAttendeeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAttendee where
   hashWithSalt _salt DeleteAttendee' {..} =

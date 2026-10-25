@@ -110,6 +110,8 @@ instance Core.AWSRequest UpdateQueueStatus where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateQueueStatusResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateQueueStatus where
   hashWithSalt _salt UpdateQueueStatus' {..} =

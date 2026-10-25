@@ -136,6 +136,8 @@ instance Core.AWSRequest ListShareInvitations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListShareInvitations where
   hashWithSalt _salt ListShareInvitations' {..} =

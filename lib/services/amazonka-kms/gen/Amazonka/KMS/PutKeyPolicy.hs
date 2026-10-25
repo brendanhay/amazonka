@@ -326,6 +326,8 @@ instance Core.AWSRequest PutKeyPolicy where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull PutKeyPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutKeyPolicy where
   hashWithSalt _salt PutKeyPolicy' {..} =

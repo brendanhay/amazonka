@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteSAMLProvider where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeleteSAMLProviderResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSAMLProvider where
   hashWithSalt _salt DeleteSAMLProvider' {..} =

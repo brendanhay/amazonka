@@ -156,6 +156,8 @@ instance Core.AWSRequest ResumeProcesses where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull ResumeProcessesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResumeProcesses where
   hashWithSalt _salt ResumeProcesses' {..} =

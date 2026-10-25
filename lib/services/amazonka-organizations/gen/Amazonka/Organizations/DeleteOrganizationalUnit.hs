@@ -111,6 +111,8 @@ instance Core.AWSRequest DeleteOrganizationalUnit where
   response =
     Response.receiveNull
       DeleteOrganizationalUnitResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteOrganizationalUnit where
   hashWithSalt _salt DeleteOrganizationalUnit' {..} =

@@ -119,6 +119,8 @@ instance Core.AWSRequest StartBatchJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "executionId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartBatchJob where
   hashWithSalt _salt StartBatchJob' {..} =

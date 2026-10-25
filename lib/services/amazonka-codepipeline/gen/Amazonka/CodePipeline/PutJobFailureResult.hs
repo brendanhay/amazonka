@@ -98,6 +98,8 @@ instance Core.AWSRequest PutJobFailureResult where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull PutJobFailureResultResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutJobFailureResult where
   hashWithSalt _salt PutJobFailureResult' {..} =

@@ -107,6 +107,8 @@ instance Core.AWSRequest GetComponent where
             Prelude.<*> (x Data..:> "recipeOutputFormat")
             Prelude.<*> (x Data..:> "recipe")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetComponent where
   hashWithSalt _salt GetComponent' {..} =

@@ -175,6 +175,8 @@ instance Core.AWSRequest CreateEnvironmentTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "environmentTemplate")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateEnvironmentTemplate where
   hashWithSalt _salt CreateEnvironmentTemplate' {..} =

@@ -102,6 +102,8 @@ instance Core.AWSRequest CancelResize where
     Response.receiveXMLWrapper
       "CancelResizeResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelResize where
   hashWithSalt _salt CancelResize' {..} =

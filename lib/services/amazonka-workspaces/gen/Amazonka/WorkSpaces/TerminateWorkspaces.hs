@@ -118,6 +118,8 @@ instance Core.AWSRequest TerminateWorkspaces where
             Prelude.<$> (x Data..?> "FailedRequests" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TerminateWorkspaces where
   hashWithSalt _salt TerminateWorkspaces' {..} =

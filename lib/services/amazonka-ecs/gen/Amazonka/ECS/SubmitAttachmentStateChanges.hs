@@ -104,6 +104,8 @@ instance Core.AWSRequest SubmitAttachmentStateChanges where
             Prelude.<$> (x Data..?> "acknowledgment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

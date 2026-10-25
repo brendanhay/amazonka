@@ -138,6 +138,8 @@ instance Core.AWSRequest TagPolicy where
   request overrides =
     Request.postQuery (overrides defaultService)
   response = Response.receiveNull TagPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TagPolicy where
   hashWithSalt _salt TagPolicy' {..} =

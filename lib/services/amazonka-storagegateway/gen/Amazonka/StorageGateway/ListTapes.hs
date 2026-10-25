@@ -155,6 +155,8 @@ instance Core.AWSRequest ListTapes where
             Prelude.<*> (x Data..?> "TapeInfos" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTapes where
   hashWithSalt _salt ListTapes' {..} =

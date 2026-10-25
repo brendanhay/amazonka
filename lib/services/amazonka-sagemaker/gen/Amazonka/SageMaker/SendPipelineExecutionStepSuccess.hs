@@ -122,6 +122,14 @@ instance
             Prelude.<$> (x Data..?> "PipelineExecutionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@SendPipelineExecutionStepSuccess' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            SendPipelineExecutionStepSuccess
+      )
+        Prelude.<$> f clientRequestToken
 
 instance
   Prelude.Hashable

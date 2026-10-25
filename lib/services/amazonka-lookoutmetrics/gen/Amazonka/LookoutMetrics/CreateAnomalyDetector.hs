@@ -140,6 +140,8 @@ instance Core.AWSRequest CreateAnomalyDetector where
             Prelude.<$> (x Data..?> "AnomalyDetectorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateAnomalyDetector where
   hashWithSalt _salt CreateAnomalyDetector' {..} =

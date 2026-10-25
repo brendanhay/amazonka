@@ -106,6 +106,8 @@ instance Core.AWSRequest GetLayerVersion where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetLayerVersion where
   hashWithSalt _salt GetLayerVersion' {..} =

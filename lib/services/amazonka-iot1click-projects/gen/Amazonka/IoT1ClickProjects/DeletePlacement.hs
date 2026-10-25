@@ -102,6 +102,8 @@ instance Core.AWSRequest DeletePlacement where
           DeletePlacementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePlacement where
   hashWithSalt _salt DeletePlacement' {..} =

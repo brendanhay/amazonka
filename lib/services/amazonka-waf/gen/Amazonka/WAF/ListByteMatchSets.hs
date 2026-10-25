@@ -156,6 +156,8 @@ instance Core.AWSRequest ListByteMatchSets where
             Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListByteMatchSets where
   hashWithSalt _salt ListByteMatchSets' {..} =

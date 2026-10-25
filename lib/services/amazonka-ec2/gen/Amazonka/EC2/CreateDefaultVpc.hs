@@ -113,6 +113,8 @@ instance Core.AWSRequest CreateDefaultVpc where
             Prelude.<$> (x Data..@? "vpc")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDefaultVpc where
   hashWithSalt _salt CreateDefaultVpc' {..} =

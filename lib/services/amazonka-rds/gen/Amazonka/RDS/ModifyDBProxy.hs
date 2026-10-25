@@ -202,6 +202,8 @@ instance Core.AWSRequest ModifyDBProxy where
             Prelude.<$> (x Data..@? "DBProxy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyDBProxy where
   hashWithSalt _salt ModifyDBProxy' {..} =

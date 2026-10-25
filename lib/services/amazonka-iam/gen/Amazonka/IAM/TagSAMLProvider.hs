@@ -144,6 +144,8 @@ instance Core.AWSRequest TagSAMLProvider where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull TagSAMLProviderResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TagSAMLProvider where
   hashWithSalt _salt TagSAMLProvider' {..} =

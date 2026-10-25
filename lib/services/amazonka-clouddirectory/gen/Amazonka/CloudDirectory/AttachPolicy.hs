@@ -119,6 +119,8 @@ instance Core.AWSRequest AttachPolicy where
           AttachPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AttachPolicy where
   hashWithSalt _salt AttachPolicy' {..} =

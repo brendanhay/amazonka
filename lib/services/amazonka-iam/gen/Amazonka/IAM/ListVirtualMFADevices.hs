@@ -191,6 +191,8 @@ instance Core.AWSRequest ListVirtualMFADevices where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListVirtualMFADevices where
   hashWithSalt _salt ListVirtualMFADevices' {..} =

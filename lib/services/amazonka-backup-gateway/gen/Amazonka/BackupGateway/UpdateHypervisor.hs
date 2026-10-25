@@ -147,6 +147,8 @@ instance Core.AWSRequest UpdateHypervisor where
             Prelude.<$> (x Data..?> "HypervisorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateHypervisor where
   hashWithSalt _salt UpdateHypervisor' {..} =

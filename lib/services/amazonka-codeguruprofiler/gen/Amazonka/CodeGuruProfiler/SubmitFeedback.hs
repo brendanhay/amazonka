@@ -136,6 +136,8 @@ instance Core.AWSRequest SubmitFeedback where
           SubmitFeedbackResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SubmitFeedback where
   hashWithSalt _salt SubmitFeedback' {..} =

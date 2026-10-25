@@ -178,6 +178,13 @@ instance Core.AWSRequest CreateThesaurus where
             Prelude.<$> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateThesaurus' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateThesaurus
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateThesaurus where
   hashWithSalt _salt CreateThesaurus' {..} =

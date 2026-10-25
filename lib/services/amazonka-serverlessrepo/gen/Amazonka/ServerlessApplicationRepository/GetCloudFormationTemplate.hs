@@ -125,6 +125,8 @@ instance Core.AWSRequest GetCloudFormationTemplate where
             Prelude.<*> (x Data..?> "templateUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCloudFormationTemplate where
   hashWithSalt _salt GetCloudFormationTemplate' {..} =

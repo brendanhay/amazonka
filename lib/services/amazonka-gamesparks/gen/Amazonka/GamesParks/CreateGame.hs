@@ -122,6 +122,8 @@ instance Core.AWSRequest CreateGame where
             Prelude.<$> (x Data..?> "Game")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateGame where
   hashWithSalt _salt CreateGame' {..} =

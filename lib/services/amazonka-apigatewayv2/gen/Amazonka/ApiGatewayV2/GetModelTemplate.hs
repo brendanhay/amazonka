@@ -101,6 +101,8 @@ instance Core.AWSRequest GetModelTemplate where
             Prelude.<$> (x Data..?> "value")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetModelTemplate where
   hashWithSalt _salt GetModelTemplate' {..} =

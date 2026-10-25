@@ -148,6 +148,8 @@ instance Core.AWSRequest DescribeOptOutLists where
             Prelude.<*> (x Data..?> "OptOutLists" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeOptOutLists where
   hashWithSalt _salt DescribeOptOutLists' {..} =

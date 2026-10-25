@@ -90,6 +90,8 @@ instance Core.AWSRequest DescribeTransaction where
             Prelude.<$> (x Data..?> "TransactionDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeTransaction where
   hashWithSalt _salt DescribeTransaction' {..} =

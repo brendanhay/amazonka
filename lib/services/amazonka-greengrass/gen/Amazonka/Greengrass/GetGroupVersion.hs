@@ -124,6 +124,8 @@ instance Core.AWSRequest GetGroupVersion where
             Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetGroupVersion where
   hashWithSalt _salt GetGroupVersion' {..} =

@@ -252,6 +252,8 @@ instance Core.AWSRequest CreateOptionGroup where
             Prelude.<$> (x Data..@? "OptionGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateOptionGroup where
   hashWithSalt _salt CreateOptionGroup' {..} =

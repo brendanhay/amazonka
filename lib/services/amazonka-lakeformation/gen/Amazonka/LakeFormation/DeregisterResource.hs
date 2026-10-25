@@ -91,6 +91,8 @@ instance Core.AWSRequest DeregisterResource where
           DeregisterResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterResource where
   hashWithSalt _salt DeregisterResource' {..} =

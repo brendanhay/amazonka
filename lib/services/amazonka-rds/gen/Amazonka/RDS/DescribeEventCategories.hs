@@ -122,6 +122,8 @@ instance Core.AWSRequest DescribeEventCategories where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEventCategories where
   hashWithSalt _salt DescribeEventCategories' {..} =

@@ -169,6 +169,8 @@ instance Core.AWSRequest DescribeEC2InstanceLimits where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEC2InstanceLimits where
   hashWithSalt _salt DescribeEC2InstanceLimits' {..} =

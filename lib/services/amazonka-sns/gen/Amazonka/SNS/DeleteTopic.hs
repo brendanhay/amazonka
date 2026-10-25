@@ -78,6 +78,8 @@ instance Core.AWSRequest DeleteTopic where
   request overrides =
     Request.postQuery (overrides defaultService)
   response = Response.receiveNull DeleteTopicResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTopic where
   hashWithSalt _salt DeleteTopic' {..} =

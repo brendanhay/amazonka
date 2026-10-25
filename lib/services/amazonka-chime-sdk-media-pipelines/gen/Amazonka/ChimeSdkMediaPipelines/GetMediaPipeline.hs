@@ -90,6 +90,8 @@ instance Core.AWSRequest GetMediaPipeline where
             Prelude.<$> (x Data..?> "MediaPipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMediaPipeline where
   hashWithSalt _salt GetMediaPipeline' {..} =

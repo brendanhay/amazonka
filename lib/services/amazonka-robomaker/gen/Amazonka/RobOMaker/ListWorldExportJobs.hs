@@ -171,6 +171,8 @@ instance Core.AWSRequest ListWorldExportJobs where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListWorldExportJobs where
   hashWithSalt _salt ListWorldExportJobs' {..} =

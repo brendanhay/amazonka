@@ -245,6 +245,8 @@ instance Core.AWSRequest SearchFacesByImage where
             Prelude.<*> (x Data..?> "SearchedFaceConfidence")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SearchFacesByImage where
   hashWithSalt _salt SearchFacesByImage' {..} =

@@ -321,6 +321,8 @@ instance Core.AWSRequest GetSavingsPlansCoverage where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSavingsPlansCoverage where
   hashWithSalt _salt GetSavingsPlansCoverage' {..} =

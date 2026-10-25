@@ -92,6 +92,8 @@ instance Core.AWSRequest GetPolicy where
             Prelude.<*> (x Data..:> "policy")
             Prelude.<*> (x Data..:> "revisionId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPolicy where
   hashWithSalt _salt GetPolicy' {..} =

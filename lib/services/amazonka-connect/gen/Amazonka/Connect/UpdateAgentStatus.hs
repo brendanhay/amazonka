@@ -148,6 +148,8 @@ instance Core.AWSRequest UpdateAgentStatus where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateAgentStatusResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateAgentStatus where
   hashWithSalt _salt UpdateAgentStatus' {..} =

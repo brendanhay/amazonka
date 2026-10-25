@@ -161,6 +161,8 @@ instance Core.AWSRequest DescribeSessions where
             Prelude.<*> (x Data..?> "Sessions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSessions where
   hashWithSalt _salt DescribeSessions' {..} =

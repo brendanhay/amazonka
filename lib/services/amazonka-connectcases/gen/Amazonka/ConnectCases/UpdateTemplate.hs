@@ -157,6 +157,8 @@ instance Core.AWSRequest UpdateTemplate where
           UpdateTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateTemplate where
   hashWithSalt _salt UpdateTemplate' {..} =

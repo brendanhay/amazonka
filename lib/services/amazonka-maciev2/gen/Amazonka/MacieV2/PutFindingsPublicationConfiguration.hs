@@ -107,6 +107,14 @@ instance
           PutFindingsPublicationConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@PutFindingsPublicationConfiguration' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            PutFindingsPublicationConfiguration
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

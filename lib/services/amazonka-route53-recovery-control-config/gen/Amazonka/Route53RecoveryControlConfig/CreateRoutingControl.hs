@@ -146,6 +146,14 @@ instance Core.AWSRequest CreateRoutingControl where
             Prelude.<$> (x Data..?> "RoutingControl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateRoutingControl' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateRoutingControl
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateRoutingControl where
   hashWithSalt _salt CreateRoutingControl' {..} =

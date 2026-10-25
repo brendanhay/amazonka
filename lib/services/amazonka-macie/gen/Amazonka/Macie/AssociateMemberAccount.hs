@@ -86,6 +86,8 @@ instance Core.AWSRequest AssociateMemberAccount where
   response =
     Response.receiveNull
       AssociateMemberAccountResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateMemberAccount where
   hashWithSalt _salt AssociateMemberAccount' {..} =

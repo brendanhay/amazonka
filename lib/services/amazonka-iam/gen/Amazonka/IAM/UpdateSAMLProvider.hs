@@ -136,6 +136,8 @@ instance Core.AWSRequest UpdateSAMLProvider where
             Prelude.<$> (x Data..@? "SAMLProviderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateSAMLProvider where
   hashWithSalt _salt UpdateSAMLProvider' {..} =

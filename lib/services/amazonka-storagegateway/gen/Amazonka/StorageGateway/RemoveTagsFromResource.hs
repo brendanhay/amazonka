@@ -109,6 +109,8 @@ instance Core.AWSRequest RemoveTagsFromResource where
             Prelude.<$> (x Data..?> "ResourceARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveTagsFromResource where
   hashWithSalt _salt RemoveTagsFromResource' {..} =

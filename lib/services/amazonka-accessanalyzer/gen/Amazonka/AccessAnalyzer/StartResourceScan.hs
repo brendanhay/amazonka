@@ -118,6 +118,8 @@ instance Core.AWSRequest StartResourceScan where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull StartResourceScanResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartResourceScan where
   hashWithSalt _salt StartResourceScan' {..} =

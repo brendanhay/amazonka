@@ -134,6 +134,8 @@ instance Core.AWSRequest GetDownloadUrlForLayer where
             Prelude.<*> (x Data..?> "layerDigest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDownloadUrlForLayer where
   hashWithSalt _salt GetDownloadUrlForLayer' {..} =

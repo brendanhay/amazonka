@@ -87,6 +87,8 @@ instance Core.AWSRequest GetTransitGatewayPeering where
             Prelude.<$> (x Data..?> "TransitGatewayPeering")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTransitGatewayPeering where
   hashWithSalt _salt GetTransitGatewayPeering' {..} =

@@ -93,6 +93,8 @@ instance Core.AWSRequest ListTagsForDomain where
             Prelude.<$> (x Data..?> "TagList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTagsForDomain where
   hashWithSalt _salt ListTagsForDomain' {..} =

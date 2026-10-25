@@ -107,6 +107,13 @@ instance Core.AWSRequest DeleteArchiveRule where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteArchiveRuleResponse'
+  updateIdempotencyToken
+    f
+    s@DeleteArchiveRule' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: DeleteArchiveRule
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteArchiveRule where
   hashWithSalt _salt DeleteArchiveRule' {..} =

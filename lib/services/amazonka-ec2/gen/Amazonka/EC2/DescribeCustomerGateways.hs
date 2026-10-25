@@ -205,6 +205,8 @@ instance Core.AWSRequest DescribeCustomerGateways where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeCustomerGateways where
   hashWithSalt _salt DescribeCustomerGateways' {..} =

@@ -93,6 +93,8 @@ instance Core.AWSRequest DeleteCacheSecurityGroup where
   response =
     Response.receiveNull
       DeleteCacheSecurityGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCacheSecurityGroup where
   hashWithSalt _salt DeleteCacheSecurityGroup' {..} =

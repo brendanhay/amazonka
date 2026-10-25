@@ -156,6 +156,8 @@ instance Core.AWSRequest DescribeRuleGroupMetadata where
             Prelude.<*> (x Data..:> "RuleGroupArn")
             Prelude.<*> (x Data..:> "RuleGroupName")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeRuleGroupMetadata where
   hashWithSalt _salt DescribeRuleGroupMetadata' {..} =

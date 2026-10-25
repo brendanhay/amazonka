@@ -112,6 +112,8 @@ instance Core.AWSRequest DeleteWorkflowStep where
           DeleteWorkflowStepResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteWorkflowStep where
   hashWithSalt _salt DeleteWorkflowStep' {..} =

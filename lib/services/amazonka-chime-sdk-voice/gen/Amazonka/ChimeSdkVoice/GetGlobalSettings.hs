@@ -71,6 +71,8 @@ instance Core.AWSRequest GetGlobalSettings where
             Prelude.<$> (x Data..?> "VoiceConnector")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetGlobalSettings where
   hashWithSalt _salt _ =

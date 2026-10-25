@@ -128,6 +128,8 @@ instance Core.AWSRequest DescribeDevice where
             Prelude.<*> (x Data..?> "Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDevice where
   hashWithSalt _salt DescribeDevice' {..} =

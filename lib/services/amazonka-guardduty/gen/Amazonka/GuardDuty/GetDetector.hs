@@ -97,6 +97,8 @@ instance Core.AWSRequest GetDetector where
             Prelude.<*> (x Data..:> "serviceRole")
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDetector where
   hashWithSalt _salt GetDetector' {..} =

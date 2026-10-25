@@ -85,6 +85,8 @@ instance Core.AWSRequest GetOutpost where
             Prelude.<$> (x Data..?> "Outpost")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetOutpost where
   hashWithSalt _salt GetOutpost' {..} =

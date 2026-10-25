@@ -107,6 +107,8 @@ instance Core.AWSRequest CreateWorkerBlock where
           CreateWorkerBlockResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateWorkerBlock where
   hashWithSalt _salt CreateWorkerBlock' {..} =

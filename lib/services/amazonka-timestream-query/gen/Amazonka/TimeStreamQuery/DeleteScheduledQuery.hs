@@ -81,6 +81,8 @@ instance Core.AWSRequest DeleteScheduledQuery where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteScheduledQueryResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteScheduledQuery where
   hashWithSalt _salt DeleteScheduledQuery' {..} =

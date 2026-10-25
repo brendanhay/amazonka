@@ -87,6 +87,8 @@ instance Core.AWSRequest DescribeDataset where
             Prelude.<$> (x Data..?> "dataset")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDataset where
   hashWithSalt _salt DescribeDataset' {..} =

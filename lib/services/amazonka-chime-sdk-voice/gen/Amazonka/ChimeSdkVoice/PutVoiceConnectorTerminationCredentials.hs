@@ -96,6 +96,8 @@ instance
   response =
     Response.receiveNull
       PutVoiceConnectorTerminationCredentialsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

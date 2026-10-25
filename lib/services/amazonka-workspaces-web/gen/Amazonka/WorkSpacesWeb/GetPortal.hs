@@ -85,6 +85,8 @@ instance Core.AWSRequest GetPortal where
             Prelude.<$> (x Data..?> "portal")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPortal where
   hashWithSalt _salt GetPortal' {..} =

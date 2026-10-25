@@ -80,6 +80,8 @@ instance Core.AWSRequest DeleteApp where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteAppResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteApp where
   hashWithSalt _salt DeleteApp' {..} =

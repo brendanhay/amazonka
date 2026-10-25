@@ -192,6 +192,8 @@ instance Core.AWSRequest CreateSubnetCidrReservation where
             Prelude.<$> (x Data..@? "subnetCidrReservation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateSubnetCidrReservation where
   hashWithSalt _salt CreateSubnetCidrReservation' {..} =

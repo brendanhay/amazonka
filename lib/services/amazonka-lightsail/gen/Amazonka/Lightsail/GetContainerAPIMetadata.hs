@@ -72,6 +72,8 @@ instance Core.AWSRequest GetContainerAPIMetadata where
             Prelude.<$> (x Data..?> "metadata" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetContainerAPIMetadata where
   hashWithSalt _salt _ =

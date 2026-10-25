@@ -115,6 +115,8 @@ instance Core.AWSRequest DeleteVpnConnection where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeleteVpnConnectionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVpnConnection where
   hashWithSalt _salt DeleteVpnConnection' {..} =

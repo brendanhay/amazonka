@@ -144,6 +144,8 @@ instance Core.AWSRequest ListDataSetImportHistory where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDataSetImportHistory where
   hashWithSalt _salt ListDataSetImportHistory' {..} =

@@ -133,6 +133,8 @@ instance Core.AWSRequest SearchJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "jobs" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SearchJobs where
   hashWithSalt _salt SearchJobs' {..} =

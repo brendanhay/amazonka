@@ -129,6 +129,8 @@ instance Core.AWSRequest AddTagsToCertificate where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull AddTagsToCertificateResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddTagsToCertificate where
   hashWithSalt _salt AddTagsToCertificate' {..} =

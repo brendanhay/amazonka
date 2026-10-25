@@ -100,6 +100,8 @@ instance Core.AWSRequest UpdateTrust where
             Prelude.<*> (x Data..?> "TrustId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateTrust where
   hashWithSalt _salt UpdateTrust' {..} =

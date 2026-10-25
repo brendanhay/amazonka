@@ -133,6 +133,8 @@ instance Core.AWSRequest DescribeSpendLimits where
             Prelude.<*> (x Data..?> "SpendLimits" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSpendLimits where
   hashWithSalt _salt DescribeSpendLimits' {..} =

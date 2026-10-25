@@ -100,6 +100,8 @@ instance Core.AWSRequest DeleteAccelerator where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteAcceleratorResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAccelerator where
   hashWithSalt _salt DeleteAccelerator' {..} =

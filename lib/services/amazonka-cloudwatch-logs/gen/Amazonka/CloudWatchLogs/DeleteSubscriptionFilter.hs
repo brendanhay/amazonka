@@ -96,6 +96,8 @@ instance Core.AWSRequest DeleteSubscriptionFilter where
   response =
     Response.receiveNull
       DeleteSubscriptionFilterResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSubscriptionFilter where
   hashWithSalt _salt DeleteSubscriptionFilter' {..} =

@@ -124,6 +124,8 @@ instance Core.AWSRequest ListAssociatedGroups where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAssociatedGroups where
   hashWithSalt _salt ListAssociatedGroups' {..} =

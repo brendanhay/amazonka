@@ -134,6 +134,8 @@ instance Core.AWSRequest UpdateApplicationVersion where
     Response.receiveXMLWrapper
       "UpdateApplicationVersionResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateApplicationVersion where
   hashWithSalt _salt UpdateApplicationVersion' {..} =

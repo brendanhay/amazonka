@@ -70,7 +70,7 @@ data CreateAttributeGroup = CreateAttributeGroup'
     -- the same parameters, the retry succeeds without performing any further
     -- actions. If you retry a successful request using the same client token,
     -- but one or more of the parameters are different, the retry fails.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,21 +101,16 @@ newCreateAttributeGroup ::
   Prelude.Text ->
   -- | 'attributes'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateAttributeGroup
-newCreateAttributeGroup
-  pName_
-  pAttributes_
-  pClientToken_ =
-    CreateAttributeGroup'
-      { description =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
-        name = pName_,
-        attributes = pAttributes_,
-        clientToken = pClientToken_
-      }
+newCreateAttributeGroup pName_ pAttributes_ =
+  CreateAttributeGroup'
+    { description =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
+      name = pName_,
+      attributes = pAttributes_,
+      clientToken = Prelude.Nothing
+    }
 
 -- | The description of the attribute group that the user provides.
 createAttributeGroup_description :: Lens.Lens' CreateAttributeGroup (Prelude.Maybe Prelude.Text)
@@ -139,7 +134,7 @@ createAttributeGroup_attributes = Lens.lens (\CreateAttributeGroup' {attributes}
 -- the same parameters, the retry succeeds without performing any further
 -- actions. If you retry a successful request using the same client token,
 -- but one or more of the parameters are different, the retry fails.
-createAttributeGroup_clientToken :: Lens.Lens' CreateAttributeGroup Prelude.Text
+createAttributeGroup_clientToken :: Lens.Lens' CreateAttributeGroup (Prelude.Maybe Prelude.Text)
 createAttributeGroup_clientToken = Lens.lens (\CreateAttributeGroup' {clientToken} -> clientToken) (\s@CreateAttributeGroup' {} a -> s {clientToken = a} :: CreateAttributeGroup)
 
 instance Core.AWSRequest CreateAttributeGroup where
@@ -155,6 +150,14 @@ instance Core.AWSRequest CreateAttributeGroup where
             Prelude.<$> (x Data..?> "attributeGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateAttributeGroup' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateAttributeGroup
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateAttributeGroup where
   hashWithSalt _salt CreateAttributeGroup' {..} =
@@ -192,7 +195,7 @@ instance Data.ToJSON CreateAttributeGroup where
             ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("attributes" Data..= attributes),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

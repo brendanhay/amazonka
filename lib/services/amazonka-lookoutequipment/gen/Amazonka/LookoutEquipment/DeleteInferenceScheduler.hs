@@ -83,6 +83,8 @@ instance Core.AWSRequest DeleteInferenceScheduler where
   response =
     Response.receiveNull
       DeleteInferenceSchedulerResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteInferenceScheduler where
   hashWithSalt _salt DeleteInferenceScheduler' {..} =

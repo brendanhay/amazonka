@@ -224,6 +224,8 @@ instance Core.AWSRequest CompleteMultipartUpload where
             Prelude.<*> (h Data..#? "x-amz-sha256-tree-hash")
             Prelude.<*> (h Data..#? "Location")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CompleteMultipartUpload where
   hashWithSalt _salt CompleteMultipartUpload' {..} =

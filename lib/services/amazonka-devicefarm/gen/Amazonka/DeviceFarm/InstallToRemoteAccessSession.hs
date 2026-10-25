@@ -113,6 +113,8 @@ instance Core.AWSRequest InstallToRemoteAccessSession where
             Prelude.<$> (x Data..?> "appUpload")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

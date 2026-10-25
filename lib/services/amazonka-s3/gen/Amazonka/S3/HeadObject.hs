@@ -505,6 +505,8 @@ instance Core.AWSRequest HeadObject where
             Prelude.<*> (h Data..#? "x-amz-website-redirect-location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable HeadObject where
   hashWithSalt _salt HeadObject' {..} =

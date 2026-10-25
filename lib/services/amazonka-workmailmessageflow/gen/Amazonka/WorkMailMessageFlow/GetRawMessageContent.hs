@@ -82,12 +82,14 @@ instance Core.AWSRequest GetRawMessageContent where
   request overrides =
     Request.get (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetRawMessageContentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRawMessageContent where
   hashWithSalt _salt GetRawMessageContent' {..} =

@@ -115,6 +115,8 @@ instance Core.AWSRequest DisconnectUser where
           DisconnectUserResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisconnectUser where
   hashWithSalt _salt DisconnectUser' {..} =

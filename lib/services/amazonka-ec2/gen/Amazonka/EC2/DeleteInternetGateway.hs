@@ -100,6 +100,8 @@ instance Core.AWSRequest DeleteInternetGateway where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeleteInternetGatewayResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteInternetGateway where
   hashWithSalt _salt DeleteInternetGateway' {..} =

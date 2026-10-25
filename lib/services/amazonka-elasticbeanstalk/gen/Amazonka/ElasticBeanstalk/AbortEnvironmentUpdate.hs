@@ -99,6 +99,8 @@ instance Core.AWSRequest AbortEnvironmentUpdate where
   response =
     Response.receiveNull
       AbortEnvironmentUpdateResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AbortEnvironmentUpdate where
   hashWithSalt _salt AbortEnvironmentUpdate' {..} =

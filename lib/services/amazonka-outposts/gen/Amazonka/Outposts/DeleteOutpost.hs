@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteOutpost where
           DeleteOutpostResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteOutpost where
   hashWithSalt _salt DeleteOutpost' {..} =

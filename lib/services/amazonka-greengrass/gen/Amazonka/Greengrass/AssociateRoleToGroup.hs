@@ -106,6 +106,8 @@ instance Core.AWSRequest AssociateRoleToGroup where
             Prelude.<$> (x Data..?> "AssociatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateRoleToGroup where
   hashWithSalt _salt AssociateRoleToGroup' {..} =

@@ -131,6 +131,8 @@ instance Core.AWSRequest GetAnomalySubscriptions where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAnomalySubscriptions where
   hashWithSalt _salt GetAnomalySubscriptions' {..} =

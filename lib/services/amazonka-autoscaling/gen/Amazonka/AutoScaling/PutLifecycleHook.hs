@@ -309,6 +309,8 @@ instance Core.AWSRequest PutLifecycleHook where
           PutLifecycleHookResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutLifecycleHook where
   hashWithSalt _salt PutLifecycleHook' {..} =

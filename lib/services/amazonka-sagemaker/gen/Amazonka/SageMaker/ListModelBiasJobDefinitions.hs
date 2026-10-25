@@ -204,6 +204,8 @@ instance Core.AWSRequest ListModelBiasJobDefinitions where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListModelBiasJobDefinitions where
   hashWithSalt _salt ListModelBiasJobDefinitions' {..} =

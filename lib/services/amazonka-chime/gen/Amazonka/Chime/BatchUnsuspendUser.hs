@@ -108,6 +108,8 @@ instance Core.AWSRequest BatchUnsuspendUser where
             Prelude.<$> (x Data..?> "UserErrors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchUnsuspendUser where
   hashWithSalt _salt BatchUnsuspendUser' {..} =

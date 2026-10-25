@@ -121,6 +121,8 @@ instance Core.AWSRequest SearchRasterDataCollection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ApproximateResultCount")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SearchRasterDataCollection where
   hashWithSalt _salt SearchRasterDataCollection' {..} =

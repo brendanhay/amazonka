@@ -99,6 +99,8 @@ instance Core.AWSRequest DescribeSMBSettings where
             Prelude.<*> (x Data..?> "SMBSecurityStrategy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSMBSettings where
   hashWithSalt _salt DescribeSMBSettings' {..} =

@@ -67,7 +67,7 @@ data CreateQuantumTask = CreateQuantumTask'
     -- | The action associated with the task.
     action :: Prelude.Text,
     -- | The client token associated with the request.
-    clientToken :: Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the device to run the task on.
     deviceArn :: Prelude.Text,
     -- | The S3 bucket to store task result files in.
@@ -110,8 +110,6 @@ data CreateQuantumTask = CreateQuantumTask'
 newCreateQuantumTask ::
   -- | 'action'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   -- | 'deviceArn'
   Prelude.Text ->
   -- | 'outputS3Bucket'
@@ -123,7 +121,6 @@ newCreateQuantumTask ::
   CreateQuantumTask
 newCreateQuantumTask
   pAction_
-  pClientToken_
   pDeviceArn_
   pOutputS3Bucket_
   pOutputS3KeyPrefix_
@@ -134,7 +131,7 @@ newCreateQuantumTask
         jobToken = Prelude.Nothing,
         tags = Prelude.Nothing,
         action = pAction_,
-        clientToken = pClientToken_,
+        clientToken = Prelude.Nothing,
         deviceArn = pDeviceArn_,
         outputS3Bucket = pOutputS3Bucket_,
         outputS3KeyPrefix = pOutputS3KeyPrefix_,
@@ -159,7 +156,7 @@ createQuantumTask_action :: Lens.Lens' CreateQuantumTask Prelude.Text
 createQuantumTask_action = Lens.lens (\CreateQuantumTask' {action} -> action) (\s@CreateQuantumTask' {} a -> s {action = a} :: CreateQuantumTask)
 
 -- | The client token associated with the request.
-createQuantumTask_clientToken :: Lens.Lens' CreateQuantumTask Prelude.Text
+createQuantumTask_clientToken :: Lens.Lens' CreateQuantumTask (Prelude.Maybe Prelude.Text)
 createQuantumTask_clientToken = Lens.lens (\CreateQuantumTask' {clientToken} -> clientToken) (\s@CreateQuantumTask' {} a -> s {clientToken = a} :: CreateQuantumTask)
 
 -- | The ARN of the device to run the task on.
@@ -192,6 +189,13 @@ instance Core.AWSRequest CreateQuantumTask where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "quantumTaskArn")
       )
+  updateIdempotencyToken
+    f
+    s@CreateQuantumTask' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateQuantumTask
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateQuantumTask where
   hashWithSalt _salt CreateQuantumTask' {..} =
@@ -238,7 +242,7 @@ instance Data.ToJSON CreateQuantumTask where
             ("jobToken" Data..=) Prelude.<$> jobToken,
             ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("action" Data..= action),
-            Prelude.Just ("clientToken" Data..= clientToken),
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just ("deviceArn" Data..= deviceArn),
             Prelude.Just
               ("outputS3Bucket" Data..= outputS3Bucket),

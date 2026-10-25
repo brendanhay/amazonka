@@ -162,6 +162,8 @@ instance Core.AWSRequest DescribeVpcClassicLink where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeVpcClassicLink where
   hashWithSalt _salt DescribeVpcClassicLink' {..} =

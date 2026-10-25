@@ -104,6 +104,8 @@ instance Core.AWSRequest BatchGetField where
             Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "fields" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetField where
   hashWithSalt _salt BatchGetField' {..} =

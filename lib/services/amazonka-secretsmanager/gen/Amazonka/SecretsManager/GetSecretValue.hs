@@ -199,6 +199,8 @@ instance Core.AWSRequest GetSecretValue where
             Prelude.<*> (x Data..?> "VersionStages")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSecretValue where
   hashWithSalt _salt GetSecretValue' {..} =

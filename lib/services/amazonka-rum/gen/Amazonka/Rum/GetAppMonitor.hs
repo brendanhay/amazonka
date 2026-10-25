@@ -87,6 +87,8 @@ instance Core.AWSRequest GetAppMonitor where
             Prelude.<$> (x Data..?> "AppMonitor")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAppMonitor where
   hashWithSalt _salt GetAppMonitor' {..} =

@@ -87,6 +87,8 @@ instance Core.AWSRequest ExtendTransaction where
           ExtendTransactionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ExtendTransaction where
   hashWithSalt _salt ExtendTransaction' {..} =

@@ -840,6 +840,8 @@ instance Core.AWSRequest CreateUserPoolClient where
             Prelude.<$> (x Data..?> "UserPoolClient")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateUserPoolClient where
   hashWithSalt _salt CreateUserPoolClient' {..} =

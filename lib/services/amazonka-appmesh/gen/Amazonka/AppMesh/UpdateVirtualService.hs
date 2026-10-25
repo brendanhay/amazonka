@@ -157,6 +157,14 @@ instance Core.AWSRequest UpdateVirtualService where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken
+    f
+    s@UpdateVirtualService' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            UpdateVirtualService
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateVirtualService where
   hashWithSalt _salt UpdateVirtualService' {..} =

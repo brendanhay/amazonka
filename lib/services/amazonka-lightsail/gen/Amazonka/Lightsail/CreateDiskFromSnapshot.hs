@@ -339,6 +339,8 @@ instance Core.AWSRequest CreateDiskFromSnapshot where
             Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDiskFromSnapshot where
   hashWithSalt _salt CreateDiskFromSnapshot' {..} =

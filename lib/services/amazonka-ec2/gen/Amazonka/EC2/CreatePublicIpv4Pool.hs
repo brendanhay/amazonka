@@ -123,6 +123,8 @@ instance Core.AWSRequest CreatePublicIpv4Pool where
             Prelude.<$> (x Data..@? "poolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreatePublicIpv4Pool where
   hashWithSalt _salt CreatePublicIpv4Pool' {..} =

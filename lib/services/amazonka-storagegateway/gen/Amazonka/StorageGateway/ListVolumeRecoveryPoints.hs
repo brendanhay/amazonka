@@ -101,6 +101,8 @@ instance Core.AWSRequest ListVolumeRecoveryPoints where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListVolumeRecoveryPoints where
   hashWithSalt _salt ListVolumeRecoveryPoints' {..} =

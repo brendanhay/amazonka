@@ -114,6 +114,8 @@ instance
   response =
     Response.receiveNull
       DeleteBucketOwnershipControlsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

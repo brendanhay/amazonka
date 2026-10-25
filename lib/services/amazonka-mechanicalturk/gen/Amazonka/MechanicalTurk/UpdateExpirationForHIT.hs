@@ -101,6 +101,8 @@ instance Core.AWSRequest UpdateExpirationForHIT where
           UpdateExpirationForHITResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateExpirationForHIT where
   hashWithSalt _salt UpdateExpirationForHIT' {..} =

@@ -81,7 +81,7 @@ data StartJobRun = StartJobRun'
     -- | The virtual cluster ID for which the job run request is submitted.
     virtualClusterId :: Prelude.Text,
     -- | The client idempotency token of the job run request.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -115,10 +115,8 @@ data StartJobRun = StartJobRun'
 newStartJobRun ::
   -- | 'virtualClusterId'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   StartJobRun
-newStartJobRun pVirtualClusterId_ pClientToken_ =
+newStartJobRun pVirtualClusterId_ =
   StartJobRun'
     { configurationOverrides =
         Prelude.Nothing,
@@ -130,7 +128,7 @@ newStartJobRun pVirtualClusterId_ pClientToken_ =
       releaseLabel = Prelude.Nothing,
       tags = Prelude.Nothing,
       virtualClusterId = pVirtualClusterId_,
-      clientToken = pClientToken_
+      clientToken = Prelude.Nothing
     }
 
 -- | The configuration overrides for the job run.
@@ -170,7 +168,7 @@ startJobRun_virtualClusterId :: Lens.Lens' StartJobRun Prelude.Text
 startJobRun_virtualClusterId = Lens.lens (\StartJobRun' {virtualClusterId} -> virtualClusterId) (\s@StartJobRun' {} a -> s {virtualClusterId = a} :: StartJobRun)
 
 -- | The client idempotency token of the job run request.
-startJobRun_clientToken :: Lens.Lens' StartJobRun Prelude.Text
+startJobRun_clientToken :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Text)
 startJobRun_clientToken = Lens.lens (\StartJobRun' {clientToken} -> clientToken) (\s@StartJobRun' {} a -> s {clientToken = a} :: StartJobRun)
 
 instance Core.AWSRequest StartJobRun where
@@ -187,6 +185,11 @@ instance Core.AWSRequest StartJobRun where
             Prelude.<*> (x Data..?> "virtualClusterId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@StartJobRun' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: StartJobRun
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartJobRun where
   hashWithSalt _salt StartJobRun' {..} =
@@ -241,7 +244,7 @@ instance Data.ToJSON StartJobRun where
             ("name" Data..=) Prelude.<$> name,
             ("releaseLabel" Data..=) Prelude.<$> releaseLabel,
             ("tags" Data..=) Prelude.<$> tags,
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

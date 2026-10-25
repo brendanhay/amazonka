@@ -160,6 +160,8 @@ instance Core.AWSRequest DescribeProvisionedProduct where
             Prelude.<*> (x Data..?> "ProvisionedProductDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeProvisionedProduct where
   hashWithSalt _salt DescribeProvisionedProduct' {..} =

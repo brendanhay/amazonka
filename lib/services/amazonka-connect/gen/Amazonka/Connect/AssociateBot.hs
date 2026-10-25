@@ -103,6 +103,8 @@ instance Core.AWSRequest AssociateBot where
   request overrides =
     Request.putJSON (overrides defaultService)
   response = Response.receiveNull AssociateBotResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateBot where
   hashWithSalt _salt AssociateBot' {..} =

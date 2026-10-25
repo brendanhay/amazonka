@@ -168,6 +168,8 @@ instance Core.AWSRequest ReleaseAddress where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull ReleaseAddressResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ReleaseAddress where
   hashWithSalt _salt ReleaseAddress' {..} =

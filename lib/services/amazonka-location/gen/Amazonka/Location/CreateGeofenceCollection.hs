@@ -237,6 +237,8 @@ instance Core.AWSRequest CreateGeofenceCollection where
             Prelude.<*> (x Data..:> "CollectionName")
             Prelude.<*> (x Data..:> "CreateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateGeofenceCollection where
   hashWithSalt _salt CreateGeofenceCollection' {..} =

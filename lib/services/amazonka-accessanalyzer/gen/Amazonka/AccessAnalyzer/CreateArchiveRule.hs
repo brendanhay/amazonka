@@ -121,6 +121,13 @@ instance Core.AWSRequest CreateArchiveRule where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull CreateArchiveRuleResponse'
+  updateIdempotencyToken
+    f
+    s@CreateArchiveRule' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateArchiveRule
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateArchiveRule where
   hashWithSalt _salt CreateArchiveRule' {..} =

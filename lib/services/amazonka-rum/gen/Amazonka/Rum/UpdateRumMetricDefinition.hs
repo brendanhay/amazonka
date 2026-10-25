@@ -170,6 +170,8 @@ instance Core.AWSRequest UpdateRumMetricDefinition where
           UpdateRumMetricDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRumMetricDefinition where
   hashWithSalt _salt UpdateRumMetricDefinition' {..} =

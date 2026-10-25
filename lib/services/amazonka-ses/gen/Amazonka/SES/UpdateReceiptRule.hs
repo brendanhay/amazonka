@@ -109,6 +109,8 @@ instance Core.AWSRequest UpdateReceiptRule where
           UpdateReceiptRuleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateReceiptRule where
   hashWithSalt _salt UpdateReceiptRule' {..} =

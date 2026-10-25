@@ -175,6 +175,8 @@ instance Core.AWSRequest ImportTerminology where
             Prelude.<*> (x Data..?> "TerminologyProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportTerminology where
   hashWithSalt _salt ImportTerminology' {..} =

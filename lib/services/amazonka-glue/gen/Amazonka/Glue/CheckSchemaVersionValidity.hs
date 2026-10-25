@@ -112,6 +112,8 @@ instance Core.AWSRequest CheckSchemaVersionValidity where
             Prelude.<*> (x Data..?> "Valid")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CheckSchemaVersionValidity where
   hashWithSalt _salt CheckSchemaVersionValidity' {..} =

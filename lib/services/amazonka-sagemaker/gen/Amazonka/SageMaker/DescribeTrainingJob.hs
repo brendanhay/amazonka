@@ -197,6 +197,8 @@ instance Core.AWSRequest DescribeTrainingJob where
             Prelude.<*> (x Data..:> "StoppingCondition")
             Prelude.<*> (x Data..:> "CreationTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeTrainingJob where
   hashWithSalt _salt DescribeTrainingJob' {..} =

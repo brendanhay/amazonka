@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteConnection where
             Prelude.<$> (x Data..?> "Connection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteConnection where
   hashWithSalt _salt DeleteConnection' {..} =

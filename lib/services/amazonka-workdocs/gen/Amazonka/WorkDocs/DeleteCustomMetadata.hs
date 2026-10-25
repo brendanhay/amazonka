@@ -137,6 +137,8 @@ instance Core.AWSRequest DeleteCustomMetadata where
           DeleteCustomMetadataResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCustomMetadata where
   hashWithSalt _salt DeleteCustomMetadata' {..} =

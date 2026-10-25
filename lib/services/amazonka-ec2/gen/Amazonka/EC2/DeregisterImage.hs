@@ -118,6 +118,8 @@ instance Core.AWSRequest DeregisterImage where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeregisterImageResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterImage where
   hashWithSalt _salt DeregisterImage' {..} =

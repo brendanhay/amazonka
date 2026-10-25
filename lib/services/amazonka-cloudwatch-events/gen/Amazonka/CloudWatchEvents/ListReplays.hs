@@ -135,6 +135,8 @@ instance Core.AWSRequest ListReplays where
             Prelude.<*> (x Data..?> "Replays" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListReplays where
   hashWithSalt _salt ListReplays' {..} =

@@ -127,6 +127,8 @@ instance Core.AWSRequest DeleteAccessKey where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeleteAccessKeyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAccessKey where
   hashWithSalt _salt DeleteAccessKey' {..} =

@@ -120,6 +120,8 @@ instance Core.AWSRequest DescribeVodSource where
             Prelude.<*> (x Data..?> "VodSourceName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeVodSource where
   hashWithSalt _salt DescribeVodSource' {..} =

@@ -183,6 +183,8 @@ instance Core.AWSRequest PutQueryDefinition where
             Prelude.<$> (x Data..?> "queryDefinitionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutQueryDefinition where
   hashWithSalt _salt PutQueryDefinition' {..} =

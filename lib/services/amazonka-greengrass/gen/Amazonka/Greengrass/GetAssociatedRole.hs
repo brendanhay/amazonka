@@ -89,6 +89,8 @@ instance Core.AWSRequest GetAssociatedRole where
             Prelude.<*> (x Data..?> "RoleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAssociatedRole where
   hashWithSalt _salt GetAssociatedRole' {..} =

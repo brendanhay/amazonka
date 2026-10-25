@@ -333,7 +333,7 @@ instance Core.AWSRequest SynthesizeSpeech where
   request overrides =
     Request.postJSON (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           SynthesizeSpeechResponse'
             Prelude.<$> (h Data..#? "Content-Type")
@@ -341,6 +341,8 @@ instance Core.AWSRequest SynthesizeSpeech where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SynthesizeSpeech where
   hashWithSalt _salt SynthesizeSpeech' {..} =

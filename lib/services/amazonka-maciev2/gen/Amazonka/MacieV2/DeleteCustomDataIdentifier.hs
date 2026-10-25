@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteCustomDataIdentifier where
           DeleteCustomDataIdentifierResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCustomDataIdentifier where
   hashWithSalt _salt DeleteCustomDataIdentifier' {..} =

@@ -233,6 +233,14 @@ instance Core.AWSRequest CreateMobileDeviceAccessRule where
             Prelude.<$> (x Data..?> "MobileDeviceAccessRuleId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateMobileDeviceAccessRule' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateMobileDeviceAccessRule
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

@@ -114,6 +114,8 @@ instance Core.AWSRequest UpgradeLensReview where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull UpgradeLensReviewResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpgradeLensReview where
   hashWithSalt _salt UpgradeLensReview' {..} =

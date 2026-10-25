@@ -132,6 +132,8 @@ instance Core.AWSRequest GetMapTile where
             Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMapTile where
   hashWithSalt _salt GetMapTile' {..} =

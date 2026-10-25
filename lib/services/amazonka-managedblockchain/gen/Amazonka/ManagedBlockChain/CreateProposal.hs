@@ -80,7 +80,7 @@ data CreateProposal = CreateProposal'
     -- than one time. This identifier is required only if you make a service
     -- request directly using an HTTP client. It is generated automatically if
     -- you use an Amazon Web Services SDK or the CLI.
-    clientRequestToken :: Prelude.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the network for which the proposal is made.
     networkId :: Prelude.Text,
     -- | The unique identifier of the member that is creating the proposal. This
@@ -139,8 +139,6 @@ data CreateProposal = CreateProposal'
 -- example, a proposal with @Invitations@ actions cannot also contain
 -- @Removals@ actions.
 newCreateProposal ::
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   -- | 'networkId'
   Prelude.Text ->
   -- | 'memberId'
@@ -148,19 +146,15 @@ newCreateProposal ::
   -- | 'actions'
   ProposalActions ->
   CreateProposal
-newCreateProposal
-  pClientRequestToken_
-  pNetworkId_
-  pMemberId_
-  pActions_ =
-    CreateProposal'
-      { description = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        clientRequestToken = pClientRequestToken_,
-        networkId = pNetworkId_,
-        memberId = pMemberId_,
-        actions = pActions_
-      }
+newCreateProposal pNetworkId_ pMemberId_ pActions_ =
+  CreateProposal'
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      networkId = pNetworkId_,
+      memberId = pMemberId_,
+      actions = pActions_
+    }
 
 -- | A description for the proposal that is visible to voting members, for
 -- example, \"Proposal to add Example Corp. as member.\"
@@ -188,7 +182,7 @@ createProposal_tags = Lens.lens (\CreateProposal' {tags} -> tags) (\s@CreateProp
 -- than one time. This identifier is required only if you make a service
 -- request directly using an HTTP client. It is generated automatically if
 -- you use an Amazon Web Services SDK or the CLI.
-createProposal_clientRequestToken :: Lens.Lens' CreateProposal Prelude.Text
+createProposal_clientRequestToken :: Lens.Lens' CreateProposal (Prelude.Maybe Prelude.Text)
 createProposal_clientRequestToken = Lens.lens (\CreateProposal' {clientRequestToken} -> clientRequestToken) (\s@CreateProposal' {} a -> s {clientRequestToken = a} :: CreateProposal)
 
 -- | The unique identifier of the network for which the proposal is made.
@@ -222,6 +216,14 @@ instance Core.AWSRequest CreateProposal where
             Prelude.<$> (x Data..?> "ProposalId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateProposal' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateProposal
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateProposal where
   hashWithSalt _salt CreateProposal' {..} =
@@ -259,8 +261,8 @@ instance Data.ToJSON CreateProposal where
       ( Prelude.catMaybes
           [ ("Description" Data..=) Prelude.<$> description,
             ("Tags" Data..=) Prelude.<$> tags,
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken),
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken,
             Prelude.Just ("MemberId" Data..= memberId),
             Prelude.Just ("Actions" Data..= actions)
           ]

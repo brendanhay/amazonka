@@ -85,6 +85,8 @@ instance Core.AWSRequest StopMeetingTranscription where
           StopMeetingTranscriptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopMeetingTranscription where
   hashWithSalt _salt StopMeetingTranscription' {..} =

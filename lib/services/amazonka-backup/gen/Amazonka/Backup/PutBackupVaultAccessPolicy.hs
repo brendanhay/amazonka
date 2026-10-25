@@ -103,6 +103,8 @@ instance Core.AWSRequest PutBackupVaultAccessPolicy where
   response =
     Response.receiveNull
       PutBackupVaultAccessPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutBackupVaultAccessPolicy where
   hashWithSalt _salt PutBackupVaultAccessPolicy' {..} =

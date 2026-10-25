@@ -89,6 +89,8 @@ instance Core.AWSRequest AcceptGrant where
             Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AcceptGrant where
   hashWithSalt _salt AcceptGrant' {..} =

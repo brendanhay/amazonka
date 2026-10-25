@@ -118,6 +118,8 @@ instance Core.AWSRequest PutDraftAppVersionTemplate where
             Prelude.<*> (x Data..?> "appVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutDraftAppVersionTemplate where
   hashWithSalt _salt PutDraftAppVersionTemplate' {..} =

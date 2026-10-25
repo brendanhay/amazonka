@@ -499,6 +499,8 @@ instance Core.AWSRequest DeleteItem where
             Prelude.<*> (x Data..?> "ItemCollectionMetrics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteItem where
   hashWithSalt _salt DeleteItem' {..} =

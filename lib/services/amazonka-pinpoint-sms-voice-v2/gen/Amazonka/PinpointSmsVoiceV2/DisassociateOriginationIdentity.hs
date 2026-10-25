@@ -163,6 +163,14 @@ instance
             Prelude.<*> (x Data..?> "PoolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DisassociateOriginationIdentity' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            DisassociateOriginationIdentity
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

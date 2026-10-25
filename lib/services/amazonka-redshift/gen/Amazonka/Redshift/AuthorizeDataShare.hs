@@ -113,6 +113,8 @@ instance Core.AWSRequest AuthorizeDataShare where
     Response.receiveXMLWrapper
       "AuthorizeDataShareResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AuthorizeDataShare where
   hashWithSalt _salt AuthorizeDataShare' {..} =

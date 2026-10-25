@@ -94,6 +94,8 @@ instance Core.AWSRequest DeleteEventsConfiguration where
   response =
     Response.receiveNull
       DeleteEventsConfigurationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteEventsConfiguration where
   hashWithSalt _salt DeleteEventsConfiguration' {..} =

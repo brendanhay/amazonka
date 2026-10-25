@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteRealtimeEndpoint where
             Prelude.<*> (x Data..?> "RealtimeEndpointInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRealtimeEndpoint where
   hashWithSalt _salt DeleteRealtimeEndpoint' {..} =

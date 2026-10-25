@@ -128,6 +128,8 @@ instance Core.AWSRequest ListTagsForDeliveryStream where
             Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..:> "HasMoreTags")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTagsForDeliveryStream where
   hashWithSalt _salt ListTagsForDeliveryStream' {..} =

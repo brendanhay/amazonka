@@ -463,6 +463,8 @@ instance Core.AWSRequest GetMetricStatistics where
             Prelude.<*> (x Data..@? "Label")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMetricStatistics where
   hashWithSalt _salt GetMetricStatistics' {..} =

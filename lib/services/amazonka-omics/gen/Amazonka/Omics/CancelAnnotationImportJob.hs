@@ -85,6 +85,8 @@ instance Core.AWSRequest CancelAnnotationImportJob where
           CancelAnnotationImportJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelAnnotationImportJob where
   hashWithSalt _salt CancelAnnotationImportJob' {..} =

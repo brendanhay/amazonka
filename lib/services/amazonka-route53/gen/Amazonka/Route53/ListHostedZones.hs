@@ -192,6 +192,8 @@ instance Core.AWSRequest ListHostedZones where
             Prelude.<*> (x Data..@ "IsTruncated")
             Prelude.<*> (x Data..@ "MaxItems")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListHostedZones where
   hashWithSalt _salt ListHostedZones' {..} =

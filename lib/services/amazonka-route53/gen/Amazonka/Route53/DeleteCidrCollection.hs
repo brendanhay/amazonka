@@ -86,6 +86,8 @@ instance Core.AWSRequest DeleteCidrCollection where
           DeleteCidrCollectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCidrCollection where
   hashWithSalt _salt DeleteCidrCollection' {..} =

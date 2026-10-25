@@ -353,6 +353,8 @@ instance Core.AWSRequest ListObjectsV2 where
             Prelude.<*> (x Data..@? "StartAfter")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListObjectsV2 where
   hashWithSalt _salt ListObjectsV2' {..} =

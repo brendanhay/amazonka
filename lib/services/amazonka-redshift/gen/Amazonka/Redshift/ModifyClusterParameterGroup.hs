@@ -128,6 +128,8 @@ instance Core.AWSRequest ModifyClusterParameterGroup where
     Response.receiveXMLWrapper
       "ModifyClusterParameterGroupResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyClusterParameterGroup where
   hashWithSalt _salt ModifyClusterParameterGroup' {..} =

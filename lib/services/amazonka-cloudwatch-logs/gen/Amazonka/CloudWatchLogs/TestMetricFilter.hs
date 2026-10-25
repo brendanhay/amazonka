@@ -105,6 +105,8 @@ instance Core.AWSRequest TestMetricFilter where
             Prelude.<$> (x Data..?> "matches" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TestMetricFilter where
   hashWithSalt _salt TestMetricFilter' {..} =

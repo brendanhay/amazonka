@@ -101,6 +101,8 @@ instance
   response =
     Response.receiveNull
       DeregisterAppInstanceUserEndpointResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

@@ -116,6 +116,8 @@ instance Core.AWSRequest GetApplicationVersion where
             Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetApplicationVersion where
   hashWithSalt _salt GetApplicationVersion' {..} =

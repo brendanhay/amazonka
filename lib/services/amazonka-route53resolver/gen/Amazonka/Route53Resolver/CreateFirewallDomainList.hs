@@ -61,7 +61,7 @@ data CreateFirewallDomainList = CreateFirewallDomainList'
     -- failed requests without the risk of running the operation twice.
     -- @CreatorRequestId@ can be any unique string, for example, a date\/time
     -- stamp.
-    creatorRequestId :: Prelude.Text,
+    creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | A name that lets you identify the domain list to manage and use it.
     name :: Prelude.Text
   }
@@ -85,15 +85,13 @@ data CreateFirewallDomainList = CreateFirewallDomainList'
 --
 -- 'name', 'createFirewallDomainList_name' - A name that lets you identify the domain list to manage and use it.
 newCreateFirewallDomainList ::
-  -- | 'creatorRequestId'
-  Prelude.Text ->
   -- | 'name'
   Prelude.Text ->
   CreateFirewallDomainList
-newCreateFirewallDomainList pCreatorRequestId_ pName_ =
+newCreateFirewallDomainList pName_ =
   CreateFirewallDomainList'
     { tags = Prelude.Nothing,
-      creatorRequestId = pCreatorRequestId_,
+      creatorRequestId = Prelude.Nothing,
       name = pName_
     }
 
@@ -106,7 +104,7 @@ createFirewallDomainList_tags = Lens.lens (\CreateFirewallDomainList' {tags} -> 
 -- failed requests without the risk of running the operation twice.
 -- @CreatorRequestId@ can be any unique string, for example, a date\/time
 -- stamp.
-createFirewallDomainList_creatorRequestId :: Lens.Lens' CreateFirewallDomainList Prelude.Text
+createFirewallDomainList_creatorRequestId :: Lens.Lens' CreateFirewallDomainList (Prelude.Maybe Prelude.Text)
 createFirewallDomainList_creatorRequestId = Lens.lens (\CreateFirewallDomainList' {creatorRequestId} -> creatorRequestId) (\s@CreateFirewallDomainList' {} a -> s {creatorRequestId = a} :: CreateFirewallDomainList)
 
 -- | A name that lets you identify the domain list to manage and use it.
@@ -126,6 +124,14 @@ instance Core.AWSRequest CreateFirewallDomainList where
             Prelude.<$> (x Data..?> "FirewallDomainList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateFirewallDomainList' {creatorRequestId} =
+      ( \creatorRequestId' ->
+          s {creatorRequestId = creatorRequestId'} ::
+            CreateFirewallDomainList
+      )
+        Prelude.<$> f creatorRequestId
 
 instance Prelude.Hashable CreateFirewallDomainList where
   hashWithSalt _salt CreateFirewallDomainList' {..} =
@@ -160,8 +166,8 @@ instance Data.ToJSON CreateFirewallDomainList where
     Data.object
       ( Prelude.catMaybes
           [ ("Tags" Data..=) Prelude.<$> tags,
-            Prelude.Just
-              ("CreatorRequestId" Data..= creatorRequestId),
+            ("CreatorRequestId" Data..=)
+              Prelude.<$> creatorRequestId,
             Prelude.Just ("Name" Data..= name)
           ]
       )

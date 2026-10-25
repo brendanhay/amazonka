@@ -120,6 +120,8 @@ instance Core.AWSRequest DeleteHubContent where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteHubContentResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteHubContent where
   hashWithSalt _salt DeleteHubContent' {..} =

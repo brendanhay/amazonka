@@ -90,6 +90,8 @@ instance Core.AWSRequest GetPullRequest where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "pullRequest")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPullRequest where
   hashWithSalt _salt GetPullRequest' {..} =

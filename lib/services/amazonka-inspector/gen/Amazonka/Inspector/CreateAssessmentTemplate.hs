@@ -166,6 +166,8 @@ instance Core.AWSRequest CreateAssessmentTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "assessmentTemplateArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateAssessmentTemplate where
   hashWithSalt _salt CreateAssessmentTemplate' {..} =

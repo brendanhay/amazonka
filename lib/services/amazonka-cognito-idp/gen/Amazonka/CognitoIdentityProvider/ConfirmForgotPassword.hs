@@ -282,6 +282,8 @@ instance Core.AWSRequest ConfirmForgotPassword where
           ConfirmForgotPasswordResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ConfirmForgotPassword where
   hashWithSalt _salt ConfirmForgotPassword' {..} =

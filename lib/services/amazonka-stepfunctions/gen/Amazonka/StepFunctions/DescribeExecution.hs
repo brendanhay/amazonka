@@ -122,6 +122,8 @@ instance Core.AWSRequest DescribeExecution where
             Prelude.<*> (x Data..:> "status")
             Prelude.<*> (x Data..:> "startDate")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeExecution where
   hashWithSalt _salt DescribeExecution' {..} =

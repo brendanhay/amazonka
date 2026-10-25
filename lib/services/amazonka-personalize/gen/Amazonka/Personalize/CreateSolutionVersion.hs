@@ -209,6 +209,8 @@ instance Core.AWSRequest CreateSolutionVersion where
             Prelude.<$> (x Data..?> "solutionVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateSolutionVersion where
   hashWithSalt _salt CreateSolutionVersion' {..} =

@@ -182,6 +182,14 @@ instance Core.AWSRequest CreateEndpoint where
             Prelude.<$> (x Data..?> "EndpointArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateEndpoint' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateEndpoint
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateEndpoint where
   hashWithSalt _salt CreateEndpoint' {..} =

@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteExperimentTemplate where
             Prelude.<$> (x Data..?> "experimentTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteExperimentTemplate where
   hashWithSalt _salt DeleteExperimentTemplate' {..} =

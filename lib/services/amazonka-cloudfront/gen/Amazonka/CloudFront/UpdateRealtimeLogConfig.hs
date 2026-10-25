@@ -168,6 +168,8 @@ instance Core.AWSRequest UpdateRealtimeLogConfig where
             Prelude.<$> (x Data..@? "RealtimeLogConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRealtimeLogConfig where
   hashWithSalt _salt UpdateRealtimeLogConfig' {..} =

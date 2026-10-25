@@ -131,6 +131,8 @@ instance Core.AWSRequest AttachGroupPolicy where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull AttachGroupPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AttachGroupPolicy where
   hashWithSalt _salt AttachGroupPolicy' {..} =

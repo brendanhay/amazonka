@@ -114,6 +114,8 @@ instance Core.AWSRequest UpdateResolverDnssecConfig where
             Prelude.<$> (x Data..?> "ResolverDNSSECConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateResolverDnssecConfig where
   hashWithSalt _salt UpdateResolverDnssecConfig' {..} =

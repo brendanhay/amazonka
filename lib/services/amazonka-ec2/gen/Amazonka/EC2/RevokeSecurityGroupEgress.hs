@@ -229,6 +229,8 @@ instance Core.AWSRequest RevokeSecurityGroupEgress where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RevokeSecurityGroupEgress where
   hashWithSalt _salt RevokeSecurityGroupEgress' {..} =

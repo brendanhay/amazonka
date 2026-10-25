@@ -144,6 +144,11 @@ instance Core.AWSRequest CreateTask where
             Prelude.<*> (x Data..?> "taskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@CreateTask' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateTask
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateTask where
   hashWithSalt _salt CreateTask' {..} =

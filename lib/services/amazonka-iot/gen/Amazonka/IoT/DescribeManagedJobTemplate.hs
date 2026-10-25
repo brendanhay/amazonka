@@ -118,6 +118,8 @@ instance Core.AWSRequest DescribeManagedJobTemplate where
             Prelude.<*> (x Data..?> "templateVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeManagedJobTemplate where
   hashWithSalt _salt DescribeManagedJobTemplate' {..} =

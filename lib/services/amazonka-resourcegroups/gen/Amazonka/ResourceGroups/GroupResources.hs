@@ -111,6 +111,8 @@ instance Core.AWSRequest GroupResources where
             Prelude.<*> (x Data..?> "Succeeded")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GroupResources where
   hashWithSalt _salt GroupResources' {..} =

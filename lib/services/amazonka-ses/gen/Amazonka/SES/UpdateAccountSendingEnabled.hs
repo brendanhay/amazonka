@@ -92,6 +92,8 @@ instance Core.AWSRequest UpdateAccountSendingEnabled where
   response =
     Response.receiveNull
       UpdateAccountSendingEnabledResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateAccountSendingEnabled where
   hashWithSalt _salt UpdateAccountSendingEnabled' {..} =

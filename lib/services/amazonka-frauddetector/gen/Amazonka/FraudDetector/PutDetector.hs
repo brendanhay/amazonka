@@ -117,6 +117,8 @@ instance Core.AWSRequest PutDetector where
           PutDetectorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutDetector where
   hashWithSalt _salt PutDetector' {..} =

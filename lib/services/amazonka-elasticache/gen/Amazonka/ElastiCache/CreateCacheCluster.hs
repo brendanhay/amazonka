@@ -1115,6 +1115,8 @@ instance Core.AWSRequest CreateCacheCluster where
             Prelude.<$> (x Data..@? "CacheCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateCacheCluster where
   hashWithSalt _salt CreateCacheCluster' {..} =

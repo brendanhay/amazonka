@@ -148,6 +148,8 @@ instance Core.AWSRequest DeleteTags where
   request overrides =
     Request.postQuery (overrides defaultService)
   response = Response.receiveNull DeleteTagsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTags where
   hashWithSalt _salt DeleteTags' {..} =

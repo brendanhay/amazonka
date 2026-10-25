@@ -48,7 +48,7 @@ import Amazonka.TimeStreamQuery.Types
 -- | /See:/ 'newExecuteScheduledQuery' smart constructor.
 data ExecuteScheduledQuery = ExecuteScheduledQuery'
   { -- | Not used.
-    clientToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | ARN of the scheduled query.
     scheduledQueryArn :: Prelude.Text,
     -- | The timestamp in UTC. Query will be run as if it was invoked at this
@@ -89,7 +89,7 @@ newExecuteScheduledQuery
 
 -- | Not used.
 executeScheduledQuery_clientToken :: Lens.Lens' ExecuteScheduledQuery (Prelude.Maybe Prelude.Text)
-executeScheduledQuery_clientToken = Lens.lens (\ExecuteScheduledQuery' {clientToken} -> clientToken) (\s@ExecuteScheduledQuery' {} a -> s {clientToken = a} :: ExecuteScheduledQuery) Prelude.. Lens.mapping Data._Sensitive
+executeScheduledQuery_clientToken = Lens.lens (\ExecuteScheduledQuery' {clientToken} -> clientToken) (\s@ExecuteScheduledQuery' {} a -> s {clientToken = a} :: ExecuteScheduledQuery)
 
 -- | ARN of the scheduled query.
 executeScheduledQuery_scheduledQueryArn :: Lens.Lens' ExecuteScheduledQuery Prelude.Text
@@ -108,6 +108,14 @@ instance Core.AWSRequest ExecuteScheduledQuery where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull ExecuteScheduledQueryResponse'
+  updateIdempotencyToken
+    f
+    s@ExecuteScheduledQuery' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            ExecuteScheduledQuery
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable ExecuteScheduledQuery where
   hashWithSalt _salt ExecuteScheduledQuery' {..} =

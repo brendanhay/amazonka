@@ -101,6 +101,8 @@ instance Core.AWSRequest DeletePolicyVersion where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeletePolicyVersionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePolicyVersion where
   hashWithSalt _salt DeletePolicyVersion' {..} =

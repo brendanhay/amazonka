@@ -164,6 +164,8 @@ instance Core.AWSRequest ListDefaultVocabularies where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDefaultVocabularies where
   hashWithSalt _salt ListDefaultVocabularies' {..} =

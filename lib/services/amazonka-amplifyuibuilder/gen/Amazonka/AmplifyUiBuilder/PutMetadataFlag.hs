@@ -120,6 +120,8 @@ instance Core.AWSRequest PutMetadataFlag where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull PutMetadataFlagResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutMetadataFlag where
   hashWithSalt _salt PutMetadataFlag' {..} =

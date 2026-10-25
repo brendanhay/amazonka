@@ -67,7 +67,7 @@ import Amazonka.WellArchitected.Types
 data CreateLensShare = CreateLensShare'
   { lensAlias :: Prelude.Text,
     sharedWith :: Prelude.Text,
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,18 +89,13 @@ newCreateLensShare ::
   Prelude.Text ->
   -- | 'sharedWith'
   Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   CreateLensShare
-newCreateLensShare
-  pLensAlias_
-  pSharedWith_
-  pClientRequestToken_ =
-    CreateLensShare'
-      { lensAlias = pLensAlias_,
-        sharedWith = pSharedWith_,
-        clientRequestToken = pClientRequestToken_
-      }
+newCreateLensShare pLensAlias_ pSharedWith_ =
+  CreateLensShare'
+    { lensAlias = pLensAlias_,
+      sharedWith = pSharedWith_,
+      clientRequestToken = Prelude.Nothing
+    }
 
 -- | Undocumented member.
 createLensShare_lensAlias :: Lens.Lens' CreateLensShare Prelude.Text
@@ -111,7 +106,7 @@ createLensShare_sharedWith :: Lens.Lens' CreateLensShare Prelude.Text
 createLensShare_sharedWith = Lens.lens (\CreateLensShare' {sharedWith} -> sharedWith) (\s@CreateLensShare' {} a -> s {sharedWith = a} :: CreateLensShare)
 
 -- | Undocumented member.
-createLensShare_clientRequestToken :: Lens.Lens' CreateLensShare Prelude.Text
+createLensShare_clientRequestToken :: Lens.Lens' CreateLensShare (Prelude.Maybe Prelude.Text)
 createLensShare_clientRequestToken = Lens.lens (\CreateLensShare' {clientRequestToken} -> clientRequestToken) (\s@CreateLensShare' {} a -> s {clientRequestToken = a} :: CreateLensShare)
 
 instance Core.AWSRequest CreateLensShare where
@@ -127,6 +122,14 @@ instance Core.AWSRequest CreateLensShare where
             Prelude.<$> (x Data..?> "ShareId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateLensShare' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateLensShare
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateLensShare where
   hashWithSalt _salt CreateLensShare' {..} =
@@ -157,8 +160,8 @@ instance Data.ToJSON CreateLensShare where
     Data.object
       ( Prelude.catMaybes
           [ Prelude.Just ("SharedWith" Data..= sharedWith),
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken)
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

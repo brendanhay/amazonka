@@ -123,6 +123,8 @@ instance Core.AWSRequest DeleteIntegrationResponse where
   response =
     Response.receiveNull
       DeleteIntegrationResponseResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteIntegrationResponse where
   hashWithSalt _salt DeleteIntegrationResponse' {..} =

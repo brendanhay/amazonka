@@ -181,6 +181,8 @@ instance
   response =
     Response.receiveNull
       CreateCustomVerificationEmailTemplateResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

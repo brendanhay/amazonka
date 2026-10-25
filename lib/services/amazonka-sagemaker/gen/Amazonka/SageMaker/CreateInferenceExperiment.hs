@@ -407,6 +407,8 @@ instance Core.AWSRequest CreateInferenceExperiment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "InferenceExperimentArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateInferenceExperiment where
   hashWithSalt _salt CreateInferenceExperiment' {..} =

@@ -243,6 +243,14 @@ instance Core.AWSRequest CreateFargateProfile where
             Prelude.<$> (x Data..?> "fargateProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateFargateProfile' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateFargateProfile
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateFargateProfile where
   hashWithSalt _salt CreateFargateProfile' {..} =

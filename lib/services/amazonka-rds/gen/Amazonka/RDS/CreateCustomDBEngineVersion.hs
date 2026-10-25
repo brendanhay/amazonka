@@ -338,6 +338,8 @@ instance Core.AWSRequest CreateCustomDBEngineVersion where
     Response.receiveXMLWrapper
       "CreateCustomDBEngineVersionResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateCustomDBEngineVersion where
   hashWithSalt _salt CreateCustomDBEngineVersion' {..} =

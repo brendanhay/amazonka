@@ -96,6 +96,8 @@ instance Core.AWSRequest FlushStageAuthorizersCache where
   response =
     Response.receiveNull
       FlushStageAuthorizersCacheResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable FlushStageAuthorizersCache where
   hashWithSalt _salt FlushStageAuthorizersCache' {..} =

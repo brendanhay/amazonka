@@ -141,6 +141,8 @@ instance
   response =
     Response.receiveNull
       RequestCancelWorkflowExecutionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

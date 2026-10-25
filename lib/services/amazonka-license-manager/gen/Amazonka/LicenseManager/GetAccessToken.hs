@@ -100,6 +100,8 @@ instance Core.AWSRequest GetAccessToken where
             Prelude.<$> (x Data..?> "AccessToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAccessToken where
   hashWithSalt _salt GetAccessToken' {..} =

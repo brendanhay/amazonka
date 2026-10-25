@@ -95,6 +95,8 @@ instance Core.AWSRequest DeleteLabel where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteLabelResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteLabel where
   hashWithSalt _salt DeleteLabel' {..} =

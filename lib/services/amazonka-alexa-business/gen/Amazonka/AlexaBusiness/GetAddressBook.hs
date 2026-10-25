@@ -87,6 +87,8 @@ instance Core.AWSRequest GetAddressBook where
             Prelude.<$> (x Data..?> "AddressBook")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAddressBook where
   hashWithSalt _salt GetAddressBook' {..} =

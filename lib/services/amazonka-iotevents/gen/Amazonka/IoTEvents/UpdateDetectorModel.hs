@@ -144,6 +144,8 @@ instance Core.AWSRequest UpdateDetectorModel where
             Prelude.<$> (x Data..?> "detectorModelConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDetectorModel where
   hashWithSalt _salt UpdateDetectorModel' {..} =

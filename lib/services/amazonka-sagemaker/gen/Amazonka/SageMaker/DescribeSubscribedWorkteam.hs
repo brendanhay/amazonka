@@ -92,6 +92,8 @@ instance Core.AWSRequest DescribeSubscribedWorkteam where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "SubscribedWorkteam")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSubscribedWorkteam where
   hashWithSalt _salt DescribeSubscribedWorkteam' {..} =

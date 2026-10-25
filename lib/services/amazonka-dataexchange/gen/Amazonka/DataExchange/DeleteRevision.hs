@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteRevision where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteRevisionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRevision where
   hashWithSalt _salt DeleteRevision' {..} =

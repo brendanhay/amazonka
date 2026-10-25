@@ -346,6 +346,8 @@ instance Core.AWSRequest UpdateDomainConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "DomainConfig")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDomainConfig where
   hashWithSalt _salt UpdateDomainConfig' {..} =

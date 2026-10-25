@@ -116,6 +116,14 @@ instance
           DisassociateUserFromPermissionGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DisassociateUserFromPermissionGroup' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            DisassociateUserFromPermissionGroup
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

@@ -169,6 +169,8 @@ instance Core.AWSRequest ShareDirectory where
             Prelude.<$> (x Data..?> "SharedDirectoryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ShareDirectory where
   hashWithSalt _salt ShareDirectory' {..} =

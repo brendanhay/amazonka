@@ -93,6 +93,8 @@ instance Core.AWSRequest CreateWebLoginToken where
             Prelude.<*> (x Data..?> "WebToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateWebLoginToken where
   hashWithSalt _salt CreateWebLoginToken' {..} =

@@ -91,6 +91,8 @@ instance Core.AWSRequest GetEnvironment where
             Prelude.<$> (x Data..?> "Environment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetEnvironment where
   hashWithSalt _salt GetEnvironment' {..} =

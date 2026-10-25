@@ -108,6 +108,8 @@ instance Core.AWSRequest UpdateApnsSandboxChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateApnsSandboxChannel where
   hashWithSalt _salt UpdateApnsSandboxChannel' {..} =

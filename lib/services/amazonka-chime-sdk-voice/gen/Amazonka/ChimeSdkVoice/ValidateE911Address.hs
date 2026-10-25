@@ -170,6 +170,8 @@ instance Core.AWSRequest ValidateE911Address where
             Prelude.<*> (x Data..?> "ValidationResult")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ValidateE911Address where
   hashWithSalt _salt ValidateE911Address' {..} =

@@ -90,6 +90,8 @@ instance Core.AWSRequest EnableHostedZoneDNSSEC where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "ChangeInfo")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable EnableHostedZoneDNSSEC where
   hashWithSalt _salt EnableHostedZoneDNSSEC' {..} =

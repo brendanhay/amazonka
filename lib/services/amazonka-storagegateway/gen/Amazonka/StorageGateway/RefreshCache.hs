@@ -189,6 +189,8 @@ instance Core.AWSRequest RefreshCache where
             Prelude.<*> (x Data..?> "NotificationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RefreshCache where
   hashWithSalt _salt RefreshCache' {..} =

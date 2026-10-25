@@ -116,6 +116,8 @@ instance Core.AWSRequest GetDevicePosition where
             Prelude.<*> (x Data..:> "ReceivedTime")
             Prelude.<*> (x Data..:> "SampleTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDevicePosition where
   hashWithSalt _salt GetDevicePosition' {..} =

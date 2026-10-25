@@ -133,6 +133,8 @@ instance Core.AWSRequest ImportHostKey where
             Prelude.<*> (x Data..:> "ServerId")
             Prelude.<*> (x Data..:> "HostKeyId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportHostKey where
   hashWithSalt _salt ImportHostKey' {..} =

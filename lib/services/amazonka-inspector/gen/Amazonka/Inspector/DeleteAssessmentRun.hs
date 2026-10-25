@@ -82,6 +82,8 @@ instance Core.AWSRequest DeleteAssessmentRun where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteAssessmentRunResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAssessmentRun where
   hashWithSalt _salt DeleteAssessmentRun' {..} =

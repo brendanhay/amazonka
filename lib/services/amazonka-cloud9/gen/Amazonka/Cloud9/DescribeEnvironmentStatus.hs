@@ -92,6 +92,8 @@ instance Core.AWSRequest DescribeEnvironmentStatus where
             Prelude.<*> (x Data..:> "status")
             Prelude.<*> (x Data..:> "message")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEnvironmentStatus where
   hashWithSalt _salt DescribeEnvironmentStatus' {..} =

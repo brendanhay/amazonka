@@ -118,6 +118,8 @@ instance Core.AWSRequest GetMaintenanceWindow where
             Prelude.<*> (x Data..?> "WindowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMaintenanceWindow where
   hashWithSalt _salt GetMaintenanceWindow' {..} =

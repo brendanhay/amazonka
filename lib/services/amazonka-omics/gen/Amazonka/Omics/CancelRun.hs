@@ -74,6 +74,8 @@ instance Core.AWSRequest CancelRun where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull CancelRunResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelRun where
   hashWithSalt _salt CancelRun' {..} =

@@ -107,6 +107,8 @@ instance Core.AWSRequest PutNotificationChannel where
   response =
     Response.receiveNull
       PutNotificationChannelResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutNotificationChannel where
   hashWithSalt _salt PutNotificationChannel' {..} =

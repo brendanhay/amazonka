@@ -158,6 +158,8 @@ instance Core.AWSRequest ListMeshes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "meshes" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListMeshes where
   hashWithSalt _salt ListMeshes' {..} =

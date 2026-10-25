@@ -139,6 +139,13 @@ instance Core.AWSRequest UpdateComponent where
             Prelude.<$> (Data.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateComponent' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: UpdateComponent
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateComponent where
   hashWithSalt _salt UpdateComponent' {..} =

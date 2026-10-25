@@ -998,6 +998,8 @@ instance Core.AWSRequest RegisterTaskDefinition where
             Prelude.<*> (x Data..?> "taskDefinition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterTaskDefinition where
   hashWithSalt _salt RegisterTaskDefinition' {..} =

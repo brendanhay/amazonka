@@ -218,6 +218,8 @@ instance Core.AWSRequest PutPublicAccessBlock where
       Prelude.. Request.putXML (overrides defaultService)
   response =
     Response.receiveNull PutPublicAccessBlockResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutPublicAccessBlock where
   hashWithSalt _salt PutPublicAccessBlock' {..} =

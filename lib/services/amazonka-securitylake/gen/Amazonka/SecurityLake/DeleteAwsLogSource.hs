@@ -157,6 +157,8 @@ instance Core.AWSRequest DeleteAwsLogSource where
             Prelude.<*> (x Data..?> "processing" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAwsLogSource where
   hashWithSalt _salt DeleteAwsLogSource' {..} =

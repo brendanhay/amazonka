@@ -94,6 +94,8 @@ instance Core.AWSRequest DeleteLexicon where
           DeleteLexiconResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteLexicon where
   hashWithSalt _salt DeleteLexicon' {..} =

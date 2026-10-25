@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteDataflowEndpointGroup where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDataflowEndpointGroup where
   hashWithSalt _salt DeleteDataflowEndpointGroup' {..} =

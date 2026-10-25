@@ -104,6 +104,8 @@ instance Core.AWSRequest DescribeExecution where
             Prelude.<*> (x Data..:> "WorkflowId")
             Prelude.<*> (x Data..:> "Execution")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeExecution where
   hashWithSalt _salt DescribeExecution' {..} =

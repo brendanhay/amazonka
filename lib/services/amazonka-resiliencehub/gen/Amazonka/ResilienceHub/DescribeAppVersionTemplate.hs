@@ -117,6 +117,8 @@ instance Core.AWSRequest DescribeAppVersionTemplate where
             Prelude.<*> (x Data..:> "appTemplateBody")
             Prelude.<*> (x Data..:> "appVersion")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAppVersionTemplate where
   hashWithSalt _salt DescribeAppVersionTemplate' {..} =

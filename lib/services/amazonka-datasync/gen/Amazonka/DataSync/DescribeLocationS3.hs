@@ -103,6 +103,8 @@ instance Core.AWSRequest DescribeLocationS3 where
             Prelude.<*> (x Data..?> "S3StorageClass")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeLocationS3 where
   hashWithSalt _salt DescribeLocationS3' {..} =

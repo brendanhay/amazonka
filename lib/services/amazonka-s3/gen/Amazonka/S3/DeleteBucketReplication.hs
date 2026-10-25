@@ -120,6 +120,8 @@ instance Core.AWSRequest DeleteBucketReplication where
   response =
     Response.receiveNull
       DeleteBucketReplicationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBucketReplication where
   hashWithSalt _salt DeleteBucketReplication' {..} =

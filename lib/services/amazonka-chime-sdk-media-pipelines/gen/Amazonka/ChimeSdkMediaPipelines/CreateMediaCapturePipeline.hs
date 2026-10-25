@@ -60,7 +60,7 @@ data CreateMediaCapturePipeline = CreateMediaCapturePipeline'
     chimeSdkMeetingConfiguration :: Prelude.Maybe ChimeSdkMeetingConfiguration,
     -- | The unique identifier for the client request. The token makes the API
     -- request idempotent. Use a unique token for each media pipeline request.
-    clientRequestToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The tag key-value pairs.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | Source type from which the media artifacts are captured. A Chime SDK
@@ -135,7 +135,7 @@ createMediaCapturePipeline_chimeSdkMeetingConfiguration = Lens.lens (\CreateMedi
 -- | The unique identifier for the client request. The token makes the API
 -- request idempotent. Use a unique token for each media pipeline request.
 createMediaCapturePipeline_clientRequestToken :: Lens.Lens' CreateMediaCapturePipeline (Prelude.Maybe Prelude.Text)
-createMediaCapturePipeline_clientRequestToken = Lens.lens (\CreateMediaCapturePipeline' {clientRequestToken} -> clientRequestToken) (\s@CreateMediaCapturePipeline' {} a -> s {clientRequestToken = a} :: CreateMediaCapturePipeline) Prelude.. Lens.mapping Data._Sensitive
+createMediaCapturePipeline_clientRequestToken = Lens.lens (\CreateMediaCapturePipeline' {clientRequestToken} -> clientRequestToken) (\s@CreateMediaCapturePipeline' {} a -> s {clientRequestToken = a} :: CreateMediaCapturePipeline)
 
 -- | The tag key-value pairs.
 createMediaCapturePipeline_tags :: Lens.Lens' CreateMediaCapturePipeline (Prelude.Maybe (Prelude.NonEmpty Tag))
@@ -172,6 +172,14 @@ instance Core.AWSRequest CreateMediaCapturePipeline where
             Prelude.<$> (x Data..?> "MediaCapturePipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateMediaCapturePipeline' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateMediaCapturePipeline
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateMediaCapturePipeline where
   hashWithSalt _salt CreateMediaCapturePipeline' {..} =

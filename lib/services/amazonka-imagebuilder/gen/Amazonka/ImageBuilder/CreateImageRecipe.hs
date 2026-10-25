@@ -102,7 +102,7 @@ data CreateImageRecipe = CreateImageRecipe'
     -- the same Region in which you are using Image Builder.
     parentImage :: Prelude.Text,
     -- | The idempotency token used to make this request idempotent.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -164,15 +164,12 @@ newCreateImageRecipe ::
   Prelude.NonEmpty ComponentConfiguration ->
   -- | 'parentImage'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateImageRecipe
 newCreateImageRecipe
   pName_
   pSemanticVersion_
   pComponents_
-  pParentImage_
-  pClientToken_ =
+  pParentImage_ =
     CreateImageRecipe'
       { additionalInstanceConfiguration =
           Prelude.Nothing,
@@ -184,7 +181,7 @@ newCreateImageRecipe
         semanticVersion = pSemanticVersion_,
         components = Lens.coerced Lens.# pComponents_,
         parentImage = pParentImage_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | Specify additional settings and launch scripts for your build instances.
@@ -246,7 +243,7 @@ createImageRecipe_parentImage :: Lens.Lens' CreateImageRecipe Prelude.Text
 createImageRecipe_parentImage = Lens.lens (\CreateImageRecipe' {parentImage} -> parentImage) (\s@CreateImageRecipe' {} a -> s {parentImage = a} :: CreateImageRecipe)
 
 -- | The idempotency token used to make this request idempotent.
-createImageRecipe_clientToken :: Lens.Lens' CreateImageRecipe Prelude.Text
+createImageRecipe_clientToken :: Lens.Lens' CreateImageRecipe (Prelude.Maybe Prelude.Text)
 createImageRecipe_clientToken = Lens.lens (\CreateImageRecipe' {clientToken} -> clientToken) (\s@CreateImageRecipe' {} a -> s {clientToken = a} :: CreateImageRecipe)
 
 instance Core.AWSRequest CreateImageRecipe where
@@ -264,6 +261,13 @@ instance Core.AWSRequest CreateImageRecipe where
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateImageRecipe' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateImageRecipe
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateImageRecipe where
   hashWithSalt _salt CreateImageRecipe' {..} =
@@ -320,7 +324,7 @@ instance Data.ToJSON CreateImageRecipe where
               ("semanticVersion" Data..= semanticVersion),
             Prelude.Just ("components" Data..= components),
             Prelude.Just ("parentImage" Data..= parentImage),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

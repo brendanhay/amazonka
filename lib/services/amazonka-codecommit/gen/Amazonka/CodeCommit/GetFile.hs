@@ -135,6 +135,8 @@ instance Core.AWSRequest GetFile where
             Prelude.<*> (x Data..:> "fileSize")
             Prelude.<*> (x Data..:> "fileContent")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetFile where
   hashWithSalt _salt GetFile' {..} =

@@ -97,6 +97,8 @@ instance Core.AWSRequest ReverseReplication where
             Prelude.<$> (x Data..?> "reversedDirectionSourceServerArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ReverseReplication where
   hashWithSalt _salt ReverseReplication' {..} =

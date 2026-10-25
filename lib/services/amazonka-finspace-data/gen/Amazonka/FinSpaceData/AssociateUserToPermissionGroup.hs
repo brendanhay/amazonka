@@ -116,6 +116,14 @@ instance
           AssociateUserToPermissionGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@AssociateUserToPermissionGroup' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            AssociateUserToPermissionGroup
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

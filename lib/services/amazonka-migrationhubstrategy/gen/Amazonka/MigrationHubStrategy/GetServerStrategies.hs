@@ -90,6 +90,8 @@ instance Core.AWSRequest GetServerStrategies where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetServerStrategies where
   hashWithSalt _salt GetServerStrategies' {..} =

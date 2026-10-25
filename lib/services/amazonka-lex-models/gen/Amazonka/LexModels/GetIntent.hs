@@ -137,6 +137,8 @@ instance Core.AWSRequest GetIntent where
             Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetIntent where
   hashWithSalt _salt GetIntent' {..} =

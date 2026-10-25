@@ -125,6 +125,8 @@ instance Core.AWSRequest CreateClusterV2 where
             Prelude.<*> (x Data..?> "state")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateClusterV2 where
   hashWithSalt _salt CreateClusterV2' {..} =

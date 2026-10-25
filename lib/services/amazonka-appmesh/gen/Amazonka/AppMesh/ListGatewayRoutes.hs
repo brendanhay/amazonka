@@ -194,6 +194,8 @@ instance Core.AWSRequest ListGatewayRoutes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "gatewayRoutes" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListGatewayRoutes where
   hashWithSalt _salt ListGatewayRoutes' {..} =

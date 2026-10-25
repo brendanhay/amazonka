@@ -131,6 +131,8 @@ instance Core.AWSRequest VoteOnProposal where
           VoteOnProposalResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable VoteOnProposal where
   hashWithSalt _salt VoteOnProposal' {..} =

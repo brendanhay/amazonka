@@ -132,6 +132,8 @@ instance Core.AWSRequest AddFacetToObject where
           AddFacetToObjectResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddFacetToObject where
   hashWithSalt _salt AddFacetToObject' {..} =

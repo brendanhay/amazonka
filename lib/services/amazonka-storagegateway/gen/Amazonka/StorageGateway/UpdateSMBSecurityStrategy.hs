@@ -156,6 +156,8 @@ instance Core.AWSRequest UpdateSMBSecurityStrategy where
             Prelude.<$> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateSMBSecurityStrategy where
   hashWithSalt _salt UpdateSMBSecurityStrategy' {..} =

@@ -331,6 +331,8 @@ instance Core.AWSRequest GetBucketMetricData where
             Prelude.<*> (x Data..?> "metricName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBucketMetricData where
   hashWithSalt _salt GetBucketMetricData' {..} =

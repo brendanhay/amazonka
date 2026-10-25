@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteStage where
   request overrides =
     Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteStageResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteStage where
   hashWithSalt _salt DeleteStage' {..} =

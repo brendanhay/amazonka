@@ -118,6 +118,8 @@ instance Core.AWSRequest DeleteUserDefinedFunction where
           DeleteUserDefinedFunctionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteUserDefinedFunction where
   hashWithSalt _salt DeleteUserDefinedFunction' {..} =

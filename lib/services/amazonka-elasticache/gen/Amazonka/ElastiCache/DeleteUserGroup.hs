@@ -91,6 +91,8 @@ instance Core.AWSRequest DeleteUserGroup where
     Response.receiveXMLWrapper
       "DeleteUserGroupResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteUserGroup where
   hashWithSalt _salt DeleteUserGroup' {..} =

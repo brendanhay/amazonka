@@ -282,6 +282,8 @@ instance Core.AWSRequest CreateVocabularyFilter where
             Prelude.<*> (x Data..?> "VocabularyFilterName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateVocabularyFilter where
   hashWithSalt _salt CreateVocabularyFilter' {..} =

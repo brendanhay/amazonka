@@ -120,6 +120,8 @@ instance Core.AWSRequest CreateHsmClientCertificate where
             Prelude.<$> (x Data..@? "HsmClientCertificate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateHsmClientCertificate where
   hashWithSalt _salt CreateHsmClientCertificate' {..} =

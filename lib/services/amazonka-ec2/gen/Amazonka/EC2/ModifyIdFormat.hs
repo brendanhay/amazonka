@@ -152,6 +152,8 @@ instance Core.AWSRequest ModifyIdFormat where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull ModifyIdFormatResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyIdFormat where
   hashWithSalt _salt ModifyIdFormat' {..} =

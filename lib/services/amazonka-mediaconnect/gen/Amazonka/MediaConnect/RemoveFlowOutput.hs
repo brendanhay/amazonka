@@ -107,6 +107,8 @@ instance Core.AWSRequest RemoveFlowOutput where
             Prelude.<*> (x Data..?> "outputArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveFlowOutput where
   hashWithSalt _salt RemoveFlowOutput' {..} =

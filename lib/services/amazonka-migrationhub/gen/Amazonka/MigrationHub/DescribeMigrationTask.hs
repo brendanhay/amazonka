@@ -108,6 +108,8 @@ instance Core.AWSRequest DescribeMigrationTask where
             Prelude.<$> (x Data..?> "MigrationTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeMigrationTask where
   hashWithSalt _salt DescribeMigrationTask' {..} =

@@ -94,6 +94,8 @@ instance Core.AWSRequest DeleteFolderContents where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteFolderContentsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFolderContents where
   hashWithSalt _salt DeleteFolderContents' {..} =

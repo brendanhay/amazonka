@@ -100,6 +100,8 @@ instance Core.AWSRequest DescribeModelPackageGroup where
             Prelude.<*> (x Data..:> "CreatedBy")
             Prelude.<*> (x Data..:> "ModelPackageGroupStatus")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeModelPackageGroup where
   hashWithSalt _salt DescribeModelPackageGroup' {..} =

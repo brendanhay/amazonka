@@ -118,6 +118,8 @@ instance Core.AWSRequest DescribePatchGroupState where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePatchGroupState where
   hashWithSalt _salt DescribePatchGroupState' {..} =

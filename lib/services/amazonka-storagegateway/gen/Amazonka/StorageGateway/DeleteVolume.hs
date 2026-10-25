@@ -106,6 +106,8 @@ instance Core.AWSRequest DeleteVolume where
             Prelude.<$> (x Data..?> "VolumeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVolume where
   hashWithSalt _salt DeleteVolume' {..} =

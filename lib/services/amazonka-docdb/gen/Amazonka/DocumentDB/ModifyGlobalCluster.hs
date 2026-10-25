@@ -163,6 +163,8 @@ instance Core.AWSRequest ModifyGlobalCluster where
             Prelude.<$> (x Data..@? "GlobalCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyGlobalCluster where
   hashWithSalt _salt ModifyGlobalCluster' {..} =

@@ -160,6 +160,14 @@ instance Core.AWSRequest CreateWorldGenerationJob where
             Prelude.<*> (x Data..?> "worldTags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateWorldGenerationJob' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateWorldGenerationJob
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateWorldGenerationJob where
   hashWithSalt _salt CreateWorldGenerationJob' {..} =

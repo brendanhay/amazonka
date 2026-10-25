@@ -109,6 +109,8 @@ instance Core.AWSRequest BatchApplyUpdateAction where
     Response.receiveXMLWrapper
       "BatchApplyUpdateActionResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchApplyUpdateAction where
   hashWithSalt _salt BatchApplyUpdateAction' {..} =

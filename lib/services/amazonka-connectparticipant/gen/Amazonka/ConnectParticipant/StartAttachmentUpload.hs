@@ -74,7 +74,7 @@ data StartAttachmentUpload = StartAttachmentUpload'
     -- idempotency of the request. If not provided, the Amazon Web Services SDK
     -- populates this field. For more information about idempotency, see
     -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
-    clientToken :: Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The authentication token associated with the participant\'s connection.
     connectionToken :: Prelude.Text
   }
@@ -110,8 +110,6 @@ newStartAttachmentUpload ::
   Prelude.Natural ->
   -- | 'attachmentName'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   -- | 'connectionToken'
   Prelude.Text ->
   StartAttachmentUpload
@@ -119,13 +117,12 @@ newStartAttachmentUpload
   pContentType_
   pAttachmentSizeInBytes_
   pAttachmentName_
-  pClientToken_
   pConnectionToken_ =
     StartAttachmentUpload'
       { contentType = pContentType_,
         attachmentSizeInBytes = pAttachmentSizeInBytes_,
         attachmentName = pAttachmentName_,
-        clientToken = pClientToken_,
+        clientToken = Prelude.Nothing,
         connectionToken = pConnectionToken_
       }
 
@@ -148,7 +145,7 @@ startAttachmentUpload_attachmentName = Lens.lens (\StartAttachmentUpload' {attac
 -- idempotency of the request. If not provided, the Amazon Web Services SDK
 -- populates this field. For more information about idempotency, see
 -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
-startAttachmentUpload_clientToken :: Lens.Lens' StartAttachmentUpload Prelude.Text
+startAttachmentUpload_clientToken :: Lens.Lens' StartAttachmentUpload (Prelude.Maybe Prelude.Text)
 startAttachmentUpload_clientToken = Lens.lens (\StartAttachmentUpload' {clientToken} -> clientToken) (\s@StartAttachmentUpload' {} a -> s {clientToken = a} :: StartAttachmentUpload)
 
 -- | The authentication token associated with the participant\'s connection.
@@ -169,6 +166,14 @@ instance Core.AWSRequest StartAttachmentUpload where
             Prelude.<*> (x Data..?> "UploadMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartAttachmentUpload' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            StartAttachmentUpload
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartAttachmentUpload where
   hashWithSalt _salt StartAttachmentUpload' {..} =
@@ -206,7 +211,7 @@ instance Data.ToJSON StartAttachmentUpload where
               ),
             Prelude.Just
               ("AttachmentName" Data..= attachmentName),
-            Prelude.Just ("ClientToken" Data..= clientToken)
+            ("ClientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

@@ -201,6 +201,13 @@ instance Core.AWSRequest CreateContent where
             Prelude.<$> (x Data..?> "content")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateContent' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateContent
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateContent where
   hashWithSalt _salt CreateContent' {..} =

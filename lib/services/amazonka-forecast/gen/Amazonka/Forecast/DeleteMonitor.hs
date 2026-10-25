@@ -80,6 +80,8 @@ instance Core.AWSRequest DeleteMonitor where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteMonitorResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteMonitor where
   hashWithSalt _salt DeleteMonitor' {..} =

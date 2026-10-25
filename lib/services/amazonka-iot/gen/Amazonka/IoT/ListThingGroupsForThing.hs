@@ -146,6 +146,8 @@ instance Core.AWSRequest ListThingGroupsForThing where
             Prelude.<*> (x Data..?> "thingGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListThingGroupsForThing where
   hashWithSalt _salt ListThingGroupsForThing' {..} =

@@ -95,6 +95,8 @@ instance Core.AWSRequest DeleteThingType where
           DeleteThingTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteThingType where
   hashWithSalt _salt DeleteThingType' {..} =

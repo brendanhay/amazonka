@@ -97,6 +97,8 @@ instance Core.AWSRequest DeleteSubnet where
   request overrides =
     Request.postQuery (overrides defaultService)
   response = Response.receiveNull DeleteSubnetResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSubnet where
   hashWithSalt _salt DeleteSubnet' {..} =

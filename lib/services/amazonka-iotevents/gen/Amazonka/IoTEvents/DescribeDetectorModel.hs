@@ -101,6 +101,8 @@ instance Core.AWSRequest DescribeDetectorModel where
             Prelude.<$> (x Data..?> "detectorModel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDetectorModel where
   hashWithSalt _salt DescribeDetectorModel' {..} =

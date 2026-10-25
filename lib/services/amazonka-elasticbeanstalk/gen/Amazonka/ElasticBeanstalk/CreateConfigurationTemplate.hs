@@ -322,6 +322,8 @@ instance Core.AWSRequest CreateConfigurationTemplate where
     Response.receiveXMLWrapper
       "CreateConfigurationTemplateResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateConfigurationTemplate where
   hashWithSalt _salt CreateConfigurationTemplate' {..} =

@@ -101,6 +101,8 @@ instance Core.AWSRequest DeleteHsm where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteHsm where
   hashWithSalt _salt DeleteHsm' {..} =

@@ -111,6 +111,8 @@ instance Core.AWSRequest StopExecution where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "stopDate")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopExecution where
   hashWithSalt _salt StopExecution' {..} =

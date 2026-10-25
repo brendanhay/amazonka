@@ -199,6 +199,8 @@ instance Core.AWSRequest GetApplicationDateRangeKpi where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetApplicationDateRangeKpi where
   hashWithSalt _salt GetApplicationDateRangeKpi' {..} =

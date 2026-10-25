@@ -159,6 +159,8 @@ instance Core.AWSRequest AttachVolume where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AttachVolume where
   hashWithSalt _salt AttachVolume' {..} =

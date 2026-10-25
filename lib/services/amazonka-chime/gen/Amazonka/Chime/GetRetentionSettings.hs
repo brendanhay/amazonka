@@ -92,6 +92,8 @@ instance Core.AWSRequest GetRetentionSettings where
             Prelude.<*> (x Data..?> "RetentionSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRetentionSettings where
   hashWithSalt _salt GetRetentionSettings' {..} =

@@ -135,6 +135,14 @@ instance Core.AWSRequest CreateVerifiedAccessInstance where
             Prelude.<$> (x Data..@? "verifiedAccessInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateVerifiedAccessInstance' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateVerifiedAccessInstance
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

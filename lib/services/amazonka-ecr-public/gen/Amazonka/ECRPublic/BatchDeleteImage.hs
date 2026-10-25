@@ -134,6 +134,8 @@ instance Core.AWSRequest BatchDeleteImage where
             Prelude.<*> (x Data..?> "imageIds")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchDeleteImage where
   hashWithSalt _salt BatchDeleteImage' {..} =

@@ -105,6 +105,8 @@ instance Core.AWSRequest AcceptCertificateTransfer where
   response =
     Response.receiveNull
       AcceptCertificateTransferResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AcceptCertificateTransfer where
   hashWithSalt _salt AcceptCertificateTransfer' {..} =

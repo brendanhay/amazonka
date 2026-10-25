@@ -165,6 +165,8 @@ instance Core.AWSRequest DeleteApplicationOutput where
           DeleteApplicationOutputResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteApplicationOutput where
   hashWithSalt _salt DeleteApplicationOutput' {..} =

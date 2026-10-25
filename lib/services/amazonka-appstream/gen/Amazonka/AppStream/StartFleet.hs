@@ -82,6 +82,8 @@ instance Core.AWSRequest StartFleet where
           StartFleetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartFleet where
   hashWithSalt _salt StartFleet' {..} =

@@ -188,6 +188,8 @@ instance Core.AWSRequest DescribeManagedRuleGroup where
             Prelude.<*> (x Data..?> "VersionName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeManagedRuleGroup where
   hashWithSalt _salt DescribeManagedRuleGroup' {..} =

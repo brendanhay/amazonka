@@ -205,6 +205,8 @@ instance Core.AWSRequest ListFeatureGroups where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListFeatureGroups where
   hashWithSalt _salt ListFeatureGroups' {..} =

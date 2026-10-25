@@ -107,6 +107,8 @@ instance Core.AWSRequest AssociateAlias where
     Request.put (overrides defaultService)
   response =
     Response.receiveNull AssociateAliasResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateAlias where
   hashWithSalt _salt AssociateAlias' {..} =

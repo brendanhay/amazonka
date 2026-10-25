@@ -112,6 +112,8 @@ instance Core.AWSRequest PutFirewallRuleGroupPolicy where
             Prelude.<$> (x Data..?> "ReturnValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutFirewallRuleGroupPolicy where
   hashWithSalt _salt PutFirewallRuleGroupPolicy' {..} =

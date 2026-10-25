@@ -145,6 +145,8 @@ instance Core.AWSRequest ListThingTypes where
             Prelude.<*> (x Data..?> "thingTypes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListThingTypes where
   hashWithSalt _salt ListThingTypes' {..} =

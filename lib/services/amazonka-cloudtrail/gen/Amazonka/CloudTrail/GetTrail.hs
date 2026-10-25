@@ -87,6 +87,8 @@ instance Core.AWSRequest GetTrail where
             Prelude.<$> (x Data..?> "Trail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTrail where
   hashWithSalt _salt GetTrail' {..} =

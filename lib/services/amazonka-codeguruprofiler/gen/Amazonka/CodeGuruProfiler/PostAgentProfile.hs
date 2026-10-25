@@ -150,6 +150,13 @@ instance Core.AWSRequest PostAgentProfile where
           PostAgentProfileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@PostAgentProfile' {profileToken} =
+      ( \profileToken' ->
+          s {profileToken = profileToken'} :: PostAgentProfile
+      )
+        Prelude.<$> f profileToken
 
 instance Prelude.Hashable PostAgentProfile where
   hashWithSalt _salt PostAgentProfile' {..} =

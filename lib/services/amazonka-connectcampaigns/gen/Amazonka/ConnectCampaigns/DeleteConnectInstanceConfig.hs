@@ -83,6 +83,8 @@ instance Core.AWSRequest DeleteConnectInstanceConfig where
   response =
     Response.receiveNull
       DeleteConnectInstanceConfigResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteConnectInstanceConfig where
   hashWithSalt _salt DeleteConnectInstanceConfig' {..} =

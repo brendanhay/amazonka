@@ -291,6 +291,8 @@ instance Core.AWSRequest CreateActivation where
             Prelude.<*> (x Data..?> "ActivationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateActivation where
   hashWithSalt _salt CreateActivation' {..} =

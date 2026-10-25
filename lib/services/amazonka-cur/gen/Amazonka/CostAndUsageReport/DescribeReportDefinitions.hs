@@ -127,6 +127,8 @@ instance Core.AWSRequest DescribeReportDefinitions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeReportDefinitions where
   hashWithSalt _salt DescribeReportDefinitions' {..} =

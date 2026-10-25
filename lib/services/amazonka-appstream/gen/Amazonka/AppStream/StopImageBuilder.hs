@@ -87,6 +87,8 @@ instance Core.AWSRequest StopImageBuilder where
             Prelude.<$> (x Data..?> "ImageBuilder")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopImageBuilder where
   hashWithSalt _salt StopImageBuilder' {..} =

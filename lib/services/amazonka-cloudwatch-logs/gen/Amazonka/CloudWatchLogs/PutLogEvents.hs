@@ -185,6 +185,8 @@ instance Core.AWSRequest PutLogEvents where
             Prelude.<*> (x Data..?> "rejectedLogEventsInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutLogEvents where
   hashWithSalt _salt PutLogEvents' {..} =

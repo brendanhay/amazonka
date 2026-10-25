@@ -148,6 +148,8 @@ instance Core.AWSRequest ListSecurityKeys where
             Prelude.<*> (x Data..?> "SecurityKeys" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSecurityKeys where
   hashWithSalt _salt ListSecurityKeys' {..} =

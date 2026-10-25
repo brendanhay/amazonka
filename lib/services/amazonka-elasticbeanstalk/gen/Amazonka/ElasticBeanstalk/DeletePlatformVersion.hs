@@ -89,6 +89,8 @@ instance Core.AWSRequest DeletePlatformVersion where
             Prelude.<$> (x Data..@? "PlatformSummary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePlatformVersion where
   hashWithSalt _salt DeletePlatformVersion' {..} =

@@ -81,6 +81,8 @@ instance Core.AWSRequest StopProcessingJob where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull StopProcessingJobResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopProcessingJob where
   hashWithSalt _salt StopProcessingJob' {..} =

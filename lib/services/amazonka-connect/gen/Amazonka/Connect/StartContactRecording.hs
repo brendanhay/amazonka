@@ -154,6 +154,8 @@ instance Core.AWSRequest StartContactRecording where
           StartContactRecordingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartContactRecording where
   hashWithSalt _salt StartContactRecording' {..} =

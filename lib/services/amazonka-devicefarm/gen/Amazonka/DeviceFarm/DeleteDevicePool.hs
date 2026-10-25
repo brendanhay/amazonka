@@ -91,6 +91,8 @@ instance Core.AWSRequest DeleteDevicePool where
           DeleteDevicePoolResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDevicePool where
   hashWithSalt _salt DeleteDevicePool' {..} =

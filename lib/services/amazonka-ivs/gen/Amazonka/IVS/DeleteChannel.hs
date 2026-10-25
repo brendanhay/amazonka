@@ -84,6 +84,8 @@ instance Core.AWSRequest DeleteChannel where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteChannelResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteChannel where
   hashWithSalt _salt DeleteChannel' {..} =

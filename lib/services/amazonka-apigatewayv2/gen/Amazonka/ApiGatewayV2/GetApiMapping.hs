@@ -107,6 +107,8 @@ instance Core.AWSRequest GetApiMapping where
             Prelude.<*> (x Data..?> "stage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetApiMapping where
   hashWithSalt _salt GetApiMapping' {..} =

@@ -158,6 +158,8 @@ instance Core.AWSRequest ListDeliveryStreams where
                         )
             Prelude.<*> (x Data..:> "HasMoreDeliveryStreams")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDeliveryStreams where
   hashWithSalt _salt ListDeliveryStreams' {..} =

@@ -205,6 +205,8 @@ instance Core.AWSRequest UpdateTrialComponent where
             Prelude.<$> (x Data..?> "TrialComponentArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateTrialComponent where
   hashWithSalt _salt UpdateTrialComponent' {..} =

@@ -175,6 +175,8 @@ instance Core.AWSRequest DeleteAlternateContact where
   response =
     Response.receiveNull
       DeleteAlternateContactResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAlternateContact where
   hashWithSalt _salt DeleteAlternateContact' {..} =

@@ -236,6 +236,8 @@ instance Core.AWSRequest ListAccountSettings where
             Prelude.<*> (x Data..?> "settings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAccountSettings where
   hashWithSalt _salt ListAccountSettings' {..} =

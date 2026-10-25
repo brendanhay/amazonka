@@ -92,6 +92,8 @@ instance Core.AWSRequest StopWorkflow where
             Prelude.<*> (x Data..?> "statusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopWorkflow where
   hashWithSalt _salt StopWorkflow' {..} =

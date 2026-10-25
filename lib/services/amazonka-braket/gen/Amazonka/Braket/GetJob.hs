@@ -126,6 +126,8 @@ instance Core.AWSRequest GetJob where
             Prelude.<*> (x Data..:> "roleArn")
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetJob where
   hashWithSalt _salt GetJob' {..} =

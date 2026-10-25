@@ -91,6 +91,8 @@ instance Core.AWSRequest DeleteSourceLocation where
           DeleteSourceLocationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSourceLocation where
   hashWithSalt _salt DeleteSourceLocation' {..} =

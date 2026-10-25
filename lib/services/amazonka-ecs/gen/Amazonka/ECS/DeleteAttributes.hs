@@ -115,6 +115,8 @@ instance Core.AWSRequest DeleteAttributes where
             Prelude.<$> (x Data..?> "attributes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAttributes where
   hashWithSalt _salt DeleteAttributes' {..} =

@@ -92,6 +92,8 @@ instance Core.AWSRequest DescribeDatasetExportJob where
             Prelude.<$> (x Data..?> "datasetExportJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDatasetExportJob where
   hashWithSalt _salt DescribeDatasetExportJob' {..} =

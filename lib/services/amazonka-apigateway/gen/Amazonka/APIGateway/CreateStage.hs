@@ -229,6 +229,8 @@ instance Core.AWSRequest CreateStage where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateStage where
   hashWithSalt _salt CreateStage' {..} =

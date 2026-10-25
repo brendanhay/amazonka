@@ -146,6 +146,8 @@ instance Core.AWSRequest UploadDocuments where
             Prelude.<*> (x Data..?> "warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Data.ToBody UploadDocuments where
   toBody UploadDocuments' {..} = Data.toBody documents

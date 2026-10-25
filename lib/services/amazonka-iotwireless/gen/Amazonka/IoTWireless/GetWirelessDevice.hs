@@ -121,6 +121,8 @@ instance Core.AWSRequest GetWirelessDevice where
             Prelude.<*> (x Data..?> "Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetWirelessDevice where
   hashWithSalt _salt GetWirelessDevice' {..} =

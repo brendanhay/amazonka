@@ -121,6 +121,8 @@ instance Core.AWSRequest ListHostKeys where
             Prelude.<*> (x Data..:> "ServerId")
             Prelude.<*> (x Data..?> "HostKeys" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListHostKeys where
   hashWithSalt _salt ListHostKeys' {..} =

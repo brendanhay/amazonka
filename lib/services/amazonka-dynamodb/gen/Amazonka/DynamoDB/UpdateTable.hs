@@ -310,6 +310,8 @@ instance Core.AWSRequest UpdateTable where
             Prelude.<$> (x Data..?> "TableDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateTable where
   hashWithSalt _salt UpdateTable' {..} =

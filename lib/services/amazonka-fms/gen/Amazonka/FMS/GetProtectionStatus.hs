@@ -192,6 +192,8 @@ instance Core.AWSRequest GetProtectionStatus where
             Prelude.<*> (x Data..?> "ServiceType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetProtectionStatus where
   hashWithSalt _salt GetProtectionStatus' {..} =

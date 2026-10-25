@@ -125,6 +125,8 @@ instance Core.AWSRequest UpdateNamedQuery where
           UpdateNamedQueryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateNamedQuery where
   hashWithSalt _salt UpdateNamedQuery' {..} =

@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteVocabularyFilter where
   response =
     Response.receiveNull
       DeleteVocabularyFilterResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVocabularyFilter where
   hashWithSalt _salt DeleteVocabularyFilter' {..} =

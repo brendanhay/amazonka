@@ -453,6 +453,8 @@ instance Core.AWSRequest CreateCapacityReservation where
             Prelude.<$> (x Data..@? "capacityReservation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateCapacityReservation where
   hashWithSalt _salt CreateCapacityReservation' {..} =

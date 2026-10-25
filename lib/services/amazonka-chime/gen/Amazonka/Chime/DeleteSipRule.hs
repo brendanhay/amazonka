@@ -79,6 +79,8 @@ instance Core.AWSRequest DeleteSipRule where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteSipRuleResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSipRule where
   hashWithSalt _salt DeleteSipRule' {..} =

@@ -122,6 +122,8 @@ instance Core.AWSRequest DeleteNotification where
           DeleteNotificationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteNotification where
   hashWithSalt _salt DeleteNotification' {..} =

@@ -175,6 +175,14 @@ instance Core.AWSRequest StartSNOMEDCTInferenceJob where
             Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartSNOMEDCTInferenceJob' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            StartSNOMEDCTInferenceJob
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable StartSNOMEDCTInferenceJob where
   hashWithSalt _salt StartSNOMEDCTInferenceJob' {..} =

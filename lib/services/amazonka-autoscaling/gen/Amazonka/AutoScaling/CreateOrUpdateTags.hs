@@ -84,6 +84,8 @@ instance Core.AWSRequest CreateOrUpdateTags where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull CreateOrUpdateTagsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateOrUpdateTags where
   hashWithSalt _salt CreateOrUpdateTags' {..} =

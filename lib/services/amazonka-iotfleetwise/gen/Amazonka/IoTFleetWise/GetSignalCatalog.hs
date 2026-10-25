@@ -97,6 +97,8 @@ instance Core.AWSRequest GetSignalCatalog where
             Prelude.<*> (x Data..:> "creationTime")
             Prelude.<*> (x Data..:> "lastModificationTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSignalCatalog where
   hashWithSalt _salt GetSignalCatalog' {..} =

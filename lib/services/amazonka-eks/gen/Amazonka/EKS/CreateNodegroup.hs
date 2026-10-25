@@ -545,6 +545,14 @@ instance Core.AWSRequest CreateNodegroup where
             Prelude.<$> (x Data..?> "nodegroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateNodegroup' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateNodegroup
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateNodegroup where
   hashWithSalt _salt CreateNodegroup' {..} =

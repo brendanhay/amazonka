@@ -93,6 +93,8 @@ instance Core.AWSRequest GetModelPackageGroupPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ResourcePolicy")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetModelPackageGroupPolicy where
   hashWithSalt _salt GetModelPackageGroupPolicy' {..} =

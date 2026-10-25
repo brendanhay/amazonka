@@ -120,6 +120,8 @@ instance Core.AWSRequest AddLFTagsToResource where
             Prelude.<$> (x Data..?> "Failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddLFTagsToResource where
   hashWithSalt _salt AddLFTagsToResource' {..} =

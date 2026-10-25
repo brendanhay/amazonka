@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteParallelData where
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteParallelData where
   hashWithSalt _salt DeleteParallelData' {..} =

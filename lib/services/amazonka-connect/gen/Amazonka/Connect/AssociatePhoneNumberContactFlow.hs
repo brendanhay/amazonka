@@ -126,6 +126,8 @@ instance
   response =
     Response.receiveNull
       AssociatePhoneNumberContactFlowResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

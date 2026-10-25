@@ -151,6 +151,8 @@ instance Core.AWSRequest CreateReplicationSubnetGroup where
             Prelude.<$> (x Data..?> "ReplicationSubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

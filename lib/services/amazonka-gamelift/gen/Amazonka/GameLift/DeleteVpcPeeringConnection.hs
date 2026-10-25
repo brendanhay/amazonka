@@ -119,6 +119,8 @@ instance Core.AWSRequest DeleteVpcPeeringConnection where
           DeleteVpcPeeringConnectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVpcPeeringConnection where
   hashWithSalt _salt DeleteVpcPeeringConnection' {..} =

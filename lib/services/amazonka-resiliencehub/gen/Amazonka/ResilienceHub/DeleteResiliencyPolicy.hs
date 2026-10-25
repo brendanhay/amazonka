@@ -122,6 +122,14 @@ instance Core.AWSRequest DeleteResiliencyPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "policyArn")
       )
+  updateIdempotencyToken
+    f
+    s@DeleteResiliencyPolicy' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            DeleteResiliencyPolicy
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteResiliencyPolicy where
   hashWithSalt _salt DeleteResiliencyPolicy' {..} =

@@ -84,6 +84,8 @@ instance Core.AWSRequest DeleteMonitoringSchedule where
   response =
     Response.receiveNull
       DeleteMonitoringScheduleResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteMonitoringSchedule where
   hashWithSalt _salt DeleteMonitoringSchedule' {..} =

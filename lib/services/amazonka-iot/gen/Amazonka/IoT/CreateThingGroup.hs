@@ -132,6 +132,8 @@ instance Core.AWSRequest CreateThingGroup where
             Prelude.<*> (x Data..?> "thingGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateThingGroup where
   hashWithSalt _salt CreateThingGroup' {..} =

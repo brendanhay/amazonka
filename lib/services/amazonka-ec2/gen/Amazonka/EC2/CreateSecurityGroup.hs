@@ -218,6 +218,8 @@ instance Core.AWSRequest CreateSecurityGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "groupId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateSecurityGroup where
   hashWithSalt _salt CreateSecurityGroup' {..} =

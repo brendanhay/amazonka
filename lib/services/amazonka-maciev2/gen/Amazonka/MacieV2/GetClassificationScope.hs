@@ -94,6 +94,8 @@ instance Core.AWSRequest GetClassificationScope where
             Prelude.<*> (x Data..?> "s3")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetClassificationScope where
   hashWithSalt _salt GetClassificationScope' {..} =

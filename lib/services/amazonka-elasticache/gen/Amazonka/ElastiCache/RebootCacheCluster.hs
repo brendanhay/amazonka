@@ -127,6 +127,8 @@ instance Core.AWSRequest RebootCacheCluster where
             Prelude.<$> (x Data..@? "CacheCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RebootCacheCluster where
   hashWithSalt _salt RebootCacheCluster' {..} =

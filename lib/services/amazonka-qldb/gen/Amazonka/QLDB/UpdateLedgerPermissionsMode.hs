@@ -188,6 +188,8 @@ instance Core.AWSRequest UpdateLedgerPermissionsMode where
             Prelude.<*> (x Data..?> "PermissionsMode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateLedgerPermissionsMode where
   hashWithSalt _salt UpdateLedgerPermissionsMode' {..} =

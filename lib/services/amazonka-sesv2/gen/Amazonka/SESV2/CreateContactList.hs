@@ -120,6 +120,8 @@ instance Core.AWSRequest CreateContactList where
           CreateContactListResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateContactList where
   hashWithSalt _salt CreateContactList' {..} =

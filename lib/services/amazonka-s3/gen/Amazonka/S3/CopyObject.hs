@@ -1057,6 +1057,8 @@ instance Core.AWSRequest CopyObject where
             Prelude.<*> (h Data..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CopyObject where
   hashWithSalt _salt CopyObject' {..} =

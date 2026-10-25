@@ -112,6 +112,8 @@ instance Core.AWSRequest UpdateApplication where
     Response.receiveXMLWrapper
       "UpdateApplicationResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =

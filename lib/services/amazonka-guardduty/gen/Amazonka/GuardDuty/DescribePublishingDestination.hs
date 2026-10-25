@@ -119,6 +119,8 @@ instance
             Prelude.<*> (x Data..:> "publishingFailureStartTimestamp")
             Prelude.<*> (x Data..:> "destinationProperties")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

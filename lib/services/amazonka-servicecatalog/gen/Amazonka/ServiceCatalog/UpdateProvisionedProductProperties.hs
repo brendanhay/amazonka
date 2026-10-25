@@ -97,7 +97,7 @@ data UpdateProvisionedProductProperties = UpdateProvisionedProductProperties'
     provisionedProductProperties :: Prelude.HashMap PropertyKey Prelude.Text,
     -- | The idempotency token that uniquely identifies the provisioning product
     -- update request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -154,12 +154,9 @@ data UpdateProvisionedProductProperties = UpdateProvisionedProductProperties'
 newUpdateProvisionedProductProperties ::
   -- | 'provisionedProductId'
   Prelude.Text ->
-  -- | 'idempotencyToken'
-  Prelude.Text ->
   UpdateProvisionedProductProperties
 newUpdateProvisionedProductProperties
-  pProvisionedProductId_
-  pIdempotencyToken_ =
+  pProvisionedProductId_ =
     UpdateProvisionedProductProperties'
       { acceptLanguage =
           Prelude.Nothing,
@@ -167,7 +164,7 @@ newUpdateProvisionedProductProperties
           pProvisionedProductId_,
         provisionedProductProperties =
           Prelude.mempty,
-        idempotencyToken = pIdempotencyToken_
+        idempotencyToken = Prelude.Nothing
       }
 
 -- | The language code.
@@ -218,7 +215,7 @@ updateProvisionedProductProperties_provisionedProductProperties = Lens.lens (\Up
 
 -- | The idempotency token that uniquely identifies the provisioning product
 -- update request.
-updateProvisionedProductProperties_idempotencyToken :: Lens.Lens' UpdateProvisionedProductProperties Prelude.Text
+updateProvisionedProductProperties_idempotencyToken :: Lens.Lens' UpdateProvisionedProductProperties (Prelude.Maybe Prelude.Text)
 updateProvisionedProductProperties_idempotencyToken = Lens.lens (\UpdateProvisionedProductProperties' {idempotencyToken} -> idempotencyToken) (\s@UpdateProvisionedProductProperties' {} a -> s {idempotencyToken = a} :: UpdateProvisionedProductProperties)
 
 instance
@@ -243,6 +240,14 @@ instance
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateProvisionedProductProperties' {idempotencyToken} =
+      ( \idempotencyToken' ->
+          s {idempotencyToken = idempotencyToken'} ::
+            UpdateProvisionedProductProperties
+      )
+        Prelude.<$> f idempotencyToken
 
 instance
   Prelude.Hashable
@@ -302,8 +307,8 @@ instance
               ( "ProvisionedProductProperties"
                   Data..= provisionedProductProperties
               ),
-            Prelude.Just
-              ("IdempotencyToken" Data..= idempotencyToken)
+            ("IdempotencyToken" Data..=)
+              Prelude.<$> idempotencyToken
           ]
       )
 

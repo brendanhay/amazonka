@@ -97,6 +97,8 @@ instance Core.AWSRequest DeleteAccessLogSettings where
   response =
     Response.receiveNull
       DeleteAccessLogSettingsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAccessLogSettings where
   hashWithSalt _salt DeleteAccessLogSettings' {..} =

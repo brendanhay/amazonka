@@ -807,6 +807,8 @@ instance Core.AWSRequest UpdateUserPoolClient where
             Prelude.<$> (x Data..?> "UserPoolClient")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateUserPoolClient where
   hashWithSalt _salt UpdateUserPoolClient' {..} =

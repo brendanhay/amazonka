@@ -162,6 +162,8 @@ instance Core.AWSRequest ListAuditSuppressions where
             Prelude.<*> (x Data..?> "suppressions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAuditSuppressions where
   hashWithSalt _salt ListAuditSuppressions' {..} =

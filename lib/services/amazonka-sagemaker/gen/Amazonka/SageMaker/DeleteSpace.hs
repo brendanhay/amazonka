@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteSpace where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteSpaceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSpace where
   hashWithSalt _salt DeleteSpace' {..} =

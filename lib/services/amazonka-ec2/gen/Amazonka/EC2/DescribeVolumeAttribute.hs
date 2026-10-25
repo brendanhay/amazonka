@@ -131,6 +131,8 @@ instance Core.AWSRequest DescribeVolumeAttribute where
             Prelude.<*> (x Data..@? "volumeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeVolumeAttribute where
   hashWithSalt _salt DescribeVolumeAttribute' {..} =

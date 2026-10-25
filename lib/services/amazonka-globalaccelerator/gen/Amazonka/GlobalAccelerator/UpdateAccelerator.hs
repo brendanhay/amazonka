@@ -145,6 +145,8 @@ instance Core.AWSRequest UpdateAccelerator where
             Prelude.<$> (x Data..?> "Accelerator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateAccelerator where
   hashWithSalt _salt UpdateAccelerator' {..} =

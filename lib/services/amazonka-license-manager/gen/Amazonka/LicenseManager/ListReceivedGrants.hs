@@ -149,6 +149,8 @@ instance Core.AWSRequest ListReceivedGrants where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListReceivedGrants where
   hashWithSalt _salt ListReceivedGrants' {..} =

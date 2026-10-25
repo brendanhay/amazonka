@@ -180,6 +180,11 @@ instance Core.AWSRequest CreateIPSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ipSetId")
       )
+  updateIdempotencyToken f s@CreateIPSet' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateIPSet
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateIPSet where
   hashWithSalt _salt CreateIPSet' {..} =

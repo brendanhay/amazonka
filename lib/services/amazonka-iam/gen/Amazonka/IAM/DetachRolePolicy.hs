@@ -127,6 +127,8 @@ instance Core.AWSRequest DetachRolePolicy where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DetachRolePolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetachRolePolicy where
   hashWithSalt _salt DetachRolePolicy' {..} =

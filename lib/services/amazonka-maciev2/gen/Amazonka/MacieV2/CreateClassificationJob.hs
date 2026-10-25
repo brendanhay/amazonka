@@ -144,7 +144,7 @@ data CreateClassificationJob = CreateClassificationJob'
     jobType :: JobType,
     -- | A unique, case-sensitive token that you provide to ensure the
     -- idempotency of the request.
-    clientToken :: Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | A custom name for the job. The name can contain as many as 500
     -- characters.
     name :: Prelude.Text
@@ -249,15 +249,12 @@ newCreateClassificationJob ::
   S3JobDefinition ->
   -- | 'jobType'
   JobType ->
-  -- | 'clientToken'
-  Prelude.Text ->
   -- | 'name'
   Prelude.Text ->
   CreateClassificationJob
 newCreateClassificationJob
   pS3JobDefinition_
   pJobType_
-  pClientToken_
   pName_ =
     CreateClassificationJob'
       { allowListIds =
@@ -272,7 +269,7 @@ newCreateClassificationJob
         tags = Prelude.Nothing,
         s3JobDefinition = pS3JobDefinition_,
         jobType = pJobType_,
-        clientToken = pClientToken_,
+        clientToken = Prelude.Nothing,
         name = pName_
       }
 
@@ -380,7 +377,7 @@ createClassificationJob_jobType = Lens.lens (\CreateClassificationJob' {jobType}
 
 -- | A unique, case-sensitive token that you provide to ensure the
 -- idempotency of the request.
-createClassificationJob_clientToken :: Lens.Lens' CreateClassificationJob Prelude.Text
+createClassificationJob_clientToken :: Lens.Lens' CreateClassificationJob (Prelude.Maybe Prelude.Text)
 createClassificationJob_clientToken = Lens.lens (\CreateClassificationJob' {clientToken} -> clientToken) (\s@CreateClassificationJob' {} a -> s {clientToken = a} :: CreateClassificationJob)
 
 -- | A custom name for the job. The name can contain as many as 500
@@ -402,6 +399,14 @@ instance Core.AWSRequest CreateClassificationJob where
             Prelude.<*> (x Data..?> "jobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateClassificationJob' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateClassificationJob
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateClassificationJob where
   hashWithSalt _salt CreateClassificationJob' {..} =
@@ -468,7 +473,7 @@ instance Data.ToJSON CreateClassificationJob where
             Prelude.Just
               ("s3JobDefinition" Data..= s3JobDefinition),
             Prelude.Just ("jobType" Data..= jobType),
-            Prelude.Just ("clientToken" Data..= clientToken),
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just ("name" Data..= name)
           ]
       )

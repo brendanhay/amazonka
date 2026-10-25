@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteDataQualityRuleset where
           DeleteDataQualityRulesetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDataQualityRuleset where
   hashWithSalt _salt DeleteDataQualityRuleset' {..} =

@@ -97,6 +97,8 @@ instance Core.AWSRequest DeleteMatchmakingRuleSet where
           DeleteMatchmakingRuleSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteMatchmakingRuleSet where
   hashWithSalt _salt DeleteMatchmakingRuleSet' {..} =

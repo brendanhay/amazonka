@@ -125,6 +125,8 @@ instance Core.AWSRequest DeleteVaultNotifications where
   response =
     Response.receiveNull
       DeleteVaultNotificationsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVaultNotifications where
   hashWithSalt _salt DeleteVaultNotifications' {..} =

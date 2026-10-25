@@ -112,6 +112,8 @@ instance Core.AWSRequest DeauthorizeDataShare where
     Response.receiveXMLWrapper
       "DeauthorizeDataShareResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeauthorizeDataShare where
   hashWithSalt _salt DeauthorizeDataShare' {..} =

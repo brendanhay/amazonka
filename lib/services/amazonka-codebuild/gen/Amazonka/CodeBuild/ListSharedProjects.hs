@@ -199,6 +199,8 @@ instance Core.AWSRequest ListSharedProjects where
             Prelude.<*> (x Data..?> "projects")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSharedProjects where
   hashWithSalt _salt ListSharedProjects' {..} =

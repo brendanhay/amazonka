@@ -124,6 +124,14 @@ instance Core.AWSRequest CreateTransitGatewayPeering where
             Prelude.<$> (x Data..?> "TransitGatewayPeering")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateTransitGatewayPeering' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateTransitGatewayPeering
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateTransitGatewayPeering where
   hashWithSalt _salt CreateTransitGatewayPeering' {..} =

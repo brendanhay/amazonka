@@ -150,6 +150,8 @@ instance Core.AWSRequest ListJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "jobSummaries" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListJobs where
   hashWithSalt _salt ListJobs' {..} =

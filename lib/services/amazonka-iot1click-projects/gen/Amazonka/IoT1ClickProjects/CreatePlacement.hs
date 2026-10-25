@@ -112,6 +112,8 @@ instance Core.AWSRequest CreatePlacement where
           CreatePlacementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreatePlacement where
   hashWithSalt _salt CreatePlacement' {..} =

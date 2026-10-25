@@ -96,6 +96,8 @@ instance Core.AWSRequest StartEdgeDeploymentStage where
   response =
     Response.receiveNull
       StartEdgeDeploymentStageResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartEdgeDeploymentStage where
   hashWithSalt _salt StartEdgeDeploymentStage' {..} =

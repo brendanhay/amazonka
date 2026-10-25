@@ -115,6 +115,8 @@ instance Core.AWSRequest DeleteBotChannelAssociation where
   response =
     Response.receiveNull
       DeleteBotChannelAssociationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBotChannelAssociation where
   hashWithSalt _salt DeleteBotChannelAssociation' {..} =

@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteCodeSigningConfig where
           DeleteCodeSigningConfigResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCodeSigningConfig where
   hashWithSalt _salt DeleteCodeSigningConfig' {..} =

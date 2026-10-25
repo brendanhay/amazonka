@@ -176,6 +176,8 @@ instance Core.AWSRequest ListPolicyAttachments where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPolicyAttachments where
   hashWithSalt _salt ListPolicyAttachments' {..} =

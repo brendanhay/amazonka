@@ -94,6 +94,8 @@ instance Core.AWSRequest BatchGetOnPremisesInstances where
             Prelude.<$> (x Data..?> "instanceInfos" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetOnPremisesInstances where
   hashWithSalt _salt BatchGetOnPremisesInstances' {..} =

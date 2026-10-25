@@ -232,6 +232,14 @@ instance Core.AWSRequest CreateServiceTemplateVersion where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "serviceTemplateVersion")
       )
+  updateIdempotencyToken
+    f
+    s@CreateServiceTemplateVersion' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateServiceTemplateVersion
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

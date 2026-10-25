@@ -108,6 +108,8 @@ instance Core.AWSRequest GetMobileSdkRelease where
             Prelude.<$> (x Data..?> "MobileSdkRelease")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMobileSdkRelease where
   hashWithSalt _salt GetMobileSdkRelease' {..} =

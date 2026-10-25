@@ -155,6 +155,8 @@ instance Core.AWSRequest ListWorkforces where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Workforces" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListWorkforces where
   hashWithSalt _salt ListWorkforces' {..} =

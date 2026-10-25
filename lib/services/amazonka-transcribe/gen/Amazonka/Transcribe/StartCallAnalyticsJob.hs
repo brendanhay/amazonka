@@ -424,6 +424,8 @@ instance Core.AWSRequest StartCallAnalyticsJob where
             Prelude.<$> (x Data..?> "CallAnalyticsJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartCallAnalyticsJob where
   hashWithSalt _salt StartCallAnalyticsJob' {..} =

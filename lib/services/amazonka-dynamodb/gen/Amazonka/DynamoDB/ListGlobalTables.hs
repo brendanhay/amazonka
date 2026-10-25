@@ -135,6 +135,8 @@ instance Core.AWSRequest ListGlobalTables where
             Prelude.<*> (x Data..?> "LastEvaluatedGlobalTableName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListGlobalTables where
   hashWithSalt _salt ListGlobalTables' {..} =

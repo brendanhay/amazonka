@@ -227,6 +227,8 @@ instance Core.AWSRequest CreatePortfolioShare where
             Prelude.<$> (x Data..?> "PortfolioShareToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreatePortfolioShare where
   hashWithSalt _salt CreatePortfolioShare' {..} =

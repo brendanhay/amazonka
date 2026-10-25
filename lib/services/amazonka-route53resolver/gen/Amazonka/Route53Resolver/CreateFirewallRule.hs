@@ -95,7 +95,7 @@ data CreateFirewallRule = CreateFirewallRule'
     -- failed requests without the risk of running the operation twice.
     -- @CreatorRequestId@ can be any unique string, for example, a date\/time
     -- stamp.
-    creatorRequestId :: Prelude.Text,
+    creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the firewall rule group where you want to
     -- create the rule.
     firewallRuleGroupId :: Prelude.Text,
@@ -198,8 +198,6 @@ data CreateFirewallRule = CreateFirewallRule'
 --
 -- 'name', 'createFirewallRule_name' - A name that lets you identify the rule in the rule group.
 newCreateFirewallRule ::
-  -- | 'creatorRequestId'
-  Prelude.Text ->
   -- | 'firewallRuleGroupId'
   Prelude.Text ->
   -- | 'firewallDomainListId'
@@ -212,7 +210,6 @@ newCreateFirewallRule ::
   Prelude.Text ->
   CreateFirewallRule
 newCreateFirewallRule
-  pCreatorRequestId_
   pFirewallRuleGroupId_
   pFirewallDomainListId_
   pPriority_
@@ -224,7 +221,7 @@ newCreateFirewallRule
         blockOverrideDomain = Prelude.Nothing,
         blockOverrideTtl = Prelude.Nothing,
         blockResponse = Prelude.Nothing,
-        creatorRequestId = pCreatorRequestId_,
+        creatorRequestId = Prelude.Nothing,
         firewallRuleGroupId = pFirewallRuleGroupId_,
         firewallDomainListId = pFirewallDomainListId_,
         priority = pPriority_,
@@ -276,7 +273,7 @@ createFirewallRule_blockResponse = Lens.lens (\CreateFirewallRule' {blockRespons
 -- failed requests without the risk of running the operation twice.
 -- @CreatorRequestId@ can be any unique string, for example, a date\/time
 -- stamp.
-createFirewallRule_creatorRequestId :: Lens.Lens' CreateFirewallRule Prelude.Text
+createFirewallRule_creatorRequestId :: Lens.Lens' CreateFirewallRule (Prelude.Maybe Prelude.Text)
 createFirewallRule_creatorRequestId = Lens.lens (\CreateFirewallRule' {creatorRequestId} -> creatorRequestId) (\s@CreateFirewallRule' {} a -> s {creatorRequestId = a} :: CreateFirewallRule)
 
 -- | The unique identifier of the firewall rule group where you want to
@@ -329,6 +326,14 @@ instance Core.AWSRequest CreateFirewallRule where
             Prelude.<$> (x Data..?> "FirewallRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateFirewallRule' {creatorRequestId} =
+      ( \creatorRequestId' ->
+          s {creatorRequestId = creatorRequestId'} ::
+            CreateFirewallRule
+      )
+        Prelude.<$> f creatorRequestId
 
 instance Prelude.Hashable CreateFirewallRule where
   hashWithSalt _salt CreateFirewallRule' {..} =
@@ -383,8 +388,8 @@ instance Data.ToJSON CreateFirewallRule where
             ("BlockOverrideTtl" Data..=)
               Prelude.<$> blockOverrideTtl,
             ("BlockResponse" Data..=) Prelude.<$> blockResponse,
-            Prelude.Just
-              ("CreatorRequestId" Data..= creatorRequestId),
+            ("CreatorRequestId" Data..=)
+              Prelude.<$> creatorRequestId,
             Prelude.Just
               ("FirewallRuleGroupId" Data..= firewallRuleGroupId),
             Prelude.Just

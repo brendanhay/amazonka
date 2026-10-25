@@ -195,6 +195,8 @@ instance Core.AWSRequest UpdateAnalysis where
             Prelude.<*> (x Data..?> "UpdateStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateAnalysis where
   hashWithSalt _salt UpdateAnalysis' {..} =

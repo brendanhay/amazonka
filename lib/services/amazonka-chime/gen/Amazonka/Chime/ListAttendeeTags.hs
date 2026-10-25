@@ -101,6 +101,8 @@ instance Core.AWSRequest ListAttendeeTags where
             Prelude.<$> (x Data..?> "Tags")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAttendeeTags where
   hashWithSalt _salt ListAttendeeTags' {..} =

@@ -94,6 +94,8 @@ instance Core.AWSRequest UpdateCampaignDialerConfig where
   response =
     Response.receiveNull
       UpdateCampaignDialerConfigResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateCampaignDialerConfig where
   hashWithSalt _salt UpdateCampaignDialerConfig' {..} =

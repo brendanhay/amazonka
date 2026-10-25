@@ -109,6 +109,8 @@ instance Core.AWSRequest DescribeProject where
             Prelude.<*> (x Data..:> "ProjectStatus")
             Prelude.<*> (x Data..:> "CreationTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeProject where
   hashWithSalt _salt DescribeProject' {..} =

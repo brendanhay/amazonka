@@ -148,6 +148,8 @@ instance Core.AWSRequest ListApprovedOrigins where
             Prelude.<*> (x Data..?> "Origins" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListApprovedOrigins where
   hashWithSalt _salt ListApprovedOrigins' {..} =

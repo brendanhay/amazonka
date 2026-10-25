@@ -108,6 +108,8 @@ instance Core.AWSRequest GetProfileObjectTypeTemplate where
             Prelude.<*> (x Data..?> "TemplateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

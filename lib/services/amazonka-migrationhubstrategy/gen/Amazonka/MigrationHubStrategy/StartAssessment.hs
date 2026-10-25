@@ -114,6 +114,8 @@ instance Core.AWSRequest StartAssessment where
             Prelude.<$> (x Data..?> "assessmentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartAssessment where
   hashWithSalt _salt StartAssessment' {..} =

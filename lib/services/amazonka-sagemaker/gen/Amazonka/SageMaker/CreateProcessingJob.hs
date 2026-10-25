@@ -231,6 +231,8 @@ instance Core.AWSRequest CreateProcessingJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ProcessingJobArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateProcessingJob where
   hashWithSalt _salt CreateProcessingJob' {..} =

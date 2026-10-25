@@ -102,6 +102,8 @@ instance Core.AWSRequest DeleteWorkGroup where
           DeleteWorkGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteWorkGroup where
   hashWithSalt _salt DeleteWorkGroup' {..} =

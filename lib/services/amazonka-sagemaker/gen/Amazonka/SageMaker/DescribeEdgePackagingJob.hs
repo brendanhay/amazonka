@@ -118,6 +118,8 @@ instance Core.AWSRequest DescribeEdgePackagingJob where
             Prelude.<*> (x Data..:> "EdgePackagingJobName")
             Prelude.<*> (x Data..:> "EdgePackagingJobStatus")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEdgePackagingJob where
   hashWithSalt _salt DescribeEdgePackagingJob' {..} =

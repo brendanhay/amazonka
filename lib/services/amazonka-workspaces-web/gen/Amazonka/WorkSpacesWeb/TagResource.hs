@@ -126,6 +126,11 @@ instance Core.AWSRequest TagResource where
           TagResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@TagResource' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: TagResource
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =

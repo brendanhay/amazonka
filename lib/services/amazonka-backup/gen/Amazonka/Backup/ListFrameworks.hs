@@ -109,6 +109,8 @@ instance Core.AWSRequest ListFrameworks where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListFrameworks where
   hashWithSalt _salt ListFrameworks' {..} =

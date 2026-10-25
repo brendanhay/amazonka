@@ -206,6 +206,11 @@ instance Core.AWSRequest CreateModel where
             Prelude.<$> (x Data..?> "ModelMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@CreateModel' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateModel
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateModel where
   hashWithSalt _salt CreateModel' {..} =

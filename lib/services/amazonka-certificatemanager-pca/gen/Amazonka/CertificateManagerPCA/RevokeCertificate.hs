@@ -178,6 +178,8 @@ instance Core.AWSRequest RevokeCertificate where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull RevokeCertificateResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RevokeCertificate where
   hashWithSalt _salt RevokeCertificate' {..} =

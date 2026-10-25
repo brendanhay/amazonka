@@ -110,6 +110,8 @@ instance Core.AWSRequest StartMonitoringMember where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull StartMonitoringMemberResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartMonitoringMember where
   hashWithSalt _salt StartMonitoringMember' {..} =

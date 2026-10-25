@@ -103,6 +103,8 @@ instance Core.AWSRequest GetDomainAssociation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "domainAssociation")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDomainAssociation where
   hashWithSalt _salt GetDomainAssociation' {..} =

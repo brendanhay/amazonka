@@ -126,6 +126,8 @@ instance Core.AWSRequest ModifySnapshotTier where
             Prelude.<*> (x Data..@? "tieringStartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifySnapshotTier where
   hashWithSalt _salt ModifySnapshotTier' {..} =

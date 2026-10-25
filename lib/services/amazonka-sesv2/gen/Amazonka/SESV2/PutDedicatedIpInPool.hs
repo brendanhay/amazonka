@@ -116,6 +116,8 @@ instance Core.AWSRequest PutDedicatedIpInPool where
           PutDedicatedIpInPoolResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutDedicatedIpInPool where
   hashWithSalt _salt PutDedicatedIpInPool' {..} =

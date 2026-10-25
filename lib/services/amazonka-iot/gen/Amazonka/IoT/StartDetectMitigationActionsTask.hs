@@ -76,7 +76,7 @@ data StartDetectMitigationActionsTask = StartDetectMitigationActionsTask'
     -- you try to create a new task with the same token as a task that already
     -- exists, an exception occurs. If you omit this value, Amazon Web Services
     -- SDKs will automatically generate a unique client request.
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -112,14 +112,11 @@ newStartDetectMitigationActionsTask ::
   DetectMitigationActionsTaskTarget ->
   -- | 'actions'
   Prelude.NonEmpty Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   StartDetectMitigationActionsTask
 newStartDetectMitigationActionsTask
   pTaskId_
   pTarget_
-  pActions_
-  pClientRequestToken_ =
+  pActions_ =
     StartDetectMitigationActionsTask'
       { includeOnlyActiveViolations =
           Prelude.Nothing,
@@ -129,7 +126,7 @@ newStartDetectMitigationActionsTask
         taskId = pTaskId_,
         target = pTarget_,
         actions = Lens.coerced Lens.# pActions_,
-        clientRequestToken = pClientRequestToken_
+        clientRequestToken = Prelude.Nothing
       }
 
 -- | Specifies to list only active violations.
@@ -161,7 +158,7 @@ startDetectMitigationActionsTask_actions = Lens.lens (\StartDetectMitigationActi
 -- you try to create a new task with the same token as a task that already
 -- exists, an exception occurs. If you omit this value, Amazon Web Services
 -- SDKs will automatically generate a unique client request.
-startDetectMitigationActionsTask_clientRequestToken :: Lens.Lens' StartDetectMitigationActionsTask Prelude.Text
+startDetectMitigationActionsTask_clientRequestToken :: Lens.Lens' StartDetectMitigationActionsTask (Prelude.Maybe Prelude.Text)
 startDetectMitigationActionsTask_clientRequestToken = Lens.lens (\StartDetectMitigationActionsTask' {clientRequestToken} -> clientRequestToken) (\s@StartDetectMitigationActionsTask' {} a -> s {clientRequestToken = a} :: StartDetectMitigationActionsTask)
 
 instance
@@ -180,6 +177,14 @@ instance
             Prelude.<$> (x Data..?> "taskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartDetectMitigationActionsTask' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            StartDetectMitigationActionsTask
+      )
+        Prelude.<$> f clientRequestToken
 
 instance
   Prelude.Hashable
@@ -228,8 +233,8 @@ instance Data.ToJSON StartDetectMitigationActionsTask where
               Prelude.<$> violationEventOccurrenceRange,
             Prelude.Just ("target" Data..= target),
             Prelude.Just ("actions" Data..= actions),
-            Prelude.Just
-              ("clientRequestToken" Data..= clientRequestToken)
+            ("clientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

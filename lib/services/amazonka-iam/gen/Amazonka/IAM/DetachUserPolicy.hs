@@ -127,6 +127,8 @@ instance Core.AWSRequest DetachUserPolicy where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DetachUserPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetachUserPolicy where
   hashWithSalt _salt DetachUserPolicy' {..} =

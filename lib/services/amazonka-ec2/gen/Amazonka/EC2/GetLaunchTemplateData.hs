@@ -116,6 +116,8 @@ instance Core.AWSRequest GetLaunchTemplateData where
             Prelude.<$> (x Data..@? "launchTemplateData")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetLaunchTemplateData where
   hashWithSalt _salt GetLaunchTemplateData' {..} =

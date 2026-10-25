@@ -158,6 +158,8 @@ instance Core.AWSRequest GetAccountLimit where
             Prelude.<*> (x Data..@ "Limit")
             Prelude.<*> (x Data..@ "Count")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAccountLimit where
   hashWithSalt _salt GetAccountLimit' {..} =

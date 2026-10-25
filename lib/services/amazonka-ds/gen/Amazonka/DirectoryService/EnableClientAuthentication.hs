@@ -110,6 +110,8 @@ instance Core.AWSRequest EnableClientAuthentication where
           EnableClientAuthenticationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable EnableClientAuthentication where
   hashWithSalt _salt EnableClientAuthentication' {..} =

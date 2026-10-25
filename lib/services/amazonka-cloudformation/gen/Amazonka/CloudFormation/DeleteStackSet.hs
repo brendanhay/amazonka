@@ -148,6 +148,8 @@ instance Core.AWSRequest DeleteStackSet where
           DeleteStackSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteStackSet where
   hashWithSalt _salt DeleteStackSet' {..} =

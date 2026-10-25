@@ -150,6 +150,8 @@ instance Core.AWSRequest UpdateRuleVersion where
             Prelude.<$> (x Data..?> "rule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRuleVersion where
   hashWithSalt _salt UpdateRuleVersion' {..} =

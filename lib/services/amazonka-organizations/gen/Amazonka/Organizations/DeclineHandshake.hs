@@ -111,6 +111,8 @@ instance Core.AWSRequest DeclineHandshake where
             Prelude.<$> (x Data..?> "Handshake")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeclineHandshake where
   hashWithSalt _salt DeclineHandshake' {..} =

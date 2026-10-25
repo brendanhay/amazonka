@@ -111,6 +111,8 @@ instance Core.AWSRequest BatchGetCommits where
             Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetCommits where
   hashWithSalt _salt BatchGetCommits' {..} =

@@ -129,6 +129,8 @@ instance Core.AWSRequest DescribeDeliveryStream where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "DeliveryStreamDescription")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDeliveryStream where
   hashWithSalt _salt DescribeDeliveryStream' {..} =

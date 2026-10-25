@@ -144,6 +144,8 @@ instance Core.AWSRequest DescribeTemplate where
             Prelude.<*> (x Data..?> "Template")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeTemplate where
   hashWithSalt _salt DescribeTemplate' {..} =

@@ -78,6 +78,8 @@ instance Core.AWSRequest DeleteModelCard where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteModelCardResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteModelCard where
   hashWithSalt _salt DeleteModelCard' {..} =

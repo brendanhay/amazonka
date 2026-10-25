@@ -95,6 +95,8 @@ instance Core.AWSRequest DeleteVariable where
           DeleteVariableResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVariable where
   hashWithSalt _salt DeleteVariable' {..} =

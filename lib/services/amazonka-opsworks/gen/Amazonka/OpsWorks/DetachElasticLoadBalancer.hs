@@ -105,6 +105,8 @@ instance Core.AWSRequest DetachElasticLoadBalancer where
   response =
     Response.receiveNull
       DetachElasticLoadBalancerResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetachElasticLoadBalancer where
   hashWithSalt _salt DetachElasticLoadBalancer' {..} =

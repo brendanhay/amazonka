@@ -161,6 +161,8 @@ instance Core.AWSRequest ListDeploymentTargets where
             Prelude.<*> (x Data..?> "targetIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDeploymentTargets where
   hashWithSalt _salt ListDeploymentTargets' {..} =

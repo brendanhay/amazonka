@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteInterconnect where
             Prelude.<$> (x Data..?> "interconnectState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteInterconnect where
   hashWithSalt _salt DeleteInterconnect' {..} =

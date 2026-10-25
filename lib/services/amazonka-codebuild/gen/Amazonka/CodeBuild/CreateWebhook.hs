@@ -164,6 +164,8 @@ instance Core.AWSRequest CreateWebhook where
             Prelude.<$> (x Data..?> "webhook")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateWebhook where
   hashWithSalt _salt CreateWebhook' {..} =

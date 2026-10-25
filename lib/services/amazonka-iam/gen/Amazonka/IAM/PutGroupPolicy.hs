@@ -206,6 +206,8 @@ instance Core.AWSRequest PutGroupPolicy where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull PutGroupPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutGroupPolicy where
   hashWithSalt _salt PutGroupPolicy' {..} =

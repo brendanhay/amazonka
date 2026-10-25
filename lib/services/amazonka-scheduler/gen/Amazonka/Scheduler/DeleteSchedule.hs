@@ -119,6 +119,13 @@ instance Core.AWSRequest DeleteSchedule where
           DeleteScheduleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteSchedule' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: DeleteSchedule
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteSchedule where
   hashWithSalt _salt DeleteSchedule' {..} =

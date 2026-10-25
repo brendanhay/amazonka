@@ -144,6 +144,8 @@ instance Core.AWSRequest CreateWorkGroup where
           CreateWorkGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateWorkGroup where
   hashWithSalt _salt CreateWorkGroup' {..} =

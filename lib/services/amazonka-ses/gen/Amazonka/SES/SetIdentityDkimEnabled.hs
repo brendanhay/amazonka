@@ -125,6 +125,8 @@ instance Core.AWSRequest SetIdentityDkimEnabled where
           SetIdentityDkimEnabledResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetIdentityDkimEnabled where
   hashWithSalt _salt SetIdentityDkimEnabled' {..} =

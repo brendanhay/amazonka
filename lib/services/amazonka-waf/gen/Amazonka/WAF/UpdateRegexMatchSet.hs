@@ -175,6 +175,8 @@ instance Core.AWSRequest UpdateRegexMatchSet where
             Prelude.<$> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRegexMatchSet where
   hashWithSalt _salt UpdateRegexMatchSet' {..} =

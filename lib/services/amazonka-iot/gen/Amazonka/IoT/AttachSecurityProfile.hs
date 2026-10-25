@@ -112,6 +112,8 @@ instance Core.AWSRequest AttachSecurityProfile where
           AttachSecurityProfileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AttachSecurityProfile where
   hashWithSalt _salt AttachSecurityProfile' {..} =

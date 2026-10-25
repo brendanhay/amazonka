@@ -204,6 +204,8 @@ instance Core.AWSRequest CreateDataSourceFromS3 where
             Prelude.<$> (x Data..?> "DataSourceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDataSourceFromS3 where
   hashWithSalt _salt CreateDataSourceFromS3' {..} =

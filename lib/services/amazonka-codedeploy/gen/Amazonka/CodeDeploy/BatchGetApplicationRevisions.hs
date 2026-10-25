@@ -116,6 +116,8 @@ instance Core.AWSRequest BatchGetApplicationRevisions where
             Prelude.<*> (x Data..?> "revisions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

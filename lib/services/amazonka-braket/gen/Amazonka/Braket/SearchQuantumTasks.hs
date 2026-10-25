@@ -136,6 +136,8 @@ instance Core.AWSRequest SearchQuantumTasks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "quantumTasks" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SearchQuantumTasks where
   hashWithSalt _salt SearchQuantumTasks' {..} =

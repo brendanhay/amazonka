@@ -204,6 +204,8 @@ instance Core.AWSRequest CreateClusterParameterGroup where
             Prelude.<$> (x Data..@? "ClusterParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateClusterParameterGroup where
   hashWithSalt _salt CreateClusterParameterGroup' {..} =

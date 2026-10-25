@@ -105,6 +105,8 @@ instance Core.AWSRequest GetAccessKeyLastUsed where
             Prelude.<*> (x Data..@? "UserName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAccessKeyLastUsed where
   hashWithSalt _salt GetAccessKeyLastUsed' {..} =

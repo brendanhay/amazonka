@@ -96,7 +96,7 @@ instance Core.AWSRequest GetChunk where
   request overrides =
     Request.get (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetChunkResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
@@ -105,6 +105,8 @@ instance Core.AWSRequest GetChunk where
             Prelude.<*> (h Data..# "x-amz-checksum-algorithm")
             Prelude.<*> (Prelude.pure x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetChunk where
   hashWithSalt _salt GetChunk' {..} =

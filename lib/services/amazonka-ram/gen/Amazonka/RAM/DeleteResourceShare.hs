@@ -137,6 +137,8 @@ instance Core.AWSRequest DeleteResourceShare where
             Prelude.<*> (x Data..?> "returnValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteResourceShare where
   hashWithSalt _salt DeleteResourceShare' {..} =

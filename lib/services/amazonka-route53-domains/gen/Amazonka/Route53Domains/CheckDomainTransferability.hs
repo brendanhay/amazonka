@@ -156,6 +156,8 @@ instance Core.AWSRequest CheckDomainTransferability where
             Prelude.<$> (x Data..?> "Transferability")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CheckDomainTransferability where
   hashWithSalt _salt CheckDomainTransferability' {..} =

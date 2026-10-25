@@ -103,6 +103,8 @@ instance Core.AWSRequest CreateGlobalNetwork where
             Prelude.<$> (x Data..?> "GlobalNetwork")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateGlobalNetwork where
   hashWithSalt _salt CreateGlobalNetwork' {..} =

@@ -76,6 +76,8 @@ instance Core.AWSRequest GetSendQuota where
             Prelude.<*> (x Data..@? "SentLast24Hours")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSendQuota where
   hashWithSalt _salt _ =

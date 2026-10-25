@@ -109,6 +109,8 @@ instance Core.AWSRequest CreateBot where
             Prelude.<$> (x Data..?> "Bot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateBot where
   hashWithSalt _salt CreateBot' {..} =

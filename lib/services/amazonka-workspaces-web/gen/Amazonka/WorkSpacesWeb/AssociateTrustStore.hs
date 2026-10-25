@@ -103,6 +103,8 @@ instance Core.AWSRequest AssociateTrustStore where
             Prelude.<*> (x Data..:> "portalArn")
             Prelude.<*> (x Data..:> "trustStoreArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateTrustStore where
   hashWithSalt _salt AssociateTrustStore' {..} =

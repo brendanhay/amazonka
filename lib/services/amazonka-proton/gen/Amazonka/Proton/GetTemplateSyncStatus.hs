@@ -121,6 +121,8 @@ instance Core.AWSRequest GetTemplateSyncStatus where
             Prelude.<*> (x Data..?> "latestSync")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTemplateSyncStatus where
   hashWithSalt _salt GetTemplateSyncStatus' {..} =

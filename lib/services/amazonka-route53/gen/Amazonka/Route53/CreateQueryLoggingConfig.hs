@@ -270,6 +270,8 @@ instance Core.AWSRequest CreateQueryLoggingConfig where
             Prelude.<*> (x Data..@ "QueryLoggingConfig")
             Prelude.<*> (h Data..# "Location")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateQueryLoggingConfig where
   hashWithSalt _salt CreateQueryLoggingConfig' {..} =

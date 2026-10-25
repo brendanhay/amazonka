@@ -100,6 +100,8 @@ instance Core.AWSRequest UpdateUserHierarchyStructure where
   response =
     Response.receiveNull
       UpdateUserHierarchyStructureResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

@@ -105,6 +105,8 @@ instance Core.AWSRequest DescribeTracker where
             Prelude.<*> (x Data..:> "TrackerName")
             Prelude.<*> (x Data..:> "UpdateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeTracker where
   hashWithSalt _salt DescribeTracker' {..} =

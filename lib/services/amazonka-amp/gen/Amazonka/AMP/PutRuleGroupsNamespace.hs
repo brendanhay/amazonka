@@ -143,6 +143,14 @@ instance Core.AWSRequest PutRuleGroupsNamespace where
             Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken
+    f
+    s@PutRuleGroupsNamespace' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            PutRuleGroupsNamespace
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable PutRuleGroupsNamespace where
   hashWithSalt _salt PutRuleGroupsNamespace' {..} =

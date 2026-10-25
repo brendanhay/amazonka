@@ -150,6 +150,8 @@ instance Core.AWSRequest UpdateVehicle where
             Prelude.<*> (x Data..?> "vehicleName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateVehicle where
   hashWithSalt _salt UpdateVehicle' {..} =

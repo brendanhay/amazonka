@@ -118,6 +118,8 @@ instance Core.AWSRequest DeleteComment where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteCommentResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteComment where
   hashWithSalt _salt DeleteComment' {..} =

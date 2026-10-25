@@ -112,6 +112,8 @@ instance Core.AWSRequest UpdateMultiplex' where
             Prelude.<$> (x Data..?> "multiplex")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateMultiplex' where
   hashWithSalt _salt UpdateMultiplex'' {..} =

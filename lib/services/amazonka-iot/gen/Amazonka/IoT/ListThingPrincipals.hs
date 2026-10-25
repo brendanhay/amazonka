@@ -149,6 +149,8 @@ instance Core.AWSRequest ListThingPrincipals where
             Prelude.<*> (x Data..?> "principals" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListThingPrincipals where
   hashWithSalt _salt ListThingPrincipals' {..} =

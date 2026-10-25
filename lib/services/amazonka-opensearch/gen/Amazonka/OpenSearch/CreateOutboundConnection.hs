@@ -131,6 +131,8 @@ instance Core.AWSRequest CreateOutboundConnection where
             Prelude.<*> (x Data..?> "RemoteDomainInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateOutboundConnection where
   hashWithSalt _salt CreateOutboundConnection' {..} =

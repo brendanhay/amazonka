@@ -66,7 +66,7 @@ data CreateJobTemplate = CreateJobTemplate'
     -- | The specified name of the job template.
     name :: Prelude.Text,
     -- | The client token of the job template.
-    clientToken :: Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The job template data which holds values of StartJobRun API request.
     jobTemplateData :: JobTemplateData
   }
@@ -92,22 +92,17 @@ data CreateJobTemplate = CreateJobTemplate'
 newCreateJobTemplate ::
   -- | 'name'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   -- | 'jobTemplateData'
   JobTemplateData ->
   CreateJobTemplate
-newCreateJobTemplate
-  pName_
-  pClientToken_
-  pJobTemplateData_ =
-    CreateJobTemplate'
-      { kmsKeyArn = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        name = pName_,
-        clientToken = pClientToken_,
-        jobTemplateData = pJobTemplateData_
-      }
+newCreateJobTemplate pName_ pJobTemplateData_ =
+  CreateJobTemplate'
+    { kmsKeyArn = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      name = pName_,
+      clientToken = Prelude.Nothing,
+      jobTemplateData = pJobTemplateData_
+    }
 
 -- | The KMS key ARN used to encrypt the job template.
 createJobTemplate_kmsKeyArn :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Text)
@@ -122,7 +117,7 @@ createJobTemplate_name :: Lens.Lens' CreateJobTemplate Prelude.Text
 createJobTemplate_name = Lens.lens (\CreateJobTemplate' {name} -> name) (\s@CreateJobTemplate' {} a -> s {name = a} :: CreateJobTemplate)
 
 -- | The client token of the job template.
-createJobTemplate_clientToken :: Lens.Lens' CreateJobTemplate Prelude.Text
+createJobTemplate_clientToken :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Text)
 createJobTemplate_clientToken = Lens.lens (\CreateJobTemplate' {clientToken} -> clientToken) (\s@CreateJobTemplate' {} a -> s {clientToken = a} :: CreateJobTemplate)
 
 -- | The job template data which holds values of StartJobRun API request.
@@ -145,6 +140,13 @@ instance Core.AWSRequest CreateJobTemplate where
             Prelude.<*> (x Data..?> "name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateJobTemplate' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateJobTemplate
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateJobTemplate where
   hashWithSalt _salt CreateJobTemplate' {..} =
@@ -181,7 +183,7 @@ instance Data.ToJSON CreateJobTemplate where
           [ ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
             ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
-            Prelude.Just ("clientToken" Data..= clientToken),
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
               ("jobTemplateData" Data..= jobTemplateData)
           ]

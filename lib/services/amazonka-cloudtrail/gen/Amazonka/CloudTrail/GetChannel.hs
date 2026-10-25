@@ -97,6 +97,8 @@ instance Core.AWSRequest GetChannel where
             Prelude.<*> (x Data..?> "SourceConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetChannel where
   hashWithSalt _salt GetChannel' {..} =

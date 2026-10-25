@@ -218,6 +218,8 @@ instance Core.AWSRequest GetPackageVersionReadme where
             Prelude.<*> (x Data..?> "versionRevision")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPackageVersionReadme where
   hashWithSalt _salt GetPackageVersionReadme' {..} =

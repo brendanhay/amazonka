@@ -116,6 +116,8 @@ instance Core.AWSRequest PrepareQuery where
             Prelude.<*> (x Data..?> "Columns" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "Parameters" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PrepareQuery where
   hashWithSalt _salt PrepareQuery' {..} =

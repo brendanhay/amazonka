@@ -133,6 +133,8 @@ instance Core.AWSRequest CreateModelCardExportJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ModelCardExportJobArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateModelCardExportJob where
   hashWithSalt _salt CreateModelCardExportJob' {..} =

@@ -71,7 +71,7 @@ data CreateAllowList = CreateAllowList'
     criteria :: AllowListCriteria,
     -- | A unique, case-sensitive token that you provide to ensure the
     -- idempotency of the request.
-    clientToken :: Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | A custom name for the allow list. The name can contain as many as 128
     -- characters.
     name :: Prelude.Text
@@ -109,17 +109,15 @@ data CreateAllowList = CreateAllowList'
 newCreateAllowList ::
   -- | 'criteria'
   AllowListCriteria ->
-  -- | 'clientToken'
-  Prelude.Text ->
   -- | 'name'
   Prelude.Text ->
   CreateAllowList
-newCreateAllowList pCriteria_ pClientToken_ pName_ =
+newCreateAllowList pCriteria_ pName_ =
   CreateAllowList'
     { description = Prelude.Nothing,
       tags = Prelude.Nothing,
       criteria = pCriteria_,
-      clientToken = pClientToken_,
+      clientToken = Prelude.Nothing,
       name = pName_
     }
 
@@ -146,7 +144,7 @@ createAllowList_criteria = Lens.lens (\CreateAllowList' {criteria} -> criteria) 
 
 -- | A unique, case-sensitive token that you provide to ensure the
 -- idempotency of the request.
-createAllowList_clientToken :: Lens.Lens' CreateAllowList Prelude.Text
+createAllowList_clientToken :: Lens.Lens' CreateAllowList (Prelude.Maybe Prelude.Text)
 createAllowList_clientToken = Lens.lens (\CreateAllowList' {clientToken} -> clientToken) (\s@CreateAllowList' {} a -> s {clientToken = a} :: CreateAllowList)
 
 -- | A custom name for the allow list. The name can contain as many as 128
@@ -168,6 +166,13 @@ instance Core.AWSRequest CreateAllowList where
             Prelude.<*> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateAllowList' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateAllowList
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateAllowList where
   hashWithSalt _salt CreateAllowList' {..} =
@@ -204,7 +209,7 @@ instance Data.ToJSON CreateAllowList where
           [ ("description" Data..=) Prelude.<$> description,
             ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("criteria" Data..= criteria),
-            Prelude.Just ("clientToken" Data..= clientToken),
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just ("name" Data..= name)
           ]
       )

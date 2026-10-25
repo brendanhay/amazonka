@@ -107,6 +107,8 @@ instance Core.AWSRequest DescribePackage where
             Prelude.<*> (x Data..:> "StorageLocation")
             Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePackage where
   hashWithSalt _salt DescribePackage' {..} =

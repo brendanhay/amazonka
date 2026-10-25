@@ -81,6 +81,8 @@ instance Core.AWSRequest CancelSigningProfile where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull CancelSigningProfileResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelSigningProfile where
   hashWithSalt _salt CancelSigningProfile' {..} =

@@ -94,6 +94,8 @@ instance Core.AWSRequest IndexDocuments where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable IndexDocuments where
   hashWithSalt _salt IndexDocuments' {..} =

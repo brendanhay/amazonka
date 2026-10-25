@@ -90,7 +90,7 @@ data CopyProduct = CopyProduct'
     -- | A unique identifier that you provide to ensure idempotency. If multiple
     -- requests differ only by the idempotency token, the same response is
     -- returned for each repeated request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -131,10 +131,8 @@ data CopyProduct = CopyProduct'
 newCopyProduct ::
   -- | 'sourceProductArn'
   Prelude.Text ->
-  -- | 'idempotencyToken'
-  Prelude.Text ->
   CopyProduct
-newCopyProduct pSourceProductArn_ pIdempotencyToken_ =
+newCopyProduct pSourceProductArn_ =
   CopyProduct'
     { acceptLanguage = Prelude.Nothing,
       copyOptions = Prelude.Nothing,
@@ -143,7 +141,7 @@ newCopyProduct pSourceProductArn_ pIdempotencyToken_ =
       targetProductId = Prelude.Nothing,
       targetProductName = Prelude.Nothing,
       sourceProductArn = pSourceProductArn_,
-      idempotencyToken = pIdempotencyToken_
+      idempotencyToken = Prelude.Nothing
     }
 
 -- | The language code.
@@ -184,7 +182,7 @@ copyProduct_sourceProductArn = Lens.lens (\CopyProduct' {sourceProductArn} -> so
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
-copyProduct_idempotencyToken :: Lens.Lens' CopyProduct Prelude.Text
+copyProduct_idempotencyToken :: Lens.Lens' CopyProduct (Prelude.Maybe Prelude.Text)
 copyProduct_idempotencyToken = Lens.lens (\CopyProduct' {idempotencyToken} -> idempotencyToken) (\s@CopyProduct' {} a -> s {idempotencyToken = a} :: CopyProduct)
 
 instance Core.AWSRequest CopyProduct where
@@ -198,6 +196,14 @@ instance Core.AWSRequest CopyProduct where
             Prelude.<$> (x Data..?> "CopyProductToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CopyProduct' {idempotencyToken} =
+      ( \idempotencyToken' ->
+          s {idempotencyToken = idempotencyToken'} ::
+            CopyProduct
+      )
+        Prelude.<$> f idempotencyToken
 
 instance Prelude.Hashable CopyProduct where
   hashWithSalt _salt CopyProduct' {..} =
@@ -250,8 +256,8 @@ instance Data.ToJSON CopyProduct where
               Prelude.<$> targetProductName,
             Prelude.Just
               ("SourceProductArn" Data..= sourceProductArn),
-            Prelude.Just
-              ("IdempotencyToken" Data..= idempotencyToken)
+            ("IdempotencyToken" Data..=)
+              Prelude.<$> idempotencyToken
           ]
       )
 

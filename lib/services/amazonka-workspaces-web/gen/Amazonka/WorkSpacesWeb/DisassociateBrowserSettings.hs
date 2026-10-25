@@ -88,6 +88,8 @@ instance Core.AWSRequest DisassociateBrowserSettings where
           DisassociateBrowserSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateBrowserSettings where
   hashWithSalt _salt DisassociateBrowserSettings' {..} =

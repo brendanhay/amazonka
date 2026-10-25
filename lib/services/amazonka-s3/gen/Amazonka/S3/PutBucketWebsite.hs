@@ -249,6 +249,8 @@ instance Core.AWSRequest PutBucketWebsite where
       Prelude.. Request.putXML (overrides defaultService)
   response =
     Response.receiveNull PutBucketWebsiteResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutBucketWebsite where
   hashWithSalt _salt PutBucketWebsite' {..} =

@@ -119,6 +119,8 @@ instance Core.AWSRequest CreateResource where
             Prelude.<$> (x Data..?> "ResourceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateResource where
   hashWithSalt _salt CreateResource' {..} =

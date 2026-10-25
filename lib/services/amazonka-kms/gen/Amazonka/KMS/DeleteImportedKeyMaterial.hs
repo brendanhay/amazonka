@@ -147,6 +147,8 @@ instance Core.AWSRequest DeleteImportedKeyMaterial where
   response =
     Response.receiveNull
       DeleteImportedKeyMaterialResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteImportedKeyMaterial where
   hashWithSalt _salt DeleteImportedKeyMaterial' {..} =

@@ -105,6 +105,8 @@ instance Core.AWSRequest DescribeLocationFsxOpenZfs where
             Prelude.<*> (x Data..?> "SecurityGroupArns")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeLocationFsxOpenZfs where
   hashWithSalt _salt DescribeLocationFsxOpenZfs' {..} =

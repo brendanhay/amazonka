@@ -83,6 +83,8 @@ instance Core.AWSRequest GetProfile where
             Prelude.<$> (x Data..?> "Profile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetProfile where
   hashWithSalt _salt GetProfile' {..} =

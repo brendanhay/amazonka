@@ -112,6 +112,8 @@ instance Core.AWSRequest CancelChangeSet where
             Prelude.<*> (x Data..?> "ChangeSetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelChangeSet where
   hashWithSalt _salt CancelChangeSet' {..} =

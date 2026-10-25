@@ -113,6 +113,8 @@ instance Core.AWSRequest GetBackupSelection where
             Prelude.<*> (x Data..?> "SelectionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBackupSelection where
   hashWithSalt _salt GetBackupSelection' {..} =

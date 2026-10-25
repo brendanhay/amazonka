@@ -142,6 +142,8 @@ instance Core.AWSRequest RenewDomain where
             Prelude.<$> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RenewDomain where
   hashWithSalt _salt RenewDomain' {..} =

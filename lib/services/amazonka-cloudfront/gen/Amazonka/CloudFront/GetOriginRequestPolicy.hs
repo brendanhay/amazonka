@@ -115,6 +115,8 @@ instance Core.AWSRequest GetOriginRequestPolicy where
             Prelude.<*> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetOriginRequestPolicy where
   hashWithSalt _salt GetOriginRequestPolicy' {..} =

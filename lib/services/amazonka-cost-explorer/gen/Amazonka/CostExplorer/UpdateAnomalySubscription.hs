@@ -234,6 +234,8 @@ instance Core.AWSRequest UpdateAnomalySubscription where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "SubscriptionArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateAnomalySubscription where
   hashWithSalt _salt UpdateAnomalySubscription' {..} =

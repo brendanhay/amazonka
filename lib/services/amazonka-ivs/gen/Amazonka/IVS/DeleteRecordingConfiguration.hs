@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteRecordingConfiguration where
   response =
     Response.receiveNull
       DeleteRecordingConfigurationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

@@ -153,6 +153,8 @@ instance Core.AWSRequest ModifyClusterMaintenance where
             Prelude.<$> (x Data..@? "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyClusterMaintenance where
   hashWithSalt _salt ModifyClusterMaintenance' {..} =

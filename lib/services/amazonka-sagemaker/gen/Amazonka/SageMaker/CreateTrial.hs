@@ -151,6 +151,8 @@ instance Core.AWSRequest CreateTrial where
             Prelude.<$> (x Data..?> "TrialArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateTrial where
   hashWithSalt _salt CreateTrial' {..} =

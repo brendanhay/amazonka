@@ -213,6 +213,8 @@ instance Core.AWSRequest StartMigration where
             Prelude.<*> (x Data..?> "v2BotRole")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartMigration where
   hashWithSalt _salt StartMigration' {..} =

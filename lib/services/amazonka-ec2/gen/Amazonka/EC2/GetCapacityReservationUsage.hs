@@ -166,6 +166,8 @@ instance Core.AWSRequest GetCapacityReservationUsage where
             Prelude.<*> (x Data..@? "totalInstanceCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCapacityReservationUsage where
   hashWithSalt _salt GetCapacityReservationUsage' {..} =

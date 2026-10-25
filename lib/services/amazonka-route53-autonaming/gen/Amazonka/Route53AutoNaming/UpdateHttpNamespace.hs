@@ -121,6 +121,14 @@ instance Core.AWSRequest UpdateHttpNamespace where
             Prelude.<$> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateHttpNamespace' {updaterRequestId} =
+      ( \updaterRequestId' ->
+          s {updaterRequestId = updaterRequestId'} ::
+            UpdateHttpNamespace
+      )
+        Prelude.<$> f updaterRequestId
 
 instance Prelude.Hashable UpdateHttpNamespace where
   hashWithSalt _salt UpdateHttpNamespace' {..} =

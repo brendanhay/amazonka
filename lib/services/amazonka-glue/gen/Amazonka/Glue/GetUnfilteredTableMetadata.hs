@@ -146,6 +146,8 @@ instance Core.AWSRequest GetUnfilteredTableMetadata where
             Prelude.<*> (x Data..?> "Table")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetUnfilteredTableMetadata where
   hashWithSalt _salt GetUnfilteredTableMetadata' {..} =

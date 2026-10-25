@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteFunctionDefinition where
           DeleteFunctionDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFunctionDefinition where
   hashWithSalt _salt DeleteFunctionDefinition' {..} =

@@ -109,6 +109,8 @@ instance Core.AWSRequest GetFilter where
             Prelude.<*> (x Data..:> "action")
             Prelude.<*> (x Data..:> "findingCriteria")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetFilter where
   hashWithSalt _salt GetFilter' {..} =

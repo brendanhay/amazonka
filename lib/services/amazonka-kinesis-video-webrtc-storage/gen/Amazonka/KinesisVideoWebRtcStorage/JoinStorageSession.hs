@@ -100,6 +100,8 @@ instance Core.AWSRequest JoinStorageSession where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull JoinStorageSessionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable JoinStorageSession where
   hashWithSalt _salt JoinStorageSession' {..} =

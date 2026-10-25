@@ -81,6 +81,8 @@ instance Core.AWSRequest DeleteRecoveryGroup where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteRecoveryGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRecoveryGroup where
   hashWithSalt _salt DeleteRecoveryGroup' {..} =

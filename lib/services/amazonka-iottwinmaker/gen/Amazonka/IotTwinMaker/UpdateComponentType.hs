@@ -189,6 +189,8 @@ instance Core.AWSRequest UpdateComponentType where
             Prelude.<*> (x Data..:> "componentTypeId")
             Prelude.<*> (x Data..:> "state")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateComponentType where
   hashWithSalt _salt UpdateComponentType' {..} =

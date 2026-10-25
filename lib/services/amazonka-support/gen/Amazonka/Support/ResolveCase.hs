@@ -101,6 +101,8 @@ instance Core.AWSRequest ResolveCase where
             Prelude.<*> (x Data..?> "initialCaseStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResolveCase where
   hashWithSalt _salt ResolveCase' {..} =

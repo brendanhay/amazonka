@@ -86,6 +86,8 @@ instance Core.AWSRequest DisableProfile where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisableProfile where
   hashWithSalt _salt DisableProfile' {..} =

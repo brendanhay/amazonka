@@ -200,6 +200,8 @@ instance Core.AWSRequest ListSharedReportGroups where
             Prelude.<*> (x Data..?> "reportGroups")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSharedReportGroups where
   hashWithSalt _salt ListSharedReportGroups' {..} =

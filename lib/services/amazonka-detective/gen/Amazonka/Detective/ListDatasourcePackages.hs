@@ -121,6 +121,8 @@ instance Core.AWSRequest ListDatasourcePackages where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDatasourcePackages where
   hashWithSalt _salt ListDatasourcePackages' {..} =

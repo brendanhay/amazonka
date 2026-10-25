@@ -117,6 +117,8 @@ instance Core.AWSRequest DescribeJournalS3Export where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ExportDescription")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeJournalS3Export where
   hashWithSalt _salt DescribeJournalS3Export' {..} =

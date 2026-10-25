@@ -93,6 +93,8 @@ instance Core.AWSRequest GetContact where
             Prelude.<*> (x Data..:> "Type")
             Prelude.<*> (x Data..:> "Plan")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetContact where
   hashWithSalt _salt GetContact' {..} =

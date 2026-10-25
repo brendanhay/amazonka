@@ -290,6 +290,8 @@ instance Core.AWSRequest ListObjectVersions where
             Prelude.<*> (Core.may (Data.parseXMLList "Version") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListObjectVersions where
   hashWithSalt _salt ListObjectVersions' {..} =

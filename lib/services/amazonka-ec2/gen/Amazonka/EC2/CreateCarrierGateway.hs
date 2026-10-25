@@ -138,6 +138,14 @@ instance Core.AWSRequest CreateCarrierGateway where
             Prelude.<$> (x Data..@? "carrierGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateCarrierGateway' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateCarrierGateway
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateCarrierGateway where
   hashWithSalt _salt CreateCarrierGateway' {..} =

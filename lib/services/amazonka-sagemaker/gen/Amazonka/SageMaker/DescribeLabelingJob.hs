@@ -124,6 +124,8 @@ instance Core.AWSRequest DescribeLabelingJob where
             Prelude.<*> (x Data..:> "RoleArn")
             Prelude.<*> (x Data..:> "HumanTaskConfig")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeLabelingJob where
   hashWithSalt _salt DescribeLabelingJob' {..} =

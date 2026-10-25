@@ -252,6 +252,8 @@ instance Core.AWSRequest GetSessionToken where
             Prelude.<$> (x Data..@? "Credentials")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSessionToken where
   hashWithSalt _salt GetSessionToken' {..} =

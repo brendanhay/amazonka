@@ -87,7 +87,7 @@ data StartRun = StartRun'
     -- | The run\'s workflows type.
     workflowType :: Prelude.Maybe WorkflowType,
     -- | A request ID for the run.
-    requestId :: Prelude.Text,
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | A service role for the run.
     roleArn :: Prelude.Text
   }
@@ -127,12 +127,10 @@ data StartRun = StartRun'
 --
 -- 'roleArn', 'startRun_roleArn' - A service role for the run.
 newStartRun ::
-  -- | 'requestId'
-  Prelude.Text ->
   -- | 'roleArn'
   Prelude.Text ->
   StartRun
-newStartRun pRequestId_ pRoleArn_ =
+newStartRun pRoleArn_ =
   StartRun'
     { logLevel = Prelude.Nothing,
       name = Prelude.Nothing,
@@ -145,7 +143,7 @@ newStartRun pRequestId_ pRoleArn_ =
       tags = Prelude.Nothing,
       workflowId = Prelude.Nothing,
       workflowType = Prelude.Nothing,
-      requestId = pRequestId_,
+      requestId = Prelude.Nothing,
       roleArn = pRoleArn_
     }
 
@@ -194,7 +192,7 @@ startRun_workflowType :: Lens.Lens' StartRun (Prelude.Maybe WorkflowType)
 startRun_workflowType = Lens.lens (\StartRun' {workflowType} -> workflowType) (\s@StartRun' {} a -> s {workflowType = a} :: StartRun)
 
 -- | A request ID for the run.
-startRun_requestId :: Lens.Lens' StartRun Prelude.Text
+startRun_requestId :: Lens.Lens' StartRun (Prelude.Maybe Prelude.Text)
 startRun_requestId = Lens.lens (\StartRun' {requestId} -> requestId) (\s@StartRun' {} a -> s {requestId = a} :: StartRun)
 
 -- | A service role for the run.
@@ -215,6 +213,11 @@ instance Core.AWSRequest StartRun where
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@StartRun' {requestId} =
+    ( \requestId' ->
+        s {requestId = requestId'} :: StartRun
+    )
+      Prelude.<$> f requestId
 
 instance Prelude.Hashable StartRun where
   hashWithSalt _salt StartRun' {..} =
@@ -276,7 +279,7 @@ instance Data.ToJSON StartRun where
             ("tags" Data..=) Prelude.<$> tags,
             ("workflowId" Data..=) Prelude.<$> workflowId,
             ("workflowType" Data..=) Prelude.<$> workflowType,
-            Prelude.Just ("requestId" Data..= requestId),
+            ("requestId" Data..=) Prelude.<$> requestId,
             Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )

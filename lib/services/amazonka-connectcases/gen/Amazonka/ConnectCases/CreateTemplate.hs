@@ -152,6 +152,8 @@ instance Core.AWSRequest CreateTemplate where
             Prelude.<*> (x Data..:> "templateArn")
             Prelude.<*> (x Data..:> "templateId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateTemplate where
   hashWithSalt _salt CreateTemplate' {..} =

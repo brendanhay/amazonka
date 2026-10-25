@@ -112,6 +112,8 @@ instance Core.AWSRequest ListDevicesJobs where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDevicesJobs where
   hashWithSalt _salt ListDevicesJobs' {..} =

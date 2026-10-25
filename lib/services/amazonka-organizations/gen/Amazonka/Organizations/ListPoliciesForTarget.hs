@@ -268,6 +268,8 @@ instance Core.AWSRequest ListPoliciesForTarget where
             Prelude.<*> (x Data..?> "Policies" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPoliciesForTarget where
   hashWithSalt _salt ListPoliciesForTarget' {..} =

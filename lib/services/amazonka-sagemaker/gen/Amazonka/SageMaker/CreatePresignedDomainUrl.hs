@@ -164,6 +164,8 @@ instance Core.AWSRequest CreatePresignedDomainUrl where
             Prelude.<$> (x Data..?> "AuthorizedUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreatePresignedDomainUrl where
   hashWithSalt _salt CreatePresignedDomainUrl' {..} =

@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteSourceCredentials where
             Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSourceCredentials where
   hashWithSalt _salt DeleteSourceCredentials' {..} =

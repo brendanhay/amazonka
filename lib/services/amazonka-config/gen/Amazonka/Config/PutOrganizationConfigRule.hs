@@ -240,6 +240,8 @@ instance Core.AWSRequest PutOrganizationConfigRule where
             Prelude.<$> (x Data..?> "OrganizationConfigRuleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutOrganizationConfigRule where
   hashWithSalt _salt PutOrganizationConfigRule' {..} =

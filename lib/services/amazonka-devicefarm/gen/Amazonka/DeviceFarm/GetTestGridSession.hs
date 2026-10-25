@@ -118,6 +118,8 @@ instance Core.AWSRequest GetTestGridSession where
             Prelude.<$> (x Data..?> "testGridSession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTestGridSession where
   hashWithSalt _salt GetTestGridSession' {..} =

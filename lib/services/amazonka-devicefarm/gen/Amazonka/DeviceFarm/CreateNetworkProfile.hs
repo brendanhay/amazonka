@@ -229,6 +229,8 @@ instance Core.AWSRequest CreateNetworkProfile where
             Prelude.<$> (x Data..?> "networkProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateNetworkProfile where
   hashWithSalt _salt CreateNetworkProfile' {..} =

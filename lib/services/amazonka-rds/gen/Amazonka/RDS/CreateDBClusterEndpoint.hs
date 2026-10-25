@@ -174,6 +174,8 @@ instance Core.AWSRequest CreateDBClusterEndpoint where
     Response.receiveXMLWrapper
       "CreateDBClusterEndpointResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDBClusterEndpoint where
   hashWithSalt _salt CreateDBClusterEndpoint' {..} =

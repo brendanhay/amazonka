@@ -99,6 +99,8 @@ instance Core.AWSRequest DeleteV2LoggingLevel where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteV2LoggingLevelResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteV2LoggingLevel where
   hashWithSalt _salt DeleteV2LoggingLevel' {..} =

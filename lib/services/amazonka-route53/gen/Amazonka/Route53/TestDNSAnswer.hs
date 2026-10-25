@@ -229,6 +229,8 @@ instance Core.AWSRequest TestDNSAnswer where
             Prelude.<*> (x Data..@ "ResponseCode")
             Prelude.<*> (x Data..@ "Protocol")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TestDNSAnswer where
   hashWithSalt _salt TestDNSAnswer' {..} =

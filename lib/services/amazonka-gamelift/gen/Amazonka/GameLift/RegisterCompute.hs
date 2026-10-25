@@ -169,6 +169,8 @@ instance Core.AWSRequest RegisterCompute where
             Prelude.<$> (x Data..?> "Compute")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterCompute where
   hashWithSalt _salt RegisterCompute' {..} =

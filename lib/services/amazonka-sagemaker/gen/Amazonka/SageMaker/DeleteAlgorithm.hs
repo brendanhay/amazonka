@@ -78,6 +78,8 @@ instance Core.AWSRequest DeleteAlgorithm where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteAlgorithmResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAlgorithm where
   hashWithSalt _salt DeleteAlgorithm' {..} =

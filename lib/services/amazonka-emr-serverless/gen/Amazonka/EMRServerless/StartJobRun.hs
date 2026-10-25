@@ -73,7 +73,7 @@ data StartJobRun = StartJobRun'
     applicationId :: Prelude.Text,
     -- | The client idempotency token of the job run to start. Its value must be
     -- unique for each request.
-    clientToken :: Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The execution role ARN for the job run.
     executionRoleArn :: Prelude.Text
   }
@@ -107,26 +107,21 @@ data StartJobRun = StartJobRun'
 newStartJobRun ::
   -- | 'applicationId'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   -- | 'executionRoleArn'
   Prelude.Text ->
   StartJobRun
-newStartJobRun
-  pApplicationId_
-  pClientToken_
-  pExecutionRoleArn_ =
-    StartJobRun'
-      { configurationOverrides =
-          Prelude.Nothing,
-        executionTimeoutMinutes = Prelude.Nothing,
-        jobDriver = Prelude.Nothing,
-        name = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        applicationId = pApplicationId_,
-        clientToken = pClientToken_,
-        executionRoleArn = pExecutionRoleArn_
-      }
+newStartJobRun pApplicationId_ pExecutionRoleArn_ =
+  StartJobRun'
+    { configurationOverrides =
+        Prelude.Nothing,
+      executionTimeoutMinutes = Prelude.Nothing,
+      jobDriver = Prelude.Nothing,
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      applicationId = pApplicationId_,
+      clientToken = Prelude.Nothing,
+      executionRoleArn = pExecutionRoleArn_
+    }
 
 -- | The configuration overrides for the job run.
 startJobRun_configurationOverrides :: Lens.Lens' StartJobRun (Prelude.Maybe ConfigurationOverrides)
@@ -155,7 +150,7 @@ startJobRun_applicationId = Lens.lens (\StartJobRun' {applicationId} -> applicat
 
 -- | The client idempotency token of the job run to start. Its value must be
 -- unique for each request.
-startJobRun_clientToken :: Lens.Lens' StartJobRun Prelude.Text
+startJobRun_clientToken :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Text)
 startJobRun_clientToken = Lens.lens (\StartJobRun' {clientToken} -> clientToken) (\s@StartJobRun' {} a -> s {clientToken = a} :: StartJobRun)
 
 -- | The execution role ARN for the job run.
@@ -175,6 +170,11 @@ instance Core.AWSRequest StartJobRun where
             Prelude.<*> (x Data..:> "jobRunId")
             Prelude.<*> (x Data..:> "arn")
       )
+  updateIdempotencyToken f s@StartJobRun' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: StartJobRun
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartJobRun where
   hashWithSalt _salt StartJobRun' {..} =
@@ -221,7 +221,7 @@ instance Data.ToJSON StartJobRun where
             ("jobDriver" Data..=) Prelude.<$> jobDriver,
             ("name" Data..=) Prelude.<$> name,
             ("tags" Data..=) Prelude.<$> tags,
-            Prelude.Just ("clientToken" Data..= clientToken),
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
               ("executionRoleArn" Data..= executionRoleArn)
           ]

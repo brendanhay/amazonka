@@ -112,6 +112,8 @@ instance Core.AWSRequest DescribeRestoreJob where
             Prelude.<*> (x Data..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeRestoreJob where
   hashWithSalt _salt DescribeRestoreJob' {..} =

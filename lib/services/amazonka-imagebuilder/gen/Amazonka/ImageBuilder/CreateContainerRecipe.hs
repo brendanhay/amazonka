@@ -116,7 +116,7 @@ data CreateContainerRecipe = CreateContainerRecipe'
     -- | The destination repository for the container image.
     targetRepository :: TargetContainerRepository,
     -- | The client token used to make this request idempotent.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -190,8 +190,6 @@ newCreateContainerRecipe ::
   Prelude.Text ->
   -- | 'targetRepository'
   TargetContainerRepository ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateContainerRecipe
 newCreateContainerRecipe
   pContainerType_
@@ -199,8 +197,7 @@ newCreateContainerRecipe
   pSemanticVersion_
   pComponents_
   pParentImage_
-  pTargetRepository_
-  pClientToken_ =
+  pTargetRepository_ =
     CreateContainerRecipe'
       { description =
           Prelude.Nothing,
@@ -218,7 +215,7 @@ newCreateContainerRecipe
         components = Lens.coerced Lens.# pComponents_,
         parentImage = pParentImage_,
         targetRepository = pTargetRepository_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | The description of the container recipe.
@@ -300,7 +297,7 @@ createContainerRecipe_targetRepository :: Lens.Lens' CreateContainerRecipe Targe
 createContainerRecipe_targetRepository = Lens.lens (\CreateContainerRecipe' {targetRepository} -> targetRepository) (\s@CreateContainerRecipe' {} a -> s {targetRepository = a} :: CreateContainerRecipe)
 
 -- | The client token used to make this request idempotent.
-createContainerRecipe_clientToken :: Lens.Lens' CreateContainerRecipe Prelude.Text
+createContainerRecipe_clientToken :: Lens.Lens' CreateContainerRecipe (Prelude.Maybe Prelude.Text)
 createContainerRecipe_clientToken = Lens.lens (\CreateContainerRecipe' {clientToken} -> clientToken) (\s@CreateContainerRecipe' {} a -> s {clientToken = a} :: CreateContainerRecipe)
 
 instance Core.AWSRequest CreateContainerRecipe where
@@ -318,6 +315,14 @@ instance Core.AWSRequest CreateContainerRecipe where
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateContainerRecipe' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateContainerRecipe
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateContainerRecipe where
   hashWithSalt _salt CreateContainerRecipe' {..} =
@@ -396,7 +401,7 @@ instance Data.ToJSON CreateContainerRecipe where
             Prelude.Just ("parentImage" Data..= parentImage),
             Prelude.Just
               ("targetRepository" Data..= targetRepository),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

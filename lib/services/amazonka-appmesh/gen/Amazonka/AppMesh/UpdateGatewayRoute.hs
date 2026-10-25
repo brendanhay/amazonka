@@ -171,6 +171,13 @@ instance Core.AWSRequest UpdateGatewayRoute where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken
+    f
+    s@UpdateGatewayRoute' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: UpdateGatewayRoute
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateGatewayRoute where
   hashWithSalt _salt UpdateGatewayRoute' {..} =

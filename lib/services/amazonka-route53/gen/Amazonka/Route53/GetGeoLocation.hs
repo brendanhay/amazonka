@@ -198,6 +198,8 @@ instance Core.AWSRequest GetGeoLocation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "GeoLocationDetails")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetGeoLocation where
   hashWithSalt _salt GetGeoLocation' {..} =

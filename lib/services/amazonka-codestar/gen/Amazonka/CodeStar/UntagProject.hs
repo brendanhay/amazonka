@@ -92,6 +92,8 @@ instance Core.AWSRequest UntagProject where
           UntagProjectResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UntagProject where
   hashWithSalt _salt UntagProject' {..} =

@@ -90,6 +90,8 @@ instance Core.AWSRequest ListAccessControlRules where
             Prelude.<$> (x Data..?> "Rules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAccessControlRules where
   hashWithSalt _salt ListAccessControlRules' {..} =

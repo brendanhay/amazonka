@@ -66,7 +66,7 @@ data CreateAppInstanceUser = CreateAppInstanceUser'
     -- | The user\'s name.
     name :: Data.Sensitive Prelude.Text,
     -- | The token assigned to the user requesting an @AppInstance@.
-    clientRequestToken :: Data.Sensitive Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -96,14 +96,11 @@ newCreateAppInstanceUser ::
   Prelude.Text ->
   -- | 'name'
   Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   CreateAppInstanceUser
 newCreateAppInstanceUser
   pAppInstanceArn_
   pAppInstanceUserId_
-  pName_
-  pClientRequestToken_ =
+  pName_ =
     CreateAppInstanceUser'
       { metadata = Prelude.Nothing,
         tags = Prelude.Nothing,
@@ -111,8 +108,7 @@ newCreateAppInstanceUser
         appInstanceUserId =
           Data._Sensitive Lens.# pAppInstanceUserId_,
         name = Data._Sensitive Lens.# pName_,
-        clientRequestToken =
-          Data._Sensitive Lens.# pClientRequestToken_
+        clientRequestToken = Prelude.Nothing
       }
 
 -- | The request\'s metadata. Limited to a 1KB string in UTF-8.
@@ -136,8 +132,8 @@ createAppInstanceUser_name :: Lens.Lens' CreateAppInstanceUser Prelude.Text
 createAppInstanceUser_name = Lens.lens (\CreateAppInstanceUser' {name} -> name) (\s@CreateAppInstanceUser' {} a -> s {name = a} :: CreateAppInstanceUser) Prelude.. Data._Sensitive
 
 -- | The token assigned to the user requesting an @AppInstance@.
-createAppInstanceUser_clientRequestToken :: Lens.Lens' CreateAppInstanceUser Prelude.Text
-createAppInstanceUser_clientRequestToken = Lens.lens (\CreateAppInstanceUser' {clientRequestToken} -> clientRequestToken) (\s@CreateAppInstanceUser' {} a -> s {clientRequestToken = a} :: CreateAppInstanceUser) Prelude.. Data._Sensitive
+createAppInstanceUser_clientRequestToken :: Lens.Lens' CreateAppInstanceUser (Prelude.Maybe Prelude.Text)
+createAppInstanceUser_clientRequestToken = Lens.lens (\CreateAppInstanceUser' {clientRequestToken} -> clientRequestToken) (\s@CreateAppInstanceUser' {} a -> s {clientRequestToken = a} :: CreateAppInstanceUser)
 
 instance Core.AWSRequest CreateAppInstanceUser where
   type
@@ -152,6 +148,14 @@ instance Core.AWSRequest CreateAppInstanceUser where
             Prelude.<$> (x Data..?> "AppInstanceUserArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateAppInstanceUser' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateAppInstanceUser
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateAppInstanceUser where
   hashWithSalt _salt CreateAppInstanceUser' {..} =
@@ -186,8 +190,8 @@ instance Data.ToJSON CreateAppInstanceUser where
             Prelude.Just
               ("AppInstanceUserId" Data..= appInstanceUserId),
             Prelude.Just ("Name" Data..= name),
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken)
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

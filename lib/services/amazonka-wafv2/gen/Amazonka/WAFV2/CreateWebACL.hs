@@ -352,6 +352,8 @@ instance Core.AWSRequest CreateWebACL where
             Prelude.<$> (x Data..?> "Summary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateWebACL where
   hashWithSalt _salt CreateWebACL' {..} =

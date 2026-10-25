@@ -109,6 +109,8 @@ instance Core.AWSRequest UpdateTagOption where
             Prelude.<$> (x Data..?> "TagOptionDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateTagOption where
   hashWithSalt _salt UpdateTagOption' {..} =

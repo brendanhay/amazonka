@@ -105,6 +105,8 @@ instance Core.AWSRequest DescribeHostKey where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "HostKey")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeHostKey where
   hashWithSalt _salt DescribeHostKey' {..} =

@@ -129,6 +129,8 @@ instance Core.AWSRequest DescribeBotAlias where
             Prelude.<*> (x Data..?> "sentimentAnalysisSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeBotAlias where
   hashWithSalt _salt DescribeBotAlias' {..} =

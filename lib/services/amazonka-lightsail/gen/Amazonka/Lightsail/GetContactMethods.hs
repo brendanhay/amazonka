@@ -107,6 +107,8 @@ instance Core.AWSRequest GetContactMethods where
             Prelude.<$> (x Data..?> "contactMethods" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetContactMethods where
   hashWithSalt _salt GetContactMethods' {..} =

@@ -117,6 +117,8 @@ instance Core.AWSRequest MigrateWorkspace where
             Prelude.<*> (x Data..?> "TargetWorkspaceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable MigrateWorkspace where
   hashWithSalt _salt MigrateWorkspace' {..} =

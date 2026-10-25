@@ -64,7 +64,7 @@ data StartDataIngestionJob = StartDataIngestionJob'
     roleArn :: Prelude.Text,
     -- | A unique identifier for the request. If you do not set the client
     -- request token, Amazon Lookout for Equipment generates one.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,20 +93,17 @@ newStartDataIngestionJob ::
   IngestionInputConfiguration ->
   -- | 'roleArn'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   StartDataIngestionJob
 newStartDataIngestionJob
   pDatasetName_
   pIngestionInputConfiguration_
-  pRoleArn_
-  pClientToken_ =
+  pRoleArn_ =
     StartDataIngestionJob'
       { datasetName = pDatasetName_,
         ingestionInputConfiguration =
           pIngestionInputConfiguration_,
         roleArn = pRoleArn_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | The name of the dataset being used by the data ingestion job.
@@ -125,7 +122,7 @@ startDataIngestionJob_roleArn = Lens.lens (\StartDataIngestionJob' {roleArn} -> 
 
 -- | A unique identifier for the request. If you do not set the client
 -- request token, Amazon Lookout for Equipment generates one.
-startDataIngestionJob_clientToken :: Lens.Lens' StartDataIngestionJob Prelude.Text
+startDataIngestionJob_clientToken :: Lens.Lens' StartDataIngestionJob (Prelude.Maybe Prelude.Text)
 startDataIngestionJob_clientToken = Lens.lens (\StartDataIngestionJob' {clientToken} -> clientToken) (\s@StartDataIngestionJob' {} a -> s {clientToken = a} :: StartDataIngestionJob)
 
 instance Core.AWSRequest StartDataIngestionJob where
@@ -142,6 +139,14 @@ instance Core.AWSRequest StartDataIngestionJob where
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartDataIngestionJob' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            StartDataIngestionJob
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartDataIngestionJob where
   hashWithSalt _salt StartDataIngestionJob' {..} =
@@ -183,7 +188,7 @@ instance Data.ToJSON StartDataIngestionJob where
                   Data..= ingestionInputConfiguration
               ),
             Prelude.Just ("RoleArn" Data..= roleArn),
-            Prelude.Just ("ClientToken" Data..= clientToken)
+            ("ClientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

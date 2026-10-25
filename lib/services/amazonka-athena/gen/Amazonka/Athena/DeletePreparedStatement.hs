@@ -103,6 +103,8 @@ instance Core.AWSRequest DeletePreparedStatement where
           DeletePreparedStatementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePreparedStatement where
   hashWithSalt _salt DeletePreparedStatement' {..} =

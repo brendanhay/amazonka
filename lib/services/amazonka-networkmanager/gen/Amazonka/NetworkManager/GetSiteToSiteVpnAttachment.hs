@@ -90,6 +90,8 @@ instance Core.AWSRequest GetSiteToSiteVpnAttachment where
             Prelude.<$> (x Data..?> "SiteToSiteVpnAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSiteToSiteVpnAttachment where
   hashWithSalt _salt GetSiteToSiteVpnAttachment' {..} =

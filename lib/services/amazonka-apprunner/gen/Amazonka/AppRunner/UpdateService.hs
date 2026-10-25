@@ -209,6 +209,8 @@ instance Core.AWSRequest UpdateService where
             Prelude.<*> (x Data..:> "Service")
             Prelude.<*> (x Data..:> "OperationId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateService where
   hashWithSalt _salt UpdateService' {..} =

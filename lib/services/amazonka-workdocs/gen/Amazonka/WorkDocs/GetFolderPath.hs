@@ -142,6 +142,8 @@ instance Core.AWSRequest GetFolderPath where
             Prelude.<$> (x Data..?> "Path")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetFolderPath where
   hashWithSalt _salt GetFolderPath' {..} =

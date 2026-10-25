@@ -111,6 +111,8 @@ instance Core.AWSRequest DeleteKeySigningKey where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "ChangeInfo")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteKeySigningKey where
   hashWithSalt _salt DeleteKeySigningKey' {..} =

@@ -126,6 +126,8 @@ instance Core.AWSRequest AssociateDhcpOptions where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull AssociateDhcpOptionsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateDhcpOptions where
   hashWithSalt _salt AssociateDhcpOptions' {..} =

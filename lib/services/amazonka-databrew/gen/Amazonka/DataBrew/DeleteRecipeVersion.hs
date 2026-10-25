@@ -109,6 +109,8 @@ instance Core.AWSRequest DeleteRecipeVersion where
             Prelude.<*> (x Data..:> "Name")
             Prelude.<*> (x Data..:> "RecipeVersion")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRecipeVersion where
   hashWithSalt _salt DeleteRecipeVersion' {..} =

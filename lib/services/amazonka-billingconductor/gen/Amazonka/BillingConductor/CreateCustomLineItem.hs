@@ -178,6 +178,14 @@ instance Core.AWSRequest CreateCustomLineItem where
             Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateCustomLineItem' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateCustomLineItem
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateCustomLineItem where
   hashWithSalt _salt CreateCustomLineItem' {..} =

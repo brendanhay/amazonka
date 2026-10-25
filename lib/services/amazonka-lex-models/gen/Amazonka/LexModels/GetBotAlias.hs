@@ -113,6 +113,8 @@ instance Core.AWSRequest GetBotAlias where
             Prelude.<*> (x Data..?> "name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBotAlias where
   hashWithSalt _salt GetBotAlias' {..} =

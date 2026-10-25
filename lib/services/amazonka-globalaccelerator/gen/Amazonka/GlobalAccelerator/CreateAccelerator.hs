@@ -107,7 +107,7 @@ data CreateAccelerator = CreateAccelerator'
     name :: Prelude.Text,
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency—that is, the uniqueness—of an accelerator.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -167,17 +167,15 @@ data CreateAccelerator = CreateAccelerator'
 newCreateAccelerator ::
   -- | 'name'
   Prelude.Text ->
-  -- | 'idempotencyToken'
-  Prelude.Text ->
   CreateAccelerator
-newCreateAccelerator pName_ pIdempotencyToken_ =
+newCreateAccelerator pName_ =
   CreateAccelerator'
     { enabled = Prelude.Nothing,
       ipAddressType = Prelude.Nothing,
       ipAddresses = Prelude.Nothing,
       tags = Prelude.Nothing,
       name = pName_,
-      idempotencyToken = pIdempotencyToken_
+      idempotencyToken = Prelude.Nothing
     }
 
 -- | Indicates whether an accelerator is enabled. The value is true or false.
@@ -235,7 +233,7 @@ createAccelerator_name = Lens.lens (\CreateAccelerator' {name} -> name) (\s@Crea
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency—that is, the uniqueness—of an accelerator.
-createAccelerator_idempotencyToken :: Lens.Lens' CreateAccelerator Prelude.Text
+createAccelerator_idempotencyToken :: Lens.Lens' CreateAccelerator (Prelude.Maybe Prelude.Text)
 createAccelerator_idempotencyToken = Lens.lens (\CreateAccelerator' {idempotencyToken} -> idempotencyToken) (\s@CreateAccelerator' {} a -> s {idempotencyToken = a} :: CreateAccelerator)
 
 instance Core.AWSRequest CreateAccelerator where
@@ -251,6 +249,14 @@ instance Core.AWSRequest CreateAccelerator where
             Prelude.<$> (x Data..?> "Accelerator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateAccelerator' {idempotencyToken} =
+      ( \idempotencyToken' ->
+          s {idempotencyToken = idempotencyToken'} ::
+            CreateAccelerator
+      )
+        Prelude.<$> f idempotencyToken
 
 instance Prelude.Hashable CreateAccelerator where
   hashWithSalt _salt CreateAccelerator' {..} =
@@ -295,8 +301,8 @@ instance Data.ToJSON CreateAccelerator where
             ("IpAddresses" Data..=) Prelude.<$> ipAddresses,
             ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
-            Prelude.Just
-              ("IdempotencyToken" Data..= idempotencyToken)
+            ("IdempotencyToken" Data..=)
+              Prelude.<$> idempotencyToken
           ]
       )
 

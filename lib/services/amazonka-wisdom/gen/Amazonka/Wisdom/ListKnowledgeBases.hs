@@ -131,6 +131,8 @@ instance Core.AWSRequest ListKnowledgeBases where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListKnowledgeBases where
   hashWithSalt _salt ListKnowledgeBases' {..} =

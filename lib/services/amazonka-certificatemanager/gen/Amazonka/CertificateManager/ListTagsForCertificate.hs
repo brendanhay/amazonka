@@ -111,6 +111,8 @@ instance Core.AWSRequest ListTagsForCertificate where
             Prelude.<$> (x Data..?> "Tags")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTagsForCertificate where
   hashWithSalt _salt ListTagsForCertificate' {..} =

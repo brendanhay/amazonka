@@ -173,6 +173,8 @@ instance Core.AWSRequest SetUserPoolMfaConfig where
             Prelude.<*> (x Data..?> "SoftwareTokenMfaConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetUserPoolMfaConfig where
   hashWithSalt _salt SetUserPoolMfaConfig' {..} =

@@ -137,6 +137,8 @@ instance Core.AWSRequest GetTriggers where
             Prelude.<*> (x Data..?> "Triggers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTriggers where
   hashWithSalt _salt GetTriggers' {..} =

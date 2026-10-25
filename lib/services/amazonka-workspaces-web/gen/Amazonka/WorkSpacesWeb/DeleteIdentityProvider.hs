@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteIdentityProvider where
           DeleteIdentityProviderResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteIdentityProvider where
   hashWithSalt _salt DeleteIdentityProvider' {..} =

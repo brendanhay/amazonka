@@ -95,6 +95,8 @@ instance Core.AWSRequest GetBucketAccessKeys where
             Prelude.<$> (x Data..?> "accessKeys" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBucketAccessKeys where
   hashWithSalt _salt GetBucketAccessKeys' {..} =

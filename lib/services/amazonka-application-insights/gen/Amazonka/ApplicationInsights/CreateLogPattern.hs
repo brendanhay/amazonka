@@ -178,6 +178,8 @@ instance Core.AWSRequest CreateLogPattern where
             Prelude.<*> (x Data..?> "ResourceGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLogPattern where
   hashWithSalt _salt CreateLogPattern' {..} =

@@ -109,6 +109,8 @@ instance Core.AWSRequest RegisterVolume where
             Prelude.<$> (x Data..?> "VolumeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterVolume where
   hashWithSalt _salt RegisterVolume' {..} =

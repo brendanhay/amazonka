@@ -130,6 +130,8 @@ instance Core.AWSRequest DeletePartner where
     Response.receiveXMLWrapper
       "DeletePartnerResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePartner where
   hashWithSalt _salt DeletePartner' {..} =

@@ -150,6 +150,8 @@ instance Core.AWSRequest LabelParameterVersion where
             Prelude.<*> (x Data..?> "ParameterVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable LabelParameterVersion where
   hashWithSalt _salt LabelParameterVersion' {..} =

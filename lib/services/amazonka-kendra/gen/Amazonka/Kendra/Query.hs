@@ -358,6 +358,8 @@ instance Core.AWSRequest Query where
             Prelude.<*> (x Data..?> "Warnings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable Query where
   hashWithSalt _salt Query' {..} =

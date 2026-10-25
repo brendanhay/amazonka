@@ -104,6 +104,8 @@ instance Core.AWSRequest GetFindingsFilter where
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetFindingsFilter where
   hashWithSalt _salt GetFindingsFilter' {..} =

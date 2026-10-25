@@ -134,6 +134,8 @@ instance Core.AWSRequest ListCertificates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Certificates" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListCertificates where
   hashWithSalt _salt ListCertificates' {..} =

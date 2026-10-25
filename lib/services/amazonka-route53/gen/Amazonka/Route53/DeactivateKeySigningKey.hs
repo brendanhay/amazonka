@@ -103,6 +103,8 @@ instance Core.AWSRequest DeactivateKeySigningKey where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "ChangeInfo")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeactivateKeySigningKey where
   hashWithSalt _salt DeactivateKeySigningKey' {..} =

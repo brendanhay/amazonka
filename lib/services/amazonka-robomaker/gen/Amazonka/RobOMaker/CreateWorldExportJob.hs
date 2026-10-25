@@ -162,6 +162,14 @@ instance Core.AWSRequest CreateWorldExportJob where
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateWorldExportJob' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateWorldExportJob
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateWorldExportJob where
   hashWithSalt _salt CreateWorldExportJob' {..} =

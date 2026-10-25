@@ -129,6 +129,8 @@ instance Core.AWSRequest ListComponentOutputs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "outputs" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListComponentOutputs where
   hashWithSalt _salt ListComponentOutputs' {..} =

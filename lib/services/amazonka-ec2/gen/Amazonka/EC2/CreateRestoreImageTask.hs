@@ -178,6 +178,8 @@ instance Core.AWSRequest CreateRestoreImageTask where
             Prelude.<$> (x Data..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateRestoreImageTask where
   hashWithSalt _salt CreateRestoreImageTask' {..} =

@@ -101,6 +101,8 @@ instance Core.AWSRequest StopSentimentDetectionJob where
             Prelude.<*> (x Data..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopSentimentDetectionJob where
   hashWithSalt _salt StopSentimentDetectionJob' {..} =

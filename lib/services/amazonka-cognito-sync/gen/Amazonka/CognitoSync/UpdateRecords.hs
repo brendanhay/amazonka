@@ -203,6 +203,8 @@ instance Core.AWSRequest UpdateRecords where
             Prelude.<$> (x Data..?> "Records" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRecords where
   hashWithSalt _salt UpdateRecords' {..} =

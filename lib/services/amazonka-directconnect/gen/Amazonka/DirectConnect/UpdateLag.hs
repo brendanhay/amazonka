@@ -162,6 +162,8 @@ instance Core.AWSRequest UpdateLag where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateLag where
   hashWithSalt _salt UpdateLag' {..} =

@@ -112,6 +112,8 @@ instance Core.AWSRequest DescribePermissionSet where
             Prelude.<$> (x Data..?> "PermissionSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePermissionSet where
   hashWithSalt _salt DescribePermissionSet' {..} =

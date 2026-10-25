@@ -126,6 +126,8 @@ instance Core.AWSRequest CreateRecipe where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Name")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateRecipe where
   hashWithSalt _salt CreateRecipe' {..} =

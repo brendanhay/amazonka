@@ -89,6 +89,8 @@ instance Core.AWSRequest Unsubscribe where
   request overrides =
     Request.postQuery (overrides defaultService)
   response = Response.receiveNull UnsubscribeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable Unsubscribe where
   hashWithSalt _salt Unsubscribe' {..} =

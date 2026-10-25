@@ -137,6 +137,8 @@ instance Core.AWSRequest SetInstanceHealth where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull SetInstanceHealthResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetInstanceHealth where
   hashWithSalt _salt SetInstanceHealth' {..} =

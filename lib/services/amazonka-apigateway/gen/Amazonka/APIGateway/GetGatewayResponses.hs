@@ -155,6 +155,8 @@ instance Core.AWSRequest GetGatewayResponses where
             Prelude.<*> (x Data..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetGatewayResponses where
   hashWithSalt _salt GetGatewayResponses' {..} =

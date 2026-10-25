@@ -153,6 +153,8 @@ instance Core.AWSRequest ListInventoryEntries where
             Prelude.<*> (x Data..?> "TypeName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListInventoryEntries where
   hashWithSalt _salt ListInventoryEntries' {..} =

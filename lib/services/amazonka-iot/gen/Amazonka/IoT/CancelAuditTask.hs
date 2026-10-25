@@ -94,6 +94,8 @@ instance Core.AWSRequest CancelAuditTask where
           CancelAuditTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelAuditTask where
   hashWithSalt _salt CancelAuditTask' {..} =

@@ -291,6 +291,8 @@ instance Core.AWSRequest UpdateComputeEnvironment where
             Prelude.<*> (x Data..?> "computeEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateComputeEnvironment where
   hashWithSalt _salt UpdateComputeEnvironment' {..} =

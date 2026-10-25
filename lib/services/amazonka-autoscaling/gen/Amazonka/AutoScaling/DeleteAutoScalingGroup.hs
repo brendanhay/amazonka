@@ -124,6 +124,8 @@ instance Core.AWSRequest DeleteAutoScalingGroup where
   response =
     Response.receiveNull
       DeleteAutoScalingGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAutoScalingGroup where
   hashWithSalt _salt DeleteAutoScalingGroup' {..} =

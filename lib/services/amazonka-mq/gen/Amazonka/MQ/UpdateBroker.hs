@@ -225,6 +225,8 @@ instance Core.AWSRequest UpdateBroker where
             Prelude.<*> (x Data..?> "securityGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateBroker where
   hashWithSalt _salt UpdateBroker' {..} =

@@ -90,6 +90,8 @@ instance Core.AWSRequest GetGatewayGroup where
             Prelude.<$> (x Data..?> "GatewayGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetGatewayGroup where
   hashWithSalt _salt GetGatewayGroup' {..} =

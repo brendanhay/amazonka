@@ -95,6 +95,8 @@ instance Core.AWSRequest ImportAppCatalog where
           ImportAppCatalogResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportAppCatalog where
   hashWithSalt _salt ImportAppCatalog' {..} =

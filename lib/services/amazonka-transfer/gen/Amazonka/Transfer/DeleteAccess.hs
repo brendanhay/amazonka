@@ -135,6 +135,8 @@ instance Core.AWSRequest DeleteAccess where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteAccessResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAccess where
   hashWithSalt _salt DeleteAccess' {..} =

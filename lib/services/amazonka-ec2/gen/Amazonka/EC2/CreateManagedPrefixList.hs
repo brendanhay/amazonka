@@ -195,6 +195,14 @@ instance Core.AWSRequest CreateManagedPrefixList where
             Prelude.<$> (x Data..@? "prefixList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateManagedPrefixList' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateManagedPrefixList
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateManagedPrefixList where
   hashWithSalt _salt CreateManagedPrefixList' {..} =

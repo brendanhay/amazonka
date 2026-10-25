@@ -107,6 +107,8 @@ instance Core.AWSRequest RebootInstances where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull RebootInstancesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RebootInstances where
   hashWithSalt _salt RebootInstances' {..} =

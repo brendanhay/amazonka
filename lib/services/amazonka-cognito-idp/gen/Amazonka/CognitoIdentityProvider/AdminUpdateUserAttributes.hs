@@ -292,6 +292,8 @@ instance Core.AWSRequest AdminUpdateUserAttributes where
           AdminUpdateUserAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AdminUpdateUserAttributes where
   hashWithSalt _salt AdminUpdateUserAttributes' {..} =

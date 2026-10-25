@@ -168,6 +168,8 @@ instance Core.AWSRequest AttachNetworkInterface where
             Prelude.<*> (x Data..@? "networkCardIndex")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AttachNetworkInterface where
   hashWithSalt _salt AttachNetworkInterface' {..} =

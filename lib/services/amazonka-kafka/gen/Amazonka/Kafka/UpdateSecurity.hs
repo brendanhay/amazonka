@@ -134,6 +134,8 @@ instance Core.AWSRequest UpdateSecurity where
             Prelude.<*> (x Data..?> "clusterOperationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateSecurity where
   hashWithSalt _salt UpdateSecurity' {..} =

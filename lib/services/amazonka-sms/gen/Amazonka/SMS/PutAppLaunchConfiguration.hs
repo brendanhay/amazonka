@@ -126,6 +126,8 @@ instance Core.AWSRequest PutAppLaunchConfiguration where
           PutAppLaunchConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutAppLaunchConfiguration where
   hashWithSalt _salt PutAppLaunchConfiguration' {..} =

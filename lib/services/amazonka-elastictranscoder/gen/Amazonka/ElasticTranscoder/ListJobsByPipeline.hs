@@ -154,6 +154,8 @@ instance Core.AWSRequest ListJobsByPipeline where
             Prelude.<*> (x Data..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListJobsByPipeline where
   hashWithSalt _salt ListJobsByPipeline' {..} =

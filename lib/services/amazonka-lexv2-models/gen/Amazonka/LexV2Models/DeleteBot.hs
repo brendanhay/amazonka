@@ -112,6 +112,8 @@ instance Core.AWSRequest DeleteBot where
             Prelude.<*> (x Data..?> "botStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBot where
   hashWithSalt _salt DeleteBot' {..} =

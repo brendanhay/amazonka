@@ -114,6 +114,8 @@ instance Core.AWSRequest GetVerifiedAccessGroupPolicy where
             Prelude.<*> (x Data..@? "policyEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

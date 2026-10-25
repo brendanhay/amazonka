@@ -53,7 +53,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateMediaLiveConnectorPipeline' smart constructor.
 data CreateMediaLiveConnectorPipeline = CreateMediaLiveConnectorPipeline'
   { -- | The token assigned to the client making the request.
-    clientRequestToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The tags associated with the media pipeline.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The media pipeline\'s data sources.
@@ -95,7 +95,7 @@ newCreateMediaLiveConnectorPipeline pSources_ pSinks_ =
 
 -- | The token assigned to the client making the request.
 createMediaLiveConnectorPipeline_clientRequestToken :: Lens.Lens' CreateMediaLiveConnectorPipeline (Prelude.Maybe Prelude.Text)
-createMediaLiveConnectorPipeline_clientRequestToken = Lens.lens (\CreateMediaLiveConnectorPipeline' {clientRequestToken} -> clientRequestToken) (\s@CreateMediaLiveConnectorPipeline' {} a -> s {clientRequestToken = a} :: CreateMediaLiveConnectorPipeline) Prelude.. Lens.mapping Data._Sensitive
+createMediaLiveConnectorPipeline_clientRequestToken = Lens.lens (\CreateMediaLiveConnectorPipeline' {clientRequestToken} -> clientRequestToken) (\s@CreateMediaLiveConnectorPipeline' {} a -> s {clientRequestToken = a} :: CreateMediaLiveConnectorPipeline)
 
 -- | The tags associated with the media pipeline.
 createMediaLiveConnectorPipeline_tags :: Lens.Lens' CreateMediaLiveConnectorPipeline (Prelude.Maybe (Prelude.NonEmpty Tag))
@@ -125,6 +125,14 @@ instance
             Prelude.<$> (x Data..?> "MediaLiveConnectorPipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateMediaLiveConnectorPipeline' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateMediaLiveConnectorPipeline
+      )
+        Prelude.<$> f clientRequestToken
 
 instance
   Prelude.Hashable

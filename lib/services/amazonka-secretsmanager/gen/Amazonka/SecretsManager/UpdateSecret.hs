@@ -339,6 +339,14 @@ instance Core.AWSRequest UpdateSecret where
             Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateSecret' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            UpdateSecret
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable UpdateSecret where
   hashWithSalt _salt UpdateSecret' {..} =

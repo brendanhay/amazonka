@@ -106,6 +106,13 @@ instance Core.AWSRequest DeleteApplication where
           DeleteApplicationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteApplication' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: DeleteApplication
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteApplication where
   hashWithSalt _salt DeleteApplication' {..} =

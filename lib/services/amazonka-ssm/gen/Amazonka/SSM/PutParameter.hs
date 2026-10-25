@@ -761,6 +761,8 @@ instance Core.AWSRequest PutParameter where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Version")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutParameter where
   hashWithSalt _salt PutParameter' {..} =

@@ -104,6 +104,8 @@ instance Core.AWSRequest AddFlowOutputs where
             Prelude.<*> (x Data..?> "outputs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddFlowOutputs where
   hashWithSalt _salt AddFlowOutputs' {..} =

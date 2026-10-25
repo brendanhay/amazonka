@@ -127,6 +127,8 @@ instance Core.AWSRequest SetIdentityPoolRoles where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull SetIdentityPoolRolesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetIdentityPoolRoles where
   hashWithSalt _salt SetIdentityPoolRoles' {..} =

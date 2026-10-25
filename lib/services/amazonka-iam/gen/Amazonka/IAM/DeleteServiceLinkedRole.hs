@@ -109,6 +109,8 @@ instance Core.AWSRequest DeleteServiceLinkedRole where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "DeletionTaskId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteServiceLinkedRole where
   hashWithSalt _salt DeleteServiceLinkedRole' {..} =

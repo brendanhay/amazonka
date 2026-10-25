@@ -91,6 +91,8 @@ instance Core.AWSRequest GetCustomEntityType where
             Prelude.<*> (x Data..?> "RegexString")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCustomEntityType where
   hashWithSalt _salt GetCustomEntityType' {..} =

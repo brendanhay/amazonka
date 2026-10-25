@@ -253,6 +253,8 @@ instance Core.AWSRequest CreateLocationObjectStorage where
             Prelude.<$> (x Data..?> "LocationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLocationObjectStorage where
   hashWithSalt _salt CreateLocationObjectStorage' {..} =

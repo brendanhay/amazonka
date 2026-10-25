@@ -141,6 +141,8 @@ instance Core.AWSRequest DescribeRuleGroup where
             Prelude.<*> (x Data..:> "UpdateToken")
             Prelude.<*> (x Data..:> "RuleGroupResponse")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeRuleGroup where
   hashWithSalt _salt DescribeRuleGroup' {..} =

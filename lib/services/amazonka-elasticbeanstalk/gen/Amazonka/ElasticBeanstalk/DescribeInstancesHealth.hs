@@ -137,6 +137,8 @@ instance Core.AWSRequest DescribeInstancesHealth where
             Prelude.<*> (x Data..@? "RefreshedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeInstancesHealth where
   hashWithSalt _salt DescribeInstancesHealth' {..} =

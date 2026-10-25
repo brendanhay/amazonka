@@ -222,7 +222,7 @@ data CreateFileSystem = CreateFileSystem'
     throughputMode :: Prelude.Maybe ThroughputMode,
     -- | A string of up to 64 ASCII characters. Amazon EFS uses this to ensure
     -- idempotent creation.
-    creationToken :: Prelude.Text
+    creationToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -328,10 +328,8 @@ data CreateFileSystem = CreateFileSystem'
 -- 'creationToken', 'createFileSystem_creationToken' - A string of up to 64 ASCII characters. Amazon EFS uses this to ensure
 -- idempotent creation.
 newCreateFileSystem ::
-  -- | 'creationToken'
-  Prelude.Text ->
   CreateFileSystem
-newCreateFileSystem pCreationToken_ =
+newCreateFileSystem =
   CreateFileSystem'
     { availabilityZoneName =
         Prelude.Nothing,
@@ -342,7 +340,7 @@ newCreateFileSystem pCreationToken_ =
       provisionedThroughputInMibps = Prelude.Nothing,
       tags = Prelude.Nothing,
       throughputMode = Prelude.Nothing,
-      creationToken = pCreationToken_
+      creationToken = Prelude.Nothing
     }
 
 -- | Used to create a file system that uses One Zone storage classes. It
@@ -454,7 +452,7 @@ createFileSystem_throughputMode = Lens.lens (\CreateFileSystem' {throughputMode}
 
 -- | A string of up to 64 ASCII characters. Amazon EFS uses this to ensure
 -- idempotent creation.
-createFileSystem_creationToken :: Lens.Lens' CreateFileSystem Prelude.Text
+createFileSystem_creationToken :: Lens.Lens' CreateFileSystem (Prelude.Maybe Prelude.Text)
 createFileSystem_creationToken = Lens.lens (\CreateFileSystem' {creationToken} -> creationToken) (\s@CreateFileSystem' {} a -> s {creationToken = a} :: CreateFileSystem)
 
 instance Core.AWSRequest CreateFileSystem where
@@ -466,6 +464,14 @@ instance Core.AWSRequest CreateFileSystem where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken
+    f
+    s@CreateFileSystem' {creationToken} =
+      ( \creationToken' ->
+          s {creationToken = creationToken'} ::
+            CreateFileSystem
+      )
+        Prelude.<$> f creationToken
 
 instance Prelude.Hashable CreateFileSystem where
   hashWithSalt _salt CreateFileSystem' {..} =
@@ -511,8 +517,7 @@ instance Data.ToJSON CreateFileSystem where
             ("Tags" Data..=) Prelude.<$> tags,
             ("ThroughputMode" Data..=)
               Prelude.<$> throughputMode,
-            Prelude.Just
-              ("CreationToken" Data..= creationToken)
+            ("CreationToken" Data..=) Prelude.<$> creationToken
           ]
       )
 

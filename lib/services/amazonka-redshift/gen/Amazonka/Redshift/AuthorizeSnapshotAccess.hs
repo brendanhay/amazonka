@@ -150,6 +150,8 @@ instance Core.AWSRequest AuthorizeSnapshotAccess where
             Prelude.<$> (x Data..@? "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AuthorizeSnapshotAccess where
   hashWithSalt _salt AuthorizeSnapshotAccess' {..} =

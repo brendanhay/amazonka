@@ -85,6 +85,8 @@ instance Core.AWSRequest StopHumanLoop where
           StopHumanLoopResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopHumanLoop where
   hashWithSalt _salt StopHumanLoop' {..} =

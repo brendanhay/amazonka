@@ -128,6 +128,8 @@ instance Core.AWSRequest GetResource where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetResource where
   hashWithSalt _salt GetResource' {..} =

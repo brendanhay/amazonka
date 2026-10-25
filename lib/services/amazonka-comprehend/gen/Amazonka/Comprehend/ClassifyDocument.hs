@@ -201,6 +201,8 @@ instance Core.AWSRequest ClassifyDocument where
             Prelude.<*> (x Data..?> "Labels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ClassifyDocument where
   hashWithSalt _salt ClassifyDocument' {..} =

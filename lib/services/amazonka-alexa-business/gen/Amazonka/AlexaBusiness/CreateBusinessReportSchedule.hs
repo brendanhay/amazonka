@@ -177,6 +177,14 @@ instance Core.AWSRequest CreateBusinessReportSchedule where
             Prelude.<$> (x Data..?> "ScheduleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateBusinessReportSchedule' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateBusinessReportSchedule
+      )
+        Prelude.<$> f clientRequestToken
 
 instance
   Prelude.Hashable

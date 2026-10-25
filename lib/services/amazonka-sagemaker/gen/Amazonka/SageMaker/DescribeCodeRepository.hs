@@ -98,6 +98,8 @@ instance Core.AWSRequest DescribeCodeRepository where
             Prelude.<*> (x Data..:> "CreationTime")
             Prelude.<*> (x Data..:> "LastModifiedTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeCodeRepository where
   hashWithSalt _salt DescribeCodeRepository' {..} =

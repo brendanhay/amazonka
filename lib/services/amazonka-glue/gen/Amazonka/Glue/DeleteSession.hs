@@ -99,6 +99,8 @@ instance Core.AWSRequest DeleteSession where
             Prelude.<$> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSession where
   hashWithSalt _salt DeleteSession' {..} =

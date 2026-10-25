@@ -162,6 +162,8 @@ instance Core.AWSRequest DescribeConfigurationSets where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeConfigurationSets where
   hashWithSalt _salt DescribeConfigurationSets' {..} =

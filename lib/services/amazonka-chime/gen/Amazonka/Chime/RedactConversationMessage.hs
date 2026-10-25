@@ -115,6 +115,8 @@ instance Core.AWSRequest RedactConversationMessage where
           RedactConversationMessageResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RedactConversationMessage where
   hashWithSalt _salt RedactConversationMessage' {..} =

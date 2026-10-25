@@ -237,6 +237,8 @@ instance Core.AWSRequest GetParametersByPath where
             Prelude.<*> (x Data..?> "Parameters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetParametersByPath where
   hashWithSalt _salt GetParametersByPath' {..} =

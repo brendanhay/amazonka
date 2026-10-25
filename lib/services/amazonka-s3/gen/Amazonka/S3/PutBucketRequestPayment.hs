@@ -196,6 +196,8 @@ instance Core.AWSRequest PutBucketRequestPayment where
   response =
     Response.receiveNull
       PutBucketRequestPaymentResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutBucketRequestPayment where
   hashWithSalt _salt PutBucketRequestPayment' {..} =

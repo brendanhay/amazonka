@@ -150,6 +150,8 @@ instance Core.AWSRequest CreateConfiguration where
             Prelude.<*> (x Data..?> "state")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateConfiguration where
   hashWithSalt _salt CreateConfiguration' {..} =

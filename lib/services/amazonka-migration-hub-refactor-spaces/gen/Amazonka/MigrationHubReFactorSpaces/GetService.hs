@@ -147,6 +147,8 @@ instance Core.AWSRequest GetService where
             Prelude.<*> (x Data..?> "VpcId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetService where
   hashWithSalt _salt GetService' {..} =

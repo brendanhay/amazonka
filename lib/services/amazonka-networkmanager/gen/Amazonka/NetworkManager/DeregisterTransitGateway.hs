@@ -106,6 +106,8 @@ instance Core.AWSRequest DeregisterTransitGateway where
             Prelude.<$> (x Data..?> "TransitGatewayRegistration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterTransitGateway where
   hashWithSalt _salt DeregisterTransitGateway' {..} =

@@ -111,6 +111,8 @@ instance Core.AWSRequest StartBlueprintRun where
             Prelude.<$> (x Data..?> "RunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartBlueprintRun where
   hashWithSalt _salt StartBlueprintRun' {..} =

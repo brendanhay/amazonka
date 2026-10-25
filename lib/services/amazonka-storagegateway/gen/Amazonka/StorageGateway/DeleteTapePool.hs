@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteTapePool where
             Prelude.<$> (x Data..?> "PoolARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTapePool where
   hashWithSalt _salt DeleteTapePool' {..} =

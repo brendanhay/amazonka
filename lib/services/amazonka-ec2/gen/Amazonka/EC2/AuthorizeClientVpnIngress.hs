@@ -187,6 +187,14 @@ instance Core.AWSRequest AuthorizeClientVpnIngress where
             Prelude.<$> (x Data..@? "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@AuthorizeClientVpnIngress' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            AuthorizeClientVpnIngress
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable AuthorizeClientVpnIngress where
   hashWithSalt _salt AuthorizeClientVpnIngress' {..} =

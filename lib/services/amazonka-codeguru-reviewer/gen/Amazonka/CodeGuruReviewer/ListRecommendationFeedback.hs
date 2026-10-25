@@ -180,6 +180,8 @@ instance Core.AWSRequest ListRecommendationFeedback where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListRecommendationFeedback where
   hashWithSalt _salt ListRecommendationFeedback' {..} =

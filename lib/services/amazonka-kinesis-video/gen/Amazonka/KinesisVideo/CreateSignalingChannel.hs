@@ -137,6 +137,8 @@ instance Core.AWSRequest CreateSignalingChannel where
             Prelude.<$> (x Data..?> "ChannelARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateSignalingChannel where
   hashWithSalt _salt CreateSignalingChannel' {..} =

@@ -102,6 +102,8 @@ instance Core.AWSRequest DeleteBranch where
             Prelude.<$> (x Data..?> "deletedBranch")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBranch where
   hashWithSalt _salt DeleteBranch' {..} =

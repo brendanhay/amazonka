@@ -108,6 +108,8 @@ instance Core.AWSRequest DeleteRouteResponse where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteRouteResponseResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRouteResponse where
   hashWithSalt _salt DeleteRouteResponse' {..} =

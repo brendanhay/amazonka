@@ -118,6 +118,13 @@ instance Core.AWSRequest UpdateRelatedItems where
           UpdateRelatedItemsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateRelatedItems' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: UpdateRelatedItems
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateRelatedItems where
   hashWithSalt _salt UpdateRelatedItems' {..} =

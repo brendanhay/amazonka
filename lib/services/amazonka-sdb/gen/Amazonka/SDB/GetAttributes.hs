@@ -140,6 +140,8 @@ instance Core.AWSRequest GetAttributes where
             Prelude.<$> (Core.may (Data.parseXMLList "Attribute") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAttributes where
   hashWithSalt _salt GetAttributes' {..} =

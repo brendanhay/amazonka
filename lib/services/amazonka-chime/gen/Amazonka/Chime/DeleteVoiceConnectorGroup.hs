@@ -84,6 +84,8 @@ instance Core.AWSRequest DeleteVoiceConnectorGroup where
   response =
     Response.receiveNull
       DeleteVoiceConnectorGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVoiceConnectorGroup where
   hashWithSalt _salt DeleteVoiceConnectorGroup' {..} =

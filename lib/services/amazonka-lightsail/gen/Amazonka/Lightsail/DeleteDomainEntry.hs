@@ -109,6 +109,8 @@ instance Core.AWSRequest DeleteDomainEntry where
             Prelude.<$> (x Data..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDomainEntry where
   hashWithSalt _salt DeleteDomainEntry' {..} =

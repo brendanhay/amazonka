@@ -133,6 +133,8 @@ instance Core.AWSRequest ListDirectories where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Directories" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDirectories where
   hashWithSalt _salt ListDirectories' {..} =

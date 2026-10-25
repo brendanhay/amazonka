@@ -71,6 +71,8 @@ instance Core.AWSRequest GetSubscriptionState where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "SubscriptionState")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSubscriptionState where
   hashWithSalt _salt _ =

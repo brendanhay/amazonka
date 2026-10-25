@@ -83,6 +83,8 @@ instance Core.AWSRequest VerifyEmailAddress where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull VerifyEmailAddressResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable VerifyEmailAddress where
   hashWithSalt _salt VerifyEmailAddress' {..} =

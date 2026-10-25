@@ -115,6 +115,8 @@ instance Core.AWSRequest RestartAppServer where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull RestartAppServerResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RestartAppServer where
   hashWithSalt _salt RestartAppServer' {..} =

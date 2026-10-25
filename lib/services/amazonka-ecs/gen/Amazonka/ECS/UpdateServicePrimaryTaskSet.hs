@@ -130,6 +130,8 @@ instance Core.AWSRequest UpdateServicePrimaryTaskSet where
             Prelude.<$> (x Data..?> "taskSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateServicePrimaryTaskSet where
   hashWithSalt _salt UpdateServicePrimaryTaskSet' {..} =

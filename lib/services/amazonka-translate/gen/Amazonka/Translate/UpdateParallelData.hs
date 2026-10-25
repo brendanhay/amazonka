@@ -64,7 +64,7 @@ data UpdateParallelData = UpdateParallelData'
     parallelDataConfig :: ParallelDataConfig,
     -- | A unique identifier for the request. This token is automatically
     -- generated when you use Amazon Translate through an AWS SDK.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,19 +89,14 @@ newUpdateParallelData ::
   Prelude.Text ->
   -- | 'parallelDataConfig'
   ParallelDataConfig ->
-  -- | 'clientToken'
-  Prelude.Text ->
   UpdateParallelData
-newUpdateParallelData
-  pName_
-  pParallelDataConfig_
-  pClientToken_ =
-    UpdateParallelData'
-      { description = Prelude.Nothing,
-        name = pName_,
-        parallelDataConfig = pParallelDataConfig_,
-        clientToken = pClientToken_
-      }
+newUpdateParallelData pName_ pParallelDataConfig_ =
+  UpdateParallelData'
+    { description = Prelude.Nothing,
+      name = pName_,
+      parallelDataConfig = pParallelDataConfig_,
+      clientToken = Prelude.Nothing
+    }
 
 -- | A custom description for the parallel data resource in Amazon Translate.
 updateParallelData_description :: Lens.Lens' UpdateParallelData (Prelude.Maybe Prelude.Text)
@@ -117,7 +112,7 @@ updateParallelData_parallelDataConfig = Lens.lens (\UpdateParallelData' {paralle
 
 -- | A unique identifier for the request. This token is automatically
 -- generated when you use Amazon Translate through an AWS SDK.
-updateParallelData_clientToken :: Lens.Lens' UpdateParallelData Prelude.Text
+updateParallelData_clientToken :: Lens.Lens' UpdateParallelData (Prelude.Maybe Prelude.Text)
 updateParallelData_clientToken = Lens.lens (\UpdateParallelData' {clientToken} -> clientToken) (\s@UpdateParallelData' {} a -> s {clientToken = a} :: UpdateParallelData)
 
 instance Core.AWSRequest UpdateParallelData where
@@ -136,6 +131,13 @@ instance Core.AWSRequest UpdateParallelData where
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateParallelData' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: UpdateParallelData
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateParallelData where
   hashWithSalt _salt UpdateParallelData' {..} =
@@ -175,7 +177,7 @@ instance Data.ToJSON UpdateParallelData where
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("ParallelDataConfig" Data..= parallelDataConfig),
-            Prelude.Just ("ClientToken" Data..= clientToken)
+            ("ClientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

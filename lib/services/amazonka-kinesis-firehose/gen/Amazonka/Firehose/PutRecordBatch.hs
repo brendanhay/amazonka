@@ -170,6 +170,8 @@ instance Core.AWSRequest PutRecordBatch where
             Prelude.<*> (x Data..:> "FailedPutCount")
             Prelude.<*> (x Data..:> "RequestResponses")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutRecordBatch where
   hashWithSalt _salt PutRecordBatch' {..} =

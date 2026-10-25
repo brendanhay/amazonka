@@ -115,6 +115,8 @@ instance Core.AWSRequest DeleteUserAttributes where
           DeleteUserAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteUserAttributes where
   hashWithSalt _salt DeleteUserAttributes' {..} =

@@ -118,6 +118,8 @@ instance Core.AWSRequest DeleteBudgetAction where
             Prelude.<*> (x Data..:> "BudgetName")
             Prelude.<*> (x Data..:> "Action")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBudgetAction where
   hashWithSalt _salt DeleteBudgetAction' {..} =

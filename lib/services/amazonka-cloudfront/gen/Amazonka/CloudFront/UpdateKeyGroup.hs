@@ -128,6 +128,8 @@ instance Core.AWSRequest UpdateKeyGroup where
             Prelude.<*> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateKeyGroup where
   hashWithSalt _salt UpdateKeyGroup' {..} =

@@ -72,6 +72,8 @@ instance Core.AWSRequest GetAccountConfiguration where
             Prelude.<$> (x Data..?> "ExpiryEvents")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAccountConfiguration where
   hashWithSalt _salt _ =

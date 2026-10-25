@@ -96,6 +96,8 @@ instance Core.AWSRequest GetTemplate where
             Prelude.<*> (x Data..?> "tools" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTemplate where
   hashWithSalt _salt GetTemplate' {..} =

@@ -89,6 +89,8 @@ instance Core.AWSRequest DescribeBackup where
             Prelude.<$> (x Data..?> "BackupDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeBackup where
   hashWithSalt _salt DescribeBackup' {..} =

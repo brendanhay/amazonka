@@ -211,6 +211,8 @@ instance Core.AWSRequest ListProtections where
             Prelude.<*> (x Data..?> "Protections" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListProtections where
   hashWithSalt _salt ListProtections' {..} =

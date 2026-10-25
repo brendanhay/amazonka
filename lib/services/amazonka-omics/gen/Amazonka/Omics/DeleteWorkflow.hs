@@ -77,6 +77,8 @@ instance Core.AWSRequest DeleteWorkflow where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteWorkflowResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteWorkflow where
   hashWithSalt _salt DeleteWorkflow' {..} =

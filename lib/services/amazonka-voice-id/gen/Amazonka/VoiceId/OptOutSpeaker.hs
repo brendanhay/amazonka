@@ -107,6 +107,8 @@ instance Core.AWSRequest OptOutSpeaker where
             Prelude.<$> (x Data..?> "Speaker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable OptOutSpeaker where
   hashWithSalt _salt OptOutSpeaker' {..} =

@@ -107,6 +107,8 @@ instance Core.AWSRequest DeleteKeyGroup where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteKeyGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteKeyGroup where
   hashWithSalt _salt DeleteKeyGroup' {..} =

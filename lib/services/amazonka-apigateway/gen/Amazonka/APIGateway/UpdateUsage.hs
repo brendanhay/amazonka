@@ -118,6 +118,8 @@ instance Core.AWSRequest UpdateUsage where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateUsage where
   hashWithSalt _salt UpdateUsage' {..} =

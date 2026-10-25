@@ -291,6 +291,8 @@ instance Core.AWSRequest CreateCompilationJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "CompilationJobArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateCompilationJob where
   hashWithSalt _salt CreateCompilationJob' {..} =

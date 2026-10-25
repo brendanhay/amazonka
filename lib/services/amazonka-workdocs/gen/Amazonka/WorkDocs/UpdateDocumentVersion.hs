@@ -120,6 +120,8 @@ instance Core.AWSRequest UpdateDocumentVersion where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateDocumentVersionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDocumentVersion where
   hashWithSalt _salt UpdateDocumentVersion' {..} =

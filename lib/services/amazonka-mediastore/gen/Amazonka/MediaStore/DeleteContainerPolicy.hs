@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteContainerPolicy where
           DeleteContainerPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteContainerPolicy where
   hashWithSalt _salt DeleteContainerPolicy' {..} =

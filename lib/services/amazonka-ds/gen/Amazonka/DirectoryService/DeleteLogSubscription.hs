@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteLogSubscription where
           DeleteLogSubscriptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteLogSubscription where
   hashWithSalt _salt DeleteLogSubscription' {..} =

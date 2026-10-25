@@ -141,6 +141,8 @@ instance Core.AWSRequest DescribeLimits where
             Prelude.<*> (x Data..?> "TableMaxWriteCapacityUnits")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeLimits where
   hashWithSalt _salt _ =

@@ -170,6 +170,8 @@ instance Core.AWSRequest CreatePermission where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull CreatePermissionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreatePermission where
   hashWithSalt _salt CreatePermission' {..} =

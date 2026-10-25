@@ -93,6 +93,8 @@ instance Core.AWSRequest DeleteDecoderManifest where
             Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "arn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDecoderManifest where
   hashWithSalt _salt DeleteDecoderManifest' {..} =

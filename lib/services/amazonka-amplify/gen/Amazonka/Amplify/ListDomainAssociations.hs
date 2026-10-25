@@ -146,6 +146,8 @@ instance Core.AWSRequest ListDomainAssociations where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDomainAssociations where
   hashWithSalt _salt ListDomainAssociations' {..} =

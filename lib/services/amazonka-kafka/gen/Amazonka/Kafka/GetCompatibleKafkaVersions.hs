@@ -91,6 +91,8 @@ instance Core.AWSRequest GetCompatibleKafkaVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCompatibleKafkaVersions where
   hashWithSalt _salt GetCompatibleKafkaVersions' {..} =

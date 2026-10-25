@@ -180,6 +180,8 @@ instance Core.AWSRequest UpdateInput' where
             Prelude.<$> (x Data..?> "input")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateInput' where
   hashWithSalt _salt UpdateInput'' {..} =

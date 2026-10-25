@@ -133,6 +133,8 @@ instance Core.AWSRequest GetSchema where
             Prelude.<*> (x Data..?> "UpdatedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSchema where
   hashWithSalt _salt GetSchema' {..} =

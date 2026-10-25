@@ -114,6 +114,8 @@ instance Core.AWSRequest DescribeAvailabilityOptions where
             Prelude.<$> (x Data..@? "AvailabilityOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAvailabilityOptions where
   hashWithSalt _salt DescribeAvailabilityOptions' {..} =

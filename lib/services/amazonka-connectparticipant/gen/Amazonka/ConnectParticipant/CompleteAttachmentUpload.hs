@@ -63,7 +63,7 @@ data CompleteAttachmentUpload = CompleteAttachmentUpload'
     -- idempotency of the request. If not provided, the Amazon Web Services SDK
     -- populates this field. For more information about idempotency, see
     -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
-    clientToken :: Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The authentication token associated with the participant\'s connection.
     connectionToken :: Prelude.Text
   }
@@ -88,19 +88,16 @@ data CompleteAttachmentUpload = CompleteAttachmentUpload'
 newCompleteAttachmentUpload ::
   -- | 'attachmentIds'
   Prelude.NonEmpty Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   -- | 'connectionToken'
   Prelude.Text ->
   CompleteAttachmentUpload
 newCompleteAttachmentUpload
   pAttachmentIds_
-  pClientToken_
   pConnectionToken_ =
     CompleteAttachmentUpload'
       { attachmentIds =
           Lens.coerced Lens.# pAttachmentIds_,
-        clientToken = pClientToken_,
+        clientToken = Prelude.Nothing,
         connectionToken = pConnectionToken_
       }
 
@@ -112,7 +109,7 @@ completeAttachmentUpload_attachmentIds = Lens.lens (\CompleteAttachmentUpload' {
 -- idempotency of the request. If not provided, the Amazon Web Services SDK
 -- populates this field. For more information about idempotency, see
 -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
-completeAttachmentUpload_clientToken :: Lens.Lens' CompleteAttachmentUpload Prelude.Text
+completeAttachmentUpload_clientToken :: Lens.Lens' CompleteAttachmentUpload (Prelude.Maybe Prelude.Text)
 completeAttachmentUpload_clientToken = Lens.lens (\CompleteAttachmentUpload' {clientToken} -> clientToken) (\s@CompleteAttachmentUpload' {} a -> s {clientToken = a} :: CompleteAttachmentUpload)
 
 -- | The authentication token associated with the participant\'s connection.
@@ -131,6 +128,14 @@ instance Core.AWSRequest CompleteAttachmentUpload where
           CompleteAttachmentUploadResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CompleteAttachmentUpload' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CompleteAttachmentUpload
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CompleteAttachmentUpload where
   hashWithSalt _salt CompleteAttachmentUpload' {..} =
@@ -159,7 +164,7 @@ instance Data.ToJSON CompleteAttachmentUpload where
       ( Prelude.catMaybes
           [ Prelude.Just
               ("AttachmentIds" Data..= attachmentIds),
-            Prelude.Just ("ClientToken" Data..= clientToken)
+            ("ClientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

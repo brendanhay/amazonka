@@ -98,6 +98,8 @@ instance Core.AWSRequest GetImport where
             Prelude.<*> (x Data..?> "resourceType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetImport where
   hashWithSalt _salt GetImport' {..} =

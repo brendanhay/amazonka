@@ -129,6 +129,8 @@ instance Core.AWSRequest ListEnvironmentTemplates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "templates" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListEnvironmentTemplates where
   hashWithSalt _salt ListEnvironmentTemplates' {..} =

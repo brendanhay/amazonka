@@ -147,6 +147,14 @@ instance Core.AWSRequest CreateWirelessGateway where
             Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateWirelessGateway' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateWirelessGateway
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateWirelessGateway where
   hashWithSalt _salt CreateWirelessGateway' {..} =

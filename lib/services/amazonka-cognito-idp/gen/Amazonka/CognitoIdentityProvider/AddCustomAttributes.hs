@@ -107,6 +107,8 @@ instance Core.AWSRequest AddCustomAttributes where
           AddCustomAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddCustomAttributes where
   hashWithSalt _salt AddCustomAttributes' {..} =

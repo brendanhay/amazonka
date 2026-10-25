@@ -135,6 +135,8 @@ instance Core.AWSRequest CreateCoreDefinition where
             Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateCoreDefinition where
   hashWithSalt _salt CreateCoreDefinition' {..} =

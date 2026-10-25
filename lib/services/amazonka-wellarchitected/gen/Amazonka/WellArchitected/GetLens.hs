@@ -96,6 +96,8 @@ instance Core.AWSRequest GetLens where
             Prelude.<$> (x Data..?> "Lens")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetLens where
   hashWithSalt _salt GetLens' {..} =

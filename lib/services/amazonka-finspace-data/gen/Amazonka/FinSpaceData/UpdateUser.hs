@@ -193,6 +193,11 @@ instance Core.AWSRequest UpdateUser where
             Prelude.<$> (x Data..?> "userId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@UpdateUser' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: UpdateUser
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateUser where
   hashWithSalt _salt UpdateUser' {..} =

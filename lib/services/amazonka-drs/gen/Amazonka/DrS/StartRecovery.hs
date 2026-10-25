@@ -111,6 +111,8 @@ instance Core.AWSRequest StartRecovery where
             Prelude.<$> (x Data..?> "job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartRecovery where
   hashWithSalt _salt StartRecovery' {..} =

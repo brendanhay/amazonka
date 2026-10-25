@@ -120,6 +120,8 @@ instance Core.AWSRequest DescribeDocument where
             Prelude.<$> (x Data..?> "Document")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDocument where
   hashWithSalt _salt DescribeDocument' {..} =

@@ -130,6 +130,8 @@ instance Core.AWSRequest CreateApplication where
     Response.receiveXMLWrapper
       "CreateApplicationResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =

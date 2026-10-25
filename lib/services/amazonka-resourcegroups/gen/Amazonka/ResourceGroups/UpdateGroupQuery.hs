@@ -129,6 +129,8 @@ instance Core.AWSRequest UpdateGroupQuery where
             Prelude.<$> (x Data..?> "GroupQuery")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateGroupQuery where
   hashWithSalt _salt UpdateGroupQuery' {..} =

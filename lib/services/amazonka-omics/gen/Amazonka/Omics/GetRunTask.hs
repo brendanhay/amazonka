@@ -114,6 +114,8 @@ instance Core.AWSRequest GetRunTask where
             Prelude.<*> (x Data..?> "taskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRunTask where
   hashWithSalt _salt GetRunTask' {..} =

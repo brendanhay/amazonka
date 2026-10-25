@@ -134,6 +134,8 @@ instance Core.AWSRequest AssociateUser where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "InstanceUserSummary")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateUser where
   hashWithSalt _salt AssociateUser' {..} =

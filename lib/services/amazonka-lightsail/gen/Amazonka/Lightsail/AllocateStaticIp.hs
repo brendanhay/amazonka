@@ -87,6 +87,8 @@ instance Core.AWSRequest AllocateStaticIp where
             Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AllocateStaticIp where
   hashWithSalt _salt AllocateStaticIp' {..} =

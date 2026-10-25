@@ -127,6 +127,8 @@ instance Core.AWSRequest ConfirmDevice where
             Prelude.<$> (x Data..?> "UserConfirmationNecessary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ConfirmDevice where
   hashWithSalt _salt ConfirmDevice' {..} =

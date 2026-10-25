@@ -130,6 +130,8 @@ instance Core.AWSRequest GetApplication where
             Prelude.<*> (x Data..?> "VpcId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetApplication where
   hashWithSalt _salt GetApplication' {..} =

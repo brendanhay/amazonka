@@ -105,6 +105,8 @@ instance Core.AWSRequest AssociateUserSettings where
             Prelude.<*> (x Data..:> "portalArn")
             Prelude.<*> (x Data..:> "userSettingsArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateUserSettings where
   hashWithSalt _salt AssociateUserSettings' {..} =

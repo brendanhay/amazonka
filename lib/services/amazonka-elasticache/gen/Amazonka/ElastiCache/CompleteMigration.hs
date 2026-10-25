@@ -106,6 +106,8 @@ instance Core.AWSRequest CompleteMigration where
             Prelude.<$> (x Data..@? "ReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CompleteMigration where
   hashWithSalt _salt CompleteMigration' {..} =

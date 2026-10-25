@@ -63,7 +63,7 @@ data CreateAccessor = CreateAccessor'
     -- more than once. This identifier is required only if you make a service
     -- request directly using an HTTP client. It is generated automatically if
     -- you use an Amazon Web Services SDK or the Amazon Web Services CLI.
-    clientRequestToken :: Prelude.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The type of accessor.
     --
     -- Currently accessor type is restricted to @BILLING_TOKEN@.
@@ -89,15 +89,13 @@ data CreateAccessor = CreateAccessor'
 --
 -- Currently accessor type is restricted to @BILLING_TOKEN@.
 newCreateAccessor ::
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   -- | 'accessorType'
   AccessorType ->
   CreateAccessor
-newCreateAccessor pClientRequestToken_ pAccessorType_ =
+newCreateAccessor pAccessorType_ =
   CreateAccessor'
     { clientRequestToken =
-        pClientRequestToken_,
+        Prelude.Nothing,
       accessorType = pAccessorType_
     }
 
@@ -106,7 +104,7 @@ newCreateAccessor pClientRequestToken_ pAccessorType_ =
 -- more than once. This identifier is required only if you make a service
 -- request directly using an HTTP client. It is generated automatically if
 -- you use an Amazon Web Services SDK or the Amazon Web Services CLI.
-createAccessor_clientRequestToken :: Lens.Lens' CreateAccessor Prelude.Text
+createAccessor_clientRequestToken :: Lens.Lens' CreateAccessor (Prelude.Maybe Prelude.Text)
 createAccessor_clientRequestToken = Lens.lens (\CreateAccessor' {clientRequestToken} -> clientRequestToken) (\s@CreateAccessor' {} a -> s {clientRequestToken = a} :: CreateAccessor)
 
 -- | The type of accessor.
@@ -129,6 +127,14 @@ instance Core.AWSRequest CreateAccessor where
             Prelude.<*> (x Data..?> "BillingToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateAccessor' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateAccessor
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateAccessor where
   hashWithSalt _salt CreateAccessor' {..} =
@@ -156,8 +162,8 @@ instance Data.ToJSON CreateAccessor where
   toJSON CreateAccessor' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken),
+          [ ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken,
             Prelude.Just ("AccessorType" Data..= accessorType)
           ]
       )

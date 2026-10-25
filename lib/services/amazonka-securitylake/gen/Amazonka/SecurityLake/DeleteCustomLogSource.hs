@@ -90,6 +90,8 @@ instance Core.AWSRequest DeleteCustomLogSource where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "customDataLocation")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCustomLogSource where
   hashWithSalt _salt DeleteCustomLogSource' {..} =

@@ -140,6 +140,8 @@ instance Core.AWSRequest GetTrailStatus where
             Prelude.<*> (x Data..?> "TimeLoggingStopped")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTrailStatus where
   hashWithSalt _salt GetTrailStatus' {..} =

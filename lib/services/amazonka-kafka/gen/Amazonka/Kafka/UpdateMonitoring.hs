@@ -150,6 +150,8 @@ instance Core.AWSRequest UpdateMonitoring where
             Prelude.<*> (x Data..?> "clusterOperationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateMonitoring where
   hashWithSalt _salt UpdateMonitoring' {..} =

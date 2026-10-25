@@ -110,6 +110,8 @@ instance Core.AWSRequest GetBulkPublishDetails where
             Prelude.<*> (x Data..?> "IdentityPoolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBulkPublishDetails where
   hashWithSalt _salt GetBulkPublishDetails' {..} =

@@ -200,6 +200,13 @@ instance Core.AWSRequest CreateTaskTemplate where
             Prelude.<*> (x Data..:> "Id")
             Prelude.<*> (x Data..:> "Arn")
       )
+  updateIdempotencyToken
+    f
+    s@CreateTaskTemplate' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateTaskTemplate
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateTaskTemplate where
   hashWithSalt _salt CreateTaskTemplate' {..} =

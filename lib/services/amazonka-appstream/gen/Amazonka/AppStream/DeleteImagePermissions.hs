@@ -104,6 +104,8 @@ instance Core.AWSRequest DeleteImagePermissions where
           DeleteImagePermissionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteImagePermissions where
   hashWithSalt _salt DeleteImagePermissions' {..} =

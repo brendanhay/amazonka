@@ -100,6 +100,14 @@ instance Core.AWSRequest DeletePermissionGroup where
             Prelude.<$> (x Data..?> "permissionGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeletePermissionGroup' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            DeletePermissionGroup
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeletePermissionGroup where
   hashWithSalt _salt DeletePermissionGroup' {..} =

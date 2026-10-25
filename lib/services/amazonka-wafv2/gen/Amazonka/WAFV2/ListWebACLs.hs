@@ -161,6 +161,8 @@ instance Core.AWSRequest ListWebACLs where
             Prelude.<*> (x Data..?> "WebACLs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListWebACLs where
   hashWithSalt _salt ListWebACLs' {..} =

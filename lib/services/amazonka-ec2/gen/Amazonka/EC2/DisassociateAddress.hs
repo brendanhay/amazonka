@@ -122,6 +122,8 @@ instance Core.AWSRequest DisassociateAddress where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DisassociateAddressResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateAddress where
   hashWithSalt _salt DisassociateAddress' {..} =

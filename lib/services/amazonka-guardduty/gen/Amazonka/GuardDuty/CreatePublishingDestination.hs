@@ -138,6 +138,14 @@ instance Core.AWSRequest CreatePublishingDestination where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "destinationId")
       )
+  updateIdempotencyToken
+    f
+    s@CreatePublishingDestination' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreatePublishingDestination
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreatePublishingDestination where
   hashWithSalt _salt CreatePublishingDestination' {..} =

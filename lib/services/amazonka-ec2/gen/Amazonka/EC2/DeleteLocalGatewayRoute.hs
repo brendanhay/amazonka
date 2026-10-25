@@ -127,6 +127,8 @@ instance Core.AWSRequest DeleteLocalGatewayRoute where
             Prelude.<$> (x Data..@? "route")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteLocalGatewayRoute where
   hashWithSalt _salt DeleteLocalGatewayRoute' {..} =

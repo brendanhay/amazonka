@@ -125,12 +125,14 @@ instance Core.AWSRequest GetReference where
   request overrides =
     Request.get (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetReferenceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetReference where
   hashWithSalt _salt GetReference' {..} =

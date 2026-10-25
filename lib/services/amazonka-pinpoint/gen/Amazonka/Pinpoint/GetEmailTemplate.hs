@@ -172,6 +172,8 @@ instance Core.AWSRequest GetEmailTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetEmailTemplate where
   hashWithSalt _salt GetEmailTemplate' {..} =

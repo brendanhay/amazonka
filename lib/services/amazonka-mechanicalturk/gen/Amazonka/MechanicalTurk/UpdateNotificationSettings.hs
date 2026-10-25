@@ -130,6 +130,8 @@ instance Core.AWSRequest UpdateNotificationSettings where
           UpdateNotificationSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateNotificationSettings where
   hashWithSalt _salt UpdateNotificationSettings' {..} =

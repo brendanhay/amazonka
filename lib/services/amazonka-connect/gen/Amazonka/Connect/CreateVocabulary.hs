@@ -202,6 +202,13 @@ instance Core.AWSRequest CreateVocabulary where
             Prelude.<*> (x Data..:> "VocabularyId")
             Prelude.<*> (x Data..:> "State")
       )
+  updateIdempotencyToken
+    f
+    s@CreateVocabulary' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateVocabulary
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateVocabulary where
   hashWithSalt _salt CreateVocabulary' {..} =

@@ -129,6 +129,14 @@ instance Core.AWSRequest DeleteVolume where
             Prelude.<*> (x Data..?> "VolumeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteVolume' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            DeleteVolume
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable DeleteVolume where
   hashWithSalt _salt DeleteVolume' {..} =

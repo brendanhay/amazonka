@@ -100,6 +100,8 @@ instance Core.AWSRequest UpdateWorkflow where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateWorkflowResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateWorkflow where
   hashWithSalt _salt UpdateWorkflow' {..} =

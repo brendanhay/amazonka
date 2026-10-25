@@ -121,6 +121,8 @@ instance Core.AWSRequest SetUserMFAPreference where
           SetUserMFAPreferenceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetUserMFAPreference where
   hashWithSalt _salt SetUserMFAPreference' {..} =

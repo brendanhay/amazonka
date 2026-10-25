@@ -176,6 +176,8 @@ instance Core.AWSRequest UpdatePipelineNotifications where
             Prelude.<$> (x Data..?> "Pipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdatePipelineNotifications where
   hashWithSalt _salt UpdatePipelineNotifications' {..} =

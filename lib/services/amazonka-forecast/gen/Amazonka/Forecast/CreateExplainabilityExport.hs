@@ -223,6 +223,8 @@ instance Core.AWSRequest CreateExplainabilityExport where
             Prelude.<$> (x Data..?> "ExplainabilityExportArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateExplainabilityExport where
   hashWithSalt _salt CreateExplainabilityExport' {..} =

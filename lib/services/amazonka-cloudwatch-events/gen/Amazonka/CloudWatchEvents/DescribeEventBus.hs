@@ -103,6 +103,8 @@ instance Core.AWSRequest DescribeEventBus where
             Prelude.<*> (x Data..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEventBus where
   hashWithSalt _salt DescribeEventBus' {..} =

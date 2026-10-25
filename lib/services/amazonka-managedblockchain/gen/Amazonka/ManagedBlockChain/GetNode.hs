@@ -120,6 +120,8 @@ instance Core.AWSRequest GetNode where
             Prelude.<$> (x Data..?> "Node")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetNode where
   hashWithSalt _salt GetNode' {..} =

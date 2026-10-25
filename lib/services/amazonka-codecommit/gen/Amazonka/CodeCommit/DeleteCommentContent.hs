@@ -91,6 +91,8 @@ instance Core.AWSRequest DeleteCommentContent where
             Prelude.<$> (x Data..?> "comment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCommentContent where
   hashWithSalt _salt DeleteCommentContent' {..} =

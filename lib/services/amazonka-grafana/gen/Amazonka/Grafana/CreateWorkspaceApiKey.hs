@@ -145,6 +145,8 @@ instance Core.AWSRequest CreateWorkspaceApiKey where
             Prelude.<*> (x Data..:> "keyName")
             Prelude.<*> (x Data..:> "workspaceId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateWorkspaceApiKey where
   hashWithSalt _salt CreateWorkspaceApiKey' {..} =

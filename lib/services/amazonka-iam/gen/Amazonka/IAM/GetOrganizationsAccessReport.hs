@@ -204,6 +204,8 @@ instance Core.AWSRequest GetOrganizationsAccessReport where
             Prelude.<*> (x Data..@ "JobStatus")
             Prelude.<*> (x Data..@ "JobCreationDate")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

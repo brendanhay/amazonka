@@ -271,6 +271,13 @@ instance Core.AWSRequest DeleteResource where
             Prelude.<$> (x Data..?> "ProgressEvent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteResource' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: DeleteResource
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteResource where
   hashWithSalt _salt DeleteResource' {..} =

@@ -107,6 +107,8 @@ instance Core.AWSRequest ListMulticastGroups where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListMulticastGroups where
   hashWithSalt _salt ListMulticastGroups' {..} =

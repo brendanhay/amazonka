@@ -132,6 +132,8 @@ instance Core.AWSRequest DeleteCacheCluster where
             Prelude.<$> (x Data..@? "CacheCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCacheCluster where
   hashWithSalt _salt DeleteCacheCluster' {..} =

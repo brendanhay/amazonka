@@ -126,6 +126,8 @@ instance Core.AWSRequest UpdateDestination where
             Prelude.<*> (x Data..:> "updatedAt")
             Prelude.<*> (x Data..:> "state")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDestination where
   hashWithSalt _salt UpdateDestination' {..} =

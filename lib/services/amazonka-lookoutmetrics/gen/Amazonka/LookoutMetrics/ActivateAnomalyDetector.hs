@@ -88,6 +88,8 @@ instance Core.AWSRequest ActivateAnomalyDetector where
           ActivateAnomalyDetectorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ActivateAnomalyDetector where
   hashWithSalt _salt ActivateAnomalyDetector' {..} =

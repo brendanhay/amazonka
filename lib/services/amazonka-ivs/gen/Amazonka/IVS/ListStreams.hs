@@ -131,6 +131,8 @@ instance Core.AWSRequest ListStreams where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "streams" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListStreams where
   hashWithSalt _salt ListStreams' {..} =

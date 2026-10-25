@@ -90,6 +90,8 @@ instance Core.AWSRequest GetManagedScalingPolicy where
             Prelude.<$> (x Data..?> "ManagedScalingPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetManagedScalingPolicy where
   hashWithSalt _salt GetManagedScalingPolicy' {..} =

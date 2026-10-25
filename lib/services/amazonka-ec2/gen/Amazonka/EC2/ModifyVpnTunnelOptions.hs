@@ -141,6 +141,8 @@ instance Core.AWSRequest ModifyVpnTunnelOptions where
             Prelude.<$> (x Data..@? "vpnConnection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyVpnTunnelOptions where
   hashWithSalt _salt ModifyVpnTunnelOptions' {..} =

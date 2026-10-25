@@ -223,6 +223,8 @@ instance Core.AWSRequest PutAccessControlRule where
           PutAccessControlRuleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutAccessControlRule where
   hashWithSalt _salt PutAccessControlRule' {..} =

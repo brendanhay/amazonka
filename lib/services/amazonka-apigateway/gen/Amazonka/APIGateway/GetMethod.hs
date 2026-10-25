@@ -118,6 +118,8 @@ instance Core.AWSRequest GetMethod where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMethod where
   hashWithSalt _salt GetMethod' {..} =

@@ -98,6 +98,8 @@ instance Core.AWSRequest GetRegistry where
             Prelude.<*> (x Data..?> "UpdatedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRegistry where
   hashWithSalt _salt GetRegistry' {..} =

@@ -134,6 +134,8 @@ instance Core.AWSRequest UpdateCertificate where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateCertificateResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateCertificate where
   hashWithSalt _salt UpdateCertificate' {..} =

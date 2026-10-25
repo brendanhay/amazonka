@@ -181,6 +181,8 @@ instance Core.AWSRequest SearchDevices where
             Prelude.<*> (x Data..?> "TotalCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SearchDevices where
   hashWithSalt _salt SearchDevices' {..} =

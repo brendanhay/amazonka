@@ -119,6 +119,8 @@ instance Core.AWSRequest UpdateSuiteDefinition where
             Prelude.<*> (x Data..?> "suiteDefinitionVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateSuiteDefinition where
   hashWithSalt _salt UpdateSuiteDefinition' {..} =

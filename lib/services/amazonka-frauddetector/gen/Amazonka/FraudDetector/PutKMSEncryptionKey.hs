@@ -98,6 +98,8 @@ instance Core.AWSRequest PutKMSEncryptionKey where
           PutKMSEncryptionKeyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutKMSEncryptionKey where
   hashWithSalt _salt PutKMSEncryptionKey' {..} =

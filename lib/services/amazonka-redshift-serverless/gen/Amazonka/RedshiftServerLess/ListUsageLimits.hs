@@ -159,6 +159,8 @@ instance Core.AWSRequest ListUsageLimits where
             Prelude.<*> (x Data..?> "usageLimits")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListUsageLimits where
   hashWithSalt _salt ListUsageLimits' {..} =

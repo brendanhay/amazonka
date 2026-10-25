@@ -103,6 +103,8 @@ instance Core.AWSRequest CreateResourceGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "resourceGroupArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateResourceGroup where
   hashWithSalt _salt CreateResourceGroup' {..} =

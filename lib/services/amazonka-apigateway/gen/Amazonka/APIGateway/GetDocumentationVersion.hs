@@ -102,6 +102,8 @@ instance Core.AWSRequest GetDocumentationVersion where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDocumentationVersion where
   hashWithSalt _salt GetDocumentationVersion' {..} =

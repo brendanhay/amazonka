@@ -140,6 +140,8 @@ instance Core.AWSRequest ListUniqueProblems where
             Prelude.<*> (x Data..?> "uniqueProblems" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListUniqueProblems where
   hashWithSalt _salt ListUniqueProblems' {..} =

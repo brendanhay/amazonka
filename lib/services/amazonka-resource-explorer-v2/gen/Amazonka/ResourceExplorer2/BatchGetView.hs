@@ -91,6 +91,8 @@ instance Core.AWSRequest BatchGetView where
             Prelude.<*> (x Data..?> "Views" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetView where
   hashWithSalt _salt BatchGetView' {..} =

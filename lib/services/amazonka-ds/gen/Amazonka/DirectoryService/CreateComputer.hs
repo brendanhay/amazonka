@@ -149,6 +149,8 @@ instance Core.AWSRequest CreateComputer where
             Prelude.<$> (x Data..?> "Computer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateComputer where
   hashWithSalt _salt CreateComputer' {..} =

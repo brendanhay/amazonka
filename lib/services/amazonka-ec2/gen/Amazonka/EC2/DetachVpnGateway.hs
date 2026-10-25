@@ -121,6 +121,8 @@ instance Core.AWSRequest DetachVpnGateway where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DetachVpnGatewayResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetachVpnGateway where
   hashWithSalt _salt DetachVpnGateway' {..} =

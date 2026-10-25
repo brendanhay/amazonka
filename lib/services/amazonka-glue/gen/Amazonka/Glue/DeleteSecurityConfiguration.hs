@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteSecurityConfiguration where
           DeleteSecurityConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSecurityConfiguration where
   hashWithSalt _salt DeleteSecurityConfiguration' {..} =

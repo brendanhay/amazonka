@@ -72,7 +72,7 @@ data StartNetworkInsightsAnalysis = StartNetworkInsightsAnalysis'
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -104,12 +104,9 @@ data StartNetworkInsightsAnalysis = StartNetworkInsightsAnalysis'
 newStartNetworkInsightsAnalysis ::
   -- | 'networkInsightsPathId'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   StartNetworkInsightsAnalysis
 newStartNetworkInsightsAnalysis
-  pNetworkInsightsPathId_
-  pClientToken_ =
+  pNetworkInsightsPathId_ =
     StartNetworkInsightsAnalysis'
       { additionalAccounts =
           Prelude.Nothing,
@@ -118,7 +115,7 @@ newStartNetworkInsightsAnalysis
         tagSpecifications = Prelude.Nothing,
         networkInsightsPathId =
           pNetworkInsightsPathId_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | The member accounts that contain resources that the path can traverse.
@@ -148,7 +145,7 @@ startNetworkInsightsAnalysis_networkInsightsPathId = Lens.lens (\StartNetworkIns
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
-startNetworkInsightsAnalysis_clientToken :: Lens.Lens' StartNetworkInsightsAnalysis Prelude.Text
+startNetworkInsightsAnalysis_clientToken :: Lens.Lens' StartNetworkInsightsAnalysis (Prelude.Maybe Prelude.Text)
 startNetworkInsightsAnalysis_clientToken = Lens.lens (\StartNetworkInsightsAnalysis' {clientToken} -> clientToken) (\s@StartNetworkInsightsAnalysis' {} a -> s {clientToken = a} :: StartNetworkInsightsAnalysis)
 
 instance Core.AWSRequest StartNetworkInsightsAnalysis where
@@ -164,6 +161,14 @@ instance Core.AWSRequest StartNetworkInsightsAnalysis where
             Prelude.<$> (x Data..@? "networkInsightsAnalysis")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartNetworkInsightsAnalysis' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            StartNetworkInsightsAnalysis
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

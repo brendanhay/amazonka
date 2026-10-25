@@ -137,6 +137,8 @@ instance Core.AWSRequest BatchDeleteRecipeVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Name")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchDeleteRecipeVersion where
   hashWithSalt _salt BatchDeleteRecipeVersion' {..} =

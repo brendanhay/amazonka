@@ -122,6 +122,8 @@ instance Core.AWSRequest SendTestEventNotification where
           SendTestEventNotificationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SendTestEventNotification where
   hashWithSalt _salt SendTestEventNotification' {..} =

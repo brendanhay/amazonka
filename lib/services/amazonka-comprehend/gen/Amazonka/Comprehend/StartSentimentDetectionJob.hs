@@ -245,6 +245,14 @@ instance Core.AWSRequest StartSentimentDetectionJob where
             Prelude.<*> (x Data..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartSentimentDetectionJob' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            StartSentimentDetectionJob
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable StartSentimentDetectionJob where
   hashWithSalt _salt StartSentimentDetectionJob' {..} =

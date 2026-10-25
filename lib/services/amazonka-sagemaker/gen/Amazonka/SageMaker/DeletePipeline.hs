@@ -58,7 +58,7 @@ data DeletePipeline = DeletePipeline'
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the operation. An idempotent operation completes no more
     -- than one time.
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,13 +78,11 @@ data DeletePipeline = DeletePipeline'
 newDeletePipeline ::
   -- | 'pipelineName'
   Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   DeletePipeline
-newDeletePipeline pPipelineName_ pClientRequestToken_ =
+newDeletePipeline pPipelineName_ =
   DeletePipeline'
     { pipelineName = pPipelineName_,
-      clientRequestToken = pClientRequestToken_
+      clientRequestToken = Prelude.Nothing
     }
 
 -- | The name of the pipeline to delete.
@@ -94,7 +92,7 @@ deletePipeline_pipelineName = Lens.lens (\DeletePipeline' {pipelineName} -> pipe
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the operation. An idempotent operation completes no more
 -- than one time.
-deletePipeline_clientRequestToken :: Lens.Lens' DeletePipeline Prelude.Text
+deletePipeline_clientRequestToken :: Lens.Lens' DeletePipeline (Prelude.Maybe Prelude.Text)
 deletePipeline_clientRequestToken = Lens.lens (\DeletePipeline' {clientRequestToken} -> clientRequestToken) (\s@DeletePipeline' {} a -> s {clientRequestToken = a} :: DeletePipeline)
 
 instance Core.AWSRequest DeletePipeline where
@@ -110,6 +108,14 @@ instance Core.AWSRequest DeletePipeline where
             Prelude.<$> (x Data..?> "PipelineArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeletePipeline' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            DeletePipeline
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable DeletePipeline where
   hashWithSalt _salt DeletePipeline' {..} =
@@ -140,8 +146,8 @@ instance Data.ToJSON DeletePipeline where
     Data.object
       ( Prelude.catMaybes
           [ Prelude.Just ("PipelineName" Data..= pipelineName),
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken)
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

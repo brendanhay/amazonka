@@ -77,6 +77,8 @@ instance Core.AWSRequest DeleteIndex where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteIndexResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteIndex where
   hashWithSalt _salt DeleteIndex' {..} =

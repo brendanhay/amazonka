@@ -121,6 +121,8 @@ instance Core.AWSRequest DisassociateCustomDomain where
             Prelude.<*> (x Data..:> "CustomDomain")
             Prelude.<*> (x Data..?> "VpcDNSTargets" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateCustomDomain where
   hashWithSalt _salt DisassociateCustomDomain' {..} =

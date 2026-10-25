@@ -106,6 +106,8 @@ instance Core.AWSRequest DescribeClientBranding where
             Prelude.<*> (x Data..?> "DeviceTypeWindows")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeClientBranding where
   hashWithSalt _salt DescribeClientBranding' {..} =

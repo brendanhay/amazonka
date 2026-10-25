@@ -528,6 +528,8 @@ instance Core.AWSRequest PutAlarm where
             Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutAlarm where
   hashWithSalt _salt PutAlarm' {..} =

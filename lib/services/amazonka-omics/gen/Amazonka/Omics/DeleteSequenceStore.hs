@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteSequenceStore where
           DeleteSequenceStoreResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSequenceStore where
   hashWithSalt _salt DeleteSequenceStore' {..} =

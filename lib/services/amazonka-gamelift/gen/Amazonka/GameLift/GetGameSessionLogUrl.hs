@@ -100,6 +100,8 @@ instance Core.AWSRequest GetGameSessionLogUrl where
             Prelude.<$> (x Data..?> "PreSignedUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetGameSessionLogUrl where
   hashWithSalt _salt GetGameSessionLogUrl' {..} =

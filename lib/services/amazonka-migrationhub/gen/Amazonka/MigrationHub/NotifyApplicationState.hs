@@ -128,6 +128,8 @@ instance Core.AWSRequest NotifyApplicationState where
           NotifyApplicationStateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable NotifyApplicationState where
   hashWithSalt _salt NotifyApplicationState' {..} =

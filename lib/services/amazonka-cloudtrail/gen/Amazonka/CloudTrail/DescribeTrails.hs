@@ -170,6 +170,8 @@ instance Core.AWSRequest DescribeTrails where
             Prelude.<$> (x Data..?> "trailList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeTrails where
   hashWithSalt _salt DescribeTrails' {..} =

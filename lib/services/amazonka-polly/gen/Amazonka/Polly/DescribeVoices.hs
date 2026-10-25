@@ -189,6 +189,8 @@ instance Core.AWSRequest DescribeVoices where
             Prelude.<*> (x Data..?> "Voices" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeVoices where
   hashWithSalt _salt DescribeVoices' {..} =

@@ -117,6 +117,8 @@ instance Core.AWSRequest UntagMFADevice where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull UntagMFADeviceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UntagMFADevice where
   hashWithSalt _salt UntagMFADevice' {..} =

@@ -88,6 +88,8 @@ instance Core.AWSRequest GetDeviceMethods where
             Prelude.<$> (x Data..?> "deviceMethods" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDeviceMethods where
   hashWithSalt _salt GetDeviceMethods' {..} =

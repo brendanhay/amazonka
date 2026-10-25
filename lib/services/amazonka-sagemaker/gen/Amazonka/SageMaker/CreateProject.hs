@@ -150,6 +150,8 @@ instance Core.AWSRequest CreateProject where
             Prelude.<*> (x Data..:> "ProjectArn")
             Prelude.<*> (x Data..:> "ProjectId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =

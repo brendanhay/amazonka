@@ -101,6 +101,8 @@ instance Core.AWSRequest GetSerialConsoleAccessStatus where
             Prelude.<$> (x Data..@? "serialConsoleAccessEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

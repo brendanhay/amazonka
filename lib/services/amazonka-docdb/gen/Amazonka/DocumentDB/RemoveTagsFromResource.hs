@@ -97,6 +97,8 @@ instance Core.AWSRequest RemoveTagsFromResource where
   response =
     Response.receiveNull
       RemoveTagsFromResourceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveTagsFromResource where
   hashWithSalt _salt RemoveTagsFromResource' {..} =

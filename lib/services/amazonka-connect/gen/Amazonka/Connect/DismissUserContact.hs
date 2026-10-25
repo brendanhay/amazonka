@@ -121,6 +121,8 @@ instance Core.AWSRequest DismissUserContact where
           DismissUserContactResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DismissUserContact where
   hashWithSalt _salt DismissUserContact' {..} =

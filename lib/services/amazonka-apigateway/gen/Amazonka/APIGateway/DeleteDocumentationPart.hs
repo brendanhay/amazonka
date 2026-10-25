@@ -97,6 +97,8 @@ instance Core.AWSRequest DeleteDocumentationPart where
   response =
     Response.receiveNull
       DeleteDocumentationPartResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDocumentationPart where
   hashWithSalt _salt DeleteDocumentationPart' {..} =

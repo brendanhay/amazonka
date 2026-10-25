@@ -215,6 +215,8 @@ instance Core.AWSRequest CreateRecommender where
             Prelude.<$> (x Data..?> "recommenderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateRecommender where
   hashWithSalt _salt CreateRecommender' {..} =

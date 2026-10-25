@@ -91,6 +91,8 @@ instance Core.AWSRequest GetQueryStatistics where
             Prelude.<*> (x Data..?> "QuerySubmissionTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetQueryStatistics where
   hashWithSalt _salt GetQueryStatistics' {..} =

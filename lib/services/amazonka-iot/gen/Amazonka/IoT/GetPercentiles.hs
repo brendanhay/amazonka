@@ -143,6 +143,8 @@ instance Core.AWSRequest GetPercentiles where
             Prelude.<$> (x Data..?> "percentiles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPercentiles where
   hashWithSalt _salt GetPercentiles' {..} =

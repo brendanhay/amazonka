@@ -125,6 +125,13 @@ instance Core.AWSRequest UpdateProject where
           UpdateProjectResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateProject' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: UpdateProject
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateProject where
   hashWithSalt _salt UpdateProject' {..} =

@@ -137,6 +137,8 @@ instance Core.AWSRequest CreateEdgeDeploymentPlan where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "EdgeDeploymentPlanArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateEdgeDeploymentPlan where
   hashWithSalt _salt CreateEdgeDeploymentPlan' {..} =

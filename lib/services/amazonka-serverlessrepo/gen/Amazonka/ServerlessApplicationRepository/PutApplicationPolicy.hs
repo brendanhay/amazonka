@@ -103,6 +103,8 @@ instance Core.AWSRequest PutApplicationPolicy where
             Prelude.<$> (x Data..?> "statements" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutApplicationPolicy where
   hashWithSalt _salt PutApplicationPolicy' {..} =

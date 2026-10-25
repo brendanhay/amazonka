@@ -139,6 +139,8 @@ instance Core.AWSRequest ListPageReceipts where
             Prelude.<*> (x Data..?> "Receipts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPageReceipts where
   hashWithSalt _salt ListPageReceipts' {..} =

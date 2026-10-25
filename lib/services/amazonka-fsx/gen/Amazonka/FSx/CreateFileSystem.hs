@@ -494,6 +494,14 @@ instance Core.AWSRequest CreateFileSystem where
             Prelude.<$> (x Data..?> "FileSystem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateFileSystem' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateFileSystem
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateFileSystem where
   hashWithSalt _salt CreateFileSystem' {..} =

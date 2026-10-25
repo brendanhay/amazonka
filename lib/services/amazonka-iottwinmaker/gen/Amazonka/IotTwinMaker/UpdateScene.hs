@@ -132,6 +132,8 @@ instance Core.AWSRequest UpdateScene where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "updateDateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateScene where
   hashWithSalt _salt UpdateScene' {..} =

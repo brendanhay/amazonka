@@ -104,6 +104,8 @@ instance Core.AWSRequest ProvideAnomalyFeedback where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "AnomalyId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ProvideAnomalyFeedback where
   hashWithSalt _salt ProvideAnomalyFeedback' {..} =

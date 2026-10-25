@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteStreamProcessor where
           DeleteStreamProcessorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteStreamProcessor where
   hashWithSalt _salt DeleteStreamProcessor' {..} =

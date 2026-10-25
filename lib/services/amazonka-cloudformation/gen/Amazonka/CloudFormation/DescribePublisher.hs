@@ -115,6 +115,8 @@ instance Core.AWSRequest DescribePublisher where
             Prelude.<*> (x Data..@? "PublisherStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePublisher where
   hashWithSalt _salt DescribePublisher' {..} =

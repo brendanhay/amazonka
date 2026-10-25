@@ -96,6 +96,8 @@ instance Core.AWSRequest DeleteDomain where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteDomainResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDomain where
   hashWithSalt _salt DeleteDomain' {..} =

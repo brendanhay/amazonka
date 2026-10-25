@@ -191,6 +191,8 @@ instance Core.AWSRequest GetPersonTracking where
             Prelude.<*> (x Data..?> "VideoMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPersonTracking where
   hashWithSalt _salt GetPersonTracking' {..} =

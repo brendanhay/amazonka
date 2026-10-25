@@ -82,6 +82,8 @@ instance Core.AWSRequest DescribeAccountHealth where
             Prelude.<*> (x Data..:> "MetricsAnalyzed")
             Prelude.<*> (x Data..:> "ResourceHours")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAccountHealth where
   hashWithSalt _salt _ =

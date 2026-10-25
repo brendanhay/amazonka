@@ -139,6 +139,8 @@ instance Core.AWSRequest SetUICustomization where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "UICustomization")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetUICustomization where
   hashWithSalt _salt SetUICustomization' {..} =

@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteHsmConfiguration where
   response =
     Response.receiveNull
       DeleteHsmConfigurationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteHsmConfiguration where
   hashWithSalt _salt DeleteHsmConfiguration' {..} =

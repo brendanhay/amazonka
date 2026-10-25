@@ -93,6 +93,8 @@ instance Core.AWSRequest DeleteTrail where
           DeleteTrailResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTrail where
   hashWithSalt _salt DeleteTrail' {..} =

@@ -104,6 +104,8 @@ instance Core.AWSRequest AttachInstances where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull AttachInstancesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AttachInstances where
   hashWithSalt _salt AttachInstances' {..} =

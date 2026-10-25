@@ -136,6 +136,8 @@ instance Core.AWSRequest MergeBranchesByFastForward where
             Prelude.<*> (x Data..?> "treeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable MergeBranchesByFastForward where
   hashWithSalt _salt MergeBranchesByFastForward' {..} =

@@ -112,6 +112,8 @@ instance Core.AWSRequest GetThreatIntelSet where
             Prelude.<*> (x Data..:> "location")
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetThreatIntelSet where
   hashWithSalt _salt GetThreatIntelSet' {..} =

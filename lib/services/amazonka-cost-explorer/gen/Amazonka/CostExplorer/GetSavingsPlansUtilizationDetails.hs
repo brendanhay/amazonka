@@ -281,6 +281,8 @@ instance
                         )
             Prelude.<*> (x Data..:> "TimePeriod")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

@@ -116,6 +116,8 @@ instance Core.AWSRequest UpdateDocumentationPart where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDocumentationPart where
   hashWithSalt _salt UpdateDocumentationPart' {..} =

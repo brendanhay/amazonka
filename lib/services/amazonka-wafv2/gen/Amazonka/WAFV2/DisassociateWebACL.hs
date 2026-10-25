@@ -140,6 +140,8 @@ instance Core.AWSRequest DisassociateWebACL where
           DisassociateWebACLResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateWebACL where
   hashWithSalt _salt DisassociateWebACL' {..} =

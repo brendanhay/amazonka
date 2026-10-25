@@ -181,6 +181,8 @@ instance Core.AWSRequest StartSession where
             Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartSession where
   hashWithSalt _salt StartSession' {..} =

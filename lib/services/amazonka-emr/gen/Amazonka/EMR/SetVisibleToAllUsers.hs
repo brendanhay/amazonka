@@ -121,6 +121,8 @@ instance Core.AWSRequest SetVisibleToAllUsers where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull SetVisibleToAllUsersResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetVisibleToAllUsers where
   hashWithSalt _salt SetVisibleToAllUsers' {..} =

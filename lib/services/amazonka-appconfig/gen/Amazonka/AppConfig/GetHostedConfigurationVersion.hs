@@ -129,6 +129,8 @@ instance
             Prelude.<*> (h Data..#? "Description")
             Prelude.<*> (h Data..#? "Version-Number")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

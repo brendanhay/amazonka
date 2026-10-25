@@ -104,6 +104,8 @@ instance Core.AWSRequest DescribeExclusions where
             Prelude.<*> (x Data..?> "exclusions" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "failedItems" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeExclusions where
   hashWithSalt _salt DescribeExclusions' {..} =

@@ -187,6 +187,8 @@ instance Core.AWSRequest ListAliases where
             Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAliases where
   hashWithSalt _salt ListAliases' {..} =

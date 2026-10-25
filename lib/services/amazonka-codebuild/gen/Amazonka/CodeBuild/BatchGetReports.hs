@@ -92,6 +92,8 @@ instance Core.AWSRequest BatchGetReports where
             Prelude.<*> (x Data..?> "reportsNotFound")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetReports where
   hashWithSalt _salt BatchGetReports' {..} =

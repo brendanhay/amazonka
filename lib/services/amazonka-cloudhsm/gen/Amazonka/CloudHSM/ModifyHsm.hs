@@ -180,6 +180,8 @@ instance Core.AWSRequest ModifyHsm where
             Prelude.<$> (x Data..?> "HsmArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyHsm where
   hashWithSalt _salt ModifyHsm' {..} =

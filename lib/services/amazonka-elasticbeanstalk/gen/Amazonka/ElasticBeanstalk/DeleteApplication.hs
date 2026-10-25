@@ -100,6 +100,8 @@ instance Core.AWSRequest DeleteApplication where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeleteApplicationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteApplication where
   hashWithSalt _salt DeleteApplication' {..} =

@@ -99,6 +99,8 @@ instance Core.AWSRequest DeleteReceiptRuleSet where
           DeleteReceiptRuleSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteReceiptRuleSet where
   hashWithSalt _salt DeleteReceiptRuleSet' {..} =

@@ -102,6 +102,8 @@ instance Core.AWSRequest AddTagsToOnPremisesInstances where
   response =
     Response.receiveNull
       AddTagsToOnPremisesInstancesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

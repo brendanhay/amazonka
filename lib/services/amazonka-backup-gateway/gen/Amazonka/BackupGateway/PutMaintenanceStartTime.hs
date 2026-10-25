@@ -146,6 +146,8 @@ instance Core.AWSRequest PutMaintenanceStartTime where
             Prelude.<$> (x Data..?> "GatewayArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutMaintenanceStartTime where
   hashWithSalt _salt PutMaintenanceStartTime' {..} =

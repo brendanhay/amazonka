@@ -103,6 +103,8 @@ instance Core.AWSRequest DescribeImport where
             Prelude.<*> (x Data..?> "resourceSpecification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeImport where
   hashWithSalt _salt DescribeImport' {..} =

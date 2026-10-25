@@ -106,6 +106,8 @@ instance Core.AWSRequest CreateLogStream where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull CreateLogStreamResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLogStream where
   hashWithSalt _salt CreateLogStream' {..} =

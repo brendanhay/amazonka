@@ -78,6 +78,8 @@ instance Core.AWSRequest DeleteListener where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteListenerResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteListener where
   hashWithSalt _salt DeleteListener' {..} =

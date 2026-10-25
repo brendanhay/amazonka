@@ -88,6 +88,8 @@ instance Core.AWSRequest DescribeTopicsDetectionJob where
             Prelude.<$> (x Data..?> "TopicsDetectionJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeTopicsDetectionJob where
   hashWithSalt _salt DescribeTopicsDetectionJob' {..} =

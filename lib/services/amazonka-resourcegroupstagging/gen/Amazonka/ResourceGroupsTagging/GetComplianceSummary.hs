@@ -300,6 +300,8 @@ instance Core.AWSRequest GetComplianceSummary where
             Prelude.<*> (x Data..?> "SummaryList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetComplianceSummary where
   hashWithSalt _salt GetComplianceSummary' {..} =

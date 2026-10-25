@@ -74,6 +74,8 @@ instance Core.AWSRequest GetNotificationChannel where
             Prelude.<*> (x Data..?> "SnsTopicArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetNotificationChannel where
   hashWithSalt _salt _ =

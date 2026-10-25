@@ -116,6 +116,8 @@ instance Core.AWSRequest PutDataLakeSettings where
           PutDataLakeSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutDataLakeSettings where
   hashWithSalt _salt PutDataLakeSettings' {..} =

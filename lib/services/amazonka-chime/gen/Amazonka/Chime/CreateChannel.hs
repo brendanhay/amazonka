@@ -82,7 +82,7 @@ data CreateChannel = CreateChannel'
     -- | The name of the channel.
     name :: Data.Sensitive Prelude.Text,
     -- | The client token for the request. An @Idempotency@ token.
-    clientRequestToken :: Data.Sensitive Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -119,24 +119,18 @@ newCreateChannel ::
   Prelude.Text ->
   -- | 'name'
   Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   CreateChannel
-newCreateChannel
-  pAppInstanceArn_
-  pName_
-  pClientRequestToken_ =
-    CreateChannel'
-      { chimeBearer = Prelude.Nothing,
-        metadata = Prelude.Nothing,
-        mode = Prelude.Nothing,
-        privacy = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        appInstanceArn = pAppInstanceArn_,
-        name = Data._Sensitive Lens.# pName_,
-        clientRequestToken =
-          Data._Sensitive Lens.# pClientRequestToken_
-      }
+newCreateChannel pAppInstanceArn_ pName_ =
+  CreateChannel'
+    { chimeBearer = Prelude.Nothing,
+      metadata = Prelude.Nothing,
+      mode = Prelude.Nothing,
+      privacy = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      appInstanceArn = pAppInstanceArn_,
+      name = Data._Sensitive Lens.# pName_,
+      clientRequestToken = Prelude.Nothing
+    }
 
 -- | The @AppInstanceUserArn@ of the user that makes the API call.
 createChannel_chimeBearer :: Lens.Lens' CreateChannel (Prelude.Maybe Prelude.Text)
@@ -172,8 +166,8 @@ createChannel_name :: Lens.Lens' CreateChannel Prelude.Text
 createChannel_name = Lens.lens (\CreateChannel' {name} -> name) (\s@CreateChannel' {} a -> s {name = a} :: CreateChannel) Prelude.. Data._Sensitive
 
 -- | The client token for the request. An @Idempotency@ token.
-createChannel_clientRequestToken :: Lens.Lens' CreateChannel Prelude.Text
-createChannel_clientRequestToken = Lens.lens (\CreateChannel' {clientRequestToken} -> clientRequestToken) (\s@CreateChannel' {} a -> s {clientRequestToken = a} :: CreateChannel) Prelude.. Data._Sensitive
+createChannel_clientRequestToken :: Lens.Lens' CreateChannel (Prelude.Maybe Prelude.Text)
+createChannel_clientRequestToken = Lens.lens (\CreateChannel' {clientRequestToken} -> clientRequestToken) (\s@CreateChannel' {} a -> s {clientRequestToken = a} :: CreateChannel)
 
 instance Core.AWSRequest CreateChannel where
   type
@@ -188,6 +182,14 @@ instance Core.AWSRequest CreateChannel where
             Prelude.<$> (x Data..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateChannel' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateChannel
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateChannel where
   hashWithSalt _salt CreateChannel' {..} =
@@ -228,8 +230,8 @@ instance Data.ToJSON CreateChannel where
             Prelude.Just
               ("AppInstanceArn" Data..= appInstanceArn),
             Prelude.Just ("Name" Data..= name),
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken)
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

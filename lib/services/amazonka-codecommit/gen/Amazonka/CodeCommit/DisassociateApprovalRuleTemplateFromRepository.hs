@@ -108,6 +108,8 @@ instance
   response =
     Response.receiveNull
       DisassociateApprovalRuleTemplateFromRepositoryResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

@@ -102,6 +102,8 @@ instance Core.AWSRequest DescribeHumanTaskUi where
             Prelude.<*> (x Data..:> "CreationTime")
             Prelude.<*> (x Data..:> "UiTemplate")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeHumanTaskUi where
   hashWithSalt _salt DescribeHumanTaskUi' {..} =

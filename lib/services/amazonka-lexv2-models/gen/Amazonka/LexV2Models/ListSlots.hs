@@ -213,6 +213,8 @@ instance Core.AWSRequest ListSlots where
             Prelude.<*> (x Data..?> "slotSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSlots where
   hashWithSalt _salt ListSlots' {..} =

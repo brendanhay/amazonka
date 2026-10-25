@@ -118,6 +118,13 @@ instance Core.AWSRequest DeleteStudioMember where
           DeleteStudioMemberResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteStudioMember' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: DeleteStudioMember
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteStudioMember where
   hashWithSalt _salt DeleteStudioMember' {..} =

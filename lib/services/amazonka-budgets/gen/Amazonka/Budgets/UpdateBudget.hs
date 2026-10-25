@@ -112,6 +112,8 @@ instance Core.AWSRequest UpdateBudget where
           UpdateBudgetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateBudget where
   hashWithSalt _salt UpdateBudget' {..} =

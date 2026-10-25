@@ -103,6 +103,8 @@ instance Core.AWSRequest GetContactChannel where
             Prelude.<*> (x Data..:> "Type")
             Prelude.<*> (x Data..:> "DeliveryAddress")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetContactChannel where
   hashWithSalt _salt GetContactChannel' {..} =

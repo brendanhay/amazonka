@@ -182,6 +182,8 @@ instance Core.AWSRequest ListModels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Models" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListModels where
   hashWithSalt _salt ListModels' {..} =

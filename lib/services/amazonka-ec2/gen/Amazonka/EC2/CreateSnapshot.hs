@@ -235,6 +235,8 @@ instance Core.AWSRequest CreateSnapshot where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateSnapshot where
   hashWithSalt _salt CreateSnapshot' {..} =

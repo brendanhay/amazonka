@@ -93,6 +93,8 @@ instance Core.AWSRequest DeleteIdentityProvider where
   response =
     Response.receiveNull
       DeleteIdentityProviderResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteIdentityProvider where
   hashWithSalt _salt DeleteIdentityProvider' {..} =

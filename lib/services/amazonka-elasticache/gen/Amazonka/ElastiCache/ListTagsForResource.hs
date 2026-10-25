@@ -111,6 +111,8 @@ instance Core.AWSRequest ListTagsForResource where
     Response.receiveXMLWrapper
       "ListTagsForResourceResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTagsForResource where
   hashWithSalt _salt ListTagsForResource' {..} =

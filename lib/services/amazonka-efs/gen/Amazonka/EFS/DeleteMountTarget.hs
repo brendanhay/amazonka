@@ -105,6 +105,8 @@ instance Core.AWSRequest DeleteMountTarget where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteMountTargetResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteMountTarget where
   hashWithSalt _salt DeleteMountTarget' {..} =

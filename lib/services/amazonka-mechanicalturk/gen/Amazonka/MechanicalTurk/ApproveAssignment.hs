@@ -138,6 +138,8 @@ instance Core.AWSRequest ApproveAssignment where
           ApproveAssignmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ApproveAssignment where
   hashWithSalt _salt ApproveAssignment' {..} =

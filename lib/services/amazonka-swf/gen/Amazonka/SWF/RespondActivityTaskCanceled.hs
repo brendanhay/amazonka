@@ -143,6 +143,8 @@ instance Core.AWSRequest RespondActivityTaskCanceled where
   response =
     Response.receiveNull
       RespondActivityTaskCanceledResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RespondActivityTaskCanceled where
   hashWithSalt _salt RespondActivityTaskCanceled' {..} =

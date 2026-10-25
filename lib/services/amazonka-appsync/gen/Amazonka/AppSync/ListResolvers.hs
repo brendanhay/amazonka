@@ -153,6 +153,8 @@ instance Core.AWSRequest ListResolvers where
             Prelude.<*> (x Data..?> "resolvers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListResolvers where
   hashWithSalt _salt ListResolvers' {..} =

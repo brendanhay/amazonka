@@ -361,6 +361,14 @@ instance Core.AWSRequest PutSecretValue where
             Prelude.<*> (x Data..?> "VersionStages")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@PutSecretValue' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            PutSecretValue
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable PutSecretValue where
   hashWithSalt _salt PutSecretValue' {..} =

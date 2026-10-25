@@ -145,6 +145,8 @@ instance Core.AWSRequest CreateGlobalTable where
             Prelude.<$> (x Data..?> "GlobalTableDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateGlobalTable where
   hashWithSalt _salt CreateGlobalTable' {..} =

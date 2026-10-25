@@ -83,6 +83,8 @@ instance Core.AWSRequest StopClock where
           StopClockResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopClock where
   hashWithSalt _salt StopClock' {..} =

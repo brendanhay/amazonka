@@ -106,6 +106,8 @@ instance Core.AWSRequest BatchPutGeofence where
             Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "Successes" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchPutGeofence where
   hashWithSalt _salt BatchPutGeofence' {..} =

@@ -125,6 +125,8 @@ instance Core.AWSRequest GetBucketTagging where
                             Prelude.>>= Data.parseXMLList "Tag"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBucketTagging where
   hashWithSalt _salt GetBucketTagging' {..} =

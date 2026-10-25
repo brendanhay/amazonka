@@ -610,6 +610,8 @@ instance Core.AWSRequest UpdateAutoScalingGroup where
   response =
     Response.receiveNull
       UpdateAutoScalingGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateAutoScalingGroup where
   hashWithSalt _salt UpdateAutoScalingGroup' {..} =

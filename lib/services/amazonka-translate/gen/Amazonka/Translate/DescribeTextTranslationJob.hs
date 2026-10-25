@@ -95,6 +95,8 @@ instance Core.AWSRequest DescribeTextTranslationJob where
             Prelude.<$> (x Data..?> "TextTranslationJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeTextTranslationJob where
   hashWithSalt _salt DescribeTextTranslationJob' {..} =

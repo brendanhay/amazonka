@@ -83,6 +83,8 @@ instance Core.AWSRequest DescribeEventConfigurations where
             Prelude.<*> (x Data..?> "lastModifiedDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEventConfigurations where
   hashWithSalt _salt _ =

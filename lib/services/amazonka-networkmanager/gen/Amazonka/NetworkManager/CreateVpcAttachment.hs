@@ -141,6 +141,13 @@ instance Core.AWSRequest CreateVpcAttachment where
             Prelude.<$> (x Data..?> "VpcAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateVpcAttachment' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateVpcAttachment
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateVpcAttachment where
   hashWithSalt _salt CreateVpcAttachment' {..} =

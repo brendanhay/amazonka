@@ -160,6 +160,8 @@ instance Core.AWSRequest StopStackSetOperation where
           StopStackSetOperationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopStackSetOperation where
   hashWithSalt _salt StopStackSetOperation' {..} =

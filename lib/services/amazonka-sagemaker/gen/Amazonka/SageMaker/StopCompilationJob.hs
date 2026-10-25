@@ -90,6 +90,8 @@ instance Core.AWSRequest StopCompilationJob where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull StopCompilationJobResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopCompilationJob where
   hashWithSalt _salt StopCompilationJob' {..} =

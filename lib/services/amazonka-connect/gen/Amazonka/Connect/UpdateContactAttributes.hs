@@ -150,6 +150,8 @@ instance Core.AWSRequest UpdateContactAttributes where
           UpdateContactAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateContactAttributes where
   hashWithSalt _salt UpdateContactAttributes' {..} =

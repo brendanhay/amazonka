@@ -319,6 +319,14 @@ instance Core.AWSRequest CreateJob where
             Prelude.<$> (x Data..?> "job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateJob' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateJob
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateJob where
   hashWithSalt _salt CreateJob' {..} =

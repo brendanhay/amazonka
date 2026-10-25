@@ -184,6 +184,8 @@ instance Core.AWSRequest UpdateFunctionUrlConfig where
             Prelude.<*> (x Data..:> "CreationTime")
             Prelude.<*> (x Data..:> "LastModifiedTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateFunctionUrlConfig where
   hashWithSalt _salt UpdateFunctionUrlConfig' {..} =

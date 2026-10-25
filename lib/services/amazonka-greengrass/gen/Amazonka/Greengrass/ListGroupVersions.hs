@@ -138,6 +138,8 @@ instance Core.AWSRequest ListGroupVersions where
             Prelude.<*> (x Data..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListGroupVersions where
   hashWithSalt _salt ListGroupVersions' {..} =

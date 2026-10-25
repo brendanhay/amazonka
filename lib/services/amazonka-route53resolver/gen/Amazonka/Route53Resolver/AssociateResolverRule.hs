@@ -125,6 +125,8 @@ instance Core.AWSRequest AssociateResolverRule where
             Prelude.<$> (x Data..?> "ResolverRuleAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateResolverRule where
   hashWithSalt _salt AssociateResolverRule' {..} =

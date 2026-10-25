@@ -92,6 +92,8 @@ instance Core.AWSRequest UpdateGateway where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateGatewayResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateGateway where
   hashWithSalt _salt UpdateGateway' {..} =

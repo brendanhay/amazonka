@@ -139,6 +139,8 @@ instance Core.AWSRequest DeleteHostedZone where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "ChangeInfo")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteHostedZone where
   hashWithSalt _salt DeleteHostedZone' {..} =

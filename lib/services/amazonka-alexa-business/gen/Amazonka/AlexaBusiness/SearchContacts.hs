@@ -146,6 +146,8 @@ instance Core.AWSRequest SearchContacts where
             Prelude.<*> (x Data..?> "TotalCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SearchContacts where
   hashWithSalt _salt SearchContacts' {..} =

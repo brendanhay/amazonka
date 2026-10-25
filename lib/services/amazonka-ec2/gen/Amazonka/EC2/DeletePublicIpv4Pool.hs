@@ -111,6 +111,8 @@ instance Core.AWSRequest DeletePublicIpv4Pool where
             Prelude.<$> (x Data..@? "returnValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePublicIpv4Pool where
   hashWithSalt _salt DeletePublicIpv4Pool' {..} =

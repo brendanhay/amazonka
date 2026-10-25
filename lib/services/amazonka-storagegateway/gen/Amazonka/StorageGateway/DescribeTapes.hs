@@ -176,6 +176,8 @@ instance Core.AWSRequest DescribeTapes where
             Prelude.<*> (x Data..?> "Tapes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeTapes where
   hashWithSalt _salt DescribeTapes' {..} =

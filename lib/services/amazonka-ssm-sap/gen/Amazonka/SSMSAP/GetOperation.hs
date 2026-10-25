@@ -83,6 +83,8 @@ instance Core.AWSRequest GetOperation where
             Prelude.<$> (x Data..?> "Operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetOperation where
   hashWithSalt _salt GetOperation' {..} =

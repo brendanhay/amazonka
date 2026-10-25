@@ -213,6 +213,8 @@ instance Core.AWSRequest ListMultipartUploads where
             Prelude.<*> (x Data..?> "UploadsList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListMultipartUploads where
   hashWithSalt _salt ListMultipartUploads' {..} =

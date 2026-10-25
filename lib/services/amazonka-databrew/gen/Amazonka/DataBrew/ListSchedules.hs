@@ -133,6 +133,8 @@ instance Core.AWSRequest ListSchedules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Schedules" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSchedules where
   hashWithSalt _salt ListSchedules' {..} =

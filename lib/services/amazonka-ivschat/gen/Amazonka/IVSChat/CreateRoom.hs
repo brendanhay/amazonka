@@ -181,6 +181,8 @@ instance Core.AWSRequest CreateRoom where
             Prelude.<*> (x Data..?> "updateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateRoom where
   hashWithSalt _salt CreateRoom' {..} =

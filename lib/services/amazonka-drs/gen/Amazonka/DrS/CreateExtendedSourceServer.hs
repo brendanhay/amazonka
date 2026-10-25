@@ -103,6 +103,8 @@ instance Core.AWSRequest CreateExtendedSourceServer where
             Prelude.<$> (x Data..?> "sourceServer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateExtendedSourceServer where
   hashWithSalt _salt CreateExtendedSourceServer' {..} =

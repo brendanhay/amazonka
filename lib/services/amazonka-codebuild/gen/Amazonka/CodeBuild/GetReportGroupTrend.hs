@@ -238,6 +238,8 @@ instance Core.AWSRequest GetReportGroupTrend where
             Prelude.<*> (x Data..?> "stats")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetReportGroupTrend where
   hashWithSalt _salt GetReportGroupTrend' {..} =

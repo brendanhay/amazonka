@@ -87,6 +87,8 @@ instance Core.AWSRequest UnclaimDevice where
             Prelude.<$> (x Data..?> "state")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UnclaimDevice where
   hashWithSalt _salt UnclaimDevice' {..} =

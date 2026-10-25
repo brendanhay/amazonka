@@ -97,6 +97,8 @@ instance Core.AWSRequest DetachPolicy where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull DetachPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetachPolicy where
   hashWithSalt _salt DetachPolicy' {..} =

@@ -121,6 +121,8 @@ instance Core.AWSRequest UpdateLensReview where
             Prelude.<*> (x Data..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateLensReview where
   hashWithSalt _salt UpdateLensReview' {..} =

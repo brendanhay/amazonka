@@ -105,6 +105,8 @@ instance Core.AWSRequest DescribeLocationEfs where
             Prelude.<*> (x Data..?> "LocationUri")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeLocationEfs where
   hashWithSalt _salt DescribeLocationEfs' {..} =

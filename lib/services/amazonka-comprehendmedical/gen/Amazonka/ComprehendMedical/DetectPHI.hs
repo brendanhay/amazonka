@@ -97,6 +97,8 @@ instance Core.AWSRequest DetectPHI where
             Prelude.<*> (x Data..?> "Entities" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..:> "ModelVersion")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetectPHI where
   hashWithSalt _salt DetectPHI' {..} =

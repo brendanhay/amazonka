@@ -115,6 +115,8 @@ instance Core.AWSRequest DeleteMultiplexProgram where
             Prelude.<*> (x Data..?> "programName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteMultiplexProgram where
   hashWithSalt _salt DeleteMultiplexProgram' {..} =

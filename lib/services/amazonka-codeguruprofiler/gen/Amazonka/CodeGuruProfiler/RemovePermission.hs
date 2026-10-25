@@ -141,6 +141,8 @@ instance Core.AWSRequest RemovePermission where
             Prelude.<*> (x Data..:> "policy")
             Prelude.<*> (x Data..:> "revisionId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemovePermission where
   hashWithSalt _salt RemovePermission' {..} =

@@ -114,6 +114,13 @@ instance Core.AWSRequest CreatePartnerInput' where
             Prelude.<$> (x Data..?> "input")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreatePartnerInput'' {requestId} =
+      ( \requestId' ->
+          s {requestId = requestId'} :: CreatePartnerInput'
+      )
+        Prelude.<$> f requestId
 
 instance Prelude.Hashable CreatePartnerInput' where
   hashWithSalt _salt CreatePartnerInput'' {..} =

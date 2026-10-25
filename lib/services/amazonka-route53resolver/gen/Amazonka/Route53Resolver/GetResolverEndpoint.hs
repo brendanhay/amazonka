@@ -92,6 +92,8 @@ instance Core.AWSRequest GetResolverEndpoint where
             Prelude.<$> (x Data..?> "ResolverEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetResolverEndpoint where
   hashWithSalt _salt GetResolverEndpoint' {..} =

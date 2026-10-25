@@ -157,6 +157,8 @@ instance Core.AWSRequest DetachNetworkInterface where
   response =
     Response.receiveNull
       DetachNetworkInterfaceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetachNetworkInterface where
   hashWithSalt _salt DetachNetworkInterface' {..} =

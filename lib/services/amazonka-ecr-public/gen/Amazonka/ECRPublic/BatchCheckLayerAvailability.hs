@@ -133,6 +133,8 @@ instance Core.AWSRequest BatchCheckLayerAvailability where
             Prelude.<*> (x Data..?> "layers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchCheckLayerAvailability where
   hashWithSalt _salt BatchCheckLayerAvailability' {..} =

@@ -156,6 +156,8 @@ instance Core.AWSRequest PutAttributes where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull PutAttributesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutAttributes where
   hashWithSalt _salt PutAttributes' {..} =

@@ -94,6 +94,8 @@ instance Core.AWSRequest DeregisterManagedInstance where
           DeregisterManagedInstanceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterManagedInstance where
   hashWithSalt _salt DeregisterManagedInstance' {..} =

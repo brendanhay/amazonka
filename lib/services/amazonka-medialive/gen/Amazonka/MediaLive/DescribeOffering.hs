@@ -109,6 +109,8 @@ instance Core.AWSRequest DescribeOffering where
             Prelude.<*> (x Data..?> "usagePrice")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeOffering where
   hashWithSalt _salt DescribeOffering' {..} =

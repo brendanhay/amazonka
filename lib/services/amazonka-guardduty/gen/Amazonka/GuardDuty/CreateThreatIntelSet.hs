@@ -177,6 +177,14 @@ instance Core.AWSRequest CreateThreatIntelSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "threatIntelSetId")
       )
+  updateIdempotencyToken
+    f
+    s@CreateThreatIntelSet' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateThreatIntelSet
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateThreatIntelSet where
   hashWithSalt _salt CreateThreatIntelSet' {..} =

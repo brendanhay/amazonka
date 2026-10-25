@@ -88,7 +88,7 @@ data CreateNetworkProfile = CreateNetworkProfile'
     -- | The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE,
     -- WPA2_PSK, WPA_PSK, WEP, or OPEN.
     securityType :: NetworkSecurityType,
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -137,14 +137,11 @@ newCreateNetworkProfile ::
   Prelude.Text ->
   -- | 'securityType'
   NetworkSecurityType ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   CreateNetworkProfile
 newCreateNetworkProfile
   pNetworkProfileName_
   pSsid_
-  pSecurityType_
-  pClientRequestToken_ =
+  pSecurityType_ =
     CreateNetworkProfile'
       { certificateAuthorityArn =
           Prelude.Nothing,
@@ -157,7 +154,7 @@ newCreateNetworkProfile
         networkProfileName = pNetworkProfileName_,
         ssid = pSsid_,
         securityType = pSecurityType_,
-        clientRequestToken = pClientRequestToken_
+        clientRequestToken = Prelude.Nothing
       }
 
 -- | The ARN of the Private Certificate Authority (PCA) created in AWS
@@ -210,7 +207,7 @@ createNetworkProfile_securityType :: Lens.Lens' CreateNetworkProfile NetworkSecu
 createNetworkProfile_securityType = Lens.lens (\CreateNetworkProfile' {securityType} -> securityType) (\s@CreateNetworkProfile' {} a -> s {securityType = a} :: CreateNetworkProfile)
 
 -- | Undocumented member.
-createNetworkProfile_clientRequestToken :: Lens.Lens' CreateNetworkProfile Prelude.Text
+createNetworkProfile_clientRequestToken :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Text)
 createNetworkProfile_clientRequestToken = Lens.lens (\CreateNetworkProfile' {clientRequestToken} -> clientRequestToken) (\s@CreateNetworkProfile' {} a -> s {clientRequestToken = a} :: CreateNetworkProfile)
 
 instance Core.AWSRequest CreateNetworkProfile where
@@ -226,6 +223,14 @@ instance Core.AWSRequest CreateNetworkProfile where
             Prelude.<$> (x Data..?> "NetworkProfileArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateNetworkProfile' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateNetworkProfile
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateNetworkProfile where
   hashWithSalt _salt CreateNetworkProfile' {..} =
@@ -288,8 +293,8 @@ instance Data.ToJSON CreateNetworkProfile where
               ("NetworkProfileName" Data..= networkProfileName),
             Prelude.Just ("Ssid" Data..= ssid),
             Prelude.Just ("SecurityType" Data..= securityType),
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken)
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

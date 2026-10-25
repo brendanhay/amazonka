@@ -128,6 +128,8 @@ instance Core.AWSRequest CreateDefaultSubnet where
             Prelude.<$> (x Data..@? "subnet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDefaultSubnet where
   hashWithSalt _salt CreateDefaultSubnet' {..} =

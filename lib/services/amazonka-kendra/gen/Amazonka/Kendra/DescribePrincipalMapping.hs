@@ -138,6 +138,8 @@ instance Core.AWSRequest DescribePrincipalMapping where
             Prelude.<*> (x Data..?> "IndexId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePrincipalMapping where
   hashWithSalt _salt DescribePrincipalMapping' {..} =

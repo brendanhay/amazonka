@@ -143,6 +143,8 @@ instance Core.AWSRequest CreateObject where
             Prelude.<$> (x Data..?> "ObjectIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateObject where
   hashWithSalt _salt CreateObject' {..} =

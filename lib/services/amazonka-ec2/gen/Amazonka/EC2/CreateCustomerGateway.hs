@@ -210,6 +210,8 @@ instance Core.AWSRequest CreateCustomerGateway where
             Prelude.<$> (x Data..@? "customerGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateCustomerGateway where
   hashWithSalt _salt CreateCustomerGateway' {..} =

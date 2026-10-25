@@ -84,6 +84,8 @@ instance Core.AWSRequest DeleteMulticastGroup where
           DeleteMulticastGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteMulticastGroup where
   hashWithSalt _salt DeleteMulticastGroup' {..} =

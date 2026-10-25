@@ -150,6 +150,8 @@ instance Core.AWSRequest UpdateConfigurationProfile where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateConfigurationProfile where
   hashWithSalt _salt UpdateConfigurationProfile' {..} =

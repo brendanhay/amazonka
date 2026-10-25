@@ -150,6 +150,8 @@ instance Core.AWSRequest CreateDeviceFleet where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull CreateDeviceFleetResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDeviceFleet where
   hashWithSalt _salt CreateDeviceFleet' {..} =

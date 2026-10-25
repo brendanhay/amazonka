@@ -501,6 +501,8 @@ instance Core.AWSRequest PutCompositeAlarm where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull PutCompositeAlarmResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutCompositeAlarm where
   hashWithSalt _salt PutCompositeAlarm' {..} =

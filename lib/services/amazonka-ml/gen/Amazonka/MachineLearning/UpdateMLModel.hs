@@ -130,6 +130,8 @@ instance Core.AWSRequest UpdateMLModel where
             Prelude.<$> (x Data..?> "MLModelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateMLModel where
   hashWithSalt _salt UpdateMLModel' {..} =

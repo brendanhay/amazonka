@@ -149,6 +149,8 @@ instance Core.AWSRequest DescribeCustomDomains where
             Prelude.<*> (x Data..?> "CustomDomains" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "VpcDNSTargets" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeCustomDomains where
   hashWithSalt _salt DescribeCustomDomains' {..} =

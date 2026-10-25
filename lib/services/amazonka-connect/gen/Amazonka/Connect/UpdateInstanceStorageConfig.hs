@@ -131,6 +131,8 @@ instance Core.AWSRequest UpdateInstanceStorageConfig where
   response =
     Response.receiveNull
       UpdateInstanceStorageConfigResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateInstanceStorageConfig where
   hashWithSalt _salt UpdateInstanceStorageConfig' {..} =

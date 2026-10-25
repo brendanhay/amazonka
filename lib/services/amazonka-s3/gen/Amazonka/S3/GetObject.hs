@@ -585,7 +585,7 @@ instance Core.AWSRequest GetObject where
     Request.s3vhost
       Prelude.. Request.get (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetObjectResponse'
             Prelude.<$> (h Data..#? "accept-ranges")
@@ -634,6 +634,8 @@ instance Core.AWSRequest GetObject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetObject where
   hashWithSalt _salt GetObject' {..} =

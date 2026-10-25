@@ -49,7 +49,7 @@ import Amazonka.WellArchitected.Types
 -- /See:/ 'newDeleteWorkload' smart constructor.
 data DeleteWorkload = DeleteWorkload'
   { workloadId :: Prelude.Text,
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,13 +67,11 @@ data DeleteWorkload = DeleteWorkload'
 newDeleteWorkload ::
   -- | 'workloadId'
   Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   DeleteWorkload
-newDeleteWorkload pWorkloadId_ pClientRequestToken_ =
+newDeleteWorkload pWorkloadId_ =
   DeleteWorkload'
     { workloadId = pWorkloadId_,
-      clientRequestToken = pClientRequestToken_
+      clientRequestToken = Prelude.Nothing
     }
 
 -- | Undocumented member.
@@ -81,7 +79,7 @@ deleteWorkload_workloadId :: Lens.Lens' DeleteWorkload Prelude.Text
 deleteWorkload_workloadId = Lens.lens (\DeleteWorkload' {workloadId} -> workloadId) (\s@DeleteWorkload' {} a -> s {workloadId = a} :: DeleteWorkload)
 
 -- | Undocumented member.
-deleteWorkload_clientRequestToken :: Lens.Lens' DeleteWorkload Prelude.Text
+deleteWorkload_clientRequestToken :: Lens.Lens' DeleteWorkload (Prelude.Maybe Prelude.Text)
 deleteWorkload_clientRequestToken = Lens.lens (\DeleteWorkload' {clientRequestToken} -> clientRequestToken) (\s@DeleteWorkload' {} a -> s {clientRequestToken = a} :: DeleteWorkload)
 
 instance Core.AWSRequest DeleteWorkload where
@@ -92,6 +90,14 @@ instance Core.AWSRequest DeleteWorkload where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteWorkloadResponse'
+  updateIdempotencyToken
+    f
+    s@DeleteWorkload' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            DeleteWorkload
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable DeleteWorkload where
   hashWithSalt _salt DeleteWorkload' {..} =

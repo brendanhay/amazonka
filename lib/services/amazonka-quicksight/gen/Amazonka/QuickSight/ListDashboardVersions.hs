@@ -160,6 +160,8 @@ instance Core.AWSRequest ListDashboardVersions where
             Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDashboardVersions where
   hashWithSalt _salt ListDashboardVersions' {..} =

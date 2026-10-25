@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteResourceServer where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteResourceServerResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteResourceServer where
   hashWithSalt _salt DeleteResourceServer' {..} =

@@ -111,6 +111,8 @@ instance Core.AWSRequest DeleteBillingGroup where
           DeleteBillingGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBillingGroup where
   hashWithSalt _salt DeleteBillingGroup' {..} =

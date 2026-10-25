@@ -188,6 +188,8 @@ instance Core.AWSRequest ListVirtualRouters where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListVirtualRouters where
   hashWithSalt _salt ListVirtualRouters' {..} =

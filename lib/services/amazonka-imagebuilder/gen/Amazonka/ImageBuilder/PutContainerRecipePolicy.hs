@@ -117,6 +117,8 @@ instance Core.AWSRequest PutContainerRecipePolicy where
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutContainerRecipePolicy where
   hashWithSalt _salt PutContainerRecipePolicy' {..} =

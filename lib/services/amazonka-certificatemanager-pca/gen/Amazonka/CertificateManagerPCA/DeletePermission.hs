@@ -154,6 +154,8 @@ instance Core.AWSRequest DeletePermission where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeletePermissionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePermission where
   hashWithSalt _salt DeletePermission' {..} =

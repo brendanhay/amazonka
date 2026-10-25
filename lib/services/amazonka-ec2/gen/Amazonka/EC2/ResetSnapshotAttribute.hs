@@ -119,6 +119,8 @@ instance Core.AWSRequest ResetSnapshotAttribute where
   response =
     Response.receiveNull
       ResetSnapshotAttributeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResetSnapshotAttribute where
   hashWithSalt _salt ResetSnapshotAttribute' {..} =

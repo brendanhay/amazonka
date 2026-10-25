@@ -129,6 +129,8 @@ instance Core.AWSRequest BatchEvaluateFeature where
             Prelude.<$> (x Data..?> "results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchEvaluateFeature where
   hashWithSalt _salt BatchEvaluateFeature' {..} =

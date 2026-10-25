@@ -145,6 +145,11 @@ instance Core.AWSRequest UpdateStudio where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "studio")
       )
+  updateIdempotencyToken f s@UpdateStudio' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: UpdateStudio
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateStudio where
   hashWithSalt _salt UpdateStudio' {..} =

@@ -83,6 +83,8 @@ instance Core.AWSRequest CancelOrder where
           CancelOrderResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelOrder where
   hashWithSalt _salt CancelOrder' {..} =

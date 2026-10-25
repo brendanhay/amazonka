@@ -189,6 +189,8 @@ instance Core.AWSRequest GetCurrentUserData where
             Prelude.<*> (x Data..?> "UserDataList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCurrentUserData where
   hashWithSalt _salt GetCurrentUserData' {..} =

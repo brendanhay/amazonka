@@ -269,6 +269,8 @@ instance Core.AWSRequest ResendConfirmationCode where
             Prelude.<$> (x Data..?> "CodeDeliveryDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResendConfirmationCode where
   hashWithSalt _salt ResendConfirmationCode' {..} =

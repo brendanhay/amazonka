@@ -167,6 +167,8 @@ instance Core.AWSRequest ListQuickConnects where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListQuickConnects where
   hashWithSalt _salt ListQuickConnects' {..} =

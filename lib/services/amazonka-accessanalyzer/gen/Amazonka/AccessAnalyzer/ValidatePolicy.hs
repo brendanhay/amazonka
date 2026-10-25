@@ -227,6 +227,8 @@ instance Core.AWSRequest ValidatePolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "findings" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ValidatePolicy where
   hashWithSalt _salt ValidatePolicy' {..} =

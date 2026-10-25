@@ -156,6 +156,8 @@ instance Core.AWSRequest ListTrafficPolicies where
             Prelude.<*> (x Data..@ "TrafficPolicyIdMarker")
             Prelude.<*> (x Data..@ "MaxItems")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTrafficPolicies where
   hashWithSalt _salt ListTrafficPolicies' {..} =

@@ -131,6 +131,14 @@ instance Core.AWSRequest DisassociateTrunkInterface where
             Prelude.<*> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DisassociateTrunkInterface' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            DisassociateTrunkInterface
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DisassociateTrunkInterface where
   hashWithSalt _salt DisassociateTrunkInterface' {..} =

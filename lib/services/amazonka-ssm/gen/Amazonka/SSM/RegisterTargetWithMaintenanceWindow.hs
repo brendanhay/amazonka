@@ -280,6 +280,14 @@ instance
             Prelude.<$> (x Data..?> "WindowTargetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@RegisterTargetWithMaintenanceWindow' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            RegisterTargetWithMaintenanceWindow
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

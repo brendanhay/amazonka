@@ -104,6 +104,8 @@ instance Core.AWSRequest AssociatePricingRules where
             Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociatePricingRules where
   hashWithSalt _salt AssociatePricingRules' {..} =

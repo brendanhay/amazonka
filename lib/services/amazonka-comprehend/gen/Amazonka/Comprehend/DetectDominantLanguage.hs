@@ -95,6 +95,8 @@ instance Core.AWSRequest DetectDominantLanguage where
             Prelude.<$> (x Data..?> "Languages" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetectDominantLanguage where
   hashWithSalt _salt DetectDominantLanguage' {..} =

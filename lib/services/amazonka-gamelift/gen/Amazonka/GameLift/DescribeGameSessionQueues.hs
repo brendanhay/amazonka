@@ -161,6 +161,8 @@ instance Core.AWSRequest DescribeGameSessionQueues where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeGameSessionQueues where
   hashWithSalt _salt DescribeGameSessionQueues' {..} =

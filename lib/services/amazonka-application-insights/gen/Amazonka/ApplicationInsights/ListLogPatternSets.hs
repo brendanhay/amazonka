@@ -119,6 +119,8 @@ instance Core.AWSRequest ListLogPatternSets where
             Prelude.<*> (x Data..?> "ResourceGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListLogPatternSets where
   hashWithSalt _salt ListLogPatternSets' {..} =

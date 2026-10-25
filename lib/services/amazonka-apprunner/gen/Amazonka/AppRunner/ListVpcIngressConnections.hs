@@ -144,6 +144,8 @@ instance Core.AWSRequest ListVpcIngressConnections where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListVpcIngressConnections where
   hashWithSalt _salt ListVpcIngressConnections' {..} =

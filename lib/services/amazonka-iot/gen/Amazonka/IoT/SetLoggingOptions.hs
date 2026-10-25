@@ -90,6 +90,8 @@ instance Core.AWSRequest SetLoggingOptions where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull SetLoggingOptionsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetLoggingOptions where
   hashWithSalt _salt SetLoggingOptions' {..} =

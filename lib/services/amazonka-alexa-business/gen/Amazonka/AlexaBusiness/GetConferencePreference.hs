@@ -71,6 +71,8 @@ instance Core.AWSRequest GetConferencePreference where
             Prelude.<$> (x Data..?> "Preference")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetConferencePreference where
   hashWithSalt _salt _ =

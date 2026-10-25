@@ -115,6 +115,8 @@ instance Core.AWSRequest DisassociateTrialComponent where
             Prelude.<*> (x Data..?> "TrialComponentArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateTrialComponent where
   hashWithSalt _salt DisassociateTrialComponent' {..} =

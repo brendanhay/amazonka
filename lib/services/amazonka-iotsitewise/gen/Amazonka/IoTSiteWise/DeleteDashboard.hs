@@ -103,6 +103,13 @@ instance Core.AWSRequest DeleteDashboard where
           DeleteDashboardResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteDashboard' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: DeleteDashboard
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteDashboard where
   hashWithSalt _salt DeleteDashboard' {..} =

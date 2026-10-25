@@ -108,6 +108,8 @@ instance Core.AWSRequest UpdateActionTarget where
           UpdateActionTargetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateActionTarget where
   hashWithSalt _salt UpdateActionTarget' {..} =

@@ -83,7 +83,7 @@ data RegisterAppInstanceUserEndpoint = RegisterAppInstanceUserEndpoint'
     -- | The attributes of an @Endpoint@.
     endpointAttributes :: EndpointAttributes,
     -- | The idempotency token for each client request.
-    clientRequestToken :: Data.Sensitive Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -128,15 +128,12 @@ newRegisterAppInstanceUserEndpoint ::
   Prelude.Text ->
   -- | 'endpointAttributes'
   EndpointAttributes ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   RegisterAppInstanceUserEndpoint
 newRegisterAppInstanceUserEndpoint
   pAppInstanceUserArn_
   pType_
   pResourceArn_
-  pEndpointAttributes_
-  pClientRequestToken_ =
+  pEndpointAttributes_ =
     RegisterAppInstanceUserEndpoint'
       { allowMessages =
           Prelude.Nothing,
@@ -148,9 +145,7 @@ newRegisterAppInstanceUserEndpoint
         resourceArn =
           Data._Sensitive Lens.# pResourceArn_,
         endpointAttributes = pEndpointAttributes_,
-        clientRequestToken =
-          Data._Sensitive
-            Lens.# pClientRequestToken_
+        clientRequestToken = Prelude.Nothing
       }
 
 -- | Boolean that controls whether the AppInstanceUserEndpoint is opted in to
@@ -189,8 +184,8 @@ registerAppInstanceUserEndpoint_endpointAttributes :: Lens.Lens' RegisterAppInst
 registerAppInstanceUserEndpoint_endpointAttributes = Lens.lens (\RegisterAppInstanceUserEndpoint' {endpointAttributes} -> endpointAttributes) (\s@RegisterAppInstanceUserEndpoint' {} a -> s {endpointAttributes = a} :: RegisterAppInstanceUserEndpoint)
 
 -- | The idempotency token for each client request.
-registerAppInstanceUserEndpoint_clientRequestToken :: Lens.Lens' RegisterAppInstanceUserEndpoint Prelude.Text
-registerAppInstanceUserEndpoint_clientRequestToken = Lens.lens (\RegisterAppInstanceUserEndpoint' {clientRequestToken} -> clientRequestToken) (\s@RegisterAppInstanceUserEndpoint' {} a -> s {clientRequestToken = a} :: RegisterAppInstanceUserEndpoint) Prelude.. Data._Sensitive
+registerAppInstanceUserEndpoint_clientRequestToken :: Lens.Lens' RegisterAppInstanceUserEndpoint (Prelude.Maybe Prelude.Text)
+registerAppInstanceUserEndpoint_clientRequestToken = Lens.lens (\RegisterAppInstanceUserEndpoint' {clientRequestToken} -> clientRequestToken) (\s@RegisterAppInstanceUserEndpoint' {} a -> s {clientRequestToken = a} :: RegisterAppInstanceUserEndpoint)
 
 instance
   Core.AWSRequest
@@ -209,6 +204,14 @@ instance
             Prelude.<*> (x Data..?> "EndpointId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@RegisterAppInstanceUserEndpoint' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            RegisterAppInstanceUserEndpoint
+      )
+        Prelude.<$> f clientRequestToken
 
 instance
   Prelude.Hashable
@@ -255,8 +258,8 @@ instance Data.ToJSON RegisterAppInstanceUserEndpoint where
             Prelude.Just ("ResourceArn" Data..= resourceArn),
             Prelude.Just
               ("EndpointAttributes" Data..= endpointAttributes),
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken)
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

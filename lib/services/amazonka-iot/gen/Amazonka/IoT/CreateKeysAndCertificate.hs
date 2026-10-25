@@ -110,6 +110,8 @@ instance Core.AWSRequest CreateKeysAndCertificate where
             Prelude.<*> (x Data..?> "keyPair")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateKeysAndCertificate where
   hashWithSalt _salt CreateKeysAndCertificate' {..} =

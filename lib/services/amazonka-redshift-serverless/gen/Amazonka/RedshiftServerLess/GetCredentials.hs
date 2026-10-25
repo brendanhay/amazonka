@@ -170,6 +170,8 @@ instance Core.AWSRequest GetCredentials where
             Prelude.<*> (x Data..?> "nextRefreshTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCredentials where
   hashWithSalt _salt GetCredentials' {..} =

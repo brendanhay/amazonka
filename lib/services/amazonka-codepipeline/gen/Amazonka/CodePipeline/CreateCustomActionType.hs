@@ -202,6 +202,8 @@ instance Core.AWSRequest CreateCustomActionType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "actionType")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateCustomActionType where
   hashWithSalt _salt CreateCustomActionType' {..} =

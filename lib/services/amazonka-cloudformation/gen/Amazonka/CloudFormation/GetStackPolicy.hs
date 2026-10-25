@@ -94,6 +94,8 @@ instance Core.AWSRequest GetStackPolicy where
             Prelude.<$> (x Data..@? "StackPolicyBody")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetStackPolicy where
   hashWithSalt _salt GetStackPolicy' {..} =

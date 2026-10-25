@@ -233,6 +233,8 @@ instance Core.AWSRequest CreateWorkteam where
             Prelude.<$> (x Data..?> "WorkteamArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateWorkteam where
   hashWithSalt _salt CreateWorkteam' {..} =

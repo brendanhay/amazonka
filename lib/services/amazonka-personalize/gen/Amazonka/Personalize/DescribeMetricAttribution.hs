@@ -90,6 +90,8 @@ instance Core.AWSRequest DescribeMetricAttribution where
             Prelude.<$> (x Data..?> "metricAttribution")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeMetricAttribution where
   hashWithSalt _salt DescribeMetricAttribution' {..} =

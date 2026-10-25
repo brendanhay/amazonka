@@ -123,6 +123,8 @@ instance Core.AWSRequest UpdateRoom where
           UpdateRoomResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRoom where
   hashWithSalt _salt UpdateRoom' {..} =

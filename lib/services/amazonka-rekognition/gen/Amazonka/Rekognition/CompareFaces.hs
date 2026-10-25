@@ -259,6 +259,8 @@ instance Core.AWSRequest CompareFaces where
             Prelude.<*> (x Data..?> "UnmatchedFaces" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CompareFaces where
   hashWithSalt _salt CompareFaces' {..} =

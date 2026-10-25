@@ -108,6 +108,8 @@ instance Core.AWSRequest UnshareDirectory where
             Prelude.<$> (x Data..?> "SharedDirectoryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UnshareDirectory where
   hashWithSalt _salt UnshareDirectory' {..} =

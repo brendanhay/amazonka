@@ -497,6 +497,8 @@ instance Core.AWSRequest GetDistributionMetricData where
             Prelude.<*> (x Data..?> "metricName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDistributionMetricData where
   hashWithSalt _salt GetDistributionMetricData' {..} =

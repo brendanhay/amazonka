@@ -154,6 +154,8 @@ instance Core.AWSRequest SetAlarmState where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull SetAlarmStateResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetAlarmState where
   hashWithSalt _salt SetAlarmState' {..} =

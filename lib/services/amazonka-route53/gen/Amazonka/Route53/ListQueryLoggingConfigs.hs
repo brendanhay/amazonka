@@ -209,6 +209,8 @@ instance Core.AWSRequest ListQueryLoggingConfigs where
                             Prelude.>>= Data.parseXMLList "QueryLoggingConfig"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListQueryLoggingConfigs where
   hashWithSalt _salt ListQueryLoggingConfigs' {..} =

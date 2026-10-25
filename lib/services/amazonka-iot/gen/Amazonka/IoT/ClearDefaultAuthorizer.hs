@@ -73,6 +73,8 @@ instance Core.AWSRequest ClearDefaultAuthorizer where
           ClearDefaultAuthorizerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ClearDefaultAuthorizer where
   hashWithSalt _salt _ =

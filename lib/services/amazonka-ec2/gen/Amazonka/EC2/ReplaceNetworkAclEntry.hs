@@ -235,6 +235,8 @@ instance Core.AWSRequest ReplaceNetworkAclEntry where
   response =
     Response.receiveNull
       ReplaceNetworkAclEntryResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ReplaceNetworkAclEntry where
   hashWithSalt _salt ReplaceNetworkAclEntry' {..} =

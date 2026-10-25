@@ -126,6 +126,8 @@ instance Core.AWSRequest DeleteInstanceEventWindow where
             Prelude.<$> (x Data..@? "instanceEventWindowState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteInstanceEventWindow where
   hashWithSalt _salt DeleteInstanceEventWindow' {..} =

@@ -118,6 +118,8 @@ instance Core.AWSRequest DescribeFeatureMetadata where
             Prelude.<*> (x Data..:> "CreationTime")
             Prelude.<*> (x Data..:> "LastModifiedTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeFeatureMetadata where
   hashWithSalt _salt DescribeFeatureMetadata' {..} =

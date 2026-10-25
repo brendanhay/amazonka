@@ -155,6 +155,8 @@ instance Core.AWSRequest SearchSchemas where
             Prelude.<*> (x Data..?> "Schemas" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SearchSchemas where
   hashWithSalt _salt SearchSchemas' {..} =

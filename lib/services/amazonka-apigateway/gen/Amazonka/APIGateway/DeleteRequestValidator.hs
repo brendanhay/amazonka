@@ -97,6 +97,8 @@ instance Core.AWSRequest DeleteRequestValidator where
   response =
     Response.receiveNull
       DeleteRequestValidatorResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRequestValidator where
   hashWithSalt _salt DeleteRequestValidator' {..} =

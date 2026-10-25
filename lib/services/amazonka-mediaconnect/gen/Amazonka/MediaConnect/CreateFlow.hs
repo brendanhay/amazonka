@@ -183,6 +183,8 @@ instance Core.AWSRequest CreateFlow where
             Prelude.<$> (x Data..?> "flow")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateFlow where
   hashWithSalt _salt CreateFlow' {..} =

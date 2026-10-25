@@ -128,6 +128,8 @@ instance Core.AWSRequest DeleteIntent where
   request overrides =
     Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteIntentResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteIntent where
   hashWithSalt _salt DeleteIntent' {..} =

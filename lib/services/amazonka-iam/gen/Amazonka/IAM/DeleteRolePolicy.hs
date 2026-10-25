@@ -132,6 +132,8 @@ instance Core.AWSRequest DeleteRolePolicy where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeleteRolePolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRolePolicy where
   hashWithSalt _salt DeleteRolePolicy' {..} =

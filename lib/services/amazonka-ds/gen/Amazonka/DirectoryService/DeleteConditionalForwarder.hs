@@ -108,6 +108,8 @@ instance Core.AWSRequest DeleteConditionalForwarder where
           DeleteConditionalForwarderResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteConditionalForwarder where
   hashWithSalt _salt DeleteConditionalForwarder' {..} =

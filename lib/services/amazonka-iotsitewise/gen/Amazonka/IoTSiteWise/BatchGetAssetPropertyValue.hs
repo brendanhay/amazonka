@@ -113,6 +113,8 @@ instance Core.AWSRequest BatchGetAssetPropertyValue where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetAssetPropertyValue where
   hashWithSalt _salt BatchGetAssetPropertyValue' {..} =

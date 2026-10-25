@@ -113,6 +113,8 @@ instance Core.AWSRequest UpdateDocumentDefaultVersion where
             Prelude.<$> (x Data..?> "Description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

@@ -500,6 +500,8 @@ instance Core.AWSRequest GetResources where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetResources where
   hashWithSalt _salt GetResources' {..} =

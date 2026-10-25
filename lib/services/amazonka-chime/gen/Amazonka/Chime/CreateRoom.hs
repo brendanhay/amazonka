@@ -52,7 +52,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateRoom' smart constructor.
 data CreateRoom = CreateRoom'
   { -- | The idempotency token for the request.
-    clientRequestToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Chime account ID.
     accountId :: Prelude.Text,
     -- | The room name.
@@ -88,7 +88,7 @@ newCreateRoom pAccountId_ pName_ =
 
 -- | The idempotency token for the request.
 createRoom_clientRequestToken :: Lens.Lens' CreateRoom (Prelude.Maybe Prelude.Text)
-createRoom_clientRequestToken = Lens.lens (\CreateRoom' {clientRequestToken} -> clientRequestToken) (\s@CreateRoom' {} a -> s {clientRequestToken = a} :: CreateRoom) Prelude.. Lens.mapping Data._Sensitive
+createRoom_clientRequestToken = Lens.lens (\CreateRoom' {clientRequestToken} -> clientRequestToken) (\s@CreateRoom' {} a -> s {clientRequestToken = a} :: CreateRoom)
 
 -- | The Amazon Chime account ID.
 createRoom_accountId :: Lens.Lens' CreateRoom Prelude.Text
@@ -109,6 +109,14 @@ instance Core.AWSRequest CreateRoom where
             Prelude.<$> (x Data..?> "Room")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateRoom' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateRoom
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateRoom where
   hashWithSalt _salt CreateRoom' {..} =

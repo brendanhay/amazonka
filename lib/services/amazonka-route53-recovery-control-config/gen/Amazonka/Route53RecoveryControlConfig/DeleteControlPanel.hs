@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteControlPanel where
           DeleteControlPanelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteControlPanel where
   hashWithSalt _salt DeleteControlPanel' {..} =

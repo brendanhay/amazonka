@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteHumanLoop where
           DeleteHumanLoopResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteHumanLoop where
   hashWithSalt _salt DeleteHumanLoop' {..} =

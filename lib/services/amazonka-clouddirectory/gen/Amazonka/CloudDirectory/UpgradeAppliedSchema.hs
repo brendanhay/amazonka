@@ -130,6 +130,8 @@ instance Core.AWSRequest UpgradeAppliedSchema where
             Prelude.<*> (x Data..?> "UpgradedSchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpgradeAppliedSchema where
   hashWithSalt _salt UpgradeAppliedSchema' {..} =

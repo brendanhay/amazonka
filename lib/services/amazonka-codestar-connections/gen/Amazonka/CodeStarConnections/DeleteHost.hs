@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteHost where
           DeleteHostResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteHost where
   hashWithSalt _salt DeleteHost' {..} =

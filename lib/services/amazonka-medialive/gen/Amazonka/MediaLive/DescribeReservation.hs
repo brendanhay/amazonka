@@ -128,6 +128,8 @@ instance Core.AWSRequest DescribeReservation where
             Prelude.<*> (x Data..?> "usagePrice")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeReservation where
   hashWithSalt _salt DescribeReservation' {..} =

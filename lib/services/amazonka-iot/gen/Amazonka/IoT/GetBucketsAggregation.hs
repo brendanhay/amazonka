@@ -146,6 +146,8 @@ instance Core.AWSRequest GetBucketsAggregation where
             Prelude.<*> (x Data..?> "totalCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBucketsAggregation where
   hashWithSalt _salt GetBucketsAggregation' {..} =

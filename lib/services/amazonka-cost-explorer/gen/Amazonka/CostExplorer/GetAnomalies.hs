@@ -162,6 +162,8 @@ instance Core.AWSRequest GetAnomalies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Anomalies" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAnomalies where
   hashWithSalt _salt GetAnomalies' {..} =

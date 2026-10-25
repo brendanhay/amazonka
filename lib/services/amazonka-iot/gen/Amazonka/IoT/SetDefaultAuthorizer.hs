@@ -97,6 +97,8 @@ instance Core.AWSRequest SetDefaultAuthorizer where
             Prelude.<*> (x Data..?> "authorizerName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetDefaultAuthorizer where
   hashWithSalt _salt SetDefaultAuthorizer' {..} =

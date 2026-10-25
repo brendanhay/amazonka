@@ -133,6 +133,8 @@ instance Core.AWSRequest CopyImage where
             Prelude.<$> (x Data..?> "DestinationImageName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CopyImage where
   hashWithSalt _salt CopyImage' {..} =

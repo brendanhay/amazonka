@@ -131,6 +131,8 @@ instance Core.AWSRequest Suggest where
             Prelude.<*> (x Data..?> "suggest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable Suggest where
   hashWithSalt _salt Suggest' {..} =

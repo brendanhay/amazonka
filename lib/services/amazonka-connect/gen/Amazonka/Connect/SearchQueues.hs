@@ -179,6 +179,8 @@ instance Core.AWSRequest SearchQueues where
             Prelude.<*> (x Data..?> "Queues" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SearchQueues where
   hashWithSalt _salt SearchQueues' {..} =

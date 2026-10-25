@@ -113,6 +113,8 @@ instance Core.AWSRequest SendDataToMulticastGroup where
             Prelude.<$> (x Data..?> "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SendDataToMulticastGroup where
   hashWithSalt _salt SendDataToMulticastGroup' {..} =

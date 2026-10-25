@@ -193,6 +193,8 @@ instance Core.AWSRequest EnableFastLaunch where
             Prelude.<*> (x Data..@? "stateTransitionTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable EnableFastLaunch where
   hashWithSalt _salt EnableFastLaunch' {..} =

@@ -114,6 +114,8 @@ instance Core.AWSRequest AssociateChannelFlow where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull AssociateChannelFlowResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateChannelFlow where
   hashWithSalt _salt AssociateChannelFlow' {..} =

@@ -111,6 +111,8 @@ instance Core.AWSRequest UntagPolicy where
   request overrides =
     Request.postQuery (overrides defaultService)
   response = Response.receiveNull UntagPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UntagPolicy where
   hashWithSalt _salt UntagPolicy' {..} =

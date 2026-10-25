@@ -155,6 +155,8 @@ instance Core.AWSRequest ListUsersInGroup where
             Prelude.<*> (x Data..?> "Users" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListUsersInGroup where
   hashWithSalt _salt ListUsersInGroup' {..} =

@@ -102,6 +102,8 @@ instance Core.AWSRequest DeleteRealtimeLogConfig where
   response =
     Response.receiveNull
       DeleteRealtimeLogConfigResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRealtimeLogConfig where
   hashWithSalt _salt DeleteRealtimeLogConfig' {..} =

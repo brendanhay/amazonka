@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteDeliveryChannel where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteDeliveryChannelResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDeliveryChannel where
   hashWithSalt _salt DeleteDeliveryChannel' {..} =

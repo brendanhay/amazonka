@@ -131,6 +131,8 @@ instance Core.AWSRequest DeleteGeoMatchSet where
             Prelude.<$> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteGeoMatchSet where
   hashWithSalt _salt DeleteGeoMatchSet' {..} =

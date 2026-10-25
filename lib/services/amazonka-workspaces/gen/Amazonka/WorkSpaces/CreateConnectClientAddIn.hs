@@ -118,6 +118,8 @@ instance Core.AWSRequest CreateConnectClientAddIn where
             Prelude.<$> (x Data..?> "AddInId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateConnectClientAddIn where
   hashWithSalt _salt CreateConnectClientAddIn' {..} =

@@ -88,6 +88,8 @@ instance Core.AWSRequest DeregisterRdsDbInstance where
   response =
     Response.receiveNull
       DeregisterRdsDbInstanceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterRdsDbInstance where
   hashWithSalt _salt DeregisterRdsDbInstance' {..} =

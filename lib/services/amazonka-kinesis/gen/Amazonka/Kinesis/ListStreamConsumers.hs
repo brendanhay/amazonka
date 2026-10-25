@@ -244,6 +244,8 @@ instance Core.AWSRequest ListStreamConsumers where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListStreamConsumers where
   hashWithSalt _salt ListStreamConsumers' {..} =

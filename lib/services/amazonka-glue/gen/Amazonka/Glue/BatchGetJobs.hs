@@ -92,6 +92,8 @@ instance Core.AWSRequest BatchGetJobs where
             Prelude.<*> (x Data..?> "JobsNotFound" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetJobs where
   hashWithSalt _salt BatchGetJobs' {..} =

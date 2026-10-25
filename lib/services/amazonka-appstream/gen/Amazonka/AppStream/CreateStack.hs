@@ -268,6 +268,8 @@ instance Core.AWSRequest CreateStack where
             Prelude.<$> (x Data..?> "Stack")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateStack where
   hashWithSalt _salt CreateStack' {..} =

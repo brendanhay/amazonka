@@ -100,6 +100,8 @@ instance Core.AWSRequest CancelDataRepositoryTask where
             Prelude.<*> (x Data..?> "TaskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelDataRepositoryTask where
   hashWithSalt _salt CancelDataRepositoryTask' {..} =

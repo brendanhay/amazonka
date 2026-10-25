@@ -117,6 +117,8 @@ instance Core.AWSRequest GetBucketRequestPayment where
             Prelude.<$> (x Data..@? "Payer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBucketRequestPayment where
   hashWithSalt _salt GetBucketRequestPayment' {..} =

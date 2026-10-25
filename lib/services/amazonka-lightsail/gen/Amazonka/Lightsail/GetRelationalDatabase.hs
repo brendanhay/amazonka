@@ -90,6 +90,8 @@ instance Core.AWSRequest GetRelationalDatabase where
             Prelude.<$> (x Data..?> "relationalDatabase")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRelationalDatabase where
   hashWithSalt _salt GetRelationalDatabase' {..} =

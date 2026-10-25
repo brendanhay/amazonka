@@ -61,7 +61,7 @@ data CreateGatewayGroup = CreateGatewayGroup'
     name :: Prelude.Text,
     -- | A unique, user-specified identifier for the request that ensures
     -- idempotency.
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,15 +85,13 @@ data CreateGatewayGroup = CreateGatewayGroup'
 newCreateGatewayGroup ::
   -- | 'name'
   Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   CreateGatewayGroup
-newCreateGatewayGroup pName_ pClientRequestToken_ =
+newCreateGatewayGroup pName_ =
   CreateGatewayGroup'
     { description = Prelude.Nothing,
       tags = Prelude.Nothing,
       name = pName_,
-      clientRequestToken = pClientRequestToken_
+      clientRequestToken = Prelude.Nothing
     }
 
 -- | The description of the gateway group.
@@ -111,7 +109,7 @@ createGatewayGroup_name = Lens.lens (\CreateGatewayGroup' {name} -> name) (\s@Cr
 
 -- | A unique, user-specified identifier for the request that ensures
 -- idempotency.
-createGatewayGroup_clientRequestToken :: Lens.Lens' CreateGatewayGroup Prelude.Text
+createGatewayGroup_clientRequestToken :: Lens.Lens' CreateGatewayGroup (Prelude.Maybe Prelude.Text)
 createGatewayGroup_clientRequestToken = Lens.lens (\CreateGatewayGroup' {clientRequestToken} -> clientRequestToken) (\s@CreateGatewayGroup' {} a -> s {clientRequestToken = a} :: CreateGatewayGroup)
 
 instance Core.AWSRequest CreateGatewayGroup where
@@ -127,6 +125,14 @@ instance Core.AWSRequest CreateGatewayGroup where
             Prelude.<$> (x Data..?> "GatewayGroupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateGatewayGroup' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateGatewayGroup
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateGatewayGroup where
   hashWithSalt _salt CreateGatewayGroup' {..} =
@@ -165,8 +171,8 @@ instance Data.ToJSON CreateGatewayGroup where
           [ ("Description" Data..=) Prelude.<$> description,
             ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken)
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

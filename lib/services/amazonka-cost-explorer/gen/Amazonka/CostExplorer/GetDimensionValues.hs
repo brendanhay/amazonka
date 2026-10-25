@@ -714,6 +714,8 @@ instance Core.AWSRequest GetDimensionValues where
             Prelude.<*> (x Data..:> "ReturnSize")
             Prelude.<*> (x Data..:> "TotalSize")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDimensionValues where
   hashWithSalt _salt GetDimensionValues' {..} =

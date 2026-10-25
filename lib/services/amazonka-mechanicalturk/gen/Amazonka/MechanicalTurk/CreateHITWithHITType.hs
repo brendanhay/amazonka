@@ -325,6 +325,8 @@ instance Core.AWSRequest CreateHITWithHITType where
             Prelude.<$> (x Data..?> "HIT")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateHITWithHITType where
   hashWithSalt _salt CreateHITWithHITType' {..} =

@@ -151,6 +151,8 @@ instance Core.AWSRequest ListComplianceSummaries where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListComplianceSummaries where
   hashWithSalt _salt ListComplianceSummaries' {..} =

@@ -107,6 +107,8 @@ instance Core.AWSRequest GetGeofence where
             Prelude.<*> (x Data..:> "Status")
             Prelude.<*> (x Data..:> "UpdateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetGeofence where
   hashWithSalt _salt GetGeofence' {..} =

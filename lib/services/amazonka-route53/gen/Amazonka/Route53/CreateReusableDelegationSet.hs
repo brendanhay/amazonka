@@ -169,6 +169,8 @@ instance Core.AWSRequest CreateReusableDelegationSet where
             Prelude.<*> (x Data..@ "DelegationSet")
             Prelude.<*> (h Data..# "Location")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateReusableDelegationSet where
   hashWithSalt _salt CreateReusableDelegationSet' {..} =

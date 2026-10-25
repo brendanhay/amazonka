@@ -20,6 +20,7 @@ data Inst
   | ToBody Field
   | IsHashable [Field]
   | IsNFData [Field]
+  deriving (Show)
 
 instance ToJSON Inst where
   toJSON = Aeson.toJSON . instToText
@@ -91,7 +92,7 @@ responseInsts fs
     (not . null -> stream, _) = List.partition fieldStream (notLocated fs)
 
 requestInsts ::
-  HasMetadata a f =>
+  (HasMetadata a f) =>
   a ->
   Id ->
   HTTP ->
@@ -129,7 +130,7 @@ requestInsts m oname h r fs = do
       where
         merged xs =
           let ys =
-                map Right (satisfies [Querystring] fs) <> xs
+                map Right (satisfies [QueryString] fs) <> xs
                   ++ map Left protocolQuery
            in case List.find f is of
                 Just (ToQuery zs) -> ToQuery (ys <> zs)
@@ -142,32 +143,32 @@ requestInsts m oname h r fs = do
     replaceXML is
       | all nonEmptyXML is = pure $! filter anyXML is
       | otherwise =
-        case ( r ^? refXMLNamespace . Lens._Just . xmlUri,
-               r ^. refLocationName,
-               listToMaybe (mapMaybe findElement is)
-             ) of
-          -- 1. If there's an xmlNamespace and/or locationName on the ref,
-          --    it should define separate ToXML + ToElement instances
-          (ns, Just e, _) ->
-            pure $! ToElement (ns <|> m ^. xmlNamespace) (Left e) : is
-          -- 2. Otherwise, a single field should be found in the ToXML instance
-          -- and lifted to a single ToElement instance.
-          (_, _, Just f) ->
-            pure $! ToElement ns (Right f) : filter anyXML is
-            where
-              ns =
-                m ^. xmlNamespace
-                  <|> f ^? fieldRef . refXMLNamespace . Lens._Just . xmlUri
+          case ( r ^? refXMLNamespace . Lens._Just . xmlUri,
+                 r ^. refLocationName,
+                 listToMaybe (mapMaybe findElement is)
+               ) of
+            -- 1. If there's an xmlNamespace and/or locationName on the ref,
+            --    it should define separate ToXML + ToElement instances
+            (ns, Just e, _) ->
+              pure $! ToElement (ns <|> m ^. xmlNamespace) (Left e) : is
+            -- 2. Otherwise, a single field should be found in the ToXML instance
+            -- and lifted to a single ToElement instance.
+            (_, _, Just f) ->
+              pure $! ToElement ns (Right f) : filter anyXML is
+              where
+                ns =
+                  m ^. xmlNamespace
+                    <|> f ^? fieldRef . refXMLNamespace . Lens._Just . xmlUri
 
-          -- 3. Unknown.
-          (ns, e, _) ->
-            Left $
-              "String determining root ToElement instance: "
-                ++ Text.unpack (memberId n)
-                ++ ", namespace: "
-                ++ show ns
-                ++ ", locationName: "
-                ++ show e
+            -- 3. Unknown.
+            (ns, e, _) ->
+              Left $
+                "String determining root ToElement instance: "
+                  ++ Text.unpack (memberId n)
+                  ++ ", namespace: "
+                  ++ show ns
+                  ++ ", locationName: "
+                  ++ show e
       where
         nonEmptyXML = notXML True
         anyXML = notXML False
@@ -216,7 +217,7 @@ requestInsts m oname h r fs = do
         v = ("Version", Just version)
 
     headers :: [Field]
-    headers = satisfies [Header, Headers] fs
+    headers = [f | f <- fs, fieldLocation f == Just Headers]
 
     target = (<> ("." <> action)) <$> m ^. targetPrefix
 

@@ -169,6 +169,8 @@ instance Core.AWSRequest DetectFaces where
             Prelude.<*> (x Data..?> "OrientationCorrection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetectFaces where
   hashWithSalt _salt DetectFaces' {..} =

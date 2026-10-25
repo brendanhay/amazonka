@@ -112,6 +112,8 @@ instance Core.AWSRequest DetachLoadBalancers where
           DetachLoadBalancersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetachLoadBalancers where
   hashWithSalt _salt DetachLoadBalancers' {..} =

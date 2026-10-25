@@ -98,6 +98,8 @@ instance Core.AWSRequest DeleteDocumentationVersion where
   response =
     Response.receiveNull
       DeleteDocumentationVersionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDocumentationVersion where
   hashWithSalt _salt DeleteDocumentationVersion' {..} =

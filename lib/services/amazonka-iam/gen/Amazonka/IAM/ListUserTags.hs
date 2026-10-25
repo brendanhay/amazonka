@@ -190,6 +190,8 @@ instance Core.AWSRequest ListUserTags where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListUserTags where
   hashWithSalt _salt ListUserTags' {..} =

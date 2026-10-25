@@ -93,6 +93,8 @@ instance Core.AWSRequest GetClientCertificate where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetClientCertificate where
   hashWithSalt _salt GetClientCertificate' {..} =

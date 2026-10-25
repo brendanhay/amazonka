@@ -99,6 +99,8 @@ instance Core.AWSRequest DeleteService where
             Prelude.<*> (x Data..:> "Service")
             Prelude.<*> (x Data..:> "OperationId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteService where
   hashWithSalt _salt DeleteService' {..} =

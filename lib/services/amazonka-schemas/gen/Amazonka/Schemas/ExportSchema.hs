@@ -128,6 +128,8 @@ instance Core.AWSRequest ExportSchema where
             Prelude.<*> (x Data..?> "Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ExportSchema where
   hashWithSalt _salt ExportSchema' {..} =

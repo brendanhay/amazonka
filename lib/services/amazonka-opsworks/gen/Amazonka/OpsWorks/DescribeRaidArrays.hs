@@ -124,6 +124,8 @@ instance Core.AWSRequest DescribeRaidArrays where
             Prelude.<$> (x Data..?> "RaidArrays" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeRaidArrays where
   hashWithSalt _salt DescribeRaidArrays' {..} =

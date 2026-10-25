@@ -202,6 +202,8 @@ instance Core.AWSRequest CreateWorkflowStep where
             Prelude.<*> (x Data..?> "workflowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateWorkflowStep where
   hashWithSalt _salt CreateWorkflowStep' {..} =

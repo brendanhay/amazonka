@@ -106,6 +106,8 @@ instance Core.AWSRequest DeregisterFromWorkMail where
           DeregisterFromWorkMailResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterFromWorkMail where
   hashWithSalt _salt DeregisterFromWorkMail' {..} =

@@ -99,6 +99,8 @@ instance Core.AWSRequest DescribeIpRestriction where
             Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeIpRestriction where
   hashWithSalt _salt DescribeIpRestriction' {..} =

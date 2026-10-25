@@ -108,6 +108,8 @@ instance Core.AWSRequest StartFileTransfer where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "TransferId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartFileTransfer where
   hashWithSalt _salt StartFileTransfer' {..} =

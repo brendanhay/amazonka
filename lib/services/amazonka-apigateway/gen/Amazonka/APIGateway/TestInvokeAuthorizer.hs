@@ -198,6 +198,8 @@ instance Core.AWSRequest TestInvokeAuthorizer where
             Prelude.<*> (x Data..?> "principalId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TestInvokeAuthorizer where
   hashWithSalt _salt TestInvokeAuthorizer' {..} =

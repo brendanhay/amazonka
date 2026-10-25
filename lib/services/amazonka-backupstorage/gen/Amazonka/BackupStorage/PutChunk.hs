@@ -168,6 +168,8 @@ instance Core.AWSRequest PutChunk where
             Prelude.<*> (x Data..:> "ChunkChecksum")
             Prelude.<*> (x Data..:> "ChunkChecksumAlgorithm")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Data.ToBody PutChunk where
   toBody PutChunk' {..} = Data.toBody data'

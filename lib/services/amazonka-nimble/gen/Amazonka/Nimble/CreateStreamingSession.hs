@@ -178,6 +178,14 @@ instance Core.AWSRequest CreateStreamingSession where
             Prelude.<$> (x Data..?> "session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateStreamingSession' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateStreamingSession
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateStreamingSession where
   hashWithSalt _salt CreateStreamingSession' {..} =

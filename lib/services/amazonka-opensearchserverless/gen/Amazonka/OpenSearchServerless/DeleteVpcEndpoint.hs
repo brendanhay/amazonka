@@ -101,6 +101,13 @@ instance Core.AWSRequest DeleteVpcEndpoint where
             Prelude.<$> (x Data..?> "deleteVpcEndpointDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteVpcEndpoint' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: DeleteVpcEndpoint
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteVpcEndpoint where
   hashWithSalt _salt DeleteVpcEndpoint' {..} =

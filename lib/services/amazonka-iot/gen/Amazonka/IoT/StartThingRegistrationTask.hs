@@ -140,6 +140,8 @@ instance Core.AWSRequest StartThingRegistrationTask where
             Prelude.<$> (x Data..?> "taskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartThingRegistrationTask where
   hashWithSalt _salt StartThingRegistrationTask' {..} =

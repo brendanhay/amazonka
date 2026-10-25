@@ -141,6 +141,8 @@ instance Core.AWSRequest MoveByoipCidrToIpam where
             Prelude.<$> (x Data..@? "byoipCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable MoveByoipCidrToIpam where
   hashWithSalt _salt MoveByoipCidrToIpam' {..} =

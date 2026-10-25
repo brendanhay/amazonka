@@ -130,6 +130,8 @@ instance Core.AWSRequest ResetInstanceAttribute where
   response =
     Response.receiveNull
       ResetInstanceAttributeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResetInstanceAttribute where
   hashWithSalt _salt ResetInstanceAttribute' {..} =

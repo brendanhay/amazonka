@@ -135,6 +135,8 @@ instance Core.AWSRequest UpdateWorkflow where
             Prelude.<$> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateWorkflow where
   hashWithSalt _salt UpdateWorkflow' {..} =

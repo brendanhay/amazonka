@@ -148,6 +148,8 @@ instance Core.AWSRequest ListConfigurationRevisions where
             Prelude.<*> (x Data..?> "revisions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListConfigurationRevisions where
   hashWithSalt _salt ListConfigurationRevisions' {..} =

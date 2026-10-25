@@ -268,6 +268,8 @@ instance Core.AWSRequest GetPropertyValueHistory where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPropertyValueHistory where
   hashWithSalt _salt GetPropertyValueHistory' {..} =

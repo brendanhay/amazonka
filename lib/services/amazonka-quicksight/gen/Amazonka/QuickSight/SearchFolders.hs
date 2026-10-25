@@ -135,6 +135,8 @@ instance Core.AWSRequest SearchFolders where
             Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SearchFolders where
   hashWithSalt _salt SearchFolders' {..} =

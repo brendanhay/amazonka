@@ -358,6 +358,8 @@ instance Core.AWSRequest CreateCertificateAuthority where
             Prelude.<$> (x Data..?> "CertificateAuthorityArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateCertificateAuthority where
   hashWithSalt _salt CreateCertificateAuthority' {..} =

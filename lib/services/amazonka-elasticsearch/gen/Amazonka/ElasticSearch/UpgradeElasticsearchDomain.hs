@@ -126,6 +126,8 @@ instance Core.AWSRequest UpgradeElasticsearchDomain where
             Prelude.<*> (x Data..?> "TargetVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpgradeElasticsearchDomain where
   hashWithSalt _salt UpgradeElasticsearchDomain' {..} =

@@ -107,6 +107,8 @@ instance Core.AWSRequest UpdateControlPanel where
             Prelude.<$> (x Data..?> "ControlPanel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateControlPanel where
   hashWithSalt _salt UpdateControlPanel' {..} =

@@ -99,6 +99,8 @@ instance Core.AWSRequest DescribeAlias where
             Prelude.<$> (x Data..?> "Alias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAlias where
   hashWithSalt _salt DescribeAlias' {..} =

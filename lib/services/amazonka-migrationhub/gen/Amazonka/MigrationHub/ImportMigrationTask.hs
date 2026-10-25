@@ -122,6 +122,8 @@ instance Core.AWSRequest ImportMigrationTask where
           ImportMigrationTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportMigrationTask where
   hashWithSalt _salt ImportMigrationTask' {..} =

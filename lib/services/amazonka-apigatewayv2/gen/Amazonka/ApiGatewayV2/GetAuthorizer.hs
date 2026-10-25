@@ -121,6 +121,8 @@ instance Core.AWSRequest GetAuthorizer where
             Prelude.<*> (x Data..?> "name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAuthorizer where
   hashWithSalt _salt GetAuthorizer' {..} =

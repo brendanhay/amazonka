@@ -165,6 +165,13 @@ instance Core.AWSRequest CreateIpamScope where
             Prelude.<$> (x Data..@? "ipamScope")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateIpamScope' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateIpamScope
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateIpamScope where
   hashWithSalt _salt CreateIpamScope' {..} =

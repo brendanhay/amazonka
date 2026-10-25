@@ -99,6 +99,8 @@ instance Core.AWSRequest GetBootstrapBrokers where
             Prelude.<*> (x Data..?> "bootstrapBrokerStringTls")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBootstrapBrokers where
   hashWithSalt _salt GetBootstrapBrokers' {..} =

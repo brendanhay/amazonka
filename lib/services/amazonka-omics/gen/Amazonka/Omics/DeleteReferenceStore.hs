@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteReferenceStore where
           DeleteReferenceStoreResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteReferenceStore where
   hashWithSalt _salt DeleteReferenceStore' {..} =

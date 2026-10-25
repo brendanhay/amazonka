@@ -85,6 +85,8 @@ instance
   response =
     Response.receiveNull
       DeleteDataQualityJobDefinitionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

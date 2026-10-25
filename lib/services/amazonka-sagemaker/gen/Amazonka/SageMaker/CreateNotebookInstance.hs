@@ -449,6 +449,8 @@ instance Core.AWSRequest CreateNotebookInstance where
             Prelude.<$> (x Data..?> "NotebookInstanceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateNotebookInstance where
   hashWithSalt _salt CreateNotebookInstance' {..} =

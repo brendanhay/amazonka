@@ -209,6 +209,8 @@ instance Core.AWSRequest PutBucketPolicy where
       Prelude.. Request.putBody (overrides defaultService)
   response =
     Response.receiveNull PutBucketPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutBucketPolicy where
   hashWithSalt _salt PutBucketPolicy' {..} =

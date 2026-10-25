@@ -109,6 +109,8 @@ instance Core.AWSRequest DisassociateResolverRule where
             Prelude.<$> (x Data..?> "ResolverRuleAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateResolverRule where
   hashWithSalt _salt DisassociateResolverRule' {..} =

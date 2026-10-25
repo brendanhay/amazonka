@@ -164,6 +164,8 @@ instance Core.AWSRequest CreateHost where
             Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateHost where
   hashWithSalt _salt CreateHost' {..} =

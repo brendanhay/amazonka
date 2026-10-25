@@ -95,6 +95,8 @@ instance Core.AWSRequest RemoveAllResourcePermissions where
   response =
     Response.receiveNull
       RemoveAllResourcePermissionsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

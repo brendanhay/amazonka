@@ -153,6 +153,14 @@ instance Core.AWSRequest StartSimulationJobBatch where
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartSimulationJobBatch' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            StartSimulationJobBatch
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable StartSimulationJobBatch where
   hashWithSalt _salt StartSimulationJobBatch' {..} =

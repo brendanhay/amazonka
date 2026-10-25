@@ -215,6 +215,8 @@ instance Core.AWSRequest ListGeoLocations where
             Prelude.<*> (x Data..@ "IsTruncated")
             Prelude.<*> (x Data..@ "MaxItems")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListGeoLocations where
   hashWithSalt _salt ListGeoLocations' {..} =

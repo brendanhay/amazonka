@@ -120,6 +120,8 @@ instance Core.AWSRequest ListResourceSets where
             Prelude.<*> (x Data..?> "ResourceSets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListResourceSets where
   hashWithSalt _salt ListResourceSets' {..} =

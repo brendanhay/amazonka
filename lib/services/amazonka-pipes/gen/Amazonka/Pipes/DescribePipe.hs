@@ -117,6 +117,8 @@ instance Core.AWSRequest DescribePipe where
             Prelude.<*> (x Data..?> "TargetParameters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePipe where
   hashWithSalt _salt DescribePipe' {..} =

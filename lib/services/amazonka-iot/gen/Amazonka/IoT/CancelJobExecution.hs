@@ -178,6 +178,8 @@ instance Core.AWSRequest CancelJobExecution where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull CancelJobExecutionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelJobExecution where
   hashWithSalt _salt CancelJobExecution' {..} =

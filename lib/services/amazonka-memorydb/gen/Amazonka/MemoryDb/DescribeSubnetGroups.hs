@@ -152,6 +152,8 @@ instance Core.AWSRequest DescribeSubnetGroups where
             Prelude.<*> (x Data..?> "SubnetGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSubnetGroups where
   hashWithSalt _salt DescribeSubnetGroups' {..} =

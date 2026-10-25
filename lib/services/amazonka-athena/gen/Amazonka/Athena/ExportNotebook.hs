@@ -89,6 +89,8 @@ instance Core.AWSRequest ExportNotebook where
             Prelude.<*> (x Data..?> "Payload")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ExportNotebook where
   hashWithSalt _salt ExportNotebook' {..} =

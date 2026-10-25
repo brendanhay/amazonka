@@ -117,6 +117,8 @@ instance Core.AWSRequest DeleteRoomSkillParameter where
           DeleteRoomSkillParameterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRoomSkillParameter where
   hashWithSalt _salt DeleteRoomSkillParameter' {..} =

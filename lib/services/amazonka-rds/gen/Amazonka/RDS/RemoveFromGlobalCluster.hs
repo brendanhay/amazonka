@@ -110,6 +110,8 @@ instance Core.AWSRequest RemoveFromGlobalCluster where
             Prelude.<$> (x Data..@? "GlobalCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveFromGlobalCluster where
   hashWithSalt _salt RemoveFromGlobalCluster' {..} =

@@ -108,6 +108,8 @@ instance Core.AWSRequest DeleteNetwork where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "network")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteNetwork where
   hashWithSalt _salt DeleteNetwork' {..} =

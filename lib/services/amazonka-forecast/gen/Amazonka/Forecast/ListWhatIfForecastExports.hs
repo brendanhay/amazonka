@@ -211,6 +211,8 @@ instance Core.AWSRequest ListWhatIfForecastExports where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListWhatIfForecastExports where
   hashWithSalt _salt ListWhatIfForecastExports' {..} =

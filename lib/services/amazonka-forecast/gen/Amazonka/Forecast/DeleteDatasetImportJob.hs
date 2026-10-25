@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteDatasetImportJob where
   response =
     Response.receiveNull
       DeleteDatasetImportJobResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDatasetImportJob where
   hashWithSalt _salt DeleteDatasetImportJob' {..} =

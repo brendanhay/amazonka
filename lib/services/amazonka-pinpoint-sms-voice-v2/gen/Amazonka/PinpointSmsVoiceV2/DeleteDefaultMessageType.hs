@@ -110,6 +110,8 @@ instance Core.AWSRequest DeleteDefaultMessageType where
             Prelude.<*> (x Data..?> "MessageType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDefaultMessageType where
   hashWithSalt _salt DeleteDefaultMessageType' {..} =

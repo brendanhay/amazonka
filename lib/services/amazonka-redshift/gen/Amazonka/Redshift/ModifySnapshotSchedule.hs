@@ -109,6 +109,8 @@ instance Core.AWSRequest ModifySnapshotSchedule where
     Response.receiveXMLWrapper
       "ModifySnapshotScheduleResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifySnapshotSchedule where
   hashWithSalt _salt ModifySnapshotSchedule' {..} =

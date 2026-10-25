@@ -163,6 +163,8 @@ instance Core.AWSRequest ListAttachments where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAttachments where
   hashWithSalt _salt ListAttachments' {..} =

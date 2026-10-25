@@ -240,6 +240,14 @@ instance Core.AWSRequest BatchExecuteStatement where
             Prelude.<*> (x Data..?> "WorkgroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@BatchExecuteStatement' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            BatchExecuteStatement
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable BatchExecuteStatement where
   hashWithSalt _salt BatchExecuteStatement' {..} =

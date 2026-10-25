@@ -146,6 +146,8 @@ instance Core.AWSRequest SelectResourceConfig where
             Prelude.<*> (x Data..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SelectResourceConfig where
   hashWithSalt _salt SelectResourceConfig' {..} =

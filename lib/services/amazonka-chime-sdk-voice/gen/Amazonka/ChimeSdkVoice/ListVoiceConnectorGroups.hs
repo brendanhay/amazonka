@@ -101,6 +101,8 @@ instance Core.AWSRequest ListVoiceConnectorGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListVoiceConnectorGroups where
   hashWithSalt _salt ListVoiceConnectorGroups' {..} =

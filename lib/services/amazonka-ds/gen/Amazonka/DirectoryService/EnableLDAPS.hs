@@ -101,6 +101,8 @@ instance Core.AWSRequest EnableLDAPS where
           EnableLDAPSResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable EnableLDAPS where
   hashWithSalt _salt EnableLDAPS' {..} =

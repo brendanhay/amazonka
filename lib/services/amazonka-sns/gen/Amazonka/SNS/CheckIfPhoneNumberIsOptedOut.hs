@@ -98,6 +98,8 @@ instance Core.AWSRequest CheckIfPhoneNumberIsOptedOut where
             Prelude.<$> (x Data..@? "isOptedOut")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

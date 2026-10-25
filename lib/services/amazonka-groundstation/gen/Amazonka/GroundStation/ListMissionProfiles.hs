@@ -131,6 +131,8 @@ instance Core.AWSRequest ListMissionProfiles where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListMissionProfiles where
   hashWithSalt _salt ListMissionProfiles' {..} =

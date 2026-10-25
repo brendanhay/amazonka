@@ -97,6 +97,8 @@ instance Core.AWSRequest DescribeSecurityPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "SecurityPolicy")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSecurityPolicy where
   hashWithSalt _salt DescribeSecurityPolicy' {..} =

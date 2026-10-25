@@ -126,6 +126,8 @@ instance Core.AWSRequest DescribeCompilationJob where
             Prelude.<*> (x Data..:> "InputConfig")
             Prelude.<*> (x Data..:> "OutputConfig")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeCompilationJob where
   hashWithSalt _salt DescribeCompilationJob' {..} =

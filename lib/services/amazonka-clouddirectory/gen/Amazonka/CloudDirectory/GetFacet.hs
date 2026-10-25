@@ -101,6 +101,8 @@ instance Core.AWSRequest GetFacet where
             Prelude.<$> (x Data..?> "Facet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetFacet where
   hashWithSalt _salt GetFacet' {..} =

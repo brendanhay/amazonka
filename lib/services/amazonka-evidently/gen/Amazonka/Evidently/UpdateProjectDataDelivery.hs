@@ -126,6 +126,8 @@ instance Core.AWSRequest UpdateProjectDataDelivery where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "project")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateProjectDataDelivery where
   hashWithSalt _salt UpdateProjectDataDelivery' {..} =

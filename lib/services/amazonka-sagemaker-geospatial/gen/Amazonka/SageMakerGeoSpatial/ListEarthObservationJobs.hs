@@ -163,6 +163,8 @@ instance Core.AWSRequest ListEarthObservationJobs where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListEarthObservationJobs where
   hashWithSalt _salt ListEarthObservationJobs' {..} =

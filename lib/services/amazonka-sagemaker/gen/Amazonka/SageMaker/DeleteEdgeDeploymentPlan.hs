@@ -83,6 +83,8 @@ instance Core.AWSRequest DeleteEdgeDeploymentPlan where
   response =
     Response.receiveNull
       DeleteEdgeDeploymentPlanResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteEdgeDeploymentPlan where
   hashWithSalt _salt DeleteEdgeDeploymentPlan' {..} =

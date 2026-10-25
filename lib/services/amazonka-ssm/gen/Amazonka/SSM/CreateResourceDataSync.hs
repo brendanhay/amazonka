@@ -173,6 +173,8 @@ instance Core.AWSRequest CreateResourceDataSync where
           CreateResourceDataSyncResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateResourceDataSync where
   hashWithSalt _salt CreateResourceDataSync' {..} =

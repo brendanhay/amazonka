@@ -167,6 +167,8 @@ instance Core.AWSRequest GetTableVersions where
             Prelude.<*> (x Data..?> "TableVersions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTableVersions where
   hashWithSalt _salt GetTableVersions' {..} =

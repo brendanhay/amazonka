@@ -99,6 +99,8 @@ instance Core.AWSRequest GenerateTemplate where
             Prelude.<$> (x Data..?> "s3Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GenerateTemplate where
   hashWithSalt _salt GenerateTemplate' {..} =

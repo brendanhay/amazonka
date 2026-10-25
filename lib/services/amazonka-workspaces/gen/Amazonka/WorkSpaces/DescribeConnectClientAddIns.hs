@@ -116,6 +116,8 @@ instance Core.AWSRequest DescribeConnectClientAddIns where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeConnectClientAddIns where
   hashWithSalt _salt DescribeConnectClientAddIns' {..} =

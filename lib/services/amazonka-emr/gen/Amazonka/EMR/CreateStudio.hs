@@ -310,6 +310,8 @@ instance Core.AWSRequest CreateStudio where
             Prelude.<*> (x Data..?> "Url")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateStudio where
   hashWithSalt _salt CreateStudio' {..} =

@@ -245,6 +245,8 @@ instance Core.AWSRequest ListAttachedUserPolicies where
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAttachedUserPolicies where
   hashWithSalt _salt ListAttachedUserPolicies' {..} =

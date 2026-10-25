@@ -345,6 +345,8 @@ instance Core.AWSRequest StartAutomationExecution where
             Prelude.<$> (x Data..?> "AutomationExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartAutomationExecution where
   hashWithSalt _salt StartAutomationExecution' {..} =

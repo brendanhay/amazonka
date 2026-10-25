@@ -113,6 +113,8 @@ instance Core.AWSRequest GetAnnotationStore where
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..:> "updateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAnnotationStore where
   hashWithSalt _salt GetAnnotationStore' {..} =

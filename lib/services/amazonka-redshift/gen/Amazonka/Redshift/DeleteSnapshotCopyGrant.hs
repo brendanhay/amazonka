@@ -84,6 +84,8 @@ instance Core.AWSRequest DeleteSnapshotCopyGrant where
   response =
     Response.receiveNull
       DeleteSnapshotCopyGrantResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSnapshotCopyGrant where
   hashWithSalt _salt DeleteSnapshotCopyGrant' {..} =

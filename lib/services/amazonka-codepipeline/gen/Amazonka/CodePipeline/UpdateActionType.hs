@@ -81,6 +81,8 @@ instance Core.AWSRequest UpdateActionType where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateActionTypeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateActionType where
   hashWithSalt _salt UpdateActionType' {..} =

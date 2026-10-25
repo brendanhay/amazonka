@@ -187,6 +187,8 @@ instance Core.AWSRequest AttachVolume where
             Prelude.<*> (x Data..?> "VolumeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AttachVolume where
   hashWithSalt _salt AttachVolume' {..} =

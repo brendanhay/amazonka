@@ -122,6 +122,8 @@ instance Core.AWSRequest GetVaultAccessPolicy where
             Prelude.<$> (Data.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetVaultAccessPolicy where
   hashWithSalt _salt GetVaultAccessPolicy' {..} =

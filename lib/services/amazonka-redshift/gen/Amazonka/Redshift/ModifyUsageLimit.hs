@@ -117,6 +117,8 @@ instance Core.AWSRequest ModifyUsageLimit where
     Response.receiveXMLWrapper
       "ModifyUsageLimitResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyUsageLimit where
   hashWithSalt _salt ModifyUsageLimit' {..} =

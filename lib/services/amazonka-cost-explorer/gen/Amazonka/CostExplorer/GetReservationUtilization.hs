@@ -407,6 +407,8 @@ instance Core.AWSRequest GetReservationUtilization where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetReservationUtilization where
   hashWithSalt _salt GetReservationUtilization' {..} =

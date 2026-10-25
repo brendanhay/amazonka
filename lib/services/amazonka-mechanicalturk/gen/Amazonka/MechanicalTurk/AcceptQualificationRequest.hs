@@ -116,6 +116,8 @@ instance Core.AWSRequest AcceptQualificationRequest where
           AcceptQualificationRequestResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AcceptQualificationRequest where
   hashWithSalt _salt AcceptQualificationRequest' {..} =

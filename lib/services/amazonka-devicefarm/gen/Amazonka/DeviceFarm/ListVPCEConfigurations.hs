@@ -137,6 +137,8 @@ instance Core.AWSRequest ListVPCEConfigurations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListVPCEConfigurations where
   hashWithSalt _salt ListVPCEConfigurations' {..} =

@@ -154,6 +154,8 @@ instance Core.AWSRequest DescribeModelPackage where
             Prelude.<*> (x Data..:> "ModelPackageStatus")
             Prelude.<*> (x Data..:> "ModelPackageStatusDetails")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeModelPackage where
   hashWithSalt _salt DescribeModelPackage' {..} =

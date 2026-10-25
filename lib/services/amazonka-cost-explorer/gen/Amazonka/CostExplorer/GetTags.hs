@@ -252,6 +252,8 @@ instance Core.AWSRequest GetTags where
             Prelude.<*> (x Data..:> "ReturnSize")
             Prelude.<*> (x Data..:> "TotalSize")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTags where
   hashWithSalt _salt GetTags' {..} =

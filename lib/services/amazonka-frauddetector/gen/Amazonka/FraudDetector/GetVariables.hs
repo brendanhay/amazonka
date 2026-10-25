@@ -112,6 +112,8 @@ instance Core.AWSRequest GetVariables where
             Prelude.<*> (x Data..?> "variables" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetVariables where
   hashWithSalt _salt GetVariables' {..} =

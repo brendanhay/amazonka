@@ -159,6 +159,8 @@ instance Core.AWSRequest PutDestination where
             Prelude.<$> (x Data..?> "destination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutDestination where
   hashWithSalt _salt PutDestination' {..} =

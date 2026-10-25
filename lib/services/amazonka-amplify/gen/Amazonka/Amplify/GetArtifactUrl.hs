@@ -91,6 +91,8 @@ instance Core.AWSRequest GetArtifactUrl where
             Prelude.<*> (x Data..:> "artifactId")
             Prelude.<*> (x Data..:> "artifactUrl")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetArtifactUrl where
   hashWithSalt _salt GetArtifactUrl' {..} =

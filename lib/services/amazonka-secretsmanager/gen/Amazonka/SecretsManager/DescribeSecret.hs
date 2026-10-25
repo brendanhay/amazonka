@@ -152,6 +152,8 @@ instance Core.AWSRequest DescribeSecret where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSecret where
   hashWithSalt _salt DescribeSecret' {..} =

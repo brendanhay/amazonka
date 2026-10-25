@@ -175,6 +175,8 @@ instance
                             Prelude.>>= Data.parseXMLList1 "VPC"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

@@ -205,6 +205,8 @@ instance Core.AWSRequest BatchUpdateTableRows where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "workbookCursor")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchUpdateTableRows where
   hashWithSalt _salt BatchUpdateTableRows' {..} =

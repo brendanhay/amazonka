@@ -339,6 +339,13 @@ instance Core.AWSRequest CreatePatchBaseline where
             Prelude.<$> (x Data..?> "BaselineId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreatePatchBaseline' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreatePatchBaseline
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreatePatchBaseline where
   hashWithSalt _salt CreatePatchBaseline' {..} =

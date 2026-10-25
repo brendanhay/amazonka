@@ -154,6 +154,8 @@ instance Core.AWSRequest QuerySchemaVersionMetadata where
             Prelude.<*> (x Data..?> "SchemaVersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable QuerySchemaVersionMetadata where
   hashWithSalt _salt QuerySchemaVersionMetadata' {..} =

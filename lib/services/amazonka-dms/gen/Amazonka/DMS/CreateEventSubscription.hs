@@ -230,6 +230,8 @@ instance Core.AWSRequest CreateEventSubscription where
             Prelude.<$> (x Data..?> "EventSubscription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateEventSubscription where
   hashWithSalt _salt CreateEventSubscription' {..} =

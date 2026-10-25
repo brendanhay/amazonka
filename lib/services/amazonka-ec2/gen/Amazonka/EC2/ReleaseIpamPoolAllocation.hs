@@ -145,6 +145,8 @@ instance Core.AWSRequest ReleaseIpamPoolAllocation where
             Prelude.<$> (x Data..@? "success")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ReleaseIpamPoolAllocation where
   hashWithSalt _salt ReleaseIpamPoolAllocation' {..} =

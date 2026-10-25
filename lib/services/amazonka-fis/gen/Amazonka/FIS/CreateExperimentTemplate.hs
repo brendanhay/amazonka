@@ -82,7 +82,7 @@ data CreateExperimentTemplate = CreateExperimentTemplate'
     targets :: Prelude.Maybe (Prelude.HashMap Prelude.Text CreateExperimentTemplateTargetInput),
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
-    clientToken :: Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | A description for the experiment template.
     description :: Prelude.Text,
     -- | The stop conditions.
@@ -121,28 +121,23 @@ data CreateExperimentTemplate = CreateExperimentTemplate'
 -- 'roleArn', 'createExperimentTemplate_roleArn' - The Amazon Resource Name (ARN) of an IAM role that grants the FIS
 -- service permission to perform service actions on your behalf.
 newCreateExperimentTemplate ::
-  -- | 'clientToken'
-  Prelude.Text ->
   -- | 'description'
   Prelude.Text ->
   -- | 'roleArn'
   Prelude.Text ->
   CreateExperimentTemplate
-newCreateExperimentTemplate
-  pClientToken_
-  pDescription_
-  pRoleArn_ =
-    CreateExperimentTemplate'
-      { logConfiguration =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
-        targets = Prelude.Nothing,
-        clientToken = pClientToken_,
-        description = pDescription_,
-        stopConditions = Prelude.mempty,
-        actions = Prelude.mempty,
-        roleArn = pRoleArn_
-      }
+newCreateExperimentTemplate pDescription_ pRoleArn_ =
+  CreateExperimentTemplate'
+    { logConfiguration =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
+      targets = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      description = pDescription_,
+      stopConditions = Prelude.mempty,
+      actions = Prelude.mempty,
+      roleArn = pRoleArn_
+    }
 
 -- | The configuration for experiment logging.
 createExperimentTemplate_logConfiguration :: Lens.Lens' CreateExperimentTemplate (Prelude.Maybe CreateExperimentTemplateLogConfigurationInput)
@@ -158,7 +153,7 @@ createExperimentTemplate_targets = Lens.lens (\CreateExperimentTemplate' {target
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
-createExperimentTemplate_clientToken :: Lens.Lens' CreateExperimentTemplate Prelude.Text
+createExperimentTemplate_clientToken :: Lens.Lens' CreateExperimentTemplate (Prelude.Maybe Prelude.Text)
 createExperimentTemplate_clientToken = Lens.lens (\CreateExperimentTemplate' {clientToken} -> clientToken) (\s@CreateExperimentTemplate' {} a -> s {clientToken = a} :: CreateExperimentTemplate)
 
 -- | A description for the experiment template.
@@ -191,6 +186,14 @@ instance Core.AWSRequest CreateExperimentTemplate where
             Prelude.<$> (x Data..?> "experimentTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateExperimentTemplate' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateExperimentTemplate
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateExperimentTemplate where
   hashWithSalt _salt CreateExperimentTemplate' {..} =
@@ -234,7 +237,7 @@ instance Data.ToJSON CreateExperimentTemplate where
               Prelude.<$> logConfiguration,
             ("tags" Data..=) Prelude.<$> tags,
             ("targets" Data..=) Prelude.<$> targets,
-            Prelude.Just ("clientToken" Data..= clientToken),
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just ("description" Data..= description),
             Prelude.Just
               ("stopConditions" Data..= stopConditions),

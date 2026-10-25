@@ -102,6 +102,8 @@ instance Core.AWSRequest GetUserSettings where
             Prelude.<$> (x Data..?> "UserSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetUserSettings where
   hashWithSalt _salt GetUserSettings' {..} =

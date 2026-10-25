@@ -243,6 +243,8 @@ instance Core.AWSRequest AssociateAddress where
             Prelude.<$> (x Data..@? "associationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateAddress where
   hashWithSalt _salt AssociateAddress' {..} =

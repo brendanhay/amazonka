@@ -144,6 +144,13 @@ instance Core.AWSRequest CreateAssistant where
             Prelude.<$> (x Data..?> "assistant")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateAssistant' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateAssistant
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateAssistant where
   hashWithSalt _salt CreateAssistant' {..} =

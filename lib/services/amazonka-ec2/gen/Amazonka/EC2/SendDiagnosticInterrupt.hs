@@ -119,6 +119,8 @@ instance Core.AWSRequest SendDiagnosticInterrupt where
   response =
     Response.receiveNull
       SendDiagnosticInterruptResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SendDiagnosticInterrupt where
   hashWithSalt _salt SendDiagnosticInterrupt' {..} =

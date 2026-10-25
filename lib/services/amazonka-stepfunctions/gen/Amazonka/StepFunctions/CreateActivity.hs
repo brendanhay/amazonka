@@ -198,6 +198,8 @@ instance Core.AWSRequest CreateActivity where
             Prelude.<*> (x Data..:> "activityArn")
             Prelude.<*> (x Data..:> "creationDate")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateActivity where
   hashWithSalt _salt CreateActivity' {..} =

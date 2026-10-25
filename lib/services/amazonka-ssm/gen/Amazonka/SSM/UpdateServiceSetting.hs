@@ -223,6 +223,8 @@ instance Core.AWSRequest UpdateServiceSetting where
           UpdateServiceSettingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateServiceSetting where
   hashWithSalt _salt UpdateServiceSetting' {..} =

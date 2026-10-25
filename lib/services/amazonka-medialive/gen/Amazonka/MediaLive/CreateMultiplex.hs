@@ -59,7 +59,7 @@ data CreateMultiplex' = CreateMultiplex''
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Unique request ID. This prevents retries from creating multiple
     -- resources.
-    requestId :: Prelude.Text,
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | Configuration for a multiplex event.
     multiplexSettings :: MultiplexSettings,
     -- | A list of availability zones for the multiplex. You must specify exactly
@@ -90,24 +90,19 @@ data CreateMultiplex' = CreateMultiplex''
 --
 -- 'name', 'createMultiplex'_name' - Name of multiplex.
 newCreateMultiplex' ::
-  -- | 'requestId'
-  Prelude.Text ->
   -- | 'multiplexSettings'
   MultiplexSettings ->
   -- | 'name'
   Prelude.Text ->
   CreateMultiplex'
-newCreateMultiplex'
-  pRequestId_
-  pMultiplexSettings_
-  pName_ =
-    CreateMultiplex''
-      { tags = Prelude.Nothing,
-        requestId = pRequestId_,
-        multiplexSettings = pMultiplexSettings_,
-        availabilityZones = Prelude.mempty,
-        name = pName_
-      }
+newCreateMultiplex' pMultiplexSettings_ pName_ =
+  CreateMultiplex''
+    { tags = Prelude.Nothing,
+      requestId = Prelude.Nothing,
+      multiplexSettings = pMultiplexSettings_,
+      availabilityZones = Prelude.mempty,
+      name = pName_
+    }
 
 -- | A collection of key-value pairs.
 createMultiplex'_tags :: Lens.Lens' CreateMultiplex' (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -115,7 +110,7 @@ createMultiplex'_tags = Lens.lens (\CreateMultiplex'' {tags} -> tags) (\s@Create
 
 -- | Unique request ID. This prevents retries from creating multiple
 -- resources.
-createMultiplex'_requestId :: Lens.Lens' CreateMultiplex' Prelude.Text
+createMultiplex'_requestId :: Lens.Lens' CreateMultiplex' (Prelude.Maybe Prelude.Text)
 createMultiplex'_requestId = Lens.lens (\CreateMultiplex'' {requestId} -> requestId) (\s@CreateMultiplex'' {} a -> s {requestId = a} :: CreateMultiplex')
 
 -- | Configuration for a multiplex event.
@@ -144,6 +139,13 @@ instance Core.AWSRequest CreateMultiplex' where
             Prelude.<$> (x Data..?> "multiplex")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateMultiplex'' {requestId} =
+      ( \requestId' ->
+          s {requestId = requestId'} :: CreateMultiplex'
+      )
+        Prelude.<$> f requestId
 
 instance Prelude.Hashable CreateMultiplex' where
   hashWithSalt _salt CreateMultiplex'' {..} =
@@ -178,7 +180,7 @@ instance Data.ToJSON CreateMultiplex' where
     Data.object
       ( Prelude.catMaybes
           [ ("tags" Data..=) Prelude.<$> tags,
-            Prelude.Just ("requestId" Data..= requestId),
+            ("requestId" Data..=) Prelude.<$> requestId,
             Prelude.Just
               ("multiplexSettings" Data..= multiplexSettings),
             Prelude.Just

@@ -83,6 +83,8 @@ instance Core.AWSRequest DeleteAlert where
           DeleteAlertResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAlert where
   hashWithSalt _salt DeleteAlert' {..} =

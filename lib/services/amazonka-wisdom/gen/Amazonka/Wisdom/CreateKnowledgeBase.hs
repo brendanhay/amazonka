@@ -180,6 +180,13 @@ instance Core.AWSRequest CreateKnowledgeBase where
             Prelude.<$> (x Data..?> "knowledgeBase")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateKnowledgeBase' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateKnowledgeBase
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateKnowledgeBase where
   hashWithSalt _salt CreateKnowledgeBase' {..} =

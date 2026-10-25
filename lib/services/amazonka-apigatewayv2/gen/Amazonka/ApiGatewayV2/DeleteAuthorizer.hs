@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteAuthorizer where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteAuthorizerResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAuthorizer where
   hashWithSalt _salt DeleteAuthorizer' {..} =

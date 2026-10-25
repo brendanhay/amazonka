@@ -318,6 +318,8 @@ instance Core.AWSRequest UpdateFunctionCode where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateFunctionCode where
   hashWithSalt _salt UpdateFunctionCode' {..} =

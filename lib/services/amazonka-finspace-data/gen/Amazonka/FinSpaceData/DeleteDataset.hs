@@ -101,6 +101,13 @@ instance Core.AWSRequest DeleteDataset where
             Prelude.<$> (x Data..?> "datasetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteDataset' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: DeleteDataset
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteDataset where
   hashWithSalt _salt DeleteDataset' {..} =

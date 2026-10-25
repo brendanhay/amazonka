@@ -152,6 +152,8 @@ instance Core.AWSRequest AssignTapePool where
             Prelude.<$> (x Data..?> "TapeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssignTapePool where
   hashWithSalt _salt AssignTapePool' {..} =

@@ -180,6 +180,8 @@ instance Core.AWSRequest ListExecutors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "SessionId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListExecutors where
   hashWithSalt _salt ListExecutors' {..} =

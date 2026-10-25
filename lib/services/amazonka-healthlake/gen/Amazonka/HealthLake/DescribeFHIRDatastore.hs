@@ -93,6 +93,8 @@ instance Core.AWSRequest DescribeFHIRDatastore where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "DatastoreProperties")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeFHIRDatastore where
   hashWithSalt _salt DescribeFHIRDatastore' {..} =

@@ -154,6 +154,8 @@ instance Core.AWSRequest ImportVolume where
             Prelude.<$> (x Data..@? "conversionTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportVolume where
   hashWithSalt _salt ImportVolume' {..} =

@@ -96,6 +96,8 @@ instance Core.AWSRequest SetV2LoggingLevel where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull SetV2LoggingLevelResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetV2LoggingLevel where
   hashWithSalt _salt SetV2LoggingLevel' {..} =

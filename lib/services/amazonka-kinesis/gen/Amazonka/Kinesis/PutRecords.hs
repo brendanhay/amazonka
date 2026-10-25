@@ -185,6 +185,8 @@ instance Core.AWSRequest PutRecords where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Records")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutRecords where
   hashWithSalt _salt PutRecords' {..} =

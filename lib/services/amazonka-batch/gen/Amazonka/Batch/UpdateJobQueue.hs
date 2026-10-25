@@ -209,6 +209,8 @@ instance Core.AWSRequest UpdateJobQueue where
             Prelude.<*> (x Data..?> "jobQueueName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateJobQueue where
   hashWithSalt _salt UpdateJobQueue' {..} =

@@ -161,6 +161,8 @@ instance Core.AWSRequest DescribeBotRecommendation where
             Prelude.<*> (x Data..?> "transcriptSourceSetting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeBotRecommendation where
   hashWithSalt _salt DescribeBotRecommendation' {..} =

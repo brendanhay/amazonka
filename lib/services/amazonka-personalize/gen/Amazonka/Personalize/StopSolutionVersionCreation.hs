@@ -99,6 +99,8 @@ instance Core.AWSRequest StopSolutionVersionCreation where
   response =
     Response.receiveNull
       StopSolutionVersionCreationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopSolutionVersionCreation where
   hashWithSalt _salt StopSolutionVersionCreation' {..} =

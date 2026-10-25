@@ -281,6 +281,8 @@ instance Core.AWSRequest CreateApplicationVersion where
     Response.receiveXMLWrapper
       "CreateApplicationVersionResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateApplicationVersion where
   hashWithSalt _salt CreateApplicationVersion' {..} =

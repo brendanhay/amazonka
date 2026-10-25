@@ -95,6 +95,8 @@ instance Core.AWSRequest DeleteInboundConnection where
             Prelude.<$> (x Data..?> "Connection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteInboundConnection where
   hashWithSalt _salt DeleteInboundConnection' {..} =

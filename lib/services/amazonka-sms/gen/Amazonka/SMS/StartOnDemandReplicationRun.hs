@@ -105,6 +105,8 @@ instance Core.AWSRequest StartOnDemandReplicationRun where
             Prelude.<$> (x Data..?> "replicationRunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartOnDemandReplicationRun where
   hashWithSalt _salt StartOnDemandReplicationRun' {..} =

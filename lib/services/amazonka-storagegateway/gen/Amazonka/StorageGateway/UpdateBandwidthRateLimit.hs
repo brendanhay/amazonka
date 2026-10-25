@@ -129,6 +129,8 @@ instance Core.AWSRequest UpdateBandwidthRateLimit where
             Prelude.<$> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateBandwidthRateLimit where
   hashWithSalt _salt UpdateBandwidthRateLimit' {..} =

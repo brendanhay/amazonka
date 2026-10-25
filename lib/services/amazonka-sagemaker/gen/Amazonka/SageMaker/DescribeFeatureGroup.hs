@@ -136,6 +136,8 @@ instance Core.AWSRequest DescribeFeatureGroup where
             Prelude.<*> (x Data..:> "CreationTime")
             Prelude.<*> (x Data..:> "NextToken")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeFeatureGroup where
   hashWithSalt _salt DescribeFeatureGroup' {..} =

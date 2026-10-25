@@ -142,6 +142,8 @@ instance Core.AWSRequest ImportCrl where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportCrl where
   hashWithSalt _salt ImportCrl' {..} =

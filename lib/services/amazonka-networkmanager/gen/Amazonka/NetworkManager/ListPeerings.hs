@@ -161,6 +161,8 @@ instance Core.AWSRequest ListPeerings where
             Prelude.<*> (x Data..?> "Peerings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPeerings where
   hashWithSalt _salt ListPeerings' {..} =

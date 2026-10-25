@@ -94,6 +94,8 @@ instance Core.AWSRequest InferRxNorm where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Entities" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable InferRxNorm where
   hashWithSalt _salt InferRxNorm' {..} =

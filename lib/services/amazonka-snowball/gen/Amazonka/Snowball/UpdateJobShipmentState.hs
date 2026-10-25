@@ -117,6 +117,8 @@ instance Core.AWSRequest UpdateJobShipmentState where
           UpdateJobShipmentStateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateJobShipmentState where
   hashWithSalt _salt UpdateJobShipmentState' {..} =

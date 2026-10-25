@@ -174,6 +174,8 @@ instance Core.AWSRequest CreateWorkspaceBundle where
             Prelude.<$> (x Data..?> "WorkspaceBundle")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateWorkspaceBundle where
   hashWithSalt _salt CreateWorkspaceBundle' {..} =

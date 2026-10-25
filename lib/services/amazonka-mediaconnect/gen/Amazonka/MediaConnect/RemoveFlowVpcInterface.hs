@@ -114,6 +114,8 @@ instance Core.AWSRequest RemoveFlowVpcInterface where
             Prelude.<*> (x Data..?> "vpcInterfaceName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveFlowVpcInterface where
   hashWithSalt _salt RemoveFlowVpcInterface' {..} =

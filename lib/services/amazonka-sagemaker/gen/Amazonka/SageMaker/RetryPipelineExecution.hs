@@ -59,7 +59,7 @@ data RetryPipelineExecution = RetryPipelineExecution'
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the operation. An idempotent operation completes no more
     -- than once.
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,18 +82,14 @@ data RetryPipelineExecution = RetryPipelineExecution'
 newRetryPipelineExecution ::
   -- | 'pipelineExecutionArn'
   Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   RetryPipelineExecution
-newRetryPipelineExecution
-  pPipelineExecutionArn_
-  pClientRequestToken_ =
-    RetryPipelineExecution'
-      { parallelismConfiguration =
-          Prelude.Nothing,
-        pipelineExecutionArn = pPipelineExecutionArn_,
-        clientRequestToken = pClientRequestToken_
-      }
+newRetryPipelineExecution pPipelineExecutionArn_ =
+  RetryPipelineExecution'
+    { parallelismConfiguration =
+        Prelude.Nothing,
+      pipelineExecutionArn = pPipelineExecutionArn_,
+      clientRequestToken = Prelude.Nothing
+    }
 
 -- | This configuration, if specified, overrides the parallelism
 -- configuration of the parent pipeline.
@@ -107,7 +103,7 @@ retryPipelineExecution_pipelineExecutionArn = Lens.lens (\RetryPipelineExecution
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the operation. An idempotent operation completes no more
 -- than once.
-retryPipelineExecution_clientRequestToken :: Lens.Lens' RetryPipelineExecution Prelude.Text
+retryPipelineExecution_clientRequestToken :: Lens.Lens' RetryPipelineExecution (Prelude.Maybe Prelude.Text)
 retryPipelineExecution_clientRequestToken = Lens.lens (\RetryPipelineExecution' {clientRequestToken} -> clientRequestToken) (\s@RetryPipelineExecution' {} a -> s {clientRequestToken = a} :: RetryPipelineExecution)
 
 instance Core.AWSRequest RetryPipelineExecution where
@@ -123,6 +119,14 @@ instance Core.AWSRequest RetryPipelineExecution where
             Prelude.<$> (x Data..?> "PipelineExecutionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@RetryPipelineExecution' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            RetryPipelineExecution
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable RetryPipelineExecution where
   hashWithSalt _salt RetryPipelineExecution' {..} =
@@ -162,8 +166,8 @@ instance Data.ToJSON RetryPipelineExecution where
               ( "PipelineExecutionArn"
                   Data..= pipelineExecutionArn
               ),
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken)
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

@@ -92,6 +92,8 @@ instance Core.AWSRequest StartConfigurationRecorder where
   response =
     Response.receiveNull
       StartConfigurationRecorderResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartConfigurationRecorder where
   hashWithSalt _salt StartConfigurationRecorder' {..} =

@@ -148,6 +148,8 @@ instance Core.AWSRequest ListAnomalyGroupTimeSeries where
             Prelude.<*> (x Data..?> "TimestampList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAnomalyGroupTimeSeries where
   hashWithSalt _salt ListAnomalyGroupTimeSeries' {..} =

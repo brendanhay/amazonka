@@ -190,6 +190,8 @@ instance Core.AWSRequest PutAccountDetails where
           PutAccountDetailsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutAccountDetails where
   hashWithSalt _salt PutAccountDetails' {..} =

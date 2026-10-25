@@ -135,6 +135,8 @@ instance Core.AWSRequest TransactGetItems where
             Prelude.<*> (x Data..?> "Responses")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TransactGetItems where
   hashWithSalt _salt TransactGetItems' {..} =

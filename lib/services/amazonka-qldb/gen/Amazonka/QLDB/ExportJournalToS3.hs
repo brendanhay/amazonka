@@ -267,6 +267,8 @@ instance Core.AWSRequest ExportJournalToS3 where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ExportId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ExportJournalToS3 where
   hashWithSalt _salt ExportJournalToS3' {..} =

@@ -245,6 +245,8 @@ instance Core.AWSRequest MergeBranchesBySquash where
             Prelude.<*> (x Data..?> "treeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable MergeBranchesBySquash where
   hashWithSalt _salt MergeBranchesBySquash' {..} =

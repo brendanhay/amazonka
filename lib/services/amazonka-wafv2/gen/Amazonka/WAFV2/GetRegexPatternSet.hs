@@ -157,6 +157,8 @@ instance Core.AWSRequest GetRegexPatternSet where
             Prelude.<*> (x Data..?> "RegexPatternSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRegexPatternSet where
   hashWithSalt _salt GetRegexPatternSet' {..} =

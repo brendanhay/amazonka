@@ -94,6 +94,8 @@ instance Core.AWSRequest DeleteDocument where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteDocumentResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDocument where
   hashWithSalt _salt DeleteDocument' {..} =

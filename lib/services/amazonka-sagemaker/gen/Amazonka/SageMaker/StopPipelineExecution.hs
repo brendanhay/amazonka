@@ -81,7 +81,7 @@ data StopPipelineExecution = StopPipelineExecution'
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the operation. An idempotent operation completes no more
     -- than once.
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,17 +101,13 @@ data StopPipelineExecution = StopPipelineExecution'
 newStopPipelineExecution ::
   -- | 'pipelineExecutionArn'
   Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   StopPipelineExecution
-newStopPipelineExecution
-  pPipelineExecutionArn_
-  pClientRequestToken_ =
-    StopPipelineExecution'
-      { pipelineExecutionArn =
-          pPipelineExecutionArn_,
-        clientRequestToken = pClientRequestToken_
-      }
+newStopPipelineExecution pPipelineExecutionArn_ =
+  StopPipelineExecution'
+    { pipelineExecutionArn =
+        pPipelineExecutionArn_,
+      clientRequestToken = Prelude.Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the pipeline execution.
 stopPipelineExecution_pipelineExecutionArn :: Lens.Lens' StopPipelineExecution Prelude.Text
@@ -120,7 +116,7 @@ stopPipelineExecution_pipelineExecutionArn = Lens.lens (\StopPipelineExecution' 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the operation. An idempotent operation completes no more
 -- than once.
-stopPipelineExecution_clientRequestToken :: Lens.Lens' StopPipelineExecution Prelude.Text
+stopPipelineExecution_clientRequestToken :: Lens.Lens' StopPipelineExecution (Prelude.Maybe Prelude.Text)
 stopPipelineExecution_clientRequestToken = Lens.lens (\StopPipelineExecution' {clientRequestToken} -> clientRequestToken) (\s@StopPipelineExecution' {} a -> s {clientRequestToken = a} :: StopPipelineExecution)
 
 instance Core.AWSRequest StopPipelineExecution where
@@ -136,6 +132,14 @@ instance Core.AWSRequest StopPipelineExecution where
             Prelude.<$> (x Data..?> "PipelineExecutionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StopPipelineExecution' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            StopPipelineExecution
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable StopPipelineExecution where
   hashWithSalt _salt StopPipelineExecution' {..} =
@@ -171,8 +175,8 @@ instance Data.ToJSON StopPipelineExecution where
               ( "PipelineExecutionArn"
                   Data..= pipelineExecutionArn
               ),
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken)
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

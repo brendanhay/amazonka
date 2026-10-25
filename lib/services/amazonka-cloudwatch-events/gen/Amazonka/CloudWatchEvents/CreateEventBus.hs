@@ -136,6 +136,8 @@ instance Core.AWSRequest CreateEventBus where
             Prelude.<$> (x Data..?> "EventBusArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateEventBus where
   hashWithSalt _salt CreateEventBus' {..} =

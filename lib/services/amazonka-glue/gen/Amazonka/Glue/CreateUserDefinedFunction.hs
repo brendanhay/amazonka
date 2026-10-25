@@ -118,6 +118,8 @@ instance Core.AWSRequest CreateUserDefinedFunction where
           CreateUserDefinedFunctionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateUserDefinedFunction where
   hashWithSalt _salt CreateUserDefinedFunction' {..} =

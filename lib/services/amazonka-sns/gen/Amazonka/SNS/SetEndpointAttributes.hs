@@ -140,6 +140,8 @@ instance Core.AWSRequest SetEndpointAttributes where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull SetEndpointAttributesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetEndpointAttributes where
   hashWithSalt _salt SetEndpointAttributes' {..} =

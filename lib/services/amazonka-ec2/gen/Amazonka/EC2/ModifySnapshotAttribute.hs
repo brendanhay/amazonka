@@ -167,6 +167,8 @@ instance Core.AWSRequest ModifySnapshotAttribute where
   response =
     Response.receiveNull
       ModifySnapshotAttributeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifySnapshotAttribute where
   hashWithSalt _salt ModifySnapshotAttribute' {..} =

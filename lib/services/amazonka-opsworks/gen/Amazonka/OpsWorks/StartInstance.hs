@@ -85,6 +85,8 @@ instance Core.AWSRequest StartInstance where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull StartInstanceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartInstance where
   hashWithSalt _salt StartInstance' {..} =

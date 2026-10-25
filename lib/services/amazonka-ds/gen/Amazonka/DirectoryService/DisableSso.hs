@@ -137,6 +137,8 @@ instance Core.AWSRequest DisableSso where
           DisableSsoResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisableSso where
   hashWithSalt _salt DisableSso' {..} =

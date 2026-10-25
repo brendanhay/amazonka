@@ -90,6 +90,8 @@ instance Core.AWSRequest GetSubscriber where
             Prelude.<$> (x Data..?> "subscriber")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSubscriber where
   hashWithSalt _salt GetSubscriber' {..} =

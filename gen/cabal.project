@@ -1,0 +1,3 @@
+-- Standalone project for the generator, kept isolated from the main
+-- amazonka project (which covers lib/, examples/ and services/).
+packages: .

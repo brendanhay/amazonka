@@ -110,6 +110,8 @@ instance Core.AWSRequest UpdateResourceProfile where
           UpdateResourceProfileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateResourceProfile where
   hashWithSalt _salt UpdateResourceProfile' {..} =

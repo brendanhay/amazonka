@@ -179,6 +179,8 @@ instance Core.AWSRequest ScheduleRun where
             Prelude.<$> (x Data..?> "run")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ScheduleRun where
   hashWithSalt _salt ScheduleRun' {..} =

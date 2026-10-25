@@ -124,6 +124,8 @@ instance Core.AWSRequest DescribeFpgaImageAttribute where
             Prelude.<$> (x Data..@? "fpgaImageAttribute")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeFpgaImageAttribute where
   hashWithSalt _salt DescribeFpgaImageAttribute' {..} =

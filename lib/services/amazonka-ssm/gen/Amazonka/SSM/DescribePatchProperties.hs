@@ -214,6 +214,8 @@ instance Core.AWSRequest DescribePatchProperties where
             Prelude.<*> (x Data..?> "Properties" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePatchProperties where
   hashWithSalt _salt DescribePatchProperties' {..} =

@@ -112,6 +112,8 @@ instance Core.AWSRequest CreateResource where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateResource where
   hashWithSalt _salt CreateResource' {..} =

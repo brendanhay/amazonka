@@ -93,6 +93,8 @@ instance Core.AWSRequest GetQueryExecution where
             Prelude.<$> (x Data..?> "QueryExecution")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetQueryExecution where
   hashWithSalt _salt GetQueryExecution' {..} =

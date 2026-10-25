@@ -97,6 +97,8 @@ instance Core.AWSRequest DeauthorizeConnection where
             Prelude.<*> (x Data..?> "LastModifiedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeauthorizeConnection where
   hashWithSalt _salt DeauthorizeConnection' {..} =

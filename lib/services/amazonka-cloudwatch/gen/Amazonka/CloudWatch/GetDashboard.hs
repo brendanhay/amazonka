@@ -94,6 +94,8 @@ instance Core.AWSRequest GetDashboard where
             Prelude.<*> (x Data..@? "DashboardName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDashboard where
   hashWithSalt _salt GetDashboard' {..} =

@@ -131,6 +131,8 @@ instance Core.AWSRequest ListSamples where
             Prelude.<*> (x Data..?> "samples" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSamples where
   hashWithSalt _salt ListSamples' {..} =

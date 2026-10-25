@@ -100,6 +100,8 @@ instance Core.AWSRequest PutChannelPolicy where
           PutChannelPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutChannelPolicy where
   hashWithSalt _salt PutChannelPolicy' {..} =

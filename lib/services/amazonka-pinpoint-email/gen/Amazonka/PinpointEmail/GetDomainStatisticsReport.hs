@@ -130,6 +130,8 @@ instance Core.AWSRequest GetDomainStatisticsReport where
             Prelude.<*> (x Data..:> "OverallVolume")
             Prelude.<*> (x Data..?> "DailyVolumes" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDomainStatisticsReport where
   hashWithSalt _salt GetDomainStatisticsReport' {..} =

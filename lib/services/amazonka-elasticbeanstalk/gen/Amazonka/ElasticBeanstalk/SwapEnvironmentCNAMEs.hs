@@ -165,6 +165,8 @@ instance Core.AWSRequest SwapEnvironmentCNAMEs where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull SwapEnvironmentCNAMEsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SwapEnvironmentCNAMEs where
   hashWithSalt _salt SwapEnvironmentCNAMEs' {..} =

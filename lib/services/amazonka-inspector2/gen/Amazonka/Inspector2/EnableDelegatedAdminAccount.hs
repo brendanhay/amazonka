@@ -106,6 +106,14 @@ instance Core.AWSRequest EnableDelegatedAdminAccount where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "delegatedAdminAccountId")
       )
+  updateIdempotencyToken
+    f
+    s@EnableDelegatedAdminAccount' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            EnableDelegatedAdminAccount
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable EnableDelegatedAdminAccount where
   hashWithSalt _salt EnableDelegatedAdminAccount' {..} =

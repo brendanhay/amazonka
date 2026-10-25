@@ -107,6 +107,8 @@ instance Core.AWSRequest DeleteSuggester where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "Suggester")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSuggester where
   hashWithSalt _salt DeleteSuggester' {..} =

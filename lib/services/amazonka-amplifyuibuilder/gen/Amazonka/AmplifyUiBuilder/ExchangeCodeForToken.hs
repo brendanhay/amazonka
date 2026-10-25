@@ -105,6 +105,8 @@ instance Core.AWSRequest ExchangeCodeForToken where
             Prelude.<*> (x Data..:> "expiresIn")
             Prelude.<*> (x Data..:> "refreshToken")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ExchangeCodeForToken where
   hashWithSalt _salt ExchangeCodeForToken' {..} =

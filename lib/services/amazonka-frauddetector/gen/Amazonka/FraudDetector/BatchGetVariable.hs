@@ -92,6 +92,8 @@ instance Core.AWSRequest BatchGetVariable where
             Prelude.<*> (x Data..?> "variables" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetVariable where
   hashWithSalt _salt BatchGetVariable' {..} =

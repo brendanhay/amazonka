@@ -106,6 +106,8 @@ instance Core.AWSRequest UpdateGcmChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateGcmChannel where
   hashWithSalt _salt UpdateGcmChannel' {..} =

@@ -114,6 +114,8 @@ instance Core.AWSRequest GetBucketStatistics where
             Prelude.<*> (x Data..?> "unclassifiableObjectSizeInBytes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBucketStatistics where
   hashWithSalt _salt GetBucketStatistics' {..} =

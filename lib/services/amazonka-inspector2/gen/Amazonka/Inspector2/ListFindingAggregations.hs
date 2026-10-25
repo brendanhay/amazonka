@@ -174,6 +174,8 @@ instance Core.AWSRequest ListFindingAggregations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "aggregationType")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListFindingAggregations where
   hashWithSalt _salt ListFindingAggregations' {..} =

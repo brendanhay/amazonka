@@ -172,6 +172,8 @@ instance Core.AWSRequest CreateStreamingURL where
             Prelude.<*> (x Data..?> "StreamingURL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateStreamingURL where
   hashWithSalt _salt CreateStreamingURL' {..} =

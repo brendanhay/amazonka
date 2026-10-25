@@ -129,6 +129,8 @@ instance Core.AWSRequest SetDefaultPolicyVersion where
   response =
     Response.receiveNull
       SetDefaultPolicyVersionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetDefaultPolicyVersion where
   hashWithSalt _salt SetDefaultPolicyVersion' {..} =

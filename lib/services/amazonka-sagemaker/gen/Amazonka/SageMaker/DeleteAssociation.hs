@@ -103,6 +103,8 @@ instance Core.AWSRequest DeleteAssociation where
             Prelude.<*> (x Data..?> "SourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAssociation where
   hashWithSalt _salt DeleteAssociation' {..} =

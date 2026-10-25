@@ -154,6 +154,14 @@ instance Core.AWSRequest CreateEventIntegration where
             Prelude.<$> (x Data..?> "EventIntegrationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateEventIntegration' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateEventIntegration
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateEventIntegration where
   hashWithSalt _salt CreateEventIntegration' {..} =

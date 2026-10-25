@@ -89,6 +89,8 @@ instance Core.AWSRequest StopThingRegistrationTask where
           StopThingRegistrationTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopThingRegistrationTask where
   hashWithSalt _salt StopThingRegistrationTask' {..} =

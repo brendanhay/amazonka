@@ -90,6 +90,8 @@ instance Core.AWSRequest GetNetworkProfile where
             Prelude.<$> (x Data..?> "NetworkProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetNetworkProfile where
   hashWithSalt _salt GetNetworkProfile' {..} =

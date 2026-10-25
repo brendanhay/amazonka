@@ -106,6 +106,8 @@ instance Core.AWSRequest StartProjectSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Name")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartProjectSession where
   hashWithSalt _salt StartProjectSession' {..} =

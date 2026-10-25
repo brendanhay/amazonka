@@ -127,6 +127,8 @@ instance Core.AWSRequest CreateDeployment where
             Prelude.<*> (x Data..?> "fileUploadUrls" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..:> "zipUploadUrl")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDeployment where
   hashWithSalt _salt CreateDeployment' {..} =

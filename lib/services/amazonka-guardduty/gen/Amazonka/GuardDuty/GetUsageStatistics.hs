@@ -168,6 +168,8 @@ instance Core.AWSRequest GetUsageStatistics where
             Prelude.<*> (x Data..?> "usageStatistics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetUsageStatistics where
   hashWithSalt _salt GetUsageStatistics' {..} =

@@ -141,6 +141,8 @@ instance Core.AWSRequest ListDomainConfigurations where
             Prelude.<*> (x Data..?> "nextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDomainConfigurations where
   hashWithSalt _salt ListDomainConfigurations' {..} =

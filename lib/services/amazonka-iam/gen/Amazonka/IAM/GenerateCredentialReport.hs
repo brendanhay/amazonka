@@ -78,6 +78,8 @@ instance Core.AWSRequest GenerateCredentialReport where
             Prelude.<*> (x Data..@? "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GenerateCredentialReport where
   hashWithSalt _salt _ =

@@ -90,6 +90,8 @@ instance Core.AWSRequest DescribeUserPool where
             Prelude.<$> (x Data..?> "UserPool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeUserPool where
   hashWithSalt _salt DescribeUserPool' {..} =

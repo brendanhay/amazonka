@@ -513,6 +513,8 @@ instance Core.AWSRequest RegisterImage where
             Prelude.<$> (x Data..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterImage where
   hashWithSalt _salt RegisterImage' {..} =

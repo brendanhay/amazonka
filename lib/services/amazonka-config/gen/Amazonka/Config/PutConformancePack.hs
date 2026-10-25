@@ -219,6 +219,8 @@ instance Core.AWSRequest PutConformancePack where
             Prelude.<$> (x Data..?> "ConformancePackArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutConformancePack where
   hashWithSalt _salt PutConformancePack' {..} =

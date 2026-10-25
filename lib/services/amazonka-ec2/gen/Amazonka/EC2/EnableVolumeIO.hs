@@ -100,6 +100,8 @@ instance Core.AWSRequest EnableVolumeIO where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull EnableVolumeIOResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable EnableVolumeIO where
   hashWithSalt _salt EnableVolumeIO' {..} =

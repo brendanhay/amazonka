@@ -136,6 +136,8 @@ instance Core.AWSRequest ListManagedResources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "items" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListManagedResources where
   hashWithSalt _salt ListManagedResources' {..} =

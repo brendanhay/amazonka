@@ -107,6 +107,13 @@ instance Core.AWSRequest ResetUserPassword where
             Prelude.<*> (x Data..?> "userId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@ResetUserPassword' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: ResetUserPassword
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable ResetUserPassword where
   hashWithSalt _salt ResetUserPassword' {..} =

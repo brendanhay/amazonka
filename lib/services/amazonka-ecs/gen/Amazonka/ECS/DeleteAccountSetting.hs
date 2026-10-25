@@ -137,6 +137,8 @@ instance Core.AWSRequest DeleteAccountSetting where
             Prelude.<$> (x Data..?> "setting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAccountSetting where
   hashWithSalt _salt DeleteAccountSetting' {..} =

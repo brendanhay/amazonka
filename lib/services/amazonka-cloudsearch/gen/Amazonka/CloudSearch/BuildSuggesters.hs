@@ -94,6 +94,8 @@ instance Core.AWSRequest BuildSuggesters where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BuildSuggesters where
   hashWithSalt _salt BuildSuggesters' {..} =

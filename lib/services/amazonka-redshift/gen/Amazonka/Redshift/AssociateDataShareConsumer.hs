@@ -138,6 +138,8 @@ instance Core.AWSRequest AssociateDataShareConsumer where
     Response.receiveXMLWrapper
       "AssociateDataShareConsumerResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateDataShareConsumer where
   hashWithSalt _salt AssociateDataShareConsumer' {..} =

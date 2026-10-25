@@ -106,6 +106,8 @@ instance Core.AWSRequest UpdateMemberSession where
           UpdateMemberSessionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateMemberSession where
   hashWithSalt _salt UpdateMemberSession' {..} =

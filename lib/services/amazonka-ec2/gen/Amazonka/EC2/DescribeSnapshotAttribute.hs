@@ -136,6 +136,8 @@ instance Core.AWSRequest DescribeSnapshotAttribute where
             Prelude.<*> (x Data..@? "snapshotId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSnapshotAttribute where
   hashWithSalt _salt DescribeSnapshotAttribute' {..} =

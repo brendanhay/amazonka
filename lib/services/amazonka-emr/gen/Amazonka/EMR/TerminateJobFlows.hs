@@ -87,6 +87,8 @@ instance Core.AWSRequest TerminateJobFlows where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull TerminateJobFlowsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TerminateJobFlows where
   hashWithSalt _salt TerminateJobFlows' {..} =

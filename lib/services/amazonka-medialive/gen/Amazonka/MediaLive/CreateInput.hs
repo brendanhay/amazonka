@@ -209,6 +209,11 @@ instance Core.AWSRequest CreateInput' where
             Prelude.<$> (x Data..?> "input")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@CreateInput'' {requestId} =
+    ( \requestId' ->
+        s {requestId = requestId'} :: CreateInput'
+    )
+      Prelude.<$> f requestId
 
 instance Prelude.Hashable CreateInput' where
   hashWithSalt _salt CreateInput'' {..} =

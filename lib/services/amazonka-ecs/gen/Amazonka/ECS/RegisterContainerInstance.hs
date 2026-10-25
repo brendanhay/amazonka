@@ -284,6 +284,8 @@ instance Core.AWSRequest RegisterContainerInstance where
             Prelude.<$> (x Data..?> "containerInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterContainerInstance where
   hashWithSalt _salt RegisterContainerInstance' {..} =

@@ -130,6 +130,13 @@ instance Core.AWSRequest CreateCoreNetwork where
             Prelude.<$> (x Data..?> "CoreNetwork")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateCoreNetwork' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateCoreNetwork
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateCoreNetwork where
   hashWithSalt _salt CreateCoreNetwork' {..} =

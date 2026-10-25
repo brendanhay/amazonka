@@ -91,6 +91,8 @@ instance Core.AWSRequest GetVoiceConnectorTermination where
             Prelude.<$> (x Data..?> "Termination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

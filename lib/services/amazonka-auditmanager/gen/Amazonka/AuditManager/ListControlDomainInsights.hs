@@ -112,6 +112,8 @@ instance Core.AWSRequest ListControlDomainInsights where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListControlDomainInsights where
   hashWithSalt _salt ListControlDomainInsights' {..} =

@@ -102,6 +102,8 @@ instance Core.AWSRequest SetCognitoEvents where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull SetCognitoEventsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetCognitoEvents where
   hashWithSalt _salt SetCognitoEvents' {..} =

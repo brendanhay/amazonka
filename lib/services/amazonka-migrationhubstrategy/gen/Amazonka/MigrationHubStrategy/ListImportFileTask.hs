@@ -135,6 +135,8 @@ instance Core.AWSRequest ListImportFileTask where
             Prelude.<*> (x Data..?> "taskInfos" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListImportFileTask where
   hashWithSalt _salt ListImportFileTask' {..} =

@@ -113,6 +113,8 @@ instance Core.AWSRequest EnableAWSServiceAccess where
   response =
     Response.receiveNull
       EnableAWSServiceAccessResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable EnableAWSServiceAccess where
   hashWithSalt _salt EnableAWSServiceAccess' {..} =

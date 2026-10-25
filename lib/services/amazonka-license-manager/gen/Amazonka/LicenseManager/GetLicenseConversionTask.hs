@@ -106,6 +106,8 @@ instance Core.AWSRequest GetLicenseConversionTask where
             Prelude.<*> (x Data..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetLicenseConversionTask where
   hashWithSalt _salt GetLicenseConversionTask' {..} =

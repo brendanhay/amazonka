@@ -870,6 +870,8 @@ instance Core.AWSRequest WriteGetObjectResponse where
   response =
     Response.receiveNull
       WriteGetObjectResponseResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Data.ToBody WriteGetObjectResponse where
   toBody WriteGetObjectResponse' {..} = Data.toBody body

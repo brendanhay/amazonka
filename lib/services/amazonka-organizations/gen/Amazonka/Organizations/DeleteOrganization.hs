@@ -64,6 +64,8 @@ instance Core.AWSRequest DeleteOrganization where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteOrganizationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteOrganization where
   hashWithSalt _salt _ =

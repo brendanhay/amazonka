@@ -126,6 +126,8 @@ instance Core.AWSRequest DeleteSigningCertificate where
   response =
     Response.receiveNull
       DeleteSigningCertificateResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSigningCertificate where
   hashWithSalt _salt DeleteSigningCertificate' {..} =

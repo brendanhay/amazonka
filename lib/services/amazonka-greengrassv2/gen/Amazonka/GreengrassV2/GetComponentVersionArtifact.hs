@@ -133,6 +133,8 @@ instance Core.AWSRequest GetComponentVersionArtifact where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "preSignedUrl")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetComponentVersionArtifact where
   hashWithSalt _salt GetComponentVersionArtifact' {..} =

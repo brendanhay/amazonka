@@ -162,6 +162,8 @@ instance Core.AWSRequest DescribeResourcePermissions where
             Prelude.<*> (x Data..?> "Principals" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeResourcePermissions where
   hashWithSalt _salt DescribeResourcePermissions' {..} =

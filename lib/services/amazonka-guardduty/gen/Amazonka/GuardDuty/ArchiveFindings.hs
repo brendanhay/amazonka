@@ -104,6 +104,8 @@ instance Core.AWSRequest ArchiveFindings where
           ArchiveFindingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ArchiveFindings where
   hashWithSalt _salt ArchiveFindings' {..} =

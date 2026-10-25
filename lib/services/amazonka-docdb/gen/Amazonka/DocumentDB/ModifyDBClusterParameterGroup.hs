@@ -118,6 +118,8 @@ instance
     Response.receiveXMLWrapper
       "ModifyDBClusterParameterGroupResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

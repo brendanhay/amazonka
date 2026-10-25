@@ -176,6 +176,8 @@ instance Core.AWSRequest ListTableMetadata where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTableMetadata where
   hashWithSalt _salt ListTableMetadata' {..} =

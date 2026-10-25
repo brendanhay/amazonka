@@ -65,6 +65,8 @@ instance Core.AWSRequest DeleteResourcePolicy where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteResourcePolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteResourcePolicy where
   hashWithSalt _salt _ =

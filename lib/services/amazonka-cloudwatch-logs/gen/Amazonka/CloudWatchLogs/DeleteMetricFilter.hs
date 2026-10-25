@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteMetricFilter where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteMetricFilterResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteMetricFilter where
   hashWithSalt _salt DeleteMetricFilter' {..} =

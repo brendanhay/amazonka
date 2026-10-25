@@ -98,6 +98,8 @@ instance Core.AWSRequest GetDomainName where
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDomainName where
   hashWithSalt _salt GetDomainName' {..} =

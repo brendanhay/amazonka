@@ -109,6 +109,8 @@ instance Core.AWSRequest BatchStopJobRun where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchStopJobRun where
   hashWithSalt _salt BatchStopJobRun' {..} =

@@ -108,6 +108,8 @@ instance Core.AWSRequest AssociateTrialComponent where
             Prelude.<*> (x Data..?> "TrialComponentArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateTrialComponent where
   hashWithSalt _salt AssociateTrialComponent' {..} =

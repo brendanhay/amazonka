@@ -146,6 +146,8 @@ instance Core.AWSRequest CreatePartnerEventSource where
             Prelude.<$> (x Data..?> "EventSourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreatePartnerEventSource where
   hashWithSalt _salt CreatePartnerEventSource' {..} =

@@ -127,6 +127,8 @@ instance Core.AWSRequest ListResourcesForWebACL where
             Prelude.<$> (x Data..?> "ResourceArns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListResourcesForWebACL where
   hashWithSalt _salt ListResourcesForWebACL' {..} =

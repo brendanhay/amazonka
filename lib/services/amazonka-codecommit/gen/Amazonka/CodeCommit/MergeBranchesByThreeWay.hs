@@ -242,6 +242,8 @@ instance Core.AWSRequest MergeBranchesByThreeWay where
             Prelude.<*> (x Data..?> "treeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable MergeBranchesByThreeWay where
   hashWithSalt _salt MergeBranchesByThreeWay' {..} =

@@ -136,6 +136,8 @@ instance Core.AWSRequest DeleteAttributes where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeleteAttributesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAttributes where
   hashWithSalt _salt DeleteAttributes' {..} =

@@ -84,6 +84,8 @@ instance Core.AWSRequest GetTrigger where
             Prelude.<$> (x Data..?> "Trigger")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTrigger where
   hashWithSalt _salt GetTrigger' {..} =

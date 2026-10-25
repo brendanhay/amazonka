@@ -163,6 +163,8 @@ instance Core.AWSRequest CreateIntegrationWorkflow where
             Prelude.<*> (x Data..:> "WorkflowId")
             Prelude.<*> (x Data..:> "Message")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateIntegrationWorkflow where
   hashWithSalt _salt CreateIntegrationWorkflow' {..} =

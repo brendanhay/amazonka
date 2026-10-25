@@ -105,6 +105,8 @@ instance Core.AWSRequest GetStreamSession where
             Prelude.<$> (x Data..?> "streamSession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetStreamSession where
   hashWithSalt _salt GetStreamSession' {..} =

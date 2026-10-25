@@ -95,6 +95,8 @@ instance Core.AWSRequest GetImageRecipePolicy where
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetImageRecipePolicy where
   hashWithSalt _salt GetImageRecipePolicy' {..} =

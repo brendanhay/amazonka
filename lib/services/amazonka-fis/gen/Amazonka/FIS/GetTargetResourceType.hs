@@ -90,6 +90,8 @@ instance Core.AWSRequest GetTargetResourceType where
             Prelude.<$> (x Data..?> "targetResourceType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTargetResourceType where
   hashWithSalt _salt GetTargetResourceType' {..} =

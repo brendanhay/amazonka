@@ -144,6 +144,8 @@ instance Core.AWSRequest ListThingRegistrationTasks where
             Prelude.<*> (x Data..?> "taskIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListThingRegistrationTasks where
   hashWithSalt _salt ListThingRegistrationTasks' {..} =

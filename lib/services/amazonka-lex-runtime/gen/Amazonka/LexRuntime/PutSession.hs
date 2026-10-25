@@ -333,7 +333,7 @@ instance Core.AWSRequest PutSession where
   request overrides =
     Request.postJSON (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           PutSessionResponse'
             Prelude.<$> (h Data..#? "x-amz-lex-active-contexts")
@@ -350,6 +350,8 @@ instance Core.AWSRequest PutSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutSession where
   hashWithSalt _salt PutSession' {..} =

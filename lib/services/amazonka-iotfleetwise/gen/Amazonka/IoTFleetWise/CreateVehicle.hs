@@ -176,6 +176,8 @@ instance Core.AWSRequest CreateVehicle where
             Prelude.<*> (x Data..?> "vehicleName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateVehicle where
   hashWithSalt _salt CreateVehicle' {..} =

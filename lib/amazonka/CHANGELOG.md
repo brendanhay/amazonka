@@ -4,6 +4,638 @@
 
 ### Changed
 
+- `amazonka` will now store idempotency tokens into requests that support them but have not been set by the caller.
+  [\#1055](https://github.com/brendanhay/amazonka/pull/1055)
+  - `amazonka-core`: Class `AWSRequest` has an new function `updateIdempotencyToken`. If a request type can contain an idempotency token, this function will allow it to be updated.
+  - Service bindings with client token support from the current `botocore` checkout are listed below:
+    - `amazonka-accessanalyzer`
+      - `ApplyArchiveRule`: `clientToken`
+      - `CreateAccessPreview`: `clientToken`
+      - `CreateAnalyzer`: `clientToken`
+      - `CreateArchiveRule`: `clientToken`
+      - `DeleteAnalyzer`: `clientToken`
+      - `DeleteArchiveRule`: `clientToken`
+      - `StartPolicyGeneration`: `clientToken`
+      - `UpdateArchiveRule`: `clientToken`
+      - `UpdateFindings`: `clientToken`
+    - `amazonka-alexa-business`
+      - `CreateAddressBook`: `clientRequestToken`
+      - `CreateBusinessReportSchedule`: `clientRequestToken`
+      - `CreateConferenceProvider`: `clientRequestToken`
+      - `CreateContact`: `clientRequestToken`
+      - `CreateGatewayGroup`: `clientRequestToken`
+      - `CreateNetworkProfile`: `clientRequestToken`
+      - `CreateProfile`: `clientRequestToken`
+      - `CreateRoom`: `clientRequestToken`
+      - `CreateSkillGroup`: `clientRequestToken`
+      - `CreateUser`: `clientRequestToken`
+      - `SendAnnouncement`: `clientRequestToken`
+    - `amazonka-amp`
+      - `CreateAlertManagerDefinition`: `clientToken`
+      - `CreateLoggingConfiguration`: `clientToken`
+      - `CreateRuleGroupsNamespace`: `clientToken`
+      - `CreateWorkspace`: `clientToken`
+      - `DeleteAlertManagerDefinition`: `clientToken`
+      - `DeleteLoggingConfiguration`: `clientToken`
+      - `DeleteRuleGroupsNamespace`: `clientToken`
+      - `DeleteWorkspace`: `clientToken`
+      - `PutAlertManagerDefinition`: `clientToken`
+      - `PutRuleGroupsNamespace`: `clientToken`
+      - `UpdateLoggingConfiguration`: `clientToken`
+      - `UpdateWorkspaceAlias`: `clientToken`
+    - `amazonka-amplifyuibuilder`
+      - `CreateComponent`: `clientToken`
+      - `CreateForm`: `clientToken`
+      - `CreateTheme`: `clientToken`
+      - `UpdateComponent`: `clientToken`
+      - `UpdateForm`: `clientToken`
+      - `UpdateTheme`: `clientToken`
+    - `amazonka-appintegrations`
+      - `CreateDataIntegration`: `clientToken`
+      - `CreateEventIntegration`: `clientToken`
+    - `amazonka-appmesh`
+      - `CreateGatewayRoute`: `clientToken`
+      - `CreateMesh`: `clientToken`
+      - `CreateRoute`: `clientToken`
+      - `CreateVirtualGateway`: `clientToken`
+      - `CreateVirtualNode`: `clientToken`
+      - `CreateVirtualRouter`: `clientToken`
+      - `CreateVirtualService`: `clientToken`
+      - `UpdateGatewayRoute`: `clientToken`
+      - `UpdateMesh`: `clientToken`
+      - `UpdateRoute`: `clientToken`
+      - `UpdateVirtualGateway`: `clientToken`
+      - `UpdateVirtualNode`: `clientToken`
+      - `UpdateVirtualRouter`: `clientToken`
+      - `UpdateVirtualService`: `clientToken`
+    - `amazonka-athena`
+      - `CreateNamedQuery`: `clientRequestToken`
+      - `StartQueryExecution`: `clientRequestToken`
+    - `amazonka-billingconductor`
+      - `CreateBillingGroup`: `clientToken`
+      - `CreateCustomLineItem`: `clientToken`
+      - `CreatePricingPlan`: `clientToken`
+      - `CreatePricingRule`: `clientToken`
+    - `amazonka-braket`
+      - `CancelQuantumTask`: `clientToken`
+      - `CreateJob`: `clientToken`
+      - `CreateQuantumTask`: `clientToken`
+    - `amazonka-chime`
+      - `CreateAppInstance`: `clientRequestToken`
+      - `CreateAppInstanceUser`: `clientRequestToken`
+      - `CreateChannel`: `clientRequestToken`
+      - `CreateMediaCapturePipeline`: `clientRequestToken`
+      - `CreateMeeting`: `clientRequestToken`
+      - `CreateMeetingWithAttendees`: `clientRequestToken`
+      - `CreateRoom`: `clientRequestToken`
+      - `SendChannelMessage`: `clientRequestToken`
+    - `amazonka-chime-sdk-identity`
+      - `CreateAppInstance`: `clientRequestToken`
+      - `CreateAppInstanceUser`: `clientRequestToken`
+      - `RegisterAppInstanceUserEndpoint`: `clientRequestToken`
+    - `amazonka-chime-sdk-media-pipelines`
+      - `CreateMediaCapturePipeline`: `clientRequestToken`
+      - `CreateMediaConcatenationPipeline`: `clientRequestToken`
+      - `CreateMediaLiveConnectorPipeline`: `clientRequestToken`
+    - `amazonka-chime-sdk-meetings`
+      - `CreateMeeting`: `clientRequestToken`
+      - `CreateMeetingWithAttendees`: `clientRequestToken`
+    - `amazonka-chime-sdk-messaging`
+      - `CreateChannel`: `clientRequestToken`
+      - `SendChannelMessage`: `clientRequestToken`
+    - `amazonka-cloudcontrol`
+      - `CreateResource`: `clientToken`
+      - `DeleteResource`: `clientToken`
+      - `UpdateResource`: `clientToken`
+    - `amazonka-cloudformation`
+      - `CreateStackSet`: `clientRequestToken`
+    - `amazonka-codecommit`
+      - `CreatePullRequest`: `clientRequestToken`
+      - `PostCommentForComparedCommit`: `clientRequestToken`
+      - `PostCommentForPullRequest`: `clientRequestToken`
+      - `PostCommentReply`: `clientRequestToken`
+    - `amazonka-codeguruprofiler`
+      - `CreateProfilingGroup`: `clientToken`
+    - `amazonka-codeguru-reviewer`
+      - `AssociateRepository`: `clientRequestToken`
+      - `CreateCodeReview`: `clientRequestToken`
+    - `amazonka-codepipeline`
+      - `StartPipelineExecution`: `clientRequestToken`
+    - `amazonka-codestar-notifications`
+      - `CreateNotificationRule`: `clientRequestToken`
+    - `amazonka-comprehend`
+      - `CreateDocumentClassifier`: `clientRequestToken`
+      - `CreateEndpoint`: `clientRequestToken`
+      - `CreateEntityRecognizer`: `clientRequestToken`
+      - `StartDocumentClassificationJob`: `clientRequestToken`
+      - `StartDominantLanguageDetectionJob`: `clientRequestToken`
+      - `StartEntitiesDetectionJob`: `clientRequestToken`
+      - `StartEventsDetectionJob`: `clientRequestToken`
+      - `StartKeyPhrasesDetectionJob`: `clientRequestToken`
+      - `StartPiiEntitiesDetectionJob`: `clientRequestToken`
+      - `StartSentimentDetectionJob`: `clientRequestToken`
+      - `StartTargetedSentimentDetectionJob`: `clientRequestToken`
+      - `StartTopicsDetectionJob`: `clientRequestToken`
+    - `amazonka-comprehendmedical`
+      - `StartEntitiesDetectionV2Job`: `clientRequestToken`
+      - `StartICD10CMInferenceJob`: `clientRequestToken`
+      - `StartPHIDetectionJob`: `clientRequestToken`
+      - `StartRxNormInferenceJob`: `clientRequestToken`
+      - `StartSNOMEDCTInferenceJob`: `clientRequestToken`
+    - `amazonka-connect`
+      - `ClaimPhoneNumber`: `clientToken`
+      - `CreateContactFlowModule`: `clientToken`
+      - `CreateRule`: `clientToken`
+      - `CreateTaskTemplate`: `clientToken`
+      - `CreateTrafficDistributionGroup`: `clientToken`
+      - `CreateVocabulary`: `clientToken`
+      - `MonitorContact`: `clientToken`
+      - `ReleasePhoneNumber`: `clientToken`
+      - `ReplicateInstance`: `clientToken`
+      - `StartChatContact`: `clientToken`
+      - `StartContactStreaming`: `clientToken`
+      - `StartOutboundVoiceContact`: `clientToken`
+      - `StartTaskContact`: `clientToken`
+      - `TransferContact`: `clientToken`
+      - `UpdatePhoneNumber`: `clientToken`
+    - `amazonka-connectcases`
+      - `CreateCase`: `clientToken`
+    - `amazonka-connectparticipant`
+      - `CompleteAttachmentUpload`: `clientToken`
+      - `DisconnectParticipant`: `clientToken`
+      - `SendEvent`: `clientToken`
+      - `SendMessage`: `clientToken`
+      - `StartAttachmentUpload`: `clientToken`
+    - `amazonka-devops-guru`
+      - `StartCostEstimation`: `clientToken`
+    - `amazonka-discovery`
+      - `StartImportTask`: `clientRequestToken`
+    - `amazonka-docdb-elastic`
+      - `CreateCluster`: `clientToken`
+      - `UpdateCluster`: `clientToken`
+    - `amazonka-dynamodb`
+      - `ExecuteTransaction`: `clientRequestToken`
+      - `ExportTableToPointInTime`: `clientToken`
+      - `ImportTable`: `clientToken`
+      - `TransactWriteItems`: `clientRequestToken`
+    - `amazonka-ebs`
+      - `StartSnapshot`: `clientToken`
+    - `amazonka-ec2`
+      - `AllocateIpamPoolCidr`: `clientToken`
+      - `AssociateClientVpnTargetNetwork`: `clientToken`
+      - `AssociateTrunkInterface`: `clientToken`
+      - `AttachVerifiedAccessTrustProvider`: `clientToken`
+      - `AuthorizeClientVpnIngress`: `clientToken`
+      - `CreateCapacityReservationFleet`: `clientToken`
+      - `CreateCarrierGateway`: `clientToken`
+      - `CreateClientVpnEndpoint`: `clientToken`
+      - `CreateClientVpnRoute`: `clientToken`
+      - `CreateIpam`: `clientToken`
+      - `CreateIpamPool`: `clientToken`
+      - `CreateIpamScope`: `clientToken`
+      - `CreateManagedPrefixList`: `clientToken`
+      - `CreateNatGateway`: `clientToken`
+      - `CreateNetworkInsightsAccessScope`: `clientToken`
+      - `CreateNetworkInsightsPath`: `clientToken`
+      - `CreateNetworkInterface`: `clientToken`
+      - `CreateReplaceRootVolumeTask`: `clientToken`
+      - `CreateTrafficMirrorFilter`: `clientToken`
+      - `CreateTrafficMirrorFilterRule`: `clientToken`
+      - `CreateTrafficMirrorSession`: `clientToken`
+      - `CreateTrafficMirrorTarget`: `clientToken`
+      - `CreateVerifiedAccessEndpoint`: `clientToken`
+      - `CreateVerifiedAccessGroup`: `clientToken`
+      - `CreateVerifiedAccessInstance`: `clientToken`
+      - `CreateVerifiedAccessTrustProvider`: `clientToken`
+      - `CreateVolume`: `clientToken`
+      - `DeleteVerifiedAccessEndpoint`: `clientToken`
+      - `DeleteVerifiedAccessGroup`: `clientToken`
+      - `DeleteVerifiedAccessInstance`: `clientToken`
+      - `DeleteVerifiedAccessTrustProvider`: `clientToken`
+      - `DetachVerifiedAccessTrustProvider`: `clientToken`
+      - `DisassociateTrunkInterface`: `clientToken`
+      - `ExportImage`: `clientToken`
+      - `ModifyVerifiedAccessEndpoint`: `clientToken`
+      - `ModifyVerifiedAccessEndpointPolicy`: `clientToken`
+      - `ModifyVerifiedAccessGroup`: `clientToken`
+      - `ModifyVerifiedAccessGroupPolicy`: `clientToken`
+      - `ModifyVerifiedAccessInstance`: `clientToken`
+      - `ModifyVerifiedAccessInstanceLoggingConfiguration`: `clientToken`
+      - `ModifyVerifiedAccessTrustProvider`: `clientToken`
+      - `PurchaseScheduledInstances`: `clientToken`
+      - `RunInstances`: `clientToken`
+      - `RunScheduledInstances`: `clientToken`
+      - `StartNetworkInsightsAccessScopeAnalysis`: `clientToken`
+      - `StartNetworkInsightsAnalysis`: `clientToken`
+    - `amazonka-efs`
+      - `CreateAccessPoint`: `clientToken`
+    - `amazonka-eks`
+      - `AssociateEncryptionConfig`: `clientRequestToken`
+      - `AssociateIdentityProviderConfig`: `clientRequestToken`
+      - `CreateAddon`: `clientRequestToken`
+      - `CreateCluster`: `clientRequestToken`
+      - `CreateFargateProfile`: `clientRequestToken`
+      - `CreateNodegroup`: `clientRequestToken`
+      - `DisassociateIdentityProviderConfig`: `clientRequestToken`
+      - `RegisterCluster`: `clientRequestToken`
+      - `UpdateAddon`: `clientRequestToken`
+      - `UpdateClusterConfig`: `clientRequestToken`
+      - `UpdateClusterVersion`: `clientRequestToken`
+      - `UpdateNodegroupConfig`: `clientRequestToken`
+      - `UpdateNodegroupVersion`: `clientRequestToken`
+    - `amazonka-emr-containers`
+      - `CreateJobTemplate`: `clientToken`
+      - `CreateManagedEndpoint`: `clientToken`
+      - `CreateVirtualCluster`: `clientToken`
+      - `StartJobRun`: `clientToken`
+    - `amazonka-emr-serverless`
+      - `CreateApplication`: `clientToken`
+      - `StartJobRun`: `clientToken`
+      - `UpdateApplication`: `clientToken`
+    - `amazonka-finspace-data`
+      - `AssociateUserToPermissionGroup`: `clientToken`
+      - `CreateChangeset`: `clientToken`
+      - `CreateDataset`: `clientToken`
+      - `CreateDataView`: `clientToken`
+      - `CreatePermissionGroup`: `clientToken`
+      - `CreateUser`: `clientToken`
+      - `DeleteDataset`: `clientToken`
+      - `DeletePermissionGroup`: `clientToken`
+      - `DisableUser`: `clientToken`
+      - `DisassociateUserFromPermissionGroup`: `clientToken`
+      - `EnableUser`: `clientToken`
+      - `ResetUserPassword`: `clientToken`
+      - `UpdateChangeset`: `clientToken`
+      - `UpdateDataset`: `clientToken`
+      - `UpdatePermissionGroup`: `clientToken`
+      - `UpdateUser`: `clientToken`
+    - `amazonka-fis`
+      - `CreateExperimentTemplate`: `clientToken`
+      - `StartExperiment`: `clientToken`
+    - `amazonka-fsx`
+      - `AssociateFileSystemAliases`: `clientRequestToken`
+      - `CopyBackup`: `clientRequestToken`
+      - `CreateBackup`: `clientRequestToken`
+      - `CreateDataRepositoryAssociation`: `clientRequestToken`
+      - `CreateDataRepositoryTask`: `clientRequestToken`
+      - `CreateFileCache`: `clientRequestToken`
+      - `CreateFileSystem`: `clientRequestToken`
+      - `CreateFileSystemFromBackup`: `clientRequestToken`
+      - `CreateSnapshot`: `clientRequestToken`
+      - `CreateStorageVirtualMachine`: `clientRequestToken`
+      - `CreateVolume`: `clientRequestToken`
+      - `CreateVolumeFromBackup`: `clientRequestToken`
+      - `DeleteBackup`: `clientRequestToken`
+      - `DeleteDataRepositoryAssociation`: `clientRequestToken`
+      - `DeleteFileCache`: `clientRequestToken`
+      - `DeleteFileSystem`: `clientRequestToken`
+      - `DeleteSnapshot`: `clientRequestToken`
+      - `DeleteStorageVirtualMachine`: `clientRequestToken`
+      - `DeleteVolume`: `clientRequestToken`
+      - `DescribeFileSystemAliases`: `clientRequestToken`
+      - `DisassociateFileSystemAliases`: `clientRequestToken`
+      - `ReleaseFileSystemNfsV3Locks`: `clientRequestToken`
+      - `RestoreVolumeFromSnapshot`: `clientRequestToken`
+      - `UpdateDataRepositoryAssociation`: `clientRequestToken`
+      - `UpdateFileCache`: `clientRequestToken`
+      - `UpdateFileSystem`: `clientRequestToken`
+      - `UpdateSnapshot`: `clientRequestToken`
+      - `UpdateStorageVirtualMachine`: `clientRequestToken`
+      - `UpdateVolume`: `clientRequestToken`
+    - `amazonka-grafana`
+      - `CreateWorkspace`: `clientToken`
+    - `amazonka-greengrassv2`
+      - `CreateComponentVersion`: `clientToken`
+      - `CreateDeployment`: `clientToken`
+    - `amazonka-guardduty`
+      - `CreateDetector`: `clientToken`
+      - `CreateFilter`: `clientToken`
+      - `CreateIPSet`: `clientToken`
+      - `CreatePublishingDestination`: `clientToken`
+      - `CreateThreatIntelSet`: `clientToken`
+    - `amazonka-healthlake`
+      - `CreateFHIRDatastore`: `clientToken`
+      - `StartFHIRExportJob`: `clientToken`
+      - `StartFHIRImportJob`: `clientToken`
+    - `amazonka-imagebuilder`
+      - `CancelImageCreation`: `clientToken`
+      - `CreateComponent`: `clientToken`
+      - `CreateContainerRecipe`: `clientToken`
+      - `CreateDistributionConfiguration`: `clientToken`
+      - `CreateImage`: `clientToken`
+      - `CreateImagePipeline`: `clientToken`
+      - `CreateImageRecipe`: `clientToken`
+      - `CreateInfrastructureConfiguration`: `clientToken`
+      - `ImportComponent`: `clientToken`
+      - `ImportVmImage`: `clientToken`
+      - `StartImagePipelineExecution`: `clientToken`
+      - `UpdateDistributionConfiguration`: `clientToken`
+      - `UpdateImagePipeline`: `clientToken`
+      - `UpdateInfrastructureConfiguration`: `clientToken`
+    - `amazonka-inspector2`
+      - `Enable`: `clientToken`
+      - `EnableDelegatedAdminAccount`: `clientToken`
+    - `amazonka-iot`
+      - `CreateAuditSuppression`: `clientRequestToken`
+      - `CreateCustomMetric`: `clientRequestToken`
+      - `CreateDimension`: `clientRequestToken`
+      - `StartAuditMitigationActionsTask`: `clientRequestToken`
+      - `StartDetectMitigationActionsTask`: `clientRequestToken`
+    - `amazonka-iotfleethub`
+      - `CreateApplication`: `clientToken`
+      - `DeleteApplication`: `clientToken`
+      - `UpdateApplication`: `clientToken`
+    - `amazonka-iot-roborunner`
+      - `CreateDestination`: `clientToken`
+      - `CreateSite`: `clientToken`
+      - `CreateWorker`: `clientToken`
+      - `CreateWorkerFleet`: `clientToken`
+    - `amazonka-iotsitewise`
+      - `AssociateAssets`: `clientToken`
+      - `AssociateTimeSeriesToAssetProperty`: `clientToken`
+      - `BatchAssociateProjectAssets`: `clientToken`
+      - `BatchDisassociateProjectAssets`: `clientToken`
+      - `CreateAccessPolicy`: `clientToken`
+      - `CreateAsset`: `clientToken`
+      - `CreateAssetModel`: `clientToken`
+      - `CreateDashboard`: `clientToken`
+      - `CreatePortal`: `clientToken`
+      - `CreateProject`: `clientToken`
+      - `DeleteAccessPolicy`: `clientToken`
+      - `DeleteAsset`: `clientToken`
+      - `DeleteAssetModel`: `clientToken`
+      - `DeleteDashboard`: `clientToken`
+      - `DeletePortal`: `clientToken`
+      - `DeleteProject`: `clientToken`
+      - `DeleteTimeSeries`: `clientToken`
+      - `DisassociateAssets`: `clientToken`
+      - `DisassociateTimeSeriesFromAssetProperty`: `clientToken`
+      - `UpdateAccessPolicy`: `clientToken`
+      - `UpdateAsset`: `clientToken`
+      - `UpdateAssetModel`: `clientToken`
+      - `UpdateAssetProperty`: `clientToken`
+      - `UpdateDashboard`: `clientToken`
+      - `UpdatePortal`: `clientToken`
+      - `UpdateProject`: `clientToken`
+    - `amazonka-iotwireless`
+      - `AssociateAwsAccountWithPartnerAccount`: `clientRequestToken`
+      - `CreateDestination`: `clientRequestToken`
+      - `CreateDeviceProfile`: `clientRequestToken`
+      - `CreateFuotaTask`: `clientRequestToken`
+      - `CreateMulticastGroup`: `clientRequestToken`
+      - `CreateNetworkAnalyzerConfiguration`: `clientRequestToken`
+      - `CreateServiceProfile`: `clientRequestToken`
+      - `CreateWirelessDevice`: `clientRequestToken`
+      - `CreateWirelessGateway`: `clientRequestToken`
+      - `CreateWirelessGatewayTaskDefinition`: `clientRequestToken`
+    - `amazonka-kendra`
+      - `CreateAccessControlConfiguration`: `clientToken`
+      - `CreateDataSource`: `clientToken`
+      - `CreateExperience`: `clientToken`
+      - `CreateFaq`: `clientToken`
+      - `CreateIndex`: `clientToken`
+      - `CreateQuerySuggestionsBlockList`: `clientToken`
+      - `CreateThesaurus`: `clientToken`
+    - `amazonka-lookoutequipment`
+      - `CreateDataset`: `clientToken`
+      - `CreateInferenceScheduler`: `clientToken`
+      - `CreateLabel`: `clientToken`
+      - `CreateLabelGroup`: `clientToken`
+      - `CreateModel`: `clientToken`
+      - `StartDataIngestionJob`: `clientToken`
+    - `amazonka-lookoutvision`
+      - `CreateDataset`: `clientToken`
+      - `CreateModel`: `clientToken`
+      - `CreateProject`: `clientToken`
+      - `DeleteDataset`: `clientToken`
+      - `DeleteModel`: `clientToken`
+      - `DeleteProject`: `clientToken`
+      - `StartModel`: `clientToken`
+      - `StartModelPackagingJob`: `clientToken`
+      - `StopModel`: `clientToken`
+      - `UpdateDatasetEntries`: `clientToken`
+    - `amazonka-m2`
+      - `CreateApplication`: `clientToken`
+      - `CreateDataSetImportTask`: `clientToken`
+      - `CreateDeployment`: `clientToken`
+      - `CreateEnvironment`: `clientToken`
+    - `amazonka-maciev2`
+      - `CreateAllowList`: `clientToken`
+      - `CreateClassificationJob`: `clientToken`
+      - `CreateCustomDataIdentifier`: `clientToken`
+      - `CreateFindingsFilter`: `clientToken`
+      - `EnableMacie`: `clientToken`
+      - `EnableOrganizationAdminAccount`: `clientToken`
+      - `PutFindingsPublicationConfiguration`: `clientToken`
+      - `UpdateFindingsFilter`: `clientToken`
+    - `amazonka-managedblockchain`
+      - `CreateAccessor`: `clientRequestToken`
+      - `CreateMember`: `clientRequestToken`
+      - `CreateNetwork`: `clientRequestToken`
+      - `CreateNode`: `clientRequestToken`
+      - `CreateProposal`: `clientRequestToken`
+    - `amazonka-marketplace-catalog`
+      - `StartChangeSet`: `clientRequestToken`
+    - `amazonka-mediaconvert`
+      - `CreateJob`: `clientRequestToken`
+    - `amazonka-migration-hub-refactor-spaces`
+      - `CreateApplication`: `clientToken`
+      - `CreateEnvironment`: `clientToken`
+      - `CreateRoute`: `clientToken`
+      - `CreateService`: `clientToken`
+    - `amazonka-networkmanager`
+      - `CreateConnectAttachment`: `clientToken`
+      - `CreateConnectPeer`: `clientToken`
+      - `CreateCoreNetwork`: `clientToken`
+      - `CreateSiteToSiteVpnAttachment`: `clientToken`
+      - `CreateTransitGatewayPeering`: `clientToken`
+      - `CreateTransitGatewayRouteTableAttachment`: `clientToken`
+      - `CreateVpcAttachment`: `clientToken`
+      - `PutCoreNetworkPolicy`: `clientToken`
+    - `amazonka-nimble`
+      - `AcceptEulas`: `clientToken`
+      - `CreateLaunchProfile`: `clientToken`
+      - `CreateStreamingImage`: `clientToken`
+      - `CreateStreamingSession`: `clientToken`
+      - `CreateStreamingSessionStream`: `clientToken`
+      - `CreateStudio`: `clientToken`
+      - `CreateStudioComponent`: `clientToken`
+      - `DeleteLaunchProfile`: `clientToken`
+      - `DeleteLaunchProfileMember`: `clientToken`
+      - `DeleteStreamingImage`: `clientToken`
+      - `DeleteStreamingSession`: `clientToken`
+      - `DeleteStudio`: `clientToken`
+      - `DeleteStudioComponent`: `clientToken`
+      - `DeleteStudioMember`: `clientToken`
+      - `PutLaunchProfileMembers`: `clientToken`
+      - `PutStudioMembers`: `clientToken`
+      - `StartStreamingSession`: `clientToken`
+      - `StartStudioSSOConfigurationRepair`: `clientToken`
+      - `StopStreamingSession`: `clientToken`
+      - `UpdateLaunchProfile`: `clientToken`
+      - `UpdateLaunchProfileMember`: `clientToken`
+      - `UpdateStreamingImage`: `clientToken`
+      - `UpdateStudio`: `clientToken`
+      - `UpdateStudioComponent`: `clientToken`
+    - `amazonka-opensearchserverless`
+      - `CreateAccessPolicy`: `clientToken`
+      - `CreateCollection`: `clientToken`
+      - `CreateSecurityConfig`: `clientToken`
+      - `CreateSecurityPolicy`: `clientToken`
+      - `CreateVpcEndpoint`: `clientToken`
+      - `DeleteAccessPolicy`: `clientToken`
+      - `DeleteCollection`: `clientToken`
+      - `DeleteSecurityConfig`: `clientToken`
+      - `DeleteSecurityPolicy`: `clientToken`
+      - `DeleteVpcEndpoint`: `clientToken`
+      - `UpdateAccessPolicy`: `clientToken`
+      - `UpdateCollection`: `clientToken`
+      - `UpdateSecurityConfig`: `clientToken`
+      - `UpdateSecurityPolicy`: `clientToken`
+      - `UpdateVpcEndpoint`: `clientToken`
+    - `amazonka-pinpoint-sms-voice-v2`
+      - `AssociateOriginationIdentity`: `clientToken`
+      - `CreateConfigurationSet`: `clientToken`
+      - `CreateEventDestination`: `clientToken`
+      - `CreateOptOutList`: `clientToken`
+      - `CreatePool`: `clientToken`
+      - `DisassociateOriginationIdentity`: `clientToken`
+      - `RequestPhoneNumber`: `clientToken`
+    - `amazonka-proton`
+      - `CreateEnvironmentAccountConnection`: `clientToken`
+      - `CreateEnvironmentTemplateVersion`: `clientToken`
+      - `CreateServiceTemplateVersion`: `clientToken`
+    - `amazonka-redshift-data`
+      - `BatchExecuteStatement`: `clientToken`
+      - `ExecuteStatement`: `clientToken`
+    - `amazonka-resiliencehub`
+      - `CreateApp`: `clientToken`
+      - `CreateRecommendationTemplate`: `clientToken`
+      - `CreateResiliencyPolicy`: `clientToken`
+      - `DeleteApp`: `clientToken`
+      - `DeleteAppAssessment`: `clientToken`
+      - `DeleteRecommendationTemplate`: `clientToken`
+      - `DeleteResiliencyPolicy`: `clientToken`
+      - `StartAppAssessment`: `clientToken`
+    - `amazonka-resource-explorer-v2`
+      - `CreateIndex`: `clientToken`
+      - `CreateView`: `clientToken`
+    - `amazonka-robomaker`
+      - `CreateSimulationJob`: `clientRequestToken`
+      - `CreateWorldExportJob`: `clientRequestToken`
+      - `CreateWorldGenerationJob`: `clientRequestToken`
+      - `StartSimulationJobBatch`: `clientRequestToken`
+    - `amazonka-route53-recovery-control-config`
+      - `CreateCluster`: `clientToken`
+      - `CreateControlPanel`: `clientToken`
+      - `CreateRoutingControl`: `clientToken`
+      - `CreateSafetyRule`: `clientToken`
+    - `amazonka-sagemaker`
+      - `CreateImageVersion`: `clientToken`
+      - `CreateModelPackage`: `clientToken`
+      - `CreatePipeline`: `clientRequestToken`
+      - `DeletePipeline`: `clientRequestToken`
+      - `RetryPipelineExecution`: `clientRequestToken`
+      - `SendPipelineExecutionStepFailure`: `clientRequestToken`
+      - `SendPipelineExecutionStepSuccess`: `clientRequestToken`
+      - `StartPipelineExecution`: `clientRequestToken`
+      - `StopPipelineExecution`: `clientRequestToken`
+    - `amazonka-sagemaker-geospatial`
+      - `StartEarthObservationJob`: `clientToken`
+      - `StartVectorEnrichmentJob`: `clientToken`
+    - `amazonka-savingsplans`
+      - `CreateSavingsPlan`: `clientToken`
+    - `amazonka-scheduler`
+      - `CreateSchedule`: `clientToken`
+      - `CreateScheduleGroup`: `clientToken`
+      - `DeleteSchedule`: `clientToken`
+      - `DeleteScheduleGroup`: `clientToken`
+      - `UpdateSchedule`: `clientToken`
+    - `amazonka-secretsmanager`
+      - `CreateSecret`: `clientRequestToken`
+      - `PutSecretValue`: `clientRequestToken`
+      - `RotateSecret`: `clientRequestToken`
+      - `UpdateSecret`: `clientRequestToken`
+    - `amazonka-servicecatalog-appregistry`
+      - `CreateApplication`: `clientToken`
+      - `CreateAttributeGroup`: `clientToken`
+    - `amazonka-signer`
+      - `StartSigningJob`: `clientRequestToken`
+    - `amazonka-simspaceweaver`
+      - `StartApp`: `clientToken`
+      - `StartSimulation`: `clientToken`
+    - `amazonka-snow-device-management`
+      - `CreateTask`: `clientToken`
+    - `amazonka-ssm`
+      - `CreateMaintenanceWindow`: `clientToken`
+      - `CreatePatchBaseline`: `clientToken`
+      - `DeleteInventory`: `clientToken`
+      - `RegisterTargetWithMaintenanceWindow`: `clientToken`
+      - `RegisterTaskWithMaintenanceWindow`: `clientToken`
+    - `amazonka-ssm-incidents`
+      - `CreateReplicationSet`: `clientToken`
+      - `CreateResponsePlan`: `clientToken`
+      - `CreateTimelineEvent`: `clientToken`
+      - `StartIncident`: `clientToken`
+      - `UpdateDeletionProtection`: `clientToken`
+      - `UpdateIncidentRecord`: `clientToken`
+      - `UpdateRelatedItems`: `clientToken`
+      - `UpdateReplicationSet`: `clientToken`
+      - `UpdateResponsePlan`: `clientToken`
+      - `UpdateTimelineEvent`: `clientToken`
+    - `amazonka-timestream-query`
+      - `CreateScheduledQuery`: `clientToken`
+      - `ExecuteScheduledQuery`: `clientToken`
+      - `Query`: `clientToken`
+    - `amazonka-translate`
+      - `CreateParallelData`: `clientToken`
+      - `StartTextTranslationJob`: `clientToken`
+      - `UpdateParallelData`: `clientToken`
+    - `amazonka-voice-id`
+      - `CreateDomain`: `clientToken`
+      - `StartFraudsterRegistrationJob`: `clientToken`
+      - `StartSpeakerEnrollmentJob`: `clientToken`
+    - `amazonka-wellarchitected`
+      - `CreateLensShare`: `clientRequestToken`
+      - `CreateLensVersion`: `clientRequestToken`
+      - `CreateMilestone`: `clientRequestToken`
+      - `CreateWorkload`: `clientRequestToken`
+      - `CreateWorkloadShare`: `clientRequestToken`
+      - `DeleteLens`: `clientRequestToken`
+      - `DeleteLensShare`: `clientRequestToken`
+      - `DeleteWorkload`: `clientRequestToken`
+      - `DeleteWorkloadShare`: `clientRequestToken`
+      - `ImportLens`: `clientRequestToken`
+    - `amazonka-wisdom`
+      - `CreateAssistant`: `clientToken`
+      - `CreateAssistantAssociation`: `clientToken`
+      - `CreateContent`: `clientToken`
+      - `CreateKnowledgeBase`: `clientToken`
+      - `CreateSession`: `clientToken`
+    - `amazonka-workmail`
+      - `CancelMailboxExportJob`: `clientToken`
+      - `CreateAvailabilityConfiguration`: `clientToken`
+      - `CreateImpersonationRole`: `clientToken`
+      - `CreateMobileDeviceAccessRule`: `clientToken`
+      - `CreateOrganization`: `clientToken`
+      - `DeleteOrganization`: `clientToken`
+      - `RegisterMailDomain`: `clientToken`
+      - `StartMailboxExportJob`: `clientToken`
+    - `amazonka-workspaces-web`
+      - `CreateBrowserSettings`: `clientToken`
+      - `CreateIdentityProvider`: `clientToken`
+      - `CreateNetworkSettings`: `clientToken`
+      - `CreatePortal`: `clientToken`
+      - `CreateTrustStore`: `clientToken`
+      - `CreateUserAccessLoggingSettings`: `clientToken`
+      - `CreateUserSettings`: `clientToken`
+      - `TagResource`: `clientToken`
+      - `UpdateBrowserSettings`: `clientToken`
+      - `UpdateIdentityProvider`: `clientToken`
+      - `UpdateNetworkSettings`: `clientToken`
+      - `UpdateTrustStore`: `clientToken`
+      - `UpdateUserAccessLoggingSettings`: `clientToken`
+      - `UpdateUserSettings`: `clientToken`
 - `amazonka`: `Amazonka.Auth.SSO.fromSSO` throws an `AuthError` now.  Previously
   it could throw a `Amazonka.Types.Error`.
   [\#1060](https://github.com/brendanhay/amazonka/pull/1060)
@@ -124,7 +756,8 @@
 [\#955](https://github.com/brendanhay/amazonka/pull/955)
 - `amazonka-core`: Support Cloudflare R2 by adjusting which headers get signed
 [\#977](https://github.com/brendanhay/amazonka/pull/977)
-
+- `amazonka-core`: `Amazonka.Response.receiveBody` has been renamed to `Amazonka.Response.receiveStreamingBody`. This is an internal function used in service bindings and should not affect normal users. `Amazonka.Response.receiveBody` will remain as a deprecated alias until Amazonka 2.2.
+[\#1055](https://github.com/brendanhay/amazonka/pull/???)
 
 ## [2.0.0](https://github.com/brendanhay/amazonka/tree/2.0.0)
 Released: **28 July 2023**, Compare: [2.0.0-rc2](https://github.com/brendanhay/amazonka/compare/2.0.0-rc2...2.0.0)

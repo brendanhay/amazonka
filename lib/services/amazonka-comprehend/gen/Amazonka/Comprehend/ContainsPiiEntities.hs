@@ -106,6 +106,8 @@ instance Core.AWSRequest ContainsPiiEntities where
             Prelude.<$> (x Data..?> "Labels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ContainsPiiEntities where
   hashWithSalt _salt ContainsPiiEntities' {..} =

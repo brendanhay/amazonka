@@ -92,6 +92,8 @@ instance Core.AWSRequest PostToConnection where
     Request.postBody (overrides defaultService)
   response =
     Response.receiveNull PostToConnectionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PostToConnection where
   hashWithSalt _salt PostToConnection' {..} =

@@ -96,6 +96,8 @@ instance Core.AWSRequest DescribeAuditFinding where
             Prelude.<$> (x Data..?> "finding")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAuditFinding where
   hashWithSalt _salt DescribeAuditFinding' {..} =

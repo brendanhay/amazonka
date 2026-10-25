@@ -145,6 +145,8 @@ instance Core.AWSRequest PutConfigurationAggregator where
             Prelude.<$> (x Data..?> "ConfigurationAggregator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutConfigurationAggregator where
   hashWithSalt _salt PutConfigurationAggregator' {..} =

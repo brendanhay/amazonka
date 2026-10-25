@@ -122,6 +122,8 @@ instance Core.AWSRequest DescribeResize where
     Response.receiveXMLWrapper
       "DescribeResizeResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeResize where
   hashWithSalt _salt DescribeResize' {..} =

@@ -149,6 +149,8 @@ instance Core.AWSRequest AssociateCustomDomain where
             Prelude.<*> (x Data..:> "CustomDomain")
             Prelude.<*> (x Data..?> "VpcDNSTargets" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateCustomDomain where
   hashWithSalt _salt AssociateCustomDomain' {..} =

@@ -136,6 +136,8 @@ instance Core.AWSRequest CreatePlayerSession where
             Prelude.<$> (x Data..?> "PlayerSession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreatePlayerSession where
   hashWithSalt _salt CreatePlayerSession' {..} =

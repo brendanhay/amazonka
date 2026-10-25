@@ -141,6 +141,8 @@ instance Core.AWSRequest DeleteDeliveryStream where
           DeleteDeliveryStreamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDeliveryStream where
   hashWithSalt _salt DeleteDeliveryStream' {..} =

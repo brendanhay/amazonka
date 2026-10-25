@@ -245,6 +245,14 @@ instance Core.AWSRequest StartKeyPhrasesDetectionJob where
             Prelude.<*> (x Data..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartKeyPhrasesDetectionJob' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            StartKeyPhrasesDetectionJob
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable StartKeyPhrasesDetectionJob where
   hashWithSalt _salt StartKeyPhrasesDetectionJob' {..} =

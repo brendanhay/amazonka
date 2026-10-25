@@ -170,6 +170,8 @@ instance Core.AWSRequest UpdateThemePermissions where
             Prelude.<*> (x Data..?> "ThemeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateThemePermissions where
   hashWithSalt _salt UpdateThemePermissions' {..} =

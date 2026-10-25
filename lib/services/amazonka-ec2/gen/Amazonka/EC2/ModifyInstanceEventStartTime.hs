@@ -136,6 +136,8 @@ instance Core.AWSRequest ModifyInstanceEventStartTime where
             Prelude.<$> (x Data..@? "event")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

@@ -137,6 +137,8 @@ instance Core.AWSRequest UpdateBackendStorage where
             Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateBackendStorage where
   hashWithSalt _salt UpdateBackendStorage' {..} =

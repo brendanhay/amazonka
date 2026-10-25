@@ -232,6 +232,14 @@ instance Core.AWSRequest CreateFindingsFilter where
             Prelude.<*> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateFindingsFilter' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateFindingsFilter
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateFindingsFilter where
   hashWithSalt _salt CreateFindingsFilter' {..} =

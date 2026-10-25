@@ -97,6 +97,8 @@ instance Core.AWSRequest BatchGetCrawlers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetCrawlers where
   hashWithSalt _salt BatchGetCrawlers' {..} =

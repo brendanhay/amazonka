@@ -227,6 +227,14 @@ instance Core.AWSRequest UpdateIncidentRecord where
           UpdateIncidentRecordResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateIncidentRecord' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            UpdateIncidentRecord
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateIncidentRecord where
   hashWithSalt _salt UpdateIncidentRecord' {..} =

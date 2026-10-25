@@ -165,6 +165,8 @@ instance Core.AWSRequest PutIdentityPolicy where
           PutIdentityPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutIdentityPolicy where
   hashWithSalt _salt PutIdentityPolicy' {..} =

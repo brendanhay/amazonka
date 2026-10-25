@@ -174,6 +174,14 @@ instance Core.AWSRequest CreateDestination where
             Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateDestination' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateDestination
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateDestination where
   hashWithSalt _salt CreateDestination' {..} =

@@ -116,6 +116,8 @@ instance Core.AWSRequest DeleteOriginRequestPolicy where
   response =
     Response.receiveNull
       DeleteOriginRequestPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteOriginRequestPolicy where
   hashWithSalt _salt DeleteOriginRequestPolicy' {..} =

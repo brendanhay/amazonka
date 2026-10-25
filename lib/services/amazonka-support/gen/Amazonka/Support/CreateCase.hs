@@ -288,6 +288,8 @@ instance Core.AWSRequest CreateCase where
             Prelude.<$> (x Data..?> "caseId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateCase where
   hashWithSalt _salt CreateCase' {..} =

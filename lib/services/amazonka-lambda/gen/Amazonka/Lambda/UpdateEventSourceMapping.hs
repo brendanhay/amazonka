@@ -473,6 +473,8 @@ instance Core.AWSRequest UpdateEventSourceMapping where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateEventSourceMapping where
   hashWithSalt _salt UpdateEventSourceMapping' {..} =

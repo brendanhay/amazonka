@@ -174,6 +174,8 @@ instance Core.AWSRequest GetInstancesHealthStatus where
             Prelude.<*> (x Data..?> "Status" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetInstancesHealthStatus where
   hashWithSalt _salt GetInstancesHealthStatus' {..} =

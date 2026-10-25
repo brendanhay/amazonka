@@ -110,6 +110,8 @@ instance Core.AWSRequest GetFindings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "findings" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetFindings where
   hashWithSalt _salt GetFindings' {..} =

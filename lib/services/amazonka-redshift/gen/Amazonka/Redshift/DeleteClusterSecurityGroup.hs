@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteClusterSecurityGroup where
   response =
     Response.receiveNull
       DeleteClusterSecurityGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteClusterSecurityGroup where
   hashWithSalt _salt DeleteClusterSecurityGroup' {..} =

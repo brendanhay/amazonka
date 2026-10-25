@@ -91,7 +91,7 @@ data UpdateApplication = UpdateApplication'
     applicationId :: Prelude.Text,
     -- | The client idempotency token of the application to update. Its value
     -- must be unique for each request.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -139,10 +139,8 @@ data UpdateApplication = UpdateApplication'
 newUpdateApplication ::
   -- | 'applicationId'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   UpdateApplication
-newUpdateApplication pApplicationId_ pClientToken_ =
+newUpdateApplication pApplicationId_ =
   UpdateApplication'
     { architecture = Prelude.Nothing,
       autoStartConfiguration = Prelude.Nothing,
@@ -153,7 +151,7 @@ newUpdateApplication pApplicationId_ pClientToken_ =
       networkConfiguration = Prelude.Nothing,
       workerTypeSpecifications = Prelude.Nothing,
       applicationId = pApplicationId_,
-      clientToken = pClientToken_
+      clientToken = Prelude.Nothing
     }
 
 -- | The CPU architecture of an application.
@@ -207,7 +205,7 @@ updateApplication_applicationId = Lens.lens (\UpdateApplication' {applicationId}
 
 -- | The client idempotency token of the application to update. Its value
 -- must be unique for each request.
-updateApplication_clientToken :: Lens.Lens' UpdateApplication Prelude.Text
+updateApplication_clientToken :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
 updateApplication_clientToken = Lens.lens (\UpdateApplication' {clientToken} -> clientToken) (\s@UpdateApplication' {} a -> s {clientToken = a} :: UpdateApplication)
 
 instance Core.AWSRequest UpdateApplication where
@@ -223,6 +221,13 @@ instance Core.AWSRequest UpdateApplication where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "application")
       )
+  updateIdempotencyToken
+    f
+    s@UpdateApplication' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: UpdateApplication
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =
@@ -281,7 +286,7 @@ instance Data.ToJSON UpdateApplication where
               Prelude.<$> networkConfiguration,
             ("workerTypeSpecifications" Data..=)
               Prelude.<$> workerTypeSpecifications,
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

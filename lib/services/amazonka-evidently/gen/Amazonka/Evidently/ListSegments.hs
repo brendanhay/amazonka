@@ -128,6 +128,8 @@ instance Core.AWSRequest ListSegments where
             Prelude.<*> (x Data..?> "segments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSegments where
   hashWithSalt _salt ListSegments' {..} =

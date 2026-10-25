@@ -166,6 +166,8 @@ instance Core.AWSRequest ListSkills where
             Prelude.<*> (x Data..?> "SkillSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSkills where
   hashWithSalt _salt ListSkills' {..} =

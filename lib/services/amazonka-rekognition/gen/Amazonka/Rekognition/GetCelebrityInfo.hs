@@ -106,6 +106,8 @@ instance Core.AWSRequest GetCelebrityInfo where
             Prelude.<*> (x Data..?> "Urls" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCelebrityInfo where
   hashWithSalt _salt GetCelebrityInfo' {..} =

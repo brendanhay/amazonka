@@ -103,6 +103,8 @@ instance Core.AWSRequest DescribeHumanLoop where
             Prelude.<*> (x Data..:> "HumanLoopArn")
             Prelude.<*> (x Data..:> "FlowDefinitionArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeHumanLoop where
   hashWithSalt _salt DescribeHumanLoop' {..} =

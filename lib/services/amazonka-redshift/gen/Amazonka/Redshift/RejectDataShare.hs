@@ -85,6 +85,8 @@ instance Core.AWSRequest RejectDataShare where
     Response.receiveXMLWrapper
       "RejectDataShareResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RejectDataShare where
   hashWithSalt _salt RejectDataShare' {..} =

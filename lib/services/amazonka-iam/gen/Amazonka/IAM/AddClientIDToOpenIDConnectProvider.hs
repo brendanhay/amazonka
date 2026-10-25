@@ -113,6 +113,8 @@ instance
   response =
     Response.receiveNull
       AddClientIDToOpenIDConnectProviderResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

@@ -162,6 +162,8 @@ instance Core.AWSRequest AcceptPortfolioShare where
           AcceptPortfolioShareResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AcceptPortfolioShare where
   hashWithSalt _salt AcceptPortfolioShare' {..} =

@@ -191,6 +191,8 @@ instance Core.AWSRequest PutObject where
             Prelude.<*> (x Data..:> "ObjectChecksum")
             Prelude.<*> (x Data..:> "ObjectChecksumAlgorithm")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Data.ToBody PutObject where
   toBody PutObject' {..} = Data.toBody inlineChunk

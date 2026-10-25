@@ -112,6 +112,8 @@ instance Core.AWSRequest CreateCidrCollection where
             Prelude.<*> (h Data..#? "Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateCidrCollection where
   hashWithSalt _salt CreateCidrCollection' {..} =

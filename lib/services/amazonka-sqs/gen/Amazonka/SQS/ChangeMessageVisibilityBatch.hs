@@ -133,6 +133,8 @@ instance Core.AWSRequest ChangeMessageVisibilityBatch where
                         )
             Prelude.<*> (Data.parseXMLList "BatchResultErrorEntry" x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

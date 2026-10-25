@@ -139,6 +139,8 @@ instance Core.AWSRequest CreateLoadBalancerPolicy where
           CreateLoadBalancerPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLoadBalancerPolicy where
   hashWithSalt _salt CreateLoadBalancerPolicy' {..} =

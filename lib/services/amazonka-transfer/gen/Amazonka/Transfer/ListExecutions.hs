@@ -188,6 +188,8 @@ instance Core.AWSRequest ListExecutions where
             Prelude.<*> (x Data..:> "WorkflowId")
             Prelude.<*> (x Data..?> "Executions" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListExecutions where
   hashWithSalt _salt ListExecutions' {..} =

@@ -112,6 +112,8 @@ instance Core.AWSRequest RemoveEndpoints where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull RemoveEndpointsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveEndpoints where
   hashWithSalt _salt RemoveEndpoints' {..} =

@@ -151,6 +151,8 @@ instance Core.AWSRequest ImportInstance where
             Prelude.<$> (x Data..@? "conversionTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportInstance where
   hashWithSalt _salt ImportInstance' {..} =

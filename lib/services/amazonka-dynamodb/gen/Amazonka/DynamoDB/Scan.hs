@@ -878,6 +878,8 @@ instance Core.AWSRequest Scan where
             Prelude.<*> (x Data..?> "ScannedCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable Scan where
   hashWithSalt _salt Scan' {..} =

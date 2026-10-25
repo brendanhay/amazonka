@@ -110,6 +110,8 @@ instance Core.AWSRequest PutResourcePermission where
             Prelude.<$> (x Data..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutResourcePermission where
   hashWithSalt _salt PutResourcePermission' {..} =

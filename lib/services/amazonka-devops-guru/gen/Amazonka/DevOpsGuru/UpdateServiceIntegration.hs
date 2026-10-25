@@ -97,6 +97,8 @@ instance Core.AWSRequest UpdateServiceIntegration where
           UpdateServiceIntegrationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateServiceIntegration where
   hashWithSalt _salt UpdateServiceIntegration' {..} =

@@ -257,6 +257,8 @@ instance Core.AWSRequest UpdateCrawler where
           UpdateCrawlerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateCrawler where
   hashWithSalt _salt UpdateCrawler' {..} =

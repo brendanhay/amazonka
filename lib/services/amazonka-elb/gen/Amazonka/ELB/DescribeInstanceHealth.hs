@@ -110,6 +110,8 @@ instance Core.AWSRequest DescribeInstanceHealth where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeInstanceHealth where
   hashWithSalt _salt DescribeInstanceHealth' {..} =

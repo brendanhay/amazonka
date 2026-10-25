@@ -108,6 +108,8 @@ instance Core.AWSRequest UpdateParameterGroup where
             Prelude.<$> (x Data..?> "ParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateParameterGroup where
   hashWithSalt _salt UpdateParameterGroup' {..} =

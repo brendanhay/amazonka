@@ -92,6 +92,8 @@ instance Core.AWSRequest BatchAssociateUserStack where
             Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchAssociateUserStack where
   hashWithSalt _salt BatchAssociateUserStack' {..} =

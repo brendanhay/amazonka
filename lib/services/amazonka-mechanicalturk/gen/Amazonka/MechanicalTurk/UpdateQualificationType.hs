@@ -273,6 +273,8 @@ instance Core.AWSRequest UpdateQualificationType where
             Prelude.<$> (x Data..?> "QualificationType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateQualificationType where
   hashWithSalt _salt UpdateQualificationType' {..} =

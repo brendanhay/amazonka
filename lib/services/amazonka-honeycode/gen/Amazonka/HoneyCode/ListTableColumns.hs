@@ -170,6 +170,8 @@ instance Core.AWSRequest ListTableColumns where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "tableColumns" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTableColumns where
   hashWithSalt _salt ListTableColumns' {..} =

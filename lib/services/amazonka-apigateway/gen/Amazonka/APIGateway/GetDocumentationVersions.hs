@@ -140,6 +140,8 @@ instance Core.AWSRequest GetDocumentationVersions where
             Prelude.<*> (x Data..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDocumentationVersions where
   hashWithSalt _salt GetDocumentationVersions' {..} =

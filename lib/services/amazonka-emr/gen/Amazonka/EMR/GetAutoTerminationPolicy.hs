@@ -90,6 +90,8 @@ instance Core.AWSRequest GetAutoTerminationPolicy where
             Prelude.<$> (x Data..?> "AutoTerminationPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAutoTerminationPolicy where
   hashWithSalt _salt GetAutoTerminationPolicy' {..} =

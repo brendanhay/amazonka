@@ -90,6 +90,8 @@ instance Core.AWSRequest GetRecoveryPoint where
             Prelude.<$> (x Data..?> "recoveryPoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRecoveryPoint where
   hashWithSalt _salt GetRecoveryPoint' {..} =

@@ -95,6 +95,8 @@ instance Core.AWSRequest GetSigningCertificate where
             Prelude.<$> (x Data..?> "Certificate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSigningCertificate where
   hashWithSalt _salt GetSigningCertificate' {..} =

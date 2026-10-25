@@ -114,6 +114,8 @@ instance Core.AWSRequest DeleteTags where
             Prelude.<*> (x Data..?> "ResourceType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTags where
   hashWithSalt _salt DeleteTags' {..} =

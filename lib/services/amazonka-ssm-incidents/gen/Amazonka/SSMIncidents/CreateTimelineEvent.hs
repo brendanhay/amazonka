@@ -185,6 +185,13 @@ instance Core.AWSRequest CreateTimelineEvent where
             Prelude.<*> (x Data..:> "eventId")
             Prelude.<*> (x Data..:> "incidentRecordArn")
       )
+  updateIdempotencyToken
+    f
+    s@CreateTimelineEvent' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateTimelineEvent
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateTimelineEvent where
   hashWithSalt _salt CreateTimelineEvent' {..} =

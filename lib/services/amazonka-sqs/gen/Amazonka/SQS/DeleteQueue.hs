@@ -100,6 +100,8 @@ instance Core.AWSRequest DeleteQueue where
   request overrides =
     Request.postQuery (overrides defaultService)
   response = Response.receiveNull DeleteQueueResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteQueue where
   hashWithSalt _salt DeleteQueue' {..} =

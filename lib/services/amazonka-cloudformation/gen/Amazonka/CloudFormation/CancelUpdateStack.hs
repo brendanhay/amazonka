@@ -109,6 +109,8 @@ instance Core.AWSRequest CancelUpdateStack where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull CancelUpdateStackResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelUpdateStack where
   hashWithSalt _salt CancelUpdateStack' {..} =

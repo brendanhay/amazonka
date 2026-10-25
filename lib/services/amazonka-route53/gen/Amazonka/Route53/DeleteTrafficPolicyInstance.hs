@@ -103,6 +103,8 @@ instance Core.AWSRequest DeleteTrafficPolicyInstance where
           DeleteTrafficPolicyInstanceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTrafficPolicyInstance where
   hashWithSalt _salt DeleteTrafficPolicyInstance' {..} =

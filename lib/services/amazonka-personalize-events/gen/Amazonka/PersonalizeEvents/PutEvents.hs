@@ -130,6 +130,8 @@ instance Core.AWSRequest PutEvents where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull PutEventsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutEvents where
   hashWithSalt _salt PutEvents' {..} =

@@ -125,6 +125,8 @@ instance Core.AWSRequest SetInstanceProtection where
           SetInstanceProtectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetInstanceProtection where
   hashWithSalt _salt SetInstanceProtection' {..} =

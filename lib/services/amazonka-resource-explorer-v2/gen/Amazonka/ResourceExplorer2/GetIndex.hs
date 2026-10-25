@@ -87,6 +87,8 @@ instance Core.AWSRequest GetIndex where
             Prelude.<*> (x Data..?> "Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetIndex where
   hashWithSalt _salt _ =

@@ -167,6 +167,8 @@ instance Core.AWSRequest CreateSnapshotCopyGrant where
             Prelude.<$> (x Data..@? "SnapshotCopyGrant")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateSnapshotCopyGrant where
   hashWithSalt _salt CreateSnapshotCopyGrant' {..} =

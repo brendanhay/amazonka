@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteDomain where
             Prelude.<$> (x Data..@? "DomainStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDomain where
   hashWithSalt _salt DeleteDomain' {..} =

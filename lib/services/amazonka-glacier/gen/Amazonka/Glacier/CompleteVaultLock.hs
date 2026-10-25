@@ -141,6 +141,8 @@ instance Core.AWSRequest CompleteVaultLock where
       Prelude.. Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull CompleteVaultLockResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CompleteVaultLock where
   hashWithSalt _salt CompleteVaultLock' {..} =

@@ -99,6 +99,8 @@ instance Core.AWSRequest BatchStart' where
             Prelude.<*> (x Data..?> "successful" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchStart' where
   hashWithSalt _salt BatchStart'' {..} =

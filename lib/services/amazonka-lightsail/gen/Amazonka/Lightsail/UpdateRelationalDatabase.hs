@@ -373,6 +373,8 @@ instance Core.AWSRequest UpdateRelationalDatabase where
             Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRelationalDatabase where
   hashWithSalt _salt UpdateRelationalDatabase' {..} =

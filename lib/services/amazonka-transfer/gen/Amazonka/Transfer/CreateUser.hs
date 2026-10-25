@@ -391,6 +391,8 @@ instance Core.AWSRequest CreateUser where
             Prelude.<*> (x Data..:> "ServerId")
             Prelude.<*> (x Data..:> "UserName")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =

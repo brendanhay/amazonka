@@ -112,6 +112,8 @@ instance Core.AWSRequest TagDeliveryStream where
           TagDeliveryStreamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TagDeliveryStream where
   hashWithSalt _salt TagDeliveryStream' {..} =

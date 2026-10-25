@@ -155,6 +155,8 @@ instance Core.AWSRequest PutMetricData where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull PutMetricDataResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutMetricData where
   hashWithSalt _salt PutMetricData' {..} =

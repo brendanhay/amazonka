@@ -123,6 +123,8 @@ instance Core.AWSRequest ListRecoveryGroups where
             Prelude.<*> (x Data..?> "recoveryGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListRecoveryGroups where
   hashWithSalt _salt ListRecoveryGroups' {..} =

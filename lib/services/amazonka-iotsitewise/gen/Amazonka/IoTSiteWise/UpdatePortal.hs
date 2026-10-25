@@ -212,6 +212,11 @@ instance Core.AWSRequest UpdatePortal where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "portalStatus")
       )
+  updateIdempotencyToken f s@UpdatePortal' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: UpdatePortal
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdatePortal where
   hashWithSalt _salt UpdatePortal' {..} =

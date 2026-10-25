@@ -82,6 +82,8 @@ instance Core.AWSRequest StopMonitoringSchedule where
   response =
     Response.receiveNull
       StopMonitoringScheduleResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopMonitoringSchedule where
   hashWithSalt _salt StopMonitoringSchedule' {..} =

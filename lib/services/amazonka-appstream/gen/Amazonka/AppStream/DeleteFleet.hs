@@ -82,6 +82,8 @@ instance Core.AWSRequest DeleteFleet where
           DeleteFleetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFleet where
   hashWithSalt _salt DeleteFleet' {..} =

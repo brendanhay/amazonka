@@ -132,6 +132,14 @@ instance Core.AWSRequest CreateDataSetImportTask where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "taskId")
       )
+  updateIdempotencyToken
+    f
+    s@CreateDataSetImportTask' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateDataSetImportTask
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateDataSetImportTask where
   hashWithSalt _salt CreateDataSetImportTask' {..} =

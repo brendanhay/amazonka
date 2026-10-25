@@ -175,6 +175,8 @@ instance Core.AWSRequest GetManagedRuleSet where
             Prelude.<*> (x Data..?> "ManagedRuleSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetManagedRuleSet where
   hashWithSalt _salt GetManagedRuleSet' {..} =

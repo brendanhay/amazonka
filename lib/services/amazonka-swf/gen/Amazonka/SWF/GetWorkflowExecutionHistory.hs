@@ -215,6 +215,8 @@ instance Core.AWSRequest GetWorkflowExecutionHistory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "events" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetWorkflowExecutionHistory where
   hashWithSalt _salt GetWorkflowExecutionHistory' {..} =

@@ -305,6 +305,8 @@ instance Core.AWSRequest CreateHostedZone where
             Prelude.<*> (x Data..@ "DelegationSet")
             Prelude.<*> (h Data..# "Location")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateHostedZone where
   hashWithSalt _salt CreateHostedZone' {..} =

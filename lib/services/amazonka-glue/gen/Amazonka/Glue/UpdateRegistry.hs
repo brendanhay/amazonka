@@ -111,6 +111,8 @@ instance Core.AWSRequest UpdateRegistry where
             Prelude.<*> (x Data..?> "RegistryName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRegistry where
   hashWithSalt _salt UpdateRegistry' {..} =

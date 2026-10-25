@@ -174,6 +174,8 @@ instance Core.AWSRequest ListManagedRuleSets where
             Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListManagedRuleSets where
   hashWithSalt _salt ListManagedRuleSets' {..} =

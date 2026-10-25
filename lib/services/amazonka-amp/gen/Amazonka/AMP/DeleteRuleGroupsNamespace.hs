@@ -109,6 +109,14 @@ instance Core.AWSRequest DeleteRuleGroupsNamespace where
   response =
     Response.receiveNull
       DeleteRuleGroupsNamespaceResponse'
+  updateIdempotencyToken
+    f
+    s@DeleteRuleGroupsNamespace' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            DeleteRuleGroupsNamespace
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteRuleGroupsNamespace where
   hashWithSalt _salt DeleteRuleGroupsNamespace' {..} =

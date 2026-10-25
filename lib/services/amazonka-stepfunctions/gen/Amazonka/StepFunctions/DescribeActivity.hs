@@ -94,6 +94,8 @@ instance Core.AWSRequest DescribeActivity where
             Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "creationDate")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeActivity where
   hashWithSalt _salt DescribeActivity' {..} =

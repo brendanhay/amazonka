@@ -92,6 +92,8 @@ instance Core.AWSRequest BatchDeleteBuilds where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchDeleteBuilds where
   hashWithSalt _salt BatchDeleteBuilds' {..} =

@@ -114,6 +114,8 @@ instance Core.AWSRequest GetDeployment where
             Prelude.<*> (x Data..:> "environmentId")
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDeployment where
   hashWithSalt _salt GetDeployment' {..} =

@@ -93,6 +93,8 @@ instance Core.AWSRequest GetGroupConfiguration where
             Prelude.<$> (x Data..?> "GroupConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetGroupConfiguration where
   hashWithSalt _salt GetGroupConfiguration' {..} =

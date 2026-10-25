@@ -90,6 +90,8 @@ instance Core.AWSRequest GetConnection where
             Prelude.<*> (x Data..?> "lastActiveAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetConnection where
   hashWithSalt _salt GetConnection' {..} =

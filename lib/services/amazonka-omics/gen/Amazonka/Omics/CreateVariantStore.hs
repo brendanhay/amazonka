@@ -137,6 +137,8 @@ instance Core.AWSRequest CreateVariantStore where
             Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateVariantStore where
   hashWithSalt _salt CreateVariantStore' {..} =

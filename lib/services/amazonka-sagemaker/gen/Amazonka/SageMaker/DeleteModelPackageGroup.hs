@@ -82,6 +82,8 @@ instance Core.AWSRequest DeleteModelPackageGroup where
   response =
     Response.receiveNull
       DeleteModelPackageGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteModelPackageGroup where
   hashWithSalt _salt DeleteModelPackageGroup' {..} =

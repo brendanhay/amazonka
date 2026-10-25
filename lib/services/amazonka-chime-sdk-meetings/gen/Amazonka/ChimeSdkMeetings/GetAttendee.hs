@@ -102,6 +102,8 @@ instance Core.AWSRequest GetAttendee where
             Prelude.<$> (x Data..?> "Attendee")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAttendee where
   hashWithSalt _salt GetAttendee' {..} =

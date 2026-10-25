@@ -110,6 +110,8 @@ instance Core.AWSRequest BatchRevokePermissions where
             Prelude.<$> (x Data..?> "Failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchRevokePermissions where
   hashWithSalt _salt BatchRevokePermissions' {..} =

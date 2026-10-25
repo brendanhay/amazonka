@@ -171,6 +171,8 @@ instance Core.AWSRequest CreateDatastore where
             Prelude.<*> (x Data..?> "retentionPeriod")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDatastore where
   hashWithSalt _salt CreateDatastore' {..} =

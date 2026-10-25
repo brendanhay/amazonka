@@ -103,6 +103,8 @@ instance Core.AWSRequest DeleteStateMachine where
           DeleteStateMachineResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteStateMachine where
   hashWithSalt _salt DeleteStateMachine' {..} =

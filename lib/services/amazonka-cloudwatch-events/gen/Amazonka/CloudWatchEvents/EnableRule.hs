@@ -95,6 +95,8 @@ instance Core.AWSRequest EnableRule where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull EnableRuleResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable EnableRule where
   hashWithSalt _salt EnableRule' {..} =

@@ -80,6 +80,8 @@ instance
             Prelude.<*> (x Data..:> "valid")
             Prelude.<*> (x Data..:> "registeredAt")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

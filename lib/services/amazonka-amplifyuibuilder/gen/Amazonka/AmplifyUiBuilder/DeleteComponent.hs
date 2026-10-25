@@ -107,6 +107,8 @@ instance Core.AWSRequest DeleteComponent where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteComponentResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteComponent where
   hashWithSalt _salt DeleteComponent' {..} =

@@ -145,6 +145,8 @@ instance Core.AWSRequest TagOpenIDConnectProvider where
   response =
     Response.receiveNull
       TagOpenIDConnectProviderResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TagOpenIDConnectProvider where
   hashWithSalt _salt TagOpenIDConnectProvider' {..} =

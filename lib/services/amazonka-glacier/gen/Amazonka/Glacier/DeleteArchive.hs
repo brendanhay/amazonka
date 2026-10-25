@@ -146,6 +146,8 @@ instance Core.AWSRequest DeleteArchive where
       Prelude.. Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteArchiveResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteArchive where
   hashWithSalt _salt DeleteArchive' {..} =

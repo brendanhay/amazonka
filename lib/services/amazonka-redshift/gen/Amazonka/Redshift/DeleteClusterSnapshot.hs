@@ -136,6 +136,8 @@ instance Core.AWSRequest DeleteClusterSnapshot where
             Prelude.<$> (x Data..@? "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteClusterSnapshot where
   hashWithSalt _salt DeleteClusterSnapshot' {..} =

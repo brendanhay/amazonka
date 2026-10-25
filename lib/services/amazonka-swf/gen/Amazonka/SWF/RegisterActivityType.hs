@@ -358,6 +358,8 @@ instance Core.AWSRequest RegisterActivityType where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull RegisterActivityTypeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterActivityType where
   hashWithSalt _salt RegisterActivityType' {..} =

@@ -139,6 +139,8 @@ instance Core.AWSRequest ListDataSetRevisions where
             Prelude.<*> (x Data..?> "Revisions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDataSetRevisions where
   hashWithSalt _salt ListDataSetRevisions' {..} =

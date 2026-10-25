@@ -96,6 +96,8 @@ instance Core.AWSRequest StopDataSourceSyncJob where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull StopDataSourceSyncJobResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopDataSourceSyncJob where
   hashWithSalt _salt StopDataSourceSyncJob' {..} =

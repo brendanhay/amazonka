@@ -534,6 +534,8 @@ instance Core.AWSRequest UpdateCustomKeyStore where
           UpdateCustomKeyStoreResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateCustomKeyStore where
   hashWithSalt _salt UpdateCustomKeyStore' {..} =

@@ -91,6 +91,8 @@ instance Core.AWSRequest RemoveTags where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull RemoveTagsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveTags where
   hashWithSalt _salt RemoveTags' {..} =

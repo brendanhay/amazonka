@@ -109,6 +109,8 @@ instance Core.AWSRequest GetDeploymentGroup where
             Prelude.<$> (x Data..?> "deploymentGroupInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDeploymentGroup where
   hashWithSalt _salt GetDeploymentGroup' {..} =

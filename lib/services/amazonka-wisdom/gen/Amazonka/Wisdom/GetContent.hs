@@ -105,6 +105,8 @@ instance Core.AWSRequest GetContent where
             Prelude.<$> (x Data..?> "content")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetContent where
   hashWithSalt _salt GetContent' {..} =

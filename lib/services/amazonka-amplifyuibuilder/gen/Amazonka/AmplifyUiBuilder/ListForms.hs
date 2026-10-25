@@ -142,6 +142,8 @@ instance Core.AWSRequest ListForms where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "entities" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListForms where
   hashWithSalt _salt ListForms' {..} =

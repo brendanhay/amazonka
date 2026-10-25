@@ -90,6 +90,8 @@ instance Core.AWSRequest GetBackupPlanFromTemplate where
             Prelude.<$> (x Data..?> "BackupPlanDocument")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBackupPlanFromTemplate where
   hashWithSalt _salt GetBackupPlanFromTemplate' {..} =

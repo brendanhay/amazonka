@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteContext where
             Prelude.<$> (x Data..?> "ContextArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteContext where
   hashWithSalt _salt DeleteContext' {..} =

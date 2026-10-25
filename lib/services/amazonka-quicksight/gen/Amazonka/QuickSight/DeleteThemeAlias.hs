@@ -127,6 +127,8 @@ instance Core.AWSRequest DeleteThemeAlias where
             Prelude.<*> (x Data..?> "ThemeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteThemeAlias where
   hashWithSalt _salt DeleteThemeAlias' {..} =

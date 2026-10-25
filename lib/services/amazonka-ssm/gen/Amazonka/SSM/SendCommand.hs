@@ -485,6 +485,8 @@ instance Core.AWSRequest SendCommand where
             Prelude.<$> (x Data..?> "Command")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SendCommand where
   hashWithSalt _salt SendCommand' {..} =

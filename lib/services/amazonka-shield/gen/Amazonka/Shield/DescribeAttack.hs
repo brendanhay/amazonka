@@ -87,6 +87,8 @@ instance Core.AWSRequest DescribeAttack where
             Prelude.<$> (x Data..?> "Attack")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAttack where
   hashWithSalt _salt DescribeAttack' {..} =

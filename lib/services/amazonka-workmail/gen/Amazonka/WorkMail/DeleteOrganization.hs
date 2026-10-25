@@ -122,6 +122,13 @@ instance Core.AWSRequest DeleteOrganization where
             Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteOrganization' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: DeleteOrganization
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteOrganization where
   hashWithSalt _salt DeleteOrganization' {..} =

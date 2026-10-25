@@ -89,6 +89,8 @@ instance Core.AWSRequest UpdateCampaignName where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateCampaignNameResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateCampaignName where
   hashWithSalt _salt UpdateCampaignName' {..} =

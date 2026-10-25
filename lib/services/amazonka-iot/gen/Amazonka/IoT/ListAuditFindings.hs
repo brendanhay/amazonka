@@ -213,6 +213,8 @@ instance Core.AWSRequest ListAuditFindings where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAuditFindings where
   hashWithSalt _salt ListAuditFindings' {..} =

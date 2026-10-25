@@ -112,6 +112,8 @@ instance Core.AWSRequest DeleteTrafficMirrorFilter where
             Prelude.<$> (x Data..@? "trafficMirrorFilterId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTrafficMirrorFilter where
   hashWithSalt _salt DeleteTrafficMirrorFilter' {..} =

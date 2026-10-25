@@ -138,6 +138,8 @@ instance Core.AWSRequest StopTask where
             Prelude.<$> (x Data..?> "task")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopTask where
   hashWithSalt _salt StopTask' {..} =

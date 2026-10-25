@@ -131,6 +131,8 @@ instance Core.AWSRequest ModifyCacheSubnetGroup where
             Prelude.<$> (x Data..@? "CacheSubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyCacheSubnetGroup where
   hashWithSalt _salt ModifyCacheSubnetGroup' {..} =

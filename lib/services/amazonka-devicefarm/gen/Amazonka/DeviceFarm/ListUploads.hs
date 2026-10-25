@@ -342,6 +342,8 @@ instance Core.AWSRequest ListUploads where
             Prelude.<*> (x Data..?> "uploads" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListUploads where
   hashWithSalt _salt ListUploads' {..} =

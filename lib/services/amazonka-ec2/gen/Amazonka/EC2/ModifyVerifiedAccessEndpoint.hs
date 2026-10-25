@@ -171,6 +171,14 @@ instance Core.AWSRequest ModifyVerifiedAccessEndpoint where
             Prelude.<$> (x Data..@? "verifiedAccessEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@ModifyVerifiedAccessEndpoint' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            ModifyVerifiedAccessEndpoint
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

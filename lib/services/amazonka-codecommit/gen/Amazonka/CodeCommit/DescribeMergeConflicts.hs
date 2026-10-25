@@ -230,6 +230,8 @@ instance Core.AWSRequest DescribeMergeConflicts where
             Prelude.<*> (x Data..:> "destinationCommitId")
             Prelude.<*> (x Data..:> "sourceCommitId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeMergeConflicts where
   hashWithSalt _salt DescribeMergeConflicts' {..} =

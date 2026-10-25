@@ -87,6 +87,8 @@ instance Core.AWSRequest DeregisterInstance where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeregisterInstanceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterInstance where
   hashWithSalt _salt DeregisterInstance' {..} =

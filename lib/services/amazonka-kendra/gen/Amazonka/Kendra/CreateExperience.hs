@@ -174,6 +174,13 @@ instance Core.AWSRequest CreateExperience where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Id")
       )
+  updateIdempotencyToken
+    f
+    s@CreateExperience' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateExperience
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateExperience where
   hashWithSalt _salt CreateExperience' {..} =

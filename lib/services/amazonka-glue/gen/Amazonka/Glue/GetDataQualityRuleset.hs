@@ -99,6 +99,8 @@ instance Core.AWSRequest GetDataQualityRuleset where
             Prelude.<*> (x Data..?> "TargetTable")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDataQualityRuleset where
   hashWithSalt _salt GetDataQualityRuleset' {..} =

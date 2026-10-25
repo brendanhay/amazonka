@@ -320,6 +320,8 @@ instance Core.AWSRequest ListCopyJobs where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListCopyJobs where
   hashWithSalt _salt ListCopyJobs' {..} =

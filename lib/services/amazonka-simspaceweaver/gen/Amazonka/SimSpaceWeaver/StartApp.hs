@@ -61,7 +61,7 @@ data StartApp = StartApp'
     -- operation using the same parameters complete only once. A @ClientToken@
     -- is also known as an /idempotency token/. A @ClientToken@ expires after
     -- 24 hours.
-    clientToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the app.
     description :: Prelude.Maybe Prelude.Text,
     launchOverrides :: Prelude.Maybe LaunchOverrides,
@@ -119,7 +119,7 @@ newStartApp pDomain_ pName_ pSimulation_ =
 -- is also known as an /idempotency token/. A @ClientToken@ expires after
 -- 24 hours.
 startApp_clientToken :: Lens.Lens' StartApp (Prelude.Maybe Prelude.Text)
-startApp_clientToken = Lens.lens (\StartApp' {clientToken} -> clientToken) (\s@StartApp' {} a -> s {clientToken = a} :: StartApp) Prelude.. Lens.mapping Data._Sensitive
+startApp_clientToken = Lens.lens (\StartApp' {clientToken} -> clientToken) (\s@StartApp' {} a -> s {clientToken = a} :: StartApp)
 
 -- | The description of the app.
 startApp_description :: Lens.Lens' StartApp (Prelude.Maybe Prelude.Text)
@@ -154,6 +154,11 @@ instance Core.AWSRequest StartApp where
             Prelude.<*> (x Data..?> "Simulation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@StartApp' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: StartApp
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartApp where
   hashWithSalt _salt StartApp' {..} =

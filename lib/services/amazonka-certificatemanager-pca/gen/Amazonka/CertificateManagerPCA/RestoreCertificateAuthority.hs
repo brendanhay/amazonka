@@ -116,6 +116,8 @@ instance Core.AWSRequest RestoreCertificateAuthority where
   response =
     Response.receiveNull
       RestoreCertificateAuthorityResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RestoreCertificateAuthority where
   hashWithSalt _salt RestoreCertificateAuthority' {..} =

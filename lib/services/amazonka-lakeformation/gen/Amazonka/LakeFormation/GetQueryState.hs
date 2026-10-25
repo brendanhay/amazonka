@@ -92,6 +92,8 @@ instance Core.AWSRequest GetQueryState where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "State")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetQueryState where
   hashWithSalt _salt GetQueryState' {..} =

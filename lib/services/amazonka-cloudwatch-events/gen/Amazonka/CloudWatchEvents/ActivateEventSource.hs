@@ -80,6 +80,8 @@ instance Core.AWSRequest ActivateEventSource where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull ActivateEventSourceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ActivateEventSource where
   hashWithSalt _salt ActivateEventSource' {..} =

@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteSignalCatalog where
             Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "arn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSignalCatalog where
   hashWithSalt _salt DeleteSignalCatalog' {..} =

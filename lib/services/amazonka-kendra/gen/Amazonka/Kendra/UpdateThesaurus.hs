@@ -134,6 +134,8 @@ instance Core.AWSRequest UpdateThesaurus where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateThesaurusResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateThesaurus where
   hashWithSalt _salt UpdateThesaurus' {..} =

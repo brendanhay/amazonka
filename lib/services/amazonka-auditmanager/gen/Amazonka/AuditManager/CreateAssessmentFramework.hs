@@ -135,6 +135,8 @@ instance Core.AWSRequest CreateAssessmentFramework where
             Prelude.<$> (x Data..?> "framework")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateAssessmentFramework where
   hashWithSalt _salt CreateAssessmentFramework' {..} =

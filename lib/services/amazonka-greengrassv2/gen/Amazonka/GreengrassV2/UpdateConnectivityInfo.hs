@@ -110,6 +110,8 @@ instance Core.AWSRequest UpdateConnectivityInfo where
             Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateConnectivityInfo where
   hashWithSalt _salt UpdateConnectivityInfo' {..} =

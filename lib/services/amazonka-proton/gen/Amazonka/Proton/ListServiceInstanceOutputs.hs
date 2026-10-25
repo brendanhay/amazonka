@@ -142,6 +142,8 @@ instance Core.AWSRequest ListServiceInstanceOutputs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "outputs" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListServiceInstanceOutputs where
   hashWithSalt _salt ListServiceInstanceOutputs' {..} =

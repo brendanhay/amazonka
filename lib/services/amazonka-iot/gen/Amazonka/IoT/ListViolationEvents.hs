@@ -211,6 +211,8 @@ instance Core.AWSRequest ListViolationEvents where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListViolationEvents where
   hashWithSalt _salt ListViolationEvents' {..} =

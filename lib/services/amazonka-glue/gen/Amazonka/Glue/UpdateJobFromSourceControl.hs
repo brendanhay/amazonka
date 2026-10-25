@@ -179,6 +179,8 @@ instance Core.AWSRequest UpdateJobFromSourceControl where
             Prelude.<$> (x Data..?> "JobName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateJobFromSourceControl where
   hashWithSalt _salt UpdateJobFromSourceControl' {..} =

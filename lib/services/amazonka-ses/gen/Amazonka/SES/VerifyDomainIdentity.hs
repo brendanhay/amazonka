@@ -100,6 +100,8 @@ instance Core.AWSRequest VerifyDomainIdentity where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "VerificationToken")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable VerifyDomainIdentity where
   hashWithSalt _salt VerifyDomainIdentity' {..} =

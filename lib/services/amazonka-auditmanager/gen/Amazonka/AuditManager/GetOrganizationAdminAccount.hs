@@ -75,6 +75,8 @@ instance Core.AWSRequest GetOrganizationAdminAccount where
             Prelude.<*> (x Data..?> "organizationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetOrganizationAdminAccount where
   hashWithSalt _salt _ =

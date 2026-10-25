@@ -84,6 +84,8 @@ instance Core.AWSRequest ListOpenIDConnectProviders where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListOpenIDConnectProviders where
   hashWithSalt _salt _ =

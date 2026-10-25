@@ -144,6 +144,8 @@ instance Core.AWSRequest AttachTypedLink where
             Prelude.<$> (x Data..?> "TypedLinkSpecifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AttachTypedLink where
   hashWithSalt _salt AttachTypedLink' {..} =

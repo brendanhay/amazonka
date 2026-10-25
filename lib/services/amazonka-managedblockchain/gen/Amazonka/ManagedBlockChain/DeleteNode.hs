@@ -149,6 +149,8 @@ instance Core.AWSRequest DeleteNode where
           DeleteNodeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteNode where
   hashWithSalt _salt DeleteNode' {..} =

@@ -109,6 +109,8 @@ instance Core.AWSRequest DeleteAnalysisScheme where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "AnalysisScheme")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAnalysisScheme where
   hashWithSalt _salt DeleteAnalysisScheme' {..} =

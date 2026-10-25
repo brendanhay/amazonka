@@ -94,6 +94,8 @@ instance Core.AWSRequest DescribeStackSummary where
             Prelude.<$> (x Data..?> "StackSummary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeStackSummary where
   hashWithSalt _salt DescribeStackSummary' {..} =

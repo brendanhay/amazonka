@@ -82,6 +82,8 @@ instance Core.AWSRequest GetProfile where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetProfile where
   hashWithSalt _salt GetProfile' {..} =

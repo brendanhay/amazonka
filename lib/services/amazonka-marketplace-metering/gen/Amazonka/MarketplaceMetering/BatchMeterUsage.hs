@@ -145,6 +145,8 @@ instance Core.AWSRequest BatchMeterUsage where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchMeterUsage where
   hashWithSalt _salt BatchMeterUsage' {..} =

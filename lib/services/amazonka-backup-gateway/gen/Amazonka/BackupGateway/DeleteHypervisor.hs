@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteHypervisor where
             Prelude.<$> (x Data..?> "HypervisorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteHypervisor where
   hashWithSalt _salt DeleteHypervisor' {..} =

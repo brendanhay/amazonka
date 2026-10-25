@@ -92,6 +92,8 @@ instance Core.AWSRequest BatchGetReportGroups where
             Prelude.<*> (x Data..?> "reportGroupsNotFound")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetReportGroups where
   hashWithSalt _salt BatchGetReportGroups' {..} =

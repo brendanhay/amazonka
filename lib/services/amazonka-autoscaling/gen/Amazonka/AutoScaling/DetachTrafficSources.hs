@@ -128,6 +128,8 @@ instance Core.AWSRequest DetachTrafficSources where
           DetachTrafficSourcesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetachTrafficSources where
   hashWithSalt _salt DetachTrafficSources' {..} =

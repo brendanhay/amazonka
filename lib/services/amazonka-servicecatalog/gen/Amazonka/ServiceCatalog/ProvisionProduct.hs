@@ -112,7 +112,7 @@ data ProvisionProduct = ProvisionProduct'
     -- the product is provisioned.
     provisionedProductName :: Prelude.Text,
     -- | An idempotency token that uniquely identifies the provisioning request.
-    provisionToken :: Prelude.Text
+    provisionToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -168,27 +168,23 @@ data ProvisionProduct = ProvisionProduct'
 newProvisionProduct ::
   -- | 'provisionedProductName'
   Prelude.Text ->
-  -- | 'provisionToken'
-  Prelude.Text ->
   ProvisionProduct
-newProvisionProduct
-  pProvisionedProductName_
-  pProvisionToken_ =
-    ProvisionProduct'
-      { acceptLanguage = Prelude.Nothing,
-        notificationArns = Prelude.Nothing,
-        pathId = Prelude.Nothing,
-        pathName = Prelude.Nothing,
-        productId = Prelude.Nothing,
-        productName = Prelude.Nothing,
-        provisioningArtifactId = Prelude.Nothing,
-        provisioningArtifactName = Prelude.Nothing,
-        provisioningParameters = Prelude.Nothing,
-        provisioningPreferences = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        provisionedProductName = pProvisionedProductName_,
-        provisionToken = pProvisionToken_
-      }
+newProvisionProduct pProvisionedProductName_ =
+  ProvisionProduct'
+    { acceptLanguage = Prelude.Nothing,
+      notificationArns = Prelude.Nothing,
+      pathId = Prelude.Nothing,
+      pathName = Prelude.Nothing,
+      productId = Prelude.Nothing,
+      productName = Prelude.Nothing,
+      provisioningArtifactId = Prelude.Nothing,
+      provisioningArtifactName = Prelude.Nothing,
+      provisioningParameters = Prelude.Nothing,
+      provisioningPreferences = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      provisionedProductName = pProvisionedProductName_,
+      provisionToken = Prelude.Nothing
+    }
 
 -- | The language code.
 --
@@ -255,7 +251,7 @@ provisionProduct_provisionedProductName :: Lens.Lens' ProvisionProduct Prelude.T
 provisionProduct_provisionedProductName = Lens.lens (\ProvisionProduct' {provisionedProductName} -> provisionedProductName) (\s@ProvisionProduct' {} a -> s {provisionedProductName = a} :: ProvisionProduct)
 
 -- | An idempotency token that uniquely identifies the provisioning request.
-provisionProduct_provisionToken :: Lens.Lens' ProvisionProduct Prelude.Text
+provisionProduct_provisionToken :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
 provisionProduct_provisionToken = Lens.lens (\ProvisionProduct' {provisionToken} -> provisionToken) (\s@ProvisionProduct' {} a -> s {provisionToken = a} :: ProvisionProduct)
 
 instance Core.AWSRequest ProvisionProduct where
@@ -271,6 +267,14 @@ instance Core.AWSRequest ProvisionProduct where
             Prelude.<$> (x Data..?> "RecordDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@ProvisionProduct' {provisionToken} =
+      ( \provisionToken' ->
+          s {provisionToken = provisionToken'} ::
+            ProvisionProduct
+      )
+        Prelude.<$> f provisionToken
 
 instance Prelude.Hashable ProvisionProduct where
   hashWithSalt _salt ProvisionProduct' {..} =
@@ -345,8 +349,8 @@ instance Data.ToJSON ProvisionProduct where
               ( "ProvisionedProductName"
                   Data..= provisionedProductName
               ),
-            Prelude.Just
-              ("ProvisionToken" Data..= provisionToken)
+            ("ProvisionToken" Data..=)
+              Prelude.<$> provisionToken
           ]
       )
 

@@ -91,6 +91,8 @@ instance Core.AWSRequest GetCatalogImportStatus where
             Prelude.<$> (x Data..?> "ImportStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCatalogImportStatus where
   hashWithSalt _salt GetCatalogImportStatus' {..} =

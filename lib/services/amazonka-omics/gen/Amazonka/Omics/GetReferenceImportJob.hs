@@ -115,6 +115,8 @@ instance Core.AWSRequest GetReferenceImportJob where
             Prelude.<*> (x Data..?> "sources" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetReferenceImportJob where
   hashWithSalt _salt GetReferenceImportJob' {..} =

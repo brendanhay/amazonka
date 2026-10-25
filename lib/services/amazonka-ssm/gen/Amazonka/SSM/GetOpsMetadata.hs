@@ -123,6 +123,8 @@ instance Core.AWSRequest GetOpsMetadata where
             Prelude.<*> (x Data..?> "ResourceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetOpsMetadata where
   hashWithSalt _salt GetOpsMetadata' {..} =

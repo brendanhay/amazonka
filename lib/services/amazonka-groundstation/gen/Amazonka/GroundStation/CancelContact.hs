@@ -82,6 +82,8 @@ instance Core.AWSRequest CancelContact where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelContact where
   hashWithSalt _salt CancelContact' {..} =

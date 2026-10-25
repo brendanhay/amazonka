@@ -207,6 +207,8 @@ instance Core.AWSRequest ListWhatIfAnalyses where
             Prelude.<*> (x Data..?> "WhatIfAnalyses" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListWhatIfAnalyses where
   hashWithSalt _salt ListWhatIfAnalyses' {..} =

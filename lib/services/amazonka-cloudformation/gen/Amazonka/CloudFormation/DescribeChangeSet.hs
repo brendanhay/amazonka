@@ -197,6 +197,8 @@ instance Core.AWSRequest DescribeChangeSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "Status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeChangeSet where
   hashWithSalt _salt DescribeChangeSet' {..} =

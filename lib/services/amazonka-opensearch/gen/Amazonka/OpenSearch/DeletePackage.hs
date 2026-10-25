@@ -94,6 +94,8 @@ instance Core.AWSRequest DeletePackage where
             Prelude.<$> (x Data..?> "PackageDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePackage where
   hashWithSalt _salt DeletePackage' {..} =

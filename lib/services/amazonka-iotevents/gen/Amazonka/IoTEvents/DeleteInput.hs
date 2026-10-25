@@ -83,6 +83,8 @@ instance Core.AWSRequest DeleteInput where
           DeleteInputResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteInput where
   hashWithSalt _salt DeleteInput' {..} =

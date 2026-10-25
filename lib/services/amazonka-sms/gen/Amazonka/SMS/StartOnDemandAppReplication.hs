@@ -98,6 +98,8 @@ instance Core.AWSRequest StartOnDemandAppReplication where
           StartOnDemandAppReplicationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartOnDemandAppReplication where
   hashWithSalt _salt StartOnDemandAppReplication' {..} =

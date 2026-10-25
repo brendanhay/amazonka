@@ -139,6 +139,8 @@ instance Core.AWSRequest DescribeTaskSets where
             Prelude.<*> (x Data..?> "taskSets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeTaskSets where
   hashWithSalt _salt DescribeTaskSets' {..} =

@@ -157,6 +157,8 @@ instance Core.AWSRequest AddJobFlowSteps where
             Prelude.<$> (x Data..?> "StepIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddJobFlowSteps where
   hashWithSalt _salt AddJobFlowSteps' {..} =

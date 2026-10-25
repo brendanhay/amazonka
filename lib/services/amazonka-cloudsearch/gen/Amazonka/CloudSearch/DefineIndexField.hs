@@ -113,6 +113,8 @@ instance Core.AWSRequest DefineIndexField where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "IndexField")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DefineIndexField where
   hashWithSalt _salt DefineIndexField' {..} =

@@ -145,6 +145,13 @@ instance Core.AWSRequest CreateDeployment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "deploymentId")
       )
+  updateIdempotencyToken
+    f
+    s@CreateDeployment' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateDeployment
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateDeployment where
   hashWithSalt _salt CreateDeployment' {..} =

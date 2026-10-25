@@ -126,6 +126,8 @@ instance Core.AWSRequest DeprecateWorkflowType where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeprecateWorkflowTypeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeprecateWorkflowType where
   hashWithSalt _salt DeprecateWorkflowType' {..} =

@@ -72,6 +72,8 @@ instance Core.AWSRequest GetKMSEncryptionKey where
             Prelude.<$> (x Data..?> "kmsKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetKMSEncryptionKey where
   hashWithSalt _salt _ =

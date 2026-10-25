@@ -195,6 +195,8 @@ instance Core.AWSRequest ListMonitors where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListMonitors where
   hashWithSalt _salt ListMonitors' {..} =

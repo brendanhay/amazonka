@@ -128,6 +128,8 @@ instance Core.AWSRequest EnableStageTransition where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull EnableStageTransitionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable EnableStageTransition where
   hashWithSalt _salt EnableStageTransition' {..} =

@@ -98,6 +98,8 @@ instance Core.AWSRequest GetIdentityPoolRoles where
             Prelude.<*> (x Data..?> "Roles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetIdentityPoolRoles where
   hashWithSalt _salt GetIdentityPoolRoles' {..} =

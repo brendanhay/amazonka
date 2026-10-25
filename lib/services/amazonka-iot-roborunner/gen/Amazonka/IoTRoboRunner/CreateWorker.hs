@@ -160,6 +160,11 @@ instance Core.AWSRequest CreateWorker where
             Prelude.<*> (x Data..:> "updatedAt")
             Prelude.<*> (x Data..:> "site")
       )
+  updateIdempotencyToken f s@CreateWorker' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateWorker
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateWorker where
   hashWithSalt _salt CreateWorker' {..} =

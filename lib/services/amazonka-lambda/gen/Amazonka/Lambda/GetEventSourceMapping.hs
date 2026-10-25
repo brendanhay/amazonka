@@ -107,6 +107,8 @@ instance Core.AWSRequest GetEventSourceMapping where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetEventSourceMapping where
   hashWithSalt _salt GetEventSourceMapping' {..} =

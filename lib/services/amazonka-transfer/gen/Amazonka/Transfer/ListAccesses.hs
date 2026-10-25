@@ -144,6 +144,8 @@ instance Core.AWSRequest ListAccesses where
             Prelude.<*> (x Data..:> "ServerId")
             Prelude.<*> (x Data..?> "Accesses" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAccesses where
   hashWithSalt _salt ListAccesses' {..} =

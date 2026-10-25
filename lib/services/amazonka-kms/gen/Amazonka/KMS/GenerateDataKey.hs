@@ -391,6 +391,8 @@ instance Core.AWSRequest GenerateDataKey where
             Prelude.<*> (x Data..:> "Plaintext")
             Prelude.<*> (x Data..:> "CiphertextBlob")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GenerateDataKey where
   hashWithSalt _salt GenerateDataKey' {..} =

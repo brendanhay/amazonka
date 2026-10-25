@@ -592,6 +592,8 @@ instance Core.AWSRequest UploadPart where
             Prelude.<*> (h Data..#? "x-amz-server-side-encryption")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Data.ToBody UploadPart where
   toBody UploadPart' {..} = Data.toBody body

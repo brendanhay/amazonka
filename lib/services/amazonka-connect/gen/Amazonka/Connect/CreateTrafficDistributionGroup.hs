@@ -157,6 +157,14 @@ instance
             Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateTrafficDistributionGroup' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateTrafficDistributionGroup
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

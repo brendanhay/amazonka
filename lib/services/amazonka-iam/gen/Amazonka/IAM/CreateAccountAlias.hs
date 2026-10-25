@@ -96,6 +96,8 @@ instance Core.AWSRequest CreateAccountAlias where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull CreateAccountAliasResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateAccountAlias where
   hashWithSalt _salt CreateAccountAlias' {..} =

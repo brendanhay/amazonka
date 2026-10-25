@@ -110,6 +110,8 @@ instance
             Prelude.<*> (x Data..:> "portalArn")
             Prelude.<*> (x Data..:> "userAccessLoggingSettingsArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

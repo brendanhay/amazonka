@@ -99,6 +99,8 @@ instance Core.AWSRequest DescribeAssessmentTargets where
                         )
             Prelude.<*> (x Data..?> "failedItems" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAssessmentTargets where
   hashWithSalt _salt DescribeAssessmentTargets' {..} =

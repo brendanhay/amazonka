@@ -87,6 +87,8 @@ instance Core.AWSRequest DeletePlatformApplication where
   response =
     Response.receiveNull
       DeletePlatformApplicationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePlatformApplication where
   hashWithSalt _salt DeletePlatformApplication' {..} =

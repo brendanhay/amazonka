@@ -100,6 +100,8 @@ instance Core.AWSRequest DescribeNFSFileShares where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeNFSFileShares where
   hashWithSalt _salt DescribeNFSFileShares' {..} =

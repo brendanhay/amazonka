@@ -111,6 +111,8 @@ instance Core.AWSRequest RegisterElasticIp where
             Prelude.<$> (x Data..?> "ElasticIp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterElasticIp where
   hashWithSalt _salt RegisterElasticIp' {..} =

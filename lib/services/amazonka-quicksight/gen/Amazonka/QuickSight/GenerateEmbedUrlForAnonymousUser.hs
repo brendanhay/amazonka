@@ -268,6 +268,8 @@ instance
             Prelude.<*> (x Data..:> "RequestId")
             Prelude.<*> (x Data..:> "AnonymousUserArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

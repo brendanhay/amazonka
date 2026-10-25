@@ -87,6 +87,8 @@ instance Core.AWSRequest DescribeAlgorithm where
             Prelude.<$> (x Data..?> "algorithm")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAlgorithm where
   hashWithSalt _salt DescribeAlgorithm' {..} =

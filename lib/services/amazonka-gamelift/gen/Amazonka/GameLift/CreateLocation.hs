@@ -114,6 +114,8 @@ instance Core.AWSRequest CreateLocation where
             Prelude.<$> (x Data..?> "Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLocation where
   hashWithSalt _salt CreateLocation' {..} =

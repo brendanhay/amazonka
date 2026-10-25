@@ -87,6 +87,8 @@ instance Core.AWSRequest CancelFindingsReport where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "reportId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelFindingsReport where
   hashWithSalt _salt CancelFindingsReport' {..} =

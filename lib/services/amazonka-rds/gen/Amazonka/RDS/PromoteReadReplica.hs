@@ -227,6 +227,8 @@ instance Core.AWSRequest PromoteReadReplica where
             Prelude.<$> (x Data..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PromoteReadReplica where
   hashWithSalt _salt PromoteReadReplica' {..} =

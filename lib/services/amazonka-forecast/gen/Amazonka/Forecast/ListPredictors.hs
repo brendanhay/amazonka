@@ -205,6 +205,8 @@ instance Core.AWSRequest ListPredictors where
             Prelude.<*> (x Data..?> "Predictors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPredictors where
   hashWithSalt _salt ListPredictors' {..} =

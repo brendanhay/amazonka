@@ -113,6 +113,8 @@ instance Core.AWSRequest DescribeTemplatePermissions where
             Prelude.<*> (x Data..?> "TemplateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeTemplatePermissions where
   hashWithSalt _salt DescribeTemplatePermissions' {..} =

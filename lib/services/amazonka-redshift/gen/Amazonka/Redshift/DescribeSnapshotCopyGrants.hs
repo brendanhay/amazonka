@@ -244,6 +244,8 @@ instance Core.AWSRequest DescribeSnapshotCopyGrants where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSnapshotCopyGrants where
   hashWithSalt _salt DescribeSnapshotCopyGrants' {..} =

@@ -183,6 +183,14 @@ instance Core.AWSRequest StartEntitiesDetectionV2Job where
             Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartEntitiesDetectionV2Job' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            StartEntitiesDetectionV2Job
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable StartEntitiesDetectionV2Job where
   hashWithSalt _salt StartEntitiesDetectionV2Job' {..} =

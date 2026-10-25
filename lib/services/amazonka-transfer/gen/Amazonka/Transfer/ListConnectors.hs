@@ -129,6 +129,8 @@ instance Core.AWSRequest ListConnectors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Connectors" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListConnectors where
   hashWithSalt _salt ListConnectors' {..} =

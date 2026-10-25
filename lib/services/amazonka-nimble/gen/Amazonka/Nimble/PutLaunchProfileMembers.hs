@@ -150,6 +150,14 @@ instance Core.AWSRequest PutLaunchProfileMembers where
           PutLaunchProfileMembersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@PutLaunchProfileMembers' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            PutLaunchProfileMembers
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable PutLaunchProfileMembers where
   hashWithSalt _salt PutLaunchProfileMembers' {..} =

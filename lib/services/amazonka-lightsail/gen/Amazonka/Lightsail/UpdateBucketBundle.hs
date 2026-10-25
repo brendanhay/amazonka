@@ -131,6 +131,8 @@ instance Core.AWSRequest UpdateBucketBundle where
             Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateBucketBundle where
   hashWithSalt _salt UpdateBucketBundle' {..} =

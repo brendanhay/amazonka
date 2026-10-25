@@ -212,6 +212,8 @@ instance Core.AWSRequest StartNotebookExecution where
             Prelude.<$> (x Data..?> "NotebookExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartNotebookExecution where
   hashWithSalt _salt StartNotebookExecution' {..} =

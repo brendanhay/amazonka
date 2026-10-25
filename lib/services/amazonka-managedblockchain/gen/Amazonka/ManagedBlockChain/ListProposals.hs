@@ -113,6 +113,8 @@ instance Core.AWSRequest ListProposals where
             Prelude.<*> (x Data..?> "Proposals" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListProposals where
   hashWithSalt _salt ListProposals' {..} =

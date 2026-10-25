@@ -173,6 +173,13 @@ instance Core.AWSRequest DeleteInventory where
             Prelude.<*> (x Data..?> "TypeName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteInventory' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: DeleteInventory
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteInventory where
   hashWithSalt _salt DeleteInventory' {..} =

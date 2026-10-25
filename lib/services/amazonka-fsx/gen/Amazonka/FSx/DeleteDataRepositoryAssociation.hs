@@ -125,6 +125,14 @@ instance
             Prelude.<*> (x Data..?> "Lifecycle")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteDataRepositoryAssociation' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            DeleteDataRepositoryAssociation
+      )
+        Prelude.<$> f clientRequestToken
 
 instance
   Prelude.Hashable

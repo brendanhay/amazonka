@@ -175,6 +175,8 @@ instance Core.AWSRequest PutInsightRule where
           PutInsightRuleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutInsightRule where
   hashWithSalt _salt PutInsightRule' {..} =

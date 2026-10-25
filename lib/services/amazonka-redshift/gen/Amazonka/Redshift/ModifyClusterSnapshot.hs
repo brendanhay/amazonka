@@ -134,6 +134,8 @@ instance Core.AWSRequest ModifyClusterSnapshot where
             Prelude.<$> (x Data..@? "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyClusterSnapshot where
   hashWithSalt _salt ModifyClusterSnapshot' {..} =

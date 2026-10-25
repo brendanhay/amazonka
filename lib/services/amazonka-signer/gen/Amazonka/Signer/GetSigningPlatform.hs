@@ -103,6 +103,8 @@ instance Core.AWSRequest GetSigningPlatform where
             Prelude.<*> (x Data..?> "target")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSigningPlatform where
   hashWithSalt _salt GetSigningPlatform' {..} =

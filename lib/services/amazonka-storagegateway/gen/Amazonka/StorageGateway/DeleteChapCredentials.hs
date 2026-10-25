@@ -117,6 +117,8 @@ instance Core.AWSRequest DeleteChapCredentials where
             Prelude.<*> (x Data..?> "TargetARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteChapCredentials where
   hashWithSalt _salt DeleteChapCredentials' {..} =

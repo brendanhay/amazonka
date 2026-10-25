@@ -163,6 +163,8 @@ instance Core.AWSRequest ListInstanceStorageConfigs where
             Prelude.<*> (x Data..?> "StorageConfigs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListInstanceStorageConfigs where
   hashWithSalt _salt ListInstanceStorageConfigs' {..} =

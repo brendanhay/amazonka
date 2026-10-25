@@ -133,6 +133,8 @@ instance Core.AWSRequest ExecuteBudgetAction where
             Prelude.<*> (x Data..:> "ActionId")
             Prelude.<*> (x Data..:> "ExecutionType")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ExecuteBudgetAction where
   hashWithSalt _salt ExecuteBudgetAction' {..} =

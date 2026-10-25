@@ -217,6 +217,8 @@ instance Core.AWSRequest EnableLogging where
     Response.receiveXMLWrapper
       "EnableLoggingResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable EnableLogging where
   hashWithSalt _salt EnableLogging' {..} =

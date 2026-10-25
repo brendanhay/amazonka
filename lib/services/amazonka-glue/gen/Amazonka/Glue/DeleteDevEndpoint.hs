@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteDevEndpoint where
           DeleteDevEndpointResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDevEndpoint where
   hashWithSalt _salt DeleteDevEndpoint' {..} =

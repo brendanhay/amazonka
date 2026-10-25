@@ -100,6 +100,8 @@ instance Core.AWSRequest RegisterDevices where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull RegisterDevicesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterDevices where
   hashWithSalt _salt RegisterDevices' {..} =

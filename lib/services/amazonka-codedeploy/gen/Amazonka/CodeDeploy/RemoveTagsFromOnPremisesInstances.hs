@@ -95,6 +95,8 @@ instance
   response =
     Response.receiveNull
       RemoveTagsFromOnPremisesInstancesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

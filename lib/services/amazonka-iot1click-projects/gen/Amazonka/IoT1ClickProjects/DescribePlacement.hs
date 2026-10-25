@@ -101,6 +101,8 @@ instance Core.AWSRequest DescribePlacement where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "placement")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePlacement where
   hashWithSalt _salt DescribePlacement' {..} =

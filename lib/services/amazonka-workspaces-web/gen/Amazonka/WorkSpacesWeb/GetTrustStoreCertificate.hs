@@ -106,6 +106,8 @@ instance Core.AWSRequest GetTrustStoreCertificate where
             Prelude.<*> (x Data..?> "trustStoreArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTrustStoreCertificate where
   hashWithSalt _salt GetTrustStoreCertificate' {..} =

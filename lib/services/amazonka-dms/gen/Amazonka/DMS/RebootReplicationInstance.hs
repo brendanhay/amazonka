@@ -133,6 +133,8 @@ instance Core.AWSRequest RebootReplicationInstance where
             Prelude.<$> (x Data..?> "ReplicationInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RebootReplicationInstance where
   hashWithSalt _salt RebootReplicationInstance' {..} =

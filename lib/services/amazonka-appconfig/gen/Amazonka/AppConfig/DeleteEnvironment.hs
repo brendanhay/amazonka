@@ -96,6 +96,8 @@ instance Core.AWSRequest DeleteEnvironment where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteEnvironmentResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteEnvironment where
   hashWithSalt _salt DeleteEnvironment' {..} =

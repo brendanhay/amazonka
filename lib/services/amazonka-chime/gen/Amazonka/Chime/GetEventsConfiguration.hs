@@ -102,6 +102,8 @@ instance Core.AWSRequest GetEventsConfiguration where
             Prelude.<$> (x Data..?> "EventsConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetEventsConfiguration where
   hashWithSalt _salt GetEventsConfiguration' {..} =

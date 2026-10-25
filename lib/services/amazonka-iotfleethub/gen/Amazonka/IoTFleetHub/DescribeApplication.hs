@@ -116,6 +116,8 @@ instance Core.AWSRequest DescribeApplication where
             Prelude.<*> (x Data..:> "applicationLastUpdateDate")
             Prelude.<*> (x Data..:> "roleArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeApplication where
   hashWithSalt _salt DescribeApplication' {..} =

@@ -114,6 +114,8 @@ instance Core.AWSRequest DescribeInputDevice where
             Prelude.<*> (x Data..?> "uhdDeviceSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeInputDevice where
   hashWithSalt _salt DescribeInputDevice' {..} =

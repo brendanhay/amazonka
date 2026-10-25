@@ -273,6 +273,14 @@ instance Core.AWSRequest UpdateNodegroupVersion where
             Prelude.<$> (x Data..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateNodegroupVersion' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            UpdateNodegroupVersion
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable UpdateNodegroupVersion where
   hashWithSalt _salt UpdateNodegroupVersion' {..} =

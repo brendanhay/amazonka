@@ -109,6 +109,8 @@ instance Core.AWSRequest DescribeLocationFsxOntap where
             Prelude.<*> (x Data..?> "StorageVirtualMachineArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeLocationFsxOntap where
   hashWithSalt _salt DescribeLocationFsxOntap' {..} =

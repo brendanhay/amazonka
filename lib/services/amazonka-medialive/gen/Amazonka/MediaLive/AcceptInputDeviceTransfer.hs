@@ -94,6 +94,8 @@ instance Core.AWSRequest AcceptInputDeviceTransfer where
           AcceptInputDeviceTransferResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AcceptInputDeviceTransfer where
   hashWithSalt _salt AcceptInputDeviceTransfer' {..} =

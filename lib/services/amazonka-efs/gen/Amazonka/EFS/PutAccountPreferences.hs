@@ -122,6 +122,8 @@ instance Core.AWSRequest PutAccountPreferences where
             Prelude.<$> (x Data..?> "ResourceIdPreference")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutAccountPreferences where
   hashWithSalt _salt PutAccountPreferences' {..} =

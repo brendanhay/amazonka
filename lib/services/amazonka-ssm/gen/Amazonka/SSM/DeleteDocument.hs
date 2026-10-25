@@ -140,6 +140,8 @@ instance Core.AWSRequest DeleteDocument where
           DeleteDocumentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDocument where
   hashWithSalt _salt DeleteDocument' {..} =

@@ -113,6 +113,8 @@ instance Core.AWSRequest UpdatePlacement where
           UpdatePlacementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdatePlacement where
   hashWithSalt _salt UpdatePlacement' {..} =

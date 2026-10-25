@@ -97,6 +97,8 @@ instance Core.AWSRequest DeleteArtifact where
             Prelude.<$> (x Data..?> "ArtifactArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteArtifact where
   hashWithSalt _salt DeleteArtifact' {..} =

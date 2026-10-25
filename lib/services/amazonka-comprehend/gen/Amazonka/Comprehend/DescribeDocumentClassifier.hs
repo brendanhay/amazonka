@@ -93,6 +93,8 @@ instance Core.AWSRequest DescribeDocumentClassifier where
             Prelude.<$> (x Data..?> "DocumentClassifierProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDocumentClassifier where
   hashWithSalt _salt DescribeDocumentClassifier' {..} =

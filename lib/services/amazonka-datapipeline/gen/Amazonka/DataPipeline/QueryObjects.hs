@@ -184,6 +184,8 @@ instance Core.AWSRequest QueryObjects where
             Prelude.<*> (x Data..?> "marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable QueryObjects where
   hashWithSalt _salt QueryObjects' {..} =

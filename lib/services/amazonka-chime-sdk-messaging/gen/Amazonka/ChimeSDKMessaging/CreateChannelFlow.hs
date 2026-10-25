@@ -158,6 +158,8 @@ instance Core.AWSRequest CreateChannelFlow where
             Prelude.<$> (x Data..?> "ChannelFlowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateChannelFlow where
   hashWithSalt _salt CreateChannelFlow' {..} =

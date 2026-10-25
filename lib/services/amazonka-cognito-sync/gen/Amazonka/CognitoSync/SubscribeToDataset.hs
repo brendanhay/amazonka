@@ -140,6 +140,8 @@ instance Core.AWSRequest SubscribeToDataset where
           SubscribeToDatasetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SubscribeToDataset where
   hashWithSalt _salt SubscribeToDataset' {..} =

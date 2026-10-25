@@ -187,6 +187,8 @@ instance Core.AWSRequest ImportRestApi where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportRestApi where
   hashWithSalt _salt ImportRestApi' {..} =

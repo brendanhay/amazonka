@@ -93,6 +93,8 @@ instance Core.AWSRequest DescribeDatabase where
             Prelude.<$> (x Data..?> "Database")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDatabase where
   hashWithSalt _salt DescribeDatabase' {..} =

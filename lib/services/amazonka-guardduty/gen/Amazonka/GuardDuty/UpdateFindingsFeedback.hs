@@ -122,6 +122,8 @@ instance Core.AWSRequest UpdateFindingsFeedback where
           UpdateFindingsFeedbackResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateFindingsFeedback where
   hashWithSalt _salt UpdateFindingsFeedback' {..} =

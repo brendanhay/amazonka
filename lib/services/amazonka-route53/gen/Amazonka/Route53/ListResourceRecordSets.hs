@@ -371,6 +371,8 @@ instance Core.AWSRequest ListResourceRecordSets where
             Prelude.<*> (x Data..@ "IsTruncated")
             Prelude.<*> (x Data..@ "MaxItems")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListResourceRecordSets where
   hashWithSalt _salt ListResourceRecordSets' {..} =

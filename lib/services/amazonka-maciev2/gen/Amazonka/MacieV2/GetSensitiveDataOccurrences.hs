@@ -97,6 +97,8 @@ instance Core.AWSRequest GetSensitiveDataOccurrences where
             Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSensitiveDataOccurrences where
   hashWithSalt _salt GetSensitiveDataOccurrences' {..} =

@@ -135,6 +135,8 @@ instance Core.AWSRequest ListTeamMembers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "teamMembers" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTeamMembers where
   hashWithSalt _salt ListTeamMembers' {..} =

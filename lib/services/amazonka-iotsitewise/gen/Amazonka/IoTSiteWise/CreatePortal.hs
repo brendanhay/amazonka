@@ -310,6 +310,11 @@ instance Core.AWSRequest CreatePortal where
             Prelude.<*> (x Data..:> "portalStatus")
             Prelude.<*> (x Data..:> "ssoApplicationId")
       )
+  updateIdempotencyToken f s@CreatePortal' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreatePortal
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreatePortal where
   hashWithSalt _salt CreatePortal' {..} =

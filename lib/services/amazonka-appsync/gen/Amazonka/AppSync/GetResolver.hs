@@ -111,6 +111,8 @@ instance Core.AWSRequest GetResolver where
             Prelude.<$> (x Data..?> "resolver")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetResolver where
   hashWithSalt _salt GetResolver' {..} =

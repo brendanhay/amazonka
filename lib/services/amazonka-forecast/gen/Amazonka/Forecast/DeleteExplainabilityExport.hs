@@ -83,6 +83,8 @@ instance Core.AWSRequest DeleteExplainabilityExport where
   response =
     Response.receiveNull
       DeleteExplainabilityExportResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteExplainabilityExport where
   hashWithSalt _salt DeleteExplainabilityExport' {..} =

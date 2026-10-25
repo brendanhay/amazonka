@@ -136,6 +136,8 @@ instance Core.AWSRequest ListDetectors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "detectorIds" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDetectors where
   hashWithSalt _salt ListDetectors' {..} =

@@ -104,6 +104,8 @@ instance Core.AWSRequest DescribeFargateProfile where
             Prelude.<$> (x Data..?> "fargateProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeFargateProfile where
   hashWithSalt _salt DescribeFargateProfile' {..} =

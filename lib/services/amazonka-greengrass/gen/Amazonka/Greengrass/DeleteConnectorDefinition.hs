@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteConnectorDefinition where
           DeleteConnectorDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteConnectorDefinition where
   hashWithSalt _salt DeleteConnectorDefinition' {..} =

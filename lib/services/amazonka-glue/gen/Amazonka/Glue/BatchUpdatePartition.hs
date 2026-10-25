@@ -135,6 +135,8 @@ instance Core.AWSRequest BatchUpdatePartition where
             Prelude.<$> (x Data..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchUpdatePartition where
   hashWithSalt _salt BatchUpdatePartition' {..} =

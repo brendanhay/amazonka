@@ -165,6 +165,8 @@ instance Core.AWSRequest DescribeRegistries where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "registries" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeRegistries where
   hashWithSalt _salt DescribeRegistries' {..} =

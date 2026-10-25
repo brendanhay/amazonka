@@ -670,6 +670,8 @@ instance Core.AWSRequest UpdateStack where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull UpdateStackResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateStack where
   hashWithSalt _salt UpdateStack' {..} =

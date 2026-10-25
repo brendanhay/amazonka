@@ -112,6 +112,8 @@ instance Core.AWSRequest DeleteLifecyclePolicy where
             Prelude.<*> (x Data..?> "repositoryName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteLifecyclePolicy where
   hashWithSalt _salt DeleteLifecyclePolicy' {..} =

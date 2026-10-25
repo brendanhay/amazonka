@@ -188,6 +188,8 @@ instance Core.AWSRequest NotifyObjectComplete where
             Prelude.<*> (x Data..:> "ObjectChecksum")
             Prelude.<*> (x Data..:> "ObjectChecksumAlgorithm")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Data.ToBody NotifyObjectComplete where
   toBody NotifyObjectComplete' {..} =

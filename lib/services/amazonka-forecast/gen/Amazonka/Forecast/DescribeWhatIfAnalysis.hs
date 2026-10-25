@@ -122,6 +122,8 @@ instance Core.AWSRequest DescribeWhatIfAnalysis where
             Prelude.<*> (x Data..?> "WhatIfAnalysisName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeWhatIfAnalysis where
   hashWithSalt _salt DescribeWhatIfAnalysis' {..} =

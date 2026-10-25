@@ -107,6 +107,8 @@ instance Core.AWSRequest StopContact where
           StopContactResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopContact where
   hashWithSalt _salt StopContact' {..} =

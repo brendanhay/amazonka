@@ -99,7 +99,7 @@ instance Core.AWSRequest GetObjectMetadata where
   request overrides =
     Request.get (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetObjectMetadataResponse'
             Prelude.<$> (h Data..#? "x-amz-checksum")
@@ -109,6 +109,8 @@ instance Core.AWSRequest GetObjectMetadata where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetObjectMetadata where
   hashWithSalt _salt GetObjectMetadata' {..} =

@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteLaunchConfiguration where
   response =
     Response.receiveNull
       DeleteLaunchConfigurationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteLaunchConfiguration where
   hashWithSalt _salt DeleteLaunchConfiguration' {..} =

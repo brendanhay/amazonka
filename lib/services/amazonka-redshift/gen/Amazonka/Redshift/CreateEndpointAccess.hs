@@ -160,6 +160,8 @@ instance Core.AWSRequest CreateEndpointAccess where
     Response.receiveXMLWrapper
       "CreateEndpointAccessResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateEndpointAccess where
   hashWithSalt _salt CreateEndpointAccess' {..} =

@@ -171,6 +171,8 @@ instance Core.AWSRequest UpdateUser where
   request overrides =
     Request.postQuery (overrides defaultService)
   response = Response.receiveNull UpdateUserResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateUser where
   hashWithSalt _salt UpdateUser' {..} =

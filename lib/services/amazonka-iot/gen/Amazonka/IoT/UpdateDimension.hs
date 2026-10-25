@@ -125,6 +125,8 @@ instance Core.AWSRequest UpdateDimension where
             Prelude.<*> (x Data..?> "type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDimension where
   hashWithSalt _salt UpdateDimension' {..} =

@@ -117,6 +117,8 @@ instance Core.AWSRequest DisassociateLexBot where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DisassociateLexBotResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateLexBot where
   hashWithSalt _salt DisassociateLexBot' {..} =

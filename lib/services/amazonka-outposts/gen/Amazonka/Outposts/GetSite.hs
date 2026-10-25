@@ -84,6 +84,8 @@ instance Core.AWSRequest GetSite where
             Prelude.<$> (x Data..?> "Site")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSite where
   hashWithSalt _salt GetSite' {..} =

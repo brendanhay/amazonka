@@ -153,6 +153,8 @@ instance Core.AWSRequest CreateControl where
             Prelude.<$> (x Data..?> "control")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateControl where
   hashWithSalt _salt CreateControl' {..} =

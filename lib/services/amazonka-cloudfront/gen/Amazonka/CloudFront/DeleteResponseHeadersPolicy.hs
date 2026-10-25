@@ -119,6 +119,8 @@ instance Core.AWSRequest DeleteResponseHeadersPolicy where
   response =
     Response.receiveNull
       DeleteResponseHeadersPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteResponseHeadersPolicy where
   hashWithSalt _salt DeleteResponseHeadersPolicy' {..} =

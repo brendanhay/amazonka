@@ -94,6 +94,8 @@ instance Core.AWSRequest StopRun where
             Prelude.<$> (x Data..?> "run")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopRun where
   hashWithSalt _salt StopRun' {..} =

@@ -398,6 +398,8 @@ instance Core.AWSRequest PutBucketAcl where
     Request.s3vhost
       Prelude.. Request.putXML (overrides defaultService)
   response = Response.receiveNull PutBucketAclResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutBucketAcl where
   hashWithSalt _salt PutBucketAcl' {..} =

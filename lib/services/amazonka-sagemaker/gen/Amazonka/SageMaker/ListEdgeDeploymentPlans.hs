@@ -215,6 +215,8 @@ instance Core.AWSRequest ListEdgeDeploymentPlans where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListEdgeDeploymentPlans where
   hashWithSalt _salt ListEdgeDeploymentPlans' {..} =

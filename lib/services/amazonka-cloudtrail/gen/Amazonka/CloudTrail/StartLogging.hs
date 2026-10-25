@@ -101,6 +101,8 @@ instance Core.AWSRequest StartLogging where
           StartLoggingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartLogging where
   hashWithSalt _salt StartLogging' {..} =

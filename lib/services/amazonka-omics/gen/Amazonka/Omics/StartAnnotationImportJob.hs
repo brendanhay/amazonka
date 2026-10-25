@@ -137,6 +137,8 @@ instance Core.AWSRequest StartAnnotationImportJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "jobId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartAnnotationImportJob where
   hashWithSalt _salt StartAnnotationImportJob' {..} =

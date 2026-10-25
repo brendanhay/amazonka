@@ -103,6 +103,8 @@ instance Core.AWSRequest GetAnomalyGroup where
             Prelude.<$> (x Data..?> "AnomalyGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAnomalyGroup where
   hashWithSalt _salt GetAnomalyGroup' {..} =

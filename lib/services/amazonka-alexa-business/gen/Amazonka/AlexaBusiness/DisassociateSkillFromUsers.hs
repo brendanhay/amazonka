@@ -86,6 +86,8 @@ instance Core.AWSRequest DisassociateSkillFromUsers where
           DisassociateSkillFromUsersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateSkillFromUsers where
   hashWithSalt _salt DisassociateSkillFromUsers' {..} =

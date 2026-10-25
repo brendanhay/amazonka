@@ -192,6 +192,8 @@ instance Core.AWSRequest CreateSecurityProfile where
             Prelude.<*> (x Data..?> "securityProfileName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateSecurityProfile where
   hashWithSalt _salt CreateSecurityProfile' {..} =

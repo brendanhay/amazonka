@@ -72,6 +72,8 @@ instance Core.AWSRequest GetSupportedResourceTypes where
             Prelude.<$> (x Data..?> "ResourceTypes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSupportedResourceTypes where
   hashWithSalt _salt _ =

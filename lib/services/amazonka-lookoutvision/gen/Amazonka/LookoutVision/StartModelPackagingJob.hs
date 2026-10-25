@@ -230,6 +230,14 @@ instance Core.AWSRequest StartModelPackagingJob where
             Prelude.<$> (x Data..?> "JobName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartModelPackagingJob' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            StartModelPackagingJob
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartModelPackagingJob where
   hashWithSalt _salt StartModelPackagingJob' {..} =

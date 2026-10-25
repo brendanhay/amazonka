@@ -94,6 +94,8 @@ instance Core.AWSRequest DeleteEvaluation where
             Prelude.<$> (x Data..?> "EvaluationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteEvaluation where
   hashWithSalt _salt DeleteEvaluation' {..} =

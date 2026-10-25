@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteEventSubscription where
   response =
     Response.receiveNull
       DeleteEventSubscriptionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteEventSubscription where
   hashWithSalt _salt DeleteEventSubscription' {..} =

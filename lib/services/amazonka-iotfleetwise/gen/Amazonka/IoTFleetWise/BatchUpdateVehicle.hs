@@ -97,6 +97,8 @@ instance Core.AWSRequest BatchUpdateVehicle where
             Prelude.<*> (x Data..?> "vehicles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchUpdateVehicle where
   hashWithSalt _salt BatchUpdateVehicle' {..} =

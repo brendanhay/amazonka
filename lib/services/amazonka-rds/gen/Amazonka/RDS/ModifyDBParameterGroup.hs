@@ -195,6 +195,8 @@ instance Core.AWSRequest ModifyDBParameterGroup where
     Response.receiveXMLWrapper
       "ModifyDBParameterGroupResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyDBParameterGroup where
   hashWithSalt _salt ModifyDBParameterGroup' {..} =

@@ -83,6 +83,8 @@ instance Core.AWSRequest DescribeAdjustmentTypes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAdjustmentTypes where
   hashWithSalt _salt _ =

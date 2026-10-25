@@ -99,6 +99,8 @@ instance Core.AWSRequest UpdateSettings where
             Prelude.<$> (x Data..?> "DirectoryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateSettings where
   hashWithSalt _salt UpdateSettings' {..} =

@@ -106,6 +106,8 @@ instance Core.AWSRequest DeleteChannelBan where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteChannelBanResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteChannelBan where
   hashWithSalt _salt DeleteChannelBan' {..} =

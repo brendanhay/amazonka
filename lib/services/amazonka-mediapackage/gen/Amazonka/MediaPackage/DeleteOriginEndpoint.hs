@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteOriginEndpoint where
           DeleteOriginEndpointResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteOriginEndpoint where
   hashWithSalt _salt DeleteOriginEndpoint' {..} =

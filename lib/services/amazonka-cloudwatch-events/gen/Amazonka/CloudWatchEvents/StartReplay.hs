@@ -174,6 +174,8 @@ instance Core.AWSRequest StartReplay where
             Prelude.<*> (x Data..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartReplay where
   hashWithSalt _salt StartReplay' {..} =

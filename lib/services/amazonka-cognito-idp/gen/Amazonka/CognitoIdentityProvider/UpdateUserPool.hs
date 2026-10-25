@@ -449,6 +449,8 @@ instance Core.AWSRequest UpdateUserPool where
           UpdateUserPoolResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateUserPool where
   hashWithSalt _salt UpdateUserPool' {..} =

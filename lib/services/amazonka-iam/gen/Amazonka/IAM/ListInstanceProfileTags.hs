@@ -168,6 +168,8 @@ instance Core.AWSRequest ListInstanceProfileTags where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListInstanceProfileTags where
   hashWithSalt _salt ListInstanceProfileTags' {..} =

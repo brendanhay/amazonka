@@ -173,6 +173,8 @@ instance Core.AWSRequest ListRoutingControls where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListRoutingControls where
   hashWithSalt _salt ListRoutingControls' {..} =

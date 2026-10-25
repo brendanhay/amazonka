@@ -83,6 +83,8 @@ instance Core.AWSRequest DeleteMeeting where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteMeetingResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteMeeting where
   hashWithSalt _salt DeleteMeeting' {..} =

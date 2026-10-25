@@ -131,6 +131,8 @@ instance Core.AWSRequest DeactivateMFADevice where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeactivateMFADeviceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeactivateMFADevice where
   hashWithSalt _salt DeactivateMFADevice' {..} =

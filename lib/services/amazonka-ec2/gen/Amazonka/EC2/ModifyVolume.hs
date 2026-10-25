@@ -314,6 +314,8 @@ instance Core.AWSRequest ModifyVolume where
             Prelude.<$> (x Data..@? "volumeModification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyVolume where
   hashWithSalt _salt ModifyVolume' {..} =

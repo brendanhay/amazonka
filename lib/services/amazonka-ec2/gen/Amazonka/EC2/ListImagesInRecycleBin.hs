@@ -181,6 +181,8 @@ instance Core.AWSRequest ListImagesInRecycleBin where
             Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListImagesInRecycleBin where
   hashWithSalt _salt ListImagesInRecycleBin' {..} =

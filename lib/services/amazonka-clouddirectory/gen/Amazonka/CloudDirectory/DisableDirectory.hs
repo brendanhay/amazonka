@@ -89,6 +89,8 @@ instance Core.AWSRequest DisableDirectory where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "DirectoryArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisableDirectory where
   hashWithSalt _salt DisableDirectory' {..} =

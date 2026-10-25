@@ -125,6 +125,14 @@ instance Core.AWSRequest CreateAlertManagerDefinition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken
+    f
+    s@CreateAlertManagerDefinition' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateAlertManagerDefinition
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

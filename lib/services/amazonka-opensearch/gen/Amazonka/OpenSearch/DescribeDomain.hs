@@ -91,6 +91,8 @@ instance Core.AWSRequest DescribeDomain where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "DomainStatus")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDomain where
   hashWithSalt _salt DescribeDomain' {..} =

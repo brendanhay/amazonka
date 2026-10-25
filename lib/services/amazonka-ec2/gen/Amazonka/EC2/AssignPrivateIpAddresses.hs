@@ -220,6 +220,8 @@ instance Core.AWSRequest AssignPrivateIpAddresses where
             Prelude.<*> (x Data..@? "networkInterfaceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssignPrivateIpAddresses where
   hashWithSalt _salt AssignPrivateIpAddresses' {..} =

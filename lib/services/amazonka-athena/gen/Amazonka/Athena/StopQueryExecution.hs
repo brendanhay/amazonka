@@ -54,7 +54,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newStopQueryExecution' smart constructor.
 data StopQueryExecution = StopQueryExecution'
   { -- | The unique ID of the query execution to stop.
-    queryExecutionId :: Prelude.Text
+    queryExecutionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,17 +68,15 @@ data StopQueryExecution = StopQueryExecution'
 --
 -- 'queryExecutionId', 'stopQueryExecution_queryExecutionId' - The unique ID of the query execution to stop.
 newStopQueryExecution ::
-  -- | 'queryExecutionId'
-  Prelude.Text ->
   StopQueryExecution
-newStopQueryExecution pQueryExecutionId_ =
+newStopQueryExecution =
   StopQueryExecution'
     { queryExecutionId =
-        pQueryExecutionId_
+        Prelude.Nothing
     }
 
 -- | The unique ID of the query execution to stop.
-stopQueryExecution_queryExecutionId :: Lens.Lens' StopQueryExecution Prelude.Text
+stopQueryExecution_queryExecutionId :: Lens.Lens' StopQueryExecution (Prelude.Maybe Prelude.Text)
 stopQueryExecution_queryExecutionId = Lens.lens (\StopQueryExecution' {queryExecutionId} -> queryExecutionId) (\s@StopQueryExecution' {} a -> s {queryExecutionId = a} :: StopQueryExecution)
 
 instance Core.AWSRequest StopQueryExecution where
@@ -93,6 +91,14 @@ instance Core.AWSRequest StopQueryExecution where
           StopQueryExecutionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StopQueryExecution' {queryExecutionId} =
+      ( \queryExecutionId' ->
+          s {queryExecutionId = queryExecutionId'} ::
+            StopQueryExecution
+      )
+        Prelude.<$> f queryExecutionId
 
 instance Prelude.Hashable StopQueryExecution where
   hashWithSalt _salt StopQueryExecution' {..} =
@@ -121,8 +127,8 @@ instance Data.ToJSON StopQueryExecution where
   toJSON StopQueryExecution' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just
-              ("QueryExecutionId" Data..= queryExecutionId)
+          [ ("QueryExecutionId" Data..=)
+              Prelude.<$> queryExecutionId
           ]
       )
 

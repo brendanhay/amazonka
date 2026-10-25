@@ -94,6 +94,8 @@ instance Core.AWSRequest DeleteActionTarget where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ActionTargetArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteActionTarget where
   hashWithSalt _salt DeleteActionTarget' {..} =

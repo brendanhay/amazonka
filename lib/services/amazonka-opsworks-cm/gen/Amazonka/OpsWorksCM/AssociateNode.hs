@@ -173,6 +173,8 @@ instance Core.AWSRequest AssociateNode where
             Prelude.<$> (x Data..?> "NodeAssociationStatusToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateNode where
   hashWithSalt _salt AssociateNode' {..} =

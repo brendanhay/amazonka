@@ -132,6 +132,8 @@ instance Core.AWSRequest UpdateContainerAgent where
             Prelude.<$> (x Data..?> "containerInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateContainerAgent where
   hashWithSalt _salt UpdateContainerAgent' {..} =

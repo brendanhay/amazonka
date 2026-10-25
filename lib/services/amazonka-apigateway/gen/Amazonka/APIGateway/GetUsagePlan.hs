@@ -89,6 +89,8 @@ instance Core.AWSRequest GetUsagePlan where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetUsagePlan where
   hashWithSalt _salt GetUsagePlan' {..} =

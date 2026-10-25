@@ -107,6 +107,8 @@ instance Core.AWSRequest UpdateRepositoryDescription where
   response =
     Response.receiveNull
       UpdateRepositoryDescriptionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRepositoryDescription where
   hashWithSalt _salt UpdateRepositoryDescription' {..} =

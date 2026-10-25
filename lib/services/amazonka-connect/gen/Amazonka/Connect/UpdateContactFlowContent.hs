@@ -115,6 +115,8 @@ instance Core.AWSRequest UpdateContactFlowContent where
   response =
     Response.receiveNull
       UpdateContactFlowContentResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateContactFlowContent where
   hashWithSalt _salt UpdateContactFlowContent' {..} =

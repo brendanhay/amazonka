@@ -123,6 +123,8 @@ instance Core.AWSRequest SetVaultAccessPolicy where
       Prelude.. Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull SetVaultAccessPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetVaultAccessPolicy where
   hashWithSalt _salt SetVaultAccessPolicy' {..} =

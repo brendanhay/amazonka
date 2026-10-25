@@ -123,6 +123,8 @@ instance Core.AWSRequest GetCardinality where
             Prelude.<$> (x Data..?> "cardinality")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCardinality where
   hashWithSalt _salt GetCardinality' {..} =

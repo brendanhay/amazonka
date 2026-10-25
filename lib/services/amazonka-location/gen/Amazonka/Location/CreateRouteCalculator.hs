@@ -310,6 +310,8 @@ instance Core.AWSRequest CreateRouteCalculator where
             Prelude.<*> (x Data..:> "CalculatorName")
             Prelude.<*> (x Data..:> "CreateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateRouteCalculator where
   hashWithSalt _salt CreateRouteCalculator' {..} =

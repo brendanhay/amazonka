@@ -128,6 +128,8 @@ instance Core.AWSRequest DeleteRule where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteRuleResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRule where
   hashWithSalt _salt DeleteRule' {..} =

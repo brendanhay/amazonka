@@ -123,6 +123,8 @@ instance Core.AWSRequest PutNotificationConfiguration where
   response =
     Response.receiveNull
       PutNotificationConfigurationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

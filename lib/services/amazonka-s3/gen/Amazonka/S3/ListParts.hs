@@ -371,6 +371,8 @@ instance Core.AWSRequest ListParts where
             Prelude.<*> (x Data..@? "UploadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListParts where
   hashWithSalt _salt ListParts' {..} =

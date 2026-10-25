@@ -114,6 +114,14 @@ instance Core.AWSRequest DeleteBackup where
             Prelude.<*> (x Data..?> "Lifecycle")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteBackup' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            DeleteBackup
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable DeleteBackup where
   hashWithSalt _salt DeleteBackup' {..} =

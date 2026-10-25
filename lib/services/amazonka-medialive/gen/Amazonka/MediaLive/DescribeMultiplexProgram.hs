@@ -117,6 +117,8 @@ instance Core.AWSRequest DescribeMultiplexProgram where
             Prelude.<*> (x Data..?> "programName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeMultiplexProgram where
   hashWithSalt _salt DescribeMultiplexProgram' {..} =

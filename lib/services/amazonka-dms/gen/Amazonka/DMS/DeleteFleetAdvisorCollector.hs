@@ -83,6 +83,8 @@ instance Core.AWSRequest DeleteFleetAdvisorCollector where
   response =
     Response.receiveNull
       DeleteFleetAdvisorCollectorResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFleetAdvisorCollector where
   hashWithSalt _salt DeleteFleetAdvisorCollector' {..} =

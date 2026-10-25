@@ -96,6 +96,8 @@ instance Core.AWSRequest UpdateDatasourcePackages where
   response =
     Response.receiveNull
       UpdateDatasourcePackagesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDatasourcePackages where
   hashWithSalt _salt UpdateDatasourcePackages' {..} =

@@ -103,6 +103,8 @@ instance Core.AWSRequest ResetPersonalPIN where
             Prelude.<$> (x Data..?> "User")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResetPersonalPIN where
   hashWithSalt _salt ResetPersonalPIN' {..} =

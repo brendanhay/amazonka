@@ -112,6 +112,8 @@ instance Core.AWSRequest DeleteBucketCors where
       Prelude.. Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteBucketCorsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBucketCors where
   hashWithSalt _salt DeleteBucketCors' {..} =

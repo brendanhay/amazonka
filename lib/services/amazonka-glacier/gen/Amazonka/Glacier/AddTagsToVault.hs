@@ -126,6 +126,8 @@ instance Core.AWSRequest AddTagsToVault where
       Prelude.. Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull AddTagsToVaultResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddTagsToVault where
   hashWithSalt _salt AddTagsToVault' {..} =

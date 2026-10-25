@@ -112,6 +112,8 @@ instance Core.AWSRequest PutUserPermissionsBoundary where
   response =
     Response.receiveNull
       PutUserPermissionsBoundaryResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutUserPermissionsBoundary where
   hashWithSalt _salt PutUserPermissionsBoundary' {..} =

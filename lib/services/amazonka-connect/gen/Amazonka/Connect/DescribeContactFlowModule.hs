@@ -107,6 +107,8 @@ instance Core.AWSRequest DescribeContactFlowModule where
             Prelude.<$> (x Data..?> "ContactFlowModule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeContactFlowModule where
   hashWithSalt _salt DescribeContactFlowModule' {..} =

@@ -175,6 +175,8 @@ instance Core.AWSRequest DescribeSlot where
             Prelude.<*> (x Data..?> "valueElicitationSetting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSlot where
   hashWithSalt _salt DescribeSlot' {..} =

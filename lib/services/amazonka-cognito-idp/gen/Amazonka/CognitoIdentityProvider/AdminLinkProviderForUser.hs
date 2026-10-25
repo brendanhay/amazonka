@@ -245,6 +245,8 @@ instance Core.AWSRequest AdminLinkProviderForUser where
           AdminLinkProviderForUserResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AdminLinkProviderForUser where
   hashWithSalt _salt AdminLinkProviderForUser' {..} =

@@ -158,6 +158,8 @@ instance Core.AWSRequest GetUsagePlanKeys where
             Prelude.<*> (x Data..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetUsagePlanKeys where
   hashWithSalt _salt GetUsagePlanKeys' {..} =

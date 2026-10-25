@@ -102,6 +102,8 @@ instance Core.AWSRequest UpdateGameConfiguration where
             Prelude.<$> (x Data..?> "GameConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateGameConfiguration where
   hashWithSalt _salt UpdateGameConfiguration' {..} =

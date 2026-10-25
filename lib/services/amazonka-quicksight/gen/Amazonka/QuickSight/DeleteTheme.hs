@@ -125,6 +125,8 @@ instance Core.AWSRequest DeleteTheme where
             Prelude.<*> (x Data..?> "ThemeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTheme where
   hashWithSalt _salt DeleteTheme' {..} =

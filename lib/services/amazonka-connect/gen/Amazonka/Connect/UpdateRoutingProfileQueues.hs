@@ -120,6 +120,8 @@ instance Core.AWSRequest UpdateRoutingProfileQueues where
   response =
     Response.receiveNull
       UpdateRoutingProfileQueuesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRoutingProfileQueues where
   hashWithSalt _salt UpdateRoutingProfileQueues' {..} =

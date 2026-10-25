@@ -88,6 +88,8 @@ instance Core.AWSRequest GetAssistant where
             Prelude.<$> (x Data..?> "assistant")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAssistant where
   hashWithSalt _salt GetAssistant' {..} =

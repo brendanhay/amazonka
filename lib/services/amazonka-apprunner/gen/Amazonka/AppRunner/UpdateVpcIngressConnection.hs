@@ -121,6 +121,8 @@ instance Core.AWSRequest UpdateVpcIngressConnection where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "VpcIngressConnection")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateVpcIngressConnection where
   hashWithSalt _salt UpdateVpcIngressConnection' {..} =

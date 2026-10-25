@@ -103,6 +103,8 @@ instance Core.AWSRequest BatchPutMetrics where
             Prelude.<$> (x Data..?> "Errors")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchPutMetrics where
   hashWithSalt _salt BatchPutMetrics' {..} =

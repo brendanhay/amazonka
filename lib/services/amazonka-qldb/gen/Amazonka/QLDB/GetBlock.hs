@@ -147,6 +147,8 @@ instance Core.AWSRequest GetBlock where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Block")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBlock where
   hashWithSalt _salt GetBlock' {..} =

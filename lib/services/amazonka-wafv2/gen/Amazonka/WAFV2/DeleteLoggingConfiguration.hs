@@ -91,6 +91,8 @@ instance Core.AWSRequest DeleteLoggingConfiguration where
           DeleteLoggingConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteLoggingConfiguration where
   hashWithSalt _salt DeleteLoggingConfiguration' {..} =

@@ -106,6 +106,8 @@ instance Core.AWSRequest ListSuiteDefinitions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSuiteDefinitions where
   hashWithSalt _salt ListSuiteDefinitions' {..} =

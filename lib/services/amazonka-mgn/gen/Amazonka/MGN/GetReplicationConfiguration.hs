@@ -99,6 +99,8 @@ instance Core.AWSRequest GetReplicationConfiguration where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetReplicationConfiguration where
   hashWithSalt _salt GetReplicationConfiguration' {..} =

@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteVirtualCluster where
             Prelude.<$> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVirtualCluster where
   hashWithSalt _salt DeleteVirtualCluster' {..} =

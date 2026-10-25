@@ -139,6 +139,8 @@ instance Core.AWSRequest TagInstanceProfile where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull TagInstanceProfileResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TagInstanceProfile where
   hashWithSalt _salt TagInstanceProfile' {..} =

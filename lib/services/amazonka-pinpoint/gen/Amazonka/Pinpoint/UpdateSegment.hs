@@ -120,6 +120,8 @@ instance Core.AWSRequest UpdateSegment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateSegment where
   hashWithSalt _salt UpdateSegment' {..} =

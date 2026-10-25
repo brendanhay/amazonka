@@ -162,6 +162,8 @@ instance Core.AWSRequest ListVectorEnrichmentJobs where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListVectorEnrichmentJobs where
   hashWithSalt _salt ListVectorEnrichmentJobs' {..} =

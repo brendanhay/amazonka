@@ -95,7 +95,7 @@ data UpdateImagePipeline = UpdateImagePipeline'
     -- will be used to build images updated by this image pipeline.
     infrastructureConfigurationArn :: Prelude.Text,
     -- | The idempotency token used to make this request idempotent.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -141,13 +141,10 @@ newUpdateImagePipeline ::
   Prelude.Text ->
   -- | 'infrastructureConfigurationArn'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   UpdateImagePipeline
 newUpdateImagePipeline
   pImagePipelineArn_
-  pInfrastructureConfigurationArn_
-  pClientToken_ =
+  pInfrastructureConfigurationArn_ =
     UpdateImagePipeline'
       { containerRecipeArn =
           Prelude.Nothing,
@@ -161,7 +158,7 @@ newUpdateImagePipeline
         imagePipelineArn = pImagePipelineArn_,
         infrastructureConfigurationArn =
           pInfrastructureConfigurationArn_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | The Amazon Resource Name (ARN) of the container pipeline to update.
@@ -213,7 +210,7 @@ updateImagePipeline_infrastructureConfigurationArn :: Lens.Lens' UpdateImagePipe
 updateImagePipeline_infrastructureConfigurationArn = Lens.lens (\UpdateImagePipeline' {infrastructureConfigurationArn} -> infrastructureConfigurationArn) (\s@UpdateImagePipeline' {} a -> s {infrastructureConfigurationArn = a} :: UpdateImagePipeline)
 
 -- | The idempotency token used to make this request idempotent.
-updateImagePipeline_clientToken :: Lens.Lens' UpdateImagePipeline Prelude.Text
+updateImagePipeline_clientToken :: Lens.Lens' UpdateImagePipeline (Prelude.Maybe Prelude.Text)
 updateImagePipeline_clientToken = Lens.lens (\UpdateImagePipeline' {clientToken} -> clientToken) (\s@UpdateImagePipeline' {} a -> s {clientToken = a} :: UpdateImagePipeline)
 
 instance Core.AWSRequest UpdateImagePipeline where
@@ -231,6 +228,13 @@ instance Core.AWSRequest UpdateImagePipeline where
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateImagePipeline' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: UpdateImagePipeline
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateImagePipeline where
   hashWithSalt _salt UpdateImagePipeline' {..} =
@@ -295,7 +299,7 @@ instance Data.ToJSON UpdateImagePipeline where
               ( "infrastructureConfigurationArn"
                   Data..= infrastructureConfigurationArn
               ),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

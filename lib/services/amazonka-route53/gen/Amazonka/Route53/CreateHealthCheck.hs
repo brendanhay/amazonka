@@ -203,6 +203,8 @@ instance Core.AWSRequest CreateHealthCheck where
             Prelude.<*> (x Data..@ "HealthCheck")
             Prelude.<*> (h Data..# "Location")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateHealthCheck where
   hashWithSalt _salt CreateHealthCheck' {..} =

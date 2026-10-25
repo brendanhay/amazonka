@@ -93,6 +93,8 @@ instance Core.AWSRequest DescribeEventTracker where
             Prelude.<$> (x Data..?> "eventTracker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEventTracker where
   hashWithSalt _salt DescribeEventTracker' {..} =

@@ -193,6 +193,8 @@ instance Core.AWSRequest DescribeScalingActivities where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeScalingActivities where
   hashWithSalt _salt DescribeScalingActivities' {..} =

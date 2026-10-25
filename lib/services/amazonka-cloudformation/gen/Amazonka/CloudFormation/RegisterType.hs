@@ -345,6 +345,8 @@ instance Core.AWSRequest RegisterType where
             Prelude.<$> (x Data..@? "RegistrationToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterType where
   hashWithSalt _salt RegisterType' {..} =

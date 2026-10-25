@@ -102,6 +102,8 @@ instance Core.AWSRequest PutInboundDmarcSettings where
           PutInboundDmarcSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutInboundDmarcSettings where
   hashWithSalt _salt PutInboundDmarcSettings' {..} =

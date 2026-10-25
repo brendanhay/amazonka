@@ -270,6 +270,8 @@ instance Core.AWSRequest CopyDBClusterSnapshot where
             Prelude.<$> (x Data..@? "DBClusterSnapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CopyDBClusterSnapshot where
   hashWithSalt _salt CopyDBClusterSnapshot' {..} =

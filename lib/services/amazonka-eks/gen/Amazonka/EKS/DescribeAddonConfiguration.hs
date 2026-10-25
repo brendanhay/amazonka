@@ -123,6 +123,8 @@ instance Core.AWSRequest DescribeAddonConfiguration where
             Prelude.<*> (x Data..?> "configurationSchema")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAddonConfiguration where
   hashWithSalt _salt DescribeAddonConfiguration' {..} =

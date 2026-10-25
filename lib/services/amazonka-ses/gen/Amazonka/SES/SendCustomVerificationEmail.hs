@@ -132,6 +132,8 @@ instance Core.AWSRequest SendCustomVerificationEmail where
             Prelude.<$> (x Data..@? "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SendCustomVerificationEmail where
   hashWithSalt _salt SendCustomVerificationEmail' {..} =

@@ -126,6 +126,8 @@ instance Core.AWSRequest GetInstanceUefiData where
             Prelude.<*> (x Data..@? "uefiData")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetInstanceUefiData where
   hashWithSalt _salt GetInstanceUefiData' {..} =

@@ -135,6 +135,8 @@ instance Core.AWSRequest ListPlacements where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "placements" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPlacements where
   hashWithSalt _salt ListPlacements' {..} =

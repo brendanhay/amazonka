@@ -117,6 +117,8 @@ instance Core.AWSRequest UpdateImagePermissions where
           UpdateImagePermissionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateImagePermissions where
   hashWithSalt _salt UpdateImagePermissions' {..} =

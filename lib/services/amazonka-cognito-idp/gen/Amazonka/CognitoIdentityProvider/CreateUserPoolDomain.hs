@@ -142,6 +142,8 @@ instance Core.AWSRequest CreateUserPoolDomain where
             Prelude.<$> (x Data..?> "CloudFrontDomain")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateUserPoolDomain where
   hashWithSalt _salt CreateUserPoolDomain' {..} =

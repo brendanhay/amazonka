@@ -151,6 +151,8 @@ instance Core.AWSRequest GetLifecyclePolicies where
             Prelude.<$> (x Data..?> "Policies" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetLifecyclePolicies where
   hashWithSalt _salt GetLifecyclePolicies' {..} =

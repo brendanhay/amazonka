@@ -121,6 +121,8 @@ instance Core.AWSRequest ListNotificationChannels where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListNotificationChannels where
   hashWithSalt _salt ListNotificationChannels' {..} =

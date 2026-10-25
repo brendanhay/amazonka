@@ -119,6 +119,8 @@ instance Core.AWSRequest UpdateHostKey where
             Prelude.<*> (x Data..:> "ServerId")
             Prelude.<*> (x Data..:> "HostKeyId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateHostKey where
   hashWithSalt _salt UpdateHostKey' {..} =

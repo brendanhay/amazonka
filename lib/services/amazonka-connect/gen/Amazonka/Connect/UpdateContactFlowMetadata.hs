@@ -129,6 +129,8 @@ instance Core.AWSRequest UpdateContactFlowMetadata where
   response =
     Response.receiveNull
       UpdateContactFlowMetadataResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateContactFlowMetadata where
   hashWithSalt _salt UpdateContactFlowMetadata' {..} =

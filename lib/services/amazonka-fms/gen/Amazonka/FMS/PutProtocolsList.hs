@@ -101,6 +101,8 @@ instance Core.AWSRequest PutProtocolsList where
             Prelude.<*> (x Data..?> "ProtocolsListArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutProtocolsList where
   hashWithSalt _salt PutProtocolsList' {..} =

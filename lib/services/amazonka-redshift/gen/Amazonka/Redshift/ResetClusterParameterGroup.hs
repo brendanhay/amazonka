@@ -134,6 +134,8 @@ instance Core.AWSRequest ResetClusterParameterGroup where
     Response.receiveXMLWrapper
       "ResetClusterParameterGroupResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResetClusterParameterGroup where
   hashWithSalt _salt ResetClusterParameterGroup' {..} =

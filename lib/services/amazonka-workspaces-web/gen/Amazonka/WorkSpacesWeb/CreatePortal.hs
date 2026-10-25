@@ -152,6 +152,11 @@ instance Core.AWSRequest CreatePortal where
             Prelude.<*> (x Data..:> "portalArn")
             Prelude.<*> (x Data..:> "portalEndpoint")
       )
+  updateIdempotencyToken f s@CreatePortal' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreatePortal
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreatePortal where
   hashWithSalt _salt CreatePortal' {..} =

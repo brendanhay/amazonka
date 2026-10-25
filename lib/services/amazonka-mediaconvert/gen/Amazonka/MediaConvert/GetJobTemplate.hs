@@ -87,6 +87,8 @@ instance Core.AWSRequest GetJobTemplate where
             Prelude.<$> (x Data..?> "jobTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetJobTemplate where
   hashWithSalt _salt GetJobTemplate' {..} =

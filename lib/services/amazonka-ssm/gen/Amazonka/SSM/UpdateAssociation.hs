@@ -629,6 +629,8 @@ instance Core.AWSRequest UpdateAssociation where
             Prelude.<$> (x Data..?> "AssociationDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateAssociation where
   hashWithSalt _salt UpdateAssociation' {..} =

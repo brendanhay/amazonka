@@ -155,6 +155,8 @@ instance Core.AWSRequest CreateUpdatedWorkspaceImage where
             Prelude.<$> (x Data..?> "ImageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateUpdatedWorkspaceImage where
   hashWithSalt _salt CreateUpdatedWorkspaceImage' {..} =

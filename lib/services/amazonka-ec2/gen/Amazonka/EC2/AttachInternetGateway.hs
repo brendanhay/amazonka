@@ -114,6 +114,8 @@ instance Core.AWSRequest AttachInternetGateway where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull AttachInternetGatewayResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AttachInternetGateway where
   hashWithSalt _salt AttachInternetGateway' {..} =

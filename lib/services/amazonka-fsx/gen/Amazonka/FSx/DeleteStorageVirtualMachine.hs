@@ -105,6 +105,14 @@ instance Core.AWSRequest DeleteStorageVirtualMachine where
             Prelude.<*> (x Data..?> "StorageVirtualMachineId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteStorageVirtualMachine' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            DeleteStorageVirtualMachine
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable DeleteStorageVirtualMachine where
   hashWithSalt _salt DeleteStorageVirtualMachine' {..} =

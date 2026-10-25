@@ -89,6 +89,8 @@ instance Core.AWSRequest GetCustomRulePolicy where
             Prelude.<$> (x Data..?> "PolicyText")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCustomRulePolicy where
   hashWithSalt _salt GetCustomRulePolicy' {..} =

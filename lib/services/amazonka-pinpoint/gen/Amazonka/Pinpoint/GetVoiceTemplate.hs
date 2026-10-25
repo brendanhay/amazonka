@@ -172,6 +172,8 @@ instance Core.AWSRequest GetVoiceTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetVoiceTemplate where
   hashWithSalt _salt GetVoiceTemplate' {..} =

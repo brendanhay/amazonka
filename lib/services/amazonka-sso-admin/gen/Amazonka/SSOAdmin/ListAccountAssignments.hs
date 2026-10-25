@@ -179,6 +179,8 @@ instance Core.AWSRequest ListAccountAssignments where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAccountAssignments where
   hashWithSalt _salt ListAccountAssignments' {..} =

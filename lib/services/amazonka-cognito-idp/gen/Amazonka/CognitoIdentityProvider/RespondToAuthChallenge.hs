@@ -422,6 +422,8 @@ instance Core.AWSRequest RespondToAuthChallenge where
             Prelude.<*> (x Data..?> "Session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RespondToAuthChallenge where
   hashWithSalt _salt RespondToAuthChallenge' {..} =

@@ -117,6 +117,8 @@ instance Core.AWSRequest DisassociateHealthCheck where
           DisassociateHealthCheckResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateHealthCheck where
   hashWithSalt _salt DisassociateHealthCheck' {..} =

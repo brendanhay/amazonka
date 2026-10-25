@@ -223,6 +223,8 @@ instance Core.AWSRequest PutClusterCapacityProviders where
             Prelude.<$> (x Data..?> "cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutClusterCapacityProviders where
   hashWithSalt _salt PutClusterCapacityProviders' {..} =

@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteTracker where
           DeleteTrackerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTracker where
   hashWithSalt _salt DeleteTracker' {..} =

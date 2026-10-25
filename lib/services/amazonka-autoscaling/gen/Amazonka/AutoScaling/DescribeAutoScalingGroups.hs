@@ -177,6 +177,8 @@ instance Core.AWSRequest DescribeAutoScalingGroups where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAutoScalingGroups where
   hashWithSalt _salt DescribeAutoScalingGroups' {..} =

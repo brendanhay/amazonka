@@ -121,6 +121,8 @@ instance Core.AWSRequest UpdateUserIdentityInfo where
   response =
     Response.receiveNull
       UpdateUserIdentityInfoResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateUserIdentityInfo where
   hashWithSalt _salt UpdateUserIdentityInfo' {..} =

@@ -97,6 +97,8 @@ instance Core.AWSRequest ModifyInstanceFleet where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull ModifyInstanceFleetResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyInstanceFleet where
   hashWithSalt _salt ModifyInstanceFleet' {..} =

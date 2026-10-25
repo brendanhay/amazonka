@@ -107,6 +107,8 @@ instance Core.AWSRequest DescribeQueue where
             Prelude.<$> (x Data..?> "Queue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeQueue where
   hashWithSalt _salt DescribeQueue' {..} =

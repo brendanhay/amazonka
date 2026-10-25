@@ -141,6 +141,8 @@ instance Core.AWSRequest ListHITsForQualificationType where
             Prelude.<*> (x Data..?> "NumResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

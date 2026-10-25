@@ -218,6 +218,8 @@ instance Core.AWSRequest UpdateDataSource where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateDataSourceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDataSource where
   hashWithSalt _salt UpdateDataSource' {..} =

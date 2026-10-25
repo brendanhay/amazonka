@@ -84,6 +84,8 @@ instance Core.AWSRequest StopBuild where
             Prelude.<$> (x Data..?> "build")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopBuild where
   hashWithSalt _salt StopBuild' {..} =

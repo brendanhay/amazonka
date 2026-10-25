@@ -184,6 +184,8 @@ instance Core.AWSRequest UpdateTaskProtection where
             Prelude.<*> (x Data..?> "protectedTasks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateTaskProtection where
   hashWithSalt _salt UpdateTaskProtection' {..} =

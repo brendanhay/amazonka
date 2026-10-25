@@ -89,6 +89,8 @@ instance Core.AWSRequest GetOTAUpdate where
             Prelude.<$> (x Data..?> "otaUpdateInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetOTAUpdate where
   hashWithSalt _salt GetOTAUpdate' {..} =

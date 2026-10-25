@@ -112,6 +112,8 @@ instance Core.AWSRequest UpdateAppInstanceUser where
             Prelude.<$> (x Data..?> "AppInstanceUserArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateAppInstanceUser where
   hashWithSalt _salt UpdateAppInstanceUser' {..} =

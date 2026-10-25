@@ -94,6 +94,8 @@ instance Core.AWSRequest GetCSVHeader where
             Prelude.<*> (x Data..?> "UserPoolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCSVHeader where
   hashWithSalt _salt GetCSVHeader' {..} =

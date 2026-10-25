@@ -116,6 +116,8 @@ instance Core.AWSRequest DeleteDataCellsFilter where
           DeleteDataCellsFilterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDataCellsFilter where
   hashWithSalt _salt DeleteDataCellsFilter' {..} =

@@ -141,6 +141,8 @@ instance Core.AWSRequest ModifyUser where
     Response.receiveXMLWrapper
       "ModifyUserResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyUser where
   hashWithSalt _salt ModifyUser' {..} =

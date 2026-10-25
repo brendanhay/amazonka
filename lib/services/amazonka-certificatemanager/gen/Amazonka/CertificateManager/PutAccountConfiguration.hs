@@ -113,6 +113,8 @@ instance Core.AWSRequest PutAccountConfiguration where
   response =
     Response.receiveNull
       PutAccountConfigurationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutAccountConfiguration where
   hashWithSalt _salt PutAccountConfiguration' {..} =

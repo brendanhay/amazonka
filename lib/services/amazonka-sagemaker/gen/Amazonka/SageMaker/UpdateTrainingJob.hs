@@ -130,6 +130,8 @@ instance Core.AWSRequest UpdateTrainingJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "TrainingJobArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateTrainingJob where
   hashWithSalt _salt UpdateTrainingJob' {..} =

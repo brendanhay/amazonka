@@ -137,6 +137,8 @@ instance Core.AWSRequest GetKeyPairs where
             Prelude.<*> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetKeyPairs where
   hashWithSalt _salt GetKeyPairs' {..} =

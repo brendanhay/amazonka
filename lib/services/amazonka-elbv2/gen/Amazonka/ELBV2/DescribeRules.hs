@@ -150,6 +150,8 @@ instance Core.AWSRequest DescribeRules where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeRules where
   hashWithSalt _salt DescribeRules' {..} =

@@ -93,6 +93,8 @@ instance Core.AWSRequest GetRemoteAccessSession where
             Prelude.<$> (x Data..?> "remoteAccessSession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRemoteAccessSession where
   hashWithSalt _salt GetRemoteAccessSession' {..} =

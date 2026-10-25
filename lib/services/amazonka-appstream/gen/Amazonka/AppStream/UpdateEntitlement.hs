@@ -131,6 +131,8 @@ instance Core.AWSRequest UpdateEntitlement where
             Prelude.<$> (x Data..?> "Entitlement")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateEntitlement where
   hashWithSalt _salt UpdateEntitlement' {..} =

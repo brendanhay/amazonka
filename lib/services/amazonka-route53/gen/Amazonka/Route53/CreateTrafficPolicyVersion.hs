@@ -136,6 +136,8 @@ instance Core.AWSRequest CreateTrafficPolicyVersion where
             Prelude.<*> (x Data..@ "TrafficPolicy")
             Prelude.<*> (h Data..# "Location")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateTrafficPolicyVersion where
   hashWithSalt _salt CreateTrafficPolicyVersion' {..} =

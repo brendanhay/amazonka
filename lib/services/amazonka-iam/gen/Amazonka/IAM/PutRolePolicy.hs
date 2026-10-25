@@ -213,6 +213,8 @@ instance Core.AWSRequest PutRolePolicy where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull PutRolePolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutRolePolicy where
   hashWithSalt _salt PutRolePolicy' {..} =

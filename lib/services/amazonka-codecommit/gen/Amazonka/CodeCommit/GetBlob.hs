@@ -102,6 +102,8 @@ instance Core.AWSRequest GetBlob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "content")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBlob where
   hashWithSalt _salt GetBlob' {..} =

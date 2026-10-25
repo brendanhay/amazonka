@@ -95,6 +95,8 @@ instance Core.AWSRequest DeleteHostKey where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteHostKeyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteHostKey where
   hashWithSalt _salt DeleteHostKey' {..} =

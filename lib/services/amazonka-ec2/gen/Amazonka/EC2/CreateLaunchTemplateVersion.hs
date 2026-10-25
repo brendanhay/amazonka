@@ -217,6 +217,8 @@ instance Core.AWSRequest CreateLaunchTemplateVersion where
             Prelude.<*> (x Data..@? "warning")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLaunchTemplateVersion where
   hashWithSalt _salt CreateLaunchTemplateVersion' {..} =

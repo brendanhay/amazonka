@@ -288,6 +288,14 @@ instance Core.AWSRequest CreateAddon where
             Prelude.<$> (x Data..?> "addon")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateAddon' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateAddon
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateAddon where
   hashWithSalt _salt CreateAddon' {..} =

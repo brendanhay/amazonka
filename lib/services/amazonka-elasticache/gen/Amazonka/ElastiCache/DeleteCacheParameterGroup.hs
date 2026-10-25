@@ -96,6 +96,8 @@ instance Core.AWSRequest DeleteCacheParameterGroup where
   response =
     Response.receiveNull
       DeleteCacheParameterGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCacheParameterGroup where
   hashWithSalt _salt DeleteCacheParameterGroup' {..} =

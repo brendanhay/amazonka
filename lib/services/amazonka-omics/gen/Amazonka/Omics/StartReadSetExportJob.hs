@@ -151,6 +151,8 @@ instance Core.AWSRequest StartReadSetExportJob where
             Prelude.<*> (x Data..:> "sequenceStoreId")
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartReadSetExportJob where
   hashWithSalt _salt StartReadSetExportJob' {..} =

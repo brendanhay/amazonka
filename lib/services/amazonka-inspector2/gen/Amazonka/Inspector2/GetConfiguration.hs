@@ -71,6 +71,8 @@ instance Core.AWSRequest GetConfiguration where
             Prelude.<$> (x Data..?> "ecrConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetConfiguration where
   hashWithSalt _salt _ =

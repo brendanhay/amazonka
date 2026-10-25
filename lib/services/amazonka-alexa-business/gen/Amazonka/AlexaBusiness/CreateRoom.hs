@@ -140,6 +140,14 @@ instance Core.AWSRequest CreateRoom where
             Prelude.<$> (x Data..?> "RoomArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateRoom' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateRoom
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateRoom where
   hashWithSalt _salt CreateRoom' {..} =

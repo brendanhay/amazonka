@@ -100,6 +100,8 @@ instance Core.AWSRequest DeleteBasePathMapping where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteBasePathMappingResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBasePathMapping where
   hashWithSalt _salt DeleteBasePathMapping' {..} =

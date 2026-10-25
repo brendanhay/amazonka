@@ -186,6 +186,8 @@ instance Core.AWSRequest GetCoipPoolUsage where
             Prelude.<*> (x Data..@? "localGatewayRouteTableId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCoipPoolUsage where
   hashWithSalt _salt GetCoipPoolUsage' {..} =

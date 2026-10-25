@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteHsmClientCertificate where
   response =
     Response.receiveNull
       DeleteHsmClientCertificateResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteHsmClientCertificate where
   hashWithSalt _salt DeleteHsmClientCertificate' {..} =

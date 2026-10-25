@@ -81,6 +81,8 @@ instance Core.AWSRequest DeleteSipMediaApplication where
   response =
     Response.receiveNull
       DeleteSipMediaApplicationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSipMediaApplication where
   hashWithSalt _salt DeleteSipMediaApplication' {..} =

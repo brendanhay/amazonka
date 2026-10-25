@@ -280,6 +280,8 @@ instance Core.AWSRequest ForgotPassword where
             Prelude.<$> (x Data..?> "CodeDeliveryDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ForgotPassword where
   hashWithSalt _salt ForgotPassword' {..} =

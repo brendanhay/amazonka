@@ -176,6 +176,8 @@ instance Core.AWSRequest NotifyMigrationTaskState where
           NotifyMigrationTaskStateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable NotifyMigrationTaskState where
   hashWithSalt _salt NotifyMigrationTaskState' {..} =

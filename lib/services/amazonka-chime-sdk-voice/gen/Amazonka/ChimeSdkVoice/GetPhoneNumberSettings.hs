@@ -73,6 +73,8 @@ instance Core.AWSRequest GetPhoneNumberSettings where
             Prelude.<*> (x Data..?> "CallingNameUpdatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPhoneNumberSettings where
   hashWithSalt _salt _ =

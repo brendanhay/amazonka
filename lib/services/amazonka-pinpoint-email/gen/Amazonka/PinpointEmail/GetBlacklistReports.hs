@@ -101,6 +101,8 @@ instance Core.AWSRequest GetBlacklistReports where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBlacklistReports where
   hashWithSalt _salt GetBlacklistReports' {..} =

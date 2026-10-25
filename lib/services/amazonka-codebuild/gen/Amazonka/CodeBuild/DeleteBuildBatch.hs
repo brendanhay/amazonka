@@ -94,6 +94,8 @@ instance Core.AWSRequest DeleteBuildBatch where
             Prelude.<*> (x Data..?> "statusCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBuildBatch where
   hashWithSalt _salt DeleteBuildBatch' {..} =

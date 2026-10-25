@@ -100,6 +100,8 @@ instance Core.AWSRequest DeleteSite where
             Prelude.<$> (x Data..?> "Site")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSite where
   hashWithSalt _salt DeleteSite' {..} =

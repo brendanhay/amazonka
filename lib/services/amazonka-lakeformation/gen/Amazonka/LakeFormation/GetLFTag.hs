@@ -110,6 +110,8 @@ instance Core.AWSRequest GetLFTag where
             Prelude.<*> (x Data..?> "TagValues")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetLFTag where
   hashWithSalt _salt GetLFTag' {..} =

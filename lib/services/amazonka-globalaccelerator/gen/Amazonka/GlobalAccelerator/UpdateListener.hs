@@ -185,6 +185,8 @@ instance Core.AWSRequest UpdateListener where
             Prelude.<$> (x Data..?> "Listener")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateListener where
   hashWithSalt _salt UpdateListener' {..} =

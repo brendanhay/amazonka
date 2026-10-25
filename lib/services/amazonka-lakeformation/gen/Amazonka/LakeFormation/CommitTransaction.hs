@@ -89,6 +89,8 @@ instance Core.AWSRequest CommitTransaction where
             Prelude.<$> (x Data..?> "TransactionStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CommitTransaction where
   hashWithSalt _salt CommitTransaction' {..} =

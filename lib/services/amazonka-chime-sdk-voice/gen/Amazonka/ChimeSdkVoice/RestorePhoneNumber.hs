@@ -89,6 +89,8 @@ instance Core.AWSRequest RestorePhoneNumber where
             Prelude.<$> (x Data..?> "PhoneNumber")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RestorePhoneNumber where
   hashWithSalt _salt RestorePhoneNumber' {..} =

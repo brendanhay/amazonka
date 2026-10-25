@@ -119,6 +119,8 @@ instance Core.AWSRequest ActivateNetworkSite where
             Prelude.<$> (x Data..?> "networkSite")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ActivateNetworkSite where
   hashWithSalt _salt ActivateNetworkSite' {..} =

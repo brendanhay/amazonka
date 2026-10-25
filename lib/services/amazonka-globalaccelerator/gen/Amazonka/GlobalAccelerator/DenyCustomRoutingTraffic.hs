@@ -192,6 +192,8 @@ instance Core.AWSRequest DenyCustomRoutingTraffic where
   response =
     Response.receiveNull
       DenyCustomRoutingTrafficResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DenyCustomRoutingTraffic where
   hashWithSalt _salt DenyCustomRoutingTraffic' {..} =

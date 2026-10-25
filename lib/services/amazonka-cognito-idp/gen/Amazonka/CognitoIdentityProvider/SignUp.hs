@@ -311,6 +311,8 @@ instance Core.AWSRequest SignUp where
             Prelude.<*> (x Data..:> "UserConfirmed")
             Prelude.<*> (x Data..:> "UserSub")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SignUp where
   hashWithSalt _salt SignUp' {..} =

@@ -110,6 +110,8 @@ instance Core.AWSRequest DeactivatePipeline where
           DeactivatePipelineResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeactivatePipeline where
   hashWithSalt _salt DeactivatePipeline' {..} =

@@ -125,6 +125,8 @@ instance Core.AWSRequest GetLatestConfiguration where
             Prelude.<*> (h Data..#? "Next-Poll-Interval-In-Seconds")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetLatestConfiguration where
   hashWithSalt _salt GetLatestConfiguration' {..} =

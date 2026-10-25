@@ -198,6 +198,8 @@ instance Core.AWSRequest DescribeDBParameterGroups where
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDBParameterGroups where
   hashWithSalt _salt DescribeDBParameterGroups' {..} =

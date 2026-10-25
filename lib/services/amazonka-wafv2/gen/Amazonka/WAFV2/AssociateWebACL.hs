@@ -170,6 +170,8 @@ instance Core.AWSRequest AssociateWebACL where
           AssociateWebACLResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateWebACL where
   hashWithSalt _salt AssociateWebACL' {..} =

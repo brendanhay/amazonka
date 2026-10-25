@@ -95,6 +95,8 @@ instance Core.AWSRequest DescribeApplicationState where
             Prelude.<*> (x Data..?> "LastUpdatedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeApplicationState where
   hashWithSalt _salt DescribeApplicationState' {..} =

@@ -101,6 +101,8 @@ instance Core.AWSRequest DescribeSpeaker where
             Prelude.<$> (x Data..?> "Speaker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSpeaker where
   hashWithSalt _salt DescribeSpeaker' {..} =

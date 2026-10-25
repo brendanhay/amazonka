@@ -98,6 +98,8 @@ instance Core.AWSRequest GenerateChangeSet where
             Prelude.<$> (x Data..?> "s3Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GenerateChangeSet where
   hashWithSalt _salt GenerateChangeSet' {..} =

@@ -157,6 +157,8 @@ instance Core.AWSRequest ListFileShares where
             Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListFileShares where
   hashWithSalt _salt ListFileShares' {..} =

@@ -151,6 +151,8 @@ instance Core.AWSRequest SubscribeToShard where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "EventStream")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SubscribeToShard where
   hashWithSalt _salt SubscribeToShard' {..} =

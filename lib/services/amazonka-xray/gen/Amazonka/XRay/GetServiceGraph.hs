@@ -172,6 +172,8 @@ instance Core.AWSRequest GetServiceGraph where
             Prelude.<*> (x Data..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetServiceGraph where
   hashWithSalt _salt GetServiceGraph' {..} =

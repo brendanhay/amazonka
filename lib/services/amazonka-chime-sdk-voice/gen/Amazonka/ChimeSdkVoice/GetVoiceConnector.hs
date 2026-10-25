@@ -89,6 +89,8 @@ instance Core.AWSRequest GetVoiceConnector where
             Prelude.<$> (x Data..?> "VoiceConnector")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetVoiceConnector where
   hashWithSalt _salt GetVoiceConnector' {..} =

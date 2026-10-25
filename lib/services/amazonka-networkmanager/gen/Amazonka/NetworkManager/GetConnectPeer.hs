@@ -87,6 +87,8 @@ instance Core.AWSRequest GetConnectPeer where
             Prelude.<$> (x Data..?> "ConnectPeer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetConnectPeer where
   hashWithSalt _salt GetConnectPeer' {..} =

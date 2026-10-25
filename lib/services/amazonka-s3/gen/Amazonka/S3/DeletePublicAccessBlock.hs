@@ -117,6 +117,8 @@ instance Core.AWSRequest DeletePublicAccessBlock where
   response =
     Response.receiveNull
       DeletePublicAccessBlockResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePublicAccessBlock where
   hashWithSalt _salt DeletePublicAccessBlock' {..} =

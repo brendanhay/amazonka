@@ -130,6 +130,8 @@ instance Core.AWSRequest GetHostedZoneLimit where
             Prelude.<*> (x Data..@ "Limit")
             Prelude.<*> (x Data..@ "Count")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetHostedZoneLimit where
   hashWithSalt _salt GetHostedZoneLimit' {..} =

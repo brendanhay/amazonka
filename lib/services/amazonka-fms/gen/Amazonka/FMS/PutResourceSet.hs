@@ -119,6 +119,8 @@ instance Core.AWSRequest PutResourceSet where
             Prelude.<*> (x Data..:> "ResourceSet")
             Prelude.<*> (x Data..:> "ResourceSetArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutResourceSet where
   hashWithSalt _salt PutResourceSet' {..} =

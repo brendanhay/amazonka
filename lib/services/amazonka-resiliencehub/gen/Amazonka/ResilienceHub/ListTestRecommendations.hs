@@ -136,6 +136,8 @@ instance Core.AWSRequest ListTestRecommendations where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTestRecommendations where
   hashWithSalt _salt ListTestRecommendations' {..} =

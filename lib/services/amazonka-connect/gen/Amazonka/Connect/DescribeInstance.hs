@@ -100,6 +100,8 @@ instance Core.AWSRequest DescribeInstance where
             Prelude.<$> (x Data..?> "Instance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeInstance where
   hashWithSalt _salt DescribeInstance' {..} =

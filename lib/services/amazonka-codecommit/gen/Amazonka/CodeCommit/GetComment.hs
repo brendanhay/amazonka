@@ -93,6 +93,8 @@ instance Core.AWSRequest GetComment where
             Prelude.<$> (x Data..?> "comment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetComment where
   hashWithSalt _salt GetComment' {..} =

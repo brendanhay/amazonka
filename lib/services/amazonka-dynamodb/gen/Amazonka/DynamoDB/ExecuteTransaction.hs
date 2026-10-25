@@ -142,6 +142,14 @@ instance Core.AWSRequest ExecuteTransaction where
             Prelude.<*> (x Data..?> "Responses")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@ExecuteTransaction' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            ExecuteTransaction
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable ExecuteTransaction where
   hashWithSalt _salt ExecuteTransaction' {..} =

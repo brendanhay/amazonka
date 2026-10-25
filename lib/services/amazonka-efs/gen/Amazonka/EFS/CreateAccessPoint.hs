@@ -102,7 +102,7 @@ data CreateAccessPoint = CreateAccessPoint'
     tags :: Prelude.Maybe [Tag],
     -- | A string of up to 64 ASCII characters that Amazon EFS uses to ensure
     -- idempotent creation.
-    clientToken :: Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the EFS file system that the access point provides access to.
     fileSystemId :: Prelude.Text
   }
@@ -143,17 +143,15 @@ data CreateAccessPoint = CreateAccessPoint'
 --
 -- 'fileSystemId', 'createAccessPoint_fileSystemId' - The ID of the EFS file system that the access point provides access to.
 newCreateAccessPoint ::
-  -- | 'clientToken'
-  Prelude.Text ->
   -- | 'fileSystemId'
   Prelude.Text ->
   CreateAccessPoint
-newCreateAccessPoint pClientToken_ pFileSystemId_ =
+newCreateAccessPoint pFileSystemId_ =
   CreateAccessPoint'
     { posixUser = Prelude.Nothing,
       rootDirectory = Prelude.Nothing,
       tags = Prelude.Nothing,
-      clientToken = pClientToken_,
+      clientToken = Prelude.Nothing,
       fileSystemId = pFileSystemId_
     }
 
@@ -187,7 +185,7 @@ createAccessPoint_tags = Lens.lens (\CreateAccessPoint' {tags} -> tags) (\s@Crea
 
 -- | A string of up to 64 ASCII characters that Amazon EFS uses to ensure
 -- idempotent creation.
-createAccessPoint_clientToken :: Lens.Lens' CreateAccessPoint Prelude.Text
+createAccessPoint_clientToken :: Lens.Lens' CreateAccessPoint (Prelude.Maybe Prelude.Text)
 createAccessPoint_clientToken = Lens.lens (\CreateAccessPoint' {clientToken} -> clientToken) (\s@CreateAccessPoint' {} a -> s {clientToken = a} :: CreateAccessPoint)
 
 -- | The ID of the EFS file system that the access point provides access to.
@@ -203,6 +201,13 @@ instance Core.AWSRequest CreateAccessPoint where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken
+    f
+    s@CreateAccessPoint' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateAccessPoint
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateAccessPoint where
   hashWithSalt _salt CreateAccessPoint' {..} =
@@ -231,7 +236,7 @@ instance Data.ToJSON CreateAccessPoint where
           [ ("PosixUser" Data..=) Prelude.<$> posixUser,
             ("RootDirectory" Data..=) Prelude.<$> rootDirectory,
             ("Tags" Data..=) Prelude.<$> tags,
-            Prelude.Just ("ClientToken" Data..= clientToken),
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just ("FileSystemId" Data..= fileSystemId)
           ]
       )

@@ -259,6 +259,8 @@ instance Core.AWSRequest DescribeDBEngineVersions where
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDBEngineVersions where
   hashWithSalt _salt DescribeDBEngineVersions' {..} =

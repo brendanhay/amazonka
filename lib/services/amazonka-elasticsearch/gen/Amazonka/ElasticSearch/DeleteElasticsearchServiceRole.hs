@@ -72,6 +72,8 @@ instance
   response =
     Response.receiveNull
       DeleteElasticsearchServiceRoleResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

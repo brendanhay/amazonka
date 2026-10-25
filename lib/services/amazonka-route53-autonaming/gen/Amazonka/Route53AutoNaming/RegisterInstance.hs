@@ -555,6 +555,14 @@ instance Core.AWSRequest RegisterInstance where
             Prelude.<$> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@RegisterInstance' {creatorRequestId} =
+      ( \creatorRequestId' ->
+          s {creatorRequestId = creatorRequestId'} ::
+            RegisterInstance
+      )
+        Prelude.<$> f creatorRequestId
 
 instance Prelude.Hashable RegisterInstance where
   hashWithSalt _salt RegisterInstance' {..} =

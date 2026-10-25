@@ -147,6 +147,8 @@ instance Core.AWSRequest RespondActivityTaskFailed where
   response =
     Response.receiveNull
       RespondActivityTaskFailedResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RespondActivityTaskFailed where
   hashWithSalt _salt RespondActivityTaskFailed' {..} =

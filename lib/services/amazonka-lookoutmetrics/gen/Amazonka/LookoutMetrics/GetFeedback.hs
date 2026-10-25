@@ -130,6 +130,8 @@ instance Core.AWSRequest GetFeedback where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetFeedback where
   hashWithSalt _salt GetFeedback' {..} =

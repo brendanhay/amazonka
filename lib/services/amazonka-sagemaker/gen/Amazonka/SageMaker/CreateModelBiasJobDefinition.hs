@@ -207,6 +207,8 @@ instance Core.AWSRequest CreateModelBiasJobDefinition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "JobDefinitionArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

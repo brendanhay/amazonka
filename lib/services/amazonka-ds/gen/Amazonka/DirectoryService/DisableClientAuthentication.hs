@@ -104,6 +104,8 @@ instance Core.AWSRequest DisableClientAuthentication where
           DisableClientAuthenticationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisableClientAuthentication where
   hashWithSalt _salt DisableClientAuthentication' {..} =

@@ -133,6 +133,8 @@ instance Core.AWSRequest StartDeployment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "jobSummary")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartDeployment where
   hashWithSalt _salt StartDeployment' {..} =

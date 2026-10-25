@@ -101,6 +101,8 @@ instance Core.AWSRequest DeleteHoursOfOperation where
   response =
     Response.receiveNull
       DeleteHoursOfOperationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteHoursOfOperation where
   hashWithSalt _salt DeleteHoursOfOperation' {..} =

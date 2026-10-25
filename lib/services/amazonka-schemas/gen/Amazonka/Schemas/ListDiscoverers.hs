@@ -155,6 +155,8 @@ instance Core.AWSRequest ListDiscoverers where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDiscoverers where
   hashWithSalt _salt ListDiscoverers' {..} =

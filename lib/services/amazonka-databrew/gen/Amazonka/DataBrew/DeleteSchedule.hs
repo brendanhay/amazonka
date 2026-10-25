@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteSchedule where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Name")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSchedule where
   hashWithSalt _salt DeleteSchedule' {..} =

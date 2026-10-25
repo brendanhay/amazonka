@@ -124,6 +124,8 @@ instance Core.AWSRequest GetQueueUrl where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "QueueUrl")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetQueueUrl where
   hashWithSalt _salt GetQueueUrl' {..} =

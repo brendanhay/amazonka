@@ -110,6 +110,8 @@ instance Core.AWSRequest UpdateOpsMetadata where
             Prelude.<$> (x Data..?> "OpsMetadataArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateOpsMetadata where
   hashWithSalt _salt UpdateOpsMetadata' {..} =

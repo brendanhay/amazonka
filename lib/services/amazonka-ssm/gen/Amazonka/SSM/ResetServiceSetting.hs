@@ -151,6 +151,8 @@ instance Core.AWSRequest ResetServiceSetting where
             Prelude.<$> (x Data..?> "ServiceSetting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResetServiceSetting where
   hashWithSalt _salt ResetServiceSetting' {..} =

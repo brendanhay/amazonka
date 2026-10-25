@@ -119,6 +119,8 @@ instance Core.AWSRequest UpdateArtifact where
             Prelude.<$> (x Data..?> "ArtifactArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateArtifact where
   hashWithSalt _salt UpdateArtifact' {..} =

@@ -781,6 +781,8 @@ instance Core.AWSRequest CreateServer where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ServerId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateServer where
   hashWithSalt _salt CreateServer' {..} =

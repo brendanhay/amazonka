@@ -120,6 +120,8 @@ instance Core.AWSRequest RemoveResourcePermission where
   response =
     Response.receiveNull
       RemoveResourcePermissionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveResourcePermission where
   hashWithSalt _salt RemoveResourcePermission' {..} =

@@ -87,6 +87,8 @@ instance Core.AWSRequest GetExperimentTemplate where
             Prelude.<$> (x Data..?> "experimentTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetExperimentTemplate where
   hashWithSalt _salt GetExperimentTemplate' {..} =

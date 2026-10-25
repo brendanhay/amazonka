@@ -109,6 +109,8 @@ instance Core.AWSRequest ListScenes where
             Prelude.<*> (x Data..?> "sceneSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListScenes where
   hashWithSalt _salt ListScenes' {..} =

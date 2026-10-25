@@ -107,6 +107,8 @@ instance Core.AWSRequest GetEmailIdentity where
             Prelude.<*> (x Data..?> "VerifiedForSendingStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetEmailIdentity where
   hashWithSalt _salt GetEmailIdentity' {..} =

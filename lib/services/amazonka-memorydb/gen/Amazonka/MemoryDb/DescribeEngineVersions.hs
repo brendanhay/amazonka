@@ -175,6 +175,8 @@ instance Core.AWSRequest DescribeEngineVersions where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEngineVersions where
   hashWithSalt _salt DescribeEngineVersions' {..} =

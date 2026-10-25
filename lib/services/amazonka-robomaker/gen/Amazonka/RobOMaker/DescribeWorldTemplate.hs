@@ -102,6 +102,8 @@ instance Core.AWSRequest DescribeWorldTemplate where
             Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeWorldTemplate where
   hashWithSalt _salt DescribeWorldTemplate' {..} =

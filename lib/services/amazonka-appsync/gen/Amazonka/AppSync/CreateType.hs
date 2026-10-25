@@ -120,6 +120,8 @@ instance Core.AWSRequest CreateType where
             Prelude.<$> (x Data..?> "type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateType where
   hashWithSalt _salt CreateType' {..} =

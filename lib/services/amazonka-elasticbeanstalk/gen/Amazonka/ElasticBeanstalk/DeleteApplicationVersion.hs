@@ -117,6 +117,8 @@ instance Core.AWSRequest DeleteApplicationVersion where
   response =
     Response.receiveNull
       DeleteApplicationVersionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteApplicationVersion where
   hashWithSalt _salt DeleteApplicationVersion' {..} =

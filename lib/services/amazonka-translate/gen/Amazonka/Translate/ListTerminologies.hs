@@ -129,6 +129,8 @@ instance Core.AWSRequest ListTerminologies where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTerminologies where
   hashWithSalt _salt ListTerminologies' {..} =

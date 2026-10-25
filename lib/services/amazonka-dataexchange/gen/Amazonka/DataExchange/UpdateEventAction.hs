@@ -109,6 +109,8 @@ instance Core.AWSRequest UpdateEventAction where
             Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateEventAction where
   hashWithSalt _salt UpdateEventAction' {..} =

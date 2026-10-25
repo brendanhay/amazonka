@@ -115,6 +115,8 @@ instance Core.AWSRequest SetStatus where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull SetStatusResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetStatus where
   hashWithSalt _salt SetStatus' {..} =

@@ -118,6 +118,8 @@ instance Core.AWSRequest GetDataSetDetails where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "dataSetName")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDataSetDetails where
   hashWithSalt _salt GetDataSetDetails' {..} =

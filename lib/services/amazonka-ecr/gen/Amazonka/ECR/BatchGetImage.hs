@@ -150,6 +150,8 @@ instance Core.AWSRequest BatchGetImage where
             Prelude.<*> (x Data..?> "images" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetImage where
   hashWithSalt _salt BatchGetImage' {..} =

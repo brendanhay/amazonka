@@ -185,6 +185,8 @@ instance Core.AWSRequest GetScreenData where
             Prelude.<*> (x Data..?> "results" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..:> "workbookCursor")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetScreenData where
   hashWithSalt _salt GetScreenData' {..} =

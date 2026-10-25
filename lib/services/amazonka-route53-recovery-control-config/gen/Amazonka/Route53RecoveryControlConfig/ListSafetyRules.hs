@@ -136,6 +136,8 @@ instance Core.AWSRequest ListSafetyRules where
             Prelude.<*> (x Data..?> "SafetyRules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSafetyRules where
   hashWithSalt _salt ListSafetyRules' {..} =

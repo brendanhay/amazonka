@@ -264,6 +264,8 @@ instance Core.AWSRequest PutProfileObjectType where
             Prelude.<*> (x Data..:> "ObjectTypeName")
             Prelude.<*> (x Data..:> "Description")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutProfileObjectType where
   hashWithSalt _salt PutProfileObjectType' {..} =

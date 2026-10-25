@@ -104,6 +104,8 @@ instance Core.AWSRequest DescribeAgreement where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Agreement")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAgreement where
   hashWithSalt _salt DescribeAgreement' {..} =

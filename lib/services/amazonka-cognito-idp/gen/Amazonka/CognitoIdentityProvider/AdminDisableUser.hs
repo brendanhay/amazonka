@@ -106,6 +106,8 @@ instance Core.AWSRequest AdminDisableUser where
           AdminDisableUserResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AdminDisableUser where
   hashWithSalt _salt AdminDisableUser' {..} =

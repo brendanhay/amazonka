@@ -94,6 +94,8 @@ instance Core.AWSRequest DeleteFleet where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteFleetResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFleet where
   hashWithSalt _salt DeleteFleet' {..} =

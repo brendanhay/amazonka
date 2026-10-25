@@ -157,6 +157,8 @@ instance Core.AWSRequest ListDevices where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDevices where
   hashWithSalt _salt ListDevices' {..} =

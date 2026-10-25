@@ -123,6 +123,8 @@ instance Core.AWSRequest GetLogRecord where
             Prelude.<$> (x Data..?> "logRecord" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetLogRecord where
   hashWithSalt _salt GetLogRecord' {..} =

@@ -162,6 +162,8 @@ instance Core.AWSRequest DescribePools where
             Prelude.<*> (x Data..?> "Pools" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePools where
   hashWithSalt _salt DescribePools' {..} =

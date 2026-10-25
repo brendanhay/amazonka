@@ -94,6 +94,8 @@ instance
   response =
     Response.receiveNull
       DeleteBackupVaultLockConfigurationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

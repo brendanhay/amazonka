@@ -220,6 +220,8 @@ instance Core.AWSRequest UpdateLocationObjectStorage where
           UpdateLocationObjectStorageResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateLocationObjectStorage where
   hashWithSalt _salt UpdateLocationObjectStorage' {..} =

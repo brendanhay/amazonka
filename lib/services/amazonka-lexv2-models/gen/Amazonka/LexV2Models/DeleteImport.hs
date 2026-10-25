@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteImport where
             Prelude.<*> (x Data..?> "importStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteImport where
   hashWithSalt _salt DeleteImport' {..} =

@@ -106,6 +106,8 @@ instance Core.AWSRequest GetUser where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "User")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetUser where
   hashWithSalt _salt GetUser' {..} =

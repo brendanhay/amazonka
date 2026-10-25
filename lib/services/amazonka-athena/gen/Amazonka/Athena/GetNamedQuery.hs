@@ -88,6 +88,8 @@ instance Core.AWSRequest GetNamedQuery where
             Prelude.<$> (x Data..?> "NamedQuery")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetNamedQuery where
   hashWithSalt _salt GetNamedQuery' {..} =

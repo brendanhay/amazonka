@@ -110,6 +110,8 @@ instance Core.AWSRequest CreateLabels where
           CreateLabelsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLabels where
   hashWithSalt _salt CreateLabels' {..} =

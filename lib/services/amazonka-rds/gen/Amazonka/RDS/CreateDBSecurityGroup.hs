@@ -170,6 +170,8 @@ instance Core.AWSRequest CreateDBSecurityGroup where
             Prelude.<$> (x Data..@? "DBSecurityGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDBSecurityGroup where
   hashWithSalt _salt CreateDBSecurityGroup' {..} =

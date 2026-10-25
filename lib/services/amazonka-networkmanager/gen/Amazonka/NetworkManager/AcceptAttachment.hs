@@ -90,6 +90,8 @@ instance Core.AWSRequest AcceptAttachment where
             Prelude.<$> (x Data..?> "Attachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AcceptAttachment where
   hashWithSalt _salt AcceptAttachment' {..} =

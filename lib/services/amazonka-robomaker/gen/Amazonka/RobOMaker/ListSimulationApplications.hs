@@ -190,6 +190,8 @@ instance Core.AWSRequest ListSimulationApplications where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSimulationApplications where
   hashWithSalt _salt ListSimulationApplications' {..} =

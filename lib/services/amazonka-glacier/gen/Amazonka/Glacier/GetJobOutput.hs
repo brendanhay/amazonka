@@ -271,7 +271,7 @@ instance Core.AWSRequest GetJobOutput where
     Request.glacierVersionHeader (Core.version defaultService)
       Prelude.. Request.get (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetJobOutputResponse'
             Prelude.<$> (h Data..#? "Accept-Ranges")
@@ -282,6 +282,8 @@ instance Core.AWSRequest GetJobOutput where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetJobOutput where
   hashWithSalt _salt GetJobOutput' {..} =

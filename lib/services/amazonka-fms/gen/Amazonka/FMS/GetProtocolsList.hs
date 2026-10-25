@@ -107,6 +107,8 @@ instance Core.AWSRequest GetProtocolsList where
             Prelude.<*> (x Data..?> "ProtocolsListArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetProtocolsList where
   hashWithSalt _salt GetProtocolsList' {..} =

@@ -200,6 +200,8 @@ instance Core.AWSRequest StartLendingAnalysis where
             Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartLendingAnalysis where
   hashWithSalt _salt StartLendingAnalysis' {..} =

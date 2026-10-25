@@ -90,6 +90,8 @@ instance Core.AWSRequest CancelCluster where
           CancelClusterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelCluster where
   hashWithSalt _salt CancelCluster' {..} =

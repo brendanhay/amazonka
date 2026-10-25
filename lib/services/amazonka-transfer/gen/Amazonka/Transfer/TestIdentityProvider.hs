@@ -191,6 +191,8 @@ instance Core.AWSRequest TestIdentityProvider where
             Prelude.<*> (x Data..:> "StatusCode")
             Prelude.<*> (x Data..:> "Url")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TestIdentityProvider where
   hashWithSalt _salt TestIdentityProvider' {..} =

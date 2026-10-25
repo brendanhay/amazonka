@@ -191,6 +191,8 @@ instance Core.AWSRequest CreateHsmConfiguration where
             Prelude.<$> (x Data..@? "HsmConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateHsmConfiguration where
   hashWithSalt _salt CreateHsmConfiguration' {..} =

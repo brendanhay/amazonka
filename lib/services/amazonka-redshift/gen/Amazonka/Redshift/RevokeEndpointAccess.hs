@@ -130,6 +130,8 @@ instance Core.AWSRequest RevokeEndpointAccess where
     Response.receiveXMLWrapper
       "RevokeEndpointAccessResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RevokeEndpointAccess where
   hashWithSalt _salt RevokeEndpointAccess' {..} =

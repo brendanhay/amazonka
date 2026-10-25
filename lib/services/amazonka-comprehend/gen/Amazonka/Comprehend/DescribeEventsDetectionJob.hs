@@ -87,6 +87,8 @@ instance Core.AWSRequest DescribeEventsDetectionJob where
             Prelude.<$> (x Data..?> "EventsDetectionJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEventsDetectionJob where
   hashWithSalt _salt DescribeEventsDetectionJob' {..} =

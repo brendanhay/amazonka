@@ -98,6 +98,8 @@ instance Core.AWSRequest DescribeUserProfile where
             Prelude.<*> (x Data..:> "createdTimestamp")
             Prelude.<*> (x Data..:> "lastModifiedTimestamp")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeUserProfile where
   hashWithSalt _salt DescribeUserProfile' {..} =

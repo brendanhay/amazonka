@@ -108,6 +108,8 @@ instance Core.AWSRequest DescribeFlowDefinition where
             Prelude.<*> (x Data..:> "OutputConfig")
             Prelude.<*> (x Data..:> "RoleArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeFlowDefinition where
   hashWithSalt _salt DescribeFlowDefinition' {..} =

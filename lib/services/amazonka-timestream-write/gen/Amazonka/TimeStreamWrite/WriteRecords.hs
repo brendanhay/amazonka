@@ -187,6 +187,8 @@ instance Core.AWSRequest WriteRecords where
             Prelude.<$> (x Data..?> "RecordsIngested")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable WriteRecords where
   hashWithSalt _salt WriteRecords' {..} =

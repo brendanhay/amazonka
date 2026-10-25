@@ -132,6 +132,14 @@ instance Core.AWSRequest CreateServiceProfile where
             Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateServiceProfile' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateServiceProfile
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateServiceProfile where
   hashWithSalt _salt CreateServiceProfile' {..} =

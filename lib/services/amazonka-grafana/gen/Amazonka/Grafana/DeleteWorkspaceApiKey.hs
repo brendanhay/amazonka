@@ -103,6 +103,8 @@ instance Core.AWSRequest DeleteWorkspaceApiKey where
             Prelude.<*> (x Data..:> "keyName")
             Prelude.<*> (x Data..:> "workspaceId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteWorkspaceApiKey where
   hashWithSalt _salt DeleteWorkspaceApiKey' {..} =

@@ -144,6 +144,8 @@ instance Core.AWSRequest CancelKeyDeletion where
             Prelude.<$> (x Data..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelKeyDeletion where
   hashWithSalt _salt CancelKeyDeletion' {..} =

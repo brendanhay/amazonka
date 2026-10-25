@@ -271,6 +271,8 @@ instance Core.AWSRequest CreateBuild where
             Prelude.<*> (x Data..?> "UploadCredentials")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateBuild where
   hashWithSalt _salt CreateBuild' {..} =

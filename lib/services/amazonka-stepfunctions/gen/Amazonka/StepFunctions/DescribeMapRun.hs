@@ -108,6 +108,8 @@ instance Core.AWSRequest DescribeMapRun where
             Prelude.<*> (x Data..:> "itemCounts")
             Prelude.<*> (x Data..:> "executionCounts")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeMapRun where
   hashWithSalt _salt DescribeMapRun' {..} =

@@ -163,6 +163,8 @@ instance Core.AWSRequest TestAuthorization where
             Prelude.<$> (x Data..?> "authResults" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TestAuthorization where
   hashWithSalt _salt TestAuthorization' {..} =

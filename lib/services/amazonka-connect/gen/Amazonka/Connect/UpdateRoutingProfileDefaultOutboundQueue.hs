@@ -118,6 +118,8 @@ instance
   response =
     Response.receiveNull
       UpdateRoutingProfileDefaultOutboundQueueResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

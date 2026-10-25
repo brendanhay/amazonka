@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteTopicRuleDestination where
           DeleteTopicRuleDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTopicRuleDestination where
   hashWithSalt _salt DeleteTopicRuleDestination' {..} =

@@ -223,6 +223,8 @@ instance Core.AWSRequest DeleteFile where
             Prelude.<*> (x Data..:> "treeId")
             Prelude.<*> (x Data..:> "filePath")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFile where
   hashWithSalt _salt DeleteFile' {..} =

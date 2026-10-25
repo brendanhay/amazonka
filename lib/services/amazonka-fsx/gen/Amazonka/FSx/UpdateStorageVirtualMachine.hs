@@ -127,6 +127,14 @@ instance Core.AWSRequest UpdateStorageVirtualMachine where
             Prelude.<$> (x Data..?> "StorageVirtualMachine")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateStorageVirtualMachine' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            UpdateStorageVirtualMachine
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable UpdateStorageVirtualMachine where
   hashWithSalt _salt UpdateStorageVirtualMachine' {..} =

@@ -127,6 +127,8 @@ instance Core.AWSRequest CreateUserGroup where
     Response.receiveXMLWrapper
       "CreateUserGroupResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateUserGroup where
   hashWithSalt _salt CreateUserGroup' {..} =

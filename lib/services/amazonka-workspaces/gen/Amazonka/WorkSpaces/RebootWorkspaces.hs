@@ -96,6 +96,8 @@ instance Core.AWSRequest RebootWorkspaces where
             Prelude.<$> (x Data..?> "FailedRequests" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RebootWorkspaces where
   hashWithSalt _salt RebootWorkspaces' {..} =

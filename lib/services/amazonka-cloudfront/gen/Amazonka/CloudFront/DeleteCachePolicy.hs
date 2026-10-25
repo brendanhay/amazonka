@@ -107,6 +107,8 @@ instance Core.AWSRequest DeleteCachePolicy where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteCachePolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCachePolicy where
   hashWithSalt _salt DeleteCachePolicy' {..} =

@@ -292,6 +292,8 @@ instance Core.AWSRequest CreateInstances where
             Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateInstances where
   hashWithSalt _salt CreateInstances' {..} =

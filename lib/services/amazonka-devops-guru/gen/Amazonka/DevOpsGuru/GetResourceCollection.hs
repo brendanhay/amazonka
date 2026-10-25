@@ -153,6 +153,8 @@ instance Core.AWSRequest GetResourceCollection where
             Prelude.<*> (x Data..?> "ResourceCollection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetResourceCollection where
   hashWithSalt _salt GetResourceCollection' {..} =

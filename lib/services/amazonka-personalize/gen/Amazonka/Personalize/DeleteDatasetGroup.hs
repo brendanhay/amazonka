@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteDatasetGroup where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteDatasetGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDatasetGroup where
   hashWithSalt _salt DeleteDatasetGroup' {..} =

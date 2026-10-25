@@ -117,6 +117,8 @@ instance Core.AWSRequest ListTopics where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTopics where
   hashWithSalt _salt ListTopics' {..} =

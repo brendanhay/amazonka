@@ -98,6 +98,8 @@ instance Core.AWSRequest DeleteAgreement where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteAgreementResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAgreement where
   hashWithSalt _salt DeleteAgreement' {..} =

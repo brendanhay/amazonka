@@ -160,6 +160,14 @@ instance Core.AWSRequest CreateFramework where
             Prelude.<*> (x Data..?> "FrameworkName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateFramework' {idempotencyToken} =
+      ( \idempotencyToken' ->
+          s {idempotencyToken = idempotencyToken'} ::
+            CreateFramework
+      )
+        Prelude.<$> f idempotencyToken
 
 instance Prelude.Hashable CreateFramework where
   hashWithSalt _salt CreateFramework' {..} =

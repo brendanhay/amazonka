@@ -139,6 +139,8 @@ instance Core.AWSRequest RenderUiTemplate where
             Prelude.<*> (x Data..:> "RenderedContent")
             Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RenderUiTemplate where
   hashWithSalt _salt RenderUiTemplate' {..} =

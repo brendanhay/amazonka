@@ -152,6 +152,8 @@ instance Core.AWSRequest CreateBackupPlan where
             Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateBackupPlan where
   hashWithSalt _salt CreateBackupPlan' {..} =

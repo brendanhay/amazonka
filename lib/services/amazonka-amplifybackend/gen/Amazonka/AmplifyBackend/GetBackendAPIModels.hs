@@ -122,6 +122,8 @@ instance Core.AWSRequest GetBackendAPIModels where
             Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBackendAPIModels where
   hashWithSalt _salt GetBackendAPIModels' {..} =

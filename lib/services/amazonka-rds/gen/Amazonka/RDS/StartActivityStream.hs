@@ -175,6 +175,8 @@ instance Core.AWSRequest StartActivityStream where
             Prelude.<*> (x Data..@? "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartActivityStream where
   hashWithSalt _salt StartActivityStream' {..} =

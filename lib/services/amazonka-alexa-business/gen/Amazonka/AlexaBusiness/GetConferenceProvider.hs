@@ -90,6 +90,8 @@ instance Core.AWSRequest GetConferenceProvider where
             Prelude.<$> (x Data..?> "ConferenceProvider")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetConferenceProvider where
   hashWithSalt _salt GetConferenceProvider' {..} =

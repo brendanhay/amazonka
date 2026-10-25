@@ -113,6 +113,8 @@ instance Core.AWSRequest DeleteSshPublicKey where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteSshPublicKeyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSshPublicKey where
   hashWithSalt _salt DeleteSshPublicKey' {..} =

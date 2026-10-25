@@ -266,6 +266,8 @@ instance Core.AWSRequest ReplaceRoute where
   request overrides =
     Request.postQuery (overrides defaultService)
   response = Response.receiveNull ReplaceRouteResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ReplaceRoute where
   hashWithSalt _salt ReplaceRoute' {..} =

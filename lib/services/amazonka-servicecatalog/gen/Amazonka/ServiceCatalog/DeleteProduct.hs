@@ -120,6 +120,8 @@ instance Core.AWSRequest DeleteProduct where
           DeleteProductResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteProduct where
   hashWithSalt _salt DeleteProduct' {..} =

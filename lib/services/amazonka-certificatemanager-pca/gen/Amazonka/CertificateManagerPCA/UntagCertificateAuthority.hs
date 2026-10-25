@@ -116,6 +116,8 @@ instance Core.AWSRequest UntagCertificateAuthority where
   response =
     Response.receiveNull
       UntagCertificateAuthorityResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UntagCertificateAuthority where
   hashWithSalt _salt UntagCertificateAuthority' {..} =

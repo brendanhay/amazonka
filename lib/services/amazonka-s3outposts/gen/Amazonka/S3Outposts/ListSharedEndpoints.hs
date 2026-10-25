@@ -145,6 +145,8 @@ instance Core.AWSRequest ListSharedEndpoints where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSharedEndpoints where
   hashWithSalt _salt ListSharedEndpoints' {..} =

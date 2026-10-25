@@ -134,6 +134,8 @@ instance Core.AWSRequest GetComponentType where
             Prelude.<*> (x Data..:> "updateDateTime")
             Prelude.<*> (x Data..:> "arn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetComponentType where
   hashWithSalt _salt GetComponentType' {..} =

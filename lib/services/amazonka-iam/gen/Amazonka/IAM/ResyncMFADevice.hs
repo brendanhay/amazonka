@@ -168,6 +168,8 @@ instance Core.AWSRequest ResyncMFADevice where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull ResyncMFADeviceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResyncMFADevice where
   hashWithSalt _salt ResyncMFADevice' {..} =

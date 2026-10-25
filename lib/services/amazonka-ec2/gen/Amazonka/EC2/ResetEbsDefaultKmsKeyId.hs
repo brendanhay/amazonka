@@ -101,6 +101,8 @@ instance Core.AWSRequest ResetEbsDefaultKmsKeyId where
             Prelude.<$> (x Data..@? "kmsKeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResetEbsDefaultKmsKeyId where
   hashWithSalt _salt ResetEbsDefaultKmsKeyId' {..} =

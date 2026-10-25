@@ -127,6 +127,8 @@ instance Core.AWSRequest StopProductSubscription where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ProductUserSummary")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopProductSubscription where
   hashWithSalt _salt StopProductSubscription' {..} =

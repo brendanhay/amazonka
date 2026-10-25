@@ -178,6 +178,14 @@ instance Core.AWSRequest StartImportTask where
             Prelude.<$> (x Data..?> "task")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartImportTask' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            StartImportTask
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable StartImportTask where
   hashWithSalt _salt StartImportTask' {..} =

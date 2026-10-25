@@ -235,6 +235,8 @@ instance Core.AWSRequest ListStudioLifecycleConfigs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListStudioLifecycleConfigs where
   hashWithSalt _salt ListStudioLifecycleConfigs' {..} =

@@ -92,6 +92,8 @@ instance Core.AWSRequest DescribeSolutionVersion where
             Prelude.<$> (x Data..?> "solutionVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSolutionVersion where
   hashWithSalt _salt DescribeSolutionVersion' {..} =

@@ -136,6 +136,8 @@ instance Core.AWSRequest CreateUserHierarchyGroup where
             Prelude.<*> (x Data..?> "HierarchyGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateUserHierarchyGroup where
   hashWithSalt _salt CreateUserHierarchyGroup' {..} =

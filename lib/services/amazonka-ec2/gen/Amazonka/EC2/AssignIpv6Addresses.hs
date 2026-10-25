@@ -185,6 +185,8 @@ instance Core.AWSRequest AssignIpv6Addresses where
             Prelude.<*> (x Data..@? "networkInterfaceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssignIpv6Addresses where
   hashWithSalt _salt AssignIpv6Addresses' {..} =

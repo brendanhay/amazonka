@@ -228,6 +228,11 @@ instance Core.AWSRequest CreateFaq where
             Prelude.<$> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@CreateFaq' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateFaq
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateFaq where
   hashWithSalt _salt CreateFaq' {..} =

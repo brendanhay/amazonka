@@ -148,6 +148,8 @@ instance Core.AWSRequest GetSdk where
             Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSdk where
   hashWithSalt _salt GetSdk' {..} =

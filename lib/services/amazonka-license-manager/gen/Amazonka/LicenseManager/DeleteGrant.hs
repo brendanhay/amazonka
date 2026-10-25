@@ -113,6 +113,8 @@ instance Core.AWSRequest DeleteGrant where
             Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteGrant where
   hashWithSalt _salt DeleteGrant' {..} =

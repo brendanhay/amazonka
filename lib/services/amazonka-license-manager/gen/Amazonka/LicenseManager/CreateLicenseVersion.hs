@@ -242,6 +242,8 @@ instance Core.AWSRequest CreateLicenseVersion where
             Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLicenseVersion where
   hashWithSalt _salt CreateLicenseVersion' {..} =

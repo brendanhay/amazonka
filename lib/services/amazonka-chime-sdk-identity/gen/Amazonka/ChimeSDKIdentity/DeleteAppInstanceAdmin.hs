@@ -97,6 +97,8 @@ instance Core.AWSRequest DeleteAppInstanceAdmin where
   response =
     Response.receiveNull
       DeleteAppInstanceAdminResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAppInstanceAdmin where
   hashWithSalt _salt DeleteAppInstanceAdmin' {..} =

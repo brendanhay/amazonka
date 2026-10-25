@@ -90,6 +90,8 @@ instance Core.AWSRequest DescribeAppInstanceUser where
             Prelude.<$> (x Data..?> "AppInstanceUser")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAppInstanceUser where
   hashWithSalt _salt DescribeAppInstanceUser' {..} =

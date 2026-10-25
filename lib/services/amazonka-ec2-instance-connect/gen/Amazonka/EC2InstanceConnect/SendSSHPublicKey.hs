@@ -139,6 +139,8 @@ instance Core.AWSRequest SendSSHPublicKey where
             Prelude.<*> (x Data..?> "Success")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SendSSHPublicKey where
   hashWithSalt _salt SendSSHPublicKey' {..} =

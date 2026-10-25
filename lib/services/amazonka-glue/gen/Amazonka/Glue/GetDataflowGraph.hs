@@ -87,6 +87,8 @@ instance Core.AWSRequest GetDataflowGraph where
             Prelude.<*> (x Data..?> "DagNodes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDataflowGraph where
   hashWithSalt _salt GetDataflowGraph' {..} =

@@ -107,6 +107,8 @@ instance Core.AWSRequest CreateScript where
             Prelude.<*> (x Data..?> "ScalaCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateScript where
   hashWithSalt _salt CreateScript' {..} =

@@ -97,6 +97,8 @@ instance Core.AWSRequest StopSession where
             Prelude.<$> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopSession where
   hashWithSalt _salt StopSession' {..} =

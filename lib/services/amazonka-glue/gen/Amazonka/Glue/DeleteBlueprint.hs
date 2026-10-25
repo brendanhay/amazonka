@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteBlueprint where
             Prelude.<$> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBlueprint where
   hashWithSalt _salt DeleteBlueprint' {..} =

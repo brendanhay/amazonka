@@ -469,6 +469,8 @@ instance Core.AWSRequest CreateMLTransform where
             Prelude.<$> (x Data..?> "TransformId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateMLTransform where
   hashWithSalt _salt CreateMLTransform' {..} =

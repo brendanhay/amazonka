@@ -97,6 +97,8 @@ instance Core.AWSRequest BatchGetTriggers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetTriggers where
   hashWithSalt _salt BatchGetTriggers' {..} =

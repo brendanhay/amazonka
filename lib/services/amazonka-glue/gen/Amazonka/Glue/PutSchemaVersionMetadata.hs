@@ -136,6 +136,8 @@ instance Core.AWSRequest PutSchemaVersionMetadata where
             Prelude.<*> (x Data..?> "VersionNumber")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutSchemaVersionMetadata where
   hashWithSalt _salt PutSchemaVersionMetadata' {..} =

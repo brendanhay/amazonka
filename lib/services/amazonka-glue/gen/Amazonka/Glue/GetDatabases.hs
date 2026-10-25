@@ -162,6 +162,8 @@ instance Core.AWSRequest GetDatabases where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "DatabaseList" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDatabases where
   hashWithSalt _salt GetDatabases' {..} =

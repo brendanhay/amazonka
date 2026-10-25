@@ -87,6 +87,8 @@ instance Core.AWSRequest GetClassifier where
             Prelude.<$> (x Data..?> "Classifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetClassifier where
   hashWithSalt _salt GetClassifier' {..} =

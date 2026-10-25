@@ -127,6 +127,8 @@ instance Core.AWSRequest GetSecurityConfigurations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSecurityConfigurations where
   hashWithSalt _salt GetSecurityConfigurations' {..} =

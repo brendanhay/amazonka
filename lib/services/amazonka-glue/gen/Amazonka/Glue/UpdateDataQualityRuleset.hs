@@ -127,6 +127,8 @@ instance Core.AWSRequest UpdateDataQualityRuleset where
             Prelude.<*> (x Data..?> "Ruleset")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDataQualityRuleset where
   hashWithSalt _salt UpdateDataQualityRuleset' {..} =

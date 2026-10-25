@@ -84,6 +84,8 @@ instance Core.AWSRequest StopTrigger where
             Prelude.<$> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopTrigger where
   hashWithSalt _salt StopTrigger' {..} =

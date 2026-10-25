@@ -114,6 +114,8 @@ instance Core.AWSRequest PutWorkflowRunProperties where
           PutWorkflowRunPropertiesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutWorkflowRunProperties where
   hashWithSalt _salt PutWorkflowRunProperties' {..} =

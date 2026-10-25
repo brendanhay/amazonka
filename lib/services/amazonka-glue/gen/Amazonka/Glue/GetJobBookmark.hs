@@ -107,6 +107,8 @@ instance Core.AWSRequest GetJobBookmark where
             Prelude.<$> (x Data..?> "JobBookmarkEntry")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetJobBookmark where
   hashWithSalt _salt GetJobBookmark' {..} =

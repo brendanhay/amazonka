@@ -86,6 +86,8 @@ instance Core.AWSRequest DeleteCrawler where
           DeleteCrawlerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCrawler where
   hashWithSalt _salt DeleteCrawler' {..} =

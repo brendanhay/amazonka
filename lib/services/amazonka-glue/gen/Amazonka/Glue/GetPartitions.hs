@@ -468,6 +468,8 @@ instance Core.AWSRequest GetPartitions where
             Prelude.<*> (x Data..?> "Partitions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPartitions where
   hashWithSalt _salt GetPartitions' {..} =

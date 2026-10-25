@@ -118,6 +118,8 @@ instance Core.AWSRequest UpdateDatabase where
           UpdateDatabaseResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDatabase where
   hashWithSalt _salt UpdateDatabase' {..} =

@@ -121,6 +121,8 @@ instance Core.AWSRequest GetMLTaskRun where
             Prelude.<*> (x Data..?> "TransformId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMLTaskRun where
   hashWithSalt _salt GetMLTaskRun' {..} =

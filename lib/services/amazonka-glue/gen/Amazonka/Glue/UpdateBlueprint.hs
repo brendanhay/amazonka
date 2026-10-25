@@ -111,6 +111,8 @@ instance Core.AWSRequest UpdateBlueprint where
             Prelude.<$> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateBlueprint where
   hashWithSalt _salt UpdateBlueprint' {..} =

@@ -164,6 +164,8 @@ instance Core.AWSRequest GetPlan where
             Prelude.<*> (x Data..?> "ScalaCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPlan where
   hashWithSalt _salt GetPlan' {..} =

@@ -121,6 +121,8 @@ instance Core.AWSRequest GetWorkflowRuns where
             Prelude.<*> (x Data..?> "Runs")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetWorkflowRuns where
   hashWithSalt _salt GetWorkflowRuns' {..} =

@@ -109,6 +109,8 @@ instance Core.AWSRequest CancelStatement where
           CancelStatementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelStatement where
   hashWithSalt _salt CancelStatement' {..} =

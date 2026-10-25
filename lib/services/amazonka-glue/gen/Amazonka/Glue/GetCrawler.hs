@@ -84,6 +84,8 @@ instance Core.AWSRequest GetCrawler where
             Prelude.<$> (x Data..?> "Crawler")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCrawler where
   hashWithSalt _salt GetCrawler' {..} =

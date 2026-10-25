@@ -99,6 +99,8 @@ instance Core.AWSRequest BatchGetDevEndpoints where
             Prelude.<*> (x Data..?> "DevEndpointsNotFound")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetDevEndpoints where
   hashWithSalt _salt BatchGetDevEndpoints' {..} =

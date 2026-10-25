@@ -109,6 +109,8 @@ instance Core.AWSRequest CancelMLTaskRun where
             Prelude.<*> (x Data..?> "TransformId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelMLTaskRun where
   hashWithSalt _salt CancelMLTaskRun' {..} =

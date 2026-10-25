@@ -101,6 +101,8 @@ instance Core.AWSRequest UpdateTrigger where
             Prelude.<$> (x Data..?> "Trigger")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateTrigger where
   hashWithSalt _salt UpdateTrigger' {..} =

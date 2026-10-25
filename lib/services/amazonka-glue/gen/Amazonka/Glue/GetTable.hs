@@ -145,6 +145,8 @@ instance Core.AWSRequest GetTable where
             Prelude.<$> (x Data..?> "Table")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTable where
   hashWithSalt _salt GetTable' {..} =

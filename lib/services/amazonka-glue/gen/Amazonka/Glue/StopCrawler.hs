@@ -82,6 +82,8 @@ instance Core.AWSRequest StopCrawler where
           StopCrawlerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopCrawler where
   hashWithSalt _salt StopCrawler' {..} =

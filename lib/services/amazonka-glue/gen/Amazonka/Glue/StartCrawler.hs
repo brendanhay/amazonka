@@ -84,6 +84,8 @@ instance Core.AWSRequest StartCrawler where
           StartCrawlerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartCrawler where
   hashWithSalt _salt StartCrawler' {..} =

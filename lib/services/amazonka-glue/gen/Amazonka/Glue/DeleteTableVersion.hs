@@ -136,6 +136,8 @@ instance Core.AWSRequest DeleteTableVersion where
           DeleteTableVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTableVersion where
   hashWithSalt _salt DeleteTableVersion' {..} =

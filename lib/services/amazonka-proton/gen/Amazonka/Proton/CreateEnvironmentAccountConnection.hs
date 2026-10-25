@@ -250,6 +250,14 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "environmentAccountConnection")
       )
+  updateIdempotencyToken
+    f
+    s@CreateEnvironmentAccountConnection' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateEnvironmentAccountConnection
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

@@ -129,6 +129,8 @@ instance Core.AWSRequest ListEnvironmentOutputs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "outputs" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListEnvironmentOutputs where
   hashWithSalt _salt ListEnvironmentOutputs' {..} =

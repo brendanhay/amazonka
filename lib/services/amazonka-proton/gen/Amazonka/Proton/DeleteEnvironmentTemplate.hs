@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteEnvironmentTemplate where
             Prelude.<$> (x Data..?> "environmentTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteEnvironmentTemplate where
   hashWithSalt _salt DeleteEnvironmentTemplate' {..} =

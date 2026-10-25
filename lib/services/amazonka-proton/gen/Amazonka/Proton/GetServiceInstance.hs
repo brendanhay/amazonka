@@ -105,6 +105,8 @@ instance Core.AWSRequest GetServiceInstance where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "serviceInstance")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetServiceInstance where
   hashWithSalt _salt GetServiceInstance' {..} =

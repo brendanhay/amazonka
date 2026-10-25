@@ -279,6 +279,8 @@ instance Core.AWSRequest UpdateServicePipeline where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "pipeline")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateServicePipeline where
   hashWithSalt _salt UpdateServicePipeline' {..} =

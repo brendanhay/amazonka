@@ -173,6 +173,8 @@ instance Core.AWSRequest ListComponents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "components" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListComponents where
   hashWithSalt _salt ListComponents' {..} =

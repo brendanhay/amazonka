@@ -241,6 +241,8 @@ instance Core.AWSRequest CreateComponent where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "component")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateComponent where
   hashWithSalt _salt CreateComponent' {..} =

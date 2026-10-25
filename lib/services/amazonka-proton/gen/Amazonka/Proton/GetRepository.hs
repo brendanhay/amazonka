@@ -101,6 +101,8 @@ instance Core.AWSRequest GetRepository where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "repository")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRepository where
   hashWithSalt _salt GetRepository' {..} =

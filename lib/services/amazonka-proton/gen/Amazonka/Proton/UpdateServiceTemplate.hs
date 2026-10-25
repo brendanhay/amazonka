@@ -113,6 +113,8 @@ instance Core.AWSRequest UpdateServiceTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "serviceTemplate")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateServiceTemplate where
   hashWithSalt _salt UpdateServiceTemplate' {..} =

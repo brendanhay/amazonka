@@ -95,6 +95,8 @@ instance Core.AWSRequest CancelComponentDeployment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "component")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelComponentDeployment where
   hashWithSalt _salt CancelComponentDeployment' {..} =

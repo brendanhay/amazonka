@@ -94,6 +94,8 @@ instance Core.AWSRequest DescribeICD10CMInferenceJob where
             Prelude.<$> (x Data..?> "ComprehendMedicalAsyncJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeICD10CMInferenceJob where
   hashWithSalt _salt DescribeICD10CMInferenceJob' {..} =

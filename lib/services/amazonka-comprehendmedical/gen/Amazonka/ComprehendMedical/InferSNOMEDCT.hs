@@ -100,6 +100,8 @@ instance Core.AWSRequest InferSNOMEDCT where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Entities" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable InferSNOMEDCT where
   hashWithSalt _salt InferSNOMEDCT' {..} =

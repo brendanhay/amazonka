@@ -107,6 +107,8 @@ instance Core.AWSRequest DescribePackageImportJob where
             Prelude.<*> (x Data..:> "Status")
             Prelude.<*> (x Data..:> "StatusMessage")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePackageImportJob where
   hashWithSalt _salt DescribePackageImportJob' {..} =

@@ -109,6 +109,8 @@ instance Core.AWSRequest ListNodeFromTemplateJobs where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListNodeFromTemplateJobs where
   hashWithSalt _salt ListNodeFromTemplateJobs' {..} =

@@ -165,6 +165,8 @@ instance Core.AWSRequest CreateApplicationInstance where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ApplicationInstanceId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateApplicationInstance where
   hashWithSalt _salt CreateApplicationInstance' {..} =

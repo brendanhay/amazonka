@@ -132,6 +132,8 @@ instance Core.AWSRequest ProvisionDevice where
             Prelude.<*> (x Data..:> "Arn")
             Prelude.<*> (x Data..:> "Status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ProvisionDevice where
   hashWithSalt _salt ProvisionDevice' {..} =

@@ -142,6 +142,8 @@ instance Core.AWSRequest DescribePackageVersion where
             Prelude.<*> (x Data..:> "PatchVersion")
             Prelude.<*> (x Data..:> "Status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePackageVersion where
   hashWithSalt _salt DescribePackageVersion' {..} =

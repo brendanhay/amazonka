@@ -100,6 +100,8 @@ instance Core.AWSRequest UpdateDeviceMetadata where
             Prelude.<$> (x Data..?> "DeviceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDeviceMetadata where
   hashWithSalt _salt UpdateDeviceMetadata' {..} =

@@ -123,6 +123,8 @@ instance Core.AWSRequest DescribeNode where
             Prelude.<*> (x Data..:> "PackageVersion")
             Prelude.<*> (x Data..:> "PatchVersion")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeNode where
   hashWithSalt _salt DescribeNode' {..} =

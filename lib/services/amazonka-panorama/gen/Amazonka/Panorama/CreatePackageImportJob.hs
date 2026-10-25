@@ -139,6 +139,8 @@ instance Core.AWSRequest CreatePackageImportJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "JobId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreatePackageImportJob where
   hashWithSalt _salt CreatePackageImportJob' {..} =

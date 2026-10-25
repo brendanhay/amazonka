@@ -81,6 +81,8 @@ instance Core.AWSRequest GetCrl where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCrl where
   hashWithSalt _salt GetCrl' {..} =

@@ -132,6 +132,8 @@ instance Core.AWSRequest ListTrustAnchors where
             Prelude.<*> (x Data..?> "trustAnchors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTrustAnchors where
   hashWithSalt _salt ListTrustAnchors' {..} =

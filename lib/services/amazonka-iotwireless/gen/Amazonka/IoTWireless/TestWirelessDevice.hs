@@ -88,6 +88,8 @@ instance Core.AWSRequest TestWirelessDevice where
             Prelude.<$> (x Data..?> "Result")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TestWirelessDevice where
   hashWithSalt _salt TestWirelessDevice' {..} =

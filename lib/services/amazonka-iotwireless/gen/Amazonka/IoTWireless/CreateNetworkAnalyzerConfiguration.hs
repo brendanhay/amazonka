@@ -162,6 +162,14 @@ instance
             Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateNetworkAnalyzerConfiguration' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateNetworkAnalyzerConfiguration
+      )
+        Prelude.<$> f clientRequestToken
 
 instance
   Prelude.Hashable

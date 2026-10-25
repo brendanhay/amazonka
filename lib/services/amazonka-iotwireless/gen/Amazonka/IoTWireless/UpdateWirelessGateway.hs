@@ -126,6 +126,8 @@ instance Core.AWSRequest UpdateWirelessGateway where
           UpdateWirelessGatewayResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateWirelessGateway where
   hashWithSalt _salt UpdateWirelessGateway' {..} =

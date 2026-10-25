@@ -132,6 +132,14 @@ instance Core.AWSRequest CreateDeviceProfile where
             Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateDeviceProfile' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateDeviceProfile
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateDeviceProfile where
   hashWithSalt _salt CreateDeviceProfile' {..} =

@@ -94,6 +94,8 @@ instance Core.AWSRequest GetWirelessGatewayStatistics where
             Prelude.<*> (x Data..?> "WirelessGatewayId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

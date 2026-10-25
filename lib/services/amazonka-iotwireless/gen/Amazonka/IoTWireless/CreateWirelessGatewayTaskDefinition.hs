@@ -154,6 +154,14 @@ instance
             Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateWirelessGatewayTaskDefinition' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateWirelessGatewayTaskDefinition
+      )
+        Prelude.<$> f clientRequestToken
 
 instance
   Prelude.Hashable

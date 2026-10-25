@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteDestination where
           DeleteDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDestination where
   hashWithSalt _salt DeleteDestination' {..} =

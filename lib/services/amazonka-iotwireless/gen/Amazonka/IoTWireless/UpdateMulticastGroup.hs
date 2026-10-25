@@ -114,6 +114,8 @@ instance Core.AWSRequest UpdateMulticastGroup where
           UpdateMulticastGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateMulticastGroup where
   hashWithSalt _salt UpdateMulticastGroup' {..} =

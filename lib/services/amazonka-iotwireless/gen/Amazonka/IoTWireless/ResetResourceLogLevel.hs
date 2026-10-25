@@ -106,6 +106,8 @@ instance Core.AWSRequest ResetResourceLogLevel where
           ResetResourceLogLevelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResetResourceLogLevel where
   hashWithSalt _salt ResetResourceLogLevel' {..} =

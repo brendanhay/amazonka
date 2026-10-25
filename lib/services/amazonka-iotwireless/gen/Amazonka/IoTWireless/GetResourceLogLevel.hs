@@ -108,6 +108,8 @@ instance Core.AWSRequest GetResourceLogLevel where
             Prelude.<$> (x Data..?> "LogLevel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetResourceLogLevel where
   hashWithSalt _salt GetResourceLogLevel' {..} =

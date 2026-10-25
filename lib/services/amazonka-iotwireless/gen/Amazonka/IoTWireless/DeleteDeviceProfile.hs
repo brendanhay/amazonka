@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteDeviceProfile where
           DeleteDeviceProfileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDeviceProfile where
   hashWithSalt _salt DeleteDeviceProfile' {..} =

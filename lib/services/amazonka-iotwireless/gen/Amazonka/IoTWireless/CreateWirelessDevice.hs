@@ -182,6 +182,14 @@ instance Core.AWSRequest CreateWirelessDevice where
             Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateWirelessDevice' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateWirelessDevice
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateWirelessDevice where
   hashWithSalt _salt CreateWirelessDevice' {..} =

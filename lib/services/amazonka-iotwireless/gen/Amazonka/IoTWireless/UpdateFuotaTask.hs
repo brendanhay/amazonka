@@ -131,6 +131,8 @@ instance Core.AWSRequest UpdateFuotaTask where
           UpdateFuotaTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateFuotaTask where
   hashWithSalt _salt UpdateFuotaTask' {..} =

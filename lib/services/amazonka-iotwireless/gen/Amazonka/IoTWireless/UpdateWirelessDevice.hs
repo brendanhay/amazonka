@@ -141,6 +141,8 @@ instance Core.AWSRequest UpdateWirelessDevice where
           UpdateWirelessDeviceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateWirelessDevice where
   hashWithSalt _salt UpdateWirelessDevice' {..} =

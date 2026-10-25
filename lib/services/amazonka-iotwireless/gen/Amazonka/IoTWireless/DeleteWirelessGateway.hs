@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteWirelessGateway where
           DeleteWirelessGatewayResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteWirelessGateway where
   hashWithSalt _salt DeleteWirelessGateway' {..} =

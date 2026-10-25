@@ -158,6 +158,8 @@ instance Core.AWSRequest GetInsightImpactGraph where
             Prelude.<*> (x Data..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetInsightImpactGraph where
   hashWithSalt _salt GetInsightImpactGraph' {..} =

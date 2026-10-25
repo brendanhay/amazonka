@@ -141,6 +141,8 @@ instance Core.AWSRequest PutEncryptionConfig where
             Prelude.<$> (x Data..?> "EncryptionConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutEncryptionConfig where
   hashWithSalt _salt PutEncryptionConfig' {..} =

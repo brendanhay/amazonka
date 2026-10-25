@@ -99,6 +99,8 @@ instance Core.AWSRequest GetSamplingTargets where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSamplingTargets where
   hashWithSalt _salt GetSamplingTargets' {..} =

@@ -73,6 +73,8 @@ instance Core.AWSRequest DeleteRegistryPolicy where
             Prelude.<*> (x Data..?> "registryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRegistryPolicy where
   hashWithSalt _salt _ =

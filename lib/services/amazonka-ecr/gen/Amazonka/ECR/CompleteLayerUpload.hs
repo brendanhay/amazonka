@@ -151,6 +151,8 @@ instance Core.AWSRequest CompleteLayerUpload where
             Prelude.<*> (x Data..?> "uploadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CompleteLayerUpload where
   hashWithSalt _salt CompleteLayerUpload' {..} =

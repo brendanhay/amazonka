@@ -219,6 +219,8 @@ instance Core.AWSRequest DescribeImageScanFindings where
             Prelude.<*> (x Data..?> "repositoryName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeImageScanFindings where
   hashWithSalt _salt DescribeImageScanFindings' {..} =

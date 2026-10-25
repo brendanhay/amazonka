@@ -75,6 +75,8 @@ instance Core.AWSRequest DescribeRegistry where
             Prelude.<*> (x Data..?> "replicationConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeRegistry where
   hashWithSalt _salt _ =

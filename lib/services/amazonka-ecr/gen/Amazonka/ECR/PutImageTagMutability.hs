@@ -142,6 +142,8 @@ instance Core.AWSRequest PutImageTagMutability where
             Prelude.<*> (x Data..?> "repositoryName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutImageTagMutability where
   hashWithSalt _salt PutImageTagMutability' {..} =

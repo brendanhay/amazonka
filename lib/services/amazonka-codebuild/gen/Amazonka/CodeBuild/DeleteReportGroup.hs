@@ -122,6 +122,8 @@ instance Core.AWSRequest DeleteReportGroup where
           DeleteReportGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteReportGroup where
   hashWithSalt _salt DeleteReportGroup' {..} =

@@ -191,6 +191,8 @@ instance Core.AWSRequest ListBuildsForProject where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListBuildsForProject where
   hashWithSalt _salt ListBuildsForProject' {..} =

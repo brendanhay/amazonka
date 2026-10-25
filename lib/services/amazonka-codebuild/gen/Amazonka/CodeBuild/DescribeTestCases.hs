@@ -169,6 +169,8 @@ instance Core.AWSRequest DescribeTestCases where
             Prelude.<*> (x Data..?> "testCases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeTestCases where
   hashWithSalt _salt DescribeTestCases' {..} =

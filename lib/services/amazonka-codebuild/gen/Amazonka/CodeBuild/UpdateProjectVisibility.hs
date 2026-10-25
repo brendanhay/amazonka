@@ -153,6 +153,8 @@ instance Core.AWSRequest UpdateProjectVisibility where
             Prelude.<*> (x Data..?> "publicProjectAlias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateProjectVisibility where
   hashWithSalt _salt UpdateProjectVisibility' {..} =

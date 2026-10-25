@@ -157,6 +157,8 @@ instance Core.AWSRequest ImportSourceCredentials where
             Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportSourceCredentials where
   hashWithSalt _salt ImportSourceCredentials' {..} =

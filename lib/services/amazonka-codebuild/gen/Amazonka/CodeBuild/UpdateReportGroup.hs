@@ -133,6 +133,8 @@ instance Core.AWSRequest UpdateReportGroup where
             Prelude.<$> (x Data..?> "reportGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateReportGroup where
   hashWithSalt _salt UpdateReportGroup' {..} =

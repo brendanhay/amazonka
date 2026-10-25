@@ -152,6 +152,8 @@ instance Core.AWSRequest ListPricingRules where
             Prelude.<*> (x Data..?> "PricingRules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPricingRules where
   hashWithSalt _salt ListPricingRules' {..} =

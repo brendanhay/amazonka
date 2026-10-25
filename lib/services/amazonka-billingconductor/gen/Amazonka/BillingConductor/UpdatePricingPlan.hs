@@ -123,6 +123,8 @@ instance Core.AWSRequest UpdatePricingPlan where
             Prelude.<*> (x Data..?> "Size")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdatePricingPlan where
   hashWithSalt _salt UpdatePricingPlan' {..} =

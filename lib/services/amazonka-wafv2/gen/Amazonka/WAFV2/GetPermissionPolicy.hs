@@ -92,6 +92,8 @@ instance Core.AWSRequest GetPermissionPolicy where
             Prelude.<$> (x Data..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPermissionPolicy where
   hashWithSalt _salt GetPermissionPolicy' {..} =

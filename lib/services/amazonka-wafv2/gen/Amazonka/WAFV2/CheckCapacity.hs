@@ -145,6 +145,8 @@ instance Core.AWSRequest CheckCapacity where
             Prelude.<$> (x Data..?> "Capacity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CheckCapacity where
   hashWithSalt _salt CheckCapacity' {..} =

@@ -175,6 +175,8 @@ instance Core.AWSRequest PutPermissionPolicy where
           PutPermissionPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutPermissionPolicy where
   hashWithSalt _salt PutPermissionPolicy' {..} =

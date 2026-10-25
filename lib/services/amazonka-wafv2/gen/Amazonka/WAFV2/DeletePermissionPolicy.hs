@@ -99,6 +99,8 @@ instance Core.AWSRequest DeletePermissionPolicy where
           DeletePermissionPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePermissionPolicy where
   hashWithSalt _salt DeletePermissionPolicy' {..} =

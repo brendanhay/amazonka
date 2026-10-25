@@ -229,6 +229,8 @@ instance Core.AWSRequest GetSampledRequests where
             Prelude.<*> (x Data..?> "TimeWindow")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSampledRequests where
   hashWithSalt _salt GetSampledRequests' {..} =

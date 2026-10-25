@@ -132,6 +132,8 @@ instance Core.AWSRequest GetWebACLForResource where
             Prelude.<$> (x Data..?> "WebACL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetWebACLForResource where
   hashWithSalt _salt GetWebACLForResource' {..} =

@@ -102,6 +102,8 @@ instance Core.AWSRequest UnlockRule where
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UnlockRule where
   hashWithSalt _salt UnlockRule' {..} =

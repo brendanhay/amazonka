@@ -233,6 +233,14 @@ instance Core.AWSRequest CreateComponentVersion where
             Prelude.<*> (x Data..:> "creationTimestamp")
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken
+    f
+    s@CreateComponentVersion' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateComponentVersion
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateComponentVersion where
   hashWithSalt _salt CreateComponentVersion' {..} =

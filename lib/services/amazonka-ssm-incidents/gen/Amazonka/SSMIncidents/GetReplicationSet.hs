@@ -90,6 +90,8 @@ instance Core.AWSRequest GetReplicationSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "replicationSet")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetReplicationSet where
   hashWithSalt _salt GetReplicationSet' {..} =

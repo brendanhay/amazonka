@@ -135,6 +135,8 @@ instance Core.AWSRequest ListRelatedItems where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "relatedItems" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListRelatedItems where
   hashWithSalt _salt ListRelatedItems' {..} =

@@ -101,6 +101,8 @@ instance Core.AWSRequest GetResponsePlan where
             Prelude.<*> (x Data..:> "incidentTemplate")
             Prelude.<*> (x Data..:> "name")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetResponsePlan where
   hashWithSalt _salt GetResponsePlan' {..} =

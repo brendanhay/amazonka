@@ -221,6 +221,8 @@ instance Core.AWSRequest ListTimelineEvents where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTimelineEvents where
   hashWithSalt _salt ListTimelineEvents' {..} =

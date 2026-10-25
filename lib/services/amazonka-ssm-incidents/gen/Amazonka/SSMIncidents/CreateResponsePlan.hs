@@ -188,6 +188,13 @@ instance Core.AWSRequest CreateResponsePlan where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "arn")
       )
+  updateIdempotencyToken
+    f
+    s@CreateResponsePlan' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateResponsePlan
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateResponsePlan where
   hashWithSalt _salt CreateResponsePlan' {..} =

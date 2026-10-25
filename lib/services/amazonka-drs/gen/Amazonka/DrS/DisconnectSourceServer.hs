@@ -109,6 +109,8 @@ instance Core.AWSRequest DisconnectSourceServer where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisconnectSourceServer where
   hashWithSalt _salt DisconnectSourceServer' {..} =

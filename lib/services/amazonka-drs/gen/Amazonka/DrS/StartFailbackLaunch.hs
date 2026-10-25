@@ -106,6 +106,8 @@ instance Core.AWSRequest StartFailbackLaunch where
             Prelude.<$> (x Data..?> "job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartFailbackLaunch where
   hashWithSalt _salt StartFailbackLaunch' {..} =

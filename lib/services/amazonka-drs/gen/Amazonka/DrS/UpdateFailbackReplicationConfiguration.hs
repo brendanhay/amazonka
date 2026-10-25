@@ -125,6 +125,8 @@ instance
   response =
     Response.receiveNull
       UpdateFailbackReplicationConfigurationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

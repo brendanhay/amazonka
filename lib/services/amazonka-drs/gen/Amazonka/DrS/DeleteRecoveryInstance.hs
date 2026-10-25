@@ -84,6 +84,8 @@ instance Core.AWSRequest DeleteRecoveryInstance where
   response =
     Response.receiveNull
       DeleteRecoveryInstanceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRecoveryInstance where
   hashWithSalt _salt DeleteRecoveryInstance' {..} =

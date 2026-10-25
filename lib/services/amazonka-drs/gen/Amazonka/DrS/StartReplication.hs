@@ -91,6 +91,8 @@ instance Core.AWSRequest StartReplication where
             Prelude.<$> (x Data..?> "sourceServer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartReplication where
   hashWithSalt _salt StartReplication' {..} =

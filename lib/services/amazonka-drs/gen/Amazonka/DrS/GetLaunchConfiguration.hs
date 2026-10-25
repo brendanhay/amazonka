@@ -95,6 +95,8 @@ instance Core.AWSRequest GetLaunchConfiguration where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetLaunchConfiguration where
   hashWithSalt _salt GetLaunchConfiguration' {..} =

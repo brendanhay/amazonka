@@ -80,6 +80,8 @@ instance Core.AWSRequest StopFailback where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull StopFailbackResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopFailback where
   hashWithSalt _salt StopFailback' {..} =

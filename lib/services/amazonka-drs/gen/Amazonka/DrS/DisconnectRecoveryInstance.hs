@@ -94,6 +94,8 @@ instance Core.AWSRequest DisconnectRecoveryInstance where
   response =
     Response.receiveNull
       DisconnectRecoveryInstanceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisconnectRecoveryInstance where
   hashWithSalt _salt DisconnectRecoveryInstance' {..} =

@@ -104,6 +104,8 @@ instance Core.AWSRequest UpdateApplicationSettings where
             Prelude.<*> (x Data..?> "OperationIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateApplicationSettings where
   hashWithSalt _salt UpdateApplicationSettings' {..} =

@@ -160,6 +160,8 @@ instance Core.AWSRequest PutRumMetricsDestination where
           PutRumMetricsDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutRumMetricsDestination where
   hashWithSalt _salt PutRumMetricsDestination' {..} =

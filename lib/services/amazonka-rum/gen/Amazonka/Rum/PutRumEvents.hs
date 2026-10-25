@@ -148,6 +148,8 @@ instance Core.AWSRequest PutRumEvents where
           PutRumEventsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutRumEvents where
   hashWithSalt _salt PutRumEvents' {..} =

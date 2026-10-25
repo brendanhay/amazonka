@@ -86,6 +86,8 @@ instance Core.AWSRequest DeleteAppMonitor where
           DeleteAppMonitorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAppMonitor where
   hashWithSalt _salt DeleteAppMonitor' {..} =

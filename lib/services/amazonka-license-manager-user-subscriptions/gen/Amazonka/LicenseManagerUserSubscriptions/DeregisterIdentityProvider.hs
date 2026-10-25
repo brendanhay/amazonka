@@ -105,6 +105,8 @@ instance Core.AWSRequest DeregisterIdentityProvider where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "IdentityProviderSummary")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterIdentityProvider where
   hashWithSalt _salt DeregisterIdentityProvider' {..} =

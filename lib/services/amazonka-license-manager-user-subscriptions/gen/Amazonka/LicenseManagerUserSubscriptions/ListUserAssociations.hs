@@ -165,6 +165,8 @@ instance Core.AWSRequest ListUserAssociations where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListUserAssociations where
   hashWithSalt _salt ListUserAssociations' {..} =

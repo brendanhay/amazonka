@@ -124,6 +124,8 @@ instance Core.AWSRequest PutRepositoryCatalogData where
             Prelude.<$> (x Data..?> "catalogData")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutRepositoryCatalogData where
   hashWithSalt _salt PutRepositoryCatalogData' {..} =

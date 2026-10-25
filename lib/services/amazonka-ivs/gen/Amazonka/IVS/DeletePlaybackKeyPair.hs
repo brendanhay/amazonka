@@ -89,6 +89,8 @@ instance Core.AWSRequest DeletePlaybackKeyPair where
           DeletePlaybackKeyPairResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePlaybackKeyPair where
   hashWithSalt _salt DeletePlaybackKeyPair' {..} =

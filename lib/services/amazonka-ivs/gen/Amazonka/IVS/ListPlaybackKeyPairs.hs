@@ -129,6 +129,8 @@ instance Core.AWSRequest ListPlaybackKeyPairs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "keyPairs" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPlaybackKeyPairs where
   hashWithSalt _salt ListPlaybackKeyPairs' {..} =

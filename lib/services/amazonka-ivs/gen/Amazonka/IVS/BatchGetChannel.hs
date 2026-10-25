@@ -89,6 +89,8 @@ instance Core.AWSRequest BatchGetChannel where
             Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetChannel where
   hashWithSalt _salt BatchGetChannel' {..} =

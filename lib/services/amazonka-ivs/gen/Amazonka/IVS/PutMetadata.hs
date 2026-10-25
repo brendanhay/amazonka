@@ -98,6 +98,8 @@ instance Core.AWSRequest PutMetadata where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull PutMetadataResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutMetadata where
   hashWithSalt _salt PutMetadata' {..} =

@@ -103,6 +103,8 @@ instance Core.AWSRequest ListAlarmModels where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAlarmModels where
   hashWithSalt _salt ListAlarmModels' {..} =

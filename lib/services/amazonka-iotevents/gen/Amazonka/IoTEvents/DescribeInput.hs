@@ -87,6 +87,8 @@ instance Core.AWSRequest DescribeInput where
             Prelude.<$> (x Data..?> "input")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeInput where
   hashWithSalt _salt DescribeInput' {..} =

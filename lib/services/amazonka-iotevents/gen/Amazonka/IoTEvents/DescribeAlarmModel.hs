@@ -130,6 +130,8 @@ instance Core.AWSRequest DescribeAlarmModel where
             Prelude.<*> (x Data..?> "statusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAlarmModel where
   hashWithSalt _salt DescribeAlarmModel' {..} =

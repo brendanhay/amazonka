@@ -119,6 +119,8 @@ instance Core.AWSRequest CreateInput where
             Prelude.<$> (x Data..?> "inputConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateInput where
   hashWithSalt _salt CreateInput' {..} =

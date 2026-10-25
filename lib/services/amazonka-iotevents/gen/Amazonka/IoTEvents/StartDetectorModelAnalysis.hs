@@ -92,6 +92,8 @@ instance Core.AWSRequest StartDetectorModelAnalysis where
             Prelude.<$> (x Data..?> "analysisId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartDetectorModelAnalysis where
   hashWithSalt _salt StartDetectorModelAnalysis' {..} =

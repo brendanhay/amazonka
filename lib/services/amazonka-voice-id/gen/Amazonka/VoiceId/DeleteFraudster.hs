@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteFraudster where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteFraudsterResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFraudster where
   hashWithSalt _salt DeleteFraudster' {..} =

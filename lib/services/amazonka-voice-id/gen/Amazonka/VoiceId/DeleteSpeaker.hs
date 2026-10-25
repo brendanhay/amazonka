@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteSpeaker where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteSpeakerResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSpeaker where
   hashWithSalt _salt DeleteSpeaker' {..} =

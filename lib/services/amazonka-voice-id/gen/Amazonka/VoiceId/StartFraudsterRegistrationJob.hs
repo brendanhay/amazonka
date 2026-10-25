@@ -196,6 +196,14 @@ instance
             Prelude.<$> (x Data..?> "Job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartFraudsterRegistrationJob' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            StartFraudsterRegistrationJob
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

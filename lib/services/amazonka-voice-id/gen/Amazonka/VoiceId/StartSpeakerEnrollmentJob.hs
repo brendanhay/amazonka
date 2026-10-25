@@ -193,6 +193,14 @@ instance Core.AWSRequest StartSpeakerEnrollmentJob where
             Prelude.<$> (x Data..?> "Job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartSpeakerEnrollmentJob' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            StartSpeakerEnrollmentJob
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartSpeakerEnrollmentJob where
   hashWithSalt _salt StartSpeakerEnrollmentJob' {..} =

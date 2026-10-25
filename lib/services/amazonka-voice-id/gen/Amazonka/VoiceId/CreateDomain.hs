@@ -145,6 +145,11 @@ instance Core.AWSRequest CreateDomain where
             Prelude.<$> (x Data..?> "Domain")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@CreateDomain' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateDomain
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateDomain where
   hashWithSalt _salt CreateDomain' {..} =

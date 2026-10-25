@@ -151,6 +151,8 @@ instance Core.AWSRequest ListSpeakers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSpeakers where
   hashWithSalt _salt ListSpeakers' {..} =

@@ -146,6 +146,8 @@ instance Core.AWSRequest UpdatePermissionSet where
           UpdatePermissionSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdatePermissionSet where
   hashWithSalt _salt UpdatePermissionSet' {..} =

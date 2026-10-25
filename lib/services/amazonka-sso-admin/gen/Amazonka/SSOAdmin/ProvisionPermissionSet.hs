@@ -139,6 +139,8 @@ instance Core.AWSRequest ProvisionPermissionSet where
             Prelude.<$> (x Data..?> "PermissionSetProvisioningStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ProvisionPermissionSet where
   hashWithSalt _salt ProvisionPermissionSet' {..} =

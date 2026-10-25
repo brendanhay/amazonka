@@ -160,6 +160,8 @@ instance Core.AWSRequest CreatePermissionSet where
             Prelude.<$> (x Data..?> "PermissionSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreatePermissionSet where
   hashWithSalt _salt CreatePermissionSet' {..} =

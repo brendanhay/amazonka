@@ -124,6 +124,8 @@ instance Core.AWSRequest DescribeEventDetails where
             Prelude.<*> (x Data..?> "successfulSet" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEventDetails where
   hashWithSalt _salt DescribeEventDetails' {..} =

@@ -95,6 +95,8 @@ instance Core.AWSRequest DescribeEntityAggregates where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEntityAggregates where
   hashWithSalt _salt DescribeEntityAggregates' {..} =

@@ -107,6 +107,8 @@ instance Core.AWSRequest GetDataIntegration where
             Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDataIntegration where
   hashWithSalt _salt GetDataIntegration' {..} =

@@ -84,6 +84,8 @@ instance Core.AWSRequest DeleteInstanceOnboardingJob where
   response =
     Response.receiveNull
       DeleteInstanceOnboardingJobResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteInstanceOnboardingJob where
   hashWithSalt _salt DeleteInstanceOnboardingJob' {..} =

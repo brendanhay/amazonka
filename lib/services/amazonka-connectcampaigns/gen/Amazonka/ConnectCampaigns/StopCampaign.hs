@@ -75,6 +75,8 @@ instance Core.AWSRequest StopCampaign where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull StopCampaignResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopCampaign where
   hashWithSalt _salt StopCampaign' {..} =

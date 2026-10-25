@@ -78,6 +78,8 @@ instance Core.AWSRequest PauseCampaign where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull PauseCampaignResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PauseCampaign where
   hashWithSalt _salt PauseCampaign' {..} =

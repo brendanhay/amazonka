@@ -78,6 +78,8 @@ instance Core.AWSRequest ResumeCampaign where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull ResumeCampaignResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResumeCampaign where
   hashWithSalt _salt ResumeCampaign' {..} =

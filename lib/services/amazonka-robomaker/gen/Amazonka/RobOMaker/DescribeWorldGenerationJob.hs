@@ -107,6 +107,8 @@ instance Core.AWSRequest DescribeWorldGenerationJob where
             Prelude.<*> (x Data..?> "worldTags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeWorldGenerationJob where
   hashWithSalt _salt DescribeWorldGenerationJob' {..} =

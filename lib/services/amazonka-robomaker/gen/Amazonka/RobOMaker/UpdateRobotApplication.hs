@@ -154,6 +154,8 @@ instance Core.AWSRequest UpdateRobotApplication where
             Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRobotApplication where
   hashWithSalt _salt UpdateRobotApplication' {..} =

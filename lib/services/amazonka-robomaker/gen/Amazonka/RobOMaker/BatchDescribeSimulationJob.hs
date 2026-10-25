@@ -92,6 +92,8 @@ instance Core.AWSRequest BatchDescribeSimulationJob where
             Prelude.<*> (x Data..?> "unprocessedJobs")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchDescribeSimulationJob where
   hashWithSalt _salt BatchDescribeSimulationJob' {..} =

@@ -87,6 +87,8 @@ instance Core.AWSRequest CancelSimulationJobBatch where
           CancelSimulationJobBatchResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelSimulationJobBatch where
   hashWithSalt _salt CancelSimulationJobBatch' {..} =

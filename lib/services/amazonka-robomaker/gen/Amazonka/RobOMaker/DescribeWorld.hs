@@ -97,6 +97,8 @@ instance Core.AWSRequest DescribeWorld where
             Prelude.<*> (x Data..?> "worldDescriptionBody")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeWorld where
   hashWithSalt _salt DescribeWorld' {..} =

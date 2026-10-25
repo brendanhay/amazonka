@@ -236,6 +236,8 @@ instance Core.AWSRequest CreateTask where
             Prelude.<$> (x Data..?> "TaskArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateTask where
   hashWithSalt _salt CreateTask' {..} =

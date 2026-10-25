@@ -100,6 +100,8 @@ instance Core.AWSRequest DescribeLocationFsxLustre where
             Prelude.<*> (x Data..?> "SecurityGroupArns")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeLocationFsxLustre where
   hashWithSalt _salt DescribeLocationFsxLustre' {..} =

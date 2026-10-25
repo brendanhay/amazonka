@@ -102,6 +102,8 @@ instance Core.AWSRequest DescribeLocationSmb where
             Prelude.<*> (x Data..?> "User")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeLocationSmb where
   hashWithSalt _salt DescribeLocationSmb' {..} =

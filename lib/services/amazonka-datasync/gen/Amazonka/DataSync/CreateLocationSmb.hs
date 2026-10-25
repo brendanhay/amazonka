@@ -268,6 +268,8 @@ instance Core.AWSRequest CreateLocationSmb where
             Prelude.<$> (x Data..?> "LocationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLocationSmb where
   hashWithSalt _salt CreateLocationSmb' {..} =

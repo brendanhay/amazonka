@@ -97,6 +97,8 @@ instance Core.AWSRequest DescribeLocationNfs where
             Prelude.<*> (x Data..?> "OnPremConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeLocationNfs where
   hashWithSalt _salt DescribeLocationNfs' {..} =

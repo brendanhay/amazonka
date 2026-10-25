@@ -269,6 +269,8 @@ instance Core.AWSRequest UpdateLocationHdfs where
           UpdateLocationHdfsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateLocationHdfs where
   hashWithSalt _salt UpdateLocationHdfs' {..} =

@@ -99,6 +99,8 @@ instance Core.AWSRequest CancelTaskExecution where
           CancelTaskExecutionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelTaskExecution where
   hashWithSalt _salt CancelTaskExecution' {..} =

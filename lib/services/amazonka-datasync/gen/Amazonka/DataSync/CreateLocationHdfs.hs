@@ -340,6 +340,8 @@ instance Core.AWSRequest CreateLocationHdfs where
             Prelude.<$> (x Data..?> "LocationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLocationHdfs where
   hashWithSalt _salt CreateLocationHdfs' {..} =

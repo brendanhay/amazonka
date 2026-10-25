@@ -110,6 +110,8 @@ instance Core.AWSRequest DescribeLocationHdfs where
             Prelude.<*> (x Data..?> "SimpleUser")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeLocationHdfs where
   hashWithSalt _salt DescribeLocationHdfs' {..} =

@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteTask where
           DeleteTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTask where
   hashWithSalt _salt DeleteTask' {..} =

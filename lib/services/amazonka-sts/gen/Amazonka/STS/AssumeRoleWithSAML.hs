@@ -181,7 +181,6 @@ module Amazonka.STS.AssumeRoleWithSAML
     -- * Response Lenses
     assumeRoleWithSAMLResponse_assumedRoleUser,
     assumeRoleWithSAMLResponse_audience,
-    assumeRoleWithSAMLResponse_credentials,
     assumeRoleWithSAMLResponse_issuer,
     assumeRoleWithSAMLResponse_nameQualifier,
     assumeRoleWithSAMLResponse_packedPolicySize,
@@ -189,6 +188,7 @@ module Amazonka.STS.AssumeRoleWithSAML
     assumeRoleWithSAMLResponse_subject,
     assumeRoleWithSAMLResponse_subjectType,
     assumeRoleWithSAMLResponse_httpStatus,
+    assumeRoleWithSAMLResponse_credentials,
   )
 where
 
@@ -532,7 +532,6 @@ instance Core.AWSRequest AssumeRoleWithSAML where
           AssumeRoleWithSAMLResponse'
             Prelude.<$> (x Data..@? "AssumedRoleUser")
             Prelude.<*> (x Data..@? "Audience")
-            Prelude.<*> (x Data..@? "Credentials")
             Prelude.<*> (x Data..@? "Issuer")
             Prelude.<*> (x Data..@? "NameQualifier")
             Prelude.<*> (x Data..@? "PackedPolicySize")
@@ -540,6 +539,7 @@ instance Core.AWSRequest AssumeRoleWithSAML where
             Prelude.<*> (x Data..@? "Subject")
             Prelude.<*> (x Data..@? "SubjectType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@ "Credentials")
       )
 
 instance Prelude.Hashable AssumeRoleWithSAML where
@@ -596,13 +596,6 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
     -- | The value of the @Recipient@ attribute of the @SubjectConfirmationData@
     -- element of the SAML assertion.
     audience :: Prelude.Maybe Prelude.Text,
-    -- | The temporary security credentials, which include an access key ID, a
-    -- secret access key, and a security (or session) token.
-    --
-    -- The size of the security token that STS API operations return is not
-    -- fixed. We strongly recommend that you make no assumptions about the
-    -- maximum size.
-    credentials :: Prelude.Maybe Core.AuthEnv,
     -- | The value of the @Issuer@ element of the SAML assertion.
     issuer :: Prelude.Maybe Prelude.Text,
     -- | A hash value based on the concatenation of the following:
@@ -662,7 +655,14 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
     -- format is returned with no modifications.
     subjectType :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Prelude.Int,
+    -- | The temporary security credentials, which include an access key ID, a
+    -- secret access key, and a security (or session) token.
+    --
+    -- The size of the security token that STS API operations return is not
+    -- fixed. We strongly recommend that you make no assumptions about the
+    -- maximum size.
+    credentials :: Core.AuthEnv
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -679,13 +679,6 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
 --
 -- 'audience', 'assumeRoleWithSAMLResponse_audience' - The value of the @Recipient@ attribute of the @SubjectConfirmationData@
 -- element of the SAML assertion.
---
--- 'credentials', 'assumeRoleWithSAMLResponse_credentials' - The temporary security credentials, which include an access key ID, a
--- secret access key, and a security (or session) token.
---
--- The size of the security token that STS API operations return is not
--- fixed. We strongly recommend that you make no assumptions about the
--- maximum size.
 --
 -- 'issuer', 'assumeRoleWithSAMLResponse_issuer' - The value of the @Issuer@ element of the SAML assertion.
 --
@@ -746,24 +739,35 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
 -- format is returned with no modifications.
 --
 -- 'httpStatus', 'assumeRoleWithSAMLResponse_httpStatus' - The response's http status code.
+--
+-- 'credentials', 'assumeRoleWithSAMLResponse_credentials' - The temporary security credentials, which include an access key ID, a
+-- secret access key, and a security (or session) token.
+--
+-- The size of the security token that STS API operations return is not
+-- fixed. We strongly recommend that you make no assumptions about the
+-- maximum size.
 newAssumeRoleWithSAMLResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'credentials'
+  Core.AuthEnv ->
   AssumeRoleWithSAMLResponse
-newAssumeRoleWithSAMLResponse pHttpStatus_ =
-  AssumeRoleWithSAMLResponse'
-    { assumedRoleUser =
-        Prelude.Nothing,
-      audience = Prelude.Nothing,
-      credentials = Prelude.Nothing,
-      issuer = Prelude.Nothing,
-      nameQualifier = Prelude.Nothing,
-      packedPolicySize = Prelude.Nothing,
-      sourceIdentity = Prelude.Nothing,
-      subject = Prelude.Nothing,
-      subjectType = Prelude.Nothing,
-      httpStatus = pHttpStatus_
-    }
+newAssumeRoleWithSAMLResponse
+  pHttpStatus_
+  pCredentials_ =
+    AssumeRoleWithSAMLResponse'
+      { assumedRoleUser =
+          Prelude.Nothing,
+        audience = Prelude.Nothing,
+        issuer = Prelude.Nothing,
+        nameQualifier = Prelude.Nothing,
+        packedPolicySize = Prelude.Nothing,
+        sourceIdentity = Prelude.Nothing,
+        subject = Prelude.Nothing,
+        subjectType = Prelude.Nothing,
+        httpStatus = pHttpStatus_,
+        credentials = pCredentials_
+      }
 
 -- | The identifiers for the temporary security credentials that the
 -- operation returns.
@@ -774,15 +778,6 @@ assumeRoleWithSAMLResponse_assumedRoleUser = Lens.lens (\AssumeRoleWithSAMLRespo
 -- element of the SAML assertion.
 assumeRoleWithSAMLResponse_audience :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
 assumeRoleWithSAMLResponse_audience = Lens.lens (\AssumeRoleWithSAMLResponse' {audience} -> audience) (\s@AssumeRoleWithSAMLResponse' {} a -> s {audience = a} :: AssumeRoleWithSAMLResponse)
-
--- | The temporary security credentials, which include an access key ID, a
--- secret access key, and a security (or session) token.
---
--- The size of the security token that STS API operations return is not
--- fixed. We strongly recommend that you make no assumptions about the
--- maximum size.
-assumeRoleWithSAMLResponse_credentials :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Core.AuthEnv)
-assumeRoleWithSAMLResponse_credentials = Lens.lens (\AssumeRoleWithSAMLResponse' {credentials} -> credentials) (\s@AssumeRoleWithSAMLResponse' {} a -> s {credentials = a} :: AssumeRoleWithSAMLResponse)
 
 -- | The value of the @Issuer@ element of the SAML assertion.
 assumeRoleWithSAMLResponse_issuer :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
@@ -858,15 +853,24 @@ assumeRoleWithSAMLResponse_subjectType = Lens.lens (\AssumeRoleWithSAMLResponse'
 assumeRoleWithSAMLResponse_httpStatus :: Lens.Lens' AssumeRoleWithSAMLResponse Prelude.Int
 assumeRoleWithSAMLResponse_httpStatus = Lens.lens (\AssumeRoleWithSAMLResponse' {httpStatus} -> httpStatus) (\s@AssumeRoleWithSAMLResponse' {} a -> s {httpStatus = a} :: AssumeRoleWithSAMLResponse)
 
+-- | The temporary security credentials, which include an access key ID, a
+-- secret access key, and a security (or session) token.
+--
+-- The size of the security token that STS API operations return is not
+-- fixed. We strongly recommend that you make no assumptions about the
+-- maximum size.
+assumeRoleWithSAMLResponse_credentials :: Lens.Lens' AssumeRoleWithSAMLResponse Core.AuthEnv
+assumeRoleWithSAMLResponse_credentials = Lens.lens (\AssumeRoleWithSAMLResponse' {credentials} -> credentials) (\s@AssumeRoleWithSAMLResponse' {} a -> s {credentials = a} :: AssumeRoleWithSAMLResponse)
+
 instance Prelude.NFData AssumeRoleWithSAMLResponse where
   rnf AssumeRoleWithSAMLResponse' {..} =
     Prelude.rnf assumedRoleUser `Prelude.seq`
       Prelude.rnf audience `Prelude.seq`
-        Prelude.rnf credentials `Prelude.seq`
-          Prelude.rnf issuer `Prelude.seq`
-            Prelude.rnf nameQualifier `Prelude.seq`
-              Prelude.rnf packedPolicySize `Prelude.seq`
-                Prelude.rnf sourceIdentity `Prelude.seq`
-                  Prelude.rnf subject `Prelude.seq`
-                    Prelude.rnf subjectType `Prelude.seq`
-                      Prelude.rnf httpStatus
+        Prelude.rnf issuer `Prelude.seq`
+          Prelude.rnf nameQualifier `Prelude.seq`
+            Prelude.rnf packedPolicySize `Prelude.seq`
+              Prelude.rnf sourceIdentity `Prelude.seq`
+                Prelude.rnf subject `Prelude.seq`
+                  Prelude.rnf subjectType `Prelude.seq`
+                    Prelude.rnf httpStatus `Prelude.seq`
+                      Prelude.rnf credentials

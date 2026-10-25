@@ -103,6 +103,8 @@ instance Core.AWSRequest DescribeDeviceEc2Instances where
             Prelude.<$> (x Data..?> "instances" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDeviceEc2Instances where
   hashWithSalt _salt DescribeDeviceEc2Instances' {..} =

@@ -147,6 +147,8 @@ instance Core.AWSRequest ListDeviceResources where
             Prelude.<*> (x Data..?> "resources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDeviceResources where
   hashWithSalt _salt ListDeviceResources' {..} =

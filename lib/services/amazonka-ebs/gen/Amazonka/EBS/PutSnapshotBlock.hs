@@ -252,6 +252,8 @@ instance Core.AWSRequest PutSnapshotBlock where
             Prelude.<*> (h Data..#? "x-amz-Checksum-Algorithm")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Data.ToBody PutSnapshotBlock where
   toBody PutSnapshotBlock' {..} = Data.toBody blockData

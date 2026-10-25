@@ -395,6 +395,13 @@ instance Core.AWSRequest StartSnapshot where
             Prelude.<*> (x Data..?> "VolumeSize")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartSnapshot' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: StartSnapshot
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartSnapshot where
   hashWithSalt _salt StartSnapshot' {..} =

@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteGatewayGroup where
           DeleteGatewayGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteGatewayGroup where
   hashWithSalt _salt DeleteGatewayGroup' {..} =

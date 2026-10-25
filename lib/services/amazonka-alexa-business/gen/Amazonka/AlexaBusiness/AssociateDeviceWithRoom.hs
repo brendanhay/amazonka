@@ -99,6 +99,8 @@ instance Core.AWSRequest AssociateDeviceWithRoom where
           AssociateDeviceWithRoomResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateDeviceWithRoom where
   hashWithSalt _salt AssociateDeviceWithRoom' {..} =

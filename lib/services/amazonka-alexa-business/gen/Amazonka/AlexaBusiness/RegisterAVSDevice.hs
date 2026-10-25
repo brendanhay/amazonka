@@ -182,6 +182,8 @@ instance Core.AWSRequest RegisterAVSDevice where
             Prelude.<$> (x Data..?> "DeviceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterAVSDevice where
   hashWithSalt _salt RegisterAVSDevice' {..} =

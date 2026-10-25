@@ -160,6 +160,14 @@ instance Core.AWSRequest CreateConferenceProvider where
             Prelude.<$> (x Data..?> "ConferenceProviderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateConferenceProvider' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateConferenceProvider
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateConferenceProvider where
   hashWithSalt _salt CreateConferenceProvider' {..} =

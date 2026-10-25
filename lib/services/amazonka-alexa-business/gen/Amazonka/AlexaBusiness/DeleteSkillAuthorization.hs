@@ -98,6 +98,8 @@ instance Core.AWSRequest DeleteSkillAuthorization where
           DeleteSkillAuthorizationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSkillAuthorization where
   hashWithSalt _salt DeleteSkillAuthorization' {..} =

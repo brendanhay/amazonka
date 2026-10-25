@@ -85,6 +85,8 @@ instance Core.AWSRequest ApproveSkill where
           ApproveSkillResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ApproveSkill where
   hashWithSalt _salt ApproveSkill' {..} =

@@ -167,6 +167,8 @@ instance Core.AWSRequest SearchSkillGroups where
             Prelude.<*> (x Data..?> "TotalCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SearchSkillGroups where
   hashWithSalt _salt SearchSkillGroups' {..} =

@@ -239,6 +239,14 @@ instance Core.AWSRequest CreateProfile where
             Prelude.<$> (x Data..?> "ProfileArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateProfile' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateProfile
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateProfile where
   hashWithSalt _salt CreateProfile' {..} =

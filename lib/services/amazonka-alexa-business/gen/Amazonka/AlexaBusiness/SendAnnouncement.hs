@@ -65,7 +65,7 @@ data SendAnnouncement = SendAnnouncement'
     content :: Content,
     -- | The unique, user-specified identifier for the request that ensures
     -- idempotency.
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,16 +92,14 @@ data SendAnnouncement = SendAnnouncement'
 newSendAnnouncement ::
   -- | 'content'
   Content ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   SendAnnouncement
-newSendAnnouncement pContent_ pClientRequestToken_ =
+newSendAnnouncement pContent_ =
   SendAnnouncement'
     { timeToLiveInSeconds =
         Prelude.Nothing,
       roomFilters = Prelude.mempty,
       content = pContent_,
-      clientRequestToken = pClientRequestToken_
+      clientRequestToken = Prelude.Nothing
     }
 
 -- | The time to live for an announcement. Default is 300. If delivery
@@ -122,7 +120,7 @@ sendAnnouncement_content = Lens.lens (\SendAnnouncement' {content} -> content) (
 
 -- | The unique, user-specified identifier for the request that ensures
 -- idempotency.
-sendAnnouncement_clientRequestToken :: Lens.Lens' SendAnnouncement Prelude.Text
+sendAnnouncement_clientRequestToken :: Lens.Lens' SendAnnouncement (Prelude.Maybe Prelude.Text)
 sendAnnouncement_clientRequestToken = Lens.lens (\SendAnnouncement' {clientRequestToken} -> clientRequestToken) (\s@SendAnnouncement' {} a -> s {clientRequestToken = a} :: SendAnnouncement)
 
 instance Core.AWSRequest SendAnnouncement where
@@ -138,6 +136,14 @@ instance Core.AWSRequest SendAnnouncement where
             Prelude.<$> (x Data..?> "AnnouncementArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@SendAnnouncement' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            SendAnnouncement
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable SendAnnouncement where
   hashWithSalt _salt SendAnnouncement' {..} =
@@ -177,8 +183,8 @@ instance Data.ToJSON SendAnnouncement where
               Prelude.<$> timeToLiveInSeconds,
             Prelude.Just ("RoomFilters" Data..= roomFilters),
             Prelude.Just ("Content" Data..= content),
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken)
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

@@ -112,6 +112,8 @@ instance Core.AWSRequest PutRoomSkillParameter where
           PutRoomSkillParameterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutRoomSkillParameter where
   hashWithSalt _salt PutRoomSkillParameter' {..} =

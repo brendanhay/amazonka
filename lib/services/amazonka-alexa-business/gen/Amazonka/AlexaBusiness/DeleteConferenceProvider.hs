@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteConferenceProvider where
           DeleteConferenceProviderResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteConferenceProvider where
   hashWithSalt _salt DeleteConferenceProvider' {..} =

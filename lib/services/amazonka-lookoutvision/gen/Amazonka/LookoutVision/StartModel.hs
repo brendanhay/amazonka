@@ -201,6 +201,11 @@ instance Core.AWSRequest StartModel where
             Prelude.<$> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@StartModel' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: StartModel
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartModel where
   hashWithSalt _salt StartModel' {..} =

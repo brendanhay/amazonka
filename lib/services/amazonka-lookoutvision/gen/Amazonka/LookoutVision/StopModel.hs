@@ -154,6 +154,11 @@ instance Core.AWSRequest StopModel where
             Prelude.<$> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@StopModel' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: StopModel
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable StopModel where
   hashWithSalt _salt StopModel' {..} =

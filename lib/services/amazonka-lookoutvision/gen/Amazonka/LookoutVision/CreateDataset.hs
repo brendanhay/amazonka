@@ -209,6 +209,13 @@ instance Core.AWSRequest CreateDataset where
             Prelude.<$> (x Data..?> "DatasetMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateDataset' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateDataset
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateDataset where
   hashWithSalt _salt CreateDataset' {..} =

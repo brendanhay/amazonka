@@ -142,6 +142,13 @@ instance Core.AWSRequest CreateProject where
             Prelude.<$> (x Data..?> "ProjectMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateProject' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateProject
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =

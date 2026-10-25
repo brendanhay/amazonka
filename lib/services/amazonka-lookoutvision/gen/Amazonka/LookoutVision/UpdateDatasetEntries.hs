@@ -206,6 +206,14 @@ instance Core.AWSRequest UpdateDatasetEntries where
             Prelude.<$> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateDatasetEntries' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            UpdateDatasetEntries
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateDatasetEntries where
   hashWithSalt _salt UpdateDatasetEntries' {..} =

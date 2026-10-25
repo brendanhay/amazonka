@@ -153,6 +153,8 @@ instance Core.AWSRequest DetectAnomalies where
             Prelude.<$> (x Data..?> "DetectAnomalyResult")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Data.ToBody DetectAnomalies where
   toBody DetectAnomalies' {..} = Data.toBody body

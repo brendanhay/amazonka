@@ -156,6 +156,11 @@ instance Core.AWSRequest DeleteModel where
             Prelude.<$> (x Data..?> "ModelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@DeleteModel' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: DeleteModel
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteModel where
   hashWithSalt _salt DeleteModel' {..} =

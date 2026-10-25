@@ -90,6 +90,8 @@ instance Core.AWSRequest GetTableRestoreStatus where
             Prelude.<$> (x Data..?> "tableRestoreStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTableRestoreStatus where
   hashWithSalt _salt GetTableRestoreStatus' {..} =

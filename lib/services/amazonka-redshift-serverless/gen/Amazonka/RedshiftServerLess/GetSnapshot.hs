@@ -108,6 +108,8 @@ instance Core.AWSRequest GetSnapshot where
             Prelude.<$> (x Data..?> "snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSnapshot where
   hashWithSalt _salt GetSnapshot' {..} =

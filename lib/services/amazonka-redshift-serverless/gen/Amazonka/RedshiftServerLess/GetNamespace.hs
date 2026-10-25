@@ -85,6 +85,8 @@ instance Core.AWSRequest GetNamespace where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "namespace")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetNamespace where
   hashWithSalt _salt GetNamespace' {..} =

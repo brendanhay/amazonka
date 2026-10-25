@@ -142,6 +142,8 @@ instance Core.AWSRequest CreateEndpointAccess where
             Prelude.<$> (x Data..?> "endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateEndpointAccess where
   hashWithSalt _salt CreateEndpointAccess' {..} =

@@ -148,6 +148,8 @@ instance Core.AWSRequest DisassociateCreatedArtifact where
           DisassociateCreatedArtifactResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateCreatedArtifact where
   hashWithSalt _salt DisassociateCreatedArtifact' {..} =

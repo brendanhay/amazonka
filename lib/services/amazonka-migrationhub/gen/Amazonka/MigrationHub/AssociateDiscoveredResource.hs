@@ -132,6 +132,8 @@ instance Core.AWSRequest AssociateDiscoveredResource where
           AssociateDiscoveredResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateDiscoveredResource where
   hashWithSalt _salt AssociateDiscoveredResource' {..} =

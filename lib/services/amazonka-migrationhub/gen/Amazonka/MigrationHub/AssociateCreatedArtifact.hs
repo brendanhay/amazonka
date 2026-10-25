@@ -146,6 +146,8 @@ instance Core.AWSRequest AssociateCreatedArtifact where
           AssociateCreatedArtifactResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateCreatedArtifact where
   hashWithSalt _salt AssociateCreatedArtifact' {..} =

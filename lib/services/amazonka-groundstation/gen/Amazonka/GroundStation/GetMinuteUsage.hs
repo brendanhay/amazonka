@@ -108,6 +108,8 @@ instance Core.AWSRequest GetMinuteUsage where
             Prelude.<*> (x Data..?> "upcomingMinutesScheduled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMinuteUsage where
   hashWithSalt _salt GetMinuteUsage' {..} =

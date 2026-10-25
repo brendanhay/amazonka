@@ -113,6 +113,8 @@ instance Core.AWSRequest GetConfig where
             Prelude.<*> (x Data..:> "configId")
             Prelude.<*> (x Data..:> "name")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetConfig where
   hashWithSalt _salt GetConfig' {..} =

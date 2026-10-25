@@ -132,6 +132,8 @@ instance Core.AWSRequest ListDataflowEndpointGroups where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDataflowEndpointGroups where
   hashWithSalt _salt ListDataflowEndpointGroups' {..} =

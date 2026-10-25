@@ -147,6 +147,8 @@ instance Core.AWSRequest ReserveContact where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ReserveContact where
   hashWithSalt _salt ReserveContact' {..} =

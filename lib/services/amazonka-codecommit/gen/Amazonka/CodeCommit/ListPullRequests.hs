@@ -171,6 +171,8 @@ instance Core.AWSRequest ListPullRequests where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPullRequests where
   hashWithSalt _salt ListPullRequests' {..} =

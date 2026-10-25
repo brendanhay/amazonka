@@ -107,6 +107,8 @@ instance Core.AWSRequest PutCommentReaction where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull PutCommentReactionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutCommentReaction where
   hashWithSalt _salt PutCommentReaction' {..} =

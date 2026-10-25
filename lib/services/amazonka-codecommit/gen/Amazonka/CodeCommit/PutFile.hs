@@ -238,6 +238,8 @@ instance Core.AWSRequest PutFile where
             Prelude.<*> (x Data..:> "blobId")
             Prelude.<*> (x Data..:> "treeId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutFile where
   hashWithSalt _salt PutFile' {..} =

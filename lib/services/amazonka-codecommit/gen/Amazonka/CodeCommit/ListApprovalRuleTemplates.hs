@@ -111,6 +111,8 @@ instance Core.AWSRequest ListApprovalRuleTemplates where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListApprovalRuleTemplates where
   hashWithSalt _salt ListApprovalRuleTemplates' {..} =

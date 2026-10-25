@@ -142,6 +142,8 @@ instance Core.AWSRequest GetFolder where
             Prelude.<*> (x Data..:> "commitId")
             Prelude.<*> (x Data..:> "folderPath")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetFolder where
   hashWithSalt _salt GetFolder' {..} =

@@ -153,6 +153,14 @@ instance Core.AWSRequest CreatePullRequest where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "pullRequest")
       )
+  updateIdempotencyToken
+    f
+    s@CreatePullRequest' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreatePullRequest
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreatePullRequest where
   hashWithSalt _salt CreatePullRequest' {..} =

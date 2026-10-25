@@ -109,6 +109,8 @@ instance Core.AWSRequest CreateBranch where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull CreateBranchResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateBranch where
   hashWithSalt _salt CreateBranch' {..} =

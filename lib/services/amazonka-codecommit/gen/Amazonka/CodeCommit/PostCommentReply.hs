@@ -131,6 +131,14 @@ instance Core.AWSRequest PostCommentReply where
             Prelude.<$> (x Data..?> "comment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@PostCommentReply' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            PostCommentReply
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable PostCommentReply where
   hashWithSalt _salt PostCommentReply' {..} =

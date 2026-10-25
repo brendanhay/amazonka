@@ -235,6 +235,8 @@ instance Core.AWSRequest MergePullRequestBySquash where
             Prelude.<$> (x Data..?> "pullRequest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable MergePullRequestBySquash where
   hashWithSalt _salt MergePullRequestBySquash' {..} =

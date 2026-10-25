@@ -183,6 +183,14 @@ instance Core.AWSRequest PostCommentForComparedCommit where
             Prelude.<*> (x Data..?> "repositoryName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@PostCommentForComparedCommit' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            PostCommentForComparedCommit
+      )
+        Prelude.<$> f clientRequestToken
 
 instance
   Prelude.Hashable

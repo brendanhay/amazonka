@@ -100,6 +100,8 @@ instance Core.AWSRequest UpdateRepositoryName where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateRepositoryNameResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRepositoryName where
   hashWithSalt _salt UpdateRepositoryName' {..} =

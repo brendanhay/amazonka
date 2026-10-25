@@ -176,6 +176,8 @@ instance Core.AWSRequest GetMergeOptions where
             Prelude.<*> (x Data..:> "destinationCommitId")
             Prelude.<*> (x Data..:> "baseCommitId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMergeOptions where
   hashWithSalt _salt GetMergeOptions' {..} =

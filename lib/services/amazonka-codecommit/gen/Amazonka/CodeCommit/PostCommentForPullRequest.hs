@@ -213,6 +213,14 @@ instance Core.AWSRequest PostCommentForPullRequest where
             Prelude.<*> (x Data..?> "repositoryName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@PostCommentForPullRequest' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            PostCommentForPullRequest
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable PostCommentForPullRequest where
   hashWithSalt _salt PostCommentForPullRequest' {..} =

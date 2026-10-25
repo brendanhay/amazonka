@@ -42,9 +42,6 @@ $(Lens.makeLenses ''Field)
 instance IsStreaming Field where
   isStreaming = isStreaming . _fieldRef
 
-instance TypeOf Field where
-  typeOf = _fieldType
-
 instance HasInfo Field where
   info = fieldAnn . info
 
@@ -157,7 +154,7 @@ fieldParamName =
 
 fieldHelp :: Field -> Help
 fieldHelp f =
-  fromMaybe def (f ^. fieldRef . refDocumentation) <> ann (typeOf f)
+  fromMaybe def (f ^. fieldRef . refDocumentation) <> ann (f ^. fieldType)
   where
     ann (TMaybe t) = ann t
     ann (TSensitive t) = ann t
@@ -195,17 +192,17 @@ fieldLitPayload x = _fieldPayload x && (fieldLit x || fieldBytes x)
 
 -- This is hilariously brittle.
 fieldBytes :: Field -> Bool
-fieldBytes = typeMember (Right Bytes) . typeOf
+fieldBytes = typeMember (Right Bytes) . _fieldType
 
 fieldMaybe :: Field -> Bool
 fieldMaybe x =
-  case typeOf x of
+  case x ^. fieldType of
     TMaybe {} -> True
     _ -> False
 
 fieldSensitive :: Field -> Bool
 fieldSensitive x =
-  case typeOf x of
+  case x ^. fieldType of
     TSensitive {} -> True
     TMaybe (TSensitive {}) -> True
     _ -> False

@@ -65,7 +65,7 @@ fieldUpdate f = field (unqual (fieldAccessor f)) rhs
     rhs
       | fieldMaybe f = nothingE
       | fieldMonoid f = memptyE
-      | Just v <- iso (typeOf f) = Exts.infixApp v "Lens.#" pat
+      | Just v <- iso (_fieldType f) = Exts.infixApp v "Lens.#" pat
       | otherwise = pat
 
     pat = Exts.Var () (Exts.UnQual () (fieldParamName f))
@@ -87,7 +87,7 @@ lensD type' f = Exts.sfun (ident l) [] (unguarded rhs) Exts.noBinds
     a = fieldAccessor f
 
     rhs =
-      mapping (typeOf f) $
+      mapping (_fieldType f) $
         var "Lens.lens"
           `Exts.app` Exts.lamE [recordPat [Exts.PFieldPun () (unqual a)]] (var a)
           `Exts.app` Exts.lamE
@@ -304,7 +304,7 @@ notationE' withLensIso = \case
       | not withLensIso = var (fieldLens f)
       | otherwise =
           foldl' (`Exts.infixApp` "Prelude..") (var (fieldLens f)) $
-            lensIso (typeOf f)
+            lensIso (_fieldType f)
 
     lensIso = \case
       TList1 x -> var "Lens.to" `Exts.app` var "Prelude.toList" : lensIso x
@@ -710,12 +710,12 @@ signature :: (HasMetadata a Identity) => a -> TType -> Type
 signature m = directed False m Nothing
 
 internal, external :: (HasMetadata a Identity) => a -> Field -> Type
-internal m f = directed True m (_fieldDirection f) f
-external m f = directed False m (_fieldDirection f) f
+internal m f = directed True m (_fieldDirection f) (_fieldType f)
+external m f = directed False m (_fieldDirection f) (_fieldType f)
 
 -- FIXME: split again into internal/external
-directed :: (HasMetadata a Identity, TypeOf b) => Bool -> a -> Maybe Direction -> b -> Type
-directed i m d (typeOf -> t) = case t of
+directed :: (HasMetadata a Identity) => Bool -> a -> Maybe Direction -> TType -> Type
+directed i m d t = case t of
   TType x _ -> tycon x
   TLit x -> literal i (timestamp $ m ^. protocol) x
   TNatural -> tycon nat

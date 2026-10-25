@@ -115,10 +115,14 @@ operationData cfg m o = do
         ys <&> \f ->
           let name = memberName p Output f
            in case fieldLocation f of
-                Just Headers -> AWSRequest.ResponseFieldHeader $ case typeOf f of
-                  TMap {} -> AWSRequest.HeaderMap name
-                  TMaybe {} -> AWSRequest.HeaderSingle name AWSRequest.Optional
-                  _ -> AWSRequest.HeaderSingle name AWSRequest.Required
+                Just Headers -> AWSRequest.ResponseFieldHeader $
+                  case _fieldType f of
+                    TMap {} ->
+                      AWSRequest.HeaderMap name
+                    TMaybe {} ->
+                      AWSRequest.HeaderSingle name AWSRequest.Optional
+                    _ ->
+                      AWSRequest.HeaderSingle name AWSRequest.Required
                 Just StatusCode -> AWSRequest.ResponseFieldStatus
                 Just Body
                   | hasStreamingBody ->
@@ -188,7 +192,7 @@ operationData cfg m o = do
     case List.filter (Lens.view (fieldRef . refIdempotencyToken)) xs of
       [] -> pure Nothing
       [f]
-        | typeOf f == TMaybe (TLit Text) -> pure (Just (fieldAccessor f))
+        | _fieldType f == TMaybe (TLit Text) -> pure (Just (fieldAccessor f))
         | otherwise ->
             Left $
               mconcat
@@ -484,10 +488,10 @@ prodData m s st = (,fields) <$> mk
 
         ps = map Just (filter fieldIsParam fs) ++ repeat Nothing
 
-    dependencies = foldMap go fields
+    dependencies = foldMap (go . _fieldType) fields
       where
-        go :: (TypeOf a) => a -> Set.Set Text
-        go f = case typeOf f of
+        go :: TType -> Set.Set Text
+        go = \case
           TType x _ -> tTypeDep x
           TLit _ -> Set.empty
           TNatural -> Set.empty

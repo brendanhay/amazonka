@@ -137,6 +137,11 @@ instance Core.AWSRequest UpdateForm where
             Prelude.<$> (Data.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@UpdateForm' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: UpdateForm
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateForm where
   hashWithSalt _salt UpdateForm' {..} =

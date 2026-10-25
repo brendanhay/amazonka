@@ -137,6 +137,11 @@ instance Core.AWSRequest UpdateTheme where
             Prelude.<$> (Data.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@UpdateTheme' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: UpdateTheme
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateTheme where
   hashWithSalt _salt UpdateTheme' {..} =

@@ -101,6 +101,8 @@ instance Core.AWSRequest DeleteTheme where
   request overrides =
     Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteThemeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTheme where
   hashWithSalt _salt DeleteTheme' {..} =

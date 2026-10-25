@@ -132,6 +132,8 @@ instance Core.AWSRequest ExportForms where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "entities" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ExportForms where
   hashWithSalt _salt ExportForms' {..} =

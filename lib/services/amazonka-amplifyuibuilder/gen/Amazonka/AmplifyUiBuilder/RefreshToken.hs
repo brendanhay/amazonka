@@ -101,6 +101,8 @@ instance Core.AWSRequest RefreshToken where
             Prelude.<*> (x Data..:> "accessToken")
             Prelude.<*> (x Data..:> "expiresIn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RefreshToken where
   hashWithSalt _salt RefreshToken' {..} =

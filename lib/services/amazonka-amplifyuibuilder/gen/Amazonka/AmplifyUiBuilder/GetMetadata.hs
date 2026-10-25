@@ -99,6 +99,8 @@ instance Core.AWSRequest GetMetadata where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "features" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMetadata where
   hashWithSalt _salt GetMetadata' {..} =

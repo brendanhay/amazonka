@@ -103,6 +103,8 @@ instance Core.AWSRequest DescribeHarvestJob where
             Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeHarvestJob where
   hashWithSalt _salt DescribeHarvestJob' {..} =

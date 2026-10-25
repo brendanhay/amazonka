@@ -87,6 +87,8 @@ instance Core.AWSRequest GetDigest where
             Prelude.<*> (x Data..:> "Digest")
             Prelude.<*> (x Data..:> "DigestTipAddress")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDigest where
   hashWithSalt _salt GetDigest' {..} =

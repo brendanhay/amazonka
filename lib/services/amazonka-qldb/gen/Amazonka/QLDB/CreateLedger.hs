@@ -373,6 +373,8 @@ instance Core.AWSRequest CreateLedger where
             Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLedger where
   hashWithSalt _salt CreateLedger' {..} =

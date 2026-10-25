@@ -78,6 +78,8 @@ instance Core.AWSRequest DeleteLedger where
   request overrides =
     Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteLedgerResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteLedger where
   hashWithSalt _salt DeleteLedger' {..} =

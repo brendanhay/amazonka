@@ -127,6 +127,8 @@ instance Core.AWSRequest ListIdentityPolicies where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListIdentityPolicies where
   hashWithSalt _salt ListIdentityPolicies' {..} =

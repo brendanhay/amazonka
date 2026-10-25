@@ -86,6 +86,8 @@ instance Core.AWSRequest DeleteVerifiedEmailAddress where
   response =
     Response.receiveNull
       DeleteVerifiedEmailAddressResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVerifiedEmailAddress where
   hashWithSalt _salt DeleteVerifiedEmailAddress' {..} =

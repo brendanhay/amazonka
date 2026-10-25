@@ -438,6 +438,8 @@ instance Core.AWSRequest SendBulkTemplatedEmail where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SendBulkTemplatedEmail where
   hashWithSalt _salt SendBulkTemplatedEmail' {..} =

@@ -168,6 +168,8 @@ instance Core.AWSRequest SetIdentityMailFromDomain where
           SetIdentityMailFromDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetIdentityMailFromDomain where
   hashWithSalt _salt SetIdentityMailFromDomain' {..} =

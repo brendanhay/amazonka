@@ -445,6 +445,8 @@ instance Core.AWSRequest SendTemplatedEmail where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "MessageId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SendTemplatedEmail where
   hashWithSalt _salt SendTemplatedEmail' {..} =

@@ -117,6 +117,8 @@ instance Core.AWSRequest CreateReceiptRuleSet where
           CreateReceiptRuleSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateReceiptRuleSet where
   hashWithSalt _salt CreateReceiptRuleSet' {..} =

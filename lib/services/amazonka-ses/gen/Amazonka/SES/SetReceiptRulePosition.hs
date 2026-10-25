@@ -126,6 +126,8 @@ instance Core.AWSRequest SetReceiptRulePosition where
           SetReceiptRulePositionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetReceiptRulePosition where
   hashWithSalt _salt SetReceiptRulePosition' {..} =

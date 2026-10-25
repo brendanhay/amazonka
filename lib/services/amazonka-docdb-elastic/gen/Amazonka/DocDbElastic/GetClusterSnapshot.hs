@@ -87,6 +87,8 @@ instance Core.AWSRequest GetClusterSnapshot where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "snapshot")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetClusterSnapshot where
   hashWithSalt _salt GetClusterSnapshot' {..} =

@@ -219,6 +219,13 @@ instance Core.AWSRequest UpdateCluster where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "cluster")
       )
+  updateIdempotencyToken
+    f
+    s@UpdateCluster' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: UpdateCluster
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateCluster where
   hashWithSalt _salt UpdateCluster' {..} =

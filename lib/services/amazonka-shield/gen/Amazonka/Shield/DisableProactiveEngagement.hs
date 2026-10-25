@@ -72,6 +72,8 @@ instance Core.AWSRequest DisableProactiveEngagement where
           DisableProactiveEngagementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisableProactiveEngagement where
   hashWithSalt _salt _ =

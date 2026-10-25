@@ -87,6 +87,8 @@ instance Core.AWSRequest DescribeAttackStatistics where
             Prelude.<*> (x Data..:> "TimeRange")
             Prelude.<*> (x Data..?> "DataItems" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAttackStatistics where
   hashWithSalt _salt _ =

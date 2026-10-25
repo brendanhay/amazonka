@@ -103,6 +103,8 @@ instance Core.AWSRequest UpdateSubscription where
           UpdateSubscriptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateSubscription where
   hashWithSalt _salt UpdateSubscription' {..} =

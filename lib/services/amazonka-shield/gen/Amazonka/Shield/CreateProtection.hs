@@ -188,6 +188,8 @@ instance Core.AWSRequest CreateProtection where
             Prelude.<$> (x Data..?> "ProtectionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateProtection where
   hashWithSalt _salt CreateProtection' {..} =

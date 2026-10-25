@@ -116,6 +116,8 @@ instance Core.AWSRequest ListFHIRDatastores where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListFHIRDatastores where
   hashWithSalt _salt ListFHIRDatastores' {..} =

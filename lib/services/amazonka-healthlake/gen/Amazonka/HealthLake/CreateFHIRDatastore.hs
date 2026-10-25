@@ -154,6 +154,13 @@ instance Core.AWSRequest CreateFHIRDatastore where
             Prelude.<*> (x Data..:> "DatastoreStatus")
             Prelude.<*> (x Data..:> "DatastoreEndpoint")
       )
+  updateIdempotencyToken
+    f
+    s@CreateFHIRDatastore' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateFHIRDatastore
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateFHIRDatastore where
   hashWithSalt _salt CreateFHIRDatastore' {..} =

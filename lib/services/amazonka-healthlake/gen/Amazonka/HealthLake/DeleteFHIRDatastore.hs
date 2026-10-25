@@ -91,6 +91,8 @@ instance Core.AWSRequest DeleteFHIRDatastore where
             Prelude.<*> (x Data..:> "DatastoreStatus")
             Prelude.<*> (x Data..:> "DatastoreEndpoint")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFHIRDatastore where
   hashWithSalt _salt DeleteFHIRDatastore' {..} =

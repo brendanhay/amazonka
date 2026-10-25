@@ -94,6 +94,8 @@ instance Core.AWSRequest DeleteEmailChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteEmailChannel where
   hashWithSalt _salt DeleteEmailChannel' {..} =

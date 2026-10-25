@@ -91,6 +91,8 @@ instance Core.AWSRequest GetSmsChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSmsChannel where
   hashWithSalt _salt GetSmsChannel' {..} =

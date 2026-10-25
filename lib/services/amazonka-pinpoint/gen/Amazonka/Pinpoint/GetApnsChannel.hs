@@ -91,6 +91,8 @@ instance Core.AWSRequest GetApnsChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetApnsChannel where
   hashWithSalt _salt GetApnsChannel' {..} =

@@ -105,6 +105,8 @@ instance Core.AWSRequest GetApps where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetApps where
   hashWithSalt _salt GetApps' {..} =

@@ -165,6 +165,11 @@ instance Core.AWSRequest UpdateRoute where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken f s@UpdateRoute' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: UpdateRoute
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateRoute where
   hashWithSalt _salt UpdateRoute' {..} =

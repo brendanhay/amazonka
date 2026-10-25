@@ -208,6 +208,13 @@ instance Core.AWSRequest CreateVirtualNode where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken
+    f
+    s@CreateVirtualNode' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateVirtualNode
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateVirtualNode where
   hashWithSalt _salt CreateVirtualNode' {..} =

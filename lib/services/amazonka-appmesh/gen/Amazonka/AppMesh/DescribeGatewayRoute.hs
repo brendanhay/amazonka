@@ -138,6 +138,8 @@ instance Core.AWSRequest DescribeGatewayRoute where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeGatewayRoute where
   hashWithSalt _salt DescribeGatewayRoute' {..} =

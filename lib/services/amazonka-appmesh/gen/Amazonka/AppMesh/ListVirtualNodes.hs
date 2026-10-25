@@ -183,6 +183,8 @@ instance Core.AWSRequest ListVirtualNodes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "virtualNodes" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListVirtualNodes where
   hashWithSalt _salt ListVirtualNodes' {..} =

@@ -124,6 +124,8 @@ instance Core.AWSRequest DeleteVirtualService where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVirtualService where
   hashWithSalt _salt DeleteVirtualService' {..} =

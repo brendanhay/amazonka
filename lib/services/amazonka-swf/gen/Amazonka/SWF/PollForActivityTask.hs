@@ -179,6 +179,8 @@ instance Core.AWSRequest PollForActivityTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "startedEventId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PollForActivityTask where
   hashWithSalt _salt PollForActivityTask' {..} =

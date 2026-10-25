@@ -229,6 +229,8 @@ instance Core.AWSRequest TerminateWorkflowExecution where
   response =
     Response.receiveNull
       TerminateWorkflowExecutionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TerminateWorkflowExecution where
   hashWithSalt _salt TerminateWorkflowExecution' {..} =

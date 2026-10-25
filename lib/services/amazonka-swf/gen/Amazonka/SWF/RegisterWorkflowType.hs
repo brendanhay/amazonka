@@ -404,6 +404,8 @@ instance Core.AWSRequest RegisterWorkflowType where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull RegisterWorkflowTypeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterWorkflowType where
   hashWithSalt _salt RegisterWorkflowType' {..} =

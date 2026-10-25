@@ -199,6 +199,8 @@ instance Core.AWSRequest RegisterDomain where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull RegisterDomainResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterDomain where
   hashWithSalt _salt RegisterDomain' {..} =

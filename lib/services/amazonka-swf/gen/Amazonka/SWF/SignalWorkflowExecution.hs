@@ -165,6 +165,8 @@ instance Core.AWSRequest SignalWorkflowExecution where
   response =
     Response.receiveNull
       SignalWorkflowExecutionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SignalWorkflowExecution where
   hashWithSalt _salt SignalWorkflowExecution' {..} =

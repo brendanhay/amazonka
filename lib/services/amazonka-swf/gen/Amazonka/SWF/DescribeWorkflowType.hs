@@ -132,6 +132,8 @@ instance Core.AWSRequest DescribeWorkflowType where
             Prelude.<*> (x Data..:> "typeInfo")
             Prelude.<*> (x Data..:> "configuration")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeWorkflowType where
   hashWithSalt _salt DescribeWorkflowType' {..} =

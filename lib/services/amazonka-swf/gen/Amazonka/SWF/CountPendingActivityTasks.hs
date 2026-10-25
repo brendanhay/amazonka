@@ -122,6 +122,8 @@ instance Core.AWSRequest CountPendingActivityTasks where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CountPendingActivityTasks where
   hashWithSalt _salt CountPendingActivityTasks' {..} =

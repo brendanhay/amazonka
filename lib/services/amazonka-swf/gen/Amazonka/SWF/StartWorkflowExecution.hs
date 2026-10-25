@@ -506,6 +506,8 @@ instance Core.AWSRequest StartWorkflowExecution where
             Prelude.<$> (x Data..?> "runId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartWorkflowExecution where
   hashWithSalt _salt StartWorkflowExecution' {..} =

@@ -146,6 +146,8 @@ instance Core.AWSRequest RespondActivityTaskCompleted where
   response =
     Response.receiveNull
       RespondActivityTaskCompletedResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

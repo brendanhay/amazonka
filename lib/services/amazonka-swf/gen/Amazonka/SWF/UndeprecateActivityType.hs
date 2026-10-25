@@ -125,6 +125,8 @@ instance Core.AWSRequest UndeprecateActivityType where
   response =
     Response.receiveNull
       UndeprecateActivityTypeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UndeprecateActivityType where
   hashWithSalt _salt UndeprecateActivityType' {..} =

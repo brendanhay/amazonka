@@ -106,6 +106,8 @@ instance Core.AWSRequest DeprecateDomain where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeprecateDomainResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeprecateDomain where
   hashWithSalt _salt DeprecateDomain' {..} =

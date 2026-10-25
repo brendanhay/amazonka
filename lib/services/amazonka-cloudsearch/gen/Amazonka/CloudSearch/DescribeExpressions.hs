@@ -130,6 +130,8 @@ instance Core.AWSRequest DescribeExpressions where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeExpressions where
   hashWithSalt _salt DescribeExpressions' {..} =

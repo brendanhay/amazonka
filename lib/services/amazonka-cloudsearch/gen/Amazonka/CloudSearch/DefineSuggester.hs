@@ -110,6 +110,8 @@ instance Core.AWSRequest DefineSuggester where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "Suggester")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DefineSuggester where
   hashWithSalt _salt DefineSuggester' {..} =

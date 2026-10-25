@@ -108,6 +108,8 @@ instance Core.AWSRequest DefineExpression where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "Expression")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DefineExpression where
   hashWithSalt _salt DefineExpression' {..} =

@@ -108,6 +108,8 @@ instance Core.AWSRequest DefineAnalysisScheme where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "AnalysisScheme")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DefineAnalysisScheme where
   hashWithSalt _salt DefineAnalysisScheme' {..} =

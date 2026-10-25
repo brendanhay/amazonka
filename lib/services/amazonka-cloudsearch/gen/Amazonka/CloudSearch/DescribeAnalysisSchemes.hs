@@ -129,6 +129,8 @@ instance Core.AWSRequest DescribeAnalysisSchemes where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAnalysisSchemes where
   hashWithSalt _salt DescribeAnalysisSchemes' {..} =

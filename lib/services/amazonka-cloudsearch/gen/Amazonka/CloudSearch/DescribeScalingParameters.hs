@@ -97,6 +97,8 @@ instance Core.AWSRequest DescribeScalingParameters where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "ScalingParameters")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeScalingParameters where
   hashWithSalt _salt DescribeScalingParameters' {..} =

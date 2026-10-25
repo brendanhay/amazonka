@@ -129,6 +129,14 @@ instance
             Prelude.<$> (x Data..?> "TransitGatewayRouteTableAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateTransitGatewayRouteTableAttachment' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateTransitGatewayRouteTableAttachment
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

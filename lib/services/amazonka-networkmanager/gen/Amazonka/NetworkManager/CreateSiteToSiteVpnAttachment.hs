@@ -131,6 +131,14 @@ instance
             Prelude.<$> (x Data..?> "SiteToSiteVpnAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateSiteToSiteVpnAttachment' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateSiteToSiteVpnAttachment
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

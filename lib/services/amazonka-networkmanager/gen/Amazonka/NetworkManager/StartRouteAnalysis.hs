@@ -142,6 +142,8 @@ instance Core.AWSRequest StartRouteAnalysis where
             Prelude.<$> (x Data..?> "RouteAnalysis")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartRouteAnalysis where
   hashWithSalt _salt StartRouteAnalysis' {..} =

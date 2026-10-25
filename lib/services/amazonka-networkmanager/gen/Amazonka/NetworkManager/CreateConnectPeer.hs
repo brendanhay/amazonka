@@ -156,6 +156,13 @@ instance Core.AWSRequest CreateConnectPeer where
             Prelude.<$> (x Data..?> "ConnectPeer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateConnectPeer' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateConnectPeer
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateConnectPeer where
   hashWithSalt _salt CreateConnectPeer' {..} =

@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteGlobalNetwork where
             Prelude.<$> (x Data..?> "GlobalNetwork")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteGlobalNetwork where
   hashWithSalt _salt DeleteGlobalNetwork' {..} =

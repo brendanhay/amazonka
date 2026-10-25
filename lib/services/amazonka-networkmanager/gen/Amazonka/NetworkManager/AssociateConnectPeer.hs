@@ -131,6 +131,8 @@ instance Core.AWSRequest AssociateConnectPeer where
             Prelude.<$> (x Data..?> "ConnectPeerAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateConnectPeer where
   hashWithSalt _salt AssociateConnectPeer' {..} =

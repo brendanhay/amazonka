@@ -136,6 +136,14 @@ instance Core.AWSRequest PutCoreNetworkPolicy where
             Prelude.<$> (x Data..?> "CoreNetworkPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@PutCoreNetworkPolicy' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            PutCoreNetworkPolicy
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable PutCoreNetworkPolicy where
   hashWithSalt _salt PutCoreNetworkPolicy' {..} =

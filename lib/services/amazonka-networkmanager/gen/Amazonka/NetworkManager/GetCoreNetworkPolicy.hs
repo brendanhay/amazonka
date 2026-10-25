@@ -110,6 +110,8 @@ instance Core.AWSRequest GetCoreNetworkPolicy where
             Prelude.<$> (x Data..?> "CoreNetworkPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCoreNetworkPolicy where
   hashWithSalt _salt GetCoreNetworkPolicy' {..} =

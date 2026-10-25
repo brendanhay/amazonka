@@ -175,6 +175,8 @@ instance Core.AWSRequest CreateLink where
             Prelude.<$> (x Data..?> "Link")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLink where
   hashWithSalt _salt CreateLink' {..} =

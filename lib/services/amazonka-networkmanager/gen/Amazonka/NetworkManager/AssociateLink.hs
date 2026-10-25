@@ -118,6 +118,8 @@ instance Core.AWSRequest AssociateLink where
             Prelude.<$> (x Data..?> "LinkAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateLink where
   hashWithSalt _salt AssociateLink' {..} =

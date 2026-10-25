@@ -87,6 +87,8 @@ instance Core.AWSRequest GetCoreNetwork where
             Prelude.<$> (x Data..?> "CoreNetwork")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCoreNetwork where
   hashWithSalt _salt GetCoreNetwork' {..} =

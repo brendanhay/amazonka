@@ -118,6 +118,8 @@ instance Core.AWSRequest DisassociateLink where
             Prelude.<$> (x Data..?> "LinkAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateLink where
   hashWithSalt _salt DisassociateLink' {..} =

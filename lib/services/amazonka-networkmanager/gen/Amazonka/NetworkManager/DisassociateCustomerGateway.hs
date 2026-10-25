@@ -104,6 +104,8 @@ instance Core.AWSRequest DisassociateCustomerGateway where
             Prelude.<$> (x Data..?> "CustomerGatewayAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateCustomerGateway where
   hashWithSalt _salt DisassociateCustomerGateway' {..} =

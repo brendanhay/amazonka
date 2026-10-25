@@ -199,6 +199,8 @@ instance Core.AWSRequest InitiateMultipartUpload where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (h Data..# "x-amz-multipart-upload-id")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable InitiateMultipartUpload where
   hashWithSalt _salt InitiateMultipartUpload' {..} =

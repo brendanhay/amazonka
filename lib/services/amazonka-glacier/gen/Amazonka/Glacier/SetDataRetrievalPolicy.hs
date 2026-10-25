@@ -117,6 +117,8 @@ instance Core.AWSRequest SetDataRetrievalPolicy where
   response =
     Response.receiveNull
       SetDataRetrievalPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetDataRetrievalPolicy where
   hashWithSalt _salt SetDataRetrievalPolicy' {..} =

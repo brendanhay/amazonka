@@ -191,6 +191,8 @@ instance Core.AWSRequest UploadArchive where
             Prelude.<*> (h Data..#? "x-amz-sha256-tree-hash")
             Prelude.<*> (h Data..#? "Location")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Data.ToBody UploadArchive where
   toBody UploadArchive' {..} = Data.toBody body

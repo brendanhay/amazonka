@@ -183,6 +183,8 @@ instance Core.AWSRequest ListVaults where
             Prelude.<*> (x Data..?> "VaultList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListVaults where
   hashWithSalt _salt ListVaults' {..} =

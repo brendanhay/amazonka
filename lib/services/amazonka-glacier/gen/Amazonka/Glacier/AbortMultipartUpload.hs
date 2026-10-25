@@ -149,6 +149,8 @@ instance Core.AWSRequest AbortMultipartUpload where
       Prelude.. Request.delete (overrides defaultService)
   response =
     Response.receiveNull AbortMultipartUploadResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AbortMultipartUpload where
   hashWithSalt _salt AbortMultipartUpload' {..} =

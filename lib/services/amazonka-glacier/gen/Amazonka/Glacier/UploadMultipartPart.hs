@@ -227,6 +227,8 @@ instance Core.AWSRequest UploadMultipartPart where
             Prelude.<$> (h Data..#? "x-amz-sha256-tree-hash")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Data.ToBody UploadMultipartPart where
   toBody UploadMultipartPart' {..} = Data.toBody body

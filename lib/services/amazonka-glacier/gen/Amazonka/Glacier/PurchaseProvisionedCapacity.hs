@@ -103,6 +103,8 @@ instance Core.AWSRequest PurchaseProvisionedCapacity where
             Prelude.<$> (h Data..#? "x-amz-capacity-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PurchaseProvisionedCapacity where
   hashWithSalt _salt PurchaseProvisionedCapacity' {..} =

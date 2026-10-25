@@ -117,6 +117,8 @@ instance Core.AWSRequest DeleteVaultAccessPolicy where
   response =
     Response.receiveNull
       DeleteVaultAccessPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVaultAccessPolicy where
   hashWithSalt _salt DeleteVaultAccessPolicy' {..} =

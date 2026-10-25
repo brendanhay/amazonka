@@ -128,6 +128,8 @@ instance Core.AWSRequest DeleteVault where
     Request.glacierVersionHeader (Core.version defaultService)
       Prelude.. Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteVaultResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVault where
   hashWithSalt _salt DeleteVault' {..} =

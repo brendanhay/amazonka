@@ -136,6 +136,8 @@ instance Core.AWSRequest GetVaultNotifications where
             Prelude.<$> (Data.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetVaultNotifications where
   hashWithSalt _salt GetVaultNotifications' {..} =

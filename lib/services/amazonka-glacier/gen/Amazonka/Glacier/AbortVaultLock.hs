@@ -127,6 +127,8 @@ instance Core.AWSRequest AbortVaultLock where
       Prelude.. Request.delete (overrides defaultService)
   response =
     Response.receiveNull AbortVaultLockResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AbortVaultLock where
   hashWithSalt _salt AbortVaultLock' {..} =

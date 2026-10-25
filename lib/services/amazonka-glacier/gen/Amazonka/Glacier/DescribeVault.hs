@@ -137,6 +137,8 @@ instance Core.AWSRequest DescribeVault where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeVault where
   hashWithSalt _salt DescribeVault' {..} =

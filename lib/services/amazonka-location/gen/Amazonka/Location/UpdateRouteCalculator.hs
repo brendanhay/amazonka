@@ -117,6 +117,8 @@ instance Core.AWSRequest UpdateRouteCalculator where
             Prelude.<*> (x Data..:> "CalculatorName")
             Prelude.<*> (x Data..:> "UpdateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRouteCalculator where
   hashWithSalt _salt UpdateRouteCalculator' {..} =

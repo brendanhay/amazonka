@@ -426,6 +426,8 @@ instance Core.AWSRequest CalculateRouteMatrix where
             Prelude.<*> (x Data..?> "RouteMatrix" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..:> "Summary")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CalculateRouteMatrix where
   hashWithSalt _salt CalculateRouteMatrix' {..} =

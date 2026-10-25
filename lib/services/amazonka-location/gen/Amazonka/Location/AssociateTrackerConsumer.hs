@@ -129,6 +129,8 @@ instance Core.AWSRequest AssociateTrackerConsumer where
           AssociateTrackerConsumerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateTrackerConsumer where
   hashWithSalt _salt AssociateTrackerConsumer' {..} =

@@ -127,6 +127,8 @@ instance Core.AWSRequest UpdatePlaceIndex where
             Prelude.<*> (x Data..:> "IndexName")
             Prelude.<*> (x Data..:> "UpdateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdatePlaceIndex where
   hashWithSalt _salt UpdatePlaceIndex' {..} =

@@ -104,6 +104,8 @@ instance Core.AWSRequest DescribeRouteCalculator where
             Prelude.<*> (x Data..:> "Description")
             Prelude.<*> (x Data..:> "UpdateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeRouteCalculator where
   hashWithSalt _salt DescribeRouteCalculator' {..} =

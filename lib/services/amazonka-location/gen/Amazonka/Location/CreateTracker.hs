@@ -331,6 +331,8 @@ instance Core.AWSRequest CreateTracker where
             Prelude.<*> (x Data..:> "TrackerArn")
             Prelude.<*> (x Data..:> "TrackerName")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateTracker where
   hashWithSalt _salt CreateTracker' {..} =

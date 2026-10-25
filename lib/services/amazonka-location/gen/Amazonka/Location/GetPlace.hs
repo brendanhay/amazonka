@@ -173,6 +173,8 @@ instance Core.AWSRequest GetPlace where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Place")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPlace where
   hashWithSalt _salt GetPlace' {..} =

@@ -233,6 +233,8 @@ instance Core.AWSRequest CreateMap where
             Prelude.<*> (x Data..:> "MapArn")
             Prelude.<*> (x Data..:> "MapName")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateMap where
   hashWithSalt _salt CreateMap' {..} =

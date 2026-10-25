@@ -153,6 +153,8 @@ instance Core.AWSRequest ListTrackerConsumers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "ConsumerArns" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTrackerConsumers where
   hashWithSalt _salt ListTrackerConsumers' {..} =

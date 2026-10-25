@@ -132,6 +132,8 @@ instance Core.AWSRequest BatchEvaluateGeofences where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchEvaluateGeofences where
   hashWithSalt _salt BatchEvaluateGeofences' {..} =

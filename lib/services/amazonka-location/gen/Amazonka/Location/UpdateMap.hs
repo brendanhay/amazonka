@@ -114,6 +114,8 @@ instance Core.AWSRequest UpdateMap where
             Prelude.<*> (x Data..:> "MapName")
             Prelude.<*> (x Data..:> "UpdateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateMap where
   hashWithSalt _salt UpdateMap' {..} =

@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteGeofenceCollection where
           DeleteGeofenceCollectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteGeofenceCollection where
   hashWithSalt _salt DeleteGeofenceCollection' {..} =

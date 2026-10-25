@@ -324,6 +324,8 @@ instance Core.AWSRequest CreatePlaceIndex where
             Prelude.<*> (x Data..:> "IndexArn")
             Prelude.<*> (x Data..:> "IndexName")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreatePlaceIndex where
   hashWithSalt _salt CreatePlaceIndex' {..} =

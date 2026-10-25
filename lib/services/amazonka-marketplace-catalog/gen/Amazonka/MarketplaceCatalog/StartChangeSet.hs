@@ -153,6 +153,14 @@ instance Core.AWSRequest StartChangeSet where
             Prelude.<*> (x Data..?> "ChangeSetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartChangeSet' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            StartChangeSet
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable StartChangeSet where
   hashWithSalt _salt StartChangeSet' {..} =

@@ -109,6 +109,8 @@ instance Core.AWSRequest StopMonitoringMembers where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopMonitoringMembers where
   hashWithSalt _salt StopMonitoringMembers' {..} =

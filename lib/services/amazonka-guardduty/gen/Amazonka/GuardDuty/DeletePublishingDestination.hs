@@ -105,6 +105,8 @@ instance Core.AWSRequest DeletePublishingDestination where
           DeletePublishingDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePublishingDestination where
   hashWithSalt _salt DeletePublishingDestination' {..} =

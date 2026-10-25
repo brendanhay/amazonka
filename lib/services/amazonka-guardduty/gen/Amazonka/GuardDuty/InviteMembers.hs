@@ -144,6 +144,8 @@ instance Core.AWSRequest InviteMembers where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable InviteMembers where
   hashWithSalt _salt InviteMembers' {..} =

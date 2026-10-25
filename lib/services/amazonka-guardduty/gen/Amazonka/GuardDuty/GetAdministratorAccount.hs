@@ -88,6 +88,8 @@ instance Core.AWSRequest GetAdministratorAccount where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "administrator")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAdministratorAccount where
   hashWithSalt _salt GetAdministratorAccount' {..} =

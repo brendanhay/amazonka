@@ -84,7 +84,7 @@ data CreateMeetingWithAttendees = CreateMeetingWithAttendees'
     tenantIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The unique identifier for the client request. Use a different token for
     -- different meetings.
-    clientRequestToken :: Data.Sensitive Prelude.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The Region in which to create the meeting.
     --
     -- Available values: @af-south-1@, @ap-northeast-1@, @ap-northeast-2@,
@@ -145,8 +145,6 @@ data CreateMeetingWithAttendees = CreateMeetingWithAttendees'
 --
 -- 'attendees', 'createMeetingWithAttendees_attendees' - The attendee information, including attendees\' IDs and join tokens.
 newCreateMeetingWithAttendees ::
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   -- | 'mediaRegion'
   Prelude.Text ->
   -- | 'externalMeetingId'
@@ -155,7 +153,6 @@ newCreateMeetingWithAttendees ::
   Prelude.NonEmpty CreateAttendeeRequestItem ->
   CreateMeetingWithAttendees
 newCreateMeetingWithAttendees
-  pClientRequestToken_
   pMediaRegion_
   pExternalMeetingId_
   pAttendees_ =
@@ -167,8 +164,7 @@ newCreateMeetingWithAttendees
         primaryMeetingId = Prelude.Nothing,
         tags = Prelude.Nothing,
         tenantIds = Prelude.Nothing,
-        clientRequestToken =
-          Data._Sensitive Lens.# pClientRequestToken_,
+        clientRequestToken = Prelude.Nothing,
         mediaRegion = pMediaRegion_,
         externalMeetingId =
           Data._Sensitive Lens.# pExternalMeetingId_,
@@ -205,8 +201,8 @@ createMeetingWithAttendees_tenantIds = Lens.lens (\CreateMeetingWithAttendees' {
 
 -- | The unique identifier for the client request. Use a different token for
 -- different meetings.
-createMeetingWithAttendees_clientRequestToken :: Lens.Lens' CreateMeetingWithAttendees Prelude.Text
-createMeetingWithAttendees_clientRequestToken = Lens.lens (\CreateMeetingWithAttendees' {clientRequestToken} -> clientRequestToken) (\s@CreateMeetingWithAttendees' {} a -> s {clientRequestToken = a} :: CreateMeetingWithAttendees) Prelude.. Data._Sensitive
+createMeetingWithAttendees_clientRequestToken :: Lens.Lens' CreateMeetingWithAttendees (Prelude.Maybe Prelude.Text)
+createMeetingWithAttendees_clientRequestToken = Lens.lens (\CreateMeetingWithAttendees' {clientRequestToken} -> clientRequestToken) (\s@CreateMeetingWithAttendees' {} a -> s {clientRequestToken = a} :: CreateMeetingWithAttendees)
 
 -- | The Region in which to create the meeting.
 --
@@ -244,6 +240,14 @@ instance Core.AWSRequest CreateMeetingWithAttendees where
             Prelude.<*> (x Data..?> "Meeting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateMeetingWithAttendees' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateMeetingWithAttendees
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateMeetingWithAttendees where
   hashWithSalt _salt CreateMeetingWithAttendees' {..} =
@@ -288,8 +292,8 @@ instance Data.ToJSON CreateMeetingWithAttendees where
               Prelude.<$> primaryMeetingId,
             ("Tags" Data..=) Prelude.<$> tags,
             ("TenantIds" Data..=) Prelude.<$> tenantIds,
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken),
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken,
             Prelude.Just ("MediaRegion" Data..= mediaRegion),
             Prelude.Just
               ("ExternalMeetingId" Data..= externalMeetingId),

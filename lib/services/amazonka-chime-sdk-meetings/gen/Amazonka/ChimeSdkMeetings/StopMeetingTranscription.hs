@@ -79,6 +79,8 @@ instance Core.AWSRequest StopMeetingTranscription where
   response =
     Response.receiveNull
       StopMeetingTranscriptionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopMeetingTranscription where
   hashWithSalt _salt StopMeetingTranscription' {..} =

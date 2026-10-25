@@ -130,6 +130,8 @@ instance Core.AWSRequest GetBackendJob where
             Prelude.<*> (x Data..?> "updateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBackendJob where
   hashWithSalt _salt GetBackendJob' {..} =

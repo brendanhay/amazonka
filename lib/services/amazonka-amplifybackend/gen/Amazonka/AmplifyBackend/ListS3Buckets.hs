@@ -89,6 +89,8 @@ instance Core.AWSRequest ListS3Buckets where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListS3Buckets where
   hashWithSalt _salt ListS3Buckets' {..} =

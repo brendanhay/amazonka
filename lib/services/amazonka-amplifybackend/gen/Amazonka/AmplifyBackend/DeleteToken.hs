@@ -99,6 +99,8 @@ instance Core.AWSRequest DeleteToken where
             Prelude.<$> (x Data..?> "isSuccess")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteToken where
   hashWithSalt _salt DeleteToken' {..} =

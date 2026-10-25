@@ -126,6 +126,8 @@ instance Core.AWSRequest GetBackendAuth where
             Prelude.<*> (x Data..?> "resourceName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBackendAuth where
   hashWithSalt _salt GetBackendAuth' {..} =

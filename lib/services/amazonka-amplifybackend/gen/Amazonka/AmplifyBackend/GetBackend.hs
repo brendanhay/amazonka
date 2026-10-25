@@ -115,6 +115,8 @@ instance Core.AWSRequest GetBackend where
             Prelude.<*> (x Data..?> "error")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBackend where
   hashWithSalt _salt GetBackend' {..} =

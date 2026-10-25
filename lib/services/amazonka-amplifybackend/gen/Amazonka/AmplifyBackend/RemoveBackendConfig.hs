@@ -87,6 +87,8 @@ instance Core.AWSRequest RemoveBackendConfig where
             Prelude.<$> (x Data..?> "error")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveBackendConfig where
   hashWithSalt _salt RemoveBackendConfig' {..} =

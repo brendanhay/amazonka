@@ -100,6 +100,8 @@ instance Core.AWSRequest StartTest where
             Prelude.<$> (x Data..?> "job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartTest where
   hashWithSalt _salt StartTest' {..} =

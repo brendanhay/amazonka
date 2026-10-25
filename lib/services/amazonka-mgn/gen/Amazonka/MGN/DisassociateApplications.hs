@@ -100,6 +100,8 @@ instance Core.AWSRequest DisassociateApplications where
           DisassociateApplicationsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateApplications where
   hashWithSalt _salt DisassociateApplications' {..} =

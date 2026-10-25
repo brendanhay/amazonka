@@ -100,6 +100,8 @@ instance Core.AWSRequest AssociateApplications where
           AssociateApplicationsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateApplications where
   hashWithSalt _salt AssociateApplications' {..} =

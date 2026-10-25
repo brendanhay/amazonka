@@ -86,6 +86,8 @@ instance Core.AWSRequest DeleteRun where
           DeleteRunResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRun where
   hashWithSalt _salt DeleteRun' {..} =

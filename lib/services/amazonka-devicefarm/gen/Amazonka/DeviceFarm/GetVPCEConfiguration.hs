@@ -91,6 +91,8 @@ instance Core.AWSRequest GetVPCEConfiguration where
             Prelude.<$> (x Data..?> "vpceConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetVPCEConfiguration where
   hashWithSalt _salt GetVPCEConfiguration' {..} =

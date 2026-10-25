@@ -120,6 +120,8 @@ instance Core.AWSRequest UpdateTestGridProject where
             Prelude.<$> (x Data..?> "testGridProject")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateTestGridProject where
   hashWithSalt _salt UpdateTestGridProject' {..} =

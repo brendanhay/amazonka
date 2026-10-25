@@ -154,6 +154,8 @@ instance Core.AWSRequest CreateDevicePool where
             Prelude.<$> (x Data..?> "devicePool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDevicePool where
   hashWithSalt _salt CreateDevicePool' {..} =

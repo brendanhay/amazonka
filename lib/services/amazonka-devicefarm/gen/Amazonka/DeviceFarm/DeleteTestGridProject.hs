@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteTestGridProject where
           DeleteTestGridProjectResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTestGridProject where
   hashWithSalt _salt DeleteTestGridProject' {..} =

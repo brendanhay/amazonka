@@ -86,6 +86,8 @@ instance Core.AWSRequest GetSuite where
             Prelude.<$> (x Data..?> "suite")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSuite where
   hashWithSalt _salt GetSuite' {..} =

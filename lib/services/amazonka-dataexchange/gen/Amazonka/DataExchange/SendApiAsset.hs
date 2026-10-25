@@ -182,6 +182,8 @@ instance Core.AWSRequest SendApiAsset where
             Prelude.<*> (Data.parseHeadersMap "" h)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SendApiAsset where
   hashWithSalt _salt SendApiAsset' {..} =

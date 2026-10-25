@@ -147,6 +147,8 @@ instance Core.AWSRequest UpdateRevision where
             Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRevision where
   hashWithSalt _salt UpdateRevision' {..} =

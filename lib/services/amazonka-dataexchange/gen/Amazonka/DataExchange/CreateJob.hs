@@ -110,6 +110,8 @@ instance Core.AWSRequest CreateJob where
             Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateJob where
   hashWithSalt _salt CreateJob' {..} =

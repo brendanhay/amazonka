@@ -129,6 +129,8 @@ instance Core.AWSRequest GetAsset where
             Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAsset where
   hashWithSalt _salt GetAsset' {..} =

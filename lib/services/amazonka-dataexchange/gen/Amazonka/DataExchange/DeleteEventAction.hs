@@ -78,6 +78,8 @@ instance Core.AWSRequest DeleteEventAction where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteEventActionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteEventAction where
   hashWithSalt _salt DeleteEventAction' {..} =

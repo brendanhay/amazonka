@@ -371,6 +371,8 @@ instance Core.AWSRequest CreateAccess where
             Prelude.<*> (x Data..:> "ServerId")
             Prelude.<*> (x Data..:> "ExternalId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateAccess where
   hashWithSalt _salt CreateAccess' {..} =

@@ -79,6 +79,8 @@ instance Core.AWSRequest DeleteCertificate where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteCertificateResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCertificate where
   hashWithSalt _salt DeleteCertificate' {..} =

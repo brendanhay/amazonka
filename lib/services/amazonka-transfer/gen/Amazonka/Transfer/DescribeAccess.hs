@@ -153,6 +153,8 @@ instance Core.AWSRequest DescribeAccess where
             Prelude.<*> (x Data..:> "ServerId")
             Prelude.<*> (x Data..:> "Access")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAccess where
   hashWithSalt _salt DescribeAccess' {..} =

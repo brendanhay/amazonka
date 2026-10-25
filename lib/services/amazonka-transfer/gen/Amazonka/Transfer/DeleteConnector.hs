@@ -78,6 +78,8 @@ instance Core.AWSRequest DeleteConnector where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteConnectorResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteConnector where
   hashWithSalt _salt DeleteConnector' {..} =

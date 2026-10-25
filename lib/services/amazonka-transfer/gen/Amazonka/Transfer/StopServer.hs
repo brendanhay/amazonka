@@ -88,6 +88,8 @@ instance Core.AWSRequest StopServer where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull StopServerResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopServer where
   hashWithSalt _salt StopServer' {..} =

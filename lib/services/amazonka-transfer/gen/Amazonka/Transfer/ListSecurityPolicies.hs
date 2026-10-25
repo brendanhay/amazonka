@@ -138,6 +138,8 @@ instance Core.AWSRequest ListSecurityPolicies where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSecurityPolicies where
   hashWithSalt _salt ListSecurityPolicies' {..} =

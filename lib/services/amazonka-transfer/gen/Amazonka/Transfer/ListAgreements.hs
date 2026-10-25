@@ -146,6 +146,8 @@ instance Core.AWSRequest ListAgreements where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Agreements" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAgreements where
   hashWithSalt _salt ListAgreements' {..} =

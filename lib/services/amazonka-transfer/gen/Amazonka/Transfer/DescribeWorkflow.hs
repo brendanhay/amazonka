@@ -87,6 +87,8 @@ instance Core.AWSRequest DescribeWorkflow where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Workflow")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeWorkflow where
   hashWithSalt _salt DescribeWorkflow' {..} =

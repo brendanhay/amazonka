@@ -131,6 +131,8 @@ instance Core.AWSRequest ImportSshPublicKey where
             Prelude.<*> (x Data..:> "SshPublicKeyId")
             Prelude.<*> (x Data..:> "UserName")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportSshPublicKey where
   hashWithSalt _salt ImportSshPublicKey' {..} =

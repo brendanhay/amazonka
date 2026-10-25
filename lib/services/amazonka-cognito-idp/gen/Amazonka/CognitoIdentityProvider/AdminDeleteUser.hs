@@ -96,6 +96,8 @@ instance Core.AWSRequest AdminDeleteUser where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull AdminDeleteUserResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AdminDeleteUser where
   hashWithSalt _salt AdminDeleteUser' {..} =

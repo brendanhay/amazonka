@@ -80,6 +80,8 @@ instance Core.AWSRequest DeleteUserPool where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteUserPoolResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteUserPool where
   hashWithSalt _salt DeleteUserPool' {..} =

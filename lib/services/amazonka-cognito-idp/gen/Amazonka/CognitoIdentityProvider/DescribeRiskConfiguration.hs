@@ -100,6 +100,8 @@ instance Core.AWSRequest DescribeRiskConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "RiskConfiguration")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeRiskConfiguration where
   hashWithSalt _salt DescribeRiskConfiguration' {..} =

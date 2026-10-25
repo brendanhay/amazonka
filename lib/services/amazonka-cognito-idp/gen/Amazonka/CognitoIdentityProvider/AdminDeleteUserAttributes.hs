@@ -133,6 +133,8 @@ instance Core.AWSRequest AdminDeleteUserAttributes where
           AdminDeleteUserAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AdminDeleteUserAttributes where
   hashWithSalt _salt AdminDeleteUserAttributes' {..} =

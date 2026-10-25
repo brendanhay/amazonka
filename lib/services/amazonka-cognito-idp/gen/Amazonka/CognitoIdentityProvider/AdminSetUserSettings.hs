@@ -122,6 +122,8 @@ instance Core.AWSRequest AdminSetUserSettings where
           AdminSetUserSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AdminSetUserSettings where
   hashWithSalt _salt AdminSetUserSettings' {..} =

@@ -199,6 +199,8 @@ instance Core.AWSRequest AdminConfirmSignUp where
           AdminConfirmSignUpResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AdminConfirmSignUp where
   hashWithSalt _salt AdminConfirmSignUp' {..} =

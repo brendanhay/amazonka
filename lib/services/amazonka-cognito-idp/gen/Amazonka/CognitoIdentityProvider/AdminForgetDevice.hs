@@ -111,6 +111,8 @@ instance Core.AWSRequest AdminForgetDevice where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull AdminForgetDeviceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AdminForgetDevice where
   hashWithSalt _salt AdminForgetDevice' {..} =

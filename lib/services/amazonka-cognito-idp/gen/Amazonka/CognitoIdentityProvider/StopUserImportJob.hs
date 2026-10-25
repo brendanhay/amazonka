@@ -106,6 +106,8 @@ instance Core.AWSRequest StopUserImportJob where
             Prelude.<$> (x Data..?> "UserImportJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopUserImportJob where
   hashWithSalt _salt StopUserImportJob' {..} =

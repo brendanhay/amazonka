@@ -111,6 +111,8 @@ instance Core.AWSRequest AdminRemoveUserFromGroup where
   response =
     Response.receiveNull
       AdminRemoveUserFromGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AdminRemoveUserFromGroup where
   hashWithSalt _salt AdminRemoveUserFromGroup' {..} =

@@ -456,6 +456,14 @@ instance Core.AWSRequest CreateBroker where
             Prelude.<*> (x Data..?> "brokerId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateBroker' {creatorRequestId} =
+      ( \creatorRequestId' ->
+          s {creatorRequestId = creatorRequestId'} ::
+            CreateBroker
+      )
+        Prelude.<$> f creatorRequestId
 
 instance Prelude.Hashable CreateBroker where
   hashWithSalt _salt CreateBroker' {..} =

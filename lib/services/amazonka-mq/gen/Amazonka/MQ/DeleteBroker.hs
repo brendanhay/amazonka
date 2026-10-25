@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteBroker where
             Prelude.<$> (x Data..?> "brokerId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBroker where
   hashWithSalt _salt DeleteBroker' {..} =

@@ -164,6 +164,8 @@ instance Core.AWSRequest ExportCertificate where
             Prelude.<*> (x Data..?> "PrivateKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ExportCertificate where
   hashWithSalt _salt ExportCertificate' {..} =

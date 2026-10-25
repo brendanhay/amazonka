@@ -105,6 +105,8 @@ instance Core.AWSRequest RenewCertificate where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull RenewCertificateResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RenewCertificate where
   hashWithSalt _salt RenewCertificate' {..} =

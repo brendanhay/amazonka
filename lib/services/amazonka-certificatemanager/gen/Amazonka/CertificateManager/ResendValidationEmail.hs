@@ -188,6 +188,8 @@ instance Core.AWSRequest ResendValidationEmail where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull ResendValidationEmailResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResendValidationEmail where
   hashWithSalt _salt ResendValidationEmail' {..} =

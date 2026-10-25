@@ -120,6 +120,8 @@ instance Core.AWSRequest RemoveTagsFromCertificate where
   response =
     Response.receiveNull
       RemoveTagsFromCertificateResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveTagsFromCertificate where
   hashWithSalt _salt RemoveTagsFromCertificate' {..} =

@@ -88,6 +88,8 @@ instance Core.AWSRequest ListDomainNames where
             Prelude.<$> (x Data..?> "DomainNames" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDomainNames where
   hashWithSalt _salt ListDomainNames' {..} =

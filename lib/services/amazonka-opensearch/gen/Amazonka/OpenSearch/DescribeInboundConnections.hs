@@ -130,6 +130,8 @@ instance Core.AWSRequest DescribeInboundConnections where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeInboundConnections where
   hashWithSalt _salt DescribeInboundConnections' {..} =

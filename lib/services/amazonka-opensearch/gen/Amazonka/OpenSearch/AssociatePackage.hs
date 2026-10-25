@@ -109,6 +109,8 @@ instance Core.AWSRequest AssociatePackage where
             Prelude.<$> (x Data..?> "DomainPackageDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociatePackage where
   hashWithSalt _salt AssociatePackage' {..} =

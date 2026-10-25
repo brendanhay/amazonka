@@ -98,6 +98,8 @@ instance Core.AWSRequest StartServiceSoftwareUpdate where
             Prelude.<$> (x Data..?> "ServiceSoftwareOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartServiceSoftwareUpdate where
   hashWithSalt _salt StartServiceSoftwareUpdate' {..} =

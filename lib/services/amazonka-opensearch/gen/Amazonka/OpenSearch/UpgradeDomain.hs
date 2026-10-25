@@ -156,6 +156,8 @@ instance Core.AWSRequest UpgradeDomain where
             Prelude.<*> (x Data..?> "UpgradeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpgradeDomain where
   hashWithSalt _salt UpgradeDomain' {..} =

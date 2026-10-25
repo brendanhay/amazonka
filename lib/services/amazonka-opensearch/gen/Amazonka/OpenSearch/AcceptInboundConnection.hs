@@ -95,6 +95,8 @@ instance Core.AWSRequest AcceptInboundConnection where
             Prelude.<$> (x Data..?> "Connection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AcceptInboundConnection where
   hashWithSalt _salt AcceptInboundConnection' {..} =

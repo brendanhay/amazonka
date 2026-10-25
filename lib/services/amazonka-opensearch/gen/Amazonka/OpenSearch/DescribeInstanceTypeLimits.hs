@@ -127,6 +127,8 @@ instance Core.AWSRequest DescribeInstanceTypeLimits where
             Prelude.<$> (x Data..?> "LimitsByRole" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeInstanceTypeLimits where
   hashWithSalt _salt DescribeInstanceTypeLimits' {..} =

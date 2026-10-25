@@ -97,6 +97,8 @@ instance Core.AWSRequest DescribeApp where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "app")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeApp where
   hashWithSalt _salt DescribeApp' {..} =

@@ -101,6 +101,8 @@ instance Core.AWSRequest PublishAppVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "appArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PublishAppVersion where
   hashWithSalt _salt PublishAppVersion' {..} =

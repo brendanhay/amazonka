@@ -111,6 +111,14 @@ instance Core.AWSRequest DeleteRecommendationTemplate where
             Prelude.<*> (x Data..:> "recommendationTemplateArn")
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken
+    f
+    s@DeleteRecommendationTemplate' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            DeleteRecommendationTemplate
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

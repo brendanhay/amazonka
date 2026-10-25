@@ -242,6 +242,14 @@ instance Core.AWSRequest CreateRecommendationTemplate where
             Prelude.<$> (x Data..?> "recommendationTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateRecommendationTemplate' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateRecommendationTemplate
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

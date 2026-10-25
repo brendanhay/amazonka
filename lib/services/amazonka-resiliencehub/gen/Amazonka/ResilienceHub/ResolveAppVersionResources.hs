@@ -119,6 +119,8 @@ instance Core.AWSRequest ResolveAppVersionResources where
             Prelude.<*> (x Data..:> "resolutionId")
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResolveAppVersionResources where
   hashWithSalt _salt ResolveAppVersionResources' {..} =

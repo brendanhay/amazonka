@@ -83,7 +83,7 @@ data CreateImage = CreateImage'
     -- defines the environment in which your image will be built and tested.
     infrastructureConfigurationArn :: Prelude.Text,
     -- | The idempotency token used to make this request idempotent.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -120,23 +120,19 @@ data CreateImage = CreateImage'
 newCreateImage ::
   -- | 'infrastructureConfigurationArn'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateImage
-newCreateImage
-  pInfrastructureConfigurationArn_
-  pClientToken_ =
-    CreateImage'
-      { containerRecipeArn = Prelude.Nothing,
-        distributionConfigurationArn = Prelude.Nothing,
-        enhancedImageMetadataEnabled = Prelude.Nothing,
-        imageRecipeArn = Prelude.Nothing,
-        imageTestsConfiguration = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        infrastructureConfigurationArn =
-          pInfrastructureConfigurationArn_,
-        clientToken = pClientToken_
-      }
+newCreateImage pInfrastructureConfigurationArn_ =
+  CreateImage'
+    { containerRecipeArn = Prelude.Nothing,
+      distributionConfigurationArn = Prelude.Nothing,
+      enhancedImageMetadataEnabled = Prelude.Nothing,
+      imageRecipeArn = Prelude.Nothing,
+      imageTestsConfiguration = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      infrastructureConfigurationArn =
+        pInfrastructureConfigurationArn_,
+      clientToken = Prelude.Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the container recipe that defines how
 -- images are configured and tested.
@@ -174,7 +170,7 @@ createImage_infrastructureConfigurationArn :: Lens.Lens' CreateImage Prelude.Tex
 createImage_infrastructureConfigurationArn = Lens.lens (\CreateImage' {infrastructureConfigurationArn} -> infrastructureConfigurationArn) (\s@CreateImage' {} a -> s {infrastructureConfigurationArn = a} :: CreateImage)
 
 -- | The idempotency token used to make this request idempotent.
-createImage_clientToken :: Lens.Lens' CreateImage Prelude.Text
+createImage_clientToken :: Lens.Lens' CreateImage (Prelude.Maybe Prelude.Text)
 createImage_clientToken = Lens.lens (\CreateImage' {clientToken} -> clientToken) (\s@CreateImage' {} a -> s {clientToken = a} :: CreateImage)
 
 instance Core.AWSRequest CreateImage where
@@ -190,6 +186,11 @@ instance Core.AWSRequest CreateImage where
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@CreateImage' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateImage
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateImage where
   hashWithSalt _salt CreateImage' {..} =
@@ -244,7 +245,7 @@ instance Data.ToJSON CreateImage where
               ( "infrastructureConfigurationArn"
                   Data..= infrastructureConfigurationArn
               ),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

@@ -157,6 +157,8 @@ instance Core.AWSRequest ListImageRecipes where
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListImageRecipes where
   hashWithSalt _salt ListImageRecipes' {..} =

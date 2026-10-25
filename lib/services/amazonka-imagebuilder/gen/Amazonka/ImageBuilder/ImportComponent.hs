@@ -104,7 +104,7 @@ data ImportComponent = ImportComponent'
     -- | The platform of the component.
     platform :: Platform,
     -- | The idempotency token of the component.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -169,16 +169,13 @@ newImportComponent ::
   ComponentFormat ->
   -- | 'platform'
   Platform ->
-  -- | 'clientToken'
-  Prelude.Text ->
   ImportComponent
 newImportComponent
   pName_
   pSemanticVersion_
   pType_
   pFormat_
-  pPlatform_
-  pClientToken_ =
+  pPlatform_ =
     ImportComponent'
       { changeDescription =
           Prelude.Nothing,
@@ -192,7 +189,7 @@ newImportComponent
         type' = pType_,
         format = pFormat_,
         platform = pPlatform_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | The change description of the component. Describes what change has been
@@ -259,7 +256,7 @@ importComponent_platform :: Lens.Lens' ImportComponent Platform
 importComponent_platform = Lens.lens (\ImportComponent' {platform} -> platform) (\s@ImportComponent' {} a -> s {platform = a} :: ImportComponent)
 
 -- | The idempotency token of the component.
-importComponent_clientToken :: Lens.Lens' ImportComponent Prelude.Text
+importComponent_clientToken :: Lens.Lens' ImportComponent (Prelude.Maybe Prelude.Text)
 importComponent_clientToken = Lens.lens (\ImportComponent' {clientToken} -> clientToken) (\s@ImportComponent' {} a -> s {clientToken = a} :: ImportComponent)
 
 instance Core.AWSRequest ImportComponent where
@@ -277,6 +274,13 @@ instance Core.AWSRequest ImportComponent where
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@ImportComponent' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: ImportComponent
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable ImportComponent where
   hashWithSalt _salt ImportComponent' {..} =
@@ -337,7 +341,7 @@ instance Data.ToJSON ImportComponent where
             Prelude.Just ("type" Data..= type'),
             Prelude.Just ("format" Data..= format),
             Prelude.Just ("platform" Data..= platform),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

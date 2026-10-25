@@ -105,7 +105,7 @@ data ImportVmImage = ImportVmImage'
     -- the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>
     -- in the /Amazon EC2 API Reference/.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -163,15 +163,12 @@ newImportVmImage ::
   Platform ->
   -- | 'vmImportTaskId'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   ImportVmImage
 newImportVmImage
   pName_
   pSemanticVersion_
   pPlatform_
-  pVmImportTaskId_
-  pClientToken_ =
+  pVmImportTaskId_ =
     ImportVmImage'
       { description = Prelude.Nothing,
         osVersion = Prelude.Nothing,
@@ -180,7 +177,7 @@ newImportVmImage
         semanticVersion = pSemanticVersion_,
         platform = pPlatform_,
         vmImportTaskId = pVmImportTaskId_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | The description for the base image that is created by the import
@@ -234,7 +231,7 @@ importVmImage_vmImportTaskId = Lens.lens (\ImportVmImage' {vmImportTaskId} -> vm
 -- the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>
 -- in the /Amazon EC2 API Reference/.
-importVmImage_clientToken :: Lens.Lens' ImportVmImage Prelude.Text
+importVmImage_clientToken :: Lens.Lens' ImportVmImage (Prelude.Maybe Prelude.Text)
 importVmImage_clientToken = Lens.lens (\ImportVmImage' {clientToken} -> clientToken) (\s@ImportVmImage' {} a -> s {clientToken = a} :: ImportVmImage)
 
 instance Core.AWSRequest ImportVmImage where
@@ -252,6 +249,13 @@ instance Core.AWSRequest ImportVmImage where
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@ImportVmImage' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: ImportVmImage
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable ImportVmImage where
   hashWithSalt _salt ImportVmImage' {..} =
@@ -300,7 +304,7 @@ instance Data.ToJSON ImportVmImage where
             Prelude.Just ("platform" Data..= platform),
             Prelude.Just
               ("vmImportTaskId" Data..= vmImportTaskId),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

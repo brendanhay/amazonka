@@ -56,7 +56,7 @@ data StartImagePipelineExecution = StartImagePipelineExecution'
     -- manually invoke.
     imagePipelineArn :: Prelude.Text,
     -- | The idempotency token used to make this request idempotent.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,17 +75,13 @@ data StartImagePipelineExecution = StartImagePipelineExecution'
 newStartImagePipelineExecution ::
   -- | 'imagePipelineArn'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   StartImagePipelineExecution
-newStartImagePipelineExecution
-  pImagePipelineArn_
-  pClientToken_ =
-    StartImagePipelineExecution'
-      { imagePipelineArn =
-          pImagePipelineArn_,
-        clientToken = pClientToken_
-      }
+newStartImagePipelineExecution pImagePipelineArn_ =
+  StartImagePipelineExecution'
+    { imagePipelineArn =
+        pImagePipelineArn_,
+      clientToken = Prelude.Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the image pipeline that you want to
 -- manually invoke.
@@ -93,7 +89,7 @@ startImagePipelineExecution_imagePipelineArn :: Lens.Lens' StartImagePipelineExe
 startImagePipelineExecution_imagePipelineArn = Lens.lens (\StartImagePipelineExecution' {imagePipelineArn} -> imagePipelineArn) (\s@StartImagePipelineExecution' {} a -> s {imagePipelineArn = a} :: StartImagePipelineExecution)
 
 -- | The idempotency token used to make this request idempotent.
-startImagePipelineExecution_clientToken :: Lens.Lens' StartImagePipelineExecution Prelude.Text
+startImagePipelineExecution_clientToken :: Lens.Lens' StartImagePipelineExecution (Prelude.Maybe Prelude.Text)
 startImagePipelineExecution_clientToken = Lens.lens (\StartImagePipelineExecution' {clientToken} -> clientToken) (\s@StartImagePipelineExecution' {} a -> s {clientToken = a} :: StartImagePipelineExecution)
 
 instance Core.AWSRequest StartImagePipelineExecution where
@@ -111,6 +107,14 @@ instance Core.AWSRequest StartImagePipelineExecution where
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartImagePipelineExecution' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            StartImagePipelineExecution
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartImagePipelineExecution where
   hashWithSalt _salt StartImagePipelineExecution' {..} =
@@ -140,7 +144,7 @@ instance Data.ToJSON StartImagePipelineExecution where
       ( Prelude.catMaybes
           [ Prelude.Just
               ("imagePipelineArn" Data..= imagePipelineArn),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

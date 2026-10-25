@@ -65,7 +65,7 @@ data CreateDistributionConfiguration = CreateDistributionConfiguration'
     -- | The distributions of the distribution configuration.
     distributions :: [Distribution],
     -- | The idempotency token of the distribution configuration.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,20 +89,16 @@ data CreateDistributionConfiguration = CreateDistributionConfiguration'
 newCreateDistributionConfiguration ::
   -- | 'name'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateDistributionConfiguration
-newCreateDistributionConfiguration
-  pName_
-  pClientToken_ =
-    CreateDistributionConfiguration'
-      { description =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
-        name = pName_,
-        distributions = Prelude.mempty,
-        clientToken = pClientToken_
-      }
+newCreateDistributionConfiguration pName_ =
+  CreateDistributionConfiguration'
+    { description =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
+      name = pName_,
+      distributions = Prelude.mempty,
+      clientToken = Prelude.Nothing
+    }
 
 -- | The description of the distribution configuration.
 createDistributionConfiguration_description :: Lens.Lens' CreateDistributionConfiguration (Prelude.Maybe Prelude.Text)
@@ -121,7 +117,7 @@ createDistributionConfiguration_distributions :: Lens.Lens' CreateDistributionCo
 createDistributionConfiguration_distributions = Lens.lens (\CreateDistributionConfiguration' {distributions} -> distributions) (\s@CreateDistributionConfiguration' {} a -> s {distributions = a} :: CreateDistributionConfiguration) Prelude.. Lens.coerced
 
 -- | The idempotency token of the distribution configuration.
-createDistributionConfiguration_clientToken :: Lens.Lens' CreateDistributionConfiguration Prelude.Text
+createDistributionConfiguration_clientToken :: Lens.Lens' CreateDistributionConfiguration (Prelude.Maybe Prelude.Text)
 createDistributionConfiguration_clientToken = Lens.lens (\CreateDistributionConfiguration' {clientToken} -> clientToken) (\s@CreateDistributionConfiguration' {} a -> s {clientToken = a} :: CreateDistributionConfiguration)
 
 instance
@@ -142,6 +138,14 @@ instance
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateDistributionConfiguration' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateDistributionConfiguration
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable
@@ -190,7 +194,7 @@ instance Data.ToJSON CreateDistributionConfiguration where
             ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("distributions" Data..= distributions),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

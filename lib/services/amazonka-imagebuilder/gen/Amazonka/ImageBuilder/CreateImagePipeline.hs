@@ -94,7 +94,7 @@ data CreateImagePipeline = CreateImagePipeline'
     -- will be used to build images created by this image pipeline.
     infrastructureConfigurationArn :: Prelude.Text,
     -- | The idempotency token used to make this request idempotent.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -142,13 +142,10 @@ newCreateImagePipeline ::
   Prelude.Text ->
   -- | 'infrastructureConfigurationArn'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateImagePipeline
 newCreateImagePipeline
   pName_
-  pInfrastructureConfigurationArn_
-  pClientToken_ =
+  pInfrastructureConfigurationArn_ =
     CreateImagePipeline'
       { containerRecipeArn =
           Prelude.Nothing,
@@ -163,7 +160,7 @@ newCreateImagePipeline
         name = pName_,
         infrastructureConfigurationArn =
           pInfrastructureConfigurationArn_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | The Amazon Resource Name (ARN) of the container recipe that is used to
@@ -219,7 +216,7 @@ createImagePipeline_infrastructureConfigurationArn :: Lens.Lens' CreateImagePipe
 createImagePipeline_infrastructureConfigurationArn = Lens.lens (\CreateImagePipeline' {infrastructureConfigurationArn} -> infrastructureConfigurationArn) (\s@CreateImagePipeline' {} a -> s {infrastructureConfigurationArn = a} :: CreateImagePipeline)
 
 -- | The idempotency token used to make this request idempotent.
-createImagePipeline_clientToken :: Lens.Lens' CreateImagePipeline Prelude.Text
+createImagePipeline_clientToken :: Lens.Lens' CreateImagePipeline (Prelude.Maybe Prelude.Text)
 createImagePipeline_clientToken = Lens.lens (\CreateImagePipeline' {clientToken} -> clientToken) (\s@CreateImagePipeline' {} a -> s {clientToken = a} :: CreateImagePipeline)
 
 instance Core.AWSRequest CreateImagePipeline where
@@ -237,6 +234,13 @@ instance Core.AWSRequest CreateImagePipeline where
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateImagePipeline' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateImagePipeline
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateImagePipeline where
   hashWithSalt _salt CreateImagePipeline' {..} =
@@ -303,7 +307,7 @@ instance Data.ToJSON CreateImagePipeline where
               ( "infrastructureConfigurationArn"
                   Data..= infrastructureConfigurationArn
               ),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

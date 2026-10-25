@@ -117,7 +117,7 @@ data CreateComponent = CreateComponent'
     -- | The platform of the component.
     platform :: Platform,
     -- | The idempotency token of the component.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -185,14 +185,11 @@ newCreateComponent ::
   Prelude.Text ->
   -- | 'platform'
   Platform ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateComponent
 newCreateComponent
   pName_
   pSemanticVersion_
-  pPlatform_
-  pClientToken_ =
+  pPlatform_ =
     CreateComponent'
       { changeDescription =
           Prelude.Nothing,
@@ -205,7 +202,7 @@ newCreateComponent
         name = pName_,
         semanticVersion = pSemanticVersion_,
         platform = pPlatform_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | The change description of the component. Describes what change has been
@@ -277,7 +274,7 @@ createComponent_platform :: Lens.Lens' CreateComponent Platform
 createComponent_platform = Lens.lens (\CreateComponent' {platform} -> platform) (\s@CreateComponent' {} a -> s {platform = a} :: CreateComponent)
 
 -- | The idempotency token of the component.
-createComponent_clientToken :: Lens.Lens' CreateComponent Prelude.Text
+createComponent_clientToken :: Lens.Lens' CreateComponent (Prelude.Maybe Prelude.Text)
 createComponent_clientToken = Lens.lens (\CreateComponent' {clientToken} -> clientToken) (\s@CreateComponent' {} a -> s {clientToken = a} :: CreateComponent)
 
 instance Core.AWSRequest CreateComponent where
@@ -295,6 +292,13 @@ instance Core.AWSRequest CreateComponent where
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateComponent' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateComponent
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateComponent where
   hashWithSalt _salt CreateComponent' {..} =
@@ -353,7 +357,7 @@ instance Data.ToJSON CreateComponent where
             Prelude.Just
               ("semanticVersion" Data..= semanticVersion),
             Prelude.Just ("platform" Data..= platform),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

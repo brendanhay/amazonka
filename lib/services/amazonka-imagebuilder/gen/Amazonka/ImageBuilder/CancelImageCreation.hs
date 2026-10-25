@@ -60,7 +60,7 @@ data CancelImageCreation = CancelImageCreation'
     -- the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>
     -- in the /Amazon EC2 API Reference/.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,17 +82,13 @@ data CancelImageCreation = CancelImageCreation'
 newCancelImageCreation ::
   -- | 'imageBuildVersionArn'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CancelImageCreation
-newCancelImageCreation
-  pImageBuildVersionArn_
-  pClientToken_ =
-    CancelImageCreation'
-      { imageBuildVersionArn =
-          pImageBuildVersionArn_,
-        clientToken = pClientToken_
-      }
+newCancelImageCreation pImageBuildVersionArn_ =
+  CancelImageCreation'
+    { imageBuildVersionArn =
+        pImageBuildVersionArn_,
+      clientToken = Prelude.Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the image whose creation you want to
 -- cancel.
@@ -103,7 +99,7 @@ cancelImageCreation_imageBuildVersionArn = Lens.lens (\CancelImageCreation' {ima
 -- the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>
 -- in the /Amazon EC2 API Reference/.
-cancelImageCreation_clientToken :: Lens.Lens' CancelImageCreation Prelude.Text
+cancelImageCreation_clientToken :: Lens.Lens' CancelImageCreation (Prelude.Maybe Prelude.Text)
 cancelImageCreation_clientToken = Lens.lens (\CancelImageCreation' {clientToken} -> clientToken) (\s@CancelImageCreation' {} a -> s {clientToken = a} :: CancelImageCreation)
 
 instance Core.AWSRequest CancelImageCreation where
@@ -121,6 +117,13 @@ instance Core.AWSRequest CancelImageCreation where
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CancelImageCreation' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CancelImageCreation
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CancelImageCreation where
   hashWithSalt _salt CancelImageCreation' {..} =
@@ -152,7 +155,7 @@ instance Data.ToJSON CancelImageCreation where
               ( "imageBuildVersionArn"
                   Data..= imageBuildVersionArn
               ),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

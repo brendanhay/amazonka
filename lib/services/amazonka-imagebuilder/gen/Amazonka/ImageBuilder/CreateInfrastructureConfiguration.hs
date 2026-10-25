@@ -109,7 +109,7 @@ data CreateInfrastructureConfiguration = CreateInfrastructureConfiguration'
     -- your Amazon EC2 AMI.
     instanceProfileName :: Prelude.Text,
     -- | The idempotency token used to make this request idempotent.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -169,13 +169,10 @@ newCreateInfrastructureConfiguration ::
   Prelude.Text ->
   -- | 'instanceProfileName'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateInfrastructureConfiguration
 newCreateInfrastructureConfiguration
   pName_
-  pInstanceProfileName_
-  pClientToken_ =
+  pInstanceProfileName_ =
     CreateInfrastructureConfiguration'
       { description =
           Prelude.Nothing,
@@ -194,7 +191,7 @@ newCreateInfrastructureConfiguration
         name = pName_,
         instanceProfileName =
           pInstanceProfileName_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | The description of the infrastructure configuration.
@@ -266,7 +263,7 @@ createInfrastructureConfiguration_instanceProfileName :: Lens.Lens' CreateInfras
 createInfrastructureConfiguration_instanceProfileName = Lens.lens (\CreateInfrastructureConfiguration' {instanceProfileName} -> instanceProfileName) (\s@CreateInfrastructureConfiguration' {} a -> s {instanceProfileName = a} :: CreateInfrastructureConfiguration)
 
 -- | The idempotency token used to make this request idempotent.
-createInfrastructureConfiguration_clientToken :: Lens.Lens' CreateInfrastructureConfiguration Prelude.Text
+createInfrastructureConfiguration_clientToken :: Lens.Lens' CreateInfrastructureConfiguration (Prelude.Maybe Prelude.Text)
 createInfrastructureConfiguration_clientToken = Lens.lens (\CreateInfrastructureConfiguration' {clientToken} -> clientToken) (\s@CreateInfrastructureConfiguration' {} a -> s {clientToken = a} :: CreateInfrastructureConfiguration)
 
 instance
@@ -287,6 +284,14 @@ instance
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateInfrastructureConfiguration' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateInfrastructureConfiguration
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable
@@ -369,7 +374,7 @@ instance
             Prelude.Just ("name" Data..= name),
             Prelude.Just
               ("instanceProfileName" Data..= instanceProfileName),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

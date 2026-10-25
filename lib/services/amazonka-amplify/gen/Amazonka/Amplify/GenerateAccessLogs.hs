@@ -130,6 +130,8 @@ instance Core.AWSRequest GenerateAccessLogs where
             Prelude.<$> (x Data..?> "logUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GenerateAccessLogs where
   hashWithSalt _salt GenerateAccessLogs' {..} =

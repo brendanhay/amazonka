@@ -101,6 +101,8 @@ instance Core.AWSRequest GetBranch where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "branch")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBranch where
   hashWithSalt _salt GetBranch' {..} =

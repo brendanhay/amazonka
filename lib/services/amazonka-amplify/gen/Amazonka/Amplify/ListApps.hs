@@ -122,6 +122,8 @@ instance Core.AWSRequest ListApps where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "apps" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListApps where
   hashWithSalt _salt ListApps' {..} =

@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteWebhook where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "webhook")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteWebhook where
   hashWithSalt _salt DeleteWebhook' {..} =

@@ -133,6 +133,8 @@ instance Core.AWSRequest ListBackendEnvironments where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListBackendEnvironments where
   hashWithSalt _salt ListBackendEnvironments' {..} =

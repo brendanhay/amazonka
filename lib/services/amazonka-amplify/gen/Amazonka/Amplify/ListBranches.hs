@@ -138,6 +138,8 @@ instance Core.AWSRequest ListBranches where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "branches" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListBranches where
   hashWithSalt _salt ListBranches' {..} =

@@ -80,7 +80,7 @@ data CreateJob = CreateJob'
     -- used for entry and training.
     algorithmSpecification :: AlgorithmSpecification,
     -- | A unique token that guarantees that the call to this API is idempotent.
-    clientToken :: Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The quantum processing unit (QPU) or simulator used to create an Amazon
     -- Braket job.
     deviceConfig :: DeviceConfig,
@@ -147,8 +147,6 @@ data CreateJob = CreateJob'
 newCreateJob ::
   -- | 'algorithmSpecification'
   AlgorithmSpecification ->
-  -- | 'clientToken'
-  Prelude.Text ->
   -- | 'deviceConfig'
   DeviceConfig ->
   -- | 'instanceConfig'
@@ -162,7 +160,6 @@ newCreateJob ::
   CreateJob
 newCreateJob
   pAlgorithmSpecification_
-  pClientToken_
   pDeviceConfig_
   pInstanceConfig_
   pJobName_
@@ -175,7 +172,7 @@ newCreateJob
         stoppingCondition = Prelude.Nothing,
         tags = Prelude.Nothing,
         algorithmSpecification = pAlgorithmSpecification_,
-        clientToken = pClientToken_,
+        clientToken = Prelude.Nothing,
         deviceConfig = pDeviceConfig_,
         instanceConfig = pInstanceConfig_,
         jobName = pJobName_,
@@ -215,7 +212,7 @@ createJob_algorithmSpecification :: Lens.Lens' CreateJob AlgorithmSpecification
 createJob_algorithmSpecification = Lens.lens (\CreateJob' {algorithmSpecification} -> algorithmSpecification) (\s@CreateJob' {} a -> s {algorithmSpecification = a} :: CreateJob)
 
 -- | A unique token that guarantees that the call to this API is idempotent.
-createJob_clientToken :: Lens.Lens' CreateJob Prelude.Text
+createJob_clientToken :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
 createJob_clientToken = Lens.lens (\CreateJob' {clientToken} -> clientToken) (\s@CreateJob' {} a -> s {clientToken = a} :: CreateJob)
 
 -- | The quantum processing unit (QPU) or simulator used to create an Amazon
@@ -255,6 +252,11 @@ instance Core.AWSRequest CreateJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "jobArn")
       )
+  updateIdempotencyToken f s@CreateJob' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateJob
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateJob where
   hashWithSalt _salt CreateJob' {..} =
@@ -315,7 +317,7 @@ instance Data.ToJSON CreateJob where
               ( "algorithmSpecification"
                   Data..= algorithmSpecification
               ),
-            Prelude.Just ("clientToken" Data..= clientToken),
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just ("deviceConfig" Data..= deviceConfig),
             Prelude.Just
               ("instanceConfig" Data..= instanceConfig),

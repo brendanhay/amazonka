@@ -109,6 +109,8 @@ instance Core.AWSRequest GetQuantumTask where
             Prelude.<*> (x Data..:> "shots")
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetQuantumTask where
   hashWithSalt _salt GetQuantumTask' {..} =

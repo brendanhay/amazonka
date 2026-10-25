@@ -86,6 +86,8 @@ instance Core.AWSRequest CancelJob where
             Prelude.<*> (x Data..:> "cancellationStatus")
             Prelude.<*> (x Data..:> "jobArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelJob where
   hashWithSalt _salt CancelJob' {..} =

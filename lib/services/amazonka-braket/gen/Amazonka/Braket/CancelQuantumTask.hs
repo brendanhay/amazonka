@@ -52,7 +52,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCancelQuantumTask' smart constructor.
 data CancelQuantumTask = CancelQuantumTask'
   { -- | The client token associated with the request.
-    clientToken :: Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the task to cancel.
     quantumTaskArn :: Prelude.Text
   }
@@ -70,19 +70,17 @@ data CancelQuantumTask = CancelQuantumTask'
 --
 -- 'quantumTaskArn', 'cancelQuantumTask_quantumTaskArn' - The ARN of the task to cancel.
 newCancelQuantumTask ::
-  -- | 'clientToken'
-  Prelude.Text ->
   -- | 'quantumTaskArn'
   Prelude.Text ->
   CancelQuantumTask
-newCancelQuantumTask pClientToken_ pQuantumTaskArn_ =
+newCancelQuantumTask pQuantumTaskArn_ =
   CancelQuantumTask'
-    { clientToken = pClientToken_,
+    { clientToken = Prelude.Nothing,
       quantumTaskArn = pQuantumTaskArn_
     }
 
 -- | The client token associated with the request.
-cancelQuantumTask_clientToken :: Lens.Lens' CancelQuantumTask Prelude.Text
+cancelQuantumTask_clientToken :: Lens.Lens' CancelQuantumTask (Prelude.Maybe Prelude.Text)
 cancelQuantumTask_clientToken = Lens.lens (\CancelQuantumTask' {clientToken} -> clientToken) (\s@CancelQuantumTask' {} a -> s {clientToken = a} :: CancelQuantumTask)
 
 -- | The ARN of the task to cancel.
@@ -103,6 +101,13 @@ instance Core.AWSRequest CancelQuantumTask where
             Prelude.<*> (x Data..:> "cancellationStatus")
             Prelude.<*> (x Data..:> "quantumTaskArn")
       )
+  updateIdempotencyToken
+    f
+    s@CancelQuantumTask' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CancelQuantumTask
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CancelQuantumTask where
   hashWithSalt _salt CancelQuantumTask' {..} =
@@ -130,7 +135,7 @@ instance Data.ToJSON CancelQuantumTask where
   toJSON CancelQuantumTask' {..} =
     Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("clientToken" Data..= clientToken)]
+          [("clientToken" Data..=) Prelude.<$> clientToken]
       )
 
 instance Data.ToPath CancelQuantumTask where

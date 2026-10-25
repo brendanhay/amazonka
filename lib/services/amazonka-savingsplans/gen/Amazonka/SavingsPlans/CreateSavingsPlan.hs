@@ -161,6 +161,13 @@ instance Core.AWSRequest CreateSavingsPlan where
             Prelude.<$> (x Data..?> "savingsPlanId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateSavingsPlan' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateSavingsPlan
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateSavingsPlan where
   hashWithSalt _salt CreateSavingsPlan' {..} =

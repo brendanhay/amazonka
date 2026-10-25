@@ -127,6 +127,8 @@ instance Core.AWSRequest DescribeSavingsPlanRates where
             Prelude.<*> (x Data..?> "searchResults" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSavingsPlanRates where
   hashWithSalt _salt DescribeSavingsPlanRates' {..} =

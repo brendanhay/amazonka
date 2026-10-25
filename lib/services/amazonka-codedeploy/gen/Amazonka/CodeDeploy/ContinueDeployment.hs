@@ -105,6 +105,8 @@ instance Core.AWSRequest ContinueDeployment where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull ContinueDeploymentResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ContinueDeployment where
   hashWithSalt _salt ContinueDeployment' {..} =

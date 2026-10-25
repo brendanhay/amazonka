@@ -110,6 +110,8 @@ instance Core.AWSRequest BatchGetDeploymentGroups where
             Prelude.<*> (x Data..?> "errorMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetDeploymentGroups where
   hashWithSalt _salt BatchGetDeploymentGroups' {..} =

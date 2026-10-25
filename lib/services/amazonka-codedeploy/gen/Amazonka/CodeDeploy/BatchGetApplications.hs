@@ -97,6 +97,8 @@ instance Core.AWSRequest BatchGetApplications where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetApplications where
   hashWithSalt _salt BatchGetApplications' {..} =

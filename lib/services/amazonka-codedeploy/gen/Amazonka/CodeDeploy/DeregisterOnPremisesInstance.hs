@@ -84,6 +84,8 @@ instance Core.AWSRequest DeregisterOnPremisesInstance where
   response =
     Response.receiveNull
       DeregisterOnPremisesInstanceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

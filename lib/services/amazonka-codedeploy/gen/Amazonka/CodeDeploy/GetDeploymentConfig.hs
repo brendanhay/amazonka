@@ -95,6 +95,8 @@ instance Core.AWSRequest GetDeploymentConfig where
             Prelude.<$> (x Data..?> "deploymentConfigInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDeploymentConfig where
   hashWithSalt _salt GetDeploymentConfig' {..} =

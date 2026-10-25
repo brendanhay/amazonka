@@ -113,6 +113,8 @@ instance Core.AWSRequest GetApplicationRevision where
             Prelude.<*> (x Data..?> "revisionInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetApplicationRevision where
   hashWithSalt _salt GetApplicationRevision' {..} =

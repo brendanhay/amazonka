@@ -107,6 +107,8 @@ instance Core.AWSRequest RegisterOnPremisesInstance where
   response =
     Response.receiveNull
       RegisterOnPremisesInstanceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterOnPremisesInstance where
   hashWithSalt _salt RegisterOnPremisesInstance' {..} =

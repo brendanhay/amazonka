@@ -114,6 +114,8 @@ instance Core.AWSRequest RegisterApplicationRevision where
   response =
     Response.receiveNull
       RegisterApplicationRevisionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterApplicationRevision where
   hashWithSalt _salt RegisterApplicationRevision' {..} =

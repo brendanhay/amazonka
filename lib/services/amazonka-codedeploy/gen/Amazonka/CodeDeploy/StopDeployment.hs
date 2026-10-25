@@ -110,6 +110,8 @@ instance Core.AWSRequest StopDeployment where
             Prelude.<*> (x Data..?> "statusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopDeployment where
   hashWithSalt _salt StopDeployment' {..} =

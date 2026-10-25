@@ -90,6 +90,8 @@ instance Core.AWSRequest DeleteDeploymentConfig where
   response =
     Response.receiveNull
       DeleteDeploymentConfigResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDeploymentConfig where
   hashWithSalt _salt DeleteDeploymentConfig' {..} =

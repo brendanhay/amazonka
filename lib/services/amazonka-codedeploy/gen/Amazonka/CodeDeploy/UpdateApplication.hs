@@ -91,6 +91,8 @@ instance Core.AWSRequest UpdateApplication where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateApplicationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =

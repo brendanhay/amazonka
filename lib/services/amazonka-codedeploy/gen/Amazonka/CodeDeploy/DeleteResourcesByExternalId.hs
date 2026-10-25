@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteResourcesByExternalId where
           DeleteResourcesByExternalIdResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteResourcesByExternalId where
   hashWithSalt _salt DeleteResourcesByExternalId' {..} =

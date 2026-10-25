@@ -101,6 +101,8 @@ instance Core.AWSRequest UpdateServerConfig where
           UpdateServerConfigResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateServerConfig where
   hashWithSalt _salt UpdateServerConfig' {..} =

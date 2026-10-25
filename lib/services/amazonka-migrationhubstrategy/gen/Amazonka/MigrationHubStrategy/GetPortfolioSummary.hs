@@ -72,6 +72,8 @@ instance Core.AWSRequest GetPortfolioSummary where
             Prelude.<$> (x Data..?> "assessmentSummary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPortfolioSummary where
   hashWithSalt _salt _ =

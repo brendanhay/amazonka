@@ -116,6 +116,8 @@ instance Core.AWSRequest PutPortfolioPreferences where
           PutPortfolioPreferencesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutPortfolioPreferences where
   hashWithSalt _salt PutPortfolioPreferences' {..} =

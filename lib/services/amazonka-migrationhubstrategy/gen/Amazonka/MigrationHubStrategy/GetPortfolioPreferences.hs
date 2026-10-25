@@ -77,6 +77,8 @@ instance Core.AWSRequest GetPortfolioPreferences where
             Prelude.<*> (x Data..?> "prioritizeBusinessGoals")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPortfolioPreferences where
   hashWithSalt _salt _ =

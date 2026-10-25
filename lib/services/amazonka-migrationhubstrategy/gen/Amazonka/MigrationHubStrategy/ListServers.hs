@@ -188,6 +188,8 @@ instance Core.AWSRequest ListServers where
             Prelude.<*> (x Data..?> "serverInfos" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListServers where
   hashWithSalt _salt ListServers' {..} =

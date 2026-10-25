@@ -163,6 +163,8 @@ instance Core.AWSRequest CreateCacheParameterGroup where
             Prelude.<$> (x Data..@? "CacheParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateCacheParameterGroup where
   hashWithSalt _salt CreateCacheParameterGroup' {..} =

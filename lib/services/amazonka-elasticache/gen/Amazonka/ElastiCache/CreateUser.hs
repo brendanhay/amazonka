@@ -179,6 +179,8 @@ instance Core.AWSRequest CreateUser where
     Response.receiveXMLWrapper
       "CreateUserResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =

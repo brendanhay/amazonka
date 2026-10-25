@@ -96,6 +96,8 @@ instance Core.AWSRequest DeleteCacheSubnetGroup where
   response =
     Response.receiveNull
       DeleteCacheSubnetGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCacheSubnetGroup where
   hashWithSalt _salt DeleteCacheSubnetGroup' {..} =

@@ -107,6 +107,8 @@ instance Core.AWSRequest ModifyCacheParameterGroup where
     Response.receiveXMLWrapper
       "ModifyCacheParameterGroupResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyCacheParameterGroup where
   hashWithSalt _salt ModifyCacheParameterGroup' {..} =

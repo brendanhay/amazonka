@@ -110,6 +110,8 @@ instance Core.AWSRequest ModifyUserGroup where
     Response.receiveXMLWrapper
       "ModifyUserGroupResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyUserGroup where
   hashWithSalt _salt ModifyUserGroup' {..} =

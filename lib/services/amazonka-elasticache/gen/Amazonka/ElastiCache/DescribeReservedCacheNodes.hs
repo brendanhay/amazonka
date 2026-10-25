@@ -555,6 +555,8 @@ instance Core.AWSRequest DescribeReservedCacheNodes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeReservedCacheNodes where
   hashWithSalt _salt DescribeReservedCacheNodes' {..} =

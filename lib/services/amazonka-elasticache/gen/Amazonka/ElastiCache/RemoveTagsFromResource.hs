@@ -126,6 +126,8 @@ instance Core.AWSRequest RemoveTagsFromResource where
     Response.receiveXMLWrapper
       "RemoveTagsFromResourceResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveTagsFromResource where
   hashWithSalt _salt RemoveTagsFromResource' {..} =

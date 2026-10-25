@@ -134,6 +134,8 @@ instance Core.AWSRequest ResetCacheParameterGroup where
     Response.receiveXMLWrapper
       "ResetCacheParameterGroupResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResetCacheParameterGroup where
   hashWithSalt _salt ResetCacheParameterGroup' {..} =

@@ -184,6 +184,8 @@ instance Core.AWSRequest DescribeReplicationGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeReplicationGroups where
   hashWithSalt _salt DescribeReplicationGroups' {..} =

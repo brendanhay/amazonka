@@ -141,6 +141,8 @@ instance Core.AWSRequest DeleteReplicationGroup where
             Prelude.<$> (x Data..@? "ReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteReplicationGroup where
   hashWithSalt _salt DeleteReplicationGroup' {..} =

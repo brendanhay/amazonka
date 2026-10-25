@@ -117,6 +117,8 @@ instance Core.AWSRequest CreateHomeRegionControl where
             Prelude.<$> (x Data..?> "HomeRegionControl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateHomeRegionControl where
   hashWithSalt _salt CreateHomeRegionControl' {..} =

@@ -87,6 +87,8 @@ instance Core.AWSRequest GetCanary where
             Prelude.<$> (x Data..?> "Canary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCanary where
   hashWithSalt _salt GetCanary' {..} =

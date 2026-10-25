@@ -135,6 +135,8 @@ instance Core.AWSRequest DeleteCanary where
           DeleteCanaryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCanary where
   hashWithSalt _salt DeleteCanary' {..} =

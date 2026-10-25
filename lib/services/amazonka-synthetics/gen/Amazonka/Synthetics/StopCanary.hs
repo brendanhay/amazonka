@@ -94,6 +94,8 @@ instance Core.AWSRequest StopCanary where
           StopCanaryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopCanary where
   hashWithSalt _salt StopCanary' {..} =

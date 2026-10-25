@@ -339,6 +339,13 @@ instance Core.AWSRequest CreateDataSource where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Id")
       )
+  updateIdempotencyToken
+    f
+    s@CreateDataSource' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateDataSource
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateDataSource where
   hashWithSalt _salt CreateDataSource' {..} =

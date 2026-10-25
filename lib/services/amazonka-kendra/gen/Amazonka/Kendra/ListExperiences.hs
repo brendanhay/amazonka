@@ -123,6 +123,8 @@ instance Core.AWSRequest ListExperiences where
             Prelude.<*> (x Data..?> "SummaryItems" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListExperiences where
   hashWithSalt _salt ListExperiences' {..} =

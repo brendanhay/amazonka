@@ -202,6 +202,8 @@ instance Core.AWSRequest DeletePrincipalMapping where
   response =
     Response.receiveNull
       DeletePrincipalMappingResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePrincipalMapping where
   hashWithSalt _salt DeletePrincipalMapping' {..} =

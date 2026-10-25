@@ -149,6 +149,8 @@ instance Core.AWSRequest UpdateExperience where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateExperienceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateExperience where
   hashWithSalt _salt UpdateExperience' {..} =

@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteThesaurus where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteThesaurusResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteThesaurus where
   hashWithSalt _salt DeleteThesaurus' {..} =

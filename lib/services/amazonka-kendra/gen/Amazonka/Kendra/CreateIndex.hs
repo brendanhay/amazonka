@@ -291,6 +291,11 @@ instance Core.AWSRequest CreateIndex where
             Prelude.<$> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@CreateIndex' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateIndex
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateIndex where
   hashWithSalt _salt CreateIndex' {..} =

@@ -262,6 +262,8 @@ instance Core.AWSRequest PutPrincipalMapping where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull PutPrincipalMappingResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutPrincipalMapping where
   hashWithSalt _salt PutPrincipalMapping' {..} =

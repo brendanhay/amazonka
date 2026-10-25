@@ -133,6 +133,8 @@ instance Core.AWSRequest ListEntityPersonas where
             Prelude.<*> (x Data..?> "SummaryItems" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListEntityPersonas where
   hashWithSalt _salt ListEntityPersonas' {..} =

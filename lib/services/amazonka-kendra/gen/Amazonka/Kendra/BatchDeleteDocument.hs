@@ -120,6 +120,8 @@ instance Core.AWSRequest BatchDeleteDocument where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchDeleteDocument where
   hashWithSalt _salt BatchDeleteDocument' {..} =

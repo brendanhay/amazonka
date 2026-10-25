@@ -184,6 +184,8 @@ instance
   response =
     Response.receiveNull
       UpdateQuerySuggestionsBlockListResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

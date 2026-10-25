@@ -126,6 +126,8 @@ instance Core.AWSRequest SubmitFeedback where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull SubmitFeedbackResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SubmitFeedback where
   hashWithSalt _salt SubmitFeedback' {..} =

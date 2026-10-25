@@ -197,6 +197,8 @@ instance Core.AWSRequest UpdateIndex where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull UpdateIndexResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateIndex where
   hashWithSalt _salt UpdateIndex' {..} =

@@ -93,6 +93,8 @@ instance Core.AWSRequest DeleteDataSource where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteDataSourceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDataSource where
   hashWithSalt _salt DeleteDataSource' {..} =

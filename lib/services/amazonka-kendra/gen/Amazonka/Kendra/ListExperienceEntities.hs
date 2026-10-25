@@ -127,6 +127,8 @@ instance Core.AWSRequest ListExperienceEntities where
             Prelude.<*> (x Data..?> "SummaryItems" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListExperienceEntities where
   hashWithSalt _salt ListExperienceEntities' {..} =

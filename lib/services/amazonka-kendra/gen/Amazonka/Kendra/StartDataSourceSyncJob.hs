@@ -103,6 +103,8 @@ instance Core.AWSRequest StartDataSourceSyncJob where
             Prelude.<$> (x Data..?> "ExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartDataSourceSyncJob where
   hashWithSalt _salt StartDataSourceSyncJob' {..} =

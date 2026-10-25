@@ -203,6 +203,14 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Id")
       )
+  updateIdempotencyToken
+    f
+    s@CreateAccessControlConfiguration' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateAccessControlConfiguration
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

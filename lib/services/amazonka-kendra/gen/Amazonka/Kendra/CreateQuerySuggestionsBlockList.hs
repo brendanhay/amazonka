@@ -243,6 +243,14 @@ instance
             Prelude.<$> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateQuerySuggestionsBlockList' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateQuerySuggestionsBlockList
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

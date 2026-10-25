@@ -121,6 +121,8 @@ instance Core.AWSRequest DescribeStateMachine where
             Prelude.<*> (x Data..:> "type")
             Prelude.<*> (x Data..:> "creationDate")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeStateMachine where
   hashWithSalt _salt DescribeStateMachine' {..} =

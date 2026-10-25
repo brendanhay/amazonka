@@ -184,6 +184,8 @@ instance Core.AWSRequest StartSyncExecution where
             Prelude.<*> (x Data..:> "stopDate")
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartSyncExecution where
   hashWithSalt _salt StartSyncExecution' {..} =

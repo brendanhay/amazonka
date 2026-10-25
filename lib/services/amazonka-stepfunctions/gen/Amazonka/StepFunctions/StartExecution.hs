@@ -226,6 +226,8 @@ instance Core.AWSRequest StartExecution where
             Prelude.<*> (x Data..:> "executionArn")
             Prelude.<*> (x Data..:> "startDate")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartExecution where
   hashWithSalt _salt StartExecution' {..} =

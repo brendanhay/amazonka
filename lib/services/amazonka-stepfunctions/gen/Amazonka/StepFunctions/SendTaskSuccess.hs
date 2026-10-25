@@ -117,6 +117,8 @@ instance Core.AWSRequest SendTaskSuccess where
           SendTaskSuccessResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SendTaskSuccess where
   hashWithSalt _salt SendTaskSuccess' {..} =

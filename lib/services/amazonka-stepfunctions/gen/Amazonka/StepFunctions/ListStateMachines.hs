@@ -160,6 +160,8 @@ instance Core.AWSRequest ListStateMachines where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "stateMachines" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListStateMachines where
   hashWithSalt _salt ListStateMachines' {..} =

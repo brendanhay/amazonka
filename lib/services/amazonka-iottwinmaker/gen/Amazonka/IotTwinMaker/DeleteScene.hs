@@ -97,6 +97,8 @@ instance Core.AWSRequest DeleteScene where
           DeleteSceneResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteScene where
   hashWithSalt _salt DeleteScene' {..} =

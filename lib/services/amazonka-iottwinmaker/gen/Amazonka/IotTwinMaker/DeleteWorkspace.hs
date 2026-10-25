@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteWorkspace where
           DeleteWorkspaceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteWorkspace where
   hashWithSalt _salt DeleteWorkspace' {..} =

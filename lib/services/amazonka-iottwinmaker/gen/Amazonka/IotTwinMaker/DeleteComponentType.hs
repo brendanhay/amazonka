@@ -103,6 +103,8 @@ instance Core.AWSRequest DeleteComponentType where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "state")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteComponentType where
   hashWithSalt _salt DeleteComponentType' {..} =

@@ -195,6 +195,8 @@ instance Core.AWSRequest CreateComponentType where
             Prelude.<*> (x Data..:> "creationDateTime")
             Prelude.<*> (x Data..:> "state")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateComponentType where
   hashWithSalt _salt CreateComponentType' {..} =

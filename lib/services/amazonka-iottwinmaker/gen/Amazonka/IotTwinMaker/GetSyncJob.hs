@@ -115,6 +115,8 @@ instance Core.AWSRequest GetSyncJob where
             Prelude.<*> (x Data..:> "creationDateTime")
             Prelude.<*> (x Data..:> "updateDateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSyncJob where
   hashWithSalt _salt GetSyncJob' {..} =

@@ -138,6 +138,8 @@ instance Core.AWSRequest CreateWorkspace where
             Prelude.<*> (x Data..:> "arn")
             Prelude.<*> (x Data..:> "creationDateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateWorkspace where
   hashWithSalt _salt CreateWorkspace' {..} =

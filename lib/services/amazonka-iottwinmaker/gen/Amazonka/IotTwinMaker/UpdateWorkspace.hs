@@ -109,6 +109,8 @@ instance Core.AWSRequest UpdateWorkspace where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "updateDateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateWorkspace where
   hashWithSalt _salt UpdateWorkspace' {..} =

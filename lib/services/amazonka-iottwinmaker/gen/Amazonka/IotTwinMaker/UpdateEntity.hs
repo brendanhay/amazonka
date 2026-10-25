@@ -144,6 +144,8 @@ instance Core.AWSRequest UpdateEntity where
             Prelude.<*> (x Data..:> "updateDateTime")
             Prelude.<*> (x Data..:> "state")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateEntity where
   hashWithSalt _salt UpdateEntity' {..} =

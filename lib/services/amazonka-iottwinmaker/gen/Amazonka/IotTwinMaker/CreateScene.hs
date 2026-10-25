@@ -149,6 +149,8 @@ instance Core.AWSRequest CreateScene where
             Prelude.<*> (x Data..:> "arn")
             Prelude.<*> (x Data..:> "creationDateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateScene where
   hashWithSalt _salt CreateScene' {..} =

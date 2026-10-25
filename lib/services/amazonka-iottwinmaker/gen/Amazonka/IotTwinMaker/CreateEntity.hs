@@ -158,6 +158,8 @@ instance Core.AWSRequest CreateEntity where
             Prelude.<*> (x Data..:> "creationDateTime")
             Prelude.<*> (x Data..:> "state")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateEntity where
   hashWithSalt _salt CreateEntity' {..} =

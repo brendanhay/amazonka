@@ -144,6 +144,8 @@ instance Core.AWSRequest CreateFleetAdvisorCollector where
             Prelude.<*> (x Data..?> "ServiceAccessRoleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateFleetAdvisorCollector where
   hashWithSalt _salt CreateFleetAdvisorCollector' {..} =

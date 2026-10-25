@@ -729,6 +729,8 @@ instance Core.AWSRequest ModifyEndpoint where
             Prelude.<$> (x Data..?> "Endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyEndpoint where
   hashWithSalt _salt ModifyEndpoint' {..} =

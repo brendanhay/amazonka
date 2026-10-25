@@ -463,6 +463,8 @@ instance Core.AWSRequest CreateReplicationInstance where
             Prelude.<$> (x Data..?> "ReplicationInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateReplicationInstance where
   hashWithSalt _salt CreateReplicationInstance' {..} =

@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteFleetAdvisorDatabases where
             Prelude.<$> (x Data..?> "DatabaseIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFleetAdvisorDatabases where
   hashWithSalt _salt DeleteFleetAdvisorDatabases' {..} =

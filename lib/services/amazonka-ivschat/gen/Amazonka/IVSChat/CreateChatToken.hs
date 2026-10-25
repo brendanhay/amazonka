@@ -172,6 +172,8 @@ instance Core.AWSRequest CreateChatToken where
             Prelude.<*> (x Data..?> "tokenExpirationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateChatToken where
   hashWithSalt _salt CreateChatToken' {..} =

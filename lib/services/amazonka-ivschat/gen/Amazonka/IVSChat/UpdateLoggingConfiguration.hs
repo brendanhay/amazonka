@@ -130,6 +130,8 @@ instance Core.AWSRequest UpdateLoggingConfiguration where
             Prelude.<*> (x Data..?> "updateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateLoggingConfiguration where
   hashWithSalt _salt UpdateLoggingConfiguration' {..} =

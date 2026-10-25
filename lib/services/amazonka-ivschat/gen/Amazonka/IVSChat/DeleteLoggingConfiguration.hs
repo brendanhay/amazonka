@@ -82,6 +82,8 @@ instance Core.AWSRequest DeleteLoggingConfiguration where
   response =
     Response.receiveNull
       DeleteLoggingConfigurationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteLoggingConfiguration where
   hashWithSalt _salt DeleteLoggingConfiguration' {..} =

@@ -128,6 +128,8 @@ instance Core.AWSRequest DeleteMessage where
             Prelude.<$> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteMessage where
   hashWithSalt _salt DeleteMessage' {..} =

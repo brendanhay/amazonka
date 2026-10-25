@@ -142,6 +142,8 @@ instance Core.AWSRequest GetCellReadinessSummary where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCellReadinessSummary where
   hashWithSalt _salt GetCellReadinessSummary' {..} =

@@ -81,6 +81,8 @@ instance Core.AWSRequest DeleteReadinessCheck where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteReadinessCheckResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteReadinessCheck where
   hashWithSalt _salt DeleteReadinessCheck' {..} =

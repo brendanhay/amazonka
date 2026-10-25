@@ -76,6 +76,8 @@ instance Core.AWSRequest DeleteCell where
   request overrides =
     Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteCellResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCell where
   hashWithSalt _salt DeleteCell' {..} =

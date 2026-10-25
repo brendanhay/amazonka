@@ -1119,6 +1119,8 @@ instance Core.AWSRequest Search where
             Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable Search where
   hashWithSalt _salt Search' {..} =

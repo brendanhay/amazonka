@@ -145,6 +145,8 @@ instance Core.AWSRequest ListEnvironmentVpcs where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListEnvironmentVpcs where
   hashWithSalt _salt ListEnvironmentVpcs' {..} =

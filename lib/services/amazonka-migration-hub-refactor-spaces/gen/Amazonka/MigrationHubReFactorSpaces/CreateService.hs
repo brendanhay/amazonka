@@ -250,6 +250,13 @@ instance Core.AWSRequest CreateService where
             Prelude.<*> (x Data..?> "VpcId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateService' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateService
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateService where
   hashWithSalt _salt CreateService' {..} =

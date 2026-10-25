@@ -112,6 +112,8 @@ instance Core.AWSRequest GetEnvironment where
             Prelude.<*> (x Data..?> "TransitGatewayId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetEnvironment where
   hashWithSalt _salt GetEnvironment' {..} =

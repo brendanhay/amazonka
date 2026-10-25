@@ -140,6 +140,8 @@ instance Core.AWSRequest UnsubscribeFromDataset where
           UnsubscribeFromDatasetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UnsubscribeFromDataset where
   hashWithSalt _salt UnsubscribeFromDataset' {..} =

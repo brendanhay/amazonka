@@ -122,6 +122,8 @@ instance Core.AWSRequest DescribeIdentityUsage where
             Prelude.<$> (x Data..?> "IdentityUsage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeIdentityUsage where
   hashWithSalt _salt DescribeIdentityUsage' {..} =

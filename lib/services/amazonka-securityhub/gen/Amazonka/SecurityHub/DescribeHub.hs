@@ -88,6 +88,8 @@ instance Core.AWSRequest DescribeHub where
             Prelude.<*> (x Data..?> "SubscribedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeHub where
   hashWithSalt _salt DescribeHub' {..} =

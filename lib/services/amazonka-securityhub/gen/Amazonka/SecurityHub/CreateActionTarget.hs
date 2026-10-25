@@ -119,6 +119,8 @@ instance Core.AWSRequest CreateActionTarget where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ActionTargetArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateActionTarget where
   hashWithSalt _salt CreateActionTarget' {..} =

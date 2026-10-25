@@ -214,6 +214,8 @@ instance Core.AWSRequest UpdateFindingAggregator where
             Prelude.<*> (x Data..?> "Regions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateFindingAggregator where
   hashWithSalt _salt UpdateFindingAggregator' {..} =

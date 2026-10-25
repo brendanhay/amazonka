@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteInsight where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "InsightArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteInsight where
   hashWithSalt _salt DeleteInsight' {..} =

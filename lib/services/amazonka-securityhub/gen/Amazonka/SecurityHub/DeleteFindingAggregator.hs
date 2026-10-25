@@ -96,6 +96,8 @@ instance Core.AWSRequest DeleteFindingAggregator where
           DeleteFindingAggregatorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFindingAggregator where
   hashWithSalt _salt DeleteFindingAggregator' {..} =

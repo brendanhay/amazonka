@@ -118,6 +118,8 @@ instance Core.AWSRequest UpdateInsight where
           UpdateInsightResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateInsight where
   hashWithSalt _salt UpdateInsight' {..} =

@@ -151,6 +151,8 @@ instance Core.AWSRequest BatchImportFindings where
             Prelude.<*> (x Data..:> "FailedCount")
             Prelude.<*> (x Data..:> "SuccessCount")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchImportFindings where
   hashWithSalt _salt BatchImportFindings' {..} =

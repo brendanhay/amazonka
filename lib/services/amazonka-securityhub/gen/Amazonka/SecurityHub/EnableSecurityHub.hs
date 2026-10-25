@@ -134,6 +134,8 @@ instance Core.AWSRequest EnableSecurityHub where
           EnableSecurityHubResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable EnableSecurityHub where
   hashWithSalt _salt EnableSecurityHub' {..} =

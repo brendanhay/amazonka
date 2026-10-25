@@ -144,6 +144,8 @@ instance Core.AWSRequest DescribeStandards where
             Prelude.<*> (x Data..?> "Standards" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeStandards where
   hashWithSalt _salt DescribeStandards' {..} =

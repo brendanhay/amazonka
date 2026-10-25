@@ -133,6 +133,8 @@ instance Core.AWSRequest CreateInsight where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "InsightArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateInsight where
   hashWithSalt _salt CreateInsight' {..} =

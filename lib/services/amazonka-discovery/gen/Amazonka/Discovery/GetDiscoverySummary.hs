@@ -88,6 +88,8 @@ instance Core.AWSRequest GetDiscoverySummary where
             Prelude.<*> (x Data..?> "serversMappedtoTags")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDiscoverySummary where
   hashWithSalt _salt _ =

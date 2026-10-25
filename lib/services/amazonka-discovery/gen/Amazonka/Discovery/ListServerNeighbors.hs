@@ -152,6 +152,8 @@ instance Core.AWSRequest ListServerNeighbors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "neighbors" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListServerNeighbors where
   hashWithSalt _salt ListServerNeighbors' {..} =

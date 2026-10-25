@@ -89,6 +89,8 @@ instance Core.AWSRequest StopContinuousExport where
             Prelude.<*> (x Data..?> "stopTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopContinuousExport where
   hashWithSalt _salt StopContinuousExport' {..} =

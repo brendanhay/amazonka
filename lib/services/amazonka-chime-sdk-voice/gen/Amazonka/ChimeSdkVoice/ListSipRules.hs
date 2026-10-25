@@ -128,6 +128,8 @@ instance Core.AWSRequest ListSipRules where
             Prelude.<*> (x Data..?> "SipRules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSipRules where
   hashWithSalt _salt ListSipRules' {..} =

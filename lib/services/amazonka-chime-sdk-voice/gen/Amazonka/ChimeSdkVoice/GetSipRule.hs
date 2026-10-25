@@ -84,6 +84,8 @@ instance Core.AWSRequest GetSipRule where
             Prelude.<$> (x Data..?> "SipRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSipRule where
   hashWithSalt _salt GetSipRule' {..} =

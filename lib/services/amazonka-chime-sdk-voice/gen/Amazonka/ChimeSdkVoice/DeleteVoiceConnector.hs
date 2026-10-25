@@ -80,6 +80,8 @@ instance Core.AWSRequest DeleteVoiceConnector where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteVoiceConnectorResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVoiceConnector where
   hashWithSalt _salt DeleteVoiceConnector' {..} =

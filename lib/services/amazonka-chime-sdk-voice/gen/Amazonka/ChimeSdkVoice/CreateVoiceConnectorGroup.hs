@@ -98,6 +98,8 @@ instance Core.AWSRequest CreateVoiceConnectorGroup where
             Prelude.<$> (x Data..?> "VoiceConnectorGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateVoiceConnectorGroup where
   hashWithSalt _salt CreateVoiceConnectorGroup' {..} =

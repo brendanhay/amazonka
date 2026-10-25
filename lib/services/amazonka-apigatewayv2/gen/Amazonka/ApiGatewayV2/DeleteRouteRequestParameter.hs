@@ -109,6 +109,8 @@ instance Core.AWSRequest DeleteRouteRequestParameter where
   response =
     Response.receiveNull
       DeleteRouteRequestParameterResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRouteRequestParameter where
   hashWithSalt _salt DeleteRouteRequestParameter' {..} =

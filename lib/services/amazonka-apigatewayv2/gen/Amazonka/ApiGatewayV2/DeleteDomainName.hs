@@ -78,6 +78,8 @@ instance Core.AWSRequest DeleteDomainName where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteDomainNameResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDomainName where
   hashWithSalt _salt DeleteDomainName' {..} =

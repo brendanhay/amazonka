@@ -140,6 +140,8 @@ instance Core.AWSRequest CreateVpcLink where
             Prelude.<*> (x Data..?> "vpcLinkVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateVpcLink where
   hashWithSalt _salt CreateVpcLink' {..} =

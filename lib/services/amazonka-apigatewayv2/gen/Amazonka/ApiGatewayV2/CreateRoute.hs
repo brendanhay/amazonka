@@ -258,6 +258,8 @@ instance Core.AWSRequest CreateRoute where
             Prelude.<*> (x Data..?> "target")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateRoute where
   hashWithSalt _salt CreateRoute' {..} =

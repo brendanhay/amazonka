@@ -157,6 +157,8 @@ instance Core.AWSRequest ImportApi where
             Prelude.<*> (x Data..?> "warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportApi where
   hashWithSalt _salt ImportApi' {..} =

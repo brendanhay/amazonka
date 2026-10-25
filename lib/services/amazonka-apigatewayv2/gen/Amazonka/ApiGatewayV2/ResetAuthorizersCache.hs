@@ -99,6 +99,8 @@ instance Core.AWSRequest ResetAuthorizersCache where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull ResetAuthorizersCacheResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResetAuthorizersCache where
   hashWithSalt _salt ResetAuthorizersCache' {..} =

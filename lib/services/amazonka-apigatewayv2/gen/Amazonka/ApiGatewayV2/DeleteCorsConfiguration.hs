@@ -79,6 +79,8 @@ instance Core.AWSRequest DeleteCorsConfiguration where
   response =
     Response.receiveNull
       DeleteCorsConfigurationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCorsConfiguration where
   hashWithSalt _salt DeleteCorsConfiguration' {..} =

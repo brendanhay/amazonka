@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteIntegration where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteIntegrationResponse''
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteIntegration where
   hashWithSalt _salt DeleteIntegration' {..} =

@@ -649,6 +649,8 @@ instance Core.AWSRequest CreateIntegration where
             Prelude.<*> (x Data..?> "tlsConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateIntegration where
   hashWithSalt _salt CreateIntegration' {..} =

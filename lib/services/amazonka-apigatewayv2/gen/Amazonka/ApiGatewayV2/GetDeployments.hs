@@ -138,6 +138,8 @@ instance Core.AWSRequest GetDeployments where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDeployments where
   hashWithSalt _salt GetDeployments' {..} =

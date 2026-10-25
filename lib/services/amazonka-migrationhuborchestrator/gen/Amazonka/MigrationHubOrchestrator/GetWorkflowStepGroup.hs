@@ -123,6 +123,8 @@ instance Core.AWSRequest GetWorkflowStepGroup where
             Prelude.<*> (x Data..?> "workflowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetWorkflowStepGroup where
   hashWithSalt _salt GetWorkflowStepGroup' {..} =

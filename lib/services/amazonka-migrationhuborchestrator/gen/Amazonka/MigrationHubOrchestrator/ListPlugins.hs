@@ -121,6 +121,8 @@ instance Core.AWSRequest ListPlugins where
             Prelude.<*> (x Data..?> "plugins" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPlugins where
   hashWithSalt _salt ListPlugins' {..} =

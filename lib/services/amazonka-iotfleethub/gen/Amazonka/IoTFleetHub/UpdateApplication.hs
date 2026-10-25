@@ -128,6 +128,13 @@ instance Core.AWSRequest UpdateApplication where
           UpdateApplicationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateApplication' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: UpdateApplication
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =

@@ -109,6 +109,8 @@ instance Core.AWSRequest UpdateSubnetGroup where
             Prelude.<$> (x Data..?> "SubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateSubnetGroup where
   hashWithSalt _salt UpdateSubnetGroup' {..} =

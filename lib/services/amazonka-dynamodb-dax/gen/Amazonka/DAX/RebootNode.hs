@@ -104,6 +104,8 @@ instance Core.AWSRequest RebootNode where
             Prelude.<$> (x Data..?> "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RebootNode where
   hashWithSalt _salt RebootNode' {..} =

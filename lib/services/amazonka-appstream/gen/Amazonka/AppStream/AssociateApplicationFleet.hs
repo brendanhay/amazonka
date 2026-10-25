@@ -104,6 +104,8 @@ instance Core.AWSRequest AssociateApplicationFleet where
             Prelude.<$> (x Data..?> "ApplicationFleetAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateApplicationFleet where
   hashWithSalt _salt AssociateApplicationFleet' {..} =

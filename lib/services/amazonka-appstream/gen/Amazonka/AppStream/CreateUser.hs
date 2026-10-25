@@ -163,6 +163,8 @@ instance Core.AWSRequest CreateUser where
           CreateUserResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =

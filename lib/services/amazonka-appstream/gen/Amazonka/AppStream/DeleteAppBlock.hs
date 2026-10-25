@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteAppBlock where
           DeleteAppBlockResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAppBlock where
   hashWithSalt _salt DeleteAppBlock' {..} =

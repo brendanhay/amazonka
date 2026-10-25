@@ -129,6 +129,8 @@ instance Core.AWSRequest ListAssociatedFleets where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAssociatedFleets where
   hashWithSalt _salt ListAssociatedFleets' {..} =

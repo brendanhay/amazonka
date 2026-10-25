@@ -90,6 +90,8 @@ instance Core.AWSRequest DeleteDirectoryConfig where
           DeleteDirectoryConfigResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDirectoryConfig where
   hashWithSalt _salt DeleteDirectoryConfig' {..} =

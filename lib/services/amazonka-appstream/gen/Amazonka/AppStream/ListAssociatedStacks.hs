@@ -129,6 +129,8 @@ instance Core.AWSRequest ListAssociatedStacks where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAssociatedStacks where
   hashWithSalt _salt ListAssociatedStacks' {..} =

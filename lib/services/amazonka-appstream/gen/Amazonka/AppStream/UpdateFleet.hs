@@ -726,6 +726,8 @@ instance Core.AWSRequest UpdateFleet where
             Prelude.<$> (x Data..?> "Fleet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateFleet where
   hashWithSalt _salt UpdateFleet' {..} =

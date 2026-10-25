@@ -91,6 +91,8 @@ instance Core.AWSRequest DescribeContainer where
             Prelude.<$> (x Data..?> "Container")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeContainer where
   hashWithSalt _salt DescribeContainer' {..} =

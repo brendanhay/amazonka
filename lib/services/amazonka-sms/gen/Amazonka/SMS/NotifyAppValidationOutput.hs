@@ -99,6 +99,8 @@ instance Core.AWSRequest NotifyAppValidationOutput where
           NotifyAppValidationOutputResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable NotifyAppValidationOutput where
   hashWithSalt _salt NotifyAppValidationOutput' {..} =

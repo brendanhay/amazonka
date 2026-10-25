@@ -144,6 +144,8 @@ instance Core.AWSRequest GetServers where
             Prelude.<*> (x Data..?> "serverList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetServers where
   hashWithSalt _salt GetServers' {..} =

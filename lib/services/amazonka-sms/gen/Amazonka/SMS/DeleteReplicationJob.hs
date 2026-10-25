@@ -93,6 +93,8 @@ instance Core.AWSRequest DeleteReplicationJob where
           DeleteReplicationJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteReplicationJob where
   hashWithSalt _salt DeleteReplicationJob' {..} =

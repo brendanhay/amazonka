@@ -146,6 +146,8 @@ instance Core.AWSRequest GetReplicationRuns where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetReplicationRuns where
   hashWithSalt _salt GetReplicationRuns' {..} =

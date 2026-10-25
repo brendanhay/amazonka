@@ -229,6 +229,8 @@ instance Core.AWSRequest CreateReplicationJob where
             Prelude.<$> (x Data..?> "replicationJobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateReplicationJob where
   hashWithSalt _salt CreateReplicationJob' {..} =

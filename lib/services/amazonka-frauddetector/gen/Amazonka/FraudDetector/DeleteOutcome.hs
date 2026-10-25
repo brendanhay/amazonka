@@ -90,6 +90,8 @@ instance Core.AWSRequest DeleteOutcome where
           DeleteOutcomeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteOutcome where
   hashWithSalt _salt DeleteOutcome' {..} =

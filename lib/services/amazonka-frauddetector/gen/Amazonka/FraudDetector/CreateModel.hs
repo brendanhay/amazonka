@@ -129,6 +129,8 @@ instance Core.AWSRequest CreateModel where
           CreateModelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateModel where
   hashWithSalt _salt CreateModel' {..} =

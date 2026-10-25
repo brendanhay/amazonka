@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteEventsByEventType where
             Prelude.<*> (x Data..?> "eventsDeletionStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteEventsByEventType where
   hashWithSalt _salt DeleteEventsByEventType' {..} =

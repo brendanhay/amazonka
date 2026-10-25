@@ -174,6 +174,8 @@ instance Core.AWSRequest CreateBatchImportJob where
           CreateBatchImportJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateBatchImportJob where
   hashWithSalt _salt CreateBatchImportJob' {..} =

@@ -106,6 +106,8 @@ instance Core.AWSRequest DeleteDetectorVersion where
           DeleteDetectorVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDetectorVersion where
   hashWithSalt _salt DeleteDetectorVersion' {..} =

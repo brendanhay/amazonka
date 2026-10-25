@@ -113,6 +113,8 @@ instance Core.AWSRequest DeleteEvent where
           DeleteEventResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteEvent where
   hashWithSalt _salt DeleteEvent' {..} =

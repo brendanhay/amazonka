@@ -159,6 +159,8 @@ instance Core.AWSRequest PutEventType where
           PutEventTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutEventType where
   hashWithSalt _salt PutEventType' {..} =

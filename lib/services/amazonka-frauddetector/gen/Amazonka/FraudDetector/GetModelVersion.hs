@@ -132,6 +132,8 @@ instance Core.AWSRequest GetModelVersion where
             Prelude.<*> (x Data..?> "trainingDataSource")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetModelVersion where
   hashWithSalt _salt GetModelVersion' {..} =

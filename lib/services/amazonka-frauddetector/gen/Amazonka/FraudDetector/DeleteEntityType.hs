@@ -91,6 +91,8 @@ instance Core.AWSRequest DeleteEntityType where
           DeleteEntityTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteEntityType where
   hashWithSalt _salt DeleteEntityType' {..} =

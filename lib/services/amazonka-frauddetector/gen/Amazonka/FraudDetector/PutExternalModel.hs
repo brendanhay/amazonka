@@ -166,6 +166,8 @@ instance Core.AWSRequest PutExternalModel where
           PutExternalModelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutExternalModel where
   hashWithSalt _salt PutExternalModel' {..} =

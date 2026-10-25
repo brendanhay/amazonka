@@ -123,6 +123,8 @@ instance Core.AWSRequest UpdateDetectorVersionStatus where
           UpdateDetectorVersionStatusResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDetectorVersionStatus where
   hashWithSalt _salt UpdateDetectorVersionStatus' {..} =

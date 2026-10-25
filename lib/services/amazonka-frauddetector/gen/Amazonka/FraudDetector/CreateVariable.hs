@@ -169,6 +169,8 @@ instance Core.AWSRequest CreateVariable where
           CreateVariableResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateVariable where
   hashWithSalt _salt CreateVariable' {..} =

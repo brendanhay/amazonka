@@ -105,6 +105,8 @@ instance Core.AWSRequest PutOutcome where
           PutOutcomeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutOutcome where
   hashWithSalt _salt PutOutcome' {..} =

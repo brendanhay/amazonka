@@ -102,6 +102,8 @@ instance Core.AWSRequest PutCaseEventConfiguration where
           PutCaseEventConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutCaseEventConfiguration where
   hashWithSalt _salt PutCaseEventConfiguration' {..} =

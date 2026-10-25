@@ -128,6 +128,8 @@ instance Core.AWSRequest CreateField where
             Prelude.<*> (x Data..:> "fieldArn")
             Prelude.<*> (x Data..:> "fieldId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateField where
   hashWithSalt _salt CreateField' {..} =

@@ -138,6 +138,8 @@ instance Core.AWSRequest CreateRelatedItem where
             Prelude.<*> (x Data..:> "relatedItemArn")
             Prelude.<*> (x Data..:> "relatedItemId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateRelatedItem where
   hashWithSalt _salt CreateRelatedItem' {..} =

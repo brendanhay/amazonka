@@ -113,6 +113,8 @@ instance Core.AWSRequest GetTemplate where
             Prelude.<*> (x Data..:> "templateArn")
             Prelude.<*> (x Data..:> "templateId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTemplate where
   hashWithSalt _salt GetTemplate' {..} =

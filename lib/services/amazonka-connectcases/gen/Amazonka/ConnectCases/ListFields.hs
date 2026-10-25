@@ -115,6 +115,8 @@ instance Core.AWSRequest ListFields where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "fields" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListFields where
   hashWithSalt _salt ListFields' {..} =

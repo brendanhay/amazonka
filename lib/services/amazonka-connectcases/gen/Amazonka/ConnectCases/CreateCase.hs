@@ -136,6 +136,11 @@ instance Core.AWSRequest CreateCase where
             Prelude.<*> (x Data..:> "caseArn")
             Prelude.<*> (x Data..:> "caseId")
       )
+  updateIdempotencyToken f s@CreateCase' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateCase
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateCase where
   hashWithSalt _salt CreateCase' {..} =

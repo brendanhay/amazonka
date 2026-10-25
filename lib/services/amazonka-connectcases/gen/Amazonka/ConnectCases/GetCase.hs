@@ -133,6 +133,8 @@ instance Core.AWSRequest GetCase where
             Prelude.<*> (x Data..?> "fields" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..:> "templateId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCase where
   hashWithSalt _salt GetCase' {..} =

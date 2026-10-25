@@ -112,6 +112,8 @@ instance Core.AWSRequest BatchPutFieldOptions where
             Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchPutFieldOptions where
   hashWithSalt _salt BatchPutFieldOptions' {..} =

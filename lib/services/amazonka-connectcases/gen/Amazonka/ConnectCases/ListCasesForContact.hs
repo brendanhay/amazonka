@@ -129,6 +129,8 @@ instance Core.AWSRequest ListCasesForContact where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "cases" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListCasesForContact where
   hashWithSalt _salt ListCasesForContact' {..} =

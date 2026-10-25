@@ -107,6 +107,8 @@ instance Core.AWSRequest GetLayout where
             Prelude.<*> (x Data..:> "layoutId")
             Prelude.<*> (x Data..:> "name")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetLayout where
   hashWithSalt _salt GetLayout' {..} =

@@ -87,6 +87,8 @@ instance Core.AWSRequest GetCaseEventConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "eventBridge")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCaseEventConfiguration where
   hashWithSalt _salt GetCaseEventConfiguration' {..} =

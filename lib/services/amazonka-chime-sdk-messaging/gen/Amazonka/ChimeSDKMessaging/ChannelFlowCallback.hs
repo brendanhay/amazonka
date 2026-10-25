@@ -67,7 +67,7 @@ data ChannelFlowCallback = ChannelFlowCallback'
     deleteResource :: Prelude.Maybe Prelude.Bool,
     -- | The identifier passed to the processor by the service when invoked. Use
     -- the identifier to call back the service.
-    callbackId :: Prelude.Text,
+    callbackId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the channel.
     channelArn :: Prelude.Text,
     -- | Stores information about the processed message.
@@ -93,24 +93,19 @@ data ChannelFlowCallback = ChannelFlowCallback'
 --
 -- 'channelMessage', 'channelFlowCallback_channelMessage' - Stores information about the processed message.
 newChannelFlowCallback ::
-  -- | 'callbackId'
-  Prelude.Text ->
   -- | 'channelArn'
   Prelude.Text ->
   -- | 'channelMessage'
   ChannelMessageCallback ->
   ChannelFlowCallback
-newChannelFlowCallback
-  pCallbackId_
-  pChannelArn_
-  pChannelMessage_ =
-    ChannelFlowCallback'
-      { deleteResource =
-          Prelude.Nothing,
-        callbackId = pCallbackId_,
-        channelArn = pChannelArn_,
-        channelMessage = pChannelMessage_
-      }
+newChannelFlowCallback pChannelArn_ pChannelMessage_ =
+  ChannelFlowCallback'
+    { deleteResource =
+        Prelude.Nothing,
+      callbackId = Prelude.Nothing,
+      channelArn = pChannelArn_,
+      channelMessage = pChannelMessage_
+    }
 
 -- | When a processor determines that a message needs to be @DENIED@, pass
 -- this parameter with a value of true.
@@ -119,7 +114,7 @@ channelFlowCallback_deleteResource = Lens.lens (\ChannelFlowCallback' {deleteRes
 
 -- | The identifier passed to the processor by the service when invoked. Use
 -- the identifier to call back the service.
-channelFlowCallback_callbackId :: Lens.Lens' ChannelFlowCallback Prelude.Text
+channelFlowCallback_callbackId :: Lens.Lens' ChannelFlowCallback (Prelude.Maybe Prelude.Text)
 channelFlowCallback_callbackId = Lens.lens (\ChannelFlowCallback' {callbackId} -> callbackId) (\s@ChannelFlowCallback' {} a -> s {callbackId = a} :: ChannelFlowCallback)
 
 -- | The ARN of the channel.
@@ -144,6 +139,13 @@ instance Core.AWSRequest ChannelFlowCallback where
             Prelude.<*> (x Data..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@ChannelFlowCallback' {callbackId} =
+      ( \callbackId' ->
+          s {callbackId = callbackId'} :: ChannelFlowCallback
+      )
+        Prelude.<$> f callbackId
 
 instance Prelude.Hashable ChannelFlowCallback where
   hashWithSalt _salt ChannelFlowCallback' {..} =
@@ -169,7 +171,7 @@ instance Data.ToJSON ChannelFlowCallback where
       ( Prelude.catMaybes
           [ ("DeleteResource" Data..=)
               Prelude.<$> deleteResource,
-            Prelude.Just ("CallbackId" Data..= callbackId),
+            ("CallbackId" Data..=) Prelude.<$> callbackId,
             Prelude.Just
               ("ChannelMessage" Data..= channelMessage)
           ]

@@ -117,6 +117,8 @@ instance Core.AWSRequest UpdateChannelFlow where
             Prelude.<$> (x Data..?> "ChannelFlowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateChannelFlow where
   hashWithSalt _salt UpdateChannelFlow' {..} =

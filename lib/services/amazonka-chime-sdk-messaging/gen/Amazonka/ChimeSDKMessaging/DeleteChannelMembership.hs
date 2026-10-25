@@ -132,6 +132,8 @@ instance Core.AWSRequest DeleteChannelMembership where
   response =
     Response.receiveNull
       DeleteChannelMembershipResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteChannelMembership where
   hashWithSalt _salt DeleteChannelMembership' {..} =

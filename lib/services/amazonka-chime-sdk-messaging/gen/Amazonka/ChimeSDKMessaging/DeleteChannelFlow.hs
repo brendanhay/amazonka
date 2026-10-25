@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteChannelFlow where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteChannelFlowResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteChannelFlow where
   hashWithSalt _salt DeleteChannelFlow' {..} =

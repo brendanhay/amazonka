@@ -120,6 +120,8 @@ instance Core.AWSRequest DescribeChannelBan where
             Prelude.<$> (x Data..?> "ChannelBan")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeChannelBan where
   hashWithSalt _salt DescribeChannelBan' {..} =

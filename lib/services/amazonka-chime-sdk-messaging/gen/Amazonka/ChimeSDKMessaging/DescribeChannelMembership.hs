@@ -140,6 +140,8 @@ instance Core.AWSRequest DescribeChannelMembership where
             Prelude.<$> (x Data..?> "ChannelMembership")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeChannelMembership where
   hashWithSalt _salt DescribeChannelMembership' {..} =

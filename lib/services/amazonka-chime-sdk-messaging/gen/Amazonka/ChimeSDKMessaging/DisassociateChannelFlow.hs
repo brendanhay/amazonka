@@ -115,6 +115,8 @@ instance Core.AWSRequest DisassociateChannelFlow where
   response =
     Response.receiveNull
       DisassociateChannelFlowResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateChannelFlow where
   hashWithSalt _salt DisassociateChannelFlow' {..} =

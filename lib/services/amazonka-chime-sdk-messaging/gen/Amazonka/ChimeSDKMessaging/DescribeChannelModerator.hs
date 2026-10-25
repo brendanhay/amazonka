@@ -121,6 +121,8 @@ instance Core.AWSRequest DescribeChannelModerator where
             Prelude.<$> (x Data..?> "ChannelModerator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeChannelModerator where
   hashWithSalt _salt DescribeChannelModerator' {..} =

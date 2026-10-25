@@ -130,6 +130,8 @@ instance Core.AWSRequest ListSubChannels where
             Prelude.<*> (x Data..?> "SubChannels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSubChannels where
   hashWithSalt _salt ListSubChannels' {..} =

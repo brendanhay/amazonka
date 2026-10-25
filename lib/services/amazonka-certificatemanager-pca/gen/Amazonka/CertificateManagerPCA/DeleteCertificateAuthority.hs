@@ -141,6 +141,8 @@ instance Core.AWSRequest DeleteCertificateAuthority where
   response =
     Response.receiveNull
       DeleteCertificateAuthorityResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCertificateAuthority where
   hashWithSalt _salt DeleteCertificateAuthority' {..} =

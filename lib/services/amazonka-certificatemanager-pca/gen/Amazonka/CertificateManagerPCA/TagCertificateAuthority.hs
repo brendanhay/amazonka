@@ -125,6 +125,8 @@ instance Core.AWSRequest TagCertificateAuthority where
   response =
     Response.receiveNull
       TagCertificateAuthorityResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TagCertificateAuthority where
   hashWithSalt _salt TagCertificateAuthority' {..} =

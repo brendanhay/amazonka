@@ -610,6 +610,8 @@ instance Core.AWSRequest ReceiveMessage where
             Prelude.<$> (Core.may (Data.parseXMLList "Message") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ReceiveMessage where
   hashWithSalt _salt ReceiveMessage' {..} =

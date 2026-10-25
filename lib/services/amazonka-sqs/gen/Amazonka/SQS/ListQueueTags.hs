@@ -96,6 +96,8 @@ instance Core.AWSRequest ListQueueTags where
             Prelude.<$> (Core.may (Data.parseXMLMap "Tag" "Key" "Value") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListQueueTags where
   hashWithSalt _salt ListQueueTags' {..} =

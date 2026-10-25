@@ -121,6 +121,8 @@ instance Core.AWSRequest DeleteMessage where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeleteMessageResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteMessage where
   hashWithSalt _salt DeleteMessage' {..} =

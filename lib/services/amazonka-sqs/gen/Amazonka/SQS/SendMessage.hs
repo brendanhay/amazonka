@@ -503,6 +503,8 @@ instance Core.AWSRequest SendMessage where
             Prelude.<*> (x Data..@? "SequenceNumber")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SendMessage where
   hashWithSalt _salt SendMessage' {..} =

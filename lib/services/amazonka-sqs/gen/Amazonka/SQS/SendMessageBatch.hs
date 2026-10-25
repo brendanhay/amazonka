@@ -142,6 +142,8 @@ instance Core.AWSRequest SendMessageBatch where
             Prelude.<*> (Data.parseXMLList "SendMessageBatchResultEntry" x)
             Prelude.<*> (Data.parseXMLList "BatchResultErrorEntry" x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SendMessageBatch where
   hashWithSalt _salt SendMessageBatch' {..} =

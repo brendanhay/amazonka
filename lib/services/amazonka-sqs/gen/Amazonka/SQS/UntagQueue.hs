@@ -95,6 +95,8 @@ instance Core.AWSRequest UntagQueue where
   request overrides =
     Request.postQuery (overrides defaultService)
   response = Response.receiveNull UntagQueueResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UntagQueue where
   hashWithSalt _salt UntagQueue' {..} =

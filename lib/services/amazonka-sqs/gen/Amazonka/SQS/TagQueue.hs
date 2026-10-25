@@ -111,6 +111,8 @@ instance Core.AWSRequest TagQueue where
   request overrides =
     Request.postQuery (overrides defaultService)
   response = Response.receiveNull TagQueueResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TagQueue where
   hashWithSalt _salt TagQueue' {..} =

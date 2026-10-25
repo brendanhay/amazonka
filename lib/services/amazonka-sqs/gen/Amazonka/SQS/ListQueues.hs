@@ -165,6 +165,8 @@ instance Core.AWSRequest ListQueues where
             Prelude.<*> (Core.may (Data.parseXMLList "QueueUrl") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListQueues where
   hashWithSalt _salt ListQueues' {..} =

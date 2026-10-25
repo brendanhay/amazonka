@@ -173,6 +173,14 @@ instance Core.AWSRequest CreatePrivateDnsNamespace where
             Prelude.<$> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreatePrivateDnsNamespace' {creatorRequestId} =
+      ( \creatorRequestId' ->
+          s {creatorRequestId = creatorRequestId'} ::
+            CreatePrivateDnsNamespace
+      )
+        Prelude.<$> f creatorRequestId
 
 instance Prelude.Hashable CreatePrivateDnsNamespace where
   hashWithSalt _salt CreatePrivateDnsNamespace' {..} =

@@ -225,6 +225,8 @@ instance Core.AWSRequest DiscoverInstances where
             Prelude.<$> (x Data..?> "Instances" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DiscoverInstances where
   hashWithSalt _salt DiscoverInstances' {..} =

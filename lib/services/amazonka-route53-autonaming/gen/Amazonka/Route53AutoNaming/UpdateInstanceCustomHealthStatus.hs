@@ -125,6 +125,8 @@ instance
   response =
     Response.receiveNull
       UpdateInstanceCustomHealthStatusResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

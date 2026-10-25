@@ -133,6 +133,8 @@ instance Core.AWSRequest UnlinkDeveloperIdentity where
   response =
     Response.receiveNull
       UnlinkDeveloperIdentityResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UnlinkDeveloperIdentity where
   hashWithSalt _salt UnlinkDeveloperIdentity' {..} =

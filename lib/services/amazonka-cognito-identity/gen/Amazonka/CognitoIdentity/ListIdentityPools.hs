@@ -129,6 +129,8 @@ instance Core.AWSRequest ListIdentityPools where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListIdentityPools where
   hashWithSalt _salt ListIdentityPools' {..} =

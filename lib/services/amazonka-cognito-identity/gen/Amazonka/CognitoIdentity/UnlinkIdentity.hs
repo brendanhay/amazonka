@@ -109,6 +109,8 @@ instance Core.AWSRequest UnlinkIdentity where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UnlinkIdentityResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UnlinkIdentity where
   hashWithSalt _salt UnlinkIdentity' {..} =

@@ -134,6 +134,8 @@ instance Core.AWSRequest SetPrincipalTagAttributeMap where
             Prelude.<*> (x Data..?> "UseDefaults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetPrincipalTagAttributeMap where
   hashWithSalt _salt SetPrincipalTagAttributeMap' {..} =

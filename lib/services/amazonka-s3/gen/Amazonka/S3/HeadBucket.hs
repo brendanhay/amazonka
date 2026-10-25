@@ -175,6 +175,8 @@ instance Core.AWSRequest HeadBucket where
     Request.s3vhost
       Prelude.. Request.head' (overrides defaultService)
   response = Response.receiveNull HeadBucketResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable HeadBucket where
   hashWithSalt _salt HeadBucket' {..} =

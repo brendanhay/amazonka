@@ -153,6 +153,8 @@ instance Core.AWSRequest PutBucketOwnershipControls where
   response =
     Response.receiveNull
       PutBucketOwnershipControlsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutBucketOwnershipControls where
   hashWithSalt _salt PutBucketOwnershipControls' {..} =

@@ -128,6 +128,8 @@ instance Core.AWSRequest GetBucketPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBucketPolicy where
   hashWithSalt _salt GetBucketPolicy' {..} =

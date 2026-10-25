@@ -234,6 +234,8 @@ instance Core.AWSRequest PutBucketLogging where
       Prelude.. Request.putXML (overrides defaultService)
   response =
     Response.receiveNull PutBucketLoggingResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutBucketLogging where
   hashWithSalt _salt PutBucketLogging' {..} =

@@ -118,6 +118,8 @@ instance Core.AWSRequest DeleteBucketWebsite where
       Prelude.. Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteBucketWebsiteResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBucketWebsite where
   hashWithSalt _salt DeleteBucketWebsite' {..} =

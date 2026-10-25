@@ -222,6 +222,8 @@ instance Core.AWSRequest PutBucketEncryption where
       Prelude.. Request.putXML (overrides defaultService)
   response =
     Response.receiveNull PutBucketEncryptionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutBucketEncryption where
   hashWithSalt _salt PutBucketEncryption' {..} =

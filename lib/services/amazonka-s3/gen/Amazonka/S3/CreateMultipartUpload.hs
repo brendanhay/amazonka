@@ -841,6 +841,8 @@ instance Core.AWSRequest CreateMultipartUpload where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "UploadId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateMultipartUpload where
   hashWithSalt _salt CreateMultipartUpload' {..} =

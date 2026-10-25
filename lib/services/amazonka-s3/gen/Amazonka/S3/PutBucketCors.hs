@@ -235,6 +235,8 @@ instance Core.AWSRequest PutBucketCors where
       Prelude.. Request.putXML (overrides defaultService)
   response =
     Response.receiveNull PutBucketCorsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutBucketCors where
   hashWithSalt _salt PutBucketCors' {..} =

@@ -224,6 +224,8 @@ instance
   response =
     Response.receiveNull
       PutBucketLifecycleConfigurationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

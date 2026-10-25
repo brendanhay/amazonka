@@ -669,6 +669,8 @@ instance Core.AWSRequest UploadPartCopy where
             Prelude.<*> (h Data..#? "x-amz-server-side-encryption")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UploadPartCopy where
   hashWithSalt _salt UploadPartCopy' {..} =

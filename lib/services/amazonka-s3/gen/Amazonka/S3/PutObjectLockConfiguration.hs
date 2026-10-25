@@ -218,6 +218,8 @@ instance Core.AWSRequest PutObjectLockConfiguration where
             Prelude.<$> (h Data..#? "x-amz-request-charged")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutObjectLockConfiguration where
   hashWithSalt _salt PutObjectLockConfiguration' {..} =

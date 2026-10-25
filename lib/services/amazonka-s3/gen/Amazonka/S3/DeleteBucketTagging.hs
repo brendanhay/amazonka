@@ -108,6 +108,8 @@ instance Core.AWSRequest DeleteBucketTagging where
       Prelude.. Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteBucketTaggingResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBucketTagging where
   hashWithSalt _salt DeleteBucketTagging' {..} =

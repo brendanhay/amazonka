@@ -474,6 +474,8 @@ instance Core.AWSRequest RestoreObject where
             Prelude.<*> (h Data..#? "x-amz-restore-output-path")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RestoreObject where
   hashWithSalt _salt RestoreObject' {..} =

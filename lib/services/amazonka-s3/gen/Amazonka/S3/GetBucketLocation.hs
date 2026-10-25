@@ -121,6 +121,8 @@ instance Core.AWSRequest GetBucketLocation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.parseXML x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBucketLocation where
   hashWithSalt _salt GetBucketLocation' {..} =

@@ -224,6 +224,8 @@ instance Core.AWSRequest GetObjectTagging where
                             Prelude.>>= Data.parseXMLList "Tag"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetObjectTagging where
   hashWithSalt _salt GetObjectTagging' {..} =

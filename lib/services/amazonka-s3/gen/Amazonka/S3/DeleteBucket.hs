@@ -103,6 +103,8 @@ instance Core.AWSRequest DeleteBucket where
     Request.s3vhost
       Prelude.. Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteBucketResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBucket where
   hashWithSalt _salt DeleteBucket' {..} =

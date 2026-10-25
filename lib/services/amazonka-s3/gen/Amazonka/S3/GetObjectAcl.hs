@@ -203,6 +203,8 @@ instance Core.AWSRequest GetObjectAcl where
             Prelude.<*> (h Data..#? "x-amz-request-charged")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetObjectAcl where
   hashWithSalt _salt GetObjectAcl' {..} =

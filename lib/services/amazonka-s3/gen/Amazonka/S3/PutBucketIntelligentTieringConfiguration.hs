@@ -174,6 +174,8 @@ instance
   response =
     Response.receiveNull
       PutBucketIntelligentTieringConfigurationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

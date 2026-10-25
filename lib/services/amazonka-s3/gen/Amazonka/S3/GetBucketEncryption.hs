@@ -130,6 +130,8 @@ instance Core.AWSRequest GetBucketEncryption where
             Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBucketEncryption where
   hashWithSalt _salt GetBucketEncryption' {..} =

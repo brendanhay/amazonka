@@ -2,7 +2,6 @@ module Gen.Protocol
   ( Names (..),
     memberName,
     nestedNames,
-    suffix,
   )
 where
 
@@ -14,18 +13,17 @@ import Gen.Types
 data Level = Flat | Nest
   deriving stock (Show)
 
-suffix :: Protocol -> Text
-suffix = \case
-  JSON -> "JSON"
-  RestJSON -> "JSON"
-  APIGateway -> "JSON"
-  RestXML -> "XML"
-  Query -> "XML"
-  EC2 -> "XML"
-
 data Names
-  = NMap (Maybe Text) Text Text Text
-  | NList (Maybe Text) Text
+  = NMap
+      { wrapper :: Maybe Text,
+        entry :: Text,
+        key :: Text,
+        value :: Text
+      }
+  | NList
+      { wrapper :: Maybe Text,
+        item :: Text
+      }
   | NName Text
   deriving stock (Show)
 
@@ -119,6 +117,6 @@ name p d n r = go p d
     -- otherwise the struct member id.
     key = fromMaybe (memberId n) (r ^. refLocationName)
 
-flatten :: HasInfo a => Protocol -> Direction -> a -> Bool
+flatten :: (HasInfo a) => Protocol -> Direction -> a -> Bool
 flatten EC2 Input _ = True
 flatten _ _ i = i ^. infoFlattened

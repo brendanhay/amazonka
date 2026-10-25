@@ -24,6 +24,7 @@ import Gen.AST.Data.Instance
 import Gen.AST.Data.Syntax as Syntax
 import qualified Gen.AST.Data.Syntax.AWSRequest as AWSRequest
 import Gen.Prelude
+import Gen.Protocol (Names (..))
 import Gen.Types hiding (method)
 import qualified Language.Haskell.Exts as Exts
 import Language.Haskell.Exts.Pretty (Pretty)
@@ -112,49 +113,74 @@ operationData cfg m o = do
 
       responseFieldParsers =
         ys <&> \f ->
-          case fieldLocation f of
-            Just Headers -> AWSRequest.ResponseFieldHeader hName hParser
-              where
-                hName = memberName (m ^. protocol) Output f
-                hParser = case typeOf f of
-                  TMap {} -> AWSRequest.HeaderFieldMap
-                  TMaybe {} -> AWSRequest.HeaderFieldOptional
-                  _ -> AWSRequest.HeaderFieldRequired
-            Just StatusCode -> AWSRequest.ResponseFieldStatus
-            Just Body
-              | hasStreamingBody ->
-                  AWSRequest.ResponseFieldBody AWSRequest.PureBody
-              | fieldLit f && fieldIsParam f ->
-                  AWSRequest.ResponseFieldBody AWSRequest.PureBody
-              | fieldLit f && not (fieldIsParam f) ->
-                  AWSRequest.ResponseFieldBody AWSRequest.PureCoercedBody
-              | f ^. fieldPayload ->
-                  AWSRequest.ResponseFieldBody $ case p of
-                    JSON -> AWSRequest.JsonBody
-                    RestJSON -> AWSRequest.JsonBody
-                    APIGateway -> AWSRequest.JsonBody
-                    RestXML -> AWSRequest.XmlBody
-                    Query -> AWSRequest.XmlBody
-                    EC2 -> AWSRequest.XmlBody
-            Nothing
-              | hasStreamingBody ->
-                  AWSRequest.ResponseFieldBody AWSRequest.PureBody
-            _ -> case p of
-              JSON -> jsonField
-              RestJSON -> jsonField
-              APIGateway -> jsonField
-              RestXML -> AWSRequest.FigureTheFieldOut f
-              Query -> AWSRequest.FigureTheFieldOut f
-              EC2 -> AWSRequest.FigureTheFieldOut f
-              where
-                jsonField =
-                  AWSRequest.ResponseFieldJson
-                    (memberName p Output f)
+          let name = memberName p Output f
+           in case fieldLocation f of
+                Just Headers -> AWSRequest.ResponseFieldHeader $ case typeOf f of
+                  TMap {} -> AWSRequest.HeaderMap name
+                  TMaybe {} -> AWSRequest.HeaderSingle name AWSRequest.Optional
+                  _ -> AWSRequest.HeaderSingle name AWSRequest.Required
+                Just StatusCode -> AWSRequest.ResponseFieldStatus
+                Just Body
+                  | hasStreamingBody ->
+                      AWSRequest.ResponseFieldBody AWSRequest.PureBody
+                  | fieldLit f && fieldIsParam f ->
+                      AWSRequest.ResponseFieldBody AWSRequest.PureBody
+                  | fieldLit f && not (fieldIsParam f) ->
+                      AWSRequest.ResponseFieldBody AWSRequest.PureCoercedBody
+                  | f ^. fieldPayload ->
+                      AWSRequest.ResponseFieldBody $ case p of
+                        JSON -> AWSRequest.JsonBody
+                        RestJSON -> AWSRequest.JsonBody
+                        APIGateway -> AWSRequest.JsonBody
+                        RestXML -> AWSRequest.XmlBody
+                        Query -> AWSRequest.XmlBody
+                        EC2 -> AWSRequest.XmlBody
+                Nothing
+                  | hasStreamingBody ->
+                      AWSRequest.ResponseFieldBody AWSRequest.PureBody
+                _ -> case p of
+                  JSON -> AWSRequest.ResponseFieldJson jsonParser
+                  RestJSON -> AWSRequest.ResponseFieldJson jsonParser
+                  APIGateway -> AWSRequest.ResponseFieldJson jsonParser
+                  RestXML -> AWSRequest.ResponseFieldXml xmlParser
+                  Query -> AWSRequest.ResponseFieldXml xmlParser
+                  EC2 -> AWSRequest.ResponseFieldXml xmlParser
+                  where
                     jsonParser
-                jsonParser
-                  | fieldMonoid f = AWSRequest.JsonMonoid
-                  | fieldMaybe f = AWSRequest.JsonOptional
-                  | otherwise = AWSRequest.JsonRequired
+                      | fieldMonoid f =
+                          AWSRequest.JsonMonoid name
+                      | fieldMaybe f =
+                          AWSRequest.JsonSingle name AWSRequest.Optional
+                      | otherwise =
+                          AWSRequest.JsonSingle name AWSRequest.Required
+
+                    xmlParser =
+                      case outputNames p f of
+                        NMap {..} ->
+                          AWSRequest.XmlCollection
+                            wrapper
+                            (AWSRequest.XmlMap entry key value)
+                            sensitivity
+                            presence
+                        NList {..} ->
+                          AWSRequest.XmlCollection
+                            wrapper
+                            (listParser item)
+                            sensitivity
+                            presence
+                          where
+                            listParser
+                              | fieldMonoid f = AWSRequest.XmlList
+                              | otherwise = AWSRequest.XmlList1
+                        NName n -> AWSRequest.XmlElement n presence
+                      where
+                        presence
+                          | fieldMaybe f = AWSRequest.Optional
+                          | otherwise = AWSRequest.Required
+
+                        sensitivity
+                          | fieldSensitive f = AWSRequest.Sensitive
+                          | otherwise = AWSRequest.NotSensitive
 
       hasStreamingBody = any fieldStream ys
 
@@ -174,8 +200,6 @@ operationData cfg m o = do
             responseReceiver,
             serviceConfig = m ^. serviceConfig
           }
-        (m ^. metadata)
-        ys
   mpage <- pagerFields m o >>= traverse (pp Print . pagerD xn)
 
   yis' <- renderInsts p yn (responseInsts ys)

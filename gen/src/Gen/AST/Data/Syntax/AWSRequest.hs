@@ -6,18 +6,19 @@ module Gen.AST.Data.Syntax.AWSRequest
     HeaderField (..),
     BodyField (..),
     JsonField (..),
+    XmlField (..),
+    XmlCollection (..),
+    Presence (..),
+    Sensitivity (..),
   )
 where
 
-import Debug.Trace
-import Gen.AST.Data.Field (Field)
 import Gen.AST.Data.Syntax
   ( ctorE,
     funArgsD,
     funD,
     instD,
     justE,
-    parseXMLE,
     pureE,
     str,
     tyapp,
@@ -84,14 +85,15 @@ data ResponseReceiver
 data ResponseField
   = -- | Parse the repsonse field from the HTTP response headers named
     -- like the given 'Text'.
-    ResponseFieldHeader Text HeaderField
+    ResponseFieldHeader HeaderField
   | -- | Parse the status code from the HTTP response.
     ResponseFieldStatus
   | -- | Parse the field from the response body as a whole.
     ResponseFieldBody BodyField
   | -- | Parse one member from a JSON response body.
-    ResponseFieldJson Text JsonField
-  | FigureTheFieldOut Field
+    ResponseFieldJson JsonField
+  | -- | Parse one member from an XML response body.
+    ResponseFieldXml XmlField
   deriving (Show)
 
 -- | How to parse a single field from the HTTP response headers.
@@ -100,12 +102,10 @@ data ResponseField
 -- AWS services represent structured data by breaking it across
 -- multiple similarly-named headers.
 data HeaderField
-  = -- | Parse a required field from headers using @(.#)@.
-    HeaderFieldRequired
-  | -- | Parse an optional field from headers using @(.#?)@.
-    HeaderFieldOptional
+  = -- | Parse a single field from headers using @(.#)@ or @(.#?)@.
+    HeaderSingle Text Presence
   | -- | Parse a map field from headers using @parseHeadersMap@.
-    HeaderFieldMap
+    HeaderMap Text
   deriving (Show)
 
 -- | How to consume the HTTP response body when installing it into one
@@ -123,31 +123,46 @@ data BodyField
     XmlBody
   deriving (Show)
 
--- | How to parse one member of a JSON response body. The
--- member name is carried separately by 'ResponseFieldJson'.
+-- | How to parse one member of a JSON response body.
 --
 -- 'JsonMonoid' emits a @.!\@ mempty@ for list and map members even
 -- when the member is required.
 data JsonField
-  = -- | @x .:> name@
-    JsonRequired
-  | -- | @x .?> name@
-    JsonOptional
+  = -- | Single items: @x .:> name@ or @x .?> name@
+    JsonSingle Text Presence
   | -- | @x .?> name .!\@ mempty@
-    JsonMonoid
+    JsonMonoid Text
   deriving (Show)
 
-instanceD ::
-  Config ->
-  Metadata f ->
-  [Field] ->
-  Exts.Decl ()
-instanceD c@Config {requestType} m responseFields =
+-- | How to parse one member of an XML response body.
+data XmlField
+  = -- | Single items: @x .\@ name@ or @x .\@? name@.
+    --
+    -- We do not carry a 'Sensitivity' here because
+    -- 'Amazonka.Data.Sensitive.Sensitive' has a @newtype@-derived
+    -- instance of 'Amazonka.Data.XML.FromXML'.
+    XmlElement Text Presence
+  | -- | Collections, optionally inside a wrapper element.
+    XmlCollection (Maybe Text) XmlCollection Sensitivity Presence
+  deriving (Show)
+
+data XmlCollection
+  = XmlList Text
+  | XmlList1 Text
+  | XmlMap {entry :: Text, key :: Text, value :: Text}
+  deriving (Show)
+
+data Presence = Optional | Required deriving (Show)
+
+data Sensitivity = NotSensitive | Sensitive deriving (Show)
+
+instanceD :: Config -> Exts.Decl ()
+instanceD c@Config {requestType} =
   instD "Core.AWSRequest" requestType $
     Just
       [ awsResponseD c,
         requestD c,
-        funD "response" (responseE c (m ^. protocol) responseFields)
+        funD "response" (responseE c)
       ]
 
 awsResponseD :: Config -> Exts.InstDecl ()
@@ -169,8 +184,8 @@ requestD Config {..} =
         (var $ "Request." <> requestFunction)
         (Exts.app (var "overrides") (var serviceConfig))
 
-responseE :: Config -> Protocol -> [Field] -> Exts.Exp ()
-responseE Config {..} p fs =
+responseE :: Config -> Exts.Exp ()
+responseE Config {..} =
   case responseReceiver of
     ReceiveNull ->
       var "Response.receiveNull" `Exts.app` var (ctorId responseType)
@@ -209,10 +224,12 @@ responseE Config {..} p fs =
 
     parseField :: ResponseField -> Exts.Exp ()
     parseField = \case
-      ResponseFieldHeader hName hField -> case hField of
-        HeaderFieldRequired -> Exts.infixApp (var "h") "Data..#" (str hName)
-        HeaderFieldOptional -> Exts.infixApp (var "h") "Data..#?" (str hName)
-        HeaderFieldMap ->
+      ResponseFieldHeader hField -> case hField of
+        HeaderSingle hName Required ->
+          Exts.infixApp (var "h") "Data..#" (str hName)
+        HeaderSingle hName Optional ->
+          Exts.infixApp (var "h") "Data..#?" (str hName)
+        HeaderMap hName ->
           Exts.appFun (var "Data.parseHeadersMap") [str hName, var "h"]
       ResponseFieldStatus ->
         pureE `Exts.app` Exts.paren (var "Prelude.fromEnum" `Exts.app` var "s")
@@ -229,28 +246,54 @@ responseE Config {..} p fs =
         var "Data.eitherParseJSON" `Exts.app` var "x"
       ResponseFieldBody XmlBody ->
         var "Data.parseXML" `Exts.app` var "x"
-      ResponseFieldJson name parser -> case parser of
-        JsonRequired ->
+      ResponseFieldJson jField -> case jField of
+        JsonSingle name Required ->
           Exts.infixApp (var "x") "Data..:>" (str name)
-        JsonOptional ->
+        JsonSingle name Optional ->
           Exts.infixApp (var "x") "Data..?>" (str name)
-        JsonMonoid ->
+        JsonMonoid name ->
           Exts.infixApp
             (Exts.infixApp (var "x") "Data..?>" (str name))
             "Core..!@"
             (var "Prelude.mempty")
-      FigureTheFieldOut field -> parseProto field
+      ResponseFieldXml xField -> case xField of
+        XmlElement name Required ->
+          Exts.infixApp (var "x") "Data..@" (str name)
+        XmlElement name Optional ->
+          Exts.infixApp (var "x") "Data..@?" (str name)
+        XmlCollection mOuter collection sensitivity presence ->
+          case mOuter of
+            Nothing -> parser `Exts.app` var "x"
+            Just outer ->
+              bindE
+                ( Exts.infixApp
+                    (Exts.infixApp (var "x") "Data..@?" (str outer))
+                    "Core..!@"
+                    (var "Prelude.mempty")
+                )
+                parser
+          where
+            bindE m = Exts.infixApp m "Prelude.>>="
 
-    parseProto :: Field -> Exts.Exp ()
-    parseProto f =
-      case p of
-        RestXML -> parseXMLE p f
-        Query -> parseXMLE p f
-        EC2 -> parseXMLE p f
-        JSON -> unexpectedJson
-        RestJSON -> unexpectedJson
-        APIGateway -> unexpectedJson
-      where
-        unexpectedJson =
-          error
-            "Gen.AST.Data.Syntax.AWSRequest.parseProto: JSON field was not classified"
+            parser = case presence of
+              Required -> sensitiveParser
+              Optional -> var "Core.may" `Exts.app` sensitiveParser
+
+            sensitiveParser = case sensitivity of
+              NotSensitive -> baseParser
+              Sensitive ->
+                ( var "Prelude.fmap"
+                    `Exts.app` ( var "Prelude.fmap"
+                                   `Exts.app` var "Data.Sensitive"
+                               )
+                )
+                  `Exts.app` baseParser
+
+            baseParser = case collection of
+              XmlList item -> var "Data.parseXMLList" `Exts.app` str item
+              XmlList1 item -> var "Data.parseXMLList1" `Exts.app` str item
+              XmlMap {..} ->
+                var "Data.parseXMLMap"
+                  `Exts.app` str entry
+                  `Exts.app` str key
+                  `Exts.app` str value

@@ -103,6 +103,8 @@ instance Core.AWSRequest DescribeAccessPolicy where
             Prelude.<*> (x Data..:> "accessPolicyCreationDate")
             Prelude.<*> (x Data..:> "accessPolicyLastUpdateDate")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAccessPolicy where
   hashWithSalt _salt DescribeAccessPolicy' {..} =

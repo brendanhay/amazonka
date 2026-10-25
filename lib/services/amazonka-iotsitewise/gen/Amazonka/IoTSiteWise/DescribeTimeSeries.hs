@@ -134,6 +134,8 @@ instance Core.AWSRequest DescribeTimeSeries where
             Prelude.<*> (x Data..:> "timeSeriesCreationDate")
             Prelude.<*> (x Data..:> "timeSeriesLastUpdateDate")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeTimeSeries where
   hashWithSalt _salt DescribeTimeSeries' {..} =

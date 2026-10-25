@@ -199,6 +199,8 @@ instance Core.AWSRequest PutStorageConfiguration where
             Prelude.<*> (x Data..:> "storageType")
             Prelude.<*> (x Data..:> "configurationStatus")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutStorageConfiguration where
   hashWithSalt _salt PutStorageConfiguration' {..} =

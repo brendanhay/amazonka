@@ -84,6 +84,8 @@ instance
             Prelude.<*> (x Data..:> "encryptionType")
             Prelude.<*> (x Data..:> "configurationStatus")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

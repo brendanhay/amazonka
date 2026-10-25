@@ -101,6 +101,8 @@ instance Core.AWSRequest DescribeDashboard where
             Prelude.<*> (x Data..:> "dashboardCreationDate")
             Prelude.<*> (x Data..:> "dashboardLastUpdateDate")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDashboard where
   hashWithSalt _salt DescribeDashboard' {..} =

@@ -172,6 +172,13 @@ instance Core.AWSRequest CreateDashboard where
             Prelude.<*> (x Data..:> "dashboardId")
             Prelude.<*> (x Data..:> "dashboardArn")
       )
+  updateIdempotencyToken
+    f
+    s@CreateDashboard' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateDashboard
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateDashboard where
   hashWithSalt _salt CreateDashboard' {..} =

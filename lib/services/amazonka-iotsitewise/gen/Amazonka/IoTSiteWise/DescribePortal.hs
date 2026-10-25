@@ -115,6 +115,8 @@ instance Core.AWSRequest DescribePortal where
             Prelude.<*> (x Data..:> "portalCreationDate")
             Prelude.<*> (x Data..:> "portalLastUpdateDate")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePortal where
   hashWithSalt _salt DescribePortal' {..} =

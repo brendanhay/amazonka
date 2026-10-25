@@ -128,6 +128,14 @@ instance
   response =
     Response.receiveNull
       AssociateTimeSeriesToAssetPropertyResponse'
+  updateIdempotencyToken
+    f
+    s@AssociateTimeSeriesToAssetProperty' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            AssociateTimeSeriesToAssetProperty
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

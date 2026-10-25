@@ -138,6 +138,13 @@ instance Core.AWSRequest AssociateAssets where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull AssociateAssetsResponse'
+  updateIdempotencyToken
+    f
+    s@AssociateAssets' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: AssociateAssets
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable AssociateAssets where
   hashWithSalt _salt AssociateAssets' {..} =

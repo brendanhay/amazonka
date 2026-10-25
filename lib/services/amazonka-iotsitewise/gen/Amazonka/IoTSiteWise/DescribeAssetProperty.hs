@@ -118,6 +118,8 @@ instance Core.AWSRequest DescribeAssetProperty where
             Prelude.<*> (x Data..:> "assetName")
             Prelude.<*> (x Data..:> "assetModelId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAssetProperty where
   hashWithSalt _salt DescribeAssetProperty' {..} =

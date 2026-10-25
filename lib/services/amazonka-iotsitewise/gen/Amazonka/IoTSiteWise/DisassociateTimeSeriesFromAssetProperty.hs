@@ -129,6 +129,14 @@ instance
   response =
     Response.receiveNull
       DisassociateTimeSeriesFromAssetPropertyResponse'
+  updateIdempotencyToken
+    f
+    s@DisassociateTimeSeriesFromAssetProperty' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            DisassociateTimeSeriesFromAssetProperty
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

@@ -163,6 +163,8 @@ instance Core.AWSRequest CreateBulkImportJob where
             Prelude.<*> (x Data..:> "jobName")
             Prelude.<*> (x Data..:> "jobStatus")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateBulkImportJob where
   hashWithSalt _salt CreateBulkImportJob' {..} =

@@ -124,6 +124,14 @@ instance
             Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@BatchDisassociateProjectAssets' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            BatchDisassociateProjectAssets
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

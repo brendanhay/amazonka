@@ -150,6 +150,11 @@ instance Core.AWSRequest CreateAsset where
             Prelude.<*> (x Data..:> "assetArn")
             Prelude.<*> (x Data..:> "assetStatus")
       )
+  updateIdempotencyToken f s@CreateAsset' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateAsset
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateAsset where
   hashWithSalt _salt CreateAsset' {..} =

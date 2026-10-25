@@ -173,6 +173,8 @@ instance Core.AWSRequest ListTimeSeries where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTimeSeries where
   hashWithSalt _salt ListTimeSeries' {..} =

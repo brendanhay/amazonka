@@ -152,6 +152,8 @@ instance
             Prelude.<*> (x Data..:> "capabilityNamespace")
             Prelude.<*> (x Data..:> "capabilitySyncStatus")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

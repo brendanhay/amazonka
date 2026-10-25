@@ -79,6 +79,8 @@ instance Core.AWSRequest DeleteGateway where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteGatewayResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteGateway where
   hashWithSalt _salt DeleteGateway' {..} =

@@ -82,6 +82,8 @@ instance Core.AWSRequest DescribeStorageConfiguration where
             Prelude.<*> (x Data..:> "storageType")
             Prelude.<*> (x Data..:> "configurationStatus")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

@@ -126,6 +126,8 @@ instance Core.AWSRequest CreateGateway where
             Prelude.<*> (x Data..:> "gatewayId")
             Prelude.<*> (x Data..:> "gatewayArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateGateway where
   hashWithSalt _salt CreateGateway' {..} =

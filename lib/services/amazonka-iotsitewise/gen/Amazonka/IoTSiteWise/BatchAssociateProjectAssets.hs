@@ -119,6 +119,14 @@ instance Core.AWSRequest BatchAssociateProjectAssets where
             Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@BatchAssociateProjectAssets' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            BatchAssociateProjectAssets
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable BatchAssociateProjectAssets where
   hashWithSalt _salt BatchAssociateProjectAssets' {..} =

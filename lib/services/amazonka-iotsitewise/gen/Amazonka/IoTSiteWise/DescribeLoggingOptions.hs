@@ -71,6 +71,8 @@ instance Core.AWSRequest DescribeLoggingOptions where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "loggingOptions")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeLoggingOptions where
   hashWithSalt _salt _ =

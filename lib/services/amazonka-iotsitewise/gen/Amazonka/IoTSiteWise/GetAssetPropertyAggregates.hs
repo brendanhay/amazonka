@@ -273,6 +273,8 @@ instance Core.AWSRequest GetAssetPropertyAggregates where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAssetPropertyAggregates where
   hashWithSalt _salt GetAssetPropertyAggregates' {..} =

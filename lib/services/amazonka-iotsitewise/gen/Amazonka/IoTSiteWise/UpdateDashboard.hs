@@ -149,6 +149,13 @@ instance Core.AWSRequest UpdateDashboard where
           UpdateDashboardResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateDashboard' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: UpdateDashboard
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateDashboard where
   hashWithSalt _salt UpdateDashboard' {..} =

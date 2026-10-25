@@ -129,6 +129,13 @@ instance Core.AWSRequest DeleteTimeSeries where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteTimeSeriesResponse'
+  updateIdempotencyToken
+    f
+    s@DeleteTimeSeries' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: DeleteTimeSeries
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteTimeSeries where
   hashWithSalt _salt DeleteTimeSeries' {..} =

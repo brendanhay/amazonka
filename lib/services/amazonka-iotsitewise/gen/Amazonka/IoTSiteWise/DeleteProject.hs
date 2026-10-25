@@ -103,6 +103,13 @@ instance Core.AWSRequest DeleteProject where
           DeleteProjectResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteProject' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: DeleteProject
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteProject where
   hashWithSalt _salt DeleteProject' {..} =

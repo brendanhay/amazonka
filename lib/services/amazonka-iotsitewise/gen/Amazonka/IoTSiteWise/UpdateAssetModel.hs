@@ -237,6 +237,13 @@ instance Core.AWSRequest UpdateAssetModel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "assetModelStatus")
       )
+  updateIdempotencyToken
+    f
+    s@UpdateAssetModel' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: UpdateAssetModel
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateAssetModel where
   hashWithSalt _salt UpdateAssetModel' {..} =

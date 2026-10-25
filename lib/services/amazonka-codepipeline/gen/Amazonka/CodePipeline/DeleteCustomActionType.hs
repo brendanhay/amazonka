@@ -125,6 +125,8 @@ instance Core.AWSRequest DeleteCustomActionType where
   response =
     Response.receiveNull
       DeleteCustomActionTypeResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCustomActionType where
   hashWithSalt _salt DeleteCustomActionType' {..} =

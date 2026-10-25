@@ -94,6 +94,8 @@ instance Core.AWSRequest GetJobDetails where
             Prelude.<$> (x Data..?> "jobDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetJobDetails where
   hashWithSalt _salt GetJobDetails' {..} =

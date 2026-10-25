@@ -111,6 +111,8 @@ instance Core.AWSRequest GetPipelineExecution where
             Prelude.<$> (x Data..?> "pipelineExecution")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPipelineExecution where
   hashWithSalt _salt GetPipelineExecution' {..} =

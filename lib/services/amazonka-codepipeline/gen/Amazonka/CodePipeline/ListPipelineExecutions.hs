@@ -159,6 +159,8 @@ instance Core.AWSRequest ListPipelineExecutions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPipelineExecutions where
   hashWithSalt _salt ListPipelineExecutions' {..} =

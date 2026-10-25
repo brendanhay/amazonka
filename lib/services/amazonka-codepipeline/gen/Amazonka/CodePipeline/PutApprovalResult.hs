@@ -154,6 +154,8 @@ instance Core.AWSRequest PutApprovalResult where
             Prelude.<$> (x Data..?> "approvedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutApprovalResult where
   hashWithSalt _salt PutApprovalResult' {..} =

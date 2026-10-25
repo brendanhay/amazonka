@@ -146,6 +146,8 @@ instance Core.AWSRequest DisableStageTransition where
   response =
     Response.receiveNull
       DisableStageTransitionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisableStageTransition where
   hashWithSalt _salt DisableStageTransition' {..} =

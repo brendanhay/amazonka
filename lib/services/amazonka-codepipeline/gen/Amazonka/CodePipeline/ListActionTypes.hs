@@ -140,6 +140,8 @@ instance Core.AWSRequest ListActionTypes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "actionTypes" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListActionTypes where
   hashWithSalt _salt ListActionTypes' {..} =

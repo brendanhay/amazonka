@@ -102,6 +102,8 @@ instance Core.AWSRequest GetPipelineState where
             Prelude.<*> (x Data..?> "updated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPipelineState where
   hashWithSalt _salt GetPipelineState' {..} =

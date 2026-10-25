@@ -118,6 +118,8 @@ instance Core.AWSRequest ReportTaskProgress where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "canceled")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ReportTaskProgress where
   hashWithSalt _salt ReportTaskProgress' {..} =

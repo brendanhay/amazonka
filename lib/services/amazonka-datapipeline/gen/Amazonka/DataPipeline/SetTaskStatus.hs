@@ -168,6 +168,8 @@ instance Core.AWSRequest SetTaskStatus where
           SetTaskStatusResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetTaskStatus where
   hashWithSalt _salt SetTaskStatus' {..} =

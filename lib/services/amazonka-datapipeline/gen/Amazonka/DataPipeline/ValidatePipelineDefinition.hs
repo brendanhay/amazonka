@@ -136,6 +136,8 @@ instance Core.AWSRequest ValidatePipelineDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "errored")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ValidatePipelineDefinition where
   hashWithSalt _salt ValidatePipelineDefinition' {..} =

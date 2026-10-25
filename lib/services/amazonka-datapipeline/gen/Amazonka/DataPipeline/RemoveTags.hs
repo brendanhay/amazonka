@@ -97,6 +97,8 @@ instance Core.AWSRequest RemoveTags where
           RemoveTagsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveTags where
   hashWithSalt _salt RemoveTags' {..} =

@@ -120,6 +120,8 @@ instance Core.AWSRequest EvaluateExpression where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "evaluatedExpression")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable EvaluateExpression where
   hashWithSalt _salt EvaluateExpression' {..} =

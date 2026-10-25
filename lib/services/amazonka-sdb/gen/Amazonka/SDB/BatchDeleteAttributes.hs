@@ -97,6 +97,8 @@ instance Core.AWSRequest BatchDeleteAttributes where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull BatchDeleteAttributesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchDeleteAttributes where
   hashWithSalt _salt BatchDeleteAttributes' {..} =

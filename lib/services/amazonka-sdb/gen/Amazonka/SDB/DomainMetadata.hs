@@ -102,6 +102,8 @@ instance Core.AWSRequest DomainMetadata where
             Prelude.<*> (x Data..@? "Timestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DomainMetadata where
   hashWithSalt _salt DomainMetadata' {..} =

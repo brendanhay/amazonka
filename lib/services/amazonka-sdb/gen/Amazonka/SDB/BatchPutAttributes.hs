@@ -137,6 +137,8 @@ instance Core.AWSRequest BatchPutAttributes where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull BatchPutAttributesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchPutAttributes where
   hashWithSalt _salt BatchPutAttributes' {..} =

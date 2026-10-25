@@ -89,6 +89,8 @@ instance Core.AWSRequest CreateDomain where
   request overrides =
     Request.postQuery (overrides defaultService)
   response = Response.receiveNull CreateDomainResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDomain where
   hashWithSalt _salt CreateDomain' {..} =

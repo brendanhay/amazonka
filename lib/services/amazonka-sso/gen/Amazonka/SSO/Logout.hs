@@ -102,6 +102,8 @@ instance Core.AWSRequest Logout where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull LogoutResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable Logout where
   hashWithSalt _salt Logout' {..} =

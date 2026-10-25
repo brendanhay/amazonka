@@ -126,6 +126,8 @@ instance Core.AWSRequest GetRoleCredentials where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "roleCredentials")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRoleCredentials where
   hashWithSalt _salt GetRoleCredentials' {..} =

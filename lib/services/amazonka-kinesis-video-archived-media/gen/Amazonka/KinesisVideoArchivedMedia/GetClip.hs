@@ -166,6 +166,8 @@ instance Core.AWSRequest GetClip where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetClip where
   hashWithSalt _salt GetClip' {..} =

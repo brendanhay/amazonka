@@ -153,6 +153,8 @@ instance Core.AWSRequest GetMediaForFragmentList where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMediaForFragmentList where
   hashWithSalt _salt GetMediaForFragmentList' {..} =

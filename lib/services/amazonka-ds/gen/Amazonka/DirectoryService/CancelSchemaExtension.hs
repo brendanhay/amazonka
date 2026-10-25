@@ -105,6 +105,8 @@ instance Core.AWSRequest CancelSchemaExtension where
           CancelSchemaExtensionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelSchemaExtension where
   hashWithSalt _salt CancelSchemaExtension' {..} =

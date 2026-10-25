@@ -88,6 +88,8 @@ instance Core.AWSRequest RemoveRegion where
           RemoveRegionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveRegion where
   hashWithSalt _salt RemoveRegion' {..} =

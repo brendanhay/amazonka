@@ -117,6 +117,8 @@ instance Core.AWSRequest DescribeSettings where
             Prelude.<*> (x Data..?> "SettingEntries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSettings where
   hashWithSalt _salt DescribeSettings' {..} =

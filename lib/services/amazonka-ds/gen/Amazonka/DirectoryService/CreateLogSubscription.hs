@@ -107,6 +107,8 @@ instance Core.AWSRequest CreateLogSubscription where
           CreateLogSubscriptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLogSubscription where
   hashWithSalt _salt CreateLogSubscription' {..} =

@@ -129,6 +129,8 @@ instance Core.AWSRequest UpdateDirectorySetup where
           UpdateDirectorySetupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDirectorySetup where
   hashWithSalt _salt UpdateDirectorySetup' {..} =

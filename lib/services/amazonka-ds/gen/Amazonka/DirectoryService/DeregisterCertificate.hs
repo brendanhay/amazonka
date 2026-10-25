@@ -102,6 +102,8 @@ instance Core.AWSRequest DeregisterCertificate where
           DeregisterCertificateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterCertificate where
   hashWithSalt _salt DeregisterCertificate' {..} =

@@ -142,6 +142,8 @@ instance Core.AWSRequest ListIpRoutes where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListIpRoutes where
   hashWithSalt _salt ListIpRoutes' {..} =

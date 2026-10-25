@@ -121,6 +121,8 @@ instance Core.AWSRequest DescribeEventTopics where
             Prelude.<$> (x Data..?> "EventTopics" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEventTopics where
   hashWithSalt _salt DescribeEventTopics' {..} =

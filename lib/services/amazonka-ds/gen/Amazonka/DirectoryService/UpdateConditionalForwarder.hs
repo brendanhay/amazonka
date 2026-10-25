@@ -124,6 +124,8 @@ instance Core.AWSRequest UpdateConditionalForwarder where
           UpdateConditionalForwarderResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateConditionalForwarder where
   hashWithSalt _salt UpdateConditionalForwarder' {..} =

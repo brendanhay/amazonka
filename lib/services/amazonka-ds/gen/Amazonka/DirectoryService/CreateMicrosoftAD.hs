@@ -197,6 +197,8 @@ instance Core.AWSRequest CreateMicrosoftAD where
             Prelude.<$> (x Data..?> "DirectoryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateMicrosoftAD where
   hashWithSalt _salt CreateMicrosoftAD' {..} =

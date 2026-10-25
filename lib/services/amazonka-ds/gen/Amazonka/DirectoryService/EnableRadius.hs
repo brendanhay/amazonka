@@ -104,6 +104,8 @@ instance Core.AWSRequest EnableRadius where
           EnableRadiusResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable EnableRadius where
   hashWithSalt _salt EnableRadius' {..} =

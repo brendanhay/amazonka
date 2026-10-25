@@ -280,6 +280,8 @@ instance Core.AWSRequest SetTopicAttributes where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull SetTopicAttributesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetTopicAttributes where
   hashWithSalt _salt SetTopicAttributes' {..} =

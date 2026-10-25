@@ -129,6 +129,8 @@ instance Core.AWSRequest AddPermission where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull AddPermissionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddPermission where
   hashWithSalt _salt AddPermission' {..} =

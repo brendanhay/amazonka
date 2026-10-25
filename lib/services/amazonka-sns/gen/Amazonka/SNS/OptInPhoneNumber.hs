@@ -91,6 +91,8 @@ instance Core.AWSRequest OptInPhoneNumber where
           OptInPhoneNumberResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable OptInPhoneNumber where
   hashWithSalt _salt OptInPhoneNumber' {..} =

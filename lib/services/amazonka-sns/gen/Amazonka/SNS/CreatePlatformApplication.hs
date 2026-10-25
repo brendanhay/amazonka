@@ -162,6 +162,8 @@ instance Core.AWSRequest CreatePlatformApplication where
             Prelude.<$> (x Data..@? "PlatformApplicationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreatePlatformApplication where
   hashWithSalt _salt CreatePlatformApplication' {..} =

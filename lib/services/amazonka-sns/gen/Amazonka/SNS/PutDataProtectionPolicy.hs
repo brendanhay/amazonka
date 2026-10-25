@@ -124,6 +124,8 @@ instance Core.AWSRequest PutDataProtectionPolicy where
   response =
     Response.receiveNull
       PutDataProtectionPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutDataProtectionPolicy where
   hashWithSalt _salt PutDataProtectionPolicy' {..} =

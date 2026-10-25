@@ -247,6 +247,8 @@ instance Core.AWSRequest SetSubscriptionAttributes where
   response =
     Response.receiveNull
       SetSubscriptionAttributesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetSubscriptionAttributes where
   hashWithSalt _salt SetSubscriptionAttributes' {..} =

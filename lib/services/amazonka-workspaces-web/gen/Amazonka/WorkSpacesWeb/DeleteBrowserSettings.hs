@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteBrowserSettings where
           DeleteBrowserSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBrowserSettings where
   hashWithSalt _salt DeleteBrowserSettings' {..} =

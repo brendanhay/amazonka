@@ -88,6 +88,8 @@ instance Core.AWSRequest DisassociateNetworkSettings where
           DisassociateNetworkSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateNetworkSettings where
   hashWithSalt _salt DisassociateNetworkSettings' {..} =

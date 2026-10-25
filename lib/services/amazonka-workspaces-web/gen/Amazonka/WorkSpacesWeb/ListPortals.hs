@@ -100,6 +100,8 @@ instance Core.AWSRequest ListPortals where
             Prelude.<*> (x Data..?> "portals" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPortals where
   hashWithSalt _salt ListPortals' {..} =

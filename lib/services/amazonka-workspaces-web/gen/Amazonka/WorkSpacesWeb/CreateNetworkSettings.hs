@@ -173,6 +173,14 @@ instance Core.AWSRequest CreateNetworkSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "networkSettingsArn")
       )
+  updateIdempotencyToken
+    f
+    s@CreateNetworkSettings' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateNetworkSettings
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateNetworkSettings where
   hashWithSalt _salt CreateNetworkSettings' {..} =

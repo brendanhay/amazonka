@@ -102,6 +102,8 @@ instance Core.AWSRequest ListTrustStores where
             Prelude.<*> (x Data..?> "trustStores" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTrustStores where
   hashWithSalt _salt ListTrustStores' {..} =

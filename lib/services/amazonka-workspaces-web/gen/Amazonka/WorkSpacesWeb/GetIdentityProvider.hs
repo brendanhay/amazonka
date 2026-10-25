@@ -90,6 +90,8 @@ instance Core.AWSRequest GetIdentityProvider where
             Prelude.<$> (x Data..?> "identityProvider")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetIdentityProvider where
   hashWithSalt _salt GetIdentityProvider' {..} =

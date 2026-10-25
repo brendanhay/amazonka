@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteNetworkSettings where
           DeleteNetworkSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteNetworkSettings where
   hashWithSalt _salt DeleteNetworkSettings' {..} =

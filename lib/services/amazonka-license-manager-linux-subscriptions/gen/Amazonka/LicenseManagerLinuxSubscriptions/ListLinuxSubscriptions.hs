@@ -186,6 +186,8 @@ instance Core.AWSRequest ListLinuxSubscriptions where
             Prelude.<*> (x Data..?> "Subscriptions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListLinuxSubscriptions where
   hashWithSalt _salt ListLinuxSubscriptions' {..} =

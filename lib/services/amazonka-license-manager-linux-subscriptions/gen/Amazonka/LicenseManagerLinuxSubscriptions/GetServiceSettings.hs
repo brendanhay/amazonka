@@ -79,6 +79,8 @@ instance Core.AWSRequest GetServiceSettings where
             Prelude.<*> (x Data..?> "StatusMessage" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetServiceSettings where
   hashWithSalt _salt _ =

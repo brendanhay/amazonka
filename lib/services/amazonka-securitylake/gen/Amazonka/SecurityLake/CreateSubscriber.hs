@@ -169,6 +169,8 @@ instance Core.AWSRequest CreateSubscriber where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "subscriptionId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateSubscriber where
   hashWithSalt _salt CreateSubscriber' {..} =

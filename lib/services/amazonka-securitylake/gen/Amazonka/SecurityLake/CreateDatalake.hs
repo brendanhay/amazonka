@@ -159,6 +159,8 @@ instance Core.AWSRequest CreateDatalake where
           CreateDatalakeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDatalake where
   hashWithSalt _salt CreateDatalake' {..} =

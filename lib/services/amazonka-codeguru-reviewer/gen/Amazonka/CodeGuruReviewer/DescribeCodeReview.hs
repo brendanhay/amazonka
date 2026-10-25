@@ -97,6 +97,8 @@ instance Core.AWSRequest DescribeCodeReview where
             Prelude.<$> (x Data..?> "CodeReview")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeCodeReview where
   hashWithSalt _salt DescribeCodeReview' {..} =

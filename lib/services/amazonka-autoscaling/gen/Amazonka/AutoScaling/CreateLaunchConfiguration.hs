@@ -609,6 +609,8 @@ instance Core.AWSRequest CreateLaunchConfiguration where
   response =
     Response.receiveNull
       CreateLaunchConfigurationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLaunchConfiguration where
   hashWithSalt _salt CreateLaunchConfiguration' {..} =

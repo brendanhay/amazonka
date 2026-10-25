@@ -107,6 +107,8 @@ instance Core.AWSRequest ExitStandby where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ExitStandby where
   hashWithSalt _salt ExitStandby' {..} =

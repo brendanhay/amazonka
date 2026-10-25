@@ -126,6 +126,8 @@ instance Core.AWSRequest DescribeWarmPool where
             Prelude.<*> (x Data..@? "WarmPoolConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeWarmPool where
   hashWithSalt _salt DescribeWarmPool' {..} =

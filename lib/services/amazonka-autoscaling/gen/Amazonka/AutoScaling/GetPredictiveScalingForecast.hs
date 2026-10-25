@@ -175,6 +175,8 @@ instance Core.AWSRequest GetPredictiveScalingForecast where
             Prelude.<*> (x Data..@ "CapacityForecast")
             Prelude.<*> (x Data..@ "UpdateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

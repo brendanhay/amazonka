@@ -178,6 +178,8 @@ instance Core.AWSRequest CompleteLifecycleAction where
           CompleteLifecycleActionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CompleteLifecycleAction where
   hashWithSalt _salt CompleteLifecycleAction' {..} =

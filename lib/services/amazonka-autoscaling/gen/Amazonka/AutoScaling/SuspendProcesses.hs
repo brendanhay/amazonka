@@ -161,6 +161,8 @@ instance Core.AWSRequest SuspendProcesses where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull SuspendProcessesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SuspendProcesses where
   hashWithSalt _salt SuspendProcesses' {..} =

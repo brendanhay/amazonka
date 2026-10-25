@@ -236,6 +236,8 @@ instance Core.AWSRequest DisableMetricsCollection where
   response =
     Response.receiveNull
       DisableMetricsCollectionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisableMetricsCollection where
   hashWithSalt _salt DisableMetricsCollection' {..} =

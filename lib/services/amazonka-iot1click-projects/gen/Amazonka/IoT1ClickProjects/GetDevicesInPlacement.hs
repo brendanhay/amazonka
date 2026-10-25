@@ -103,6 +103,8 @@ instance Core.AWSRequest GetDevicesInPlacement where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "devices" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDevicesInPlacement where
   hashWithSalt _salt GetDevicesInPlacement' {..} =

@@ -41,7 +41,6 @@ module Amazonka.STS.Lens
     assumeRoleWithSAML_sAMLAssertion,
     assumeRoleWithSAMLResponse_assumedRoleUser,
     assumeRoleWithSAMLResponse_audience,
-    assumeRoleWithSAMLResponse_credentials,
     assumeRoleWithSAMLResponse_issuer,
     assumeRoleWithSAMLResponse_nameQualifier,
     assumeRoleWithSAMLResponse_packedPolicySize,
@@ -49,6 +48,7 @@ module Amazonka.STS.Lens
     assumeRoleWithSAMLResponse_subject,
     assumeRoleWithSAMLResponse_subjectType,
     assumeRoleWithSAMLResponse_httpStatus,
+    assumeRoleWithSAMLResponse_credentials,
 
     -- ** AssumeRoleWithWebIdentity
     assumeRoleWithWebIdentity_durationSeconds,

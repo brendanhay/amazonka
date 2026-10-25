@@ -118,6 +118,8 @@ instance Core.AWSRequest GetManagedResource where
             Prelude.<*> (x Data..?> "appliedWeights" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "zonalShifts" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetManagedResource where
   hashWithSalt _salt GetManagedResource' {..} =

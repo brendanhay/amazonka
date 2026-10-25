@@ -89,6 +89,8 @@ instance Core.AWSRequest StartAssociationsOnce where
           StartAssociationsOnceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartAssociationsOnce where
   hashWithSalt _salt StartAssociationsOnce' {..} =

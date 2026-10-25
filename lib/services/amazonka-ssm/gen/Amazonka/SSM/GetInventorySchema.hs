@@ -172,6 +172,8 @@ instance Core.AWSRequest GetInventorySchema where
             Prelude.<*> (x Data..?> "Schemas" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetInventorySchema where
   hashWithSalt _salt GetInventorySchema' {..} =

@@ -102,6 +102,8 @@ instance Core.AWSRequest CreateAssociationBatch where
             Prelude.<*> (x Data..?> "Successful" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateAssociationBatch where
   hashWithSalt _salt CreateAssociationBatch' {..} =

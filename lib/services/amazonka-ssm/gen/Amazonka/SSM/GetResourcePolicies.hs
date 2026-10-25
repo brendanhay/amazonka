@@ -147,6 +147,8 @@ instance Core.AWSRequest GetResourcePolicies where
             Prelude.<*> (x Data..?> "Policies" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetResourcePolicies where
   hashWithSalt _salt GetResourcePolicies' {..} =

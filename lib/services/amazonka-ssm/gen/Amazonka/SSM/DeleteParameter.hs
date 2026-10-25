@@ -86,6 +86,8 @@ instance Core.AWSRequest DeleteParameter where
           DeleteParameterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteParameter where
   hashWithSalt _salt DeleteParameter' {..} =

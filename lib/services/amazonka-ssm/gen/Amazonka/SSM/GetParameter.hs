@@ -113,6 +113,8 @@ instance Core.AWSRequest GetParameter where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Parameter")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetParameter where
   hashWithSalt _salt GetParameter' {..} =

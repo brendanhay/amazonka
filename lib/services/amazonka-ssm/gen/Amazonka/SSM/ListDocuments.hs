@@ -188,6 +188,8 @@ instance Core.AWSRequest ListDocuments where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDocuments where
   hashWithSalt _salt ListDocuments' {..} =

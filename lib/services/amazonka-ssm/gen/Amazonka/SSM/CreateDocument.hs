@@ -351,6 +351,8 @@ instance Core.AWSRequest CreateDocument where
             Prelude.<$> (x Data..?> "DocumentDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDocument where
   hashWithSalt _salt CreateDocument' {..} =

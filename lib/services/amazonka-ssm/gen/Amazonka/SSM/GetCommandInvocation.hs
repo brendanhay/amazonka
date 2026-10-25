@@ -191,6 +191,8 @@ instance Core.AWSRequest GetCommandInvocation where
             Prelude.<*> (x Data..?> "StatusDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCommandInvocation where
   hashWithSalt _salt GetCommandInvocation' {..} =

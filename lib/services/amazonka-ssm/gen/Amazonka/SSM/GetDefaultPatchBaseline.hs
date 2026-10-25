@@ -95,6 +95,8 @@ instance Core.AWSRequest GetDefaultPatchBaseline where
             Prelude.<*> (x Data..?> "OperatingSystem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDefaultPatchBaseline where
   hashWithSalt _salt GetDefaultPatchBaseline' {..} =

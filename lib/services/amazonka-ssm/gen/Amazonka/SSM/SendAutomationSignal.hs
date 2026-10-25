@@ -163,6 +163,8 @@ instance Core.AWSRequest SendAutomationSignal where
           SendAutomationSignalResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SendAutomationSignal where
   hashWithSalt _salt SendAutomationSignal' {..} =

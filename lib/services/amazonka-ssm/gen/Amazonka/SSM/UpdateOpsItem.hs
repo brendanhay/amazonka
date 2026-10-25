@@ -364,6 +364,8 @@ instance Core.AWSRequest UpdateOpsItem where
           UpdateOpsItemResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateOpsItem where
   hashWithSalt _salt UpdateOpsItem' {..} =

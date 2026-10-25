@@ -152,6 +152,8 @@ instance Core.AWSRequest DescribeMaintenanceWindows where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeMaintenanceWindows where
   hashWithSalt _salt DescribeMaintenanceWindows' {..} =

@@ -96,6 +96,8 @@ instance Core.AWSRequest DeleteParameters where
             Prelude.<*> (x Data..?> "InvalidParameters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteParameters where
   hashWithSalt _salt DeleteParameters' {..} =

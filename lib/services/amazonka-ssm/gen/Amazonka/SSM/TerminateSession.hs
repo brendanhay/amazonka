@@ -89,6 +89,8 @@ instance Core.AWSRequest TerminateSession where
             Prelude.<$> (x Data..?> "SessionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TerminateSession where
   hashWithSalt _salt TerminateSession' {..} =

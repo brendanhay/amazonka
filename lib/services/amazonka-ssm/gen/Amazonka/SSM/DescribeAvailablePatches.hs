@@ -404,6 +404,8 @@ instance Core.AWSRequest DescribeAvailablePatches where
             Prelude.<*> (x Data..?> "Patches" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAvailablePatches where
   hashWithSalt _salt DescribeAvailablePatches' {..} =

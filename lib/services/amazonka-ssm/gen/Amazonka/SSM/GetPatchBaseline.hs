@@ -142,6 +142,8 @@ instance Core.AWSRequest GetPatchBaseline where
             Prelude.<*> (x Data..?> "Sources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPatchBaseline where
   hashWithSalt _salt GetPatchBaseline' {..} =

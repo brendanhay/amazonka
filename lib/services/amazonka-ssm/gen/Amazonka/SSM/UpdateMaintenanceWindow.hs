@@ -313,6 +313,8 @@ instance Core.AWSRequest UpdateMaintenanceWindow where
             Prelude.<*> (x Data..?> "WindowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateMaintenanceWindow where
   hashWithSalt _salt UpdateMaintenanceWindow' {..} =

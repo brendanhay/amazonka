@@ -119,6 +119,8 @@ instance Core.AWSRequest GetContact where
             Prelude.<*> (x Data..?> "UnsubscribeAll")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetContact where
   hashWithSalt _salt GetContact' {..} =

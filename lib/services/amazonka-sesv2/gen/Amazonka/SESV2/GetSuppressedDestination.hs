@@ -94,6 +94,8 @@ instance Core.AWSRequest GetSuppressedDestination where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "SuppressedDestination")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSuppressedDestination where
   hashWithSalt _salt GetSuppressedDestination' {..} =

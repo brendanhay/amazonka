@@ -153,6 +153,8 @@ instance Core.AWSRequest CreateEmailIdentityPolicy where
           CreateEmailIdentityPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateEmailIdentityPolicy where
   hashWithSalt _salt CreateEmailIdentityPolicy' {..} =

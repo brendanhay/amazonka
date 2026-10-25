@@ -89,6 +89,8 @@ instance Core.AWSRequest GetDedicatedIpPool where
             Prelude.<$> (x Data..?> "DedicatedIpPool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDedicatedIpPool where
   hashWithSalt _salt GetDedicatedIpPool' {..} =

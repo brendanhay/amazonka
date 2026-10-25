@@ -114,6 +114,8 @@ instance Core.AWSRequest GetConfigurationSet where
             Prelude.<*> (x Data..?> "VdmOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetConfigurationSet where
   hashWithSalt _salt GetConfigurationSet' {..} =

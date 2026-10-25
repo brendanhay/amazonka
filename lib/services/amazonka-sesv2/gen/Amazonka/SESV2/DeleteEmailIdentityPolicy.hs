@@ -129,6 +129,8 @@ instance Core.AWSRequest DeleteEmailIdentityPolicy where
           DeleteEmailIdentityPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteEmailIdentityPolicy where
   hashWithSalt _salt DeleteEmailIdentityPolicy' {..} =

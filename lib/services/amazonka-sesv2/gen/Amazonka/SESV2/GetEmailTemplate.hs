@@ -95,6 +95,8 @@ instance Core.AWSRequest GetEmailTemplate where
             Prelude.<*> (x Data..:> "TemplateName")
             Prelude.<*> (x Data..:> "TemplateContent")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetEmailTemplate where
   hashWithSalt _salt GetEmailTemplate' {..} =

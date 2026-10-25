@@ -97,6 +97,8 @@ instance Core.AWSRequest GetDeliverabilityTestReport where
             Prelude.<*> (x Data..:> "OverallPlacement")
             Prelude.<*> (x Data..?> "IspPlacements" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDeliverabilityTestReport where
   hashWithSalt _salt GetDeliverabilityTestReport' {..} =

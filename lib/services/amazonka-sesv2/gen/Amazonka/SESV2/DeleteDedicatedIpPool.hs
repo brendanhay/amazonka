@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteDedicatedIpPool where
           DeleteDedicatedIpPoolResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDedicatedIpPool where
   hashWithSalt _salt DeleteDedicatedIpPool' {..} =

@@ -105,6 +105,8 @@ instance Core.AWSRequest GetRegexMatchSet where
             Prelude.<$> (x Data..?> "RegexMatchSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRegexMatchSet where
   hashWithSalt _salt GetRegexMatchSet' {..} =

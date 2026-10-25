@@ -138,6 +138,8 @@ instance Core.AWSRequest CreateByteMatchSet where
             Prelude.<*> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateByteMatchSet where
   hashWithSalt _salt CreateByteMatchSet' {..} =

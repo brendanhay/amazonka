@@ -100,6 +100,8 @@ instance Core.AWSRequest GetRateBasedRule where
             Prelude.<$> (x Data..?> "Rule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRateBasedRule where
   hashWithSalt _salt GetRateBasedRule' {..} =

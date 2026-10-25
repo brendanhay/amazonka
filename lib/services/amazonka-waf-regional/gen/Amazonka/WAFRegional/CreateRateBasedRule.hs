@@ -274,6 +274,8 @@ instance Core.AWSRequest CreateRateBasedRule where
             Prelude.<*> (x Data..?> "Rule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateRateBasedRule where
   hashWithSalt _salt CreateRateBasedRule' {..} =

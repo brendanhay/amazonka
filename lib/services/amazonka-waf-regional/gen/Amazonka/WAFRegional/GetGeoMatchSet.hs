@@ -102,6 +102,8 @@ instance Core.AWSRequest GetGeoMatchSet where
             Prelude.<$> (x Data..?> "GeoMatchSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetGeoMatchSet where
   hashWithSalt _salt GetGeoMatchSet' {..} =

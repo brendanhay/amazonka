@@ -134,6 +134,8 @@ instance Core.AWSRequest DeleteXssMatchSet where
             Prelude.<$> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteXssMatchSet where
   hashWithSalt _salt DeleteXssMatchSet' {..} =

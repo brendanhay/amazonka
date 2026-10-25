@@ -97,6 +97,8 @@ instance Core.AWSRequest GetWorkerFleet where
             Prelude.<*> (x Data..:> "createdAt")
             Prelude.<*> (x Data..:> "updatedAt")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetWorkerFleet where
   hashWithSalt _salt GetWorkerFleet' {..} =

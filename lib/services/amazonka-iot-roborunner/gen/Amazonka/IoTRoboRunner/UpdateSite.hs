@@ -123,6 +123,8 @@ instance Core.AWSRequest UpdateSite where
             Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "updatedAt")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateSite where
   hashWithSalt _salt UpdateSite' {..} =

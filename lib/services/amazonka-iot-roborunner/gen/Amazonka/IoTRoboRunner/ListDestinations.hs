@@ -141,6 +141,8 @@ instance Core.AWSRequest ListDestinations where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDestinations where
   hashWithSalt _salt ListDestinations' {..} =

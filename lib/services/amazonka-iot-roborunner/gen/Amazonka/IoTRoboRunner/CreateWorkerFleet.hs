@@ -124,6 +124,13 @@ instance Core.AWSRequest CreateWorkerFleet where
             Prelude.<*> (x Data..:> "createdAt")
             Prelude.<*> (x Data..:> "updatedAt")
       )
+  updateIdempotencyToken
+    f
+    s@CreateWorkerFleet' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateWorkerFleet
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateWorkerFleet where
   hashWithSalt _salt CreateWorkerFleet' {..} =

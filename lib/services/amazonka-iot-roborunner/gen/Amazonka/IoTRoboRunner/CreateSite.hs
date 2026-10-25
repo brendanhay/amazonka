@@ -121,6 +121,11 @@ instance Core.AWSRequest CreateSite where
             Prelude.<*> (x Data..:> "createdAt")
             Prelude.<*> (x Data..:> "updatedAt")
       )
+  updateIdempotencyToken f s@CreateSite' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateSite
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateSite where
   hashWithSalt _salt CreateSite' {..} =

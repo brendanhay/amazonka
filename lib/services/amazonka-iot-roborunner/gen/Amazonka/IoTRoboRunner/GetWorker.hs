@@ -105,6 +105,8 @@ instance Core.AWSRequest GetWorker where
             Prelude.<*> (x Data..:> "updatedAt")
             Prelude.<*> (x Data..:> "name")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetWorker where
   hashWithSalt _salt GetWorker' {..} =

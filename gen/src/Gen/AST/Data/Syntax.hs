@@ -43,21 +43,6 @@ type ConDecl = Exts.ConDecl ()
 
 type FieldUpdate = Exts.FieldUpdate ()
 
-toX, toXAttr, toJ, toQ, toH :: QOp
-toX = "Data.@="
-toXAttr = "Data.@@="
-toJ = "Data..="
-toQ = "Data.=:"
-toH = "Data.=#"
-
-toQList, toXList :: Exp
-toQList = var "Data.toQueryList"
-toXList = var "Data.toXMLList"
-
-toXMap, toQMap :: Exp
-toXMap = var "Data.toXMLMap"
-toQMap = var "Data.toQueryMap"
-
 ctorS :: (HasMetadata a Identity) => a -> Id -> [Field] -> Decl
 ctorS m n fs = Exts.TypeSig () [ident (smartCtorId n)] ty
   where
@@ -470,7 +455,7 @@ wildcardD ::
   [Either a b] ->
   InstDecl
 wildcardD n f enc xs = \case
-  [] -> constD f xs
+  [] -> funArgsD f [] (Exts.app (var "Prelude.const") xs)
   es
     | all isLeft es -> funD f $ Exts.app (var "Prelude.const") (enc es)
     | otherwise -> Exts.InsDecl () (Exts.FunBind () [match prec es])
@@ -503,9 +488,6 @@ decodeD c n f dec =
   instD1 c n . \case
     [] -> funD f . Exts.app (var "Prelude.const") $ dec []
     es -> funArgsD f ["x"] (dec es)
-
-constD :: Text -> Exp -> InstDecl
-constD f = funArgsD f [] . Exts.app (var "Prelude.const")
 
 parseXMLE :: Protocol -> Field -> Exp
 parseXMLE p f = case outputNames p f of
@@ -554,11 +536,11 @@ parseXMLE p f = case outputNames p f of
           | otherwise = expr
 
 toXMLE :: Protocol -> Field -> Exp
-toXMLE p f = toGenericE p opX "Data.toXML" toXMap toXList f
+toXMLE p f = toGenericE p opX "Data.toXML" (var "Data.toXMLMap") (var "Data.toXMLList") f
   where
     opX
-      | f ^. fieldRef . refXMLAttribute = toXAttr
-      | otherwise = toX
+      | f ^. fieldRef . refXMLAttribute = "Data.@@="
+      | otherwise = "Data.@="
 
 toElementE :: Protocol -> Maybe Text -> Either Text Field -> Exp
 toElementE p ns = either (`root` []) node
@@ -576,26 +558,36 @@ toElementE p ns = either (`root` []) node
 toJSONE :: Protocol -> Field -> Exp
 toJSONE p f
   | fieldMaybe f = Exts.infixApp (Exts.paren (Exts.app (str n) o)) "Prelude.<$>" a
-  | otherwise = Exts.app (var "Prelude.Just") (encodeE n toJ a)
+  | otherwise =
+      Exts.app
+        (var "Prelude.Just")
+        (Exts.infixApp (str n) "Data..=" a)
   where
     n = memberName p Input f
     a = var (fieldAccessor f)
-    o = var (Text.pack (Exts.prettyPrint toJ))
+    o = var "Data..="
 
 toHeadersE :: Protocol -> Either (Text, Text) Field -> Exp
 toHeadersE p = either pair field'
   where
-    pair (k, v) = encodeE k toH $ impliesE v (var "Prelude.ByteString")
+    pair (k, v) =
+      Exts.infixApp (str k) "Data.=#" (impliesE v (var "Prelude.ByteString"))
 
-    field' f = encodeE (memberName p Input f) toH $ var (fieldAccessor f)
+    field' f =
+      Exts.infixApp
+        (str (memberName p Input f))
+        "Data.=#"
+        (var (fieldAccessor f))
 
 toQueryE :: Protocol -> Either (Text, Maybe Text) Field -> Exp
 toQueryE p = either pair field'
   where
     pair (k, Nothing) = str k
-    pair (k, Just v) = encodeE k toQ $ impliesE v (var "Prelude.ByteString")
+    pair (k, Just v) =
+      Exts.infixApp (str k) "Data.=:" (impliesE v (var "Prelude.ByteString"))
 
-    field' = toGenericE p toQ "Data.toQuery" toQMap toQList
+    field' =
+      toGenericE p "Data.=:" "Data.toQuery" (var "Data.toQueryMap") (var "Data.toQueryList")
 
 toPathE :: Either Text Field -> Exp
 toPathE = either str (Exts.app (var "Data.toBS") . var . fieldAccessor)
@@ -613,7 +605,7 @@ toGenericE p toO toF toM toL f = case inputNames p f of
     | otherwise ->
         flatE mn toO $ Exts.appFun toL [str i, a]
   NName n ->
-    encodeE n toO a
+    Exts.infixApp (str n) toO a
   where
     a = var (fieldAccessor f)
 
@@ -653,11 +645,8 @@ impliesE :: Text -> Exp -> Exp
 impliesE x y = Exts.paren (Exts.infixApp (str x) "::" y)
 
 flatE :: Maybe Text -> QOp -> Exp -> Exp
-flatE (Just n) o = encodeE n o
+flatE (Just n) o = Exts.infixApp (str n) o
 flatE Nothing _ = id
-
-encodeE :: Text -> QOp -> Exp -> Exp
-encodeE n = Exts.infixApp (str n)
 
 memberName :: Protocol -> Direction -> Field -> Text
 memberName p d f = Proto.memberName p d (f ^. fieldId) (f ^. fieldRef)

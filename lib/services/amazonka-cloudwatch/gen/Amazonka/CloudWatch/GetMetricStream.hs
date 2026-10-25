@@ -116,6 +116,8 @@ instance Core.AWSRequest GetMetricStream where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMetricStream where
   hashWithSalt _salt GetMetricStream' {..} =

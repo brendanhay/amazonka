@@ -95,6 +95,8 @@ instance Core.AWSRequest DisableInsightRules where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisableInsightRules where
   hashWithSalt _salt DisableInsightRules' {..} =

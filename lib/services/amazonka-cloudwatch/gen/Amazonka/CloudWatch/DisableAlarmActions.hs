@@ -78,6 +78,8 @@ instance Core.AWSRequest DisableAlarmActions where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DisableAlarmActionsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisableAlarmActions where
   hashWithSalt _salt DisableAlarmActions' {..} =

@@ -336,6 +336,8 @@ instance Core.AWSRequest DescribeAlarms where
             Prelude.<*> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAlarms where
   hashWithSalt _salt DescribeAlarms' {..} =

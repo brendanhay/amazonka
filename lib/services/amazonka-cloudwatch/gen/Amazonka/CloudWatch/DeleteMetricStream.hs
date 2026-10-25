@@ -86,6 +86,8 @@ instance Core.AWSRequest DeleteMetricStream where
           DeleteMetricStreamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteMetricStream where
   hashWithSalt _salt DeleteMetricStream' {..} =

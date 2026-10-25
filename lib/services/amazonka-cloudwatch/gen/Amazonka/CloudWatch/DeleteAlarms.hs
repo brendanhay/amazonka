@@ -94,6 +94,8 @@ instance Core.AWSRequest DeleteAlarms where
   request overrides =
     Request.postQuery (overrides defaultService)
   response = Response.receiveNull DeleteAlarmsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAlarms where
   hashWithSalt _salt DeleteAlarms' {..} =

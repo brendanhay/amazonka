@@ -96,6 +96,8 @@ instance Core.AWSRequest StopMetricStreams where
           StopMetricStreamsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopMetricStreams where
   hashWithSalt _salt StopMetricStreams' {..} =

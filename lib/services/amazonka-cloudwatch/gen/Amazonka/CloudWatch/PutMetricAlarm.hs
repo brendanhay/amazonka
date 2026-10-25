@@ -890,6 +890,8 @@ instance Core.AWSRequest PutMetricAlarm where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull PutMetricAlarmResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutMetricAlarm where
   hashWithSalt _salt PutMetricAlarm' {..} =

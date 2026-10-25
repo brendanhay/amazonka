@@ -162,7 +162,7 @@ instanceD c@Config {requestType} =
     Just
       [ awsResponseD c,
         requestD c,
-        funD "response" (responseE c)
+        responseD c
       ]
 
 awsResponseD :: Config -> Exts.InstDecl ()
@@ -183,9 +183,9 @@ requestD Config {..} =
       var ("Request." <> requestFunction)
         `Exts.app` (var "overrides" `Exts.app` var serviceConfig)
 
-responseE :: Config -> Exts.Exp ()
-responseE Config {..} =
-  case responseReceiver of
+responseD :: Config -> Exts.InstDecl ()
+responseD Config {..} =
+  funD "response" $ case responseReceiver of
     ReceiveNull ->
       var "Response.receiveNull" `Exts.app` var (ctorId responseType)
     ReceiveJsonAll ->

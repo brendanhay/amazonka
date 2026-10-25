@@ -177,6 +177,8 @@ instance Core.AWSRequest UpdateLaunch where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "launch")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateLaunch where
   hashWithSalt _salt UpdateLaunch' {..} =

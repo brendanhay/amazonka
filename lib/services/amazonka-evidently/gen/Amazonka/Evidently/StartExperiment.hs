@@ -121,6 +121,8 @@ instance Core.AWSRequest StartExperiment where
             Prelude.<$> (x Data..?> "startedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartExperiment where
   hashWithSalt _salt StartExperiment' {..} =

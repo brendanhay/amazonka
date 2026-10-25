@@ -86,6 +86,8 @@ instance Core.AWSRequest GetSegment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "segment")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSegment where
   hashWithSalt _salt GetSegment' {..} =

@@ -288,6 +288,8 @@ instance Core.AWSRequest GetExperimentResults where
             Prelude.<*> (x Data..?> "timestamps" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetExperimentResults where
   hashWithSalt _salt GetExperimentResults' {..} =

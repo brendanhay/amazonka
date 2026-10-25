@@ -101,6 +101,8 @@ instance Core.AWSRequest DeleteLaunch where
           DeleteLaunchResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteLaunch where
   hashWithSalt _salt DeleteLaunch' {..} =

@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteSegment where
           DeleteSegmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSegment where
   hashWithSalt _salt DeleteSegment' {..} =

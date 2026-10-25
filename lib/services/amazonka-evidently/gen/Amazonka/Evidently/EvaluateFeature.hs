@@ -162,6 +162,8 @@ instance Core.AWSRequest EvaluateFeature where
             Prelude.<*> (x Data..?> "variation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable EvaluateFeature where
   hashWithSalt _salt EvaluateFeature' {..} =

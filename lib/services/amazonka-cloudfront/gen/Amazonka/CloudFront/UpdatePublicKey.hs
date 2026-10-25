@@ -117,6 +117,8 @@ instance Core.AWSRequest UpdatePublicKey where
             Prelude.<*> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdatePublicKey where
   hashWithSalt _salt UpdatePublicKey' {..} =

@@ -96,6 +96,8 @@ instance Core.AWSRequest CreateDistribution where
             Prelude.<*> (h Data..#? "Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDistribution where
   hashWithSalt _salt CreateDistribution' {..} =

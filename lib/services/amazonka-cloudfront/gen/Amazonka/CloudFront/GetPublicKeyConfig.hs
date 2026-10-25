@@ -89,6 +89,8 @@ instance Core.AWSRequest GetPublicKeyConfig where
             Prelude.<*> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPublicKeyConfig where
   hashWithSalt _salt GetPublicKeyConfig' {..} =

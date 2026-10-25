@@ -102,6 +102,8 @@ instance Core.AWSRequest DeleteOriginAccessControl where
   response =
     Response.receiveNull
       DeleteOriginAccessControlResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteOriginAccessControl where
   hashWithSalt _salt DeleteOriginAccessControl' {..} =

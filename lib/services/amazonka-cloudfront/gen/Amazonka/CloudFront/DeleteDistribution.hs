@@ -134,6 +134,8 @@ instance Core.AWSRequest DeleteDistribution where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteDistributionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDistribution where
   hashWithSalt _salt DeleteDistribution' {..} =

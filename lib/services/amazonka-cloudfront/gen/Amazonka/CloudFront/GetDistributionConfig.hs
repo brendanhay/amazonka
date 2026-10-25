@@ -94,6 +94,8 @@ instance Core.AWSRequest GetDistributionConfig where
             Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDistributionConfig where
   hashWithSalt _salt GetDistributionConfig' {..} =

@@ -105,6 +105,8 @@ instance Core.AWSRequest GetFunction where
             Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetFunction where
   hashWithSalt _salt GetFunction' {..} =

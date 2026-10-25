@@ -155,6 +155,8 @@ instance Core.AWSRequest ListResponseHeadersPolicies where
             Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListResponseHeadersPolicies where
   hashWithSalt _salt ListResponseHeadersPolicies' {..} =

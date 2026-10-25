@@ -126,6 +126,8 @@ instance Core.AWSRequest ListStreamingDistributions where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.parseXML x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListStreamingDistributions where
   hashWithSalt _salt ListStreamingDistributions' {..} =

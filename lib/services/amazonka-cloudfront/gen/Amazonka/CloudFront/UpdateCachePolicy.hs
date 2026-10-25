@@ -138,6 +138,8 @@ instance Core.AWSRequest UpdateCachePolicy where
             Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateCachePolicy where
   hashWithSalt _salt UpdateCachePolicy' {..} =

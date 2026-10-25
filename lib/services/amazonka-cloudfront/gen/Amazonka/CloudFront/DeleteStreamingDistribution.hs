@@ -136,6 +136,8 @@ instance Core.AWSRequest DeleteStreamingDistribution where
   response =
     Response.receiveNull
       DeleteStreamingDistributionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteStreamingDistribution where
   hashWithSalt _salt DeleteStreamingDistribution' {..} =

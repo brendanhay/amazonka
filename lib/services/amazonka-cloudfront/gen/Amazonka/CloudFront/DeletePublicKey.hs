@@ -93,6 +93,8 @@ instance Core.AWSRequest DeletePublicKey where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeletePublicKeyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePublicKey where
   hashWithSalt _salt DeletePublicKey' {..} =

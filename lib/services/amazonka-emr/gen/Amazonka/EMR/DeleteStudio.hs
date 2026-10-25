@@ -75,6 +75,8 @@ instance Core.AWSRequest DeleteStudio where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull DeleteStudioResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteStudio where
   hashWithSalt _salt DeleteStudio' {..} =

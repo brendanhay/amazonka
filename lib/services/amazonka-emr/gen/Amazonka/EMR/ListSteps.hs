@@ -165,6 +165,8 @@ instance Core.AWSRequest ListSteps where
             Prelude.<*> (x Data..?> "Steps" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSteps where
   hashWithSalt _salt ListSteps' {..} =

@@ -90,6 +90,8 @@ instance Core.AWSRequest DescribeCluster where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Cluster")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeCluster where
   hashWithSalt _salt DescribeCluster' {..} =

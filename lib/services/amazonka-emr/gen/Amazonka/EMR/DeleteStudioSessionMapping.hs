@@ -155,6 +155,8 @@ instance Core.AWSRequest DeleteStudioSessionMapping where
   response =
     Response.receiveNull
       DeleteStudioSessionMappingResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteStudioSessionMapping where
   hashWithSalt _salt DeleteStudioSessionMapping' {..} =

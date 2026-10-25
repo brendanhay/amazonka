@@ -108,6 +108,8 @@ instance Core.AWSRequest RemoveAutoScalingPolicy where
           RemoveAutoScalingPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveAutoScalingPolicy where
   hashWithSalt _salt RemoveAutoScalingPolicy' {..} =

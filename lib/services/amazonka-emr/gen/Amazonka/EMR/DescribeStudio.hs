@@ -88,6 +88,8 @@ instance Core.AWSRequest DescribeStudio where
             Prelude.<$> (x Data..?> "Studio")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeStudio where
   hashWithSalt _salt DescribeStudio' {..} =

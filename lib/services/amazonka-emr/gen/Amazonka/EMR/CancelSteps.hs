@@ -129,6 +129,8 @@ instance Core.AWSRequest CancelSteps where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelSteps where
   hashWithSalt _salt CancelSteps' {..} =

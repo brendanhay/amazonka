@@ -185,6 +185,8 @@ instance Core.AWSRequest CreateStudioSessionMapping where
   response =
     Response.receiveNull
       CreateStudioSessionMappingResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateStudioSessionMapping where
   hashWithSalt _salt CreateStudioSessionMapping' {..} =

@@ -133,6 +133,8 @@ instance Core.AWSRequest UpdateStudio where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull UpdateStudioResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateStudio where
   hashWithSalt _salt UpdateStudio' {..} =

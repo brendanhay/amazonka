@@ -101,6 +101,8 @@ instance Core.AWSRequest DescribeStep where
             Prelude.<$> (x Data..?> "Step")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeStep where
   hashWithSalt _salt DescribeStep' {..} =

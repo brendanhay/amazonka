@@ -108,6 +108,8 @@ instance Core.AWSRequest AddInstanceGroups where
             Prelude.<*> (x Data..?> "JobFlowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddInstanceGroups where
   hashWithSalt _salt AddInstanceGroups' {..} =

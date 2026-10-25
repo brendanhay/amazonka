@@ -144,6 +144,8 @@ instance Core.AWSRequest ListStudioSessionMappings where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListStudioSessionMappings where
   hashWithSalt _salt ListStudioSessionMappings' {..} =

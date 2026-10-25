@@ -320,6 +320,8 @@ instance Core.AWSRequest GetResourceMetrics where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetResourceMetrics where
   hashWithSalt _salt GetResourceMetrics' {..} =

@@ -91,6 +91,8 @@ instance Core.AWSRequest DeleteDatabase where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteDatabaseResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDatabase where
   hashWithSalt _salt DeleteDatabase' {..} =

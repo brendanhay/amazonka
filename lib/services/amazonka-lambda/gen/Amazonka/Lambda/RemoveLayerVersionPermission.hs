@@ -127,6 +127,8 @@ instance Core.AWSRequest RemoveLayerVersionPermission where
   response =
     Response.receiveNull
       RemoveLayerVersionPermissionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

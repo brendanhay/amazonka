@@ -105,6 +105,8 @@ instance Core.AWSRequest GetLayerVersionPolicy where
             Prelude.<*> (x Data..?> "RevisionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetLayerVersionPolicy where
   hashWithSalt _salt GetLayerVersionPolicy' {..} =

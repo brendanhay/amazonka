@@ -185,6 +185,8 @@ instance Core.AWSRequest CreateFunctionUrlConfig where
             Prelude.<*> (x Data..:> "AuthType")
             Prelude.<*> (x Data..:> "CreationTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateFunctionUrlConfig where
   hashWithSalt _salt CreateFunctionUrlConfig' {..} =

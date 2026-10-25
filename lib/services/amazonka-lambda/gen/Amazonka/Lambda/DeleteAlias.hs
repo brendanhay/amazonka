@@ -126,6 +126,8 @@ instance Core.AWSRequest DeleteAlias where
   request overrides =
     Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteAliasResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAlias where
   hashWithSalt _salt DeleteAlias' {..} =

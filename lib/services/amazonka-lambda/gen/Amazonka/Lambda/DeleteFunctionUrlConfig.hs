@@ -130,6 +130,8 @@ instance Core.AWSRequest DeleteFunctionUrlConfig where
   response =
     Response.receiveNull
       DeleteFunctionUrlConfigResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFunctionUrlConfig where
   hashWithSalt _salt DeleteFunctionUrlConfig' {..} =

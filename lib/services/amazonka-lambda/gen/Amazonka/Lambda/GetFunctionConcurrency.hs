@@ -128,6 +128,8 @@ instance Core.AWSRequest GetFunctionConcurrency where
             Prelude.<$> (x Data..?> "ReservedConcurrentExecutions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetFunctionConcurrency where
   hashWithSalt _salt GetFunctionConcurrency' {..} =

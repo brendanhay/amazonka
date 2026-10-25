@@ -128,6 +128,8 @@ instance Core.AWSRequest GetFunctionCodeSigningConfig where
             Prelude.<*> (x Data..:> "CodeSigningConfigArn")
             Prelude.<*> (x Data..:> "FunctionName")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

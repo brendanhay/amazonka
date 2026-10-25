@@ -447,6 +447,8 @@ instance Core.AWSRequest UpdateFunctionConfiguration where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateFunctionConfiguration where
   hashWithSalt _salt UpdateFunctionConfiguration' {..} =

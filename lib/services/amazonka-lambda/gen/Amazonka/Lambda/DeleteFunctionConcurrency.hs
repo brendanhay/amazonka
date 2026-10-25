@@ -118,6 +118,8 @@ instance Core.AWSRequest DeleteFunctionConcurrency where
   response =
     Response.receiveNull
       DeleteFunctionConcurrencyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFunctionConcurrency where
   hashWithSalt _salt DeleteFunctionConcurrency' {..} =

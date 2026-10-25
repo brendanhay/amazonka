@@ -99,6 +99,8 @@ instance Core.AWSRequest DescribeVpcConnector where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "VpcConnector")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeVpcConnector where
   hashWithSalt _salt DescribeVpcConnector' {..} =

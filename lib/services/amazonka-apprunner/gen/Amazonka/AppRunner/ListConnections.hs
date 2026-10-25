@@ -143,6 +143,8 @@ instance Core.AWSRequest ListConnections where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListConnections where
   hashWithSalt _salt ListConnections' {..} =

@@ -100,6 +100,8 @@ instance Core.AWSRequest DeleteVpcConnector where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "VpcConnector")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVpcConnector where
   hashWithSalt _salt DeleteVpcConnector' {..} =

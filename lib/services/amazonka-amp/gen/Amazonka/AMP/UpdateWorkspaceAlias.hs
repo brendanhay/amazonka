@@ -105,6 +105,14 @@ instance Core.AWSRequest UpdateWorkspaceAlias where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateWorkspaceAliasResponse'
+  updateIdempotencyToken
+    f
+    s@UpdateWorkspaceAlias' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            UpdateWorkspaceAlias
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateWorkspaceAlias where
   hashWithSalt _salt UpdateWorkspaceAlias' {..} =

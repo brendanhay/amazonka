@@ -122,6 +122,14 @@ instance Core.AWSRequest UpdateLoggingConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken
+    f
+    s@UpdateLoggingConfiguration' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            UpdateLoggingConfiguration
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateLoggingConfiguration where
   hashWithSalt _salt UpdateLoggingConfiguration' {..} =

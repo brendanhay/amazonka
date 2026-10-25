@@ -97,6 +97,14 @@ instance Core.AWSRequest DeleteAlertManagerDefinition where
   response =
     Response.receiveNull
       DeleteAlertManagerDefinitionResponse'
+  updateIdempotencyToken
+    f
+    s@DeleteAlertManagerDefinition' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            DeleteAlertManagerDefinition
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

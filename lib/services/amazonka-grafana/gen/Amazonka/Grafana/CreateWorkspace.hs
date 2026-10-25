@@ -396,6 +396,13 @@ instance Core.AWSRequest CreateWorkspace where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "workspace")
       )
+  updateIdempotencyToken
+    f
+    s@CreateWorkspace' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateWorkspace
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateWorkspace where
   hashWithSalt _salt CreateWorkspace' {..} =

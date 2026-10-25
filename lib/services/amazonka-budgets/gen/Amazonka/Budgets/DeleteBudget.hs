@@ -105,6 +105,8 @@ instance Core.AWSRequest DeleteBudget where
           DeleteBudgetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBudget where
   hashWithSalt _salt DeleteBudget' {..} =

@@ -201,6 +201,8 @@ instance Core.AWSRequest CreateBudgetAction where
             Prelude.<*> (x Data..:> "BudgetName")
             Prelude.<*> (x Data..:> "ActionId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateBudgetAction where
   hashWithSalt _salt CreateBudgetAction' {..} =

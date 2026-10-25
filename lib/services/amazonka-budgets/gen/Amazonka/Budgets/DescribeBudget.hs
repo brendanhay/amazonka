@@ -111,6 +111,8 @@ instance Core.AWSRequest DescribeBudget where
             Prelude.<$> (x Data..?> "Budget")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeBudget where
   hashWithSalt _salt DescribeBudget' {..} =

@@ -162,6 +162,8 @@ instance Core.AWSRequest CreateBackupVault where
             Prelude.<*> (x Data..?> "CreationDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateBackupVault where
   hashWithSalt _salt CreateBackupVault' {..} =

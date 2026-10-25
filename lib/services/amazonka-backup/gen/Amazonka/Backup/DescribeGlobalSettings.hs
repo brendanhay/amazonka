@@ -76,6 +76,8 @@ instance Core.AWSRequest DescribeGlobalSettings where
             Prelude.<*> (x Data..?> "LastUpdateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeGlobalSettings where
   hashWithSalt _salt _ =

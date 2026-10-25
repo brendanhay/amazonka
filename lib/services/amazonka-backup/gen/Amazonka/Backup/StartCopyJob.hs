@@ -186,6 +186,8 @@ instance Core.AWSRequest StartCopyJob where
             Prelude.<*> (x Data..?> "IsParent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartCopyJob where
   hashWithSalt _salt StartCopyJob' {..} =

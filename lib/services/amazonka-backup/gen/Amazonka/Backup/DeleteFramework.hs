@@ -78,6 +78,8 @@ instance Core.AWSRequest DeleteFramework where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteFrameworkResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFramework where
   hashWithSalt _salt DeleteFramework' {..} =

@@ -104,6 +104,8 @@ instance Core.AWSRequest DescribeFramework where
             Prelude.<*> (x Data..?> "IdempotencyToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeFramework where
   hashWithSalt _salt DescribeFramework' {..} =

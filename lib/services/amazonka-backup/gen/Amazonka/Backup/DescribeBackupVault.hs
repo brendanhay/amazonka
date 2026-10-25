@@ -117,6 +117,8 @@ instance Core.AWSRequest DescribeBackupVault where
             Prelude.<*> (x Data..?> "NumberOfRecoveryPoints")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeBackupVault where
   hashWithSalt _salt DescribeBackupVault' {..} =

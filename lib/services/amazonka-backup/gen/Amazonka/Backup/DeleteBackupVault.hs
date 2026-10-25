@@ -91,6 +91,8 @@ instance Core.AWSRequest DeleteBackupVault where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteBackupVaultResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBackupVault where
   hashWithSalt _salt DeleteBackupVault' {..} =

@@ -105,6 +105,8 @@ instance Core.AWSRequest DisassociateRecoveryPoint where
   response =
     Response.receiveNull
       DisassociateRecoveryPointResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateRecoveryPoint where
   hashWithSalt _salt DisassociateRecoveryPoint' {..} =

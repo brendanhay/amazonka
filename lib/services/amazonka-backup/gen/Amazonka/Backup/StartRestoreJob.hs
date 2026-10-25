@@ -327,6 +327,8 @@ instance Core.AWSRequest StartRestoreJob where
             Prelude.<$> (x Data..?> "RestoreJobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartRestoreJob where
   hashWithSalt _salt StartRestoreJob' {..} =

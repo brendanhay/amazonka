@@ -108,6 +108,14 @@ instance Core.AWSRequest StartReportJob where
             Prelude.<$> (x Data..?> "ReportJobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartReportJob' {idempotencyToken} =
+      ( \idempotencyToken' ->
+          s {idempotencyToken = idempotencyToken'} ::
+            StartReportJob
+      )
+        Prelude.<$> f idempotencyToken
 
 instance Prelude.Hashable StartReportJob where
   hashWithSalt _salt StartReportJob' {..} =

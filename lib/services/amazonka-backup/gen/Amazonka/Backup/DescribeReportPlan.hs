@@ -91,6 +91,8 @@ instance Core.AWSRequest DescribeReportPlan where
             Prelude.<$> (x Data..?> "ReportPlan")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeReportPlan where
   hashWithSalt _salt DescribeReportPlan' {..} =

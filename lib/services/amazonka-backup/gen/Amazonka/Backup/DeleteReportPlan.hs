@@ -81,6 +81,8 @@ instance Core.AWSRequest DeleteReportPlan where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteReportPlanResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteReportPlan where
   hashWithSalt _salt DeleteReportPlan' {..} =

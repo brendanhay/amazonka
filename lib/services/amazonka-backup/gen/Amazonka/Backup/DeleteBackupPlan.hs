@@ -96,6 +96,8 @@ instance Core.AWSRequest DeleteBackupPlan where
             Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBackupPlan where
   hashWithSalt _salt DeleteBackupPlan' {..} =

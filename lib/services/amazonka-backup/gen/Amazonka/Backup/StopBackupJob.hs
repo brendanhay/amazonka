@@ -83,6 +83,8 @@ instance Core.AWSRequest StopBackupJob where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull StopBackupJobResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopBackupJob where
   hashWithSalt _salt StopBackupJob' {..} =

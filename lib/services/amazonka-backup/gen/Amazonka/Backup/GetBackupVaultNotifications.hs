@@ -108,6 +108,8 @@ instance Core.AWSRequest GetBackupVaultNotifications where
             Prelude.<*> (x Data..?> "SNSTopicArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBackupVaultNotifications where
   hashWithSalt _salt GetBackupVaultNotifications' {..} =

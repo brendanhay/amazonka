@@ -119,6 +119,8 @@ instance Core.AWSRequest GetFileUploadURL where
             Prelude.<$> (x Data..?> "FileUploadURL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetFileUploadURL where
   hashWithSalt _salt GetFileUploadURL' {..} =

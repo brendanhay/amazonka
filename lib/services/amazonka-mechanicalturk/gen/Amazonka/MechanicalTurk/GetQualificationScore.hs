@@ -112,6 +112,8 @@ instance Core.AWSRequest GetQualificationScore where
             Prelude.<$> (x Data..?> "Qualification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetQualificationScore where
   hashWithSalt _salt GetQualificationScore' {..} =

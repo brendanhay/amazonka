@@ -118,6 +118,8 @@ instance Core.AWSRequest UpdateHITReviewStatus where
           UpdateHITReviewStatusResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateHITReviewStatus where
   hashWithSalt _salt UpdateHITReviewStatus' {..} =

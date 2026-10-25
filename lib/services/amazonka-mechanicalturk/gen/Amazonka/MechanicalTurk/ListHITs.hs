@@ -124,6 +124,8 @@ instance Core.AWSRequest ListHITs where
             Prelude.<*> (x Data..?> "NumResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListHITs where
   hashWithSalt _salt ListHITs' {..} =

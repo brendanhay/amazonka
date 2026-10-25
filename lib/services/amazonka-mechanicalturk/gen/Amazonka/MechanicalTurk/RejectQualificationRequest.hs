@@ -110,6 +110,8 @@ instance Core.AWSRequest RejectQualificationRequest where
           RejectQualificationRequestResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RejectQualificationRequest where
   hashWithSalt _salt RejectQualificationRequest' {..} =

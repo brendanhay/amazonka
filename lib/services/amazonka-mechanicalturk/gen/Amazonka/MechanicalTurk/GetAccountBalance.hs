@@ -78,6 +78,8 @@ instance Core.AWSRequest GetAccountBalance where
             Prelude.<*> (x Data..?> "OnHoldBalance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAccountBalance where
   hashWithSalt _salt _ =

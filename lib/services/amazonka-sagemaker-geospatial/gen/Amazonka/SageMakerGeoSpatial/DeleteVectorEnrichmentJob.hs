@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteVectorEnrichmentJob where
           DeleteVectorEnrichmentJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVectorEnrichmentJob where
   hashWithSalt _salt DeleteVectorEnrichmentJob' {..} =

@@ -181,6 +181,14 @@ instance Core.AWSRequest StartEarthObservationJob where
             Prelude.<*> (x Data..:> "Name")
             Prelude.<*> (x Data..:> "Status")
       )
+  updateIdempotencyToken
+    f
+    s@StartEarthObservationJob' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            StartEarthObservationJob
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartEarthObservationJob where
   hashWithSalt _salt StartEarthObservationJob' {..} =

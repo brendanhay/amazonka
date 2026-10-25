@@ -187,6 +187,14 @@ instance Core.AWSRequest StartVectorEnrichmentJob where
             Prelude.<*> (x Data..:> "Status")
             Prelude.<*> (x Data..:> "Type")
       )
+  updateIdempotencyToken
+    f
+    s@StartVectorEnrichmentJob' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            StartVectorEnrichmentJob
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartVectorEnrichmentJob where
   hashWithSalt _salt StartVectorEnrichmentJob' {..} =

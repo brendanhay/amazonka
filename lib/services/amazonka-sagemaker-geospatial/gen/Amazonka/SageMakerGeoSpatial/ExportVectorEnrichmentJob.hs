@@ -128,6 +128,8 @@ instance Core.AWSRequest ExportVectorEnrichmentJob where
             Prelude.<*> (x Data..:> "ExportStatus")
             Prelude.<*> (x Data..:> "OutputConfig")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ExportVectorEnrichmentJob where
   hashWithSalt _salt ExportVectorEnrichmentJob' {..} =

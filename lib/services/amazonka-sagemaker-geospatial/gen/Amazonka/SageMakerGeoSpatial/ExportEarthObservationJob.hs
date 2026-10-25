@@ -144,6 +144,8 @@ instance Core.AWSRequest ExportEarthObservationJob where
             Prelude.<*> (x Data..:> "ExportStatus")
             Prelude.<*> (x Data..:> "OutputConfig")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ExportEarthObservationJob where
   hashWithSalt _salt ExportEarthObservationJob' {..} =

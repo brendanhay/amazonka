@@ -114,6 +114,8 @@ instance Core.AWSRequest GetVectorEnrichmentJob where
             Prelude.<*> (x Data..:> "Status")
             Prelude.<*> (x Data..:> "Type")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetVectorEnrichmentJob where
   hashWithSalt _salt GetVectorEnrichmentJob' {..} =

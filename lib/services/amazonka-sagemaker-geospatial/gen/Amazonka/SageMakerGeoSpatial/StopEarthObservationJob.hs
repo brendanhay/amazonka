@@ -88,6 +88,8 @@ instance Core.AWSRequest StopEarthObservationJob where
           StopEarthObservationJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopEarthObservationJob where
   hashWithSalt _salt StopEarthObservationJob' {..} =

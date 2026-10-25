@@ -276,6 +276,8 @@ instance Core.AWSRequest CreateProfileJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Name")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateProfileJob where
   hashWithSalt _salt CreateProfileJob' {..} =

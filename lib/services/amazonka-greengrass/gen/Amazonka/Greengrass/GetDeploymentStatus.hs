@@ -109,6 +109,8 @@ instance Core.AWSRequest GetDeploymentStatus where
             Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDeploymentStatus where
   hashWithSalt _salt GetDeploymentStatus' {..} =

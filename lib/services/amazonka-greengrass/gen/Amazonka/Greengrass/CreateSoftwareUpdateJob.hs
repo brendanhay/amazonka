@@ -164,6 +164,8 @@ instance Core.AWSRequest CreateSoftwareUpdateJob where
             Prelude.<*> (x Data..?> "PlatformSoftwareVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateSoftwareUpdateJob where
   hashWithSalt _salt CreateSoftwareUpdateJob' {..} =

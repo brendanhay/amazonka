@@ -97,6 +97,8 @@ instance Core.AWSRequest UpdateCoreDefinition where
           UpdateCoreDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateCoreDefinition where
   hashWithSalt _salt UpdateCoreDefinition' {..} =

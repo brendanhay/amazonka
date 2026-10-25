@@ -114,6 +114,8 @@ instance Core.AWSRequest ResetDeployments where
             Prelude.<*> (x Data..?> "DeploymentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ResetDeployments where
   hashWithSalt _salt ResetDeployments' {..} =

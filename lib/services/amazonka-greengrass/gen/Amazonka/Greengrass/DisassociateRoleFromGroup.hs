@@ -87,6 +87,8 @@ instance Core.AWSRequest DisassociateRoleFromGroup where
             Prelude.<$> (x Data..?> "DisassociatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateRoleFromGroup where
   hashWithSalt _salt DisassociateRoleFromGroup' {..} =

@@ -159,6 +159,8 @@ instance Core.AWSRequest StartBulkDeployment where
             Prelude.<*> (x Data..?> "BulkDeploymentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartBulkDeployment where
   hashWithSalt _salt StartBulkDeployment' {..} =

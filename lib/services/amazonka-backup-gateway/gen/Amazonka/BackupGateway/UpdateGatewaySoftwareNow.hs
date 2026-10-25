@@ -95,6 +95,8 @@ instance Core.AWSRequest UpdateGatewaySoftwareNow where
             Prelude.<$> (x Data..?> "GatewayArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateGatewaySoftwareNow where
   hashWithSalt _salt UpdateGatewaySoftwareNow' {..} =

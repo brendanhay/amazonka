@@ -120,6 +120,8 @@ instance Core.AWSRequest StartContentUpload where
             Prelude.<*> (x Data..:> "url")
             Prelude.<*> (x Data..:> "urlExpiry")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartContentUpload where
   hashWithSalt _salt StartContentUpload' {..} =

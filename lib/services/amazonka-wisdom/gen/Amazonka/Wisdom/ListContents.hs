@@ -142,6 +142,8 @@ instance Core.AWSRequest ListContents where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListContents where
   hashWithSalt _salt ListContents' {..} =

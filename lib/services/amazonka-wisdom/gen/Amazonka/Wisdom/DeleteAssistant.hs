@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteAssistant where
           DeleteAssistantResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAssistant where
   hashWithSalt _salt DeleteAssistant' {..} =

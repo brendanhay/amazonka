@@ -107,6 +107,8 @@ instance Core.AWSRequest GetContentSummary where
             Prelude.<$> (x Data..?> "contentSummary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetContentSummary where
   hashWithSalt _salt GetContentSummary' {..} =

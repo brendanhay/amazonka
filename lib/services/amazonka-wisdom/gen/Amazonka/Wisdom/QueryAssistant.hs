@@ -155,6 +155,8 @@ instance Core.AWSRequest QueryAssistant where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "results" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable QueryAssistant where
   hashWithSalt _salt QueryAssistant' {..} =

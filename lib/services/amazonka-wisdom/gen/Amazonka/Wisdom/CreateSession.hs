@@ -139,6 +139,13 @@ instance Core.AWSRequest CreateSession where
             Prelude.<$> (x Data..?> "session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateSession' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateSession
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateSession where
   hashWithSalt _salt CreateSession' {..} =

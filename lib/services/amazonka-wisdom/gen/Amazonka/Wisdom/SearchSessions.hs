@@ -156,6 +156,8 @@ instance Core.AWSRequest SearchSessions where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SearchSessions where
   hashWithSalt _salt SearchSessions' {..} =

@@ -93,6 +93,8 @@ instance Core.AWSRequest GetKnowledgeBase where
             Prelude.<$> (x Data..?> "knowledgeBase")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetKnowledgeBase where
   hashWithSalt _salt GetKnowledgeBase' {..} =

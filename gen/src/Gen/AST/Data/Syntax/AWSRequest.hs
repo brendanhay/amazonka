@@ -180,9 +180,9 @@ requestD Config {..} =
     applyPlugin x = Exts.infixApp (var x) "Prelude.."
 
     e =
-      Exts.app
+      Exts.appFun
         (var $ "Request." <> requestFunction)
-        (Exts.app (var "overrides") (var serviceConfig))
+        [var "overrides", var serviceConfig]
 
 responseE :: Config -> Exts.Exp ()
 responseE Config {..} =
@@ -196,9 +196,9 @@ responseE Config {..} =
       var "Response.receiveXML"
         `Exts.app` lam (var "Data.parseXML" `Exts.app` var "x")
     ReceiveXmlAll (Just wrapper) ->
-      var "Response.receiveXMLWrapper"
-        `Exts.app` str wrapper
-        `Exts.app` lam (var "Data.parseXML" `Exts.app` var "x")
+      Exts.appFun
+        (var "Response.receiveXMLWrapper")
+        [str wrapper, lam (var "Data.parseXML" `Exts.app` var "x")]
     ReceiveStreamingBody fieldParsers ->
       var "Response.receiveStreamingBody"
         `Exts.app` lam (ctorE responseType $ map parseField fieldParsers)
@@ -212,9 +212,11 @@ responseE Config {..} =
       var "Response.receiveXML"
         `Exts.app` lam (ctorE responseType $ map parseField fieldParsers)
     ReceiveXml (Just wrapper) fieldParsers ->
-      var "Response.receiveXMLWrapper"
-        `Exts.app` str wrapper
-        `Exts.app` lam (ctorE responseType $ map parseField fieldParsers)
+      Exts.appFun
+        (var "Response.receiveXMLWrapper")
+        [ str wrapper,
+          lam (ctorE responseType $ map parseField fieldParsers)
+        ]
     ReceiveEmpty fieldParsers ->
       var "Response.receiveEmpty"
         `Exts.app` lam (ctorE responseType $ map parseField fieldParsers)
@@ -264,14 +266,14 @@ responseE Config {..} =
         XmlCollection mOuter collection sensitivity presence ->
           case mOuter of
             Nothing -> parser `Exts.app` var "x"
+            -- Add code to unwrap an outer layer of the XML before
+            -- parsing items.
             Just outer ->
-              bindE
-                ( Exts.infixApp
-                    (Exts.infixApp (var "x") "Data..@?" (str outer))
-                    "Core..!@"
-                    (var "Prelude.mempty")
-                )
-                parser
+              Exts.infixApp
+                (Exts.infixApp (var "x") "Data..@?" (str outer))
+                "Core..!@"
+                (var "Prelude.mempty")
+                `bindE` parser
           where
             bindE m = Exts.infixApp m "Prelude.>>="
 
@@ -282,18 +284,19 @@ responseE Config {..} =
             sensitiveParser = case sensitivity of
               NotSensitive -> baseParser
               Sensitive ->
-                ( var "Prelude.fmap"
-                    `Exts.app` ( var "Prelude.fmap"
-                                   `Exts.app` var "Data.Sensitive"
-                               )
-                )
-                  `Exts.app` baseParser
+                Exts.appFun
+                  (var "Prelude.fmap")
+                  [ var "Prelude.fmap" `Exts.app` var "Data.Sensitive",
+                    baseParser
+                  ]
 
             baseParser = case collection of
               XmlList item -> var "Data.parseXMLList" `Exts.app` str item
               XmlList1 item -> var "Data.parseXMLList1" `Exts.app` str item
               XmlMap {..} ->
-                var "Data.parseXMLMap"
-                  `Exts.app` str entry
-                  `Exts.app` str key
-                  `Exts.app` str value
+                Exts.appFun
+                  (var "Data.parseXMLMap")
+                  [ str entry,
+                    str key,
+                    str value
+                  ]

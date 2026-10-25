@@ -145,6 +145,8 @@ instance Core.AWSRequest AddCommunicationToCase where
             Prelude.<$> (x Data..?> "result")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddCommunicationToCase where
   hashWithSalt _salt AddCommunicationToCase' {..} =

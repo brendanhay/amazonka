@@ -144,6 +144,8 @@ instance Core.AWSRequest AddAttachmentsToSet where
             Prelude.<*> (x Data..?> "expiryTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddAttachmentsToSet where
   hashWithSalt _salt AddAttachmentsToSet' {..} =

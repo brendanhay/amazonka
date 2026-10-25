@@ -192,6 +192,8 @@ instance Core.AWSRequest DescribeCommunications where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeCommunications where
   hashWithSalt _salt DescribeCommunications' {..} =

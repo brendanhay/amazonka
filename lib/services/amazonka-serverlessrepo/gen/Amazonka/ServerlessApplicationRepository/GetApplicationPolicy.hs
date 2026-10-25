@@ -90,6 +90,8 @@ instance Core.AWSRequest GetApplicationPolicy where
             Prelude.<$> (x Data..?> "statements" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetApplicationPolicy where
   hashWithSalt _salt GetApplicationPolicy' {..} =

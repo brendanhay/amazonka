@@ -180,9 +180,8 @@ requestD Config {..} =
     applyPlugin x = Exts.infixApp (var x) "Prelude.."
 
     e =
-      Exts.appFun
-        (var $ "Request." <> requestFunction)
-        [var "overrides", var serviceConfig]
+      var ("Request." <> requestFunction)
+        `Exts.app` (var "overrides" `Exts.app` var serviceConfig)
 
 responseE :: Config -> Exts.Exp ()
 responseE Config {..} =

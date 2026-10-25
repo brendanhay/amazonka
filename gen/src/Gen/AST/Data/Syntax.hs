@@ -166,8 +166,8 @@ serviceD m r = Exts.patBindWhere (pvar n) rhs bs
           field (unqual "Core.signingName") (m ^. signingName . Lens.to str),
           field (unqual "Core.version") (m ^. apiVersion . Lens.to str),
           field (unqual "Core.s3AddressingStyle") (var "Core.S3AddressingStyleAuto"),
-          field (unqual "Core.endpoint") (Exts.app (var "Core.defaultEndpoint") (var n)),
-          field (unqual "Core.timeout") (Exts.app justE (Exts.intE 70)),
+          field (unqual "Core.endpoint") (var "Core.defaultEndpoint" `Exts.app` var n),
+          field (unqual "Core.timeout") (justE `Exts.app` Exts.intE 70),
           field (unqual "Core.check") (var "Core.statusSuccess"),
           field (unqual "Core.error") (var ("Core." <> serviceError m) `Exts.app` str abbrev),
           field (unqual "Core.retry") (var "retry")
@@ -188,7 +188,7 @@ serviceD m r = Exts.patBindWhere (pvar n) rhs bs
         mapMaybe policy (sortOn fst . HashMap.toList $ r ^. retryPolicies)
           ++ [otherE nothingE]
       where
-        policy (k, v) = (`guardE` Exts.app justE (str k)) <$> policyE v
+        policy (k, v) = (`guardE` (justE `Exts.app` str k)) <$> policyE v
 
     n = m ^. serviceConfig
     abbrev = m ^. serviceAbbrev
@@ -202,16 +202,16 @@ policyE = \case
         (var "Lens.has")
         [ Exts.paren $
             Exts.infixApp
-              (Exts.app (var "Core.hasCode") (str c))
+              (var "Core.hasCode" `Exts.app` str c)
               "Prelude.."
-              (Exts.app (var "Core.hasStatus") (Exts.intE s)),
+              (var "Core.hasStatus" `Exts.app` Exts.intE s),
           var "e"
         ]
   When (WhenStatus Nothing s) ->
     Just $
       Exts.appFun
         (var "Lens.has")
-        [ Exts.paren $ Exts.app (var "Core.hasStatus") (Exts.intE s),
+        [ Exts.paren $ var "Core.hasStatus" `Exts.app` Exts.intE s,
           var "e"
         ]
   _ -> Nothing
@@ -246,7 +246,7 @@ pagerD n p =
             other (t : ts)
           ]
 
-    stop x = guardE (Exts.app (var "Core.stop") (rs x)) nothingE
+    stop x = guardE (var "Core.stop" `Exts.app` rs x) nothingE
 
     other = otherE . foldl' f rq
       where
@@ -259,7 +259,7 @@ pagerD n p =
     check t ts = guardE (foldl' f (g t) ts) nothingE
       where
         f x = Exts.infixApp x "Prelude.&&" . g
-        g y = Exts.app (var "Prelude.isNothing") $ rs (y ^. tokenOutput . Lens.to notationE)
+        g y = var "Prelude.isNothing" `Exts.app` rs (y ^. tokenOutput . Lens.to notationE)
 
     rq = Exts.infixApp justE "Prelude.$" (var "rq")
     rs x = Exts.infixApp (var "rs") (qop (getterN x)) x
@@ -280,15 +280,15 @@ notationE = notationE' True
 -- FIXME: doesn't support Maybe fields properly.
 notationE' :: Bool -> Notation Field -> Exp
 notationE' withLensIso = \case
-  NonEmptyText k -> Exts.app (var "Core.nonEmptyText") (label k)
-  IsEmptyList (k :| ks) -> Exts.app (var "Core.isEmptyList") (labels k ks)
+  NonEmptyText k -> var "Core.nonEmptyText" `Exts.app` label k
+  IsEmptyList (k :| ks) -> var "Core.isEmptyList" `Exts.app` labels k ks
   NonEmptyList (k :| ks) -> labels k ks
   Access (k :| ks) -> labels k ks
   Choice x y -> Exts.appFun (var "Core.choice") [branch x, branch y]
   where
     branch x =
       let e = notationE' withLensIso x
-       in Exts.paren (Exts.app (var (getterN e)) e)
+       in Exts.paren (var (getterN e) `Exts.app` e)
 
     labels k [] = label k
     labels k ks = foldl' f (label k) ks
@@ -297,7 +297,7 @@ notationE' withLensIso = \case
 
     label = \case
       Key f -> accessors f
-      Each f -> Exts.app (var "Lens.folding") . Exts.paren $ Exts.app (var "Lens.concatOf") (accessors f)
+      Each f -> var "Lens.folding" `Exts.app` Exts.paren (var "Lens.concatOf" `Exts.app` accessors f)
       Last f -> Exts.infixApp (accessors f) "Prelude.." (var "Lens._last")
 
     accessors f
@@ -307,7 +307,7 @@ notationE' withLensIso = \case
             lensIso (typeOf f)
 
     lensIso = \case
-      TList1 x -> Exts.app (var "Lens.to") (var "Prelude.toList") : lensIso x
+      TList1 x -> var "Lens.to" `Exts.app` var "Prelude.toList" : lensIso x
       TMaybe x -> var "Lens._Just" : lensIso x
       _other -> []
 
@@ -370,9 +370,7 @@ fromJSOND p n fs = instD1 "Data.FromJSON" n with
   where
     with =
       funD "parseJSON" $
-        Exts.app
-          (Exts.app (var "Data.withObject") (str (typeId n)))
-          (Exts.lamE [Exts.pvar "x"] es)
+        Exts.appFun (var "Data.withObject") [str (typeId n), Exts.lamE [Exts.pvar "x"] es]
 
     es = ctorE n $ map parseJSONE fs
 
@@ -408,17 +406,14 @@ toXMLD p n =
 toJSOND :: Protocol -> Id -> [Field] -> Decl
 toJSOND p n fs =
   instD1 "Data.ToJSON" n
-    . wildcardD n "toJSON" enc (Exts.paren $ Exts.app (var "Data.Object") memptyE)
+    . wildcardD n "toJSON" enc (Exts.paren $ var "Data.Object" `Exts.app` memptyE)
     $ map (Right . toJSONE p) fs
   where
-    enc = case find _fieldPayload fs of
+    enc es = case find _fieldPayload fs of
       Nothing ->
-        Exts.app (var "Data.object")
-          . Exts.app (var "Prelude.catMaybes")
-          . Exts.listE
-          . map (either id id)
-      Just f ->
-        const $ Exts.app (var "Data.toJSON") (var $ fieldAccessor f)
+        var "Data.object"
+          `Exts.app` (var "Prelude.catMaybes" `Exts.app` Exts.listE (map (either id id) es))
+      Just f -> var "Data.toJSON" `Exts.app` var (fieldAccessor f)
 
 toHeadersD :: Protocol -> Id -> [Either (Text, Text) Field] -> Decl
 toHeadersD p n = instD1 "Data.ToHeaders" n . wildcardD n "toHeaders" enc memptyE
@@ -433,7 +428,7 @@ toQueryD p n = instD1 "Data.ToQuery" n . wildcardD n "toQuery" enc memptyE
 toPathD :: Id -> [Either Text Field] -> Decl
 toPathD n =
   instD1 "Data.ToPath" n . \case
-    [Left t] -> funD "toPath" . Exts.app (var "Prelude.const") $ str t
+    [Left t] -> funD "toPath" (var "Prelude.const" `Exts.app` str t)
     es -> wildcardD n "toPath" enc memptyE es
   where
     enc = mconcatE . map toPathE
@@ -445,7 +440,7 @@ toBodyD n f =
     decl = Exts.InsDecl () (Exts.FunBind () [match])
     match = Exts.Match () (ident "toBody") [prec] (unguarded body) Exts.noBinds
     prec = Exts.PRec () (unqual (ctorId n)) [Exts.PFieldWildcard ()]
-    body = Exts.app (var "Data.toBody") (var (fieldAccessor f))
+    body = var "Data.toBody" `Exts.app` var (fieldAccessor f)
 
 wildcardD ::
   Id ->
@@ -455,9 +450,9 @@ wildcardD ::
   [Either a b] ->
   InstDecl
 wildcardD n f enc xs = \case
-  [] -> funArgsD f [] (Exts.app (var "Prelude.const") xs)
+  [] -> funArgsD f [] (var "Prelude.const" `Exts.app` xs)
   es
-    | all isLeft es -> funD f $ Exts.app (var "Prelude.const") (enc es)
+    | all isLeft es -> funD f $ var "Prelude.const" `Exts.app` enc es
     | otherwise -> Exts.InsDecl () (Exts.FunBind () [match prec es])
   where
     match p es =
@@ -486,7 +481,7 @@ funArgsD f as e =
 decodeD :: Text -> Id -> Text -> ([a] -> Exp) -> [a] -> Decl
 decodeD c n f dec =
   instD1 c n . \case
-    [] -> funD f . Exts.app (var "Prelude.const") $ dec []
+    [] -> funD f (var "Prelude.const" `Exts.app` dec [])
     es -> funArgsD f ["x"] (dec es)
 
 parseXMLE :: Protocol -> Field -> Exp
@@ -557,11 +552,9 @@ toElementE p ns = either (`root` []) node
 
 toJSONE :: Protocol -> Field -> Exp
 toJSONE p f
-  | fieldMaybe f = Exts.infixApp (Exts.paren (Exts.app (str n) o)) "Prelude.<$>" a
+  | fieldMaybe f = Exts.infixApp (Exts.paren (str n `Exts.app` o)) "Prelude.<$>" a
   | otherwise =
-      Exts.app
-        (var "Prelude.Just")
-        (Exts.infixApp (str n) "Data..=" a)
+      var "Prelude.Just" `Exts.app` Exts.infixApp (str n) "Data..=" a
   where
     n = memberName p Input f
     a = var (fieldAccessor f)
@@ -590,18 +583,20 @@ toQueryE p = either pair field'
       toGenericE p "Data.=:" "Data.toQuery" (var "Data.toQueryMap") (var "Data.toQueryList")
 
 toPathE :: Either Text Field -> Exp
-toPathE = either str (Exts.app (var "Data.toBS") . var . fieldAccessor)
+toPathE = \case
+  Left t -> str t
+  Right f -> var "Data.toBS" `Exts.app` var (fieldAccessor f)
 
 toGenericE :: Protocol -> QOp -> Text -> Exp -> Exp -> Field -> Exp
 toGenericE p toO toF toM toL f = case inputNames p f of
   NMap mn e k v
     | fieldMaybe f ->
-        flatE mn toO . Exts.app (var toF) $ Exts.appFun toM [str e, str k, str v, var "Prelude.<$>", a]
+        flatE mn toO (var toF `Exts.app` Exts.appFun toM [str e, str k, str v, var "Prelude.<$>", a])
     | otherwise ->
         flatE mn toO $ Exts.appFun toM [str e, str k, str v, a]
   NList mn i
     | fieldMaybe f ->
-        flatE mn toO . Exts.app (var toF) $ Exts.appFun toL [str i, var "Prelude.<$>", a]
+        flatE mn toO (var toF `Exts.app` Exts.appFun toL [str i, var "Prelude.<$>", a])
     | otherwise ->
         flatE mn toO $ Exts.appFun toL [str i, a]
   NName n ->
@@ -631,10 +626,10 @@ memptyE :: Exp
 memptyE = var "Prelude.mempty"
 
 mconcatE :: [Exp] -> Exp
-mconcatE = Exts.app (var "Prelude.mconcat") . Exts.listE
+mconcatE xs = var "Prelude.mconcat" `Exts.app` Exts.listE xs
 
 applicativeE :: Exp -> [Exp] -> Exp
-applicativeE l [] = Exts.app pureE l
+applicativeE l [] = pureE `Exts.app` l
 applicativeE l (r : rs) = Exts.infixApp l "Prelude.<$>" (infixE r "Prelude.<*>" rs)
 
 infixE :: Exp -> QOp -> [Exp] -> Exp
@@ -708,7 +703,7 @@ waiterD n w = Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
       where
         go = case _acceptExpect x of
           Textual {} ->
-            \y -> Exts.infixApp y "Prelude.." (Exts.app (var "Lens.to") (var "Data.toTextCI"))
+            \y -> Exts.infixApp y "Prelude.." (var "Lens.to" `Exts.app` var "Data.toTextCI")
           _ -> id
 
 signature :: (HasMetadata a Identity) => a -> TType -> Type
@@ -762,7 +757,7 @@ mapping t e = infixE e "Prelude.." (go t)
       x -> maybeToList (iso x)
 
     nest [] = []
-    nest (x : xs) = [Exts.app (var "Lens.mapping") (infixE x "Prelude.." xs)]
+    nest (x : xs) = [var "Lens.mapping" `Exts.app` infixE x "Prelude.." xs]
 
 iso :: TType -> Maybe Exp
 iso = \case

@@ -77,6 +77,8 @@ instance Core.AWSRequest DeleteRunGroup where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteRunGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRunGroup where
   hashWithSalt _salt DeleteRunGroup' {..} =

@@ -80,7 +80,7 @@ data CreateWorkflow = CreateWorkflow'
     -- | Tags for the workflow.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A request ID for the workflow.
-    requestId :: Prelude.Text
+    requestId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -116,10 +116,8 @@ data CreateWorkflow = CreateWorkflow'
 --
 -- 'requestId', 'createWorkflow_requestId' - A request ID for the workflow.
 newCreateWorkflow ::
-  -- | 'requestId'
-  Prelude.Text ->
   CreateWorkflow
-newCreateWorkflow pRequestId_ =
+newCreateWorkflow =
   CreateWorkflow'
     { definitionUri = Prelude.Nothing,
       definitionZip = Prelude.Nothing,
@@ -130,7 +128,7 @@ newCreateWorkflow pRequestId_ =
       parameterTemplate = Prelude.Nothing,
       storageCapacity = Prelude.Nothing,
       tags = Prelude.Nothing,
-      requestId = pRequestId_
+      requestId = Prelude.Nothing
     }
 
 -- | The URI of a definition for the workflow.
@@ -174,7 +172,7 @@ createWorkflow_tags :: Lens.Lens' CreateWorkflow (Prelude.Maybe (Prelude.HashMap
 createWorkflow_tags = Lens.lens (\CreateWorkflow' {tags} -> tags) (\s@CreateWorkflow' {} a -> s {tags = a} :: CreateWorkflow) Prelude.. Lens.mapping Lens.coerced
 
 -- | A request ID for the workflow.
-createWorkflow_requestId :: Lens.Lens' CreateWorkflow Prelude.Text
+createWorkflow_requestId :: Lens.Lens' CreateWorkflow (Prelude.Maybe Prelude.Text)
 createWorkflow_requestId = Lens.lens (\CreateWorkflow' {requestId} -> requestId) (\s@CreateWorkflow' {} a -> s {requestId = a} :: CreateWorkflow)
 
 instance Core.AWSRequest CreateWorkflow where
@@ -193,6 +191,11 @@ instance Core.AWSRequest CreateWorkflow where
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@CreateWorkflow' {requestId} =
+    ( \requestId' ->
+        s {requestId = requestId'} :: CreateWorkflow
+    )
+      Prelude.<$> f requestId
 
 instance Prelude.Hashable CreateWorkflow where
   hashWithSalt _salt CreateWorkflow' {..} =
@@ -247,7 +250,7 @@ instance Data.ToJSON CreateWorkflow where
             ("storageCapacity" Data..=)
               Prelude.<$> storageCapacity,
             ("tags" Data..=) Prelude.<$> tags,
-            Prelude.Just ("requestId" Data..= requestId)
+            ("requestId" Data..=) Prelude.<$> requestId
           ]
       )
 

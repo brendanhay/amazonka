@@ -119,6 +119,8 @@ instance Core.AWSRequest GetReferenceMetadata where
             Prelude.<*> (x Data..:> "referenceStoreId")
             Prelude.<*> (x Data..:> "updateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetReferenceMetadata where
   hashWithSalt _salt GetReferenceMetadata' {..} =

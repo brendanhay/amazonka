@@ -113,6 +113,8 @@ instance Core.AWSRequest GetReadSetActivationJob where
             Prelude.<*> (x Data..:> "sequenceStoreId")
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetReadSetActivationJob where
   hashWithSalt _salt GetReadSetActivationJob' {..} =

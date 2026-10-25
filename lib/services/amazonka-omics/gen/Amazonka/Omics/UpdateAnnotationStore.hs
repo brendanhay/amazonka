@@ -116,6 +116,8 @@ instance Core.AWSRequest UpdateAnnotationStore where
             Prelude.<*> (x Data..:> "status")
             Prelude.<*> (x Data..:> "updateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateAnnotationStore where
   hashWithSalt _salt UpdateAnnotationStore' {..} =

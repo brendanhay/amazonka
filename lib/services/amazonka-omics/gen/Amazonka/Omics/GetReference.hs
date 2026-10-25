@@ -131,6 +131,8 @@ instance Core.AWSRequest GetReference where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetReference where
   hashWithSalt _salt GetReference' {..} =

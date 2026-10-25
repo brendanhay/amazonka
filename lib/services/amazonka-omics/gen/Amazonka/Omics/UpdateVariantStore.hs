@@ -111,6 +111,8 @@ instance Core.AWSRequest UpdateVariantStore where
             Prelude.<*> (x Data..:> "status")
             Prelude.<*> (x Data..:> "updateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateVariantStore where
   hashWithSalt _salt UpdateVariantStore' {..} =

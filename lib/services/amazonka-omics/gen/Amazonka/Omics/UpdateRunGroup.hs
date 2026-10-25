@@ -120,6 +120,8 @@ instance Core.AWSRequest UpdateRunGroup where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateRunGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRunGroup where
   hashWithSalt _salt UpdateRunGroup' {..} =

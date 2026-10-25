@@ -97,6 +97,8 @@ instance Core.AWSRequest GetSequenceStore where
             Prelude.<*> (x Data..:> "creationTime")
             Prelude.<*> (x Data..:> "id")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSequenceStore where
   hashWithSalt _salt GetSequenceStore' {..} =

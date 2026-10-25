@@ -138,6 +138,8 @@ instance Core.AWSRequest StartReferenceImportJob where
             Prelude.<*> (x Data..:> "roleArn")
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartReferenceImportJob where
   hashWithSalt _salt StartReferenceImportJob' {..} =

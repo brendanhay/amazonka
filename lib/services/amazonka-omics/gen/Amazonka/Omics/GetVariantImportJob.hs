@@ -105,6 +105,8 @@ instance Core.AWSRequest GetVariantImportJob where
             Prelude.<*> (x Data..:> "statusMessage")
             Prelude.<*> (x Data..:> "updateTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetVariantImportJob where
   hashWithSalt _salt GetVariantImportJob' {..} =

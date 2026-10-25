@@ -143,6 +143,8 @@ instance Core.AWSRequest CreateReferenceStore where
             Prelude.<*> (x Data..:> "creationTime")
             Prelude.<*> (x Data..:> "id")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateReferenceStore where
   hashWithSalt _salt CreateReferenceStore' {..} =

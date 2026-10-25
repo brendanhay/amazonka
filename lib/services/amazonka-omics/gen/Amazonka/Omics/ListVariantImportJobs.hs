@@ -149,6 +149,8 @@ instance Core.AWSRequest ListVariantImportJobs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListVariantImportJobs where
   hashWithSalt _salt ListVariantImportJobs' {..} =

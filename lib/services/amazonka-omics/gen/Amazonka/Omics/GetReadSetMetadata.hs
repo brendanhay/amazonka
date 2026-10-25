@@ -125,6 +125,8 @@ instance Core.AWSRequest GetReadSetMetadata where
             Prelude.<*> (x Data..:> "sequenceStoreId")
             Prelude.<*> (x Data..:> "status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetReadSetMetadata where
   hashWithSalt _salt GetReadSetMetadata' {..} =

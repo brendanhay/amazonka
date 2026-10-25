@@ -67,7 +67,7 @@ data CreateRunGroup = CreateRunGroup'
     -- | Tags for the group.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A request ID for the group.
-    requestId :: Prelude.Text
+    requestId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,17 +91,15 @@ data CreateRunGroup = CreateRunGroup'
 --
 -- 'requestId', 'createRunGroup_requestId' - A request ID for the group.
 newCreateRunGroup ::
-  -- | 'requestId'
-  Prelude.Text ->
   CreateRunGroup
-newCreateRunGroup pRequestId_ =
+newCreateRunGroup =
   CreateRunGroup'
     { maxCpus = Prelude.Nothing,
       maxDuration = Prelude.Nothing,
       maxRuns = Prelude.Nothing,
       name = Prelude.Nothing,
       tags = Prelude.Nothing,
-      requestId = pRequestId_
+      requestId = Prelude.Nothing
     }
 
 -- | The maximum number of CPUs to use in the group.
@@ -125,7 +123,7 @@ createRunGroup_tags :: Lens.Lens' CreateRunGroup (Prelude.Maybe (Prelude.HashMap
 createRunGroup_tags = Lens.lens (\CreateRunGroup' {tags} -> tags) (\s@CreateRunGroup' {} a -> s {tags = a} :: CreateRunGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | A request ID for the group.
-createRunGroup_requestId :: Lens.Lens' CreateRunGroup Prelude.Text
+createRunGroup_requestId :: Lens.Lens' CreateRunGroup (Prelude.Maybe Prelude.Text)
 createRunGroup_requestId = Lens.lens (\CreateRunGroup' {requestId} -> requestId) (\s@CreateRunGroup' {} a -> s {requestId = a} :: CreateRunGroup)
 
 instance Core.AWSRequest CreateRunGroup where
@@ -143,6 +141,11 @@ instance Core.AWSRequest CreateRunGroup where
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@CreateRunGroup' {requestId} =
+    ( \requestId' ->
+        s {requestId = requestId'} :: CreateRunGroup
+    )
+      Prelude.<$> f requestId
 
 instance Prelude.Hashable CreateRunGroup where
   hashWithSalt _salt CreateRunGroup' {..} =
@@ -183,7 +186,7 @@ instance Data.ToJSON CreateRunGroup where
             ("maxRuns" Data..=) Prelude.<$> maxRuns,
             ("name" Data..=) Prelude.<$> name,
             ("tags" Data..=) Prelude.<$> tags,
-            Prelude.Just ("requestId" Data..= requestId)
+            ("requestId" Data..=) Prelude.<$> requestId
           ]
       )
 

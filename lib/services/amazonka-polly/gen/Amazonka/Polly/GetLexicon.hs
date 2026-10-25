@@ -88,6 +88,8 @@ instance Core.AWSRequest GetLexicon where
             Prelude.<*> (x Data..?> "LexiconAttributes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetLexicon where
   hashWithSalt _salt GetLexicon' {..} =

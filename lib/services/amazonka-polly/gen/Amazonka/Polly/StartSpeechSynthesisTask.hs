@@ -292,6 +292,8 @@ instance Core.AWSRequest StartSpeechSynthesisTask where
             Prelude.<$> (x Data..?> "SynthesisTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartSpeechSynthesisTask where
   hashWithSalt _salt StartSpeechSynthesisTask' {..} =

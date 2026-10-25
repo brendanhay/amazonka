@@ -108,6 +108,8 @@ instance Core.AWSRequest DeleteSchemaVersion where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteSchemaVersionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSchemaVersion where
   hashWithSalt _salt DeleteSchemaVersion' {..} =

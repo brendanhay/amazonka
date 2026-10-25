@@ -154,6 +154,8 @@ instance Core.AWSRequest ListRegistries where
             Prelude.<*> (x Data..?> "Registries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListRegistries where
   hashWithSalt _salt ListRegistries' {..} =

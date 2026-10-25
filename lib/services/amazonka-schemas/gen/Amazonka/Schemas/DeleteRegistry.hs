@@ -78,6 +78,8 @@ instance Core.AWSRequest DeleteRegistry where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteRegistryResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRegistry where
   hashWithSalt _salt DeleteRegistry' {..} =

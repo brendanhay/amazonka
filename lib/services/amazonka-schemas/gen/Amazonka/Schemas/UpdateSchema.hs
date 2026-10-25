@@ -155,6 +155,13 @@ instance Core.AWSRequest UpdateSchema where
             Prelude.<*> (x Data..?> "VersionCreatedDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateSchema' {clientTokenId} =
+      ( \clientTokenId' ->
+          s {clientTokenId = clientTokenId'} :: UpdateSchema
+      )
+        Prelude.<$> f clientTokenId
 
 instance Prelude.Hashable UpdateSchema where
   hashWithSalt _salt UpdateSchema' {..} =

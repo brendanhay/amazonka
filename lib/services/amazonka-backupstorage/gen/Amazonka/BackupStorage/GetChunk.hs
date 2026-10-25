@@ -105,6 +105,8 @@ instance Core.AWSRequest GetChunk where
             Prelude.<*> (h Data..# "x-amz-checksum-algorithm")
             Prelude.<*> (Prelude.pure x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetChunk where
   hashWithSalt _salt GetChunk' {..} =

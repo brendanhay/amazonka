@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteObject where
   request overrides =
     Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteObjectResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteObject where
   hashWithSalt _salt DeleteObject' {..} =

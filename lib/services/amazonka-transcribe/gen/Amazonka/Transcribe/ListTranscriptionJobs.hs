@@ -159,6 +159,8 @@ instance Core.AWSRequest ListTranscriptionJobs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTranscriptionJobs where
   hashWithSalt _salt ListTranscriptionJobs' {..} =

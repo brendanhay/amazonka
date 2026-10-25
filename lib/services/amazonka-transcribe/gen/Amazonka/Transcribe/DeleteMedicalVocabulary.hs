@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteMedicalVocabulary where
   response =
     Response.receiveNull
       DeleteMedicalVocabularyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteMedicalVocabulary where
   hashWithSalt _salt DeleteMedicalVocabulary' {..} =

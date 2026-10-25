@@ -93,6 +93,8 @@ instance Core.AWSRequest DeleteCallAnalyticsJob where
           DeleteCallAnalyticsJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCallAnalyticsJob where
   hashWithSalt _salt DeleteCallAnalyticsJob' {..} =

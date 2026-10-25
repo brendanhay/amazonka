@@ -201,6 +201,8 @@ instance Core.AWSRequest CreateCallAnalyticsCategory where
             Prelude.<$> (x Data..?> "CategoryProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateCallAnalyticsCategory where
   hashWithSalt _salt CreateCallAnalyticsCategory' {..} =

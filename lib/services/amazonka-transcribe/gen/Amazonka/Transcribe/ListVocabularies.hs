@@ -159,6 +159,8 @@ instance Core.AWSRequest ListVocabularies where
             Prelude.<*> (x Data..?> "Vocabularies" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListVocabularies where
   hashWithSalt _salt ListVocabularies' {..} =

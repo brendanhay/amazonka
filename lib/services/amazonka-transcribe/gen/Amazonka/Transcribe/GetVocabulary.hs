@@ -107,6 +107,8 @@ instance Core.AWSRequest GetVocabulary where
             Prelude.<*> (x Data..?> "VocabularyState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetVocabulary where
   hashWithSalt _salt GetVocabulary' {..} =

@@ -110,6 +110,8 @@ instance Core.AWSRequest GetMedicalVocabulary where
             Prelude.<*> (x Data..?> "VocabularyState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMedicalVocabulary where
   hashWithSalt _salt GetMedicalVocabulary' {..} =

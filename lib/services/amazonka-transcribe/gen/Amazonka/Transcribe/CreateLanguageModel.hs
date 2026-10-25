@@ -279,6 +279,8 @@ instance Core.AWSRequest CreateLanguageModel where
             Prelude.<*> (x Data..?> "ModelStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateLanguageModel where
   hashWithSalt _salt CreateLanguageModel' {..} =

@@ -125,6 +125,8 @@ instance Core.AWSRequest ListCallAnalyticsCategories where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListCallAnalyticsCategories where
   hashWithSalt _salt ListCallAnalyticsCategories' {..} =

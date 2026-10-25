@@ -147,6 +147,8 @@ instance Core.AWSRequest CreateDBSubnetGroup where
             Prelude.<$> (x Data..@? "DBSubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDBSubnetGroup where
   hashWithSalt _salt CreateDBSubnetGroup' {..} =

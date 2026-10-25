@@ -146,6 +146,13 @@ instance Core.AWSRequest CreateSafetyRule where
             Prelude.<*> (x Data..?> "GatingRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateSafetyRule' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateSafetyRule
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateSafetyRule where
   hashWithSalt _salt CreateSafetyRule' {..} =

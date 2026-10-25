@@ -109,6 +109,8 @@ instance Core.AWSRequest UpdateRoutingControl where
             Prelude.<$> (x Data..?> "RoutingControl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRoutingControl where
   hashWithSalt _salt UpdateRoutingControl' {..} =

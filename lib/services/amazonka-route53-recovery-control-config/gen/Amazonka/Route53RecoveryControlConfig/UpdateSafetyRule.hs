@@ -106,6 +106,8 @@ instance Core.AWSRequest UpdateSafetyRule where
             Prelude.<*> (x Data..?> "GatingRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateSafetyRule where
   hashWithSalt _salt UpdateSafetyRule' {..} =

@@ -91,6 +91,8 @@ instance Core.AWSRequest DeleteRoutingControl where
           DeleteRoutingControlResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRoutingControl where
   hashWithSalt _salt DeleteRoutingControl' {..} =

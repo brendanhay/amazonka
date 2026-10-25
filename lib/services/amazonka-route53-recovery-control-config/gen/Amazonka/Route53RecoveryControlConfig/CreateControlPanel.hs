@@ -134,6 +134,13 @@ instance Core.AWSRequest CreateControlPanel where
             Prelude.<$> (x Data..?> "ControlPanel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateControlPanel' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateControlPanel
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateControlPanel where
   hashWithSalt _salt CreateControlPanel' {..} =

@@ -134,6 +134,8 @@ instance Core.AWSRequest PutGroupConfiguration where
           PutGroupConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutGroupConfiguration where
   hashWithSalt _salt PutGroupConfiguration' {..} =

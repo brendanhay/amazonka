@@ -237,6 +237,8 @@ instance Core.AWSRequest InvokeEndpointAsync where
             Prelude.<*> (h Data..#? "X-Amzn-SageMaker-OutputLocation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable InvokeEndpointAsync where
   hashWithSalt _salt InvokeEndpointAsync' {..} =

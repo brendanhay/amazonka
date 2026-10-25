@@ -88,6 +88,8 @@ instance Core.AWSRequest ReadPipeline where
             Prelude.<*> (x Data..?> "Warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ReadPipeline where
   hashWithSalt _salt ReadPipeline' {..} =

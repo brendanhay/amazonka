@@ -124,6 +124,8 @@ instance Core.AWSRequest ListProjects where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "projects" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListProjects where
   hashWithSalt _salt ListProjects' {..} =

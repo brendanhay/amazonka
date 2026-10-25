@@ -148,6 +148,8 @@ instance Core.AWSRequest UpdateTeamMember where
             Prelude.<*> (x Data..?> "userArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateTeamMember where
   hashWithSalt _salt UpdateTeamMember' {..} =

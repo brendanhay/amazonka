@@ -155,6 +155,8 @@ instance Core.AWSRequest AssociateTeamMember where
             Prelude.<$> (x Data..?> "clientRequestToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateTeamMember where
   hashWithSalt _salt AssociateTeamMember' {..} =

@@ -165,6 +165,8 @@ instance Core.AWSRequest GetTextDetection where
             Prelude.<*> (x Data..?> "VideoMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTextDetection where
   hashWithSalt _salt GetTextDetection' {..} =

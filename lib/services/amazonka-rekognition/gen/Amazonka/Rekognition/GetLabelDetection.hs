@@ -248,6 +248,8 @@ instance Core.AWSRequest GetLabelDetection where
             Prelude.<*> (x Data..?> "VideoMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetLabelDetection where
   hashWithSalt _salt GetLabelDetection' {..} =

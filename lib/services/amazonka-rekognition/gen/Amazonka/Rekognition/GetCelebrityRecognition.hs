@@ -203,6 +203,8 @@ instance Core.AWSRequest GetCelebrityRecognition where
             Prelude.<*> (x Data..?> "VideoMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCelebrityRecognition where
   hashWithSalt _salt GetCelebrityRecognition' {..} =

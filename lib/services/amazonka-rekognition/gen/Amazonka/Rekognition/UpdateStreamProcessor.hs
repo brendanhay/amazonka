@@ -150,6 +150,8 @@ instance Core.AWSRequest UpdateStreamProcessor where
           UpdateStreamProcessorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateStreamProcessor where
   hashWithSalt _salt UpdateStreamProcessor' {..} =

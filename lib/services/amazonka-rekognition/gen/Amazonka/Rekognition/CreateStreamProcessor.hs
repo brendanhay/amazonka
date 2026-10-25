@@ -328,6 +328,8 @@ instance Core.AWSRequest CreateStreamProcessor where
             Prelude.<$> (x Data..?> "StreamProcessorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateStreamProcessor where
   hashWithSalt _salt CreateStreamProcessor' {..} =

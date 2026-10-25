@@ -150,6 +150,8 @@ instance Core.AWSRequest DetectProtectiveEquipment where
             Prelude.<*> (x Data..?> "Summary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetectProtectiveEquipment where
   hashWithSalt _salt DetectProtectiveEquipment' {..} =

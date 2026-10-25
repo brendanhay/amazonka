@@ -167,6 +167,8 @@ instance Core.AWSRequest PutProjectPolicy where
             Prelude.<$> (x Data..?> "PolicyRevisionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutProjectPolicy where
   hashWithSalt _salt PutProjectPolicy' {..} =

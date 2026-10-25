@@ -203,6 +203,8 @@ instance Core.AWSRequest GetContentModeration where
             Prelude.<*> (x Data..?> "VideoMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetContentModeration where
   hashWithSalt _salt GetContentModeration' {..} =

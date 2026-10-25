@@ -153,6 +153,8 @@ instance Core.AWSRequest DetectText where
             Prelude.<*> (x Data..?> "TextModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetectText where
   hashWithSalt _salt DetectText' {..} =

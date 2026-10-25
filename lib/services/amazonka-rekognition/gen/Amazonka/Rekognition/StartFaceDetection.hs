@@ -192,6 +192,8 @@ instance Core.AWSRequest StartFaceDetection where
             Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartFaceDetection where
   hashWithSalt _salt StartFaceDetection' {..} =

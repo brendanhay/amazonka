@@ -248,6 +248,8 @@ instance Core.AWSRequest StartSupportDataExport where
             Prelude.<$> (x Data..?> "dataSetRequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartSupportDataExport where
   hashWithSalt _salt StartSupportDataExport' {..} =

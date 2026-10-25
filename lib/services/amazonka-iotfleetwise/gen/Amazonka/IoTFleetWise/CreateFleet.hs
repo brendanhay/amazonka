@@ -128,6 +128,8 @@ instance Core.AWSRequest CreateFleet where
             Prelude.<*> (x Data..:> "id")
             Prelude.<*> (x Data..:> "arn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateFleet where
   hashWithSalt _salt CreateFleet' {..} =

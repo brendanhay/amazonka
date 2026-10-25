@@ -99,6 +99,8 @@ instance Core.AWSRequest GetDecoderManifest where
             Prelude.<*> (x Data..:> "creationTime")
             Prelude.<*> (x Data..:> "lastModificationTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDecoderManifest where
   hashWithSalt _salt GetDecoderManifest' {..} =

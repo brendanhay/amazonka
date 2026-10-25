@@ -159,6 +159,8 @@ instance Core.AWSRequest ListDecoderManifestSignals where
             Prelude.<*> (x Data..?> "signalDecoders")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDecoderManifestSignals where
   hashWithSalt _salt ListDecoderManifestSignals' {..} =

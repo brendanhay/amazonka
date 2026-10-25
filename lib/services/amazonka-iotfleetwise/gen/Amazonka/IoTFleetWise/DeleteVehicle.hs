@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteVehicle where
             Prelude.<*> (x Data..:> "vehicleName")
             Prelude.<*> (x Data..:> "arn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVehicle where
   hashWithSalt _salt DeleteVehicle' {..} =

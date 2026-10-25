@@ -147,6 +147,8 @@ instance Core.AWSRequest ListSignalCatalogs where
             Prelude.<*> (x Data..?> "summaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSignalCatalogs where
   hashWithSalt _salt ListSignalCatalogs' {..} =

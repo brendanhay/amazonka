@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteModelManifest where
             Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "arn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteModelManifest where
   hashWithSalt _salt DeleteModelManifest' {..} =

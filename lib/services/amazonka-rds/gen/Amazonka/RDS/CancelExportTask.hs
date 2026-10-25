@@ -101,6 +101,8 @@ instance Core.AWSRequest CancelExportTask where
     Response.receiveXMLWrapper
       "CancelExportTaskResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelExportTask where
   hashWithSalt _salt CancelExportTask' {..} =

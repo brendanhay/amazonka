@@ -127,6 +127,8 @@ instance Core.AWSRequest RegisterDBProxyTargets where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterDBProxyTargets where
   hashWithSalt _salt RegisterDBProxyTargets' {..} =

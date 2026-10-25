@@ -114,6 +114,8 @@ instance Core.AWSRequest PromoteReadReplicaDBCluster where
             Prelude.<$> (x Data..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PromoteReadReplicaDBCluster where
   hashWithSalt _salt PromoteReadReplicaDBCluster' {..} =

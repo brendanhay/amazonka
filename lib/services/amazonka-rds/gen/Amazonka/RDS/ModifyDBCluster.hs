@@ -1775,6 +1775,8 @@ instance Core.AWSRequest ModifyDBCluster where
             Prelude.<$> (x Data..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyDBCluster where
   hashWithSalt _salt ModifyDBCluster' {..} =

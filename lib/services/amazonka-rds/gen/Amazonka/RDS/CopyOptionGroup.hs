@@ -179,6 +179,8 @@ instance Core.AWSRequest CopyOptionGroup where
             Prelude.<$> (x Data..@? "OptionGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CopyOptionGroup where
   hashWithSalt _salt CopyOptionGroup' {..} =

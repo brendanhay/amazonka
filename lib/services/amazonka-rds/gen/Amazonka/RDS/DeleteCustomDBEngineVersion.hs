@@ -160,6 +160,8 @@ instance Core.AWSRequest DeleteCustomDBEngineVersion where
     Response.receiveXMLWrapper
       "DeleteCustomDBEngineVersionResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCustomDBEngineVersion where
   hashWithSalt _salt DeleteCustomDBEngineVersion' {..} =

@@ -1459,6 +1459,8 @@ instance Core.AWSRequest RestoreDBInstanceFromS3 where
             Prelude.<$> (x Data..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RestoreDBInstanceFromS3 where
   hashWithSalt _salt RestoreDBInstanceFromS3' {..} =

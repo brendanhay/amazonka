@@ -184,6 +184,8 @@ instance Core.AWSRequest DescribeDBSubnetGroups where
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDBSubnetGroups where
   hashWithSalt _salt DescribeDBSubnetGroups' {..} =

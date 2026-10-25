@@ -109,6 +109,8 @@ instance Core.AWSRequest DeleteDBParameterGroup where
   response =
     Response.receiveNull
       DeleteDBParameterGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDBParameterGroup where
   hashWithSalt _salt DeleteDBParameterGroup' {..} =

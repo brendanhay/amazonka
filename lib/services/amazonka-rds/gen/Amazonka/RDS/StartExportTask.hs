@@ -300,6 +300,8 @@ instance Core.AWSRequest StartExportTask where
     Response.receiveXMLWrapper
       "StartExportTaskResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartExportTask where
   hashWithSalt _salt StartExportTask' {..} =

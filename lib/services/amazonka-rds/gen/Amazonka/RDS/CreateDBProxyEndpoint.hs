@@ -171,6 +171,8 @@ instance Core.AWSRequest CreateDBProxyEndpoint where
             Prelude.<$> (x Data..@? "DBProxyEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDBProxyEndpoint where
   hashWithSalt _salt CreateDBProxyEndpoint' {..} =

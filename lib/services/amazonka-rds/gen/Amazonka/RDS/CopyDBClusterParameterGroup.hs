@@ -187,6 +187,8 @@ instance Core.AWSRequest CopyDBClusterParameterGroup where
             Prelude.<$> (x Data..@? "DBClusterParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CopyDBClusterParameterGroup where
   hashWithSalt _salt CopyDBClusterParameterGroup' {..} =

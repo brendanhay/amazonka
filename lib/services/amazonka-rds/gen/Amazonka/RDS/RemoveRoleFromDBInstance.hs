@@ -119,6 +119,8 @@ instance Core.AWSRequest RemoveRoleFromDBInstance where
   response =
     Response.receiveNull
       RemoveRoleFromDBInstanceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveRoleFromDBInstance where
   hashWithSalt _salt RemoveRoleFromDBInstance' {..} =

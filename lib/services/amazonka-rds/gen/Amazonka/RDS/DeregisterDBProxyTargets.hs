@@ -123,6 +123,8 @@ instance Core.AWSRequest DeregisterDBProxyTargets where
           DeregisterDBProxyTargetsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterDBProxyTargets where
   hashWithSalt _salt DeregisterDBProxyTargets' {..} =

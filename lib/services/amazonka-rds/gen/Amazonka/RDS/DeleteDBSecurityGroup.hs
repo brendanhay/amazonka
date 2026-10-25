@@ -132,6 +132,8 @@ instance Core.AWSRequest DeleteDBSecurityGroup where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeleteDBSecurityGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDBSecurityGroup where
   hashWithSalt _salt DeleteDBSecurityGroup' {..} =

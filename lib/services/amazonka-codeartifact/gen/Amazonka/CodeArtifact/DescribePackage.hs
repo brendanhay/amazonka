@@ -184,6 +184,8 @@ instance Core.AWSRequest DescribePackage where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "package")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePackage where
   hashWithSalt _salt DescribePackage' {..} =

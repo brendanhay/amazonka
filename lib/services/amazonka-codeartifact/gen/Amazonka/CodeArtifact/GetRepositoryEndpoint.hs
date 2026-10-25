@@ -145,6 +145,8 @@ instance Core.AWSRequest GetRepositoryEndpoint where
             Prelude.<$> (x Data..?> "repositoryEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetRepositoryEndpoint where
   hashWithSalt _salt GetRepositoryEndpoint' {..} =

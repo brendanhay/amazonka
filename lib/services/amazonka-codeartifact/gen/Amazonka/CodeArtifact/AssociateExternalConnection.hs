@@ -173,6 +173,8 @@ instance Core.AWSRequest AssociateExternalConnection where
             Prelude.<$> (x Data..?> "repository")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateExternalConnection where
   hashWithSalt _salt AssociateExternalConnection' {..} =

@@ -259,6 +259,8 @@ instance Core.AWSRequest UpdatePackageVersionsStatus where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdatePackageVersionsStatus where
   hashWithSalt _salt UpdatePackageVersionsStatus' {..} =

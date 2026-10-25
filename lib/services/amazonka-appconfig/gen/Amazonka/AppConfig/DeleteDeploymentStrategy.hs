@@ -83,6 +83,8 @@ instance Core.AWSRequest DeleteDeploymentStrategy where
   response =
     Response.receiveNull
       DeleteDeploymentStrategyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDeploymentStrategy where
   hashWithSalt _salt DeleteDeploymentStrategy' {..} =

@@ -101,6 +101,8 @@ instance Core.AWSRequest DeleteConfigurationProfile where
   response =
     Response.receiveNull
       DeleteConfigurationProfileResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteConfigurationProfile where
   hashWithSalt _salt DeleteConfigurationProfile' {..} =

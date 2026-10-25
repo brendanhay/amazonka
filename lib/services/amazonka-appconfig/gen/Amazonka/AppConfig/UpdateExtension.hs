@@ -131,6 +131,8 @@ instance Core.AWSRequest UpdateExtension where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateExtension where
   hashWithSalt _salt UpdateExtension' {..} =

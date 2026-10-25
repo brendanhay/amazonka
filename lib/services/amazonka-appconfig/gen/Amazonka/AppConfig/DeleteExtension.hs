@@ -97,6 +97,8 @@ instance Core.AWSRequest DeleteExtension where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteExtensionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteExtension where
   hashWithSalt _salt DeleteExtension' {..} =

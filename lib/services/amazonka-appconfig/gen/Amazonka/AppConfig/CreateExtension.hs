@@ -175,6 +175,8 @@ instance Core.AWSRequest CreateExtension where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateExtension where
   hashWithSalt _salt CreateExtension' {..} =

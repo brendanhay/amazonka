@@ -350,6 +350,8 @@ instance Core.AWSRequest CreateEnvironmentEC2 where
             Prelude.<$> (x Data..?> "environmentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateEnvironmentEC2 where
   hashWithSalt _salt CreateEnvironmentEC2' {..} =

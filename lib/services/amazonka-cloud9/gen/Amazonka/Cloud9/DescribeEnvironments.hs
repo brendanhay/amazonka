@@ -90,6 +90,8 @@ instance Core.AWSRequest DescribeEnvironments where
             Prelude.<$> (x Data..?> "environments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEnvironments where
   hashWithSalt _salt DescribeEnvironments' {..} =

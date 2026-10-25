@@ -154,6 +154,8 @@ instance Core.AWSRequest GetAutoMergingPreview where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "DomainName")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAutoMergingPreview where
   hashWithSalt _salt GetAutoMergingPreview' {..} =

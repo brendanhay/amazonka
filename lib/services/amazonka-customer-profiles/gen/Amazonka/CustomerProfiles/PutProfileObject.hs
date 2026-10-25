@@ -130,6 +130,8 @@ instance Core.AWSRequest PutProfileObject where
             Prelude.<$> (x Data..?> "ProfileObjectUniqueKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutProfileObject where
   hashWithSalt _salt PutProfileObject' {..} =

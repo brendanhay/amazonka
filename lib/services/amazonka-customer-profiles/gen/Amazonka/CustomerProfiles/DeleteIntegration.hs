@@ -101,6 +101,8 @@ instance Core.AWSRequest DeleteIntegration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Message")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteIntegration where
   hashWithSalt _salt DeleteIntegration' {..} =

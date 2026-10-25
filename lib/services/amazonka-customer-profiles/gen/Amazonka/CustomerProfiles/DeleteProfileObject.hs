@@ -130,6 +130,8 @@ instance Core.AWSRequest DeleteProfileObject where
             Prelude.<$> (x Data..?> "Message")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteProfileObject where
   hashWithSalt _salt DeleteProfileObject' {..} =

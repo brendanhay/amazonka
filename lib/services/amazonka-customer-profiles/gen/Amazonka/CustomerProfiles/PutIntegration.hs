@@ -187,6 +187,8 @@ instance Core.AWSRequest PutIntegration where
             Prelude.<*> (x Data..:> "CreatedAt")
             Prelude.<*> (x Data..:> "LastUpdatedAt")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutIntegration where
   hashWithSalt _salt PutIntegration' {..} =

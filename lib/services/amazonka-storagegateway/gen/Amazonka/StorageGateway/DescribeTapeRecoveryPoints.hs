@@ -154,6 +154,8 @@ instance Core.AWSRequest DescribeTapeRecoveryPoints where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeTapeRecoveryPoints where
   hashWithSalt _salt DescribeTapeRecoveryPoints' {..} =

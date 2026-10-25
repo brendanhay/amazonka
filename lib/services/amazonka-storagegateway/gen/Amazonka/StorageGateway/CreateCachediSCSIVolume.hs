@@ -311,6 +311,8 @@ instance Core.AWSRequest CreateCachediSCSIVolume where
             Prelude.<*> (x Data..?> "VolumeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateCachediSCSIVolume where
   hashWithSalt _salt CreateCachediSCSIVolume' {..} =

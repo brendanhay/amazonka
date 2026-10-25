@@ -528,6 +528,8 @@ instance Core.AWSRequest UpdateSMBFileShare where
             Prelude.<$> (x Data..?> "FileShareARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateSMBFileShare where
   hashWithSalt _salt UpdateSMBFileShare' {..} =

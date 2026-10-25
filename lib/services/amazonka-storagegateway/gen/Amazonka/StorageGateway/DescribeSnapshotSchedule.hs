@@ -106,6 +106,8 @@ instance Core.AWSRequest DescribeSnapshotSchedule where
             Prelude.<*> (x Data..?> "VolumeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSnapshotSchedule where
   hashWithSalt _salt DescribeSnapshotSchedule' {..} =

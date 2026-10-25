@@ -119,6 +119,8 @@ instance Core.AWSRequest DisassociateFileSystem where
             Prelude.<$> (x Data..?> "FileSystemAssociationARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateFileSystem where
   hashWithSalt _salt DisassociateFileSystem' {..} =

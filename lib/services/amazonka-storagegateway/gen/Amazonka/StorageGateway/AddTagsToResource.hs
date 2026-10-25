@@ -136,6 +136,8 @@ instance Core.AWSRequest AddTagsToResource where
             Prelude.<$> (x Data..?> "ResourceARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddTagsToResource where
   hashWithSalt _salt AddTagsToResource' {..} =

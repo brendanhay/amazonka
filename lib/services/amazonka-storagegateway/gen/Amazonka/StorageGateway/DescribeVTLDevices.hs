@@ -173,6 +173,8 @@ instance Core.AWSRequest DescribeVTLDevices where
             Prelude.<*> (x Data..?> "VTLDevices" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeVTLDevices where
   hashWithSalt _salt DescribeVTLDevices' {..} =

@@ -95,6 +95,8 @@ instance Core.AWSRequest ListVolumeInitiators where
             Prelude.<$> (x Data..?> "Initiators" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListVolumeInitiators where
   hashWithSalt _salt ListVolumeInitiators' {..} =

@@ -178,6 +178,8 @@ instance Core.AWSRequest CreateTapePool where
             Prelude.<$> (x Data..?> "PoolARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateTapePool where
   hashWithSalt _salt CreateTapePool' {..} =

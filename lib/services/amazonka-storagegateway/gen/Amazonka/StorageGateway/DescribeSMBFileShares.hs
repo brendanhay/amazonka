@@ -100,6 +100,8 @@ instance Core.AWSRequest DescribeSMBFileShares where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSMBFileShares where
   hashWithSalt _salt DescribeSMBFileShares' {..} =

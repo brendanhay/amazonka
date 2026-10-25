@@ -144,6 +144,8 @@ instance Core.AWSRequest ListGateways where
             Prelude.<*> (x Data..?> "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListGateways where
   hashWithSalt _salt ListGateways' {..} =

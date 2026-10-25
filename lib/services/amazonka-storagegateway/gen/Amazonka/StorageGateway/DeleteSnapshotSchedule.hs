@@ -100,6 +100,8 @@ instance Core.AWSRequest DeleteSnapshotSchedule where
             Prelude.<$> (x Data..?> "VolumeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSnapshotSchedule where
   hashWithSalt _salt DeleteSnapshotSchedule' {..} =

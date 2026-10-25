@@ -140,6 +140,8 @@ instance Core.AWSRequest DescribeGatewayInformation where
             Prelude.<*> (x Data..?> "VPCEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeGatewayInformation where
   hashWithSalt _salt DescribeGatewayInformation' {..} =

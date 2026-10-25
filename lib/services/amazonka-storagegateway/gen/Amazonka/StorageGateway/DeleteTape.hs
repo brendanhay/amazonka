@@ -131,6 +131,8 @@ instance Core.AWSRequest DeleteTape where
             Prelude.<$> (x Data..?> "TapeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTape where
   hashWithSalt _salt DeleteTape' {..} =

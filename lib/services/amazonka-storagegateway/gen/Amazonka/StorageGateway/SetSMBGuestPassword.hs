@@ -108,6 +108,8 @@ instance Core.AWSRequest SetSMBGuestPassword where
             Prelude.<$> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetSMBGuestPassword where
   hashWithSalt _salt SetSMBGuestPassword' {..} =

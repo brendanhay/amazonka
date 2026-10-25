@@ -104,6 +104,8 @@ instance Core.AWSRequest DescribeWorkingStorage where
             Prelude.<*> (x Data..?> "WorkingStorageUsedInBytes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeWorkingStorage where
   hashWithSalt _salt DescribeWorkingStorage' {..} =

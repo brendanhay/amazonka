@@ -111,6 +111,8 @@ instance Core.AWSRequest UnsubscribeFromEvent where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UnsubscribeFromEventResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UnsubscribeFromEvent where
   hashWithSalt _salt UnsubscribeFromEvent' {..} =

@@ -103,6 +103,8 @@ instance Core.AWSRequest StopAssessmentRun where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull StopAssessmentRunResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopAssessmentRun where
   hashWithSalt _salt StopAssessmentRun' {..} =

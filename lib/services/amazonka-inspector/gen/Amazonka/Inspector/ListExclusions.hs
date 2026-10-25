@@ -153,6 +153,8 @@ instance Core.AWSRequest ListExclusions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "exclusionArns" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListExclusions where
   hashWithSalt _salt ListExclusions' {..} =

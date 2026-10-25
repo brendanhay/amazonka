@@ -83,6 +83,8 @@ instance Core.AWSRequest DeleteAssessmentTemplate where
   response =
     Response.receiveNull
       DeleteAssessmentTemplateResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAssessmentTemplate where
   hashWithSalt _salt DeleteAssessmentTemplate' {..} =

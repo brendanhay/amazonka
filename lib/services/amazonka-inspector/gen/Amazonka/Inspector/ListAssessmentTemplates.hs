@@ -180,6 +180,8 @@ instance Core.AWSRequest ListAssessmentTemplates where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAssessmentTemplates where
   hashWithSalt _salt ListAssessmentTemplates' {..} =

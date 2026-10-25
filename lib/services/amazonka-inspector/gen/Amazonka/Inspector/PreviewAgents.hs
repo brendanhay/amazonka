@@ -148,6 +148,8 @@ instance Core.AWSRequest PreviewAgents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "agentPreviews" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PreviewAgents where
   hashWithSalt _salt PreviewAgents' {..} =

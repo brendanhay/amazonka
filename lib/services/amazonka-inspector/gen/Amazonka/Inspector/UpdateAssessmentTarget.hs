@@ -113,6 +113,8 @@ instance Core.AWSRequest UpdateAssessmentTarget where
   response =
     Response.receiveNull
       UpdateAssessmentTargetResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateAssessmentTarget where
   hashWithSalt _salt UpdateAssessmentTarget' {..} =

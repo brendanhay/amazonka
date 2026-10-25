@@ -103,6 +103,8 @@ instance Core.AWSRequest DescribeRulesPackages where
             Prelude.<*> (x Data..?> "rulesPackages" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "failedItems" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeRulesPackages where
   hashWithSalt _salt DescribeRulesPackages' {..} =

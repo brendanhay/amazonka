@@ -93,6 +93,8 @@ instance Core.AWSRequest DescribeResourceGroups where
             Prelude.<*> (x Data..?> "resourceGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "failedItems" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeResourceGroups where
   hashWithSalt _salt DescribeResourceGroups' {..} =

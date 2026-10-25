@@ -219,6 +219,8 @@ instance Core.AWSRequest ListBackups where
             Prelude.<*> (x Data..?> "LastEvaluatedBackupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListBackups where
   hashWithSalt _salt ListBackups' {..} =

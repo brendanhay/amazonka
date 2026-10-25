@@ -126,6 +126,8 @@ instance Core.AWSRequest UpdateContributorInsights where
             Prelude.<*> (x Data..?> "TableName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateContributorInsights where
   hashWithSalt _salt UpdateContributorInsights' {..} =

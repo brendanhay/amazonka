@@ -791,6 +791,8 @@ instance Core.AWSRequest UpdateItem where
             Prelude.<*> (x Data..?> "ItemCollectionMetrics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateItem where
   hashWithSalt _salt UpdateItem' {..} =

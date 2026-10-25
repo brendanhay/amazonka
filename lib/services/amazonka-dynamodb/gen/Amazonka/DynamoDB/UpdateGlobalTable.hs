@@ -119,6 +119,8 @@ instance Core.AWSRequest UpdateGlobalTable where
             Prelude.<$> (x Data..?> "GlobalTableDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateGlobalTable where
   hashWithSalt _salt UpdateGlobalTable' {..} =

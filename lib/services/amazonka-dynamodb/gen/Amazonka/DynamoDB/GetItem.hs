@@ -328,6 +328,8 @@ instance Core.AWSRequest GetItem where
             Prelude.<*> (x Data..?> "Item" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetItem where
   hashWithSalt _salt GetItem' {..} =

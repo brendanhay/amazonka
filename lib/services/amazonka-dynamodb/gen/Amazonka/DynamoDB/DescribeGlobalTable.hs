@@ -98,6 +98,8 @@ instance Core.AWSRequest DescribeGlobalTable where
             Prelude.<$> (x Data..?> "GlobalTableDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeGlobalTable where
   hashWithSalt _salt DescribeGlobalTable' {..} =

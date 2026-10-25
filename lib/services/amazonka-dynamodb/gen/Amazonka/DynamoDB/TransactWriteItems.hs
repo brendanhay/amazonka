@@ -263,6 +263,14 @@ instance Core.AWSRequest TransactWriteItems where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@TransactWriteItems' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            TransactWriteItems
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable TransactWriteItems where
   hashWithSalt _salt TransactWriteItems' {..} =

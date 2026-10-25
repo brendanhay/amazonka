@@ -79,6 +79,8 @@ instance
   response =
     Response.receiveNull
       DisableOrganizationAdminAccountResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

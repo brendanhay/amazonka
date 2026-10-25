@@ -93,6 +93,8 @@ instance Core.AWSRequest RejectInvitation where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull RejectInvitationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RejectInvitation where
   hashWithSalt _salt RejectInvitation' {..} =

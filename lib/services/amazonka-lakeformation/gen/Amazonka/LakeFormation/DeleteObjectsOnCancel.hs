@@ -152,6 +152,8 @@ instance Core.AWSRequest DeleteObjectsOnCancel where
           DeleteObjectsOnCancelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteObjectsOnCancel where
   hashWithSalt _salt DeleteObjectsOnCancel' {..} =

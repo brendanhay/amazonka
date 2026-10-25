@@ -109,6 +109,8 @@ instance Core.AWSRequest BatchGrantPermissions where
             Prelude.<$> (x Data..?> "Failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGrantPermissions where
   hashWithSalt _salt BatchGrantPermissions' {..} =

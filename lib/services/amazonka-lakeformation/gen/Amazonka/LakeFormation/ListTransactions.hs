@@ -133,6 +133,8 @@ instance Core.AWSRequest ListTransactions where
             Prelude.<*> (x Data..?> "Transactions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTransactions where
   hashWithSalt _salt ListTransactions' {..} =

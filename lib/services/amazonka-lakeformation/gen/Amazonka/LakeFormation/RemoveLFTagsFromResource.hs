@@ -126,6 +126,8 @@ instance Core.AWSRequest RemoveLFTagsFromResource where
             Prelude.<$> (x Data..?> "Failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveLFTagsFromResource where
   hashWithSalt _salt RemoveLFTagsFromResource' {..} =

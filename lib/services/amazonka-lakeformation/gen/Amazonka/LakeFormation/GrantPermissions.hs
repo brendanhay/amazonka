@@ -181,6 +181,8 @@ instance Core.AWSRequest GrantPermissions where
           GrantPermissionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GrantPermissions where
   hashWithSalt _salt GrantPermissions' {..} =

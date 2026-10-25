@@ -95,6 +95,8 @@ instance Core.AWSRequest StartTransaction where
             Prelude.<$> (x Data..?> "TransactionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartTransaction where
   hashWithSalt _salt StartTransaction' {..} =

@@ -164,6 +164,8 @@ instance Core.AWSRequest SearchTablesByLFTags where
             Prelude.<*> (x Data..?> "TableList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SearchTablesByLFTags where
   hashWithSalt _salt SearchTablesByLFTags' {..} =

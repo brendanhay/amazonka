@@ -127,6 +127,8 @@ instance Core.AWSRequest GetWorkUnitResults where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetWorkUnitResults where
   hashWithSalt _salt GetWorkUnitResults' {..} =

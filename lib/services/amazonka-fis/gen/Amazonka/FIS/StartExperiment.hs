@@ -55,7 +55,7 @@ data StartExperiment = StartExperiment'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
-    clientToken :: Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the experiment template.
     experimentTemplateId :: Prelude.Text
   }
@@ -76,19 +76,15 @@ data StartExperiment = StartExperiment'
 --
 -- 'experimentTemplateId', 'startExperiment_experimentTemplateId' - The ID of the experiment template.
 newStartExperiment ::
-  -- | 'clientToken'
-  Prelude.Text ->
   -- | 'experimentTemplateId'
   Prelude.Text ->
   StartExperiment
-newStartExperiment
-  pClientToken_
-  pExperimentTemplateId_ =
-    StartExperiment'
-      { tags = Prelude.Nothing,
-        clientToken = pClientToken_,
-        experimentTemplateId = pExperimentTemplateId_
-      }
+newStartExperiment pExperimentTemplateId_ =
+  StartExperiment'
+    { tags = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      experimentTemplateId = pExperimentTemplateId_
+    }
 
 -- | The tags to apply to the experiment.
 startExperiment_tags :: Lens.Lens' StartExperiment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -96,7 +92,7 @@ startExperiment_tags = Lens.lens (\StartExperiment' {tags} -> tags) (\s@StartExp
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
-startExperiment_clientToken :: Lens.Lens' StartExperiment Prelude.Text
+startExperiment_clientToken :: Lens.Lens' StartExperiment (Prelude.Maybe Prelude.Text)
 startExperiment_clientToken = Lens.lens (\StartExperiment' {clientToken} -> clientToken) (\s@StartExperiment' {} a -> s {clientToken = a} :: StartExperiment)
 
 -- | The ID of the experiment template.
@@ -116,6 +112,13 @@ instance Core.AWSRequest StartExperiment where
             Prelude.<$> (x Data..?> "experiment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartExperiment' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: StartExperiment
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartExperiment where
   hashWithSalt _salt StartExperiment' {..} =
@@ -146,7 +149,7 @@ instance Data.ToJSON StartExperiment where
     Data.object
       ( Prelude.catMaybes
           [ ("tags" Data..=) Prelude.<$> tags,
-            Prelude.Just ("clientToken" Data..= clientToken),
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
               ( "experimentTemplateId"
                   Data..= experimentTemplateId

@@ -598,6 +598,8 @@ instance Core.AWSRequest GetFederationToken where
             Prelude.<*> (x Data..@? "PackedPolicySize")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetFederationToken where
   hashWithSalt _salt GetFederationToken' {..} =

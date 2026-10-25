@@ -880,6 +880,8 @@ instance Core.AWSRequest AssumeRole where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "Credentials")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssumeRole where
   hashWithSalt _salt AssumeRole' {..} =

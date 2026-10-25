@@ -127,6 +127,8 @@ instance Core.AWSRequest DecodeAuthorizationMessage where
             Prelude.<$> (x Data..@? "DecodedMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DecodeAuthorizationMessage where
   hashWithSalt _salt DecodeAuthorizationMessage' {..} =

@@ -163,6 +163,8 @@ instance Core.AWSRequest DescribeHubContent where
             Prelude.<*> (x Data..:> "HubContentStatus")
             Prelude.<*> (x Data..:> "CreationTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeHubContent where
   hashWithSalt _salt DescribeHubContent' {..} =

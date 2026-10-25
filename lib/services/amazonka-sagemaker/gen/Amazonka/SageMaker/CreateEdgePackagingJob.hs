@@ -183,6 +183,8 @@ instance Core.AWSRequest CreateEdgePackagingJob where
   response =
     Response.receiveNull
       CreateEdgePackagingJobResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateEdgePackagingJob where
   hashWithSalt _salt CreateEdgePackagingJob' {..} =

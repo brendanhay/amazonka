@@ -108,6 +108,8 @@ instance Core.AWSRequest DescribeModelCardExportJob where
             Prelude.<*> (x Data..:> "CreatedAt")
             Prelude.<*> (x Data..:> "LastModifiedAt")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeModelCardExportJob where
   hashWithSalt _salt DescribeModelCardExportJob' {..} =

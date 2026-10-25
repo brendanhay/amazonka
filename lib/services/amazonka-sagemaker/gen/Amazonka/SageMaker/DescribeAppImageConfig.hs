@@ -98,6 +98,8 @@ instance Core.AWSRequest DescribeAppImageConfig where
             Prelude.<*> (x Data..?> "LastModifiedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAppImageConfig where
   hashWithSalt _salt DescribeAppImageConfig' {..} =

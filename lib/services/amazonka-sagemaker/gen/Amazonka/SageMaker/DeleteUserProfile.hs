@@ -94,6 +94,8 @@ instance Core.AWSRequest DeleteUserProfile where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteUserProfileResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteUserProfile where
   hashWithSalt _salt DeleteUserProfile' {..} =

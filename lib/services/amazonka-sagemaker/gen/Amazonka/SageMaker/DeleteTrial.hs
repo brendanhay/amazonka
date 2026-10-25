@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteTrial where
             Prelude.<$> (x Data..?> "TrialArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteTrial where
   hashWithSalt _salt DeleteTrial' {..} =

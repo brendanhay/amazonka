@@ -77,7 +77,7 @@ data CreatePipeline = CreatePipeline'
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the operation. An idempotent operation completes no more
     -- than one time.
-    clientRequestToken :: Prelude.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the role used by the pipeline to
     -- access and create resources.
     roleArn :: Prelude.Text
@@ -118,27 +118,22 @@ data CreatePipeline = CreatePipeline'
 newCreatePipeline ::
   -- | 'pipelineName'
   Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   -- | 'roleArn'
   Prelude.Text ->
   CreatePipeline
-newCreatePipeline
-  pPipelineName_
-  pClientRequestToken_
-  pRoleArn_ =
-    CreatePipeline'
-      { parallelismConfiguration =
-          Prelude.Nothing,
-        pipelineDefinition = Prelude.Nothing,
-        pipelineDefinitionS3Location = Prelude.Nothing,
-        pipelineDescription = Prelude.Nothing,
-        pipelineDisplayName = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        pipelineName = pPipelineName_,
-        clientRequestToken = pClientRequestToken_,
-        roleArn = pRoleArn_
-      }
+newCreatePipeline pPipelineName_ pRoleArn_ =
+  CreatePipeline'
+    { parallelismConfiguration =
+        Prelude.Nothing,
+      pipelineDefinition = Prelude.Nothing,
+      pipelineDefinitionS3Location = Prelude.Nothing,
+      pipelineDescription = Prelude.Nothing,
+      pipelineDisplayName = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      pipelineName = pPipelineName_,
+      clientRequestToken = Prelude.Nothing,
+      roleArn = pRoleArn_
+    }
 
 -- | This is the configuration that controls the parallelism of the pipeline.
 -- If specified, it applies to all runs of this pipeline by default.
@@ -174,7 +169,7 @@ createPipeline_pipelineName = Lens.lens (\CreatePipeline' {pipelineName} -> pipe
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the operation. An idempotent operation completes no more
 -- than one time.
-createPipeline_clientRequestToken :: Lens.Lens' CreatePipeline Prelude.Text
+createPipeline_clientRequestToken :: Lens.Lens' CreatePipeline (Prelude.Maybe Prelude.Text)
 createPipeline_clientRequestToken = Lens.lens (\CreatePipeline' {clientRequestToken} -> clientRequestToken) (\s@CreatePipeline' {} a -> s {clientRequestToken = a} :: CreatePipeline)
 
 -- | The Amazon Resource Name (ARN) of the role used by the pipeline to
@@ -195,6 +190,14 @@ instance Core.AWSRequest CreatePipeline where
             Prelude.<$> (x Data..?> "PipelineArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreatePipeline' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreatePipeline
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreatePipeline where
   hashWithSalt _salt CreatePipeline' {..} =
@@ -250,8 +253,8 @@ instance Data.ToJSON CreatePipeline where
               Prelude.<$> pipelineDisplayName,
             ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("PipelineName" Data..= pipelineName),
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken),
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken,
             Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )

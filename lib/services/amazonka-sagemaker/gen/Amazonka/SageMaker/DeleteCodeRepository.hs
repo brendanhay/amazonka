@@ -81,6 +81,8 @@ instance Core.AWSRequest DeleteCodeRepository where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteCodeRepositoryResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCodeRepository where
   hashWithSalt _salt DeleteCodeRepository' {..} =

@@ -150,6 +150,8 @@ instance Core.AWSRequest CreateContext where
             Prelude.<$> (x Data..?> "ContextArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateContext where
   hashWithSalt _salt CreateContext' {..} =

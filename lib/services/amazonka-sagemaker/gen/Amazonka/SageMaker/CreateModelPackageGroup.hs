@@ -119,6 +119,8 @@ instance Core.AWSRequest CreateModelPackageGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ModelPackageGroupArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateModelPackageGroup where
   hashWithSalt _salt CreateModelPackageGroup' {..} =

@@ -118,6 +118,8 @@ instance Core.AWSRequest CreateHumanTaskUi where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "HumanTaskUiArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateHumanTaskUi where
   hashWithSalt _salt CreateHumanTaskUi' {..} =

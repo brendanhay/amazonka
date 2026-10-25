@@ -81,6 +81,8 @@ instance Core.AWSRequest StopEdgePackagingJob where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull StopEdgePackagingJobResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopEdgePackagingJob where
   hashWithSalt _salt StopEdgePackagingJob' {..} =

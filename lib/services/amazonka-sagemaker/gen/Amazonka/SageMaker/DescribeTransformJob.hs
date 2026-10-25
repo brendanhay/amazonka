@@ -130,6 +130,8 @@ instance Core.AWSRequest DescribeTransformJob where
             Prelude.<*> (x Data..:> "TransformResources")
             Prelude.<*> (x Data..:> "CreationTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeTransformJob where
   hashWithSalt _salt DescribeTransformJob' {..} =

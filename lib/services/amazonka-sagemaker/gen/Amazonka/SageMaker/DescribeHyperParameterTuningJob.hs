@@ -122,6 +122,8 @@ instance
             Prelude.<*> (x Data..:> "TrainingJobStatusCounters")
             Prelude.<*> (x Data..:> "ObjectiveStatusCounters")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

@@ -111,6 +111,8 @@ instance Core.AWSRequest UpdateMonitoringSchedule where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "MonitoringScheduleArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateMonitoringSchedule where
   hashWithSalt _salt UpdateMonitoringSchedule' {..} =

@@ -86,6 +86,8 @@ instance Core.AWSRequest DeleteStudioLifecycleConfig where
   response =
     Response.receiveNull
       DeleteStudioLifecycleConfigResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteStudioLifecycleConfig where
   hashWithSalt _salt DeleteStudioLifecycleConfig' {..} =

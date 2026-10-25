@@ -119,6 +119,8 @@ instance Core.AWSRequest UpdateContext where
             Prelude.<$> (x Data..?> "ContextArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateContext where
   hashWithSalt _salt UpdateContext' {..} =

@@ -209,6 +209,8 @@ instance Core.AWSRequest ListLabelingJobsForWorkteam where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListLabelingJobsForWorkteam where
   hashWithSalt _salt ListLabelingJobsForWorkteam' {..} =

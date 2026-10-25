@@ -408,6 +408,8 @@ instance Core.AWSRequest CreateFeatureGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "FeatureGroupArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateFeatureGroup where
   hashWithSalt _salt CreateFeatureGroup' {..} =

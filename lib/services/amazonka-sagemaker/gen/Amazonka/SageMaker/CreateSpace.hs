@@ -125,6 +125,8 @@ instance Core.AWSRequest CreateSpace where
             Prelude.<$> (x Data..?> "SpaceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateSpace where
   hashWithSalt _salt CreateSpace' {..} =

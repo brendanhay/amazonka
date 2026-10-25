@@ -175,6 +175,8 @@ instance Core.AWSRequest ListHumanTaskUis where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListHumanTaskUis where
   hashWithSalt _salt ListHumanTaskUis' {..} =

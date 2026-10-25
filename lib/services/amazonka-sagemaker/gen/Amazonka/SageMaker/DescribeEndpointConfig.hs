@@ -107,6 +107,8 @@ instance Core.AWSRequest DescribeEndpointConfig where
             Prelude.<*> (x Data..:> "ProductionVariants")
             Prelude.<*> (x Data..:> "CreationTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEndpointConfig where
   hashWithSalt _salt DescribeEndpointConfig' {..} =

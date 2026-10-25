@@ -117,6 +117,8 @@ instance Core.AWSRequest DescribeInferenceExperiment where
             Prelude.<*> (x Data..:> "EndpointMetadata")
             Prelude.<*> (x Data..?> "ModelVariants" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeInferenceExperiment where
   hashWithSalt _salt DescribeInferenceExperiment' {..} =

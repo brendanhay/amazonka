@@ -104,6 +104,8 @@ instance Core.AWSRequest GetDeviceFleetReport where
             Prelude.<*> (x Data..:> "DeviceFleetArn")
             Prelude.<*> (x Data..:> "DeviceFleetName")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDeviceFleetReport where
   hashWithSalt _salt GetDeviceFleetReport' {..} =

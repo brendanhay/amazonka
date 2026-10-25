@@ -178,6 +178,8 @@ instance Core.AWSRequest ListCandidatesForAutoMLJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Candidates" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListCandidatesForAutoMLJob where
   hashWithSalt _salt ListCandidatesForAutoMLJob' {..} =

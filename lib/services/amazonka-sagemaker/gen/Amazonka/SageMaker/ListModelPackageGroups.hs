@@ -191,6 +191,8 @@ instance Core.AWSRequest ListModelPackageGroups where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListModelPackageGroups where
   hashWithSalt _salt ListModelPackageGroups' {..} =

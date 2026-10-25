@@ -114,6 +114,8 @@ instance
             Prelude.<*> (x Data..:> "JobResources")
             Prelude.<*> (x Data..:> "RoleArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

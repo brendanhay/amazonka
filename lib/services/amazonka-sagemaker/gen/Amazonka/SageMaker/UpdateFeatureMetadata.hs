@@ -134,6 +134,8 @@ instance Core.AWSRequest UpdateFeatureMetadata where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateFeatureMetadataResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateFeatureMetadata where
   hashWithSalt _salt UpdateFeatureMetadata' {..} =

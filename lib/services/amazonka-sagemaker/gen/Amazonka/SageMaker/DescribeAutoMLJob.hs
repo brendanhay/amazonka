@@ -127,6 +127,8 @@ instance Core.AWSRequest DescribeAutoMLJob where
             Prelude.<*> (x Data..:> "AutoMLJobStatus")
             Prelude.<*> (x Data..:> "AutoMLJobSecondaryStatus")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAutoMLJob where
   hashWithSalt _salt DescribeAutoMLJob' {..} =

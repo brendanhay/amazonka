@@ -111,6 +111,8 @@ instance Core.AWSRequest UpdateUserProfile where
             Prelude.<$> (x Data..?> "UserProfileArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateUserProfile where
   hashWithSalt _salt UpdateUserProfile' {..} =

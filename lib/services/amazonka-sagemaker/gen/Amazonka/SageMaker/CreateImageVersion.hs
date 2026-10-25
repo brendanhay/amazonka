@@ -111,7 +111,7 @@ data CreateImageVersion = CreateImageVersion'
     -- | A unique ID. If not specified, the Amazon Web Services CLI and Amazon
     -- Web Services SDKs, such as the SDK for Python (Boto3), add a unique
     -- value to the call.
-    clientToken :: Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The @ImageName@ of the @Image@ to create a version of.
     imageName :: Prelude.Text
   }
@@ -180,28 +180,23 @@ data CreateImageVersion = CreateImageVersion'
 newCreateImageVersion ::
   -- | 'baseImage'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   -- | 'imageName'
   Prelude.Text ->
   CreateImageVersion
-newCreateImageVersion
-  pBaseImage_
-  pClientToken_
-  pImageName_ =
-    CreateImageVersion'
-      { aliases = Prelude.Nothing,
-        horovod = Prelude.Nothing,
-        jobType = Prelude.Nothing,
-        mLFramework = Prelude.Nothing,
-        processor = Prelude.Nothing,
-        programmingLang = Prelude.Nothing,
-        releaseNotes = Prelude.Nothing,
-        vendorGuidance = Prelude.Nothing,
-        baseImage = pBaseImage_,
-        clientToken = pClientToken_,
-        imageName = pImageName_
-      }
+newCreateImageVersion pBaseImage_ pImageName_ =
+  CreateImageVersion'
+    { aliases = Prelude.Nothing,
+      horovod = Prelude.Nothing,
+      jobType = Prelude.Nothing,
+      mLFramework = Prelude.Nothing,
+      processor = Prelude.Nothing,
+      programmingLang = Prelude.Nothing,
+      releaseNotes = Prelude.Nothing,
+      vendorGuidance = Prelude.Nothing,
+      baseImage = pBaseImage_,
+      clientToken = Prelude.Nothing,
+      imageName = pImageName_
+    }
 
 -- | A list of aliases created with the image version.
 createImageVersion_aliases :: Lens.Lens' CreateImageVersion (Prelude.Maybe [Prelude.Text])
@@ -271,7 +266,7 @@ createImageVersion_baseImage = Lens.lens (\CreateImageVersion' {baseImage} -> ba
 -- | A unique ID. If not specified, the Amazon Web Services CLI and Amazon
 -- Web Services SDKs, such as the SDK for Python (Boto3), add a unique
 -- value to the call.
-createImageVersion_clientToken :: Lens.Lens' CreateImageVersion Prelude.Text
+createImageVersion_clientToken :: Lens.Lens' CreateImageVersion (Prelude.Maybe Prelude.Text)
 createImageVersion_clientToken = Lens.lens (\CreateImageVersion' {clientToken} -> clientToken) (\s@CreateImageVersion' {} a -> s {clientToken = a} :: CreateImageVersion)
 
 -- | The @ImageName@ of the @Image@ to create a version of.
@@ -291,6 +286,13 @@ instance Core.AWSRequest CreateImageVersion where
             Prelude.<$> (x Data..?> "ImageVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateImageVersion' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateImageVersion
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateImageVersion where
   hashWithSalt _salt CreateImageVersion' {..} =
@@ -351,7 +353,7 @@ instance Data.ToJSON CreateImageVersion where
             ("VendorGuidance" Data..=)
               Prelude.<$> vendorGuidance,
             Prelude.Just ("BaseImage" Data..= baseImage),
-            Prelude.Just ("ClientToken" Data..= clientToken),
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just ("ImageName" Data..= imageName)
           ]
       )

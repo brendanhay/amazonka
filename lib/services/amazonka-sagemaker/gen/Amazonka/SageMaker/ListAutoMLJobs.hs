@@ -209,6 +209,8 @@ instance Core.AWSRequest ListAutoMLJobs where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAutoMLJobs where
   hashWithSalt _salt ListAutoMLJobs' {..} =

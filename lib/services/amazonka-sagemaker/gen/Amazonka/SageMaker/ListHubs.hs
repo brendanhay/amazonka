@@ -173,6 +173,8 @@ instance Core.AWSRequest ListHubs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "HubSummaries" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListHubs where
   hashWithSalt _salt ListHubs' {..} =

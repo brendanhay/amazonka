@@ -136,6 +136,8 @@ instance Core.AWSRequest DescribeProcessingJob where
             Prelude.<*> (x Data..:> "ProcessingJobStatus")
             Prelude.<*> (x Data..:> "CreationTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeProcessingJob where
   hashWithSalt _salt DescribeProcessingJob' {..} =

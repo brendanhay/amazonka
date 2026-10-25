@@ -196,6 +196,8 @@ instance Core.AWSRequest ListContexts where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListContexts where
   hashWithSalt _salt ListContexts' {..} =

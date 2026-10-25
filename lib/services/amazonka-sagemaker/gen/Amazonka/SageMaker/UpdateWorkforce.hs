@@ -170,6 +170,8 @@ instance Core.AWSRequest UpdateWorkforce where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Workforce")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateWorkforce where
   hashWithSalt _salt UpdateWorkforce' {..} =

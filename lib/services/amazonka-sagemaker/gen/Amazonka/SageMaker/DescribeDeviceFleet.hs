@@ -104,6 +104,8 @@ instance Core.AWSRequest DescribeDeviceFleet where
             Prelude.<*> (x Data..:> "CreationTime")
             Prelude.<*> (x Data..:> "LastModifiedTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDeviceFleet where
   hashWithSalt _salt DescribeDeviceFleet' {..} =

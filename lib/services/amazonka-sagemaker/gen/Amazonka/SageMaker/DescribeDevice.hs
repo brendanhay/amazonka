@@ -131,6 +131,8 @@ instance Core.AWSRequest DescribeDevice where
             Prelude.<*> (x Data..:> "DeviceFleetName")
             Prelude.<*> (x Data..:> "RegistrationTime")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDevice where
   hashWithSalt _salt DescribeDevice' {..} =

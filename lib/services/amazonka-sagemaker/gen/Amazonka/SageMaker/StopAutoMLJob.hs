@@ -78,6 +78,8 @@ instance Core.AWSRequest StopAutoMLJob where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull StopAutoMLJobResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopAutoMLJob where
   hashWithSalt _salt StopAutoMLJob' {..} =

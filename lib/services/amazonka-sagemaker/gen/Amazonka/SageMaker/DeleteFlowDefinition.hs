@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteFlowDefinition where
           DeleteFlowDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFlowDefinition where
   hashWithSalt _salt DeleteFlowDefinition' {..} =

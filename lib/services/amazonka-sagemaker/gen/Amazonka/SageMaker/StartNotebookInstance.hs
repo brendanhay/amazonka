@@ -85,6 +85,8 @@ instance Core.AWSRequest StartNotebookInstance where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull StartNotebookInstanceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartNotebookInstance where
   hashWithSalt _salt StartNotebookInstance' {..} =

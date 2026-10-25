@@ -263,6 +263,8 @@ instance Core.AWSRequest CreateAlgorithm where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "AlgorithmArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateAlgorithm where
   hashWithSalt _salt CreateAlgorithm' {..} =

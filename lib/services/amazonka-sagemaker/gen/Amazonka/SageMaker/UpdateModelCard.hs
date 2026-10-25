@@ -160,6 +160,8 @@ instance Core.AWSRequest UpdateModelCard where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ModelCardArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateModelCard where
   hashWithSalt _salt UpdateModelCard' {..} =

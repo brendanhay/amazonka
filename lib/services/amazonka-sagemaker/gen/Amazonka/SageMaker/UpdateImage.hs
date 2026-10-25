@@ -134,6 +134,8 @@ instance Core.AWSRequest UpdateImage where
             Prelude.<$> (x Data..?> "ImageArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateImage where
   hashWithSalt _salt UpdateImage' {..} =

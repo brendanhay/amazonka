@@ -424,6 +424,13 @@ instance Core.AWSRequest CreateModelPackage where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ModelPackageArn")
       )
+  updateIdempotencyToken
+    f
+    s@CreateModelPackage' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateModelPackage
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateModelPackage where
   hashWithSalt _salt CreateModelPackage' {..} =

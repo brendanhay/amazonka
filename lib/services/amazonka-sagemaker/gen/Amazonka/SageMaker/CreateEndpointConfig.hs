@@ -336,6 +336,8 @@ instance Core.AWSRequest CreateEndpointConfig where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "EndpointConfigArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateEndpointConfig where
   hashWithSalt _salt CreateEndpointConfig' {..} =

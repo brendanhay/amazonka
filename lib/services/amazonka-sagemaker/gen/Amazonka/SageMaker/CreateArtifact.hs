@@ -147,6 +147,8 @@ instance Core.AWSRequest CreateArtifact where
             Prelude.<$> (x Data..?> "ArtifactArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateArtifact where
   hashWithSalt _salt CreateArtifact' {..} =

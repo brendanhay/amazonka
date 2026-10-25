@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteWorkteam where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Success")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteWorkteam where
   hashWithSalt _salt DeleteWorkteam' {..} =

@@ -198,6 +198,8 @@ instance Core.AWSRequest ListTrials where
             Prelude.<*> (x Data..?> "TrialSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTrials where
   hashWithSalt _salt ListTrials' {..} =

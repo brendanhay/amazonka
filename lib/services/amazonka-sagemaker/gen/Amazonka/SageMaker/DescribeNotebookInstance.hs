@@ -138,6 +138,8 @@ instance Core.AWSRequest DescribeNotebookInstance where
             Prelude.<*> (x Data..?> "VolumeSizeInGB")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeNotebookInstance where
   hashWithSalt _salt DescribeNotebookInstance' {..} =

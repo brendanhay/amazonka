@@ -108,6 +108,8 @@ instance Core.AWSRequest DescribeAlgorithm where
             Prelude.<*> (x Data..:> "AlgorithmStatus")
             Prelude.<*> (x Data..:> "AlgorithmStatusDetails")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAlgorithm where
   hashWithSalt _salt DescribeAlgorithm' {..} =

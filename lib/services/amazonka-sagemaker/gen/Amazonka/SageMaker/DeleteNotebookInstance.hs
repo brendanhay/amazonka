@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteNotebookInstance where
   response =
     Response.receiveNull
       DeleteNotebookInstanceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteNotebookInstance where
   hashWithSalt _salt DeleteNotebookInstance' {..} =

@@ -208,6 +208,8 @@ instance Core.AWSRequest ImportHubContent where
             Prelude.<*> (x Data..:> "HubArn")
             Prelude.<*> (x Data..:> "HubContentArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportHubContent where
   hashWithSalt _salt ImportHubContent' {..} =

@@ -167,6 +167,8 @@ instance Core.AWSRequest ListSpaces where
             Prelude.<*> (x Data..?> "Spaces" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSpaces where
   hashWithSalt _salt ListSpaces' {..} =

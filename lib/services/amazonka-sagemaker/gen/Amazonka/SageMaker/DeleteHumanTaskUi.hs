@@ -96,6 +96,8 @@ instance Core.AWSRequest DeleteHumanTaskUi where
           DeleteHumanTaskUiResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteHumanTaskUi where
   hashWithSalt _salt DeleteHumanTaskUi' {..} =

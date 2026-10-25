@@ -166,6 +166,8 @@ instance Core.AWSRequest ListStageDevices where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListStageDevices where
   hashWithSalt _salt ListStageDevices' {..} =

@@ -147,6 +147,8 @@ instance Core.AWSRequest ListSubscribedWorkteams where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSubscribedWorkteams where
   hashWithSalt _salt ListSubscribedWorkteams' {..} =

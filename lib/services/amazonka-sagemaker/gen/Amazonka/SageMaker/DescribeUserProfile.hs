@@ -121,6 +121,8 @@ instance Core.AWSRequest DescribeUserProfile where
             Prelude.<*> (x Data..?> "UserSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeUserProfile where
   hashWithSalt _salt DescribeUserProfile' {..} =

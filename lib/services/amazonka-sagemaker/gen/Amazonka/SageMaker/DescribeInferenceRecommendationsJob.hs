@@ -126,6 +126,8 @@ instance
             Prelude.<*> (x Data..:> "LastModifiedTime")
             Prelude.<*> (x Data..:> "InputConfig")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

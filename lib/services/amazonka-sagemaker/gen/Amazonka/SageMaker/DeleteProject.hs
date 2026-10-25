@@ -78,6 +78,8 @@ instance Core.AWSRequest DeleteProject where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteProjectResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteProject where
   hashWithSalt _salt DeleteProject' {..} =

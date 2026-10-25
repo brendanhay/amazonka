@@ -90,6 +90,8 @@ instance Core.AWSRequest StopHyperParameterTuningJob where
   response =
     Response.receiveNull
       StopHyperParameterTuningJobResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopHyperParameterTuningJob where
   hashWithSalt _salt StopHyperParameterTuningJob' {..} =

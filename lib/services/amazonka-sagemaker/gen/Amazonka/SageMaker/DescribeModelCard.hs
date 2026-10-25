@@ -124,6 +124,8 @@ instance Core.AWSRequest DescribeModelCard where
             Prelude.<*> (x Data..:> "CreationTime")
             Prelude.<*> (x Data..:> "CreatedBy")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeModelCard where
   hashWithSalt _salt DescribeModelCard' {..} =

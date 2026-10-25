@@ -109,6 +109,8 @@ instance Core.AWSRequest DescribeMonitoringSchedule where
             Prelude.<*> (x Data..:> "LastModifiedTime")
             Prelude.<*> (x Data..:> "MonitoringScheduleConfig")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeMonitoringSchedule where
   hashWithSalt _salt DescribeMonitoringSchedule' {..} =

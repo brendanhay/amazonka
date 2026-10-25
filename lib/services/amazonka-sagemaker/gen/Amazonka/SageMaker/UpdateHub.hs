@@ -117,6 +117,8 @@ instance Core.AWSRequest UpdateHub where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "HubArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateHub where
   hashWithSalt _salt UpdateHub' {..} =

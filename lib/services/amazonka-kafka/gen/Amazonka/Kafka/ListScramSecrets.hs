@@ -136,6 +136,8 @@ instance Core.AWSRequest ListScramSecrets where
             Prelude.<*> (x Data..?> "secretArnList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListScramSecrets where
   hashWithSalt _salt ListScramSecrets' {..} =

@@ -125,6 +125,8 @@ instance Core.AWSRequest UpdateBrokerCount where
             Prelude.<*> (x Data..?> "clusterOperationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateBrokerCount where
   hashWithSalt _salt UpdateBrokerCount' {..} =

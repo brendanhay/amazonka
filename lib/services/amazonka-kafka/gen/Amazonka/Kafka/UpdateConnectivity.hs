@@ -129,6 +129,8 @@ instance Core.AWSRequest UpdateConnectivity where
             Prelude.<*> (x Data..?> "clusterOperationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateConnectivity where
   hashWithSalt _salt UpdateConnectivity' {..} =

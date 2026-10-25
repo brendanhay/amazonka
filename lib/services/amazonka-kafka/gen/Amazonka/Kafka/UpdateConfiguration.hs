@@ -131,6 +131,8 @@ instance Core.AWSRequest UpdateConfiguration where
             Prelude.<*> (x Data..?> "latestRevision")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateConfiguration where
   hashWithSalt _salt UpdateConfiguration' {..} =

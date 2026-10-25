@@ -123,6 +123,8 @@ instance Core.AWSRequest UpdateClusterConfiguration where
             Prelude.<*> (x Data..?> "clusterOperationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateClusterConfiguration where
   hashWithSalt _salt UpdateClusterConfiguration' {..} =

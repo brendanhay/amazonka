@@ -108,6 +108,8 @@ instance Core.AWSRequest AssociateConnectionAlias where
             Prelude.<$> (x Data..?> "ConnectionIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateConnectionAlias where
   hashWithSalt _salt AssociateConnectionAlias' {..} =

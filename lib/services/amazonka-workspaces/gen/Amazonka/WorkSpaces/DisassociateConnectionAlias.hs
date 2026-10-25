@@ -93,6 +93,8 @@ instance Core.AWSRequest DisassociateConnectionAlias where
           DisassociateConnectionAliasResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateConnectionAlias where
   hashWithSalt _salt DisassociateConnectionAlias' {..} =

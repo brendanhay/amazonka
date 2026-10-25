@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteWorkspaceBundle where
           DeleteWorkspaceBundleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteWorkspaceBundle where
   hashWithSalt _salt DeleteWorkspaceBundle' {..} =

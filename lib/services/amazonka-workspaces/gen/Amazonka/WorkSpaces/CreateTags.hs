@@ -101,6 +101,8 @@ instance Core.AWSRequest CreateTags where
           CreateTagsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateTags where
   hashWithSalt _salt CreateTags' {..} =

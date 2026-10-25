@@ -132,6 +132,8 @@ instance Core.AWSRequest CreateIpGroup where
             Prelude.<$> (x Data..?> "GroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateIpGroup where
   hashWithSalt _salt CreateIpGroup' {..} =

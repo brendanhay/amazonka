@@ -199,6 +199,8 @@ instance Core.AWSRequest DescribeWorkspaces where
             Prelude.<*> (x Data..?> "Workspaces" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeWorkspaces where
   hashWithSalt _salt DescribeWorkspaces' {..} =

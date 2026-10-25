@@ -135,6 +135,8 @@ instance Core.AWSRequest ModifySamlProperties where
           ModifySamlPropertiesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifySamlProperties where
   hashWithSalt _salt ModifySamlProperties' {..} =

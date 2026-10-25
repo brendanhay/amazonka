@@ -122,6 +122,8 @@ instance Core.AWSRequest CreateConnectionAlias where
             Prelude.<$> (x Data..?> "AliasId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateConnectionAlias where
   hashWithSalt _salt CreateConnectionAlias' {..} =

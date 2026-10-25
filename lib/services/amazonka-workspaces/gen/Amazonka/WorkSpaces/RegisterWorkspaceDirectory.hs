@@ -201,6 +201,8 @@ instance Core.AWSRequest RegisterWorkspaceDirectory where
           RegisterWorkspaceDirectoryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterWorkspaceDirectory where
   hashWithSalt _salt RegisterWorkspaceDirectory' {..} =

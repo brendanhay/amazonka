@@ -192,6 +192,8 @@ instance Core.AWSRequest MeterUsage where
             Prelude.<$> (x Data..?> "MeteringRecordId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable MeterUsage where
   hashWithSalt _salt MeterUsage' {..} =

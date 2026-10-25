@@ -93,6 +93,8 @@ instance Core.AWSRequest DeleteMLModel where
             Prelude.<$> (x Data..?> "MLModelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteMLModel where
   hashWithSalt _salt DeleteMLModel' {..} =

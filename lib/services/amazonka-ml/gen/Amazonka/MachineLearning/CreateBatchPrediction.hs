@@ -185,6 +185,8 @@ instance Core.AWSRequest CreateBatchPrediction where
             Prelude.<$> (x Data..?> "BatchPredictionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateBatchPrediction where
   hashWithSalt _salt CreateBatchPrediction' {..} =

@@ -345,6 +345,8 @@ instance Core.AWSRequest CreateMLModel where
             Prelude.<$> (x Data..?> "MLModelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateMLModel where
   hashWithSalt _salt CreateMLModel' {..} =

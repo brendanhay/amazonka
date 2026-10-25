@@ -123,6 +123,8 @@ instance Core.AWSRequest GetBatchPrediction where
             Prelude.<*> (x Data..?> "TotalRecordCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBatchPrediction where
   hashWithSalt _salt GetBatchPrediction' {..} =

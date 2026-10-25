@@ -91,6 +91,8 @@ instance Core.AWSRequest CreateRealtimeEndpoint where
             Prelude.<*> (x Data..?> "RealtimeEndpointInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateRealtimeEndpoint where
   hashWithSalt _salt CreateRealtimeEndpoint' {..} =

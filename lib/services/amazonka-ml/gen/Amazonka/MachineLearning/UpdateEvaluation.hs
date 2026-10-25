@@ -107,6 +107,8 @@ instance Core.AWSRequest UpdateEvaluation where
             Prelude.<$> (x Data..?> "EvaluationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateEvaluation where
   hashWithSalt _salt UpdateEvaluation' {..} =

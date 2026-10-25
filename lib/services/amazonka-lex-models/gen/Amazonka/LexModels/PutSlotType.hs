@@ -347,6 +347,8 @@ instance Core.AWSRequest PutSlotType where
             Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutSlotType where
   hashWithSalt _salt PutSlotType' {..} =

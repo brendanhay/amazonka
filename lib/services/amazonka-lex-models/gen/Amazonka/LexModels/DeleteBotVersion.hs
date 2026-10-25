@@ -102,6 +102,8 @@ instance Core.AWSRequest DeleteBotVersion where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteBotVersionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBotVersion where
   hashWithSalt _salt DeleteBotVersion' {..} =

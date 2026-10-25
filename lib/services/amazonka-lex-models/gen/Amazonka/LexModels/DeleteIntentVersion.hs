@@ -102,6 +102,8 @@ instance Core.AWSRequest DeleteIntentVersion where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteIntentVersionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteIntentVersion where
   hashWithSalt _salt DeleteIntentVersion' {..} =

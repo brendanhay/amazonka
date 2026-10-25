@@ -159,6 +159,8 @@ instance Core.AWSRequest GetIntentVersions where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetIntentVersions where
   hashWithSalt _salt GetIntentVersions' {..} =

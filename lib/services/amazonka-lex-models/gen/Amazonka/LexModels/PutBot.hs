@@ -836,6 +836,8 @@ instance Core.AWSRequest PutBot where
             Prelude.<*> (x Data..?> "voiceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutBot where
   hashWithSalt _salt PutBot' {..} =

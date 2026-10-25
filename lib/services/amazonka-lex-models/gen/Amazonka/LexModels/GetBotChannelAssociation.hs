@@ -145,6 +145,8 @@ instance Core.AWSRequest GetBotChannelAssociation where
             Prelude.<*> (x Data..?> "type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetBotChannelAssociation where
   hashWithSalt _salt GetBotChannelAssociation' {..} =

@@ -102,6 +102,8 @@ instance Core.AWSRequest DeleteSlotTypeVersion where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteSlotTypeVersionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSlotTypeVersion where
   hashWithSalt _salt DeleteSlotTypeVersion' {..} =

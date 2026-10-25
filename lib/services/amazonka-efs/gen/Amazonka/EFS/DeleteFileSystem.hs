@@ -103,6 +103,8 @@ instance Core.AWSRequest DeleteFileSystem where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteFileSystemResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFileSystem where
   hashWithSalt _salt DeleteFileSystem' {..} =

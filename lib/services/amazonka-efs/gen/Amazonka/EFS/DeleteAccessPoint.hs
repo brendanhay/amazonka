@@ -84,6 +84,8 @@ instance Core.AWSRequest DeleteAccessPoint where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteAccessPointResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAccessPoint where
   hashWithSalt _salt DeleteAccessPoint' {..} =

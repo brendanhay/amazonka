@@ -143,6 +143,8 @@ instance Core.AWSRequest UpdateFileSystem where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateFileSystem where
   hashWithSalt _salt UpdateFileSystem' {..} =

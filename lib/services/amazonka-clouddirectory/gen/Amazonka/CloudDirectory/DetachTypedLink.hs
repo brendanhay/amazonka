@@ -99,6 +99,8 @@ instance Core.AWSRequest DetachTypedLink where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull DetachTypedLinkResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetachTypedLink where
   hashWithSalt _salt DetachTypedLink' {..} =

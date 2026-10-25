@@ -85,6 +85,8 @@ instance Core.AWSRequest GetDirectory where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Directory")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetDirectory where
   hashWithSalt _salt GetDirectory' {..} =

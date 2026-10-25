@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteDirectory where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "DirectoryArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDirectory where
   hashWithSalt _salt DeleteDirectory' {..} =

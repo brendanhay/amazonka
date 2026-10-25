@@ -142,6 +142,8 @@ instance Core.AWSRequest UpgradePublishedSchema where
             Prelude.<$> (x Data..?> "UpgradedSchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpgradePublishedSchema where
   hashWithSalt _salt UpgradePublishedSchema' {..} =

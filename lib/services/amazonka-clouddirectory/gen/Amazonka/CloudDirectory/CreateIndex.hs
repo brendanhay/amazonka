@@ -137,6 +137,8 @@ instance Core.AWSRequest CreateIndex where
             Prelude.<$> (x Data..?> "ObjectIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateIndex where
   hashWithSalt _salt CreateIndex' {..} =

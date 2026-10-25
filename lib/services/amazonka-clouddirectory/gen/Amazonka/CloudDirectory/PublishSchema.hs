@@ -137,6 +137,8 @@ instance Core.AWSRequest PublishSchema where
             Prelude.<$> (x Data..?> "PublishedSchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PublishSchema where
   hashWithSalt _salt PublishSchema' {..} =

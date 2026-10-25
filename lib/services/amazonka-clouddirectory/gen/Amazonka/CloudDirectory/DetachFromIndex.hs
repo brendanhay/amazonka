@@ -119,6 +119,8 @@ instance Core.AWSRequest DetachFromIndex where
             Prelude.<$> (x Data..?> "DetachedObjectIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetachFromIndex where
   hashWithSalt _salt DetachFromIndex' {..} =

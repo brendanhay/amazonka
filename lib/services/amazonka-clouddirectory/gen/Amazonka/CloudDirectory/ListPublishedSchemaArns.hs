@@ -139,6 +139,8 @@ instance Core.AWSRequest ListPublishedSchemaArns where
             Prelude.<*> (x Data..?> "SchemaArns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPublishedSchemaArns where
   hashWithSalt _salt ListPublishedSchemaArns' {..} =

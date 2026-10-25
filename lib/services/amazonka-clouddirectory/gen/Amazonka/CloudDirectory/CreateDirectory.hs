@@ -116,6 +116,8 @@ instance Core.AWSRequest CreateDirectory where
             Prelude.<*> (x Data..:> "ObjectIdentifier")
             Prelude.<*> (x Data..:> "AppliedSchemaArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDirectory where
   hashWithSalt _salt CreateDirectory' {..} =

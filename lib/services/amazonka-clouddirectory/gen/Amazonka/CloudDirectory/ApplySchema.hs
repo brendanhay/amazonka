@@ -110,6 +110,8 @@ instance Core.AWSRequest ApplySchema where
             Prelude.<*> (x Data..?> "DirectoryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ApplySchema where
   hashWithSalt _salt ApplySchema' {..} =

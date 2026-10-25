@@ -135,6 +135,8 @@ instance Core.AWSRequest UpdateFacet where
           UpdateFacetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateFacet where
   hashWithSalt _salt UpdateFacet' {..} =

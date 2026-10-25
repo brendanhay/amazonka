@@ -88,6 +88,8 @@ instance Core.AWSRequest GetAppliedSchemaVersion where
             Prelude.<$> (x Data..?> "AppliedSchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAppliedSchemaVersion where
   hashWithSalt _salt GetAppliedSchemaVersion' {..} =

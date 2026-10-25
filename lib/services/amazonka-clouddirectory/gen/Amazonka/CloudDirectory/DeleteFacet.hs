@@ -102,6 +102,8 @@ instance Core.AWSRequest DeleteFacet where
           DeleteFacetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFacet where
   hashWithSalt _salt DeleteFacet' {..} =

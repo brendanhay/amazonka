@@ -233,6 +233,8 @@ instance Core.AWSRequest UpdateJobExecution where
             Prelude.<*> (x Data..?> "jobDocument")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateJobExecution where
   hashWithSalt _salt UpdateJobExecution' {..} =

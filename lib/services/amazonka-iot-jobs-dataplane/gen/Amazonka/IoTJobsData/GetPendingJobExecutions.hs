@@ -89,6 +89,8 @@ instance Core.AWSRequest GetPendingJobExecutions where
             Prelude.<*> (x Data..?> "queuedJobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPendingJobExecutions where
   hashWithSalt _salt GetPendingJobExecutions' {..} =

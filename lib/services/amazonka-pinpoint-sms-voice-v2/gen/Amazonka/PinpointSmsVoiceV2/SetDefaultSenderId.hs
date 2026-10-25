@@ -131,6 +131,8 @@ instance Core.AWSRequest SetDefaultSenderId where
             Prelude.<*> (x Data..?> "SenderId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetDefaultSenderId where
   hashWithSalt _salt SetDefaultSenderId' {..} =

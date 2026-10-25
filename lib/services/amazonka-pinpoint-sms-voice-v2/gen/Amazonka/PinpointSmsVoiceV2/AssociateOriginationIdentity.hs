@@ -163,6 +163,14 @@ instance Core.AWSRequest AssociateOriginationIdentity where
             Prelude.<*> (x Data..?> "PoolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@AssociateOriginationIdentity' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            AssociateOriginationIdentity
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

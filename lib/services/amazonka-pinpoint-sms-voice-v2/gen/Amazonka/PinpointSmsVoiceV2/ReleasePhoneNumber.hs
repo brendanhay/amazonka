@@ -126,6 +126,8 @@ instance Core.AWSRequest ReleasePhoneNumber where
             Prelude.<*> (x Data..?> "TwoWayEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ReleasePhoneNumber where
   hashWithSalt _salt ReleasePhoneNumber' {..} =

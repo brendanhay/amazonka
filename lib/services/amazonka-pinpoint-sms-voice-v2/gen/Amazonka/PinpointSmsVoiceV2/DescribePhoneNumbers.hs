@@ -162,6 +162,8 @@ instance Core.AWSRequest DescribePhoneNumbers where
             Prelude.<*> (x Data..?> "PhoneNumbers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePhoneNumbers where
   hashWithSalt _salt DescribePhoneNumbers' {..} =

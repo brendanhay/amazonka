@@ -107,6 +107,8 @@ instance Core.AWSRequest DeleteDefaultSenderId where
             Prelude.<*> (x Data..?> "SenderId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDefaultSenderId where
   hashWithSalt _salt DeleteDefaultSenderId' {..} =

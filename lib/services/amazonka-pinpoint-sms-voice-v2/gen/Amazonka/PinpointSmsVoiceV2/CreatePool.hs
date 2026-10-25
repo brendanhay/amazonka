@@ -205,6 +205,11 @@ instance Core.AWSRequest CreatePool where
             Prelude.<*> (x Data..?> "TwoWayEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@CreatePool' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreatePool
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreatePool where
   hashWithSalt _salt CreatePool' {..} =

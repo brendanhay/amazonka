@@ -127,6 +127,8 @@ instance Core.AWSRequest DeleteKeyword where
             Prelude.<*> (x Data..?> "OriginationIdentityArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteKeyword where
   hashWithSalt _salt DeleteKeyword' {..} =

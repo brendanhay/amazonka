@@ -104,6 +104,8 @@ instance Core.AWSRequest DeleteOptOutList where
             Prelude.<*> (x Data..?> "OptOutListName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteOptOutList where
   hashWithSalt _salt DeleteOptOutList' {..} =

@@ -258,6 +258,13 @@ instance Core.AWSRequest RequestPhoneNumber where
             Prelude.<*> (x Data..?> "TwoWayEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@RequestPhoneNumber' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: RequestPhoneNumber
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable RequestPhoneNumber where
   hashWithSalt _salt RequestPhoneNumber' {..} =

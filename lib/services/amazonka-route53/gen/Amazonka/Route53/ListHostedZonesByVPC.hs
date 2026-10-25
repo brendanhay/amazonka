@@ -202,6 +202,8 @@ instance Core.AWSRequest ListHostedZonesByVPC where
                         )
             Prelude.<*> (x Data..@ "MaxItems")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListHostedZonesByVPC where
   hashWithSalt _salt ListHostedZonesByVPC' {..} =

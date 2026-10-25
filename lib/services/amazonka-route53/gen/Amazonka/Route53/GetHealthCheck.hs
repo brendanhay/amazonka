@@ -98,6 +98,8 @@ instance Core.AWSRequest GetHealthCheck where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "HealthCheck")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetHealthCheck where
   hashWithSalt _salt GetHealthCheck' {..} =

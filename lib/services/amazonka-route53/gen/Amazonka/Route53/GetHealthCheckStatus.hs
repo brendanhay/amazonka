@@ -121,6 +121,8 @@ instance Core.AWSRequest GetHealthCheckStatus where
                             Prelude.>>= Data.parseXMLList "HealthCheckObservation"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetHealthCheckStatus where
   hashWithSalt _salt GetHealthCheckStatus' {..} =

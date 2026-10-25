@@ -75,6 +75,8 @@ instance Core.AWSRequest GetHostedZoneCount where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "HostedZoneCount")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetHostedZoneCount where
   hashWithSalt _salt _ =

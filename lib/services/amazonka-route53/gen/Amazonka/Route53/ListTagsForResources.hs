@@ -126,6 +126,8 @@ instance Core.AWSRequest ListTagsForResources where
                             Prelude.>>= Data.parseXMLList "ResourceTagSet"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTagsForResources where
   hashWithSalt _salt ListTagsForResources' {..} =

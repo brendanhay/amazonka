@@ -174,6 +174,8 @@ instance Core.AWSRequest ChangeCidrCollection where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "Id")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ChangeCidrCollection where
   hashWithSalt _salt ChangeCidrCollection' {..} =

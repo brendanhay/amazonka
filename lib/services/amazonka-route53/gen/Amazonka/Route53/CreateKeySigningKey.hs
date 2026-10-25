@@ -256,6 +256,8 @@ instance Core.AWSRequest CreateKeySigningKey where
             Prelude.<*> (x Data..@ "KeySigningKey")
             Prelude.<*> (h Data..# "Location")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateKeySigningKey where
   hashWithSalt _salt CreateKeySigningKey' {..} =

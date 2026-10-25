@@ -93,6 +93,8 @@ instance Core.AWSRequest GetReusableDelegationSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "DelegationSet")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetReusableDelegationSet where
   hashWithSalt _salt GetReusableDelegationSet' {..} =

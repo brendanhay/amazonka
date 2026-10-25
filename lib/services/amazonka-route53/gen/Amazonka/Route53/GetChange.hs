@@ -100,6 +100,8 @@ instance Core.AWSRequest GetChange where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "ChangeInfo")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetChange where
   hashWithSalt _salt GetChange' {..} =

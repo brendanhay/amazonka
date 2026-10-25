@@ -107,6 +107,8 @@ instance Core.AWSRequest UpdateHostedZoneComment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "HostedZone")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateHostedZoneComment where
   hashWithSalt _salt UpdateHostedZoneComment' {..} =

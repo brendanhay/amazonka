@@ -162,6 +162,8 @@ instance Core.AWSRequest UpdateTrafficPolicyInstance where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "TrafficPolicyInstance")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateTrafficPolicyInstance where
   hashWithSalt _salt UpdateTrafficPolicyInstance' {..} =

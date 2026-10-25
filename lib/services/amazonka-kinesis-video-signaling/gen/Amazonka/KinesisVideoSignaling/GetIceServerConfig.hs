@@ -145,6 +145,8 @@ instance Core.AWSRequest GetIceServerConfig where
             Prelude.<$> (x Data..?> "IceServerList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetIceServerConfig where
   hashWithSalt _salt GetIceServerConfig' {..} =

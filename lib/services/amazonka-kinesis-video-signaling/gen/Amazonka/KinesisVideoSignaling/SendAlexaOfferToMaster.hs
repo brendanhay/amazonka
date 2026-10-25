@@ -125,6 +125,8 @@ instance Core.AWSRequest SendAlexaOfferToMaster where
             Prelude.<$> (x Data..?> "Answer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SendAlexaOfferToMaster where
   hashWithSalt _salt SendAlexaOfferToMaster' {..} =

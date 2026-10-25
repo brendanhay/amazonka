@@ -58,7 +58,7 @@ data CreateMultiplexProgram' = CreateMultiplexProgram''
     multiplexId :: Prelude.Text,
     -- | Unique request ID. This prevents retries from creating multiple
     -- resources.
-    requestId :: Prelude.Text,
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The settings for this multiplex program.
     multiplexProgramSettings :: MultiplexProgramSettings,
     -- | Name of multiplex program.
@@ -85,8 +85,6 @@ data CreateMultiplexProgram' = CreateMultiplexProgram''
 newCreateMultiplexProgram' ::
   -- | 'multiplexId'
   Prelude.Text ->
-  -- | 'requestId'
-  Prelude.Text ->
   -- | 'multiplexProgramSettings'
   MultiplexProgramSettings ->
   -- | 'programName'
@@ -94,13 +92,12 @@ newCreateMultiplexProgram' ::
   CreateMultiplexProgram'
 newCreateMultiplexProgram'
   pMultiplexId_
-  pRequestId_
   pMultiplexProgramSettings_
   pProgramName_ =
     CreateMultiplexProgram''
       { multiplexId =
           pMultiplexId_,
-        requestId = pRequestId_,
+        requestId = Prelude.Nothing,
         multiplexProgramSettings =
           pMultiplexProgramSettings_,
         programName = pProgramName_
@@ -112,7 +109,7 @@ createMultiplexProgram'_multiplexId = Lens.lens (\CreateMultiplexProgram'' {mult
 
 -- | Unique request ID. This prevents retries from creating multiple
 -- resources.
-createMultiplexProgram'_requestId :: Lens.Lens' CreateMultiplexProgram' Prelude.Text
+createMultiplexProgram'_requestId :: Lens.Lens' CreateMultiplexProgram' (Prelude.Maybe Prelude.Text)
 createMultiplexProgram'_requestId = Lens.lens (\CreateMultiplexProgram'' {requestId} -> requestId) (\s@CreateMultiplexProgram'' {} a -> s {requestId = a} :: CreateMultiplexProgram')
 
 -- | The settings for this multiplex program.
@@ -136,6 +133,13 @@ instance Core.AWSRequest CreateMultiplexProgram' where
             Prelude.<$> (x Data..?> "multiplexProgram")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateMultiplexProgram'' {requestId} =
+      ( \requestId' ->
+          s {requestId = requestId'} :: CreateMultiplexProgram'
+      )
+        Prelude.<$> f requestId
 
 instance Prelude.Hashable CreateMultiplexProgram' where
   hashWithSalt _salt CreateMultiplexProgram'' {..} =
@@ -167,7 +171,7 @@ instance Data.ToJSON CreateMultiplexProgram' where
   toJSON CreateMultiplexProgram'' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("requestId" Data..= requestId),
+          [ ("requestId" Data..=) Prelude.<$> requestId,
             Prelude.Just
               ( "multiplexProgramSettings"
                   Data..= multiplexProgramSettings

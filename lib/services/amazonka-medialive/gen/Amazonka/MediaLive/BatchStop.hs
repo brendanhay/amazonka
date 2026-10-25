@@ -99,6 +99,8 @@ instance Core.AWSRequest BatchStop' where
             Prelude.<*> (x Data..?> "successful" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchStop' where
   hashWithSalt _salt BatchStop'' {..} =

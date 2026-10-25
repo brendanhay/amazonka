@@ -130,6 +130,8 @@ instance Core.AWSRequest StartChannel where
             Prelude.<*> (x Data..?> "vpc")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartChannel where
   hashWithSalt _salt StartChannel' {..} =

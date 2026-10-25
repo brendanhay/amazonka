@@ -132,6 +132,8 @@ instance Core.AWSRequest DeleteChannel where
             Prelude.<*> (x Data..?> "vpc")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteChannel where
   hashWithSalt _salt DeleteChannel' {..} =

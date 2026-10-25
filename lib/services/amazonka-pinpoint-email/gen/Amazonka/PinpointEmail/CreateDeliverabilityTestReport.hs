@@ -159,6 +159,8 @@ instance
             Prelude.<*> (x Data..:> "ReportId")
             Prelude.<*> (x Data..:> "DeliverabilityTestStatus")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

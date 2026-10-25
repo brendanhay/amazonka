@@ -101,6 +101,8 @@ instance Core.AWSRequest GetProposal where
             Prelude.<$> (x Data..?> "Proposal")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetProposal where
   hashWithSalt _salt GetProposal' {..} =

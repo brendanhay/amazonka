@@ -59,7 +59,7 @@ data CreateMember = CreateMember'
     -- than one time. This identifier is required only if you make a service
     -- request directly using an HTTP client. It is generated automatically if
     -- you use an Amazon Web Services SDK or the CLI.
-    clientRequestToken :: Prelude.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the invitation that is sent to the member to
     -- join the network.
     invitationId :: Prelude.Text,
@@ -91,8 +91,6 @@ data CreateMember = CreateMember'
 --
 -- 'memberConfiguration', 'createMember_memberConfiguration' - Member configuration parameters.
 newCreateMember ::
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   -- | 'invitationId'
   Prelude.Text ->
   -- | 'networkId'
@@ -101,13 +99,11 @@ newCreateMember ::
   MemberConfiguration ->
   CreateMember
 newCreateMember
-  pClientRequestToken_
   pInvitationId_
   pNetworkId_
   pMemberConfiguration_ =
     CreateMember'
-      { clientRequestToken =
-          pClientRequestToken_,
+      { clientRequestToken = Prelude.Nothing,
         invitationId = pInvitationId_,
         networkId = pNetworkId_,
         memberConfiguration = pMemberConfiguration_
@@ -118,7 +114,7 @@ newCreateMember
 -- than one time. This identifier is required only if you make a service
 -- request directly using an HTTP client. It is generated automatically if
 -- you use an Amazon Web Services SDK or the CLI.
-createMember_clientRequestToken :: Lens.Lens' CreateMember Prelude.Text
+createMember_clientRequestToken :: Lens.Lens' CreateMember (Prelude.Maybe Prelude.Text)
 createMember_clientRequestToken = Lens.lens (\CreateMember' {clientRequestToken} -> clientRequestToken) (\s@CreateMember' {} a -> s {clientRequestToken = a} :: CreateMember)
 
 -- | The unique identifier of the invitation that is sent to the member to
@@ -145,6 +141,14 @@ instance Core.AWSRequest CreateMember where
             Prelude.<$> (x Data..?> "MemberId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateMember' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateMember
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateMember where
   hashWithSalt _salt CreateMember' {..} =
@@ -176,8 +180,8 @@ instance Data.ToJSON CreateMember where
   toJSON CreateMember' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken),
+          [ ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken,
             Prelude.Just ("InvitationId" Data..= invitationId),
             Prelude.Just
               ("MemberConfiguration" Data..= memberConfiguration)

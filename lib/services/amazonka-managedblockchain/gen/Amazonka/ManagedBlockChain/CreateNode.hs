@@ -77,7 +77,7 @@ data CreateNode = CreateNode'
     -- than one time. This identifier is required only if you make a service
     -- request directly using an HTTP client. It is generated automatically if
     -- you use an Amazon Web Services SDK or the CLI.
-    clientRequestToken :: Prelude.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the network for the node.
     --
     -- Ethereum public networks have the following @NetworkId@s:
@@ -140,24 +140,19 @@ data CreateNode = CreateNode'
 --
 -- 'nodeConfiguration', 'createNode_nodeConfiguration' - The properties of a node configuration.
 newCreateNode ::
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   -- | 'networkId'
   Prelude.Text ->
   -- | 'nodeConfiguration'
   NodeConfiguration ->
   CreateNode
-newCreateNode
-  pClientRequestToken_
-  pNetworkId_
-  pNodeConfiguration_ =
-    CreateNode'
-      { memberId = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        clientRequestToken = pClientRequestToken_,
-        networkId = pNetworkId_,
-        nodeConfiguration = pNodeConfiguration_
-      }
+newCreateNode pNetworkId_ pNodeConfiguration_ =
+  CreateNode'
+    { memberId = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      networkId = pNetworkId_,
+      nodeConfiguration = pNodeConfiguration_
+    }
 
 -- | The unique identifier of the member that owns this node.
 --
@@ -185,7 +180,7 @@ createNode_tags = Lens.lens (\CreateNode' {tags} -> tags) (\s@CreateNode' {} a -
 -- than one time. This identifier is required only if you make a service
 -- request directly using an HTTP client. It is generated automatically if
 -- you use an Amazon Web Services SDK or the CLI.
-createNode_clientRequestToken :: Lens.Lens' CreateNode Prelude.Text
+createNode_clientRequestToken :: Lens.Lens' CreateNode (Prelude.Maybe Prelude.Text)
 createNode_clientRequestToken = Lens.lens (\CreateNode' {clientRequestToken} -> clientRequestToken) (\s@CreateNode' {} a -> s {clientRequestToken = a} :: CreateNode)
 
 -- | The unique identifier of the network for the node.
@@ -217,6 +212,14 @@ instance Core.AWSRequest CreateNode where
             Prelude.<$> (x Data..?> "NodeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateNode' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateNode
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateNode where
   hashWithSalt _salt CreateNode' {..} =
@@ -252,8 +255,8 @@ instance Data.ToJSON CreateNode where
       ( Prelude.catMaybes
           [ ("MemberId" Data..=) Prelude.<$> memberId,
             ("Tags" Data..=) Prelude.<$> tags,
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken),
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken,
             Prelude.Just
               ("NodeConfiguration" Data..= nodeConfiguration)
           ]

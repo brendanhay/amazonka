@@ -83,7 +83,7 @@ data CreateNetwork = CreateNetwork'
     -- more than once. This identifier is required only if you make a service
     -- request directly using an HTTP client. It is generated automatically if
     -- you use an Amazon Web Services SDK or the Amazon Web Services CLI.
-    clientRequestToken :: Prelude.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the network.
     name :: Prelude.Text,
     -- | The blockchain framework that the network uses.
@@ -141,8 +141,6 @@ data CreateNetwork = CreateNetwork'
 --
 -- 'memberConfiguration', 'createNetwork_memberConfiguration' - Configuration properties for the first member within the network.
 newCreateNetwork ::
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   -- | 'name'
   Prelude.Text ->
   -- | 'framework'
@@ -155,7 +153,6 @@ newCreateNetwork ::
   MemberConfiguration ->
   CreateNetwork
 newCreateNetwork
-  pClientRequestToken_
   pName_
   pFramework_
   pFrameworkVersion_
@@ -165,7 +162,7 @@ newCreateNetwork
       { description = Prelude.Nothing,
         frameworkConfiguration = Prelude.Nothing,
         tags = Prelude.Nothing,
-        clientRequestToken = pClientRequestToken_,
+        clientRequestToken = Prelude.Nothing,
         name = pName_,
         framework = pFramework_,
         frameworkVersion = pFrameworkVersion_,
@@ -202,7 +199,7 @@ createNetwork_tags = Lens.lens (\CreateNetwork' {tags} -> tags) (\s@CreateNetwor
 -- more than once. This identifier is required only if you make a service
 -- request directly using an HTTP client. It is generated automatically if
 -- you use an Amazon Web Services SDK or the Amazon Web Services CLI.
-createNetwork_clientRequestToken :: Lens.Lens' CreateNetwork Prelude.Text
+createNetwork_clientRequestToken :: Lens.Lens' CreateNetwork (Prelude.Maybe Prelude.Text)
 createNetwork_clientRequestToken = Lens.lens (\CreateNetwork' {clientRequestToken} -> clientRequestToken) (\s@CreateNetwork' {} a -> s {clientRequestToken = a} :: CreateNetwork)
 
 -- | The name of the network.
@@ -240,6 +237,14 @@ instance Core.AWSRequest CreateNetwork where
             Prelude.<*> (x Data..?> "NetworkId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateNetwork' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateNetwork
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateNetwork where
   hashWithSalt _salt CreateNetwork' {..} =
@@ -285,8 +290,8 @@ instance Data.ToJSON CreateNetwork where
             ("FrameworkConfiguration" Data..=)
               Prelude.<$> frameworkConfiguration,
             ("Tags" Data..=) Prelude.<$> tags,
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken),
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Framework" Data..= framework),
             Prelude.Just

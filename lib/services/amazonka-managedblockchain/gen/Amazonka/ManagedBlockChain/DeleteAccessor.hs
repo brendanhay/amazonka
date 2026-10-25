@@ -98,6 +98,8 @@ instance Core.AWSRequest DeleteAccessor where
           DeleteAccessorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAccessor where
   hashWithSalt _salt DeleteAccessor' {..} =

@@ -105,6 +105,8 @@ instance Core.AWSRequest GetResourceRequestStatus where
             Prelude.<$> (x Data..?> "ProgressEvent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetResourceRequestStatus where
   hashWithSalt _salt GetResourceRequestStatus' {..} =

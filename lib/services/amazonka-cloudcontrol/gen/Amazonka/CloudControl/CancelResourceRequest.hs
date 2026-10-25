@@ -99,6 +99,8 @@ instance Core.AWSRequest CancelResourceRequest where
             Prelude.<$> (x Data..?> "ProgressEvent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelResourceRequest where
   hashWithSalt _salt CancelResourceRequest' {..} =

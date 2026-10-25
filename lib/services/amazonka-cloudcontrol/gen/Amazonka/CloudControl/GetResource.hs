@@ -217,6 +217,8 @@ instance Core.AWSRequest GetResource where
             Prelude.<*> (x Data..?> "TypeName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetResource where
   hashWithSalt _salt GetResource' {..} =

@@ -125,6 +125,8 @@ instance Core.AWSRequest AddResourcePermissions where
             Prelude.<$> (x Data..?> "ShareResults" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddResourcePermissions where
   hashWithSalt _salt AddResourcePermissions' {..} =

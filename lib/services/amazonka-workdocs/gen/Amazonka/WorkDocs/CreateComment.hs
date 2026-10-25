@@ -179,6 +179,8 @@ instance Core.AWSRequest CreateComment where
             Prelude.<$> (x Data..?> "Comment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateComment where
   hashWithSalt _salt CreateComment' {..} =

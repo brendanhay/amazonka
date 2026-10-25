@@ -95,6 +95,8 @@ instance Core.AWSRequest RestoreDocumentVersions where
   response =
     Response.receiveNull
       RestoreDocumentVersionsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RestoreDocumentVersions where
   hashWithSalt _salt RestoreDocumentVersions' {..} =

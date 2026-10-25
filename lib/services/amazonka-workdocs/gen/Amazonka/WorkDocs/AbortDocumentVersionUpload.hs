@@ -112,6 +112,8 @@ instance Core.AWSRequest AbortDocumentVersionUpload where
   response =
     Response.receiveNull
       AbortDocumentVersionUploadResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AbortDocumentVersionUpload where
   hashWithSalt _salt AbortDocumentVersionUpload' {..} =

@@ -271,6 +271,8 @@ instance Core.AWSRequest DescribeUsers where
             Prelude.<*> (x Data..?> "Users" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeUsers where
   hashWithSalt _salt DescribeUsers' {..} =

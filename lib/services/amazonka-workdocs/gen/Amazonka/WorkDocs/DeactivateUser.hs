@@ -95,6 +95,8 @@ instance Core.AWSRequest DeactivateUser where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeactivateUserResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeactivateUser where
   hashWithSalt _salt DeactivateUser' {..} =

@@ -90,6 +90,8 @@ instance Core.AWSRequest DescribeProblemObservations where
             Prelude.<$> (x Data..?> "RelatedObservations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeProblemObservations where
   hashWithSalt _salt DescribeProblemObservations' {..} =

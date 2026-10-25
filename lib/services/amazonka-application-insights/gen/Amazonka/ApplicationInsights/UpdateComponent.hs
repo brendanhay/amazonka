@@ -123,6 +123,8 @@ instance Core.AWSRequest UpdateComponent where
           UpdateComponentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateComponent where
   hashWithSalt _salt UpdateComponent' {..} =

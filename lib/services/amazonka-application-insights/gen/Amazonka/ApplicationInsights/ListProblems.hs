@@ -154,6 +154,8 @@ instance Core.AWSRequest ListProblems where
             Prelude.<*> (x Data..?> "ResourceGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListProblems where
   hashWithSalt _salt ListProblems' {..} =

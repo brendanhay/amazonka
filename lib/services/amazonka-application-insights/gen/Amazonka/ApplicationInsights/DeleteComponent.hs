@@ -104,6 +104,8 @@ instance Core.AWSRequest DeleteComponent where
           DeleteComponentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteComponent where
   hashWithSalt _salt DeleteComponent' {..} =

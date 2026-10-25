@@ -131,6 +131,8 @@ instance Core.AWSRequest DeleteBotLocale where
             Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteBotLocale where
   hashWithSalt _salt DeleteBotLocale' {..} =

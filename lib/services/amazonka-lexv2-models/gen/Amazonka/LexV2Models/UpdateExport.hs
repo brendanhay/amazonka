@@ -113,6 +113,8 @@ instance Core.AWSRequest UpdateExport where
             Prelude.<*> (x Data..?> "resourceSpecification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateExport where
   hashWithSalt _salt UpdateExport' {..} =

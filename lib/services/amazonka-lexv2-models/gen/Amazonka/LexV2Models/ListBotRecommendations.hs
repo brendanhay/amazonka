@@ -169,6 +169,8 @@ instance Core.AWSRequest ListBotRecommendations where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListBotRecommendations where
   hashWithSalt _salt ListBotRecommendations' {..} =

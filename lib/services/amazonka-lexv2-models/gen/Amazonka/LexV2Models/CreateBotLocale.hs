@@ -244,6 +244,8 @@ instance Core.AWSRequest CreateBotLocale where
             Prelude.<*> (x Data..?> "voiceSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateBotLocale where
   hashWithSalt _salt CreateBotLocale' {..} =

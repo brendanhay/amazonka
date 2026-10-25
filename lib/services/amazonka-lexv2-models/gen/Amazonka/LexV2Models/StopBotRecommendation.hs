@@ -149,6 +149,8 @@ instance Core.AWSRequest StopBotRecommendation where
             Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopBotRecommendation where
   hashWithSalt _salt StopBotRecommendation' {..} =

@@ -173,6 +173,8 @@ instance Core.AWSRequest StartBotRecommendation where
             Prelude.<*> (x Data..?> "transcriptSourceSetting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartBotRecommendation where
   hashWithSalt _salt StartBotRecommendation' {..} =

@@ -140,6 +140,8 @@ instance Core.AWSRequest CreateBotVersion where
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateBotVersion where
   hashWithSalt _salt CreateBotVersion' {..} =

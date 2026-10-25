@@ -183,6 +183,8 @@ instance Core.AWSRequest ListRecommendedIntents where
             Prelude.<*> (x Data..?> "summaryList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListRecommendedIntents where
   hashWithSalt _salt ListRecommendedIntents' {..} =

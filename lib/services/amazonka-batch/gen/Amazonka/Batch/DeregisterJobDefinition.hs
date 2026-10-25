@@ -92,6 +92,8 @@ instance Core.AWSRequest DeregisterJobDefinition where
           DeregisterJobDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterJobDefinition where
   hashWithSalt _salt DeregisterJobDefinition' {..} =

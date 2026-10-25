@@ -400,6 +400,8 @@ instance Core.AWSRequest RegisterJobDefinition where
             Prelude.<*> (x Data..:> "jobDefinitionArn")
             Prelude.<*> (x Data..:> "revision")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterJobDefinition where
   hashWithSalt _salt RegisterJobDefinition' {..} =

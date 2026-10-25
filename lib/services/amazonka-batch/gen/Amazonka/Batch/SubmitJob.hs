@@ -434,6 +434,8 @@ instance Core.AWSRequest SubmitJob where
             Prelude.<*> (x Data..:> "jobName")
             Prelude.<*> (x Data..:> "jobId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SubmitJob where
   hashWithSalt _salt SubmitJob' {..} =

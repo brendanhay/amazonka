@@ -101,6 +101,8 @@ instance Core.AWSRequest DeleteComputeEnvironment where
           DeleteComputeEnvironmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteComputeEnvironment where
   hashWithSalt _salt DeleteComputeEnvironment' {..} =

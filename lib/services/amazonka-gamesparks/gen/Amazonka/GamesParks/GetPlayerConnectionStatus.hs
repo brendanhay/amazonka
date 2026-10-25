@@ -120,6 +120,8 @@ instance Core.AWSRequest GetPlayerConnectionStatus where
             Prelude.<$> (x Data..?> "Connections" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPlayerConnectionStatus where
   hashWithSalt _salt GetPlayerConnectionStatus' {..} =

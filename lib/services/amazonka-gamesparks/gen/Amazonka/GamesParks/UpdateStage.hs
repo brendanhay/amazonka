@@ -122,6 +122,8 @@ instance Core.AWSRequest UpdateStage where
             Prelude.<$> (x Data..?> "Stage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateStage where
   hashWithSalt _salt UpdateStage' {..} =

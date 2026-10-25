@@ -85,6 +85,8 @@ instance Core.AWSRequest GetGame where
             Prelude.<$> (x Data..?> "Game")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetGame where
   hashWithSalt _salt GetGame' {..} =

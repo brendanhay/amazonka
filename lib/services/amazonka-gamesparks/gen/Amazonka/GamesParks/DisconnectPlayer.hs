@@ -124,6 +124,8 @@ instance Core.AWSRequest DisconnectPlayer where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisconnectPlayer where
   hashWithSalt _salt DisconnectPlayer' {..} =

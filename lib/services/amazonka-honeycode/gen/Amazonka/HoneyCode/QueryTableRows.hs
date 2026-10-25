@@ -196,6 +196,8 @@ instance Core.AWSRequest QueryTableRows where
             Prelude.<*> (x Data..?> "rows" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..:> "workbookCursor")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable QueryTableRows where
   hashWithSalt _salt QueryTableRows' {..} =

@@ -154,6 +154,8 @@ instance Core.AWSRequest DescribeTableDataImportJob where
             Prelude.<*> (x Data..:> "message")
             Prelude.<*> (x Data..:> "jobMetadata")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeTableDataImportJob where
   hashWithSalt _salt DescribeTableDataImportJob' {..} =

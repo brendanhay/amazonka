@@ -211,6 +211,8 @@ instance Core.AWSRequest StartTableDataImportJob where
             Prelude.<*> (x Data..:> "jobId")
             Prelude.<*> (x Data..:> "jobStatus")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartTableDataImportJob where
   hashWithSalt _salt StartTableDataImportJob' {..} =

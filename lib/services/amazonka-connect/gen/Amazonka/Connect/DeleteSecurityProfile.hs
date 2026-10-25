@@ -100,6 +100,8 @@ instance Core.AWSRequest DeleteSecurityProfile where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteSecurityProfileResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSecurityProfile where
   hashWithSalt _salt DeleteSecurityProfile' {..} =

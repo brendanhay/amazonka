@@ -289,6 +289,14 @@ instance Core.AWSRequest StartOutboundVoiceContact where
             Prelude.<$> (x Data..?> "ContactId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartOutboundVoiceContact' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            StartOutboundVoiceContact
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartOutboundVoiceContact where
   hashWithSalt _salt StartOutboundVoiceContact' {..} =

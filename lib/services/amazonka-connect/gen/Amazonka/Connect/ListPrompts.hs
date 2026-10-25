@@ -146,6 +146,8 @@ instance Core.AWSRequest ListPrompts where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPrompts where
   hashWithSalt _salt ListPrompts' {..} =

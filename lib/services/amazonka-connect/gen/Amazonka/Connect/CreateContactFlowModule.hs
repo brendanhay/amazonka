@@ -164,6 +164,14 @@ instance Core.AWSRequest CreateContactFlowModule where
             Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateContactFlowModule' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateContactFlowModule
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateContactFlowModule where
   hashWithSalt _salt CreateContactFlowModule' {..} =

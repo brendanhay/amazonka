@@ -103,6 +103,8 @@ instance Core.AWSRequest AssociateLambdaFunction where
   response =
     Response.receiveNull
       AssociateLambdaFunctionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateLambdaFunction where
   hashWithSalt _salt AssociateLambdaFunction' {..} =

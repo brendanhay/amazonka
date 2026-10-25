@@ -104,6 +104,8 @@ instance Core.AWSRequest DisassociateSecurityKey where
   response =
     Response.receiveNull
       DisassociateSecurityKeyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateSecurityKey where
   hashWithSalt _salt DisassociateSecurityKey' {..} =

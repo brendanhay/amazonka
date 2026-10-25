@@ -92,6 +92,8 @@ instance Core.AWSRequest UntagResource where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull UntagResourceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UntagResource where
   hashWithSalt _salt UntagResource' {..} =

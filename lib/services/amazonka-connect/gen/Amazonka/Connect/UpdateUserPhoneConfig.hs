@@ -110,6 +110,8 @@ instance Core.AWSRequest UpdateUserPhoneConfig where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateUserPhoneConfigResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateUserPhoneConfig where
   hashWithSalt _salt UpdateUserPhoneConfig' {..} =

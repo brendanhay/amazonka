@@ -156,6 +156,8 @@ instance Core.AWSRequest ListHoursOfOperations where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListHoursOfOperations where
   hashWithSalt _salt ListHoursOfOperations' {..} =

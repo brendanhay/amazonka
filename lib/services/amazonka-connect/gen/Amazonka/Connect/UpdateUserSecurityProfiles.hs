@@ -112,6 +112,8 @@ instance Core.AWSRequest UpdateUserSecurityProfiles where
   response =
     Response.receiveNull
       UpdateUserSecurityProfilesResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateUserSecurityProfiles where
   hashWithSalt _salt UpdateUserSecurityProfiles' {..} =

@@ -95,6 +95,8 @@ instance Core.AWSRequest DeleteQuickConnect where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteQuickConnectResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteQuickConnect where
   hashWithSalt _salt DeleteQuickConnect' {..} =

@@ -112,6 +112,8 @@ instance Core.AWSRequest UpdateQuickConnectConfig where
   response =
     Response.receiveNull
       UpdateQuickConnectConfigResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateQuickConnectConfig where
   hashWithSalt _salt UpdateQuickConnectConfig' {..} =

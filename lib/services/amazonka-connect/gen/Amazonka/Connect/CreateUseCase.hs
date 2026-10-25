@@ -138,6 +138,8 @@ instance Core.AWSRequest CreateUseCase where
             Prelude.<*> (x Data..?> "UseCaseId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateUseCase where
   hashWithSalt _salt CreateUseCase' {..} =

@@ -178,6 +178,11 @@ instance Core.AWSRequest CreateRule where
             Prelude.<*> (x Data..:> "RuleArn")
             Prelude.<*> (x Data..:> "RuleId")
       )
+  updateIdempotencyToken f s@CreateRule' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateRule
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateRule where
   hashWithSalt _salt CreateRule' {..} =

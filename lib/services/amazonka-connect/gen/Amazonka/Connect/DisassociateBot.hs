@@ -106,6 +106,8 @@ instance Core.AWSRequest DisassociateBot where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DisassociateBotResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateBot where
   hashWithSalt _salt DisassociateBot' {..} =

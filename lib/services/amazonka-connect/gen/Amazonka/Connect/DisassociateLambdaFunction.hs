@@ -106,6 +106,8 @@ instance Core.AWSRequest DisassociateLambdaFunction where
   response =
     Response.receiveNull
       DisassociateLambdaFunctionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateLambdaFunction where
   hashWithSalt _salt DisassociateLambdaFunction' {..} =

@@ -153,6 +153,8 @@ instance Core.AWSRequest UpdateSecurityProfile where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateSecurityProfileResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateSecurityProfile where
   hashWithSalt _salt UpdateSecurityProfile' {..} =

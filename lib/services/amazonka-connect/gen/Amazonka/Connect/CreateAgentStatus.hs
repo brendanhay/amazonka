@@ -154,6 +154,8 @@ instance Core.AWSRequest CreateAgentStatus where
             Prelude.<*> (x Data..?> "AgentStatusId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateAgentStatus where
   hashWithSalt _salt CreateAgentStatus' {..} =

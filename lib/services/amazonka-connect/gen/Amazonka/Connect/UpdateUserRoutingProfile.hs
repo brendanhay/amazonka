@@ -112,6 +112,8 @@ instance Core.AWSRequest UpdateUserRoutingProfile where
   response =
     Response.receiveNull
       UpdateUserRoutingProfileResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateUserRoutingProfile where
   hashWithSalt _salt UpdateUserRoutingProfile' {..} =

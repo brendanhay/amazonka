@@ -100,6 +100,8 @@ instance Core.AWSRequest DeleteUserHierarchyGroup where
   response =
     Response.receiveNull
       DeleteUserHierarchyGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteUserHierarchyGroup where
   hashWithSalt _salt DeleteUserHierarchyGroup' {..} =

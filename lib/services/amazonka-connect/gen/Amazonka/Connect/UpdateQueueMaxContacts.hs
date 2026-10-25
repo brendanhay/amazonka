@@ -114,6 +114,8 @@ instance Core.AWSRequest UpdateQueueMaxContacts where
   response =
     Response.receiveNull
       UpdateQueueMaxContactsResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateQueueMaxContacts where
   hashWithSalt _salt UpdateQueueMaxContacts' {..} =

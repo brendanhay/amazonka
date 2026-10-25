@@ -108,6 +108,8 @@ instance Core.AWSRequest DeleteVocabulary where
             Prelude.<*> (x Data..:> "VocabularyId")
             Prelude.<*> (x Data..:> "State")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVocabulary where
   hashWithSalt _salt DeleteVocabulary' {..} =

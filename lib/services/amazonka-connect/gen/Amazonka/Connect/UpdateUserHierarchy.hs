@@ -106,6 +106,8 @@ instance Core.AWSRequest UpdateUserHierarchy where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateUserHierarchyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateUserHierarchy where
   hashWithSalt _salt UpdateUserHierarchy' {..} =

@@ -100,6 +100,8 @@ instance Core.AWSRequest DisassociateApprovedOrigin where
   response =
     Response.receiveNull
       DisassociateApprovedOriginResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateApprovedOrigin where
   hashWithSalt _salt DisassociateApprovedOrigin' {..} =

@@ -122,6 +122,8 @@ instance
   response =
     Response.receiveNull
       DisassociateInstanceStorageConfigResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

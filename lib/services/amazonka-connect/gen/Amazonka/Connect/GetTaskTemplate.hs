@@ -142,6 +142,8 @@ instance Core.AWSRequest GetTaskTemplate where
             Prelude.<*> (x Data..:> "Arn")
             Prelude.<*> (x Data..:> "Name")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTaskTemplate where
   hashWithSalt _salt GetTaskTemplate' {..} =

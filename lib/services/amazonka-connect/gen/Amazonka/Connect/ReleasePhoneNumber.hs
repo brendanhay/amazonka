@@ -109,6 +109,13 @@ instance Core.AWSRequest ReleasePhoneNumber where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull ReleasePhoneNumberResponse'
+  updateIdempotencyToken
+    f
+    s@ReleasePhoneNumber' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: ReleasePhoneNumber
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable ReleasePhoneNumber where
   hashWithSalt _salt ReleasePhoneNumber' {..} =

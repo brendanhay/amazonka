@@ -257,6 +257,13 @@ instance Core.AWSRequest StartTaskContact where
             Prelude.<$> (x Data..?> "ContactId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartTaskContact' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: StartTaskContact
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartTaskContact where
   hashWithSalt _salt StartTaskContact' {..} =

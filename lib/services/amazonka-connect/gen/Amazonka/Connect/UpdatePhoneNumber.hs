@@ -134,6 +134,13 @@ instance Core.AWSRequest UpdatePhoneNumber where
             Prelude.<*> (x Data..?> "PhoneNumberId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdatePhoneNumber' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: UpdatePhoneNumber
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdatePhoneNumber where
   hashWithSalt _salt UpdatePhoneNumber' {..} =

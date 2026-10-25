@@ -116,6 +116,8 @@ instance Core.AWSRequest UpdateContactFlowName where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateContactFlowNameResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateContactFlowName where
   hashWithSalt _salt UpdateContactFlowName' {..} =

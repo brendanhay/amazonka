@@ -99,6 +99,8 @@ instance Core.AWSRequest AssociateLexBot where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull AssociateLexBotResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateLexBot where
   hashWithSalt _salt AssociateLexBot' {..} =

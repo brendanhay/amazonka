@@ -95,6 +95,8 @@ instance Core.AWSRequest DeleteContactFlow where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteContactFlowResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteContactFlow where
   hashWithSalt _salt DeleteContactFlow' {..} =

@@ -104,6 +104,8 @@ instance Core.AWSRequest DescribeVocabulary where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Vocabulary")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeVocabulary where
   hashWithSalt _salt DescribeVocabulary' {..} =

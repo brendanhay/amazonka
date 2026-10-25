@@ -92,6 +92,8 @@ instance Core.AWSRequest GetTrafficDistribution where
             Prelude.<*> (x Data..?> "TelephonyConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetTrafficDistribution where
   hashWithSalt _salt GetTrafficDistribution' {..} =

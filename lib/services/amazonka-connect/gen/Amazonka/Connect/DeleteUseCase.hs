@@ -111,6 +111,8 @@ instance Core.AWSRequest DeleteUseCase where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteUseCaseResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteUseCase where
   hashWithSalt _salt DeleteUseCase' {..} =

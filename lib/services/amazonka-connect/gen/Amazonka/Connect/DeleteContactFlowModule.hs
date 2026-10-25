@@ -104,6 +104,8 @@ instance Core.AWSRequest DeleteContactFlowModule where
           DeleteContactFlowModuleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteContactFlowModule where
   hashWithSalt _salt DeleteContactFlowModule' {..} =

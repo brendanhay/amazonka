@@ -106,6 +106,8 @@ instance Core.AWSRequest DescribeRoutingProfile where
             Prelude.<$> (x Data..?> "RoutingProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeRoutingProfile where
   hashWithSalt _salt DescribeRoutingProfile' {..} =

@@ -125,6 +125,8 @@ instance Core.AWSRequest PutUserStatus where
           PutUserStatusResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutUserStatus where
   hashWithSalt _salt PutUserStatus' {..} =

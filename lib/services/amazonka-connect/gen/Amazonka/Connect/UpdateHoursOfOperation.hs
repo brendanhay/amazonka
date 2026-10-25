@@ -141,6 +141,8 @@ instance Core.AWSRequest UpdateHoursOfOperation where
   response =
     Response.receiveNull
       UpdateHoursOfOperationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateHoursOfOperation where
   hashWithSalt _salt UpdateHoursOfOperation' {..} =

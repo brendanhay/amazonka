@@ -102,6 +102,8 @@ instance Core.AWSRequest DeleteIntegrationAssociation where
   response =
     Response.receiveNull
       DeleteIntegrationAssociationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

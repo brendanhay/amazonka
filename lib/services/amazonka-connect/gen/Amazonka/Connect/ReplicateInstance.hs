@@ -154,6 +154,13 @@ instance Core.AWSRequest ReplicateInstance where
             Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@ReplicateInstance' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: ReplicateInstance
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable ReplicateInstance where
   hashWithSalt _salt ReplicateInstance' {..} =

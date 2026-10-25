@@ -178,6 +178,13 @@ instance Core.AWSRequest TransferContact where
             Prelude.<*> (x Data..?> "ContactId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@TransferContact' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: TransferContact
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable TransferContact where
   hashWithSalt _salt TransferContact' {..} =

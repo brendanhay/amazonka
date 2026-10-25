@@ -121,6 +121,8 @@ instance Core.AWSRequest CreateKeyspace where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "resourceArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateKeyspace where
   hashWithSalt _salt CreateKeyspace' {..} =

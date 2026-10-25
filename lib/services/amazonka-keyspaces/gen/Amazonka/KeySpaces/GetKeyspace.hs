@@ -88,6 +88,8 @@ instance Core.AWSRequest GetKeyspace where
             Prelude.<*> (x Data..:> "keyspaceName")
             Prelude.<*> (x Data..:> "resourceArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetKeyspace where
   hashWithSalt _salt GetKeyspace' {..} =

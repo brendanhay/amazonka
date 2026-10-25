@@ -204,6 +204,8 @@ instance Core.AWSRequest DescribeStackResources where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeStackResources where
   hashWithSalt _salt DescribeStackResources' {..} =

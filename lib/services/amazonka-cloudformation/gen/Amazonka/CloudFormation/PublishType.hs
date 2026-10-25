@@ -188,6 +188,8 @@ instance Core.AWSRequest PublishType where
             Prelude.<$> (x Data..@? "PublicTypeArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PublishType where
   hashWithSalt _salt PublishType' {..} =

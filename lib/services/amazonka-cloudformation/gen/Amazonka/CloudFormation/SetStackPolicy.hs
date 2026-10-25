@@ -120,6 +120,8 @@ instance Core.AWSRequest SetStackPolicy where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull SetStackPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetStackPolicy where
   hashWithSalt _salt SetStackPolicy' {..} =

@@ -280,6 +280,14 @@ instance Core.AWSRequest DeleteStackInstances where
             Prelude.<$> (x Data..@? "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteStackInstances' {operationId} =
+      ( \operationId' ->
+          s {operationId = operationId'} ::
+            DeleteStackInstances
+      )
+        Prelude.<$> f operationId
 
 instance Prelude.Hashable DeleteStackInstances where
   hashWithSalt _salt DeleteStackInstances' {..} =

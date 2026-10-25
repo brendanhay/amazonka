@@ -119,6 +119,8 @@ instance Core.AWSRequest DetectStackResourceDrift where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "StackResourceDrift")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetectStackResourceDrift where
   hashWithSalt _salt DetectStackResourceDrift' {..} =

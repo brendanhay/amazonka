@@ -182,6 +182,8 @@ instance Core.AWSRequest DescribeStackInstance where
             Prelude.<$> (x Data..@? "StackInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeStackInstance where
   hashWithSalt _salt DescribeStackInstance' {..} =

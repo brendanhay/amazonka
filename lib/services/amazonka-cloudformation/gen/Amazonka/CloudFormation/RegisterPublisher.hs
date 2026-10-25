@@ -143,6 +143,8 @@ instance Core.AWSRequest RegisterPublisher where
             Prelude.<$> (x Data..@? "PublisherId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterPublisher where
   hashWithSalt _salt RegisterPublisher' {..} =

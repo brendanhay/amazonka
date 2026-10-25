@@ -204,6 +204,13 @@ instance Core.AWSRequest DetectStackSetDrift where
             Prelude.<$> (x Data..@? "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DetectStackSetDrift' {operationId} =
+      ( \operationId' ->
+          s {operationId = operationId'} :: DetectStackSetDrift
+      )
+        Prelude.<$> f operationId
 
 instance Prelude.Hashable DetectStackSetDrift where
   hashWithSalt _salt DetectStackSetDrift' {..} =

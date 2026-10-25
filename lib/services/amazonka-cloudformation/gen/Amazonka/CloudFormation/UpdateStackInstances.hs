@@ -401,6 +401,14 @@ instance Core.AWSRequest UpdateStackInstances where
             Prelude.<$> (x Data..@? "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateStackInstances' {operationId} =
+      ( \operationId' ->
+          s {operationId = operationId'} ::
+            UpdateStackInstances
+      )
+        Prelude.<$> f operationId
 
 instance Prelude.Hashable UpdateStackInstances where
   hashWithSalt _salt UpdateStackInstances' {..} =

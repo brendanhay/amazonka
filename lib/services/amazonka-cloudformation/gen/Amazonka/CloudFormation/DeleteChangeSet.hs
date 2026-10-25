@@ -115,6 +115,8 @@ instance Core.AWSRequest DeleteChangeSet where
           DeleteChangeSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteChangeSet where
   hashWithSalt _salt DeleteChangeSet' {..} =

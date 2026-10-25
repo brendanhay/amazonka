@@ -144,6 +144,8 @@ instance Core.AWSRequest SetTypeDefaultVersion where
           SetTypeDefaultVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SetTypeDefaultVersion where
   hashWithSalt _salt SetTypeDefaultVersion' {..} =

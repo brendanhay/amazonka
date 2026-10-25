@@ -149,6 +149,8 @@ instance Core.AWSRequest SignalResource where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull SignalResourceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SignalResource where
   hashWithSalt _salt SignalResource' {..} =

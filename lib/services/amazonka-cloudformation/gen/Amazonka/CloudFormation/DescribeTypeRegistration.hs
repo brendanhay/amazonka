@@ -114,6 +114,8 @@ instance Core.AWSRequest DescribeTypeRegistration where
             Prelude.<*> (x Data..@? "TypeVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeTypeRegistration where
   hashWithSalt _salt DescribeTypeRegistration' {..} =

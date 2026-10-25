@@ -692,6 +692,8 @@ instance Core.AWSRequest CreateChangeSet where
             Prelude.<*> (x Data..@? "StackId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateChangeSet where
   hashWithSalt _salt CreateChangeSet' {..} =

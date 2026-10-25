@@ -150,6 +150,14 @@ instance
             Prelude.<*> (x Data..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@AssociateIdentityProviderConfig' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            AssociateIdentityProviderConfig
+      )
+        Prelude.<$> f clientRequestToken
 
 instance
   Prelude.Hashable

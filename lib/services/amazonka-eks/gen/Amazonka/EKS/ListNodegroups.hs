@@ -170,6 +170,8 @@ instance Core.AWSRequest ListNodegroups where
             Prelude.<*> (x Data..?> "nodegroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListNodegroups where
   hashWithSalt _salt ListNodegroups' {..} =

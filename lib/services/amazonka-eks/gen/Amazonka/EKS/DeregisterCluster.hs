@@ -88,6 +88,8 @@ instance Core.AWSRequest DeregisterCluster where
             Prelude.<$> (x Data..?> "cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterCluster where
   hashWithSalt _salt DeregisterCluster' {..} =

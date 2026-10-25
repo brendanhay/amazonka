@@ -116,6 +116,8 @@ instance Core.AWSRequest DeleteFargateProfile where
             Prelude.<$> (x Data..?> "fargateProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteFargateProfile where
   hashWithSalt _salt DeleteFargateProfile' {..} =

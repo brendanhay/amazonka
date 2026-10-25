@@ -118,6 +118,8 @@ instance Core.AWSRequest ModifyLunaClient where
             Prelude.<$> (x Data..?> "ClientArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ModifyLunaClient where
   hashWithSalt _salt ModifyLunaClient' {..} =

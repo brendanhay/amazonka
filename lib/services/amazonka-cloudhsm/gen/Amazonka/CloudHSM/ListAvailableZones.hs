@@ -87,6 +87,8 @@ instance Core.AWSRequest ListAvailableZones where
             Prelude.<$> (x Data..?> "AZList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAvailableZones where
   hashWithSalt _salt _ =

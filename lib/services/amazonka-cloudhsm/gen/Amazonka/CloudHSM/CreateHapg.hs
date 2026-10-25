@@ -102,6 +102,8 @@ instance Core.AWSRequest CreateHapg where
             Prelude.<$> (x Data..?> "HapgArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateHapg where
   hashWithSalt _salt CreateHapg' {..} =

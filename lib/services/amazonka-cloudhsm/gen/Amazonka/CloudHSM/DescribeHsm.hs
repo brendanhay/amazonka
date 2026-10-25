@@ -158,6 +158,8 @@ instance Core.AWSRequest DescribeHsm where
             Prelude.<*> (x Data..?> "VpcId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeHsm where
   hashWithSalt _salt DescribeHsm' {..} =

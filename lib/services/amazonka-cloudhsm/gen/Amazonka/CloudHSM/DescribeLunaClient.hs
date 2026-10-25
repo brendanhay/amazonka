@@ -120,6 +120,8 @@ instance Core.AWSRequest DescribeLunaClient where
             Prelude.<*> (x Data..?> "LastModifiedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeLunaClient where
   hashWithSalt _salt DescribeLunaClient' {..} =

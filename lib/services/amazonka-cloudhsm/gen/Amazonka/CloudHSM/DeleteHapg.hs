@@ -101,6 +101,8 @@ instance Core.AWSRequest DeleteHapg where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Status")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteHapg where
   hashWithSalt _salt DeleteHapg' {..} =

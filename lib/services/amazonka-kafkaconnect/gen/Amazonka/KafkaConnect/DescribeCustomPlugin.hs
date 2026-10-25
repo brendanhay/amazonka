@@ -102,6 +102,8 @@ instance Core.AWSRequest DescribeCustomPlugin where
             Prelude.<*> (x Data..?> "stateDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeCustomPlugin where
   hashWithSalt _salt DescribeCustomPlugin' {..} =

@@ -223,6 +223,8 @@ instance Core.AWSRequest UpdatePrimaryRegion where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdatePrimaryRegionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdatePrimaryRegion where
   hashWithSalt _salt UpdatePrimaryRegion' {..} =

@@ -1159,6 +1159,8 @@ instance Core.AWSRequest CreateKey where
             Prelude.<$> (x Data..?> "KeyMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateKey where
   hashWithSalt _salt CreateKey' {..} =

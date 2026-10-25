@@ -181,6 +181,8 @@ instance Core.AWSRequest DisableKeyRotation where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DisableKeyRotationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisableKeyRotation where
   hashWithSalt _salt DisableKeyRotation' {..} =

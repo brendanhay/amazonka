@@ -216,6 +216,8 @@ instance Core.AWSRequest ListKeyPolicies where
             Prelude.<*> (x Data..?> "Truncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListKeyPolicies where
   hashWithSalt _salt ListKeyPolicies' {..} =

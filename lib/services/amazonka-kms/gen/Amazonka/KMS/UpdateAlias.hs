@@ -225,6 +225,8 @@ instance Core.AWSRequest UpdateAlias where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull UpdateAliasResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateAlias where
   hashWithSalt _salt UpdateAlias' {..} =

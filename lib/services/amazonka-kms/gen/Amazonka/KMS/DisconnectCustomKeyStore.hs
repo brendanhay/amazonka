@@ -138,6 +138,8 @@ instance Core.AWSRequest DisconnectCustomKeyStore where
           DisconnectCustomKeyStoreResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisconnectCustomKeyStore where
   hashWithSalt _salt DisconnectCustomKeyStore' {..} =

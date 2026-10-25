@@ -679,6 +679,8 @@ instance Core.AWSRequest CreateCustomKeyStore where
             Prelude.<$> (x Data..?> "CustomKeyStoreId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateCustomKeyStore where
   hashWithSalt _salt CreateCustomKeyStore' {..} =

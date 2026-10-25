@@ -165,6 +165,8 @@ instance Core.AWSRequest RevokeGrant where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull RevokeGrantResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RevokeGrant where
   hashWithSalt _salt RevokeGrant' {..} =

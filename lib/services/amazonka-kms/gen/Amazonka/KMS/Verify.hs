@@ -347,6 +347,8 @@ instance Core.AWSRequest Verify where
             Prelude.<*> (x Data..?> "SigningAlgorithm")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable Verify where
   hashWithSalt _salt Verify' {..} =

@@ -193,6 +193,8 @@ instance Core.AWSRequest GetKeyRotationStatus where
             Prelude.<$> (x Data..?> "KeyRotationEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetKeyRotationStatus where
   hashWithSalt _salt GetKeyRotationStatus' {..} =

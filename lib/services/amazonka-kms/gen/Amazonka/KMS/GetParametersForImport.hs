@@ -213,6 +213,8 @@ instance Core.AWSRequest GetParametersForImport where
             Prelude.<*> (x Data..?> "PublicKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetParametersForImport where
   hashWithSalt _salt GetParametersForImport' {..} =

@@ -73,6 +73,8 @@ instance Core.AWSRequest DescribeLocations where
             Prelude.<$> (x Data..?> "locations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeLocations where
   hashWithSalt _salt _ =

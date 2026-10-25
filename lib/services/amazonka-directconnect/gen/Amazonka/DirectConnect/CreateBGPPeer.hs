@@ -112,6 +112,8 @@ instance Core.AWSRequest CreateBGPPeer where
             Prelude.<$> (x Data..?> "virtualInterface")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateBGPPeer where
   hashWithSalt _salt CreateBGPPeer' {..} =

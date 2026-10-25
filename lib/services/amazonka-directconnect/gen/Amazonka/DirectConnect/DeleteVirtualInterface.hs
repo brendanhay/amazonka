@@ -90,6 +90,8 @@ instance Core.AWSRequest DeleteVirtualInterface where
             Prelude.<$> (x Data..?> "virtualInterfaceState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVirtualInterface where
   hashWithSalt _salt DeleteVirtualInterface' {..} =

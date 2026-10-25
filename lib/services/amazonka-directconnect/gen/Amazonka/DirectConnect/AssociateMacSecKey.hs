@@ -211,6 +211,8 @@ instance Core.AWSRequest AssociateMacSecKey where
             Prelude.<*> (x Data..?> "macSecKeys" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateMacSecKey where
   hashWithSalt _salt AssociateMacSecKey' {..} =

@@ -136,6 +136,8 @@ instance Core.AWSRequest AssociateConnectionWithLag where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateConnectionWithLag where
   hashWithSalt _salt AssociateConnectionWithLag' {..} =

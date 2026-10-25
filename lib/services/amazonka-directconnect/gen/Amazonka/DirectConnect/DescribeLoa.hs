@@ -126,6 +126,8 @@ instance Core.AWSRequest DescribeLoa where
             Prelude.<*> (x Data..?> "loaContentType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeLoa where
   hashWithSalt _salt DescribeLoa' {..} =

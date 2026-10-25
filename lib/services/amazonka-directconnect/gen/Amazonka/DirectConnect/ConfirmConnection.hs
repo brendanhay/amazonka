@@ -92,6 +92,8 @@ instance Core.AWSRequest ConfirmConnection where
             Prelude.<$> (x Data..?> "connectionState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ConfirmConnection where
   hashWithSalt _salt ConfirmConnection' {..} =

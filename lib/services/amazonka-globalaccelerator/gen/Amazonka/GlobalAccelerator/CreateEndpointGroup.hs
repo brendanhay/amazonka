@@ -109,7 +109,7 @@ data CreateEndpointGroup = CreateEndpointGroup'
     endpointGroupRegion :: Prelude.Text,
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency—that is, the uniqueness—of the request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -174,13 +174,10 @@ newCreateEndpointGroup ::
   Prelude.Text ->
   -- | 'endpointGroupRegion'
   Prelude.Text ->
-  -- | 'idempotencyToken'
-  Prelude.Text ->
   CreateEndpointGroup
 newCreateEndpointGroup
   pListenerArn_
-  pEndpointGroupRegion_
-  pIdempotencyToken_ =
+  pEndpointGroupRegion_ =
     CreateEndpointGroup'
       { endpointConfigurations =
           Prelude.Nothing,
@@ -193,7 +190,7 @@ newCreateEndpointGroup
         trafficDialPercentage = Prelude.Nothing,
         listenerArn = pListenerArn_,
         endpointGroupRegion = pEndpointGroupRegion_,
-        idempotencyToken = pIdempotencyToken_
+        idempotencyToken = Prelude.Nothing
       }
 
 -- | The list of endpoint objects.
@@ -264,7 +261,7 @@ createEndpointGroup_endpointGroupRegion = Lens.lens (\CreateEndpointGroup' {endp
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency—that is, the uniqueness—of the request.
-createEndpointGroup_idempotencyToken :: Lens.Lens' CreateEndpointGroup Prelude.Text
+createEndpointGroup_idempotencyToken :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe Prelude.Text)
 createEndpointGroup_idempotencyToken = Lens.lens (\CreateEndpointGroup' {idempotencyToken} -> idempotencyToken) (\s@CreateEndpointGroup' {} a -> s {idempotencyToken = a} :: CreateEndpointGroup)
 
 instance Core.AWSRequest CreateEndpointGroup where
@@ -280,6 +277,14 @@ instance Core.AWSRequest CreateEndpointGroup where
             Prelude.<$> (x Data..?> "EndpointGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateEndpointGroup' {idempotencyToken} =
+      ( \idempotencyToken' ->
+          s {idempotencyToken = idempotencyToken'} ::
+            CreateEndpointGroup
+      )
+        Prelude.<$> f idempotencyToken
 
 instance Prelude.Hashable CreateEndpointGroup where
   hashWithSalt _salt CreateEndpointGroup' {..} =
@@ -347,8 +352,8 @@ instance Data.ToJSON CreateEndpointGroup where
             Prelude.Just ("ListenerArn" Data..= listenerArn),
             Prelude.Just
               ("EndpointGroupRegion" Data..= endpointGroupRegion),
-            Prelude.Just
-              ("IdempotencyToken" Data..= idempotencyToken)
+            ("IdempotencyToken" Data..=)
+              Prelude.<$> idempotencyToken
           ]
       )
 

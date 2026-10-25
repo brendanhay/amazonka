@@ -64,7 +64,7 @@ data CreateCustomRoutingListener = CreateCustomRoutingListener'
     portRanges :: Prelude.NonEmpty PortRange,
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency—that is, the uniqueness—of the request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,18 +92,15 @@ newCreateCustomRoutingListener ::
   Prelude.Text ->
   -- | 'portRanges'
   Prelude.NonEmpty PortRange ->
-  -- | 'idempotencyToken'
-  Prelude.Text ->
   CreateCustomRoutingListener
 newCreateCustomRoutingListener
   pAcceleratorArn_
-  pPortRanges_
-  pIdempotencyToken_ =
+  pPortRanges_ =
     CreateCustomRoutingListener'
       { acceleratorArn =
           pAcceleratorArn_,
         portRanges = Lens.coerced Lens.# pPortRanges_,
-        idempotencyToken = pIdempotencyToken_
+        idempotencyToken = Prelude.Nothing
       }
 
 -- | The Amazon Resource Name (ARN) of the accelerator for a custom routing
@@ -121,7 +118,7 @@ createCustomRoutingListener_portRanges = Lens.lens (\CreateCustomRoutingListener
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency—that is, the uniqueness—of the request.
-createCustomRoutingListener_idempotencyToken :: Lens.Lens' CreateCustomRoutingListener Prelude.Text
+createCustomRoutingListener_idempotencyToken :: Lens.Lens' CreateCustomRoutingListener (Prelude.Maybe Prelude.Text)
 createCustomRoutingListener_idempotencyToken = Lens.lens (\CreateCustomRoutingListener' {idempotencyToken} -> idempotencyToken) (\s@CreateCustomRoutingListener' {} a -> s {idempotencyToken = a} :: CreateCustomRoutingListener)
 
 instance Core.AWSRequest CreateCustomRoutingListener where
@@ -137,6 +134,14 @@ instance Core.AWSRequest CreateCustomRoutingListener where
             Prelude.<$> (x Data..?> "Listener")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateCustomRoutingListener' {idempotencyToken} =
+      ( \idempotencyToken' ->
+          s {idempotencyToken = idempotencyToken'} ::
+            CreateCustomRoutingListener
+      )
+        Prelude.<$> f idempotencyToken
 
 instance Prelude.Hashable CreateCustomRoutingListener where
   hashWithSalt _salt CreateCustomRoutingListener' {..} =
@@ -173,8 +178,8 @@ instance Data.ToJSON CreateCustomRoutingListener where
           [ Prelude.Just
               ("AcceleratorArn" Data..= acceleratorArn),
             Prelude.Just ("PortRanges" Data..= portRanges),
-            Prelude.Just
-              ("IdempotencyToken" Data..= idempotencyToken)
+            ("IdempotencyToken" Data..=)
+              Prelude.<$> idempotencyToken
           ]
       )
 

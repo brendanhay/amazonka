@@ -81,6 +81,8 @@ instance Core.AWSRequest DeleteEndpointGroup where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteEndpointGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteEndpointGroup where
   hashWithSalt _salt DeleteEndpointGroup' {..} =

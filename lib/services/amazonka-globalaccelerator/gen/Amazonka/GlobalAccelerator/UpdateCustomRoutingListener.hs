@@ -119,6 +119,8 @@ instance Core.AWSRequest UpdateCustomRoutingListener where
             Prelude.<$> (x Data..?> "Listener")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateCustomRoutingListener where
   hashWithSalt _salt UpdateCustomRoutingListener' {..} =

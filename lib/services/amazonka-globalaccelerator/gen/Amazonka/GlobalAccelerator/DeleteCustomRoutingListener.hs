@@ -82,6 +82,8 @@ instance Core.AWSRequest DeleteCustomRoutingListener where
   response =
     Response.receiveNull
       DeleteCustomRoutingListenerResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCustomRoutingListener where
   hashWithSalt _salt DeleteCustomRoutingListener' {..} =

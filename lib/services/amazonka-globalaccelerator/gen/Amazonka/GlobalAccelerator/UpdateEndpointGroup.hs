@@ -249,6 +249,8 @@ instance Core.AWSRequest UpdateEndpointGroup where
             Prelude.<$> (x Data..?> "EndpointGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateEndpointGroup where
   hashWithSalt _salt UpdateEndpointGroup' {..} =

@@ -240,6 +240,8 @@ instance Core.AWSRequest CreateToken where
             Prelude.<*> (x Data..?> "tokenType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateToken where
   hashWithSalt _salt CreateToken' {..} =

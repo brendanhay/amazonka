@@ -142,6 +142,8 @@ instance Core.AWSRequest StartDeviceAuthorization where
             Prelude.<*> (x Data..?> "verificationUriComplete")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartDeviceAuthorization where
   hashWithSalt _salt StartDeviceAuthorization' {..} =

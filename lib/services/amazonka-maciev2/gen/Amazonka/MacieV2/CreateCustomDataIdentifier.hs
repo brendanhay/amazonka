@@ -311,6 +311,14 @@ instance Core.AWSRequest CreateCustomDataIdentifier where
             Prelude.<$> (x Data..?> "customDataIdentifierId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateCustomDataIdentifier' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateCustomDataIdentifier
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateCustomDataIdentifier where
   hashWithSalt _salt CreateCustomDataIdentifier' {..} =

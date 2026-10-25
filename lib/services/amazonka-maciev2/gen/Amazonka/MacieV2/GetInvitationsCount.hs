@@ -72,6 +72,8 @@ instance Core.AWSRequest GetInvitationsCount where
             Prelude.<$> (x Data..?> "invitationsCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetInvitationsCount where
   hashWithSalt _salt _ =

@@ -94,6 +94,8 @@ instance Core.AWSRequest UpdateRevealConfiguration where
             Prelude.<$> (x Data..?> "configuration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRevealConfiguration where
   hashWithSalt _salt UpdateRevealConfiguration' {..} =

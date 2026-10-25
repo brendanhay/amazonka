@@ -186,6 +186,8 @@ instance Core.AWSRequest UpdateClassificationJob where
           UpdateClassificationJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateClassificationJob where
   hashWithSalt _salt UpdateClassificationJob' {..} =

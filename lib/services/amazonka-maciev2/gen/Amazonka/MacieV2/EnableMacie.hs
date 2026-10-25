@@ -116,6 +116,11 @@ instance Core.AWSRequest EnableMacie where
           EnableMacieResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@EnableMacie' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: EnableMacie
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable EnableMacie where
   hashWithSalt _salt EnableMacie' {..} =

@@ -73,6 +73,8 @@ instance Core.AWSRequest GetMasterAccount where
             Prelude.<$> (x Data..?> "master")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMasterAccount where
   hashWithSalt _salt _ =

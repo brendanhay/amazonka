@@ -177,6 +177,8 @@ instance Core.AWSRequest TestCustomDataIdentifier where
             Prelude.<$> (x Data..?> "matchCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TestCustomDataIdentifier where
   hashWithSalt _salt TestCustomDataIdentifier' {..} =

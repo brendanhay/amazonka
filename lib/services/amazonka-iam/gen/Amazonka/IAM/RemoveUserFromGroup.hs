@@ -122,6 +122,8 @@ instance Core.AWSRequest RemoveUserFromGroup where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull RemoveUserFromGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveUserFromGroup where
   hashWithSalt _salt RemoveUserFromGroup' {..} =

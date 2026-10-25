@@ -707,6 +707,8 @@ instance Core.AWSRequest SimulateCustomPolicy where
     Response.receiveXMLWrapper
       "SimulateCustomPolicyResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SimulateCustomPolicy where
   hashWithSalt _salt SimulateCustomPolicy' {..} =

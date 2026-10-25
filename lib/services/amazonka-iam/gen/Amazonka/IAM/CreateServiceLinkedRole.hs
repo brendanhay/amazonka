@@ -173,6 +173,8 @@ instance Core.AWSRequest CreateServiceLinkedRole where
             Prelude.<$> (x Data..@? "Role")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateServiceLinkedRole where
   hashWithSalt _salt CreateServiceLinkedRole' {..} =

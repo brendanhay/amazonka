@@ -222,6 +222,8 @@ instance Core.AWSRequest ListServerCertificates where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListServerCertificates where
   hashWithSalt _salt ListServerCertificates' {..} =

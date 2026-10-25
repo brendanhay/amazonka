@@ -106,6 +106,8 @@ instance Core.AWSRequest UpdateRoleDescription where
             Prelude.<$> (x Data..@? "Role")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateRoleDescription where
   hashWithSalt _salt UpdateRoleDescription' {..} =

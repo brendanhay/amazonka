@@ -750,6 +750,8 @@ instance Core.AWSRequest SimulatePrincipalPolicy where
     Response.receiveXMLWrapper
       "SimulatePrincipalPolicyResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SimulatePrincipalPolicy where
   hashWithSalt _salt SimulatePrincipalPolicy' {..} =

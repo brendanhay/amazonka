@@ -126,6 +126,8 @@ instance Core.AWSRequest DeleteSSHPublicKey where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeleteSSHPublicKeyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSSHPublicKey where
   hashWithSalt _salt DeleteSSHPublicKey' {..} =

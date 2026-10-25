@@ -213,6 +213,8 @@ instance Core.AWSRequest ListRoles where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListRoles where
   hashWithSalt _salt ListRoles' {..} =

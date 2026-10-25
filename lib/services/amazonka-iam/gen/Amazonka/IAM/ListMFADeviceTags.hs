@@ -174,6 +174,8 @@ instance Core.AWSRequest ListMFADeviceTags where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListMFADeviceTags where
   hashWithSalt _salt ListMFADeviceTags' {..} =

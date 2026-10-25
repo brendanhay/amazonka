@@ -118,6 +118,8 @@ instance Core.AWSRequest UntagSAMLProvider where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull UntagSAMLProviderResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UntagSAMLProvider where
   hashWithSalt _salt UntagSAMLProvider' {..} =

@@ -157,6 +157,8 @@ instance Core.AWSRequest GetPolicyVersion where
             Prelude.<$> (x Data..@? "PolicyVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetPolicyVersion where
   hashWithSalt _salt GetPolicyVersion' {..} =

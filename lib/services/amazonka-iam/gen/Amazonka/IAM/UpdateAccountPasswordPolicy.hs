@@ -353,6 +353,8 @@ instance Core.AWSRequest UpdateAccountPasswordPolicy where
   response =
     Response.receiveNull
       UpdateAccountPasswordPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateAccountPasswordPolicy where
   hashWithSalt _salt UpdateAccountPasswordPolicy' {..} =

@@ -136,6 +136,8 @@ instance Core.AWSRequest ChangePassword where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull ChangePasswordResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ChangePassword where
   hashWithSalt _salt ChangePassword' {..} =

@@ -165,6 +165,8 @@ instance Core.AWSRequest ListAccountAliases where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAccountAliases where
   hashWithSalt _salt ListAccountAliases' {..} =

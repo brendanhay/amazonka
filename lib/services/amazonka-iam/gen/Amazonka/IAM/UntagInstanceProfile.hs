@@ -112,6 +112,8 @@ instance Core.AWSRequest UntagInstanceProfile where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull UntagInstanceProfileResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UntagInstanceProfile where
   hashWithSalt _salt UntagInstanceProfile' {..} =

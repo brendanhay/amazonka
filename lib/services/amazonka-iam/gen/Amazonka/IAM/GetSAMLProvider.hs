@@ -118,6 +118,8 @@ instance Core.AWSRequest GetSAMLProvider where
             Prelude.<*> (x Data..@? "ValidUntil")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSAMLProvider where
   hashWithSalt _salt GetSAMLProvider' {..} =

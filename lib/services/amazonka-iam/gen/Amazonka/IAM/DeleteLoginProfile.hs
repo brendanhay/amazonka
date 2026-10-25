@@ -107,6 +107,8 @@ instance Core.AWSRequest DeleteLoginProfile where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeleteLoginProfileResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteLoginProfile where
   hashWithSalt _salt DeleteLoginProfile' {..} =

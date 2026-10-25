@@ -128,6 +128,8 @@ instance Core.AWSRequest DetachGroupPolicy where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DetachGroupPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetachGroupPolicy where
   hashWithSalt _salt DetachGroupPolicy' {..} =

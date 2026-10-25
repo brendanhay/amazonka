@@ -104,6 +104,8 @@ instance Core.AWSRequest DeleteVirtualMFADevice where
   response =
     Response.receiveNull
       DeleteVirtualMFADeviceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteVirtualMFADevice where
   hashWithSalt _salt DeleteVirtualMFADevice' {..} =

@@ -132,6 +132,8 @@ instance Core.AWSRequest DeleteGroupPolicy where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeleteGroupPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteGroupPolicy where
   hashWithSalt _salt DeleteGroupPolicy' {..} =

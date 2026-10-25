@@ -97,6 +97,8 @@ instance Core.AWSRequest DeleteOpenIDConnectProvider where
   response =
     Response.receiveNull
       DeleteOpenIDConnectProviderResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteOpenIDConnectProvider where
   hashWithSalt _salt DeleteOpenIDConnectProvider' {..} =

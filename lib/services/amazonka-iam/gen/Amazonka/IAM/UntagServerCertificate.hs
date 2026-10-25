@@ -123,6 +123,8 @@ instance Core.AWSRequest UntagServerCertificate where
   response =
     Response.receiveNull
       UntagServerCertificateResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UntagServerCertificate where
   hashWithSalt _salt UntagServerCertificate' {..} =

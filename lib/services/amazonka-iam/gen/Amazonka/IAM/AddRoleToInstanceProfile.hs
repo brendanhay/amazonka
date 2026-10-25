@@ -144,6 +144,8 @@ instance Core.AWSRequest AddRoleToInstanceProfile where
   response =
     Response.receiveNull
       AddRoleToInstanceProfileResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddRoleToInstanceProfile where
   hashWithSalt _salt AddRoleToInstanceProfile' {..} =

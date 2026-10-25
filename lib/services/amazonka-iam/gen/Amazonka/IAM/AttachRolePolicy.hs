@@ -136,6 +136,8 @@ instance Core.AWSRequest AttachRolePolicy where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull AttachRolePolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AttachRolePolicy where
   hashWithSalt _salt AttachRolePolicy' {..} =

@@ -198,6 +198,8 @@ instance Core.AWSRequest ListSigningCertificates where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSigningCertificates where
   hashWithSalt _salt ListSigningCertificates' {..} =

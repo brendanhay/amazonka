@@ -65,6 +65,8 @@ instance Core.AWSRequest DeleteAccountPasswordPolicy where
   response =
     Response.receiveNull
       DeleteAccountPasswordPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAccountPasswordPolicy where
   hashWithSalt _salt _ =

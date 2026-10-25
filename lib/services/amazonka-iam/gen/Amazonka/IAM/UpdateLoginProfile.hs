@@ -174,6 +174,8 @@ instance Core.AWSRequest UpdateLoginProfile where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull UpdateLoginProfileResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateLoginProfile where
   hashWithSalt _salt UpdateLoginProfile' {..} =

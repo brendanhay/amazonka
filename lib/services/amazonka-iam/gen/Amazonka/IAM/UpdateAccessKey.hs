@@ -150,6 +150,8 @@ instance Core.AWSRequest UpdateAccessKey where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull UpdateAccessKeyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateAccessKey where
   hashWithSalt _salt UpdateAccessKey' {..} =

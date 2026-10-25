@@ -187,6 +187,8 @@ instance Core.AWSRequest UpdateServerCertificate where
   response =
     Response.receiveNull
       UpdateServerCertificateResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateServerCertificate where
   hashWithSalt _salt UpdateServerCertificate' {..} =

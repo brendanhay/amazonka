@@ -134,6 +134,8 @@ instance Core.AWSRequest AttachUserPolicy where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull AttachUserPolicyResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AttachUserPolicy where
   hashWithSalt _salt AttachUserPolicy' {..} =

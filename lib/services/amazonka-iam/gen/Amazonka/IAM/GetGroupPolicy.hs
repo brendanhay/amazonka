@@ -153,6 +153,8 @@ instance Core.AWSRequest GetGroupPolicy where
             Prelude.<*> (x Data..@ "PolicyName")
             Prelude.<*> (x Data..@ "PolicyDocument")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetGroupPolicy where
   hashWithSalt _salt GetGroupPolicy' {..} =

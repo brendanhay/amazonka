@@ -205,6 +205,8 @@ instance Core.AWSRequest ListGroups where
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListGroups where
   hashWithSalt _salt ListGroups' {..} =

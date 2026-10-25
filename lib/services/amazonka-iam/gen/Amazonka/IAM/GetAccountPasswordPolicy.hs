@@ -77,6 +77,8 @@ instance Core.AWSRequest GetAccountPasswordPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "PasswordPolicy")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAccountPasswordPolicy where
   hashWithSalt _salt _ =

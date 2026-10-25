@@ -108,6 +108,8 @@ instance Core.AWSRequest UntagRole where
   request overrides =
     Request.postQuery (overrides defaultService)
   response = Response.receiveNull UntagRoleResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UntagRole where
   hashWithSalt _salt UntagRole' {..} =

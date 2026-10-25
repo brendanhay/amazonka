@@ -148,6 +148,8 @@ instance Core.AWSRequest TagServerCertificate where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull TagServerCertificateResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TagServerCertificate where
   hashWithSalt _salt TagServerCertificate' {..} =

@@ -125,6 +125,8 @@ instance Core.AWSRequest GetOpenIDConnectProvider where
             Prelude.<*> (x Data..@? "Url")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetOpenIDConnectProvider where
   hashWithSalt _salt GetOpenIDConnectProvider' {..} =

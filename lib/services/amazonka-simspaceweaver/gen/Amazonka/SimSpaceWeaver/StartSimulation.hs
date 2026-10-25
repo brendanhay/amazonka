@@ -61,7 +61,7 @@ data StartSimulation = StartSimulation'
     -- operation using the same parameters complete only once. A @ClientToken@
     -- is also known as an /idempotency token/. A @ClientToken@ expires after
     -- 24 hours.
-    clientToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the simulation.
     description :: Prelude.Maybe Prelude.Text,
     -- | The maximum running time of the simulation, specified as a number of
@@ -156,7 +156,7 @@ newStartSimulation
 -- is also known as an /idempotency token/. A @ClientToken@ expires after
 -- 24 hours.
 startSimulation_clientToken :: Lens.Lens' StartSimulation (Prelude.Maybe Prelude.Text)
-startSimulation_clientToken = Lens.lens (\StartSimulation' {clientToken} -> clientToken) (\s@StartSimulation' {} a -> s {clientToken = a} :: StartSimulation) Prelude.. Lens.mapping Data._Sensitive
+startSimulation_clientToken = Lens.lens (\StartSimulation' {clientToken} -> clientToken) (\s@StartSimulation' {} a -> s {clientToken = a} :: StartSimulation)
 
 -- | The description of the simulation.
 startSimulation_description :: Lens.Lens' StartSimulation (Prelude.Maybe Prelude.Text)
@@ -211,6 +211,13 @@ instance Core.AWSRequest StartSimulation where
             Prelude.<*> (x Data..?> "ExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartSimulation' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: StartSimulation
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable StartSimulation where
   hashWithSalt _salt StartSimulation' {..} =

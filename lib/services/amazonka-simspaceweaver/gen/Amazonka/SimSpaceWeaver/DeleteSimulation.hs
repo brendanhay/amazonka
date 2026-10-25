@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteSimulation where
           DeleteSimulationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSimulation where
   hashWithSalt _salt DeleteSimulation' {..} =

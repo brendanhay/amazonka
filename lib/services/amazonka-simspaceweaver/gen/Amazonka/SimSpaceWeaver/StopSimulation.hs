@@ -89,6 +89,8 @@ instance Core.AWSRequest StopSimulation where
           StopSimulationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopSimulation where
   hashWithSalt _salt StopSimulation' {..} =

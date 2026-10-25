@@ -227,6 +227,11 @@ instance Core.AWSRequest CreateView where
             Prelude.<$> (x Data..?> "View")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s@CreateView' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: CreateView
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateView where
   hashWithSalt _salt CreateView' {..} =

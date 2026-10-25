@@ -70,6 +70,8 @@ instance Core.AWSRequest DisassociateDefaultView where
   response =
     Response.receiveNull
       DisassociateDefaultViewResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateDefaultView where
   hashWithSalt _salt _ =

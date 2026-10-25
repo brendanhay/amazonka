@@ -92,6 +92,8 @@ instance Core.AWSRequest GetView where
             Prelude.<*> (x Data..?> "View")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetView where
   hashWithSalt _salt GetView' {..} =

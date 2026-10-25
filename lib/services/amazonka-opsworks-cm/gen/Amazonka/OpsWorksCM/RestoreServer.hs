@@ -154,6 +154,8 @@ instance Core.AWSRequest RestoreServer where
             Prelude.<$> (x Data..?> "Server")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RestoreServer where
   hashWithSalt _salt RestoreServer' {..} =

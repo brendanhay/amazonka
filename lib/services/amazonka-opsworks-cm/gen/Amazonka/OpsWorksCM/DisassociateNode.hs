@@ -143,6 +143,8 @@ instance Core.AWSRequest DisassociateNode where
             Prelude.<$> (x Data..?> "NodeAssociationStatusToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisassociateNode where
   hashWithSalt _salt DisassociateNode' {..} =

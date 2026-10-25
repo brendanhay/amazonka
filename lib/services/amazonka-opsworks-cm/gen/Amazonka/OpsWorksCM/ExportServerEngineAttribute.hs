@@ -188,6 +188,8 @@ instance Core.AWSRequest ExportServerEngineAttribute where
             Prelude.<*> (x Data..?> "ServerName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ExportServerEngineAttribute where
   hashWithSalt _salt ExportServerEngineAttribute' {..} =

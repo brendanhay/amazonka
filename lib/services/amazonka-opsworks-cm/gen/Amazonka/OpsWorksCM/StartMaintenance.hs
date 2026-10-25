@@ -136,6 +136,8 @@ instance Core.AWSRequest StartMaintenance where
             Prelude.<$> (x Data..?> "Server")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartMaintenance where
   hashWithSalt _salt StartMaintenance' {..} =

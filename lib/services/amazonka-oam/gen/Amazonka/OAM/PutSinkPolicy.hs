@@ -141,6 +141,8 @@ instance Core.AWSRequest PutSinkPolicy where
             Prelude.<*> (x Data..?> "SinkId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutSinkPolicy where
   hashWithSalt _salt PutSinkPolicy' {..} =

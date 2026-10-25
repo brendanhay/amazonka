@@ -84,6 +84,8 @@ instance Core.AWSRequest DeleteSink where
           DeleteSinkResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSink where
   hashWithSalt _salt DeleteSink' {..} =

@@ -143,6 +143,8 @@ instance Core.AWSRequest ListAttachedLinks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Items" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAttachedLinks where
   hashWithSalt _salt ListAttachedLinks' {..} =

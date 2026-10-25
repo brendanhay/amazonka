@@ -91,6 +91,8 @@ instance Core.AWSRequest DescribeEntityRecognizer where
             Prelude.<$> (x Data..?> "EntityRecognizerProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEntityRecognizer where
   hashWithSalt _salt DescribeEntityRecognizer' {..} =

@@ -91,6 +91,8 @@ instance Core.AWSRequest DescribeEntitiesDetectionJob where
             Prelude.<$> (x Data..?> "EntitiesDetectionJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

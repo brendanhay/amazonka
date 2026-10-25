@@ -352,6 +352,14 @@ instance Core.AWSRequest CreateEntityRecognizer where
             Prelude.<$> (x Data..?> "EntityRecognizerArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateEntityRecognizer' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateEntityRecognizer
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateEntityRecognizer where
   hashWithSalt _salt CreateEntityRecognizer' {..} =

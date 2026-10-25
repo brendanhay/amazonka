@@ -111,6 +111,8 @@ instance Core.AWSRequest DetectSyntax where
             Prelude.<$> (x Data..?> "SyntaxTokens" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetectSyntax where
   hashWithSalt _salt DetectSyntax' {..} =

@@ -240,6 +240,14 @@ instance
             Prelude.<*> (x Data..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartDocumentClassificationJob' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            StartDocumentClassificationJob
+      )
+        Prelude.<$> f clientRequestToken
 
 instance
   Prelude.Hashable

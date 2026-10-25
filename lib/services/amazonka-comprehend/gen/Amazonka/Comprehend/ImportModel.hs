@@ -198,6 +198,8 @@ instance Core.AWSRequest ImportModel where
             Prelude.<$> (x Data..?> "ModelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportModel where
   hashWithSalt _salt ImportModel' {..} =

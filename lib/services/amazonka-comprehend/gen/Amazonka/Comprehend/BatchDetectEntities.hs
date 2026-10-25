@@ -121,6 +121,8 @@ instance Core.AWSRequest BatchDetectEntities where
             Prelude.<*> (x Data..?> "ResultList" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "ErrorList" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchDetectEntities where
   hashWithSalt _salt BatchDetectEntities' {..} =

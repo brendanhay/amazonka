@@ -101,6 +101,8 @@ instance Core.AWSRequest StopEntitiesDetectionJob where
             Prelude.<*> (x Data..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StopEntitiesDetectionJob where
   hashWithSalt _salt StopEntitiesDetectionJob' {..} =

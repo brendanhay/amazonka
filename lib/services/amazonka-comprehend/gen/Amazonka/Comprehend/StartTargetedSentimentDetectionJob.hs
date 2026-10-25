@@ -231,6 +231,14 @@ instance
             Prelude.<*> (x Data..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartTargetedSentimentDetectionJob' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            StartTargetedSentimentDetectionJob
+      )
+        Prelude.<$> f clientRequestToken
 
 instance
   Prelude.Hashable

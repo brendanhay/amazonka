@@ -281,6 +281,14 @@ instance Core.AWSRequest RotateSecret where
             Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@RotateSecret' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            RotateSecret
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable RotateSecret where
   hashWithSalt _salt RotateSecret' {..} =

@@ -240,6 +240,8 @@ instance Core.AWSRequest UpdateFirewallPolicy where
             Prelude.<*> (x Data..:> "UpdateToken")
             Prelude.<*> (x Data..:> "FirewallPolicyResponse")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateFirewallPolicy where
   hashWithSalt _salt UpdateFirewallPolicy' {..} =

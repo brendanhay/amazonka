@@ -194,6 +194,8 @@ instance Core.AWSRequest AssociateSubnets where
             Prelude.<*> (x Data..?> "UpdateToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AssociateSubnets where
   hashWithSalt _salt AssociateSubnets' {..} =

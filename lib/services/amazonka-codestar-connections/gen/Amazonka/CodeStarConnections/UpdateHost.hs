@@ -111,6 +111,8 @@ instance Core.AWSRequest UpdateHost where
           UpdateHostResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateHost where
   hashWithSalt _salt UpdateHost' {..} =

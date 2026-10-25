@@ -93,6 +93,8 @@ instance Core.AWSRequest GetHost where
             Prelude.<*> (x Data..?> "VpcConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetHost where
   hashWithSalt _salt GetHost' {..} =

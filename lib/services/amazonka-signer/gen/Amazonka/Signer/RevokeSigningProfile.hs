@@ -129,6 +129,8 @@ instance Core.AWSRequest RevokeSigningProfile where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull RevokeSigningProfileResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RevokeSigningProfile where
   hashWithSalt _salt RevokeSigningProfile' {..} =

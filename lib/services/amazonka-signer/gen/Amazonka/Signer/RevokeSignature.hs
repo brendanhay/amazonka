@@ -103,6 +103,8 @@ instance Core.AWSRequest RevokeSignature where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull RevokeSignatureResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RevokeSignature where
   hashWithSalt _salt RevokeSignature' {..} =

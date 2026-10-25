@@ -168,6 +168,8 @@ instance Core.AWSRequest ListSigningPlatforms where
             Prelude.<*> (x Data..?> "platforms" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSigningPlatforms where
   hashWithSalt _salt ListSigningPlatforms' {..} =

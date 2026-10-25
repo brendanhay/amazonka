@@ -176,6 +176,8 @@ instance Core.AWSRequest ListSigningProfiles where
             Prelude.<*> (x Data..?> "profiles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListSigningProfiles where
   hashWithSalt _salt ListSigningProfiles' {..} =

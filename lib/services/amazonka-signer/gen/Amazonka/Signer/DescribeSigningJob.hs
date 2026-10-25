@@ -128,6 +128,8 @@ instance Core.AWSRequest DescribeSigningJob where
             Prelude.<*> (x Data..?> "statusReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeSigningJob where
   hashWithSalt _salt DescribeSigningJob' {..} =

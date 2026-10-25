@@ -187,6 +187,8 @@ instance Core.AWSRequest CreateDBParameterGroup where
             Prelude.<$> (x Data..@? "DBParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateDBParameterGroup where
   hashWithSalt _salt CreateDBParameterGroup' {..} =

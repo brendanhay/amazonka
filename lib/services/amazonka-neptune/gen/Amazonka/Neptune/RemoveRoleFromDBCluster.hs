@@ -119,6 +119,8 @@ instance Core.AWSRequest RemoveRoleFromDBCluster where
   response =
     Response.receiveNull
       RemoveRoleFromDBClusterResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveRoleFromDBCluster where
   hashWithSalt _salt RemoveRoleFromDBCluster' {..} =

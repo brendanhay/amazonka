@@ -118,6 +118,8 @@ instance Core.AWSRequest DeleteDBClusterEndpoint where
             Prelude.<*> (x Data..@? "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDBClusterEndpoint where
   hashWithSalt _salt DeleteDBClusterEndpoint' {..} =

@@ -43,16 +43,6 @@ type ConDecl = Exts.ConDecl ()
 
 type FieldUpdate = Exts.FieldUpdate ()
 
-pX, pXMay, pXDef :: QOp
-pX = "Data..@"
-pXMay = "Data..@?"
-pXDef = "Core..!@"
-
-pXMap, pXList, pXList1 :: Exp
-pXMap = var "Data.parseXMLMap"
-pXList = var "Data.parseXMLList"
-pXList1 = var "Data.parseXMLList1"
-
 toX, toXAttr, toJ, toQ, toH :: QOp
 toX = "Data.@="
 toXAttr = "Data.@@="
@@ -519,37 +509,49 @@ constD f = funArgsD f [] . Exts.app (var "Prelude.const")
 
 parseXMLE :: Protocol -> Field -> Exp
 parseXMLE p f = case outputNames p f of
-  NMap mn e k v -> unflatE mn pXMap [str e, str k, str v]
-  NList mn i
-    | fieldMonoid f -> unflatE mn pXList [str i]
-    | otherwise -> unflatE mn pXList1 [str i]
+  NMap mOuter entry key value ->
+    case mOuter of
+      Nothing -> parser `Exts.app` var "x"
+      Just outer -> unwrapOuter outer parser
+    where
+      parser =
+        wrapParser $
+          Exts.appFun (var "Data.parseXMLMap") [str entry, str key, str value]
+  NList mOuter item ->
+    case mOuter of
+      Nothing -> parser `Exts.app` var "x"
+      Just outer -> unwrapOuter outer parser
+    where
+      parser
+        | fieldMonoid f = wrapParser (var "Data.parseXMLList" `Exts.app` str item)
+        | otherwise = wrapParser (var "Data.parseXMLList1" `Exts.app` str item)
   NName n
-    | required -> decodeE x pX n
-    | otherwise -> decodeE x pXMay n
+    | fieldMaybe f -> Exts.infixApp (var "x") "Data..@?" (str n)
+    | otherwise -> Exts.infixApp (var "x") "Data..@" (str n)
   where
-    unflatE Nothing g xs =
-      Exts.app (wrapMay (wrapSensitive (Exts.appFun g xs))) x
-    unflatE (Just n) g xs =
-      Exts.infixApp (defaultMonoidE x n pXMay pXDef) "Prelude.>>=" $
-        wrapMay (wrapSensitive (Exts.appFun g xs))
+    -- Add code to unwrap an outer layer of the XML before parsing items.
+    unwrapOuter outer parser =
+      Exts.infixApp
+        (Exts.infixApp (var "x") "Data..@?" (str outer))
+        "Core..!@"
+        memptyE
+        `bindE` parser
+      where
+        bindE m = Exts.infixApp m "Prelude.>>="
 
-    x = var "x"
-
-    wrapSensitive
-      | sensitive =
-          Exts.app
-            ( Exts.app
-                (var "Prelude.fmap")
-                (Exts.app (var "Prelude.fmap") (var "Data.Sensitive"))
-            )
-      | otherwise = id
-
-    wrapMay
-      | required = id
-      | otherwise = Exts.app (var "Core.may")
-
-    required = not (fieldMaybe f)
-    sensitive = fieldSensitive f
+    -- Wrap the parser with code to handle optional and/or sensitive fields.
+    wrapParser expr
+      | fieldMaybe f = var "Core.may" `Exts.app` sensitiveParser
+      | otherwise = sensitiveParser
+      where
+        sensitiveParser
+          | fieldSensitive f =
+              var "Prelude.fmap"
+                `Exts.app` ( var "Prelude.fmap"
+                               `Exts.app` var "Data.Sensitive"
+                           )
+                `Exts.app` expr
+          | otherwise = expr
 
 toXMLE :: Protocol -> Field -> Exp
 toXMLE p f = toGenericE p opX "Data.toXML" toXMap toXList f
@@ -654,15 +656,8 @@ flatE :: Maybe Text -> QOp -> Exp -> Exp
 flatE (Just n) o = encodeE n o
 flatE Nothing _ = id
 
-defaultMonoidE :: Exp -> Text -> QOp -> QOp -> Exp
-defaultMonoidE v n dm dd =
-  Exts.infixApp (Exts.infixApp v dm (str n)) dd memptyE
-
 encodeE :: Text -> QOp -> Exp -> Exp
 encodeE n = Exts.infixApp (str n)
-
-decodeE :: Exp -> QOp -> Text -> Exp
-decodeE v o = Exts.infixApp v o . str
 
 memberName :: Protocol -> Direction -> Field -> Text
 memberName p d f = Proto.memberName p d (f ^. fieldId) (f ^. fieldRef)

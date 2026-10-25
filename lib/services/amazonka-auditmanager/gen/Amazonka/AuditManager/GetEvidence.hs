@@ -127,6 +127,8 @@ instance Core.AWSRequest GetEvidence where
             Prelude.<$> (x Data..?> "evidence")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetEvidence where
   hashWithSalt _salt GetEvidence' {..} =

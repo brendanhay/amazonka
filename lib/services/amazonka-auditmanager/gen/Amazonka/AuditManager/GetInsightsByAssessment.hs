@@ -90,6 +90,8 @@ instance Core.AWSRequest GetInsightsByAssessment where
             Prelude.<$> (x Data..?> "insights")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetInsightsByAssessment where
   hashWithSalt _salt GetInsightsByAssessment' {..} =

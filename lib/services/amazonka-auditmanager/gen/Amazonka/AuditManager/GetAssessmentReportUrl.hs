@@ -104,6 +104,8 @@ instance Core.AWSRequest GetAssessmentReportUrl where
             Prelude.<$> (x Data..?> "preSignedUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAssessmentReportUrl where
   hashWithSalt _salt GetAssessmentReportUrl' {..} =

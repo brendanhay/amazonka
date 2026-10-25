@@ -116,6 +116,8 @@ instance Core.AWSRequest ListKeywordsForDataSource where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListKeywordsForDataSource where
   hashWithSalt _salt ListKeywordsForDataSource' {..} =

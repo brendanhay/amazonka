@@ -169,6 +169,8 @@ instance Core.AWSRequest ListGroupMemberships where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListGroupMemberships where
   hashWithSalt _salt ListGroupMemberships' {..} =

@@ -110,6 +110,8 @@ instance Core.AWSRequest GetUserId where
             Prelude.<*> (x Data..:> "UserId")
             Prelude.<*> (x Data..:> "IdentityStoreId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetUserId where
   hashWithSalt _salt GetUserId' {..} =

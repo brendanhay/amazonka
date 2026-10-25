@@ -142,6 +142,8 @@ instance Core.AWSRequest DescribeUser where
             Prelude.<*> (x Data..:> "UserId")
             Prelude.<*> (x Data..:> "IdentityStoreId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeUser where
   hashWithSalt _salt DescribeUser' {..} =

@@ -127,6 +127,8 @@ instance Core.AWSRequest CreateGroupMembership where
             Prelude.<*> (x Data..:> "MembershipId")
             Prelude.<*> (x Data..:> "IdentityStoreId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateGroupMembership where
   hashWithSalt _salt CreateGroupMembership' {..} =

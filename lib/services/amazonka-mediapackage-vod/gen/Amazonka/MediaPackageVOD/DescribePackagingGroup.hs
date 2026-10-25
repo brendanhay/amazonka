@@ -99,6 +99,8 @@ instance Core.AWSRequest DescribePackagingGroup where
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePackagingGroup where
   hashWithSalt _salt DescribePackagingGroup' {..} =

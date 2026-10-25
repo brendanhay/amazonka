@@ -126,6 +126,8 @@ instance Core.AWSRequest ListPackagingGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListPackagingGroups where
   hashWithSalt _salt ListPackagingGroups' {..} =

@@ -223,6 +223,8 @@ instance Core.AWSRequest CreateProvisioningTemplate where
             Prelude.<*> (x Data..?> "templateName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateProvisioningTemplate where
   hashWithSalt _salt CreateProvisioningTemplate' {..} =

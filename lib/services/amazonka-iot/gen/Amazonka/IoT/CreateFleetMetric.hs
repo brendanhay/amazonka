@@ -210,6 +210,8 @@ instance Core.AWSRequest CreateFleetMetric where
             Prelude.<*> (x Data..?> "metricName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateFleetMetric where
   hashWithSalt _salt CreateFleetMetric' {..} =

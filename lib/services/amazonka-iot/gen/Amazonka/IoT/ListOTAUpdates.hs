@@ -137,6 +137,8 @@ instance Core.AWSRequest ListOTAUpdates where
             Prelude.<*> (x Data..?> "otaUpdates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListOTAUpdates where
   hashWithSalt _salt ListOTAUpdates' {..} =

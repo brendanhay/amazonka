@@ -101,6 +101,8 @@ instance Core.AWSRequest ReplaceTopicRule where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveNull ReplaceTopicRuleResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ReplaceTopicRule where
   hashWithSalt _salt ReplaceTopicRule' {..} =

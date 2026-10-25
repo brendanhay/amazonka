@@ -100,6 +100,8 @@ instance Core.AWSRequest UpdateIndexingConfiguration where
           UpdateIndexingConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateIndexingConfiguration where
   hashWithSalt _salt UpdateIndexingConfiguration' {..} =

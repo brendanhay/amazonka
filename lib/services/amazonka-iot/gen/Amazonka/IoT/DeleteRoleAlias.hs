@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteRoleAlias where
           DeleteRoleAliasResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRoleAlias where
   hashWithSalt _salt DeleteRoleAlias' {..} =

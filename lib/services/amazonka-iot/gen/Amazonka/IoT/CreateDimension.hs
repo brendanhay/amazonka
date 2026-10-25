@@ -77,7 +77,7 @@ data CreateDimension = CreateDimension'
     -- create a new dimension with the same token as a dimension that already
     -- exists, an exception occurs. If you omit this value, Amazon Web Services
     -- SDKs will automatically generate a unique client request.
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -111,21 +111,15 @@ newCreateDimension ::
   DimensionType ->
   -- | 'stringValues'
   Prelude.NonEmpty Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   CreateDimension
-newCreateDimension
-  pName_
-  pType_
-  pStringValues_
-  pClientRequestToken_ =
-    CreateDimension'
-      { tags = Prelude.Nothing,
-        name = pName_,
-        type' = pType_,
-        stringValues = Lens.coerced Lens.# pStringValues_,
-        clientRequestToken = pClientRequestToken_
-      }
+newCreateDimension pName_ pType_ pStringValues_ =
+  CreateDimension'
+    { tags = Prelude.Nothing,
+      name = pName_,
+      type' = pType_,
+      stringValues = Lens.coerced Lens.# pStringValues_,
+      clientRequestToken = Prelude.Nothing
+    }
 
 -- | Metadata that can be used to manage the dimension.
 createDimension_tags :: Lens.Lens' CreateDimension (Prelude.Maybe [Tag])
@@ -150,7 +144,7 @@ createDimension_stringValues = Lens.lens (\CreateDimension' {stringValues} -> st
 -- create a new dimension with the same token as a dimension that already
 -- exists, an exception occurs. If you omit this value, Amazon Web Services
 -- SDKs will automatically generate a unique client request.
-createDimension_clientRequestToken :: Lens.Lens' CreateDimension Prelude.Text
+createDimension_clientRequestToken :: Lens.Lens' CreateDimension (Prelude.Maybe Prelude.Text)
 createDimension_clientRequestToken = Lens.lens (\CreateDimension' {clientRequestToken} -> clientRequestToken) (\s@CreateDimension' {} a -> s {clientRequestToken = a} :: CreateDimension)
 
 instance Core.AWSRequest CreateDimension where
@@ -167,6 +161,14 @@ instance Core.AWSRequest CreateDimension where
             Prelude.<*> (x Data..?> "name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateDimension' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateDimension
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateDimension where
   hashWithSalt _salt CreateDimension' {..} =
@@ -195,8 +197,8 @@ instance Data.ToJSON CreateDimension where
           [ ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("type" Data..= type'),
             Prelude.Just ("stringValues" Data..= stringValues),
-            Prelude.Just
-              ("clientRequestToken" Data..= clientRequestToken)
+            ("clientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

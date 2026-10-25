@@ -186,6 +186,8 @@ instance Core.AWSRequest UpdateFleetMetric where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateFleetMetricResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateFleetMetric where
   hashWithSalt _salt UpdateFleetMetric' {..} =

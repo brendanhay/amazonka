@@ -71,7 +71,7 @@ data StartAuditMitigationActionsTask = StartAuditMitigationActionsTask'
     -- you try to start a new task with the same token as a task that already
     -- exists, an exception occurs. If you omit this value, a unique client
     -- request token is generated automatically.
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -102,20 +102,15 @@ newStartAuditMitigationActionsTask ::
   Prelude.Text ->
   -- | 'target'
   AuditMitigationActionsTaskTarget ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   StartAuditMitigationActionsTask
-newStartAuditMitigationActionsTask
-  pTaskId_
-  pTarget_
-  pClientRequestToken_ =
-    StartAuditMitigationActionsTask'
-      { taskId = pTaskId_,
-        target = pTarget_,
-        auditCheckToActionsMapping =
-          Prelude.mempty,
-        clientRequestToken = pClientRequestToken_
-      }
+newStartAuditMitigationActionsTask pTaskId_ pTarget_ =
+  StartAuditMitigationActionsTask'
+    { taskId = pTaskId_,
+      target = pTarget_,
+      auditCheckToActionsMapping =
+        Prelude.mempty,
+      clientRequestToken = Prelude.Nothing
+    }
 
 -- | A unique identifier for the task. You can use this identifier to check
 -- the status of the task or to cancel it.
@@ -137,7 +132,7 @@ startAuditMitigationActionsTask_auditCheckToActionsMapping = Lens.lens (\StartAu
 -- you try to start a new task with the same token as a task that already
 -- exists, an exception occurs. If you omit this value, a unique client
 -- request token is generated automatically.
-startAuditMitigationActionsTask_clientRequestToken :: Lens.Lens' StartAuditMitigationActionsTask Prelude.Text
+startAuditMitigationActionsTask_clientRequestToken :: Lens.Lens' StartAuditMitigationActionsTask (Prelude.Maybe Prelude.Text)
 startAuditMitigationActionsTask_clientRequestToken = Lens.lens (\StartAuditMitigationActionsTask' {clientRequestToken} -> clientRequestToken) (\s@StartAuditMitigationActionsTask' {} a -> s {clientRequestToken = a} :: StartAuditMitigationActionsTask)
 
 instance
@@ -156,6 +151,14 @@ instance
             Prelude.<$> (x Data..?> "taskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StartAuditMitigationActionsTask' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            StartAuditMitigationActionsTask
+      )
+        Prelude.<$> f clientRequestToken
 
 instance
   Prelude.Hashable
@@ -195,8 +198,8 @@ instance Data.ToJSON StartAuditMitigationActionsTask where
               ( "auditCheckToActionsMapping"
                   Data..= auditCheckToActionsMapping
               ),
-            Prelude.Just
-              ("clientRequestToken" Data..= clientRequestToken)
+            ("clientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

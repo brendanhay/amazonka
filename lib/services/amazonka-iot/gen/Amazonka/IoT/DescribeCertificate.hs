@@ -99,6 +99,8 @@ instance Core.AWSRequest DescribeCertificate where
             Prelude.<$> (x Data..?> "certificateDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeCertificate where
   hashWithSalt _salt DescribeCertificate' {..} =

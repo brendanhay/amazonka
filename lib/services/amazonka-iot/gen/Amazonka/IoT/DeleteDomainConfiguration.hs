@@ -93,6 +93,8 @@ instance Core.AWSRequest DeleteDomainConfiguration where
           DeleteDomainConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDomainConfiguration where
   hashWithSalt _salt DeleteDomainConfiguration' {..} =

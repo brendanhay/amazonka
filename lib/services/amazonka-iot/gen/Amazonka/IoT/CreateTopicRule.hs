@@ -134,6 +134,8 @@ instance Core.AWSRequest CreateTopicRule where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull CreateTopicRuleResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateTopicRule where
   hashWithSalt _salt CreateTopicRule' {..} =

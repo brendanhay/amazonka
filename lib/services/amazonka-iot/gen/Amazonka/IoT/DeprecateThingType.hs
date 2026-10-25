@@ -111,6 +111,8 @@ instance Core.AWSRequest DeprecateThingType where
           DeprecateThingTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeprecateThingType where
   hashWithSalt _salt DeprecateThingType' {..} =

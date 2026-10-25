@@ -179,6 +179,8 @@ instance Core.AWSRequest UpdateTopicRuleDestination where
           UpdateTopicRuleDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateTopicRuleDestination where
   hashWithSalt _salt UpdateTopicRuleDestination' {..} =

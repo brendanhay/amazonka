@@ -187,6 +187,8 @@ instance Core.AWSRequest UpdateJob where
   request overrides =
     Request.patchJSON (overrides defaultService)
   response = Response.receiveNull UpdateJobResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateJob where
   hashWithSalt _salt UpdateJob' {..} =

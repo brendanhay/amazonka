@@ -101,6 +101,8 @@ instance Core.AWSRequest DescribeCustomMetric where
             Prelude.<*> (x Data..?> "metricType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeCustomMetric where
   hashWithSalt _salt DescribeCustomMetric' {..} =

@@ -126,6 +126,8 @@ instance Core.AWSRequest DeleteOTAUpdate where
           DeleteOTAUpdateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteOTAUpdate where
   hashWithSalt _salt DeleteOTAUpdate' {..} =

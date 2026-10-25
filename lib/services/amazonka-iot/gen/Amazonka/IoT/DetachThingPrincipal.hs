@@ -116,6 +116,8 @@ instance Core.AWSRequest DetachThingPrincipal where
           DetachThingPrincipalResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DetachThingPrincipal where
   hashWithSalt _salt DetachThingPrincipal' {..} =

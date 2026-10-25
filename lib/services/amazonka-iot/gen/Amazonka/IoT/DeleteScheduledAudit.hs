@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteScheduledAudit where
           DeleteScheduledAuditResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteScheduledAudit where
   hashWithSalt _salt DeleteScheduledAudit' {..} =

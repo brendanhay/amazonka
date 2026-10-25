@@ -102,6 +102,8 @@ instance Core.AWSRequest DeleteDynamicThingGroup where
           DeleteDynamicThingGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDynamicThingGroup where
   hashWithSalt _salt DeleteDynamicThingGroup' {..} =

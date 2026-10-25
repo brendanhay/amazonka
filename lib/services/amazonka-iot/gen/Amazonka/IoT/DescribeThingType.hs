@@ -101,6 +101,8 @@ instance Core.AWSRequest DescribeThingType where
             Prelude.<*> (x Data..?> "thingTypeProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeThingType where
   hashWithSalt _salt DescribeThingType' {..} =

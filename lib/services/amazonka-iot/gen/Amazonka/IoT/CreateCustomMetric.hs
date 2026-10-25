@@ -80,7 +80,7 @@ data CreateCustomMetric = CreateCustomMetric'
     -- to create a new custom metric that already exists with a different
     -- token, an exception occurs. If you omit this value, Amazon Web Services
     -- SDKs will automatically generate a unique client request.
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -118,20 +118,15 @@ newCreateCustomMetric ::
   Prelude.Text ->
   -- | 'metricType'
   CustomMetricType ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   CreateCustomMetric
-newCreateCustomMetric
-  pMetricName_
-  pMetricType_
-  pClientRequestToken_ =
-    CreateCustomMetric'
-      { displayName = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        metricName = pMetricName_,
-        metricType = pMetricType_,
-        clientRequestToken = pClientRequestToken_
-      }
+newCreateCustomMetric pMetricName_ pMetricType_ =
+  CreateCustomMetric'
+    { displayName = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      metricName = pMetricName_,
+      metricType = pMetricType_,
+      clientRequestToken = Prelude.Nothing
+    }
 
 -- | The friendly name in the console for the custom metric. This name
 -- doesn\'t have to be unique. Don\'t use this name as the metric
@@ -162,7 +157,7 @@ createCustomMetric_metricType = Lens.lens (\CreateCustomMetric' {metricType} -> 
 -- to create a new custom metric that already exists with a different
 -- token, an exception occurs. If you omit this value, Amazon Web Services
 -- SDKs will automatically generate a unique client request.
-createCustomMetric_clientRequestToken :: Lens.Lens' CreateCustomMetric Prelude.Text
+createCustomMetric_clientRequestToken :: Lens.Lens' CreateCustomMetric (Prelude.Maybe Prelude.Text)
 createCustomMetric_clientRequestToken = Lens.lens (\CreateCustomMetric' {clientRequestToken} -> clientRequestToken) (\s@CreateCustomMetric' {} a -> s {clientRequestToken = a} :: CreateCustomMetric)
 
 instance Core.AWSRequest CreateCustomMetric where
@@ -179,6 +174,14 @@ instance Core.AWSRequest CreateCustomMetric where
             Prelude.<*> (x Data..?> "metricName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateCustomMetric' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateCustomMetric
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateCustomMetric where
   hashWithSalt _salt CreateCustomMetric' {..} =
@@ -207,8 +210,8 @@ instance Data.ToJSON CreateCustomMetric where
           [ ("displayName" Data..=) Prelude.<$> displayName,
             ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("metricType" Data..= metricType),
-            Prelude.Just
-              ("clientRequestToken" Data..= clientRequestToken)
+            ("clientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

@@ -147,6 +147,8 @@ instance Core.AWSRequest CreateStream where
             Prelude.<*> (x Data..?> "streamVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateStream where
   hashWithSalt _salt CreateStream' {..} =

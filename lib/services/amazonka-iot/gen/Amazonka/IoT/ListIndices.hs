@@ -128,6 +128,8 @@ instance Core.AWSRequest ListIndices where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListIndices where
   hashWithSalt _salt ListIndices' {..} =

@@ -170,6 +170,8 @@ instance Core.AWSRequest DeleteJob where
   request overrides =
     Request.delete (overrides defaultService)
   response = Response.receiveNull DeleteJobResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteJob where
   hashWithSalt _salt DeleteJob' {..} =

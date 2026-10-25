@@ -69,7 +69,7 @@ data CreateAuditSuppression = CreateAuditSuppression'
     -- try to create a new audit suppression with the same token as one that
     -- already exists, an exception occurs. If you omit this value, Amazon Web
     -- Services SDKs will automatically generate a unique client request.
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,13 +100,10 @@ newCreateAuditSuppression ::
   Prelude.Text ->
   -- | 'resourceIdentifier'
   ResourceIdentifier ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   CreateAuditSuppression
 newCreateAuditSuppression
   pCheckName_
-  pResourceIdentifier_
-  pClientRequestToken_ =
+  pResourceIdentifier_ =
     CreateAuditSuppression'
       { description =
           Prelude.Nothing,
@@ -114,7 +111,7 @@ newCreateAuditSuppression
         suppressIndefinitely = Prelude.Nothing,
         checkName = pCheckName_,
         resourceIdentifier = pResourceIdentifier_,
-        clientRequestToken = pClientRequestToken_
+        clientRequestToken = Prelude.Nothing
       }
 
 -- | The description of the audit suppression.
@@ -141,7 +138,7 @@ createAuditSuppression_resourceIdentifier = Lens.lens (\CreateAuditSuppression' 
 -- try to create a new audit suppression with the same token as one that
 -- already exists, an exception occurs. If you omit this value, Amazon Web
 -- Services SDKs will automatically generate a unique client request.
-createAuditSuppression_clientRequestToken :: Lens.Lens' CreateAuditSuppression Prelude.Text
+createAuditSuppression_clientRequestToken :: Lens.Lens' CreateAuditSuppression (Prelude.Maybe Prelude.Text)
 createAuditSuppression_clientRequestToken = Lens.lens (\CreateAuditSuppression' {clientRequestToken} -> clientRequestToken) (\s@CreateAuditSuppression' {} a -> s {clientRequestToken = a} :: CreateAuditSuppression)
 
 instance Core.AWSRequest CreateAuditSuppression where
@@ -156,6 +153,14 @@ instance Core.AWSRequest CreateAuditSuppression where
           CreateAuditSuppressionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateAuditSuppression' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateAuditSuppression
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateAuditSuppression where
   hashWithSalt _salt CreateAuditSuppression' {..} =
@@ -191,8 +196,8 @@ instance Data.ToJSON CreateAuditSuppression where
             Prelude.Just ("checkName" Data..= checkName),
             Prelude.Just
               ("resourceIdentifier" Data..= resourceIdentifier),
-            Prelude.Just
-              ("clientRequestToken" Data..= clientRequestToken)
+            ("clientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

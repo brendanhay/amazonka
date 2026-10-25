@@ -114,6 +114,8 @@ instance Core.AWSRequest DescribeDomainConfiguration where
             Prelude.<*> (x Data..?> "serviceType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeDomainConfiguration where
   hashWithSalt _salt DescribeDomainConfiguration' {..} =

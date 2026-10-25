@@ -146,6 +146,8 @@ instance Core.AWSRequest ListThingsInBillingGroup where
             Prelude.<*> (x Data..?> "things" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListThingsInBillingGroup where
   hashWithSalt _salt ListThingsInBillingGroup' {..} =

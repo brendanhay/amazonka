@@ -129,6 +129,8 @@ instance Core.AWSRequest UpdateThingGroupsForThing where
           UpdateThingGroupsForThingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateThingGroupsForThing where
   hashWithSalt _salt UpdateThingGroupsForThing' {..} =

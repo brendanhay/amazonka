@@ -110,6 +110,8 @@ instance Core.AWSRequest AttachThingPrincipal where
           AttachThingPrincipalResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AttachThingPrincipal where
   hashWithSalt _salt AttachThingPrincipal' {..} =

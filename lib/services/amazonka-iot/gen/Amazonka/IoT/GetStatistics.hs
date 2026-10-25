@@ -129,6 +129,8 @@ instance Core.AWSRequest GetStatistics where
             Prelude.<$> (x Data..?> "statistics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetStatistics where
   hashWithSalt _salt GetStatistics' {..} =

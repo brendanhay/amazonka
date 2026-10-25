@@ -103,6 +103,8 @@ instance Core.AWSRequest DeleteAuditSuppression where
           DeleteAuditSuppressionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAuditSuppression where
   hashWithSalt _salt DeleteAuditSuppression' {..} =

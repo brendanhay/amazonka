@@ -110,6 +110,8 @@ instance Core.AWSRequest RejectCertificateTransfer where
   response =
     Response.receiveNull
       RejectCertificateTransferResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RejectCertificateTransfer where
   hashWithSalt _salt RejectCertificateTransfer' {..} =

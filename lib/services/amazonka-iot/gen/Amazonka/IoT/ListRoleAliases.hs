@@ -137,6 +137,8 @@ instance Core.AWSRequest ListRoleAliases where
             Prelude.<*> (x Data..?> "roleAliases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListRoleAliases where
   hashWithSalt _salt ListRoleAliases' {..} =

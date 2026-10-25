@@ -140,6 +140,8 @@ instance Core.AWSRequest CreateMitigationAction where
             Prelude.<*> (x Data..?> "actionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateMitigationAction where
   hashWithSalt _salt CreateMitigationAction' {..} =

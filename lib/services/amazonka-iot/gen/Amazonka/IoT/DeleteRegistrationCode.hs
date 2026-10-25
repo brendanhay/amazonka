@@ -75,6 +75,8 @@ instance Core.AWSRequest DeleteRegistrationCode where
           DeleteRegistrationCodeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRegistrationCode where
   hashWithSalt _salt _ =

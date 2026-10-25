@@ -129,6 +129,8 @@ instance Core.AWSRequest AddThingToBillingGroup where
           AddThingToBillingGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddThingToBillingGroup where
   hashWithSalt _salt AddThingToBillingGroup' {..} =

@@ -167,6 +167,8 @@ instance Core.AWSRequest UpdateThing where
           UpdateThingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateThing where
   hashWithSalt _salt UpdateThing' {..} =

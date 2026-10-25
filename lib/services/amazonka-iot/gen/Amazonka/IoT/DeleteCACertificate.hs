@@ -97,6 +97,8 @@ instance Core.AWSRequest DeleteCACertificate where
           DeleteCACertificateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteCACertificate where
   hashWithSalt _salt DeleteCACertificate' {..} =

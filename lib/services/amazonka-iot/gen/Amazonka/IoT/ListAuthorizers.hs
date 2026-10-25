@@ -147,6 +147,8 @@ instance Core.AWSRequest ListAuthorizers where
             Prelude.<*> (x Data..?> "nextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAuthorizers where
   hashWithSalt _salt ListAuthorizers' {..} =

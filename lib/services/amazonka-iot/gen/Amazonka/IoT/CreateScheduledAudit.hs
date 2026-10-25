@@ -180,6 +180,8 @@ instance Core.AWSRequest CreateScheduledAudit where
             Prelude.<$> (x Data..?> "scheduledAuditArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateScheduledAudit where
   hashWithSalt _salt CreateScheduledAudit' {..} =

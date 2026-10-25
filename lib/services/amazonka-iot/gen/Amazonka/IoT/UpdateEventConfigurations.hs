@@ -90,6 +90,8 @@ instance Core.AWSRequest UpdateEventConfigurations where
           UpdateEventConfigurationsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateEventConfigurations where
   hashWithSalt _salt UpdateEventConfigurations' {..} =

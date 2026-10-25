@@ -15,14 +15,18 @@ where
 
 import Gen.AST.Data.Syntax
   ( ctorE,
+    field,
     funArgsD,
     funD,
+    ident,
     instD,
     justE,
     pureE,
+    pvar,
     str,
     tyapp,
     tycon,
+    unqual,
     var,
   )
 import Gen.Prelude
@@ -47,7 +51,11 @@ data Config = Config
     -- | Name of the service config value to use by default. As of
     -- 2025-11, always @"defaultService"@; the parser for 'Metadata'
     -- would override the service abbrev in all cases.
-    serviceConfig :: Text
+    serviceConfig :: Text,
+    -- | The (Haskell) name of a @Maybe Text@ field of the request
+    -- record that botocore designates as the idempotency token. If
+    -- 'Just', generate a lens for it in @updateIdempotencyToken@.
+    idempotencyTokenField :: Maybe Text
   }
   deriving (Show)
 
@@ -162,7 +170,8 @@ instanceD c@Config {requestType} =
     Just
       [ awsResponseD c,
         requestD c,
-        responseD c
+        responseD c,
+        updateIdempotencyTokenD c
       ]
 
 awsResponseD :: Config -> Exts.InstDecl ()
@@ -299,3 +308,69 @@ responseD Config {..} =
                     str key,
                     str value
                   ]
+
+updateIdempotencyTokenD :: Config -> Exts.InstDecl ()
+updateIdempotencyTokenD Config {..} =
+  Exts.InsDecl () $
+    Exts.FunBind
+      ()
+      [ Exts.Match
+          ()
+          (ident "updateIdempotencyToken")
+          pats
+          (Exts.UnGuardedRhs () body)
+          Exts.noBinds
+      ]
+  where
+    (pats, body) = case idempotencyTokenField of
+      Just name ->
+        -- Generate a real lens to get/set the idempotency token:
+        --
+        -- @
+        -- updateIdempotencyToken f (s@CreateApplication' {clientToken}) =
+        --   (\clientToken' -> s {clientToken = clientToken'} :: CreateApplication)
+        --     Prelude.<$> f clientToken
+        -- @
+        ( [ pvar "f",
+            Exts.PAsPat
+              ()
+              (ident "s")
+              ( Exts.PRec
+                  ()
+                  (unqual (ctorId requestType))
+                  [Exts.PFieldPun () (unqual name)]
+              )
+          ],
+          Exts.infixApp
+            ( Exts.paren $
+                Exts.lamE
+                  [pvar name']
+                  ( Exts.ExpTypeSig
+                      ()
+                      ( Exts.RecUpdate
+                          ()
+                          (var "s")
+                          [field (unqual name) (var name')]
+                      )
+                      (tycon (typeId requestType))
+                  )
+            )
+            "Prelude.<$>"
+            (var "f" `Exts.app` var name)
+        )
+        where
+          name' = name <> "'"
+
+      -- Generate a dummy LensLike: 'view' will act as if the token is
+      -- always 'Nothing' and 'set' will be a no-op:
+      --
+      -- @
+      -- updateIdempotencyToken f s = s Prelude.<$ f Prelude.Nothing
+      -- @
+      Nothing ->
+        ( [pvar "f", pvar "s"],
+          Exts.infixApp
+            (var "s")
+            "Prelude.<$"
+            (var "f" `Exts.app` var "Prelude.Nothing")
+        )

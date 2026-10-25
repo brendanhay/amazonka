@@ -198,7 +198,10 @@ operationData cfg m o = do
             requestFunction,
             responseType = identifier yr,
             responseReceiver,
-            serviceConfig = m ^. serviceConfig
+            serviceConfig = m ^. serviceConfig,
+            -- TODO: populate from the botocore @idempotencyToken@
+            -- member trait once the parser supports it.
+            idempotencyTokenField = Nothing
           }
   mpage <- pagerFields m o >>= traverse (pp Print . pagerD xn)
 

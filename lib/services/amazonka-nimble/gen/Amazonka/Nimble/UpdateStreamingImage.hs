@@ -141,6 +141,14 @@ instance Core.AWSRequest UpdateStreamingImage where
             Prelude.<$> (x Data..?> "streamingImage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateStreamingImage' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            UpdateStreamingImage
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateStreamingImage where
   hashWithSalt _salt UpdateStreamingImage' {..} =

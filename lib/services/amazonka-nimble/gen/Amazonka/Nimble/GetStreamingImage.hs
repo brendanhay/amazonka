@@ -102,6 +102,8 @@ instance Core.AWSRequest GetStreamingImage where
             Prelude.<$> (x Data..?> "streamingImage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetStreamingImage where
   hashWithSalt _salt GetStreamingImage' {..} =

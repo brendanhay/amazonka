@@ -158,6 +158,8 @@ instance Core.AWSRequest ListStreamingSessions where
             Prelude.<*> (x Data..?> "sessions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListStreamingSessions where
   hashWithSalt _salt ListStreamingSessions' {..} =

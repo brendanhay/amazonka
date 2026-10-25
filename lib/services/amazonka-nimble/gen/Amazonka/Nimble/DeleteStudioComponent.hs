@@ -123,6 +123,14 @@ instance Core.AWSRequest DeleteStudioComponent where
             Prelude.<$> (x Data..?> "studioComponent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteStudioComponent' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            DeleteStudioComponent
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteStudioComponent where
   hashWithSalt _salt DeleteStudioComponent' {..} =

@@ -136,6 +136,14 @@ instance Core.AWSRequest CreateStreamingSessionStream where
             Prelude.<$> (x Data..?> "stream")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateStreamingSessionStream' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateStreamingSessionStream
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

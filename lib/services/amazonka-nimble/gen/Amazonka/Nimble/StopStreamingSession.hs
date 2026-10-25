@@ -136,6 +136,14 @@ instance Core.AWSRequest StopStreamingSession where
             Prelude.<$> (x Data..?> "session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@StopStreamingSession' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            StopStreamingSession
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable StopStreamingSession where
   hashWithSalt _salt StopStreamingSession' {..} =

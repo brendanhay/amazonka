@@ -123,6 +123,13 @@ instance Core.AWSRequest DeleteLaunchProfile where
             Prelude.<$> (x Data..?> "launchProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteLaunchProfile' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: DeleteLaunchProfile
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteLaunchProfile where
   hashWithSalt _salt DeleteLaunchProfile' {..} =

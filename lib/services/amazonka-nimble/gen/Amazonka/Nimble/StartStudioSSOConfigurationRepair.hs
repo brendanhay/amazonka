@@ -124,6 +124,14 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "studio")
       )
+  updateIdempotencyToken
+    f
+    s@StartStudioSSOConfigurationRepair' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            StartStudioSSOConfigurationRepair
+      )
+        Prelude.<$> f clientToken
 
 instance
   Prelude.Hashable

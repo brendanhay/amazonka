@@ -204,6 +204,13 @@ instance Core.AWSRequest CreateLaunchProfile where
             Prelude.<$> (x Data..?> "launchProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateLaunchProfile' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateLaunchProfile
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateLaunchProfile where
   hashWithSalt _salt CreateLaunchProfile' {..} =

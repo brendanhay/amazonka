@@ -152,6 +152,14 @@ instance Core.AWSRequest UpdateLaunchProfileMember where
             Prelude.<$> (x Data..?> "member")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@UpdateLaunchProfileMember' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            UpdateLaunchProfileMember
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateLaunchProfileMember where
   hashWithSalt _salt UpdateLaunchProfileMember' {..} =

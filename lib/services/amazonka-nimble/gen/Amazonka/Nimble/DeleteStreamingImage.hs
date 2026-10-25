@@ -121,6 +121,14 @@ instance Core.AWSRequest DeleteStreamingImage where
             Prelude.<$> (x Data..?> "streamingImage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@DeleteStreamingImage' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            DeleteStreamingImage
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable DeleteStreamingImage where
   hashWithSalt _salt DeleteStreamingImage' {..} =

@@ -102,6 +102,8 @@ instance Core.AWSRequest GetStudioComponent where
             Prelude.<$> (x Data..?> "studioComponent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetStudioComponent where
   hashWithSalt _salt GetStudioComponent' {..} =

@@ -108,6 +108,8 @@ instance Core.AWSRequest ActivateDeviceIdentifier where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "deviceIdentifier")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ActivateDeviceIdentifier where
   hashWithSalt _salt ActivateDeviceIdentifier' {..} =

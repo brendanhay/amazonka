@@ -155,6 +155,8 @@ instance Core.AWSRequest ConfigureAccessPoint where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "accessPoint")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ConfigureAccessPoint where
   hashWithSalt _salt ConfigureAccessPoint' {..} =

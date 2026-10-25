@@ -116,6 +116,8 @@ instance Core.AWSRequest UpdateNetworkSitePlan where
   response =
     Response.receiveJSON
       (\s h x -> Data.eitherParseJSON x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateNetworkSitePlan where
   hashWithSalt _salt UpdateNetworkSitePlan' {..} =

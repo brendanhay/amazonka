@@ -69,6 +69,8 @@ instance Core.AWSRequest Ping where
             Prelude.<$> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable Ping where
   hashWithSalt _salt _ =

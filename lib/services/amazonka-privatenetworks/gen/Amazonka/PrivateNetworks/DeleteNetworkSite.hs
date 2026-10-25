@@ -109,6 +109,8 @@ instance Core.AWSRequest DeleteNetworkSite where
             Prelude.<$> (x Data..?> "networkSite")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteNetworkSite where
   hashWithSalt _salt DeleteNetworkSite' {..} =

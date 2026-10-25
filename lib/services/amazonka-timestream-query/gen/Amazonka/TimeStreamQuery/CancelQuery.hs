@@ -94,6 +94,8 @@ instance Core.AWSRequest CancelQuery where
             Prelude.<$> (x Data..?> "CancellationMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelQuery where
   hashWithSalt _salt CancelQuery' {..} =

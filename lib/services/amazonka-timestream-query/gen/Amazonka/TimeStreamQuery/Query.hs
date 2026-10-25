@@ -101,7 +101,7 @@ data Query = Query'
     --
     -- -   After 4 hours, any request with the same @ClientToken@ is treated as
     --     a new request.
-    clientToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The total number of rows to be returned in the @Query@ output. The
     -- initial run of @Query@ with a @MaxRows@ value specified will return the
     -- result set of the query in two cases:
@@ -270,7 +270,7 @@ newQuery pQueryString_ =
 -- -   After 4 hours, any request with the same @ClientToken@ is treated as
 --     a new request.
 query_clientToken :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
-query_clientToken = Lens.lens (\Query' {clientToken} -> clientToken) (\s@Query' {} a -> s {clientToken = a} :: Query) Prelude.. Lens.mapping Data._Sensitive
+query_clientToken = Lens.lens (\Query' {clientToken} -> clientToken) (\s@Query' {} a -> s {clientToken = a} :: Query)
 
 -- | The total number of rows to be returned in the @Query@ output. The
 -- initial run of @Query@ with a @MaxRows@ value specified will return the
@@ -363,6 +363,11 @@ instance Core.AWSRequest Query where
             Prelude.<*> (x Data..?> "Rows" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "ColumnInfo" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s@Query' {clientToken} =
+    ( \clientToken' ->
+        s {clientToken = clientToken'} :: Query
+    )
+      Prelude.<$> f clientToken
 
 instance Prelude.Hashable Query where
   hashWithSalt _salt Query' {..} =

@@ -72,7 +72,7 @@ data CreateScheduledQuery = CreateScheduledQuery'
     --
     -- -   After 8 hours, any request with the same @ClientToken@ is treated as
     --     a new request.
-    clientToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon KMS key used to encrypt the scheduled query resource,
     -- at-rest. If the Amazon KMS key is not specified, the scheduled query
     -- resource will be encrypted with a Timestream owned Amazon KMS key. To
@@ -221,7 +221,7 @@ newCreateScheduledQuery
 -- -   After 8 hours, any request with the same @ClientToken@ is treated as
 --     a new request.
 createScheduledQuery_clientToken :: Lens.Lens' CreateScheduledQuery (Prelude.Maybe Prelude.Text)
-createScheduledQuery_clientToken = Lens.lens (\CreateScheduledQuery' {clientToken} -> clientToken) (\s@CreateScheduledQuery' {} a -> s {clientToken = a} :: CreateScheduledQuery) Prelude.. Lens.mapping Data._Sensitive
+createScheduledQuery_clientToken = Lens.lens (\CreateScheduledQuery' {clientToken} -> clientToken) (\s@CreateScheduledQuery' {} a -> s {clientToken = a} :: CreateScheduledQuery)
 
 -- | The Amazon KMS key used to encrypt the scheduled query resource,
 -- at-rest. If the Amazon KMS key is not specified, the scheduled query
@@ -293,6 +293,14 @@ instance Core.AWSRequest CreateScheduledQuery where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Arn")
       )
+  updateIdempotencyToken
+    f
+    s@CreateScheduledQuery' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} ::
+            CreateScheduledQuery
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateScheduledQuery where
   hashWithSalt _salt CreateScheduledQuery' {..} =

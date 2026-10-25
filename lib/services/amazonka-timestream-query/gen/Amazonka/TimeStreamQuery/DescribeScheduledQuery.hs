@@ -90,6 +90,8 @@ instance Core.AWSRequest DescribeScheduledQuery where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ScheduledQuery")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeScheduledQuery where
   hashWithSalt _salt DescribeScheduledQuery' {..} =

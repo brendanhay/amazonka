@@ -171,6 +171,8 @@ instance Core.AWSRequest CreateClusterSubnetGroup where
             Prelude.<$> (x Data..@? "ClusterSubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateClusterSubnetGroup where
   hashWithSalt _salt CreateClusterSubnetGroup' {..} =

@@ -104,6 +104,8 @@ instance Core.AWSRequest DeleteClusterParameterGroup where
   response =
     Response.receiveNull
       DeleteClusterParameterGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteClusterParameterGroup where
   hashWithSalt _salt DeleteClusterParameterGroup' {..} =

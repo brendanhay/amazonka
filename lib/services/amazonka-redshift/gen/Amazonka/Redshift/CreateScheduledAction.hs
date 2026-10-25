@@ -208,6 +208,8 @@ instance Core.AWSRequest CreateScheduledAction where
     Response.receiveXMLWrapper
       "CreateScheduledActionResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateScheduledAction where
   hashWithSalt _salt CreateScheduledAction' {..} =

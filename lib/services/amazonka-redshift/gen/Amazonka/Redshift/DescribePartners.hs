@@ -140,6 +140,8 @@ instance Core.AWSRequest DescribePartners where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribePartners where
   hashWithSalt _salt DescribePartners' {..} =

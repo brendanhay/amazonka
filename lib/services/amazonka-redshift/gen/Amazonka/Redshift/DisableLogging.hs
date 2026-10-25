@@ -100,6 +100,8 @@ instance Core.AWSRequest DisableLogging where
     Response.receiveXMLWrapper
       "DisableLoggingResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DisableLogging where
   hashWithSalt _salt DisableLogging' {..} =

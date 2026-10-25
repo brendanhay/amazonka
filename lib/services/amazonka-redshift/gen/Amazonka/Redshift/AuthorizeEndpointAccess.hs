@@ -114,6 +114,8 @@ instance Core.AWSRequest AuthorizeEndpointAccess where
     Response.receiveXMLWrapper
       "AuthorizeEndpointAccessResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AuthorizeEndpointAccess where
   hashWithSalt _salt AuthorizeEndpointAccess' {..} =

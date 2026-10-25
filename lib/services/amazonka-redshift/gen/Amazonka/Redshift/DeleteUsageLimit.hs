@@ -78,6 +78,8 @@ instance Core.AWSRequest DeleteUsageLimit where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveNull DeleteUsageLimitResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteUsageLimit where
   hashWithSalt _salt DeleteUsageLimit' {..} =

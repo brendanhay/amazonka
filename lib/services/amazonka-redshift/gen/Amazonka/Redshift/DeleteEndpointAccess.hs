@@ -95,6 +95,8 @@ instance Core.AWSRequest DeleteEndpointAccess where
     Response.receiveXMLWrapper
       "DeleteEndpointAccessResult"
       (\s h x -> Data.parseXML x)
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteEndpointAccess where
   hashWithSalt _salt DeleteEndpointAccess' {..} =

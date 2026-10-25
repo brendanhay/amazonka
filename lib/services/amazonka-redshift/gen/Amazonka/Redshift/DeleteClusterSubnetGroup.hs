@@ -84,6 +84,8 @@ instance Core.AWSRequest DeleteClusterSubnetGroup where
   response =
     Response.receiveNull
       DeleteClusterSubnetGroupResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteClusterSubnetGroup where
   hashWithSalt _salt DeleteClusterSubnetGroup' {..} =

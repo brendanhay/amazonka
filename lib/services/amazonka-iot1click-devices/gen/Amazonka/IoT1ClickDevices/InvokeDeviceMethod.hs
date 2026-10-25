@@ -110,6 +110,8 @@ instance Core.AWSRequest InvokeDeviceMethod where
             Prelude.<$> (x Data..?> "deviceMethodResponse")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable InvokeDeviceMethod where
   hashWithSalt _salt InvokeDeviceMethod' {..} =

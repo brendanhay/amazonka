@@ -98,6 +98,8 @@ instance Core.AWSRequest UpdateDeviceState where
           UpdateDeviceStateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDeviceState where
   hashWithSalt _salt UpdateDeviceState' {..} =

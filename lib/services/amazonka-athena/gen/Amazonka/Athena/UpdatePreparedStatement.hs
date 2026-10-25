@@ -125,6 +125,8 @@ instance Core.AWSRequest UpdatePreparedStatement where
           UpdatePreparedStatementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdatePreparedStatement where
   hashWithSalt _salt UpdatePreparedStatement' {..} =

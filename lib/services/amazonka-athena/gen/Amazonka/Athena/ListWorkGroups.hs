@@ -108,6 +108,8 @@ instance Core.AWSRequest ListWorkGroups where
             Prelude.<*> (x Data..?> "WorkGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListWorkGroups where
   hashWithSalt _salt ListWorkGroups' {..} =

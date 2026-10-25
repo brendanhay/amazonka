@@ -164,6 +164,8 @@ instance Core.AWSRequest StartCalculationExecution where
             Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartCalculationExecution where
   hashWithSalt _salt StartCalculationExecution' {..} =

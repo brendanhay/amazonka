@@ -179,6 +179,14 @@ instance Core.AWSRequest CreateNamedQuery where
             Prelude.<$> (x Data..?> "NamedQueryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateNamedQuery' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateNamedQuery
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateNamedQuery where
   hashWithSalt _salt CreateNamedQuery' {..} =

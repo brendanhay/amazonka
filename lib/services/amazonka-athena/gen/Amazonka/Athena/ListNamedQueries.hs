@@ -156,6 +156,8 @@ instance Core.AWSRequest ListNamedQueries where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListNamedQueries where
   hashWithSalt _salt ListNamedQueries' {..} =

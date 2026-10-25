@@ -123,6 +123,8 @@ instance Core.AWSRequest UpdateWorkGroup where
           UpdateWorkGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateWorkGroup where
   hashWithSalt _salt UpdateWorkGroup' {..} =

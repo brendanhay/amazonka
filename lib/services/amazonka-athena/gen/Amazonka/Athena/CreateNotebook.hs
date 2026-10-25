@@ -141,6 +141,8 @@ instance Core.AWSRequest CreateNotebook where
             Prelude.<$> (x Data..?> "NotebookId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateNotebook where
   hashWithSalt _salt CreateNotebook' {..} =

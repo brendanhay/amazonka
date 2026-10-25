@@ -153,6 +153,8 @@ instance Core.AWSRequest UpdateNotebook where
           UpdateNotebookResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateNotebook where
   hashWithSalt _salt UpdateNotebook' {..} =

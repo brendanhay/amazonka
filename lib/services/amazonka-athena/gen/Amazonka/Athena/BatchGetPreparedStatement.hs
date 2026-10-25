@@ -113,6 +113,8 @@ instance Core.AWSRequest BatchGetPreparedStatement where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetPreparedStatement where
   hashWithSalt _salt BatchGetPreparedStatement' {..} =

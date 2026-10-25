@@ -85,6 +85,8 @@ instance Core.AWSRequest DeleteDataCatalog where
           DeleteDataCatalogResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteDataCatalog where
   hashWithSalt _salt DeleteDataCatalog' {..} =

@@ -190,6 +190,8 @@ instance Core.AWSRequest ListCalculationExecutions where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListCalculationExecutions where
   hashWithSalt _salt ListCalculationExecutions' {..} =

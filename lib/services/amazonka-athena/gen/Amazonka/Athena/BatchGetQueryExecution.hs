@@ -106,6 +106,8 @@ instance Core.AWSRequest BatchGetQueryExecution where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetQueryExecution where
   hashWithSalt _salt BatchGetQueryExecution' {..} =

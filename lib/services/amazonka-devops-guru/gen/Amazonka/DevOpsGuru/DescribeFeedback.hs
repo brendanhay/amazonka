@@ -86,6 +86,8 @@ instance Core.AWSRequest DescribeFeedback where
             Prelude.<$> (x Data..?> "InsightFeedback")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeFeedback where
   hashWithSalt _salt DescribeFeedback' {..} =

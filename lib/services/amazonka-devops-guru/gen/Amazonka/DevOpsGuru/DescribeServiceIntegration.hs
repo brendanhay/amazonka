@@ -75,6 +75,8 @@ instance Core.AWSRequest DescribeServiceIntegration where
             Prelude.<$> (x Data..?> "ServiceIntegration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeServiceIntegration where
   hashWithSalt _salt _ =

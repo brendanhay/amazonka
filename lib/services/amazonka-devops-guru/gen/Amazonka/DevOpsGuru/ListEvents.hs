@@ -150,6 +150,8 @@ instance Core.AWSRequest ListEvents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Events" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListEvents where
   hashWithSalt _salt ListEvents' {..} =

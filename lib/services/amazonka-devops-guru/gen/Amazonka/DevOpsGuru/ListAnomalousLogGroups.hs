@@ -149,6 +149,8 @@ instance Core.AWSRequest ListAnomalousLogGroups where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAnomalousLogGroups where
   hashWithSalt _salt ListAnomalousLogGroups' {..} =

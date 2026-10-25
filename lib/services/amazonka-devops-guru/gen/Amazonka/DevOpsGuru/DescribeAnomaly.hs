@@ -101,6 +101,8 @@ instance Core.AWSRequest DescribeAnomaly where
             Prelude.<*> (x Data..?> "ReactiveAnomaly")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAnomaly where
   hashWithSalt _salt DescribeAnomaly' {..} =

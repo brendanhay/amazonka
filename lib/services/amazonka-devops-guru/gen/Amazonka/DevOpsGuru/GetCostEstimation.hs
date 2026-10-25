@@ -126,6 +126,8 @@ instance Core.AWSRequest GetCostEstimation where
             Prelude.<*> (x Data..?> "TotalCost")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetCostEstimation where
   hashWithSalt _salt GetCostEstimation' {..} =

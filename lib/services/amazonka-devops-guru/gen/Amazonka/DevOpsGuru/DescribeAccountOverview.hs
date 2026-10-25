@@ -121,6 +121,8 @@ instance Core.AWSRequest DescribeAccountOverview where
             Prelude.<*> (x Data..:> "ProactiveInsights")
             Prelude.<*> (x Data..:> "MeanTimeToRecoverInMilliseconds")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeAccountOverview where
   hashWithSalt _salt DescribeAccountOverview' {..} =

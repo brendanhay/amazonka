@@ -116,6 +116,8 @@ instance Core.AWSRequest DiscoverPollEndpoint where
             Prelude.<*> (x Data..?> "telemetryEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DiscoverPollEndpoint where
   hashWithSalt _salt DiscoverPollEndpoint' {..} =

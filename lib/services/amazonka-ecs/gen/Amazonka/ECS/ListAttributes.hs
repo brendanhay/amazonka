@@ -223,6 +223,8 @@ instance Core.AWSRequest ListAttributes where
             Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListAttributes where
   hashWithSalt _salt ListAttributes' {..} =

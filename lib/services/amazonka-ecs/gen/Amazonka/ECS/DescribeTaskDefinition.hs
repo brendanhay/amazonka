@@ -118,6 +118,8 @@ instance Core.AWSRequest DescribeTaskDefinition where
             Prelude.<*> (x Data..?> "taskDefinition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeTaskDefinition where
   hashWithSalt _salt DescribeTaskDefinition' {..} =

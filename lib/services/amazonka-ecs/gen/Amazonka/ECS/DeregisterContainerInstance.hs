@@ -177,6 +177,8 @@ instance Core.AWSRequest DeregisterContainerInstance where
             Prelude.<$> (x Data..?> "containerInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterContainerInstance where
   hashWithSalt _salt DeregisterContainerInstance' {..} =

@@ -107,6 +107,8 @@ instance Core.AWSRequest UpdateCapacityProvider where
             Prelude.<$> (x Data..?> "capacityProvider")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateCapacityProvider where
   hashWithSalt _salt UpdateCapacityProvider' {..} =

@@ -226,6 +226,8 @@ instance Core.AWSRequest PutAlternateContact where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull PutAlternateContactResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutAlternateContact where
   hashWithSalt _salt PutAlternateContact' {..} =

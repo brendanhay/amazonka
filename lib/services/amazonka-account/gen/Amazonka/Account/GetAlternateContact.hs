@@ -182,6 +182,8 @@ instance Core.AWSRequest GetAlternateContact where
             Prelude.<$> (x Data..?> "AlternateContact")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAlternateContact where
   hashWithSalt _salt GetAlternateContact' {..} =

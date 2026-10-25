@@ -145,6 +145,8 @@ instance Core.AWSRequest UpdateReportDefinition where
             Prelude.<$> (x Data..?> "reportId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateReportDefinition where
   hashWithSalt _salt UpdateReportDefinition' {..} =

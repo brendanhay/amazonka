@@ -95,6 +95,8 @@ instance Core.AWSRequest ImportApplicationUsage where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "importId")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ImportApplicationUsage where
   hashWithSalt _salt ImportApplicationUsage' {..} =

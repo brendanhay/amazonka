@@ -100,6 +100,8 @@ instance Core.AWSRequest GetReportDefinition where
             Prelude.<*> (x Data..:> "createdAt")
             Prelude.<*> (x Data..:> "lastUpdated")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetReportDefinition where
   hashWithSalt _salt GetReportDefinition' {..} =

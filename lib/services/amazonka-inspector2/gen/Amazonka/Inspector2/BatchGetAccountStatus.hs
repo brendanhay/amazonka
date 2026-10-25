@@ -94,6 +94,8 @@ instance Core.AWSRequest BatchGetAccountStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "accounts" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetAccountStatus where
   hashWithSalt _salt BatchGetAccountStatus' {..} =

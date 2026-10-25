@@ -114,6 +114,8 @@ instance Core.AWSRequest CreateFindingsReport where
             Prelude.<$> (x Data..?> "reportId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateFindingsReport where
   hashWithSalt _salt CreateFindingsReport' {..} =

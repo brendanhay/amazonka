@@ -88,6 +88,8 @@ instance Core.AWSRequest GetMember where
             Prelude.<$> (x Data..?> "member")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetMember where
   hashWithSalt _salt GetMember' {..} =

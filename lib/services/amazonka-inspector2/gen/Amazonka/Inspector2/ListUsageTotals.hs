@@ -142,6 +142,8 @@ instance Core.AWSRequest ListUsageTotals where
             Prelude.<*> (x Data..?> "totals" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListUsageTotals where
   hashWithSalt _salt ListUsageTotals' {..} =

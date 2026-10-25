@@ -91,6 +91,8 @@ instance Core.AWSRequest DeleteAnomalySubscription where
           DeleteAnomalySubscriptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAnomalySubscription where
   hashWithSalt _salt DeleteAnomalySubscription' {..} =

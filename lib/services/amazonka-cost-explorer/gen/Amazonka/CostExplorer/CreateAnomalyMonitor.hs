@@ -173,6 +173,8 @@ instance Core.AWSRequest CreateAnomalyMonitor where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "MonitorArn")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateAnomalyMonitor where
   hashWithSalt _salt CreateAnomalyMonitor' {..} =

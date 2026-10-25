@@ -347,6 +347,8 @@ instance Core.AWSRequest GetUsageForecast where
             Prelude.<*> (x Data..?> "Total")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetUsageForecast where
   hashWithSalt _salt GetUsageForecast' {..} =

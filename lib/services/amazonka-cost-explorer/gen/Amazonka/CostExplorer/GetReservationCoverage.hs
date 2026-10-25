@@ -512,6 +512,8 @@ instance Core.AWSRequest GetReservationCoverage where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetReservationCoverage where
   hashWithSalt _salt GetReservationCoverage' {..} =

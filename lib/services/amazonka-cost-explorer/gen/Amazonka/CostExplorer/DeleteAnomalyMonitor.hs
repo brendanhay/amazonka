@@ -88,6 +88,8 @@ instance Core.AWSRequest DeleteAnomalyMonitor where
           DeleteAnomalyMonitorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAnomalyMonitor where
   hashWithSalt _salt DeleteAnomalyMonitor' {..} =

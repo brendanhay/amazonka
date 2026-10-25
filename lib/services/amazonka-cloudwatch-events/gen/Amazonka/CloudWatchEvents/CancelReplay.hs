@@ -89,6 +89,8 @@ instance Core.AWSRequest CancelReplay where
             Prelude.<*> (x Data..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CancelReplay where
   hashWithSalt _salt CancelReplay' {..} =

@@ -98,6 +98,8 @@ instance Core.AWSRequest DescribeEventSource where
             Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEventSource where
   hashWithSalt _salt DescribeEventSource' {..} =

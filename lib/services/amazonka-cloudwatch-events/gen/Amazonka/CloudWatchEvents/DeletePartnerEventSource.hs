@@ -100,6 +100,8 @@ instance Core.AWSRequest DeletePartnerEventSource where
   response =
     Response.receiveNull
       DeletePartnerEventSourceResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeletePartnerEventSource where
   hashWithSalt _salt DeletePartnerEventSource' {..} =

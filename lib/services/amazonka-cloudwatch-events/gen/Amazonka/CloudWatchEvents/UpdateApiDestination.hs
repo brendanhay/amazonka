@@ -149,6 +149,8 @@ instance Core.AWSRequest UpdateApiDestination where
             Prelude.<*> (x Data..?> "LastModifiedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateApiDestination where
   hashWithSalt _salt UpdateApiDestination' {..} =

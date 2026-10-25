@@ -152,6 +152,8 @@ instance Core.AWSRequest ListTargetsByRule where
             Prelude.<*> (x Data..?> "Targets")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTargetsByRule where
   hashWithSalt _salt ListTargetsByRule' {..} =

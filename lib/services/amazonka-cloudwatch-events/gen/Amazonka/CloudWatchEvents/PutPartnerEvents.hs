@@ -93,6 +93,8 @@ instance Core.AWSRequest PutPartnerEvents where
             Prelude.<*> (x Data..?> "FailedEntryCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutPartnerEvents where
   hashWithSalt _salt PutPartnerEvents' {..} =

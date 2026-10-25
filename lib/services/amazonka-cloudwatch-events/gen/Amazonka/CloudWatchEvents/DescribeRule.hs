@@ -122,6 +122,8 @@ instance Core.AWSRequest DescribeRule where
             Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeRule where
   hashWithSalt _salt DescribeRule' {..} =

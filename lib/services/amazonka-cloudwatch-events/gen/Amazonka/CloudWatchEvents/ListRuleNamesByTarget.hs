@@ -153,6 +153,8 @@ instance Core.AWSRequest ListRuleNamesByTarget where
             Prelude.<*> (x Data..?> "RuleNames" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListRuleNamesByTarget where
   hashWithSalt _salt ListRuleNamesByTarget' {..} =

@@ -80,6 +80,8 @@ instance Core.AWSRequest DeleteEventBus where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteEventBusResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteEventBus where
   hashWithSalt _salt DeleteEventBus' {..} =

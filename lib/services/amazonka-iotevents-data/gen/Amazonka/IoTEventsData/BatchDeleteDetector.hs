@@ -98,6 +98,8 @@ instance Core.AWSRequest BatchDeleteDetector where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchDeleteDetector where
   hashWithSalt _salt BatchDeleteDetector' {..} =

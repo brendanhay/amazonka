@@ -94,6 +94,8 @@ instance Core.AWSRequest BatchSnoozeAlarm where
             Prelude.<$> (x Data..?> "errorEntries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchSnoozeAlarm where
   hashWithSalt _salt BatchSnoozeAlarm' {..} =

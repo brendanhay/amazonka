@@ -130,6 +130,8 @@ instance Core.AWSRequest UpdateAlert where
             Prelude.<$> (x Data..?> "AlertArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateAlert where
   hashWithSalt _salt UpdateAlert' {..} =

@@ -187,6 +187,8 @@ instance Core.AWSRequest UpdateMetricSet where
             Prelude.<$> (x Data..?> "MetricSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateMetricSet where
   hashWithSalt _salt UpdateMetricSet' {..} =

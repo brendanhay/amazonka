@@ -94,6 +94,8 @@ instance Core.AWSRequest DeleteAttributeGroup where
             Prelude.<$> (x Data..?> "attributeGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteAttributeGroup where
   hashWithSalt _salt DeleteAttributeGroup' {..} =

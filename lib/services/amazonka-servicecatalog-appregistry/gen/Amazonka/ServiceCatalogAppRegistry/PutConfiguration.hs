@@ -78,6 +78,8 @@ instance Core.AWSRequest PutConfiguration where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull PutConfigurationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutConfiguration where
   hashWithSalt _salt PutConfiguration' {..} =

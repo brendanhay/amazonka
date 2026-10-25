@@ -65,7 +65,7 @@ data CreateApplication = CreateApplication'
     -- the same parameters, the retry succeeds without performing any further
     -- actions. If you retry a successful request using the same client token,
     -- but one or more of the parameters are different, the retry fails.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,15 +92,13 @@ data CreateApplication = CreateApplication'
 newCreateApplication ::
   -- | 'name'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateApplication
-newCreateApplication pName_ pClientToken_ =
+newCreateApplication pName_ =
   CreateApplication'
     { description = Prelude.Nothing,
       tags = Prelude.Nothing,
       name = pName_,
-      clientToken = pClientToken_
+      clientToken = Prelude.Nothing
     }
 
 -- | The description of the application.
@@ -121,7 +119,7 @@ createApplication_name = Lens.lens (\CreateApplication' {name} -> name) (\s@Crea
 -- the same parameters, the retry succeeds without performing any further
 -- actions. If you retry a successful request using the same client token,
 -- but one or more of the parameters are different, the retry fails.
-createApplication_clientToken :: Lens.Lens' CreateApplication Prelude.Text
+createApplication_clientToken :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
 createApplication_clientToken = Lens.lens (\CreateApplication' {clientToken} -> clientToken) (\s@CreateApplication' {} a -> s {clientToken = a} :: CreateApplication)
 
 instance Core.AWSRequest CreateApplication where
@@ -137,6 +135,13 @@ instance Core.AWSRequest CreateApplication where
             Prelude.<$> (x Data..?> "application")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateApplication' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: CreateApplication
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
@@ -171,7 +176,7 @@ instance Data.ToJSON CreateApplication where
           [ ("description" Data..=) Prelude.<$> description,
             ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

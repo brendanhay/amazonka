@@ -130,6 +130,8 @@ instance Core.AWSRequest DeregisterStreamConsumer where
   response =
     Response.receiveNull
       DeregisterStreamConsumerResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterStreamConsumer where
   hashWithSalt _salt DeregisterStreamConsumer' {..} =

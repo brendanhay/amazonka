@@ -186,6 +186,8 @@ instance Core.AWSRequest SplitShard where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull SplitShardResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable SplitShard where
   hashWithSalt _salt SplitShard' {..} =

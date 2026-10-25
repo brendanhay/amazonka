@@ -275,6 +275,8 @@ instance Core.AWSRequest GetShardIterator where
             Prelude.<$> (x Data..?> "ShardIterator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetShardIterator where
   hashWithSalt _salt GetShardIterator' {..} =

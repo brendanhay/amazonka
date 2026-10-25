@@ -109,6 +109,8 @@ instance Core.AWSRequest AddTagsToStream where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull AddTagsToStreamResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddTagsToStream where
   hashWithSalt _salt AddTagsToStream' {..} =

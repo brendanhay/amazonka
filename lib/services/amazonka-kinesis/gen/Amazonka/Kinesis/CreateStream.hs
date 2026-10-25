@@ -174,6 +174,8 @@ instance Core.AWSRequest CreateStream where
   request overrides =
     Request.postJSON (overrides defaultService)
   response = Response.receiveNull CreateStreamResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateStream where
   hashWithSalt _salt CreateStream' {..} =

@@ -184,6 +184,8 @@ instance Core.AWSRequest StartStreamEncryption where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull StartStreamEncryptionResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartStreamEncryption where
   hashWithSalt _salt StartStreamEncryption' {..} =

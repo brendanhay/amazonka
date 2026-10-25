@@ -127,6 +127,8 @@ instance Core.AWSRequest RegisterStreamConsumer where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Consumer")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RegisterStreamConsumer where
   hashWithSalt _salt RegisterStreamConsumer' {..} =

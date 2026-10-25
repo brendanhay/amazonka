@@ -253,6 +253,8 @@ instance Core.AWSRequest PutRecord where
             Prelude.<*> (x Data..:> "ShardId")
             Prelude.<*> (x Data..:> "SequenceNumber")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutRecord where
   hashWithSalt _salt PutRecord' {..} =

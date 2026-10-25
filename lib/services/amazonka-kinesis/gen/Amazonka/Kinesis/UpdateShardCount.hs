@@ -213,6 +213,8 @@ instance Core.AWSRequest UpdateShardCount where
             Prelude.<*> (x Data..?> "TargetShardCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateShardCount where
   hashWithSalt _salt UpdateShardCount' {..} =

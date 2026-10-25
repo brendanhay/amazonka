@@ -105,6 +105,8 @@ instance Core.AWSRequest GetAggregateResourceConfig where
             Prelude.<$> (x Data..?> "ConfigurationItem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAggregateResourceConfig where
   hashWithSalt _salt GetAggregateResourceConfig' {..} =

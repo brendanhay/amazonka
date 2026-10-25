@@ -178,6 +178,8 @@ instance Core.AWSRequest StartResourceEvaluation where
             Prelude.<$> (x Data..?> "ResourceEvaluationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartResourceEvaluation where
   hashWithSalt _salt StartResourceEvaluation' {..} =

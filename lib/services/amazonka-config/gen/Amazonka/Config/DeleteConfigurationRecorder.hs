@@ -101,6 +101,8 @@ instance Core.AWSRequest DeleteConfigurationRecorder where
   response =
     Response.receiveNull
       DeleteConfigurationRecorderResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteConfigurationRecorder where
   hashWithSalt _salt DeleteConfigurationRecorder' {..} =

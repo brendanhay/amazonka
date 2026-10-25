@@ -209,6 +209,8 @@ instance Core.AWSRequest ListDiscoveredResources where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListDiscoveredResources where
   hashWithSalt _salt ListDiscoveredResources' {..} =

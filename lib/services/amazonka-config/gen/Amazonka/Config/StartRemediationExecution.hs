@@ -119,6 +119,8 @@ instance Core.AWSRequest StartRemediationExecution where
             Prelude.<*> (x Data..?> "FailureMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable StartRemediationExecution where
   hashWithSalt _salt StartRemediationExecution' {..} =

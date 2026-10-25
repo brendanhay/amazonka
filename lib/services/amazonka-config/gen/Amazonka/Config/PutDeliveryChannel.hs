@@ -102,6 +102,8 @@ instance Core.AWSRequest PutDeliveryChannel where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull PutDeliveryChannelResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutDeliveryChannel where
   hashWithSalt _salt PutDeliveryChannel' {..} =

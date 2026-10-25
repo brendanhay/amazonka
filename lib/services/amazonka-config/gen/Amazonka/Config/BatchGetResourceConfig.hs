@@ -107,6 +107,8 @@ instance Core.AWSRequest BatchGetResourceConfig where
             Prelude.<*> (x Data..?> "unprocessedResourceKeys")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable BatchGetResourceConfig where
   hashWithSalt _salt BatchGetResourceConfig' {..} =

@@ -193,6 +193,8 @@ instance Core.AWSRequest PutResourceConfig where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull PutResourceConfigResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutResourceConfig where
   hashWithSalt _salt PutResourceConfig' {..} =

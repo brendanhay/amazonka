@@ -83,6 +83,8 @@ instance Core.AWSRequest DeleteRetentionConfiguration where
   response =
     Response.receiveNull
       DeleteRetentionConfigurationResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

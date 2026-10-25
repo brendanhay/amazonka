@@ -145,6 +145,8 @@ instance Core.AWSRequest DescribeConfigRules where
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeConfigRules where
   hashWithSalt _salt DescribeConfigRules' {..} =

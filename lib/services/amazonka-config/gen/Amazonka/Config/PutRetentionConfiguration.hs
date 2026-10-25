@@ -104,6 +104,8 @@ instance Core.AWSRequest PutRetentionConfiguration where
             Prelude.<$> (x Data..?> "RetentionConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable PutRetentionConfiguration where
   hashWithSalt _salt PutRetentionConfiguration' {..} =

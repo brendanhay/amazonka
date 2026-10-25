@@ -87,6 +87,8 @@ instance Core.AWSRequest DeleteConformancePack where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteConformancePackResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteConformancePack where
   hashWithSalt _salt DeleteConformancePack' {..} =

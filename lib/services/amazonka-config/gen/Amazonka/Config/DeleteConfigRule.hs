@@ -91,6 +91,8 @@ instance Core.AWSRequest DeleteConfigRule where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DeleteConfigRuleResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteConfigRule where
   hashWithSalt _salt DeleteConfigRule' {..} =

@@ -119,6 +119,8 @@ instance Core.AWSRequest DeleteRemediationExceptions where
             Prelude.<$> (x Data..?> "FailedBatches" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteRemediationExceptions where
   hashWithSalt _salt DeleteRemediationExceptions' {..} =

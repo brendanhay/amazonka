@@ -92,6 +92,8 @@ instance Core.AWSRequest DeleteOrganizationConfigRule where
   response =
     Response.receiveNull
       DeleteOrganizationConfigRuleResponse'
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance
   Prelude.Hashable

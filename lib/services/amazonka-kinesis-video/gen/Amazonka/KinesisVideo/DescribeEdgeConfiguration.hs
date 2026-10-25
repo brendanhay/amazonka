@@ -118,6 +118,8 @@ instance Core.AWSRequest DescribeEdgeConfiguration where
             Prelude.<*> (x Data..?> "SyncStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeEdgeConfiguration where
   hashWithSalt _salt DescribeEdgeConfiguration' {..} =

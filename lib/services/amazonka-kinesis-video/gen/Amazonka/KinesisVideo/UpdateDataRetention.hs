@@ -173,6 +173,8 @@ instance Core.AWSRequest UpdateDataRetention where
           UpdateDataRetentionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable UpdateDataRetention where
   hashWithSalt _salt UpdateDataRetention' {..} =

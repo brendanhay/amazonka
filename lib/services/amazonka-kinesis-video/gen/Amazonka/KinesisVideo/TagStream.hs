@@ -122,6 +122,8 @@ instance Core.AWSRequest TagStream where
           TagStreamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable TagStream where
   hashWithSalt _salt TagStream' {..} =

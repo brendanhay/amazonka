@@ -109,6 +109,8 @@ instance Core.AWSRequest DeleteSignalingChannel where
           DeleteSignalingChannelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteSignalingChannel where
   hashWithSalt _salt DeleteSignalingChannel' {..} =

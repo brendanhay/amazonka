@@ -165,6 +165,8 @@ instance Core.AWSRequest GetStatementResult where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Records" Core..!@ Prelude.mempty)
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetStatementResult where
   hashWithSalt _salt GetStatementResult' {..} =

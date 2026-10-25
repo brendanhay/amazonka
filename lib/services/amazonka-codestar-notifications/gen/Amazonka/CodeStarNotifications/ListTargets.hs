@@ -153,6 +153,8 @@ instance Core.AWSRequest ListTargets where
             Prelude.<*> (x Data..?> "Targets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListTargets where
   hashWithSalt _salt ListTargets' {..} =

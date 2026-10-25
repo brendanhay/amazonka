@@ -236,6 +236,14 @@ instance Core.AWSRequest CreateNotificationRule where
             Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken
+    f
+    s@CreateNotificationRule' {clientRequestToken} =
+      ( \clientRequestToken' ->
+          s {clientRequestToken = clientRequestToken'} ::
+            CreateNotificationRule
+      )
+        Prelude.<$> f clientRequestToken
 
 instance Prelude.Hashable CreateNotificationRule where
   hashWithSalt _salt CreateNotificationRule' {..} =

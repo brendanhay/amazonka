@@ -343,6 +343,13 @@ instance Core.AWSRequest UpdateSchedule where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ScheduleArn")
       )
+  updateIdempotencyToken
+    f
+    s@UpdateSchedule' {clientToken} =
+      ( \clientToken' ->
+          s {clientToken = clientToken'} :: UpdateSchedule
+      )
+        Prelude.<$> f clientToken
 
 instance Prelude.Hashable UpdateSchedule where
   hashWithSalt _salt UpdateSchedule' {..} =

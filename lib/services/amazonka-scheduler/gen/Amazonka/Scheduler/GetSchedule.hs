@@ -129,6 +129,8 @@ instance Core.AWSRequest GetSchedule where
             Prelude.<*> (x Data..?> "Target")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetSchedule where
   hashWithSalt _salt GetSchedule' {..} =

@@ -74,6 +74,8 @@ instance Core.AWSRequest GetAccountAlias where
             Prelude.<$> (x Data..?> "accountAlias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetAccountAlias where
   hashWithSalt _salt _ =

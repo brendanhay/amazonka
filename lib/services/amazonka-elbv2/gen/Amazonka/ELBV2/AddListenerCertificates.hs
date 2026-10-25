@@ -116,6 +116,8 @@ instance Core.AWSRequest AddListenerCertificates where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AddListenerCertificates where
   hashWithSalt _salt AddListenerCertificates' {..} =

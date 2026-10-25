@@ -107,6 +107,8 @@ instance Core.AWSRequest DeregisterTargets where
           DeregisterTargetsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeregisterTargets where
   hashWithSalt _salt DeregisterTargets' {..} =

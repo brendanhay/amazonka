@@ -89,6 +89,8 @@ instance Core.AWSRequest DeleteListener where
           DeleteListenerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DeleteListener where
   hashWithSalt _salt DeleteListener' {..} =

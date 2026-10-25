@@ -103,6 +103,8 @@ instance Core.AWSRequest RemoveListenerCertificates where
           RemoveListenerCertificatesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable RemoveListenerCertificates where
   hashWithSalt _salt RemoveListenerCertificates' {..} =

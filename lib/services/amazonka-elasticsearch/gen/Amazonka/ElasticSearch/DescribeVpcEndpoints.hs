@@ -96,6 +96,8 @@ instance Core.AWSRequest DescribeVpcEndpoints where
                             Core..!@ Prelude.mempty
                         )
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable DescribeVpcEndpoints where
   hashWithSalt _salt DescribeVpcEndpoints' {..} =

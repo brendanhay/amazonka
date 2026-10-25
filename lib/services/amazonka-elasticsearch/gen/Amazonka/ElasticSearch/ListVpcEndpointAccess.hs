@@ -113,6 +113,8 @@ instance Core.AWSRequest ListVpcEndpointAccess where
                         )
             Prelude.<*> (x Data..:> "NextToken")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable ListVpcEndpointAccess where
   hashWithSalt _salt ListVpcEndpointAccess' {..} =

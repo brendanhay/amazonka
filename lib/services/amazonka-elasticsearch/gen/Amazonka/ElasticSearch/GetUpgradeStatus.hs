@@ -93,6 +93,8 @@ instance Core.AWSRequest GetUpgradeStatus where
             Prelude.<*> (x Data..?> "UpgradeStep")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable GetUpgradeStatus where
   hashWithSalt _salt GetUpgradeStatus' {..} =

@@ -107,6 +107,8 @@ instance Core.AWSRequest AuthorizeVpcEndpointAccess where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "AuthorizedPrincipal")
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable AuthorizeVpcEndpointAccess where
   hashWithSalt _salt AuthorizeVpcEndpointAccess' {..} =

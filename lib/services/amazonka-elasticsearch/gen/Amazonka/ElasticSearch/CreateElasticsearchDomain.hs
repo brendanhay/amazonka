@@ -302,6 +302,8 @@ instance Core.AWSRequest CreateElasticsearchDomain where
             Prelude.<$> (x Data..?> "DomainStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  updateIdempotencyToken f s =
+    s Prelude.<$ f Prelude.Nothing
 
 instance Prelude.Hashable CreateElasticsearchDomain where
   hashWithSalt _salt CreateElasticsearchDomain' {..} =

@@ -97,7 +97,7 @@ mkFields (Lens.view metadata -> m) s st =
         -- users can omit them and amazonka-core can inject a default
         -- token. And they should never be considered sensitive, so we
         -- drop 'TSensitive' to keep the field a plain '(Maybe Text)'
-        -- for the 'updateIdempotencyToken' lens.
+        -- for the 'idempotencyTokenLens' lens.
         req = k `elem` requireds && not (v ^. refIdempotencyToken)
 
         -- The resolved type: payload 'Base64' members are stored as raw

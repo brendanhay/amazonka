@@ -188,11 +188,11 @@ operationData cfg m o = do
 
       hasStreamingBody = any fieldStream ys
 
-  idempotencyTokenField <-
+  idempotencyTokenLensName <-
     case List.filter (Lens.view (fieldRef . refIdempotencyToken)) xs of
       [] -> pure Nothing
       [f]
-        | _fieldType f == TMaybe (TLit Text) -> pure (Just (fieldAccessor f))
+        | _fieldType f == TMaybe (TLit Text) -> pure (Just (fieldLens f))
         | otherwise ->
             Left $
               mconcat
@@ -224,7 +224,7 @@ operationData cfg m o = do
             responseType = identifier yr,
             responseReceiver,
             serviceConfig = m ^. serviceConfig,
-            idempotencyTokenField
+            idempotencyTokenLensName
           }
   mpage <- pagerFields m o >>= traverse (pp Print . pagerD xn)
 

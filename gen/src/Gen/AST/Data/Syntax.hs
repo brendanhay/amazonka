@@ -523,11 +523,11 @@ parseXMLE p f = case outputNames p f of
       where
         sensitiveParser
           | fieldSensitive f =
-              var "Prelude.fmap"
-                `Exts.app` ( var "Prelude.fmap"
-                               `Exts.app` var "Data.Sensitive"
-                           )
-                `Exts.app` expr
+              Exts.appFun
+                (var "Prelude.fmap")
+                [ var "Prelude.fmap" `Exts.app` var "Data.Sensitive",
+                  expr
+                ]
           | otherwise = expr
 
 toXMLE :: Protocol -> Field -> Exp

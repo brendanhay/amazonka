@@ -49,5 +49,7 @@ instance AWSRequest (Decrypt S3.GetObject) where
 
       pure (decrypt <$ rs)
 
+  updateIdempotencyToken f s = s <$ f Nothing
+
 proxy :: forall a. Proxy (Decrypt a) -> Proxy a
 proxy = const Proxy

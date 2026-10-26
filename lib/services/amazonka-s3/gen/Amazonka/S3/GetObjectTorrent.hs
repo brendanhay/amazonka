@@ -141,7 +141,7 @@ instance Core.AWSRequest GetObjectTorrent where
     Request.s3vhost
       Prelude.. Request.get (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetObjectTorrentResponse'
             Prelude.<$> (h Data..#? "x-amz-request-charged")

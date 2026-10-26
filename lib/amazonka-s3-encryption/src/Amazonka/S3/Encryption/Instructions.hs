@@ -71,6 +71,8 @@ instance AWSRequest PutInstructions where
 
   response s l _ = response s l (Proxy :: Proxy S3.PutObject)
 
+  updateIdempotencyToken f s = s <$ f Nothing
+
 data GetInstructions = GetInstructions
   { _giExt :: Ext,
     _giGet :: S3.GetObject
@@ -97,6 +99,8 @@ instance AWSRequest GetInstructions where
     Response.receiveJSON $ \_ _ o -> do
       e <- Aeson.parseEither Aeson.parseJSON (Aeson.Object o)
       pure $ Instructions $ \key env -> fromMetadata key env e
+
+  updateIdempotencyToken f s = s <$ f Nothing
 
 class (AWSRequest a) => RemoveInstructions a where
   -- | Determine the bucket and key an instructions file is adjacent to.
@@ -135,3 +139,5 @@ instance AWSRequest DeleteInstructions where
       _diDelete x & S3.deleteObject_key %~ appendExtension (_diExt x)
 
   response s l _ = response s l (Proxy :: Proxy S3.DeleteObject)
+
+  updateIdempotencyToken f s = s <$ f Nothing

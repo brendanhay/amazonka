@@ -149,7 +149,7 @@ instance Core.AWSRequest GetSnapshotBlock where
   request overrides =
     Request.get (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetSnapshotBlockResponse'
             Prelude.<$> (h Data..#? "x-amz-Checksum")

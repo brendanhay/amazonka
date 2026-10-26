@@ -154,7 +154,7 @@ instance Core.AWSRequest GetMedia where
   request overrides =
     Request.postJSON (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetMediaResponse'
             Prelude.<$> (h Data..#? "Content-Type")

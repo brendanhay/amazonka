@@ -146,7 +146,7 @@ instance Core.AWSRequest GetMediaForFragmentList where
   request overrides =
     Request.postJSON (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetMediaForFragmentListResponse'
             Prelude.<$> (h Data..#? "Content-Type")

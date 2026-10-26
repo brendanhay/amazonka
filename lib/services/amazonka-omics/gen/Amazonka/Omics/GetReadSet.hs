@@ -115,7 +115,7 @@ instance Core.AWSRequest GetReadSet where
   request overrides =
     Request.get (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetReadSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))

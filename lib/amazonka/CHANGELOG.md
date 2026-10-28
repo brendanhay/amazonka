@@ -101,6 +101,8 @@
 
 - `amazonka-core`: Chunked (streaming) uploads are now sent as a fixed-length body with `Content-Length`, the same way the AWS SDKs send them. Previously they were sent with both `Transfer-Encoding: chunked` and `Content-Length`, which RFC 9112 does not allow and some S3-compatible servers reject with `400 Bad Request`.
 [\#1067](https://github.com/brendanhay/amazonka/pull/1067)
+- `amazonka-sts`: `credentials` are now a required field in an `AssumeRoleWithSAMLResponse`.
+[\#1069](https://github.com/brendanhay/amazonka/pull/1069)
 - `amazonka`: `Amazonka.Auth.SSO.relativeCachedTokenFile` is now pure
 [\#1056](https://github.com/brendanhay/amazonka/pull/1056)
 - `amazonka-core`: `containers ^>= 0.7` is now supported. `containers-0.7` is shipped with GHC 9.10 and 9.12.

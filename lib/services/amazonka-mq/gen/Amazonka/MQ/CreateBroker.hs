@@ -456,6 +456,9 @@ instance Core.AWSRequest CreateBroker where
             Prelude.<*> (x Data..?> "brokerId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createBroker_creatorRequestId)
 
 instance Prelude.Hashable CreateBroker where
   hashWithSalt _salt CreateBroker' {..} =

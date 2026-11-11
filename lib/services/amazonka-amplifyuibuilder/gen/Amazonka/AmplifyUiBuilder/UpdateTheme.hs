@@ -137,6 +137,9 @@ instance Core.AWSRequest UpdateTheme where
             Prelude.<$> (Data.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateTheme_clientToken)
 
 instance Prelude.Hashable UpdateTheme where
   hashWithSalt _salt UpdateTheme' {..} =

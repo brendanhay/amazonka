@@ -124,6 +124,9 @@ instance Core.AWSRequest CreateTheme where
             Prelude.<$> (Data.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createTheme_clientToken)
 
 instance Prelude.Hashable CreateTheme where
   hashWithSalt _salt CreateTheme' {..} =

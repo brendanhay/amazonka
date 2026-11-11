@@ -115,7 +115,7 @@ data UpdateInfrastructureConfiguration = UpdateInfrastructureConfiguration'
     -- your Amazon EC2 AMI.
     instanceProfileName :: Prelude.Text,
     -- | The idempotency token used to make this request idempotent.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -182,13 +182,10 @@ newUpdateInfrastructureConfiguration ::
   Prelude.Text ->
   -- | 'instanceProfileName'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   UpdateInfrastructureConfiguration
 newUpdateInfrastructureConfiguration
   pInfrastructureConfigurationArn_
-  pInstanceProfileName_
-  pClientToken_ =
+  pInstanceProfileName_ =
     UpdateInfrastructureConfiguration'
       { description =
           Prelude.Nothing,
@@ -207,7 +204,7 @@ newUpdateInfrastructureConfiguration
           pInfrastructureConfigurationArn_,
         instanceProfileName =
           pInstanceProfileName_,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | The description of the infrastructure configuration.
@@ -284,7 +281,7 @@ updateInfrastructureConfiguration_instanceProfileName :: Lens.Lens' UpdateInfras
 updateInfrastructureConfiguration_instanceProfileName = Lens.lens (\UpdateInfrastructureConfiguration' {instanceProfileName} -> instanceProfileName) (\s@UpdateInfrastructureConfiguration' {} a -> s {instanceProfileName = a} :: UpdateInfrastructureConfiguration)
 
 -- | The idempotency token used to make this request idempotent.
-updateInfrastructureConfiguration_clientToken :: Lens.Lens' UpdateInfrastructureConfiguration Prelude.Text
+updateInfrastructureConfiguration_clientToken :: Lens.Lens' UpdateInfrastructureConfiguration (Prelude.Maybe Prelude.Text)
 updateInfrastructureConfiguration_clientToken = Lens.lens (\UpdateInfrastructureConfiguration' {clientToken} -> clientToken) (\s@UpdateInfrastructureConfiguration' {} a -> s {clientToken = a} :: UpdateInfrastructureConfiguration)
 
 instance
@@ -304,6 +301,11 @@ instance
             Prelude.<*> (x Data..?> "infrastructureConfigurationArn")
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          updateInfrastructureConfiguration_clientToken
       )
 
 instance
@@ -387,7 +389,7 @@ instance
               ),
             Prelude.Just
               ("instanceProfileName" Data..= instanceProfileName),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

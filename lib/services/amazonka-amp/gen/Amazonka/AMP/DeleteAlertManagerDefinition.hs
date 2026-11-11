@@ -97,6 +97,11 @@ instance Core.AWSRequest DeleteAlertManagerDefinition where
   response =
     Response.receiveNull
       DeleteAlertManagerDefinitionResponse'
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          deleteAlertManagerDefinition_clientToken
+      )
 
 instance
   Prelude.Hashable

@@ -122,6 +122,11 @@ instance Core.AWSRequest CreateLoggingConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "status")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createLoggingConfiguration_clientToken
+      )
 
 instance Prelude.Hashable CreateLoggingConfiguration where
   hashWithSalt _salt CreateLoggingConfiguration' {..} =

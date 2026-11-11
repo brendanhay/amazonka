@@ -121,6 +121,9 @@ instance Core.AWSRequest CreateWorkspace where
             Prelude.<*> (x Data..:> "status")
             Prelude.<*> (x Data..:> "workspaceId")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createWorkspace_clientToken)
 
 instance Prelude.Hashable CreateWorkspace where
   hashWithSalt _salt CreateWorkspace' {..} =

@@ -156,6 +156,9 @@ instance Core.AWSRequest CreateRuleGroupsNamespace where
             Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "status")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createRuleGroupsNamespace_clientToken)
 
 instance Prelude.Hashable CreateRuleGroupsNamespace where
   hashWithSalt _salt CreateRuleGroupsNamespace' {..} =

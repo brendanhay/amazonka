@@ -105,6 +105,9 @@ instance Core.AWSRequest UpdateWorkspaceAlias where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateWorkspaceAliasResponse'
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateWorkspaceAlias_clientToken)
 
 instance Prelude.Hashable UpdateWorkspaceAlias where
   hashWithSalt _salt UpdateWorkspaceAlias' {..} =

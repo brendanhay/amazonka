@@ -281,6 +281,9 @@ instance Core.AWSRequest RotateSecret where
             Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens rotateSecret_clientRequestToken)
 
 instance Prelude.Hashable RotateSecret where
   hashWithSalt _salt RotateSecret' {..} =

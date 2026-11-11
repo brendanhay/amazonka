@@ -177,6 +177,11 @@ instance Core.AWSRequest AssociateFileSystemAliases where
             Prelude.<$> (x Data..?> "Aliases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          associateFileSystemAliases_clientRequestToken
+      )
 
 instance Prelude.Hashable AssociateFileSystemAliases where
   hashWithSalt _salt AssociateFileSystemAliases' {..} =

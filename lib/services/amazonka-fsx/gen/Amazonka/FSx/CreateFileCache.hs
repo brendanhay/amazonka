@@ -317,6 +317,9 @@ instance Core.AWSRequest CreateFileCache where
             Prelude.<$> (x Data..?> "FileCache")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createFileCache_clientRequestToken)
 
 instance Prelude.Hashable CreateFileCache where
   hashWithSalt _salt CreateFileCache' {..} =

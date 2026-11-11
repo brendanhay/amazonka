@@ -139,6 +139,9 @@ instance Core.AWSRequest UpdateVolume where
             Prelude.<$> (x Data..?> "Volume")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateVolume_clientRequestToken)
 
 instance Prelude.Hashable UpdateVolume where
   hashWithSalt _salt UpdateVolume' {..} =

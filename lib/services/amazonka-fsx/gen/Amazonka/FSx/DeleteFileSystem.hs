@@ -176,6 +176,9 @@ instance Core.AWSRequest DeleteFileSystem where
             Prelude.<*> (x Data..?> "WindowsResponse")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deleteFileSystem_clientRequestToken)
 
 instance Prelude.Hashable DeleteFileSystem where
   hashWithSalt _salt DeleteFileSystem' {..} =

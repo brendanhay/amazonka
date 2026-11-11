@@ -114,6 +114,9 @@ instance Core.AWSRequest UpdateSnapshot where
             Prelude.<$> (x Data..?> "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateSnapshot_clientRequestToken)
 
 instance Prelude.Hashable UpdateSnapshot where
   hashWithSalt _salt UpdateSnapshot' {..} =

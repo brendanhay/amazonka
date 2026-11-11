@@ -113,6 +113,9 @@ instance Core.AWSRequest DeleteFileCache where
             Prelude.<*> (x Data..?> "Lifecycle")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deleteFileCache_clientRequestToken)
 
 instance Prelude.Hashable DeleteFileCache where
   hashWithSalt _salt DeleteFileCache' {..} =

@@ -140,6 +140,9 @@ instance Core.AWSRequest CreateVolume where
             Prelude.<$> (x Data..?> "Volume")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createVolume_clientRequestToken)
 
 instance Prelude.Hashable CreateVolume where
   hashWithSalt _salt CreateVolume' {..} =

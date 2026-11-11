@@ -201,6 +201,11 @@ instance Core.AWSRequest CreateStorageVirtualMachine where
             Prelude.<$> (x Data..?> "StorageVirtualMachine")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createStorageVirtualMachine_clientRequestToken
+      )
 
 instance Prelude.Hashable CreateStorageVirtualMachine where
   hashWithSalt _salt CreateStorageVirtualMachine' {..} =

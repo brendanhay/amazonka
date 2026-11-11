@@ -106,6 +106,9 @@ instance Core.AWSRequest DeleteSnapshot where
             Prelude.<*> (x Data..?> "SnapshotId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deleteSnapshot_clientRequestToken)
 
 instance Prelude.Hashable DeleteSnapshot where
   hashWithSalt _salt DeleteSnapshot' {..} =

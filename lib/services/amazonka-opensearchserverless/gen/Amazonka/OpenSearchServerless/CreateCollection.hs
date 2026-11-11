@@ -134,6 +134,9 @@ instance Core.AWSRequest CreateCollection where
             Prelude.<$> (x Data..?> "createCollectionDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createCollection_clientToken)
 
 instance Prelude.Hashable CreateCollection where
   hashWithSalt _salt CreateCollection' {..} =

@@ -151,6 +151,9 @@ instance Core.AWSRequest UpdateVpcEndpoint where
             Prelude.<$> (x Data..?> "UpdateVpcEndpointDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateVpcEndpoint_clientToken)
 
 instance Prelude.Hashable UpdateVpcEndpoint where
   hashWithSalt _salt UpdateVpcEndpoint' {..} =

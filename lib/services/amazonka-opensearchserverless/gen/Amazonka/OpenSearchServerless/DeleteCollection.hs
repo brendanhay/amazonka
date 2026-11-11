@@ -115,6 +115,9 @@ instance Core.AWSRequest DeleteCollection where
             Prelude.<$> (x Data..?> "deleteCollectionDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deleteCollection_clientToken)
 
 instance Prelude.Hashable DeleteCollection where
   hashWithSalt _salt DeleteCollection' {..} =

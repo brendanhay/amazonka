@@ -109,6 +109,9 @@ instance Core.AWSRequest UpdateCollection where
             Prelude.<$> (x Data..?> "updateCollectionDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateCollection_clientToken)
 
 instance Prelude.Hashable UpdateCollection where
   hashWithSalt _salt UpdateCollection' {..} =

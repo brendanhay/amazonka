@@ -364,6 +364,9 @@ instance Core.AWSRequest CreateCluster where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "cluster")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createCluster_clientToken)
 
 instance Prelude.Hashable CreateCluster where
   hashWithSalt _salt CreateCluster' {..} =

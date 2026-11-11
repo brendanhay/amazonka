@@ -210,6 +210,11 @@ instance Core.AWSRequest StartQueryExecution where
             Prelude.<$> (x Data..?> "QueryExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          startQueryExecution_clientRequestToken
+      )
 
 instance Prelude.Hashable StartQueryExecution where
   hashWithSalt _salt StartQueryExecution' {..} =

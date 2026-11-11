@@ -112,6 +112,9 @@ instance Core.AWSRequest RegisterMailDomain where
           RegisterMailDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens registerMailDomain_clientToken)
 
 instance Prelude.Hashable RegisterMailDomain where
   hashWithSalt _salt RegisterMailDomain' {..} =

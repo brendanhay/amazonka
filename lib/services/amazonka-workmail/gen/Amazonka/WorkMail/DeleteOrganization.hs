@@ -122,6 +122,9 @@ instance Core.AWSRequest DeleteOrganization where
             Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deleteOrganization_clientToken)
 
 instance Prelude.Hashable DeleteOrganization where
   hashWithSalt _salt DeleteOrganization' {..} =

@@ -155,6 +155,9 @@ instance Core.AWSRequest CreateImpersonationRole where
             Prelude.<$> (x Data..?> "ImpersonationRoleId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createImpersonationRole_clientToken)
 
 instance Prelude.Hashable CreateImpersonationRole where
   hashWithSalt _salt CreateImpersonationRole' {..} =

@@ -424,6 +424,9 @@ instance Core.AWSRequest CreateModelPackage where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ModelPackageArn")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createModelPackage_clientToken)
 
 instance Prelude.Hashable CreateModelPackage where
   hashWithSalt _salt CreateModelPackage' {..} =

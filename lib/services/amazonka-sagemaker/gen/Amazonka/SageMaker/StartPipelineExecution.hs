@@ -68,7 +68,7 @@ data StartPipelineExecution = StartPipelineExecution'
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the operation. An idempotent operation completes no more
     -- than once.
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,21 +97,17 @@ data StartPipelineExecution = StartPipelineExecution'
 newStartPipelineExecution ::
   -- | 'pipelineName'
   Prelude.Text ->
-  -- | 'clientRequestToken'
-  Prelude.Text ->
   StartPipelineExecution
-newStartPipelineExecution
-  pPipelineName_
-  pClientRequestToken_ =
-    StartPipelineExecution'
-      { parallelismConfiguration =
-          Prelude.Nothing,
-        pipelineExecutionDescription = Prelude.Nothing,
-        pipelineExecutionDisplayName = Prelude.Nothing,
-        pipelineParameters = Prelude.Nothing,
-        pipelineName = pPipelineName_,
-        clientRequestToken = pClientRequestToken_
-      }
+newStartPipelineExecution pPipelineName_ =
+  StartPipelineExecution'
+    { parallelismConfiguration =
+        Prelude.Nothing,
+      pipelineExecutionDescription = Prelude.Nothing,
+      pipelineExecutionDisplayName = Prelude.Nothing,
+      pipelineParameters = Prelude.Nothing,
+      pipelineName = pPipelineName_,
+      clientRequestToken = Prelude.Nothing
+    }
 
 -- | This configuration, if specified, overrides the parallelism
 -- configuration of the parent pipeline for this specific run.
@@ -137,7 +133,7 @@ startPipelineExecution_pipelineName = Lens.lens (\StartPipelineExecution' {pipel
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the operation. An idempotent operation completes no more
 -- than once.
-startPipelineExecution_clientRequestToken :: Lens.Lens' StartPipelineExecution Prelude.Text
+startPipelineExecution_clientRequestToken :: Lens.Lens' StartPipelineExecution (Prelude.Maybe Prelude.Text)
 startPipelineExecution_clientRequestToken = Lens.lens (\StartPipelineExecution' {clientRequestToken} -> clientRequestToken) (\s@StartPipelineExecution' {} a -> s {clientRequestToken = a} :: StartPipelineExecution)
 
 instance Core.AWSRequest StartPipelineExecution where
@@ -152,6 +148,11 @@ instance Core.AWSRequest StartPipelineExecution where
           StartPipelineExecutionResponse'
             Prelude.<$> (x Data..?> "PipelineExecutionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          startPipelineExecution_clientRequestToken
       )
 
 instance Prelude.Hashable StartPipelineExecution where
@@ -201,8 +202,8 @@ instance Data.ToJSON StartPipelineExecution where
             ("PipelineParameters" Data..=)
               Prelude.<$> pipelineParameters,
             Prelude.Just ("PipelineName" Data..= pipelineName),
-            Prelude.Just
-              ("ClientRequestToken" Data..= clientRequestToken)
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken
           ]
       )
 

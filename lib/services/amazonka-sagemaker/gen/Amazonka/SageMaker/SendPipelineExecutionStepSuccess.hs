@@ -122,6 +122,11 @@ instance
             Prelude.<$> (x Data..?> "PipelineExecutionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          sendPipelineExecutionStepSuccess_clientRequestToken
+      )
 
 instance
   Prelude.Hashable

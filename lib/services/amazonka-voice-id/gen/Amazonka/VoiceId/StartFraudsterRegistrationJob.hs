@@ -196,6 +196,11 @@ instance
             Prelude.<$> (x Data..?> "Job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          startFraudsterRegistrationJob_clientToken
+      )
 
 instance
   Prelude.Hashable

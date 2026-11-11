@@ -113,6 +113,9 @@ instance Core.AWSRequest UpdateReplicationSet where
           UpdateReplicationSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateReplicationSet_clientToken)
 
 instance Prelude.Hashable UpdateReplicationSet where
   hashWithSalt _salt UpdateReplicationSet' {..} =

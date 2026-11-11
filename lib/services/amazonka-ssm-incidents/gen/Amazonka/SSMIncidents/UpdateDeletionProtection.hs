@@ -114,6 +114,9 @@ instance Core.AWSRequest UpdateDeletionProtection where
           UpdateDeletionProtectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateDeletionProtection_clientToken)
 
 instance Prelude.Hashable UpdateDeletionProtection where
   hashWithSalt _salt UpdateDeletionProtection' {..} =

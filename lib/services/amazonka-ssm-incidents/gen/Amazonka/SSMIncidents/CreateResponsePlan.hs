@@ -188,6 +188,9 @@ instance Core.AWSRequest CreateResponsePlan where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "arn")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createResponsePlan_clientToken)
 
 instance Prelude.Hashable CreateResponsePlan where
   hashWithSalt _salt CreateResponsePlan' {..} =

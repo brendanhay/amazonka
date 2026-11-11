@@ -185,6 +185,9 @@ instance Core.AWSRequest CreateTimelineEvent where
             Prelude.<*> (x Data..:> "eventId")
             Prelude.<*> (x Data..:> "incidentRecordArn")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createTimelineEvent_clientToken)
 
 instance Prelude.Hashable CreateTimelineEvent where
   hashWithSalt _salt CreateTimelineEvent' {..} =

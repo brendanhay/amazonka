@@ -115,6 +115,8 @@ instance Core.AWSRequest UpdateMesh where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  idempotencyTokenLens =
+    Prelude.Just (Prelude.ALens updateMesh_clientToken)
 
 instance Prelude.Hashable UpdateMesh where
   hashWithSalt _salt UpdateMesh' {..} =

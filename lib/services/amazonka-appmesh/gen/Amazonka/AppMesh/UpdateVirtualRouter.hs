@@ -156,6 +156,9 @@ instance Core.AWSRequest UpdateVirtualRouter where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateVirtualRouter_clientToken)
 
 instance Prelude.Hashable UpdateVirtualRouter where
   hashWithSalt _salt UpdateVirtualRouter' {..} =

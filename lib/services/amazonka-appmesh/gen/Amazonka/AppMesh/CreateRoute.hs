@@ -201,6 +201,9 @@ instance Core.AWSRequest CreateRoute where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createRoute_clientToken)
 
 instance Prelude.Hashable CreateRoute where
   hashWithSalt _salt CreateRoute' {..} =

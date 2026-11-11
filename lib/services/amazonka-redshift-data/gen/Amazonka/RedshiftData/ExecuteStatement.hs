@@ -244,6 +244,9 @@ instance Core.AWSRequest ExecuteStatement where
             Prelude.<*> (x Data..?> "WorkgroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens executeStatement_clientToken)
 
 instance Prelude.Hashable ExecuteStatement where
   hashWithSalt _salt ExecuteStatement' {..} =

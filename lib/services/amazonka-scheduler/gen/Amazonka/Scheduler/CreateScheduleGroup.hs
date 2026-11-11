@@ -118,6 +118,9 @@ instance Core.AWSRequest CreateScheduleGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ScheduleGroupArn")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createScheduleGroup_clientToken)
 
 instance Prelude.Hashable CreateScheduleGroup where
   hashWithSalt _salt CreateScheduleGroup' {..} =

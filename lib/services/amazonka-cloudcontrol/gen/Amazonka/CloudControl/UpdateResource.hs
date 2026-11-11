@@ -312,6 +312,9 @@ instance Core.AWSRequest UpdateResource where
             Prelude.<$> (x Data..?> "ProgressEvent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateResource_clientToken)
 
 instance Prelude.Hashable UpdateResource where
   hashWithSalt _salt UpdateResource' {..} =

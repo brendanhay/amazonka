@@ -124,6 +124,9 @@ instance Core.AWSRequest CreateWorkerFleet where
             Prelude.<*> (x Data..:> "createdAt")
             Prelude.<*> (x Data..:> "updatedAt")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createWorkerFleet_clientToken)
 
 instance Prelude.Hashable CreateWorkerFleet where
   hashWithSalt _salt CreateWorkerFleet' {..} =

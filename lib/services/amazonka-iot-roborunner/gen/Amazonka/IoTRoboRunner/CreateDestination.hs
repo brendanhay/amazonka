@@ -136,6 +136,9 @@ instance Core.AWSRequest CreateDestination where
             Prelude.<*> (x Data..:> "updatedAt")
             Prelude.<*> (x Data..:> "state")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createDestination_clientToken)
 
 instance Prelude.Hashable CreateDestination where
   hashWithSalt _salt CreateDestination' {..} =

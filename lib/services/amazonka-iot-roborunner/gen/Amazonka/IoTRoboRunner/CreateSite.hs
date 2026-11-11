@@ -121,6 +121,8 @@ instance Core.AWSRequest CreateSite where
             Prelude.<*> (x Data..:> "createdAt")
             Prelude.<*> (x Data..:> "updatedAt")
       )
+  idempotencyTokenLens =
+    Prelude.Just (Prelude.ALens createSite_clientToken)
 
 instance Prelude.Hashable CreateSite where
   hashWithSalt _salt CreateSite' {..} =

@@ -200,6 +200,11 @@ instance Core.AWSRequest AssociateRepository where
             Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          associateRepository_clientRequestToken
+      )
 
 instance Prelude.Hashable AssociateRepository where
   hashWithSalt _salt AssociateRepository' {..} =

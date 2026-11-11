@@ -201,6 +201,9 @@ instance Core.AWSRequest CreateContent where
             Prelude.<$> (x Data..?> "content")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createContent_clientToken)
 
 instance Prelude.Hashable CreateContent where
   hashWithSalt _salt CreateContent' {..} =

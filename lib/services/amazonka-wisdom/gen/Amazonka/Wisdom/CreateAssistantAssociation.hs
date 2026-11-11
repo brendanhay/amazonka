@@ -145,6 +145,11 @@ instance Core.AWSRequest CreateAssistantAssociation where
             Prelude.<$> (x Data..?> "assistantAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createAssistantAssociation_clientToken
+      )
 
 instance Prelude.Hashable CreateAssistantAssociation where
   hashWithSalt _salt CreateAssistantAssociation' {..} =

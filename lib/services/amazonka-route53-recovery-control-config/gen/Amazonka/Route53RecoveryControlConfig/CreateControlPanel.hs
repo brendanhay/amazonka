@@ -134,6 +134,9 @@ instance Core.AWSRequest CreateControlPanel where
             Prelude.<$> (x Data..?> "ControlPanel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createControlPanel_clientToken)
 
 instance Prelude.Hashable CreateControlPanel where
   hashWithSalt _salt CreateControlPanel' {..} =

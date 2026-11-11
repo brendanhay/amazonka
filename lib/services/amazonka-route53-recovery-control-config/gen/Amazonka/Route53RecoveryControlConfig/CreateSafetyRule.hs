@@ -146,6 +146,9 @@ instance Core.AWSRequest CreateSafetyRule where
             Prelude.<*> (x Data..?> "GatingRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createSafetyRule_clientToken)
 
 instance Prelude.Hashable CreateSafetyRule where
   hashWithSalt _salt CreateSafetyRule' {..} =

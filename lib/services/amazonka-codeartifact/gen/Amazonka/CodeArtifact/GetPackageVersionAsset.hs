@@ -230,7 +230,7 @@ instance Core.AWSRequest GetPackageVersionAsset where
   request overrides =
     Request.get (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           GetPackageVersionAssetResponse'
             Prelude.<$> (h Data..#? "X-AssetName")

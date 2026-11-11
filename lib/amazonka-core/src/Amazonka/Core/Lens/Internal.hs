@@ -30,6 +30,7 @@ import Lens.Micro as Export
     non,
     sets,
     toListOf,
+    traverseOf,
     traversed,
     (%~),
     (.~),

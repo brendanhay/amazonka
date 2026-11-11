@@ -82,8 +82,15 @@ instance (AWSRequest a) => AWSRequest (Encrypted a) where
   response l s p =
     response l s (proxy p)
 
+  idempotencyTokenLens = liftLensEncrypted <$> idempotencyTokenLens @a
+
 proxy :: forall a. Proxy (Encrypted a) -> Proxy a
 proxy = const Proxy
+
+liftLensEncrypted :: ALens' s a -> ALens' (Encrypted s) a
+liftLensEncrypted l =
+  ALens $ \f (Encrypted x xs l' e) ->
+    cloneLens l f x <&> \x' -> Encrypted x' xs l' e
 
 class (AddInstructions a) => ToEncrypted a where
   -- | Create an encryption context.

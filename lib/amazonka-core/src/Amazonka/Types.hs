@@ -658,24 +658,35 @@ requestUnsigned Request {service = Service {..}, ..} r =
     end = endpoint r
 
 -- | Specify how a request can be de/serialised.
-class (Typeable a, Typeable (AWSResponse a)) => AWSRequest a where
-  -- | The successful, expected response associated with a request.
-  type AWSResponse a :: Type
+class (Typeable req, Typeable (AWSResponse req)) => AWSRequest req where
+  -- | The successful, expected response associated with req request.
+  type AWSResponse req :: Type
 
   request ::
     -- | Overrides applied to the default 'Service'.
     (Service -> Service) ->
-    a ->
-    Request a
+    req ->
+    Request req
 
   response ::
     (MonadResource m) =>
     -- | Raw response body hook.
     (ByteStringLazy -> IO ByteStringLazy) ->
     Service ->
-    Proxy a ->
+    Proxy req ->
     ClientResponse ClientBody ->
-    m (Either Error (ClientResponse (AWSResponse a)))
+    m (Either Error (ClientResponse (AWSResponse req)))
+
+  -- | For some requests, botocore will designate one field of a
+  -- request as an "idempotency token", which the caller can manually
+  -- fill in to defend against deduplication. If he does not, it needs
+  -- to be filled in by the SDK.
+  --
+  -- If this request supports idempotency tokens, then
+  -- 'idempotencyTokenLens' needs to be 'Just' a lens into the
+  -- relevant field.
+  idempotencyTokenLens :: Maybe (ALens' req (Maybe Text))
+  idempotencyTokenLens = Nothing
 
 -- | An access key ID.
 --
@@ -951,7 +962,6 @@ pattern TelAviv = Region' "il-central-1"
 
 pattern MexicoCentral :: Region
 pattern MexicoCentral = Region' "mx-central-1"
-
 
 -- Middle East
 

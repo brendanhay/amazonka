@@ -34,16 +34,17 @@ substitute ::
   Either String (Service Identity (RefF ()) (Shape Related) a)
 substitute svc@Service {..} = do
   (os, e) <- State.runStateT (traverse operation _operations) (Env mempty _shapes)
-  pure $! override (e ^. overrides) $
-    svc
-      { _metadata' = meta _metadata',
-        _operations = os,
-        _shapes = e ^. memo
-      }
+  pure $!
+    override (e ^. overrides) $
+      svc
+        { _metadata' = meta _metadata',
+          _operations = os,
+          _shapes = e ^. memo
+        }
   where
     meta :: Metadata Maybe -> Metadata Identity
     meta m@Metadata {..} =
-      m { _checksumFormat = _checksumFormat .! SHA256 }
+      m {_checksumFormat = _checksumFormat .! SHA256}
 
     operation ::
       Operation Maybe (RefF ()) a ->
@@ -51,8 +52,8 @@ substitute svc@Service {..} = do
     operation o@Operation {..} = do
       inp <- subst Input (name Input _opName) _opInput
       out <- subst Output (name Output _opName) _opOutput
-      pure
-        $! o
+      pure $!
+        o
           { _opDocumentation = _opDocumentation .! "-- | Undocumented operation.",
             _opInput = Identity inp,
             _opOutput = Identity out
@@ -94,8 +95,8 @@ substitute svc@Service {..} = do
       let k = r ^. refShape
       x :< s <- lift (safe k _shapes)
       if
-          | isShared x,
-            d == Input -> do
+        | isShared x,
+          d == Input -> do
             -- Check that the desired name is not in use
             -- to prevent accidental override.
             verify n "Failed attempting to copy existing shape"
@@ -103,8 +104,8 @@ substitute svc@Service {..} = do
             save n ((x & annId .~ n) :< s)
             -- Update the Ref to point to the new wrapper.
             pure (r & refShape .~ n)
-          | isShared x -> pure r
-          | otherwise -> do
+        | isShared x -> pure r
+        | otherwise -> do
             -- Ref exists, and is not referred to by any other Shape.
             -- Insert override to rename the Ref/Shape to the desired name.
             -- Ensure the annotation is updated.
@@ -149,10 +150,11 @@ save n s = memo %= HashMap.insert n s
 rename :: Id -> Id -> MemoS a ()
 rename x y = overrides %= HashMap.insert x (defaultOverride & renamedTo ?~ y)
 
-safe :: Show a => Id -> HashMap Id a -> Either String a
+safe :: (Show a) => Id -> HashMap Id a -> Either String a
 safe n ss =
   note
-    ( "Missing shape " ++ Text.unpack (memberId n)
+    ( "Missing shape "
+        ++ Text.unpack (memberId n)
         ++ ", possible matches: "
         ++ partial n ss
     )
@@ -200,6 +202,7 @@ emptyRef n =
       _refLocationName = Nothing,
       _refResultWrapper = Nothing,
       _refQueryName = Nothing,
+      _refIdempotencyToken = False,
       _refStreaming = False,
       _refXMLAttribute = False,
       _refXMLNamespace = Nothing

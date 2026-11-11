@@ -553,7 +553,7 @@ instance Core.AWSRequest PostContent where
   request overrides =
     Request.postBody (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           PostContentResponse'
             Prelude.<$> (h Data..#? "x-amz-lex-active-contexts")

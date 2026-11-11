@@ -104,7 +104,7 @@ instance Core.AWSRequest DescribeInputDeviceThumbnail where
   request overrides =
     Request.get (overrides defaultService)
   response =
-    Response.receiveBody
+    Response.receiveStreamingBody
       ( \s h x ->
           DescribeInputDeviceThumbnailResponse'
             Prelude.<$> (h Data..#? "Content-Length")

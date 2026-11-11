@@ -156,6 +156,9 @@ instance Core.AWSRequest MonitorContact where
             Prelude.<*> (x Data..?> "ContactId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens monitorContact_clientToken)
 
 instance Prelude.Hashable MonitorContact where
   hashWithSalt _salt MonitorContact' {..} =

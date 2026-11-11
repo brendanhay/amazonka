@@ -272,6 +272,9 @@ instance Core.AWSRequest StartChatContact where
             Prelude.<*> (x Data..?> "ParticipantToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens startChatContact_clientToken)
 
 instance Prelude.Hashable StartChatContact where
   hashWithSalt _salt StartChatContact' {..} =

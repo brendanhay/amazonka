@@ -134,6 +134,9 @@ instance Core.AWSRequest UpdatePhoneNumber where
             Prelude.<*> (x Data..?> "PhoneNumberId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updatePhoneNumber_clientToken)
 
 instance Prelude.Hashable UpdatePhoneNumber where
   hashWithSalt _salt UpdatePhoneNumber' {..} =

@@ -178,6 +178,8 @@ instance Core.AWSRequest CreateRule where
             Prelude.<*> (x Data..:> "RuleArn")
             Prelude.<*> (x Data..:> "RuleId")
       )
+  idempotencyTokenLens =
+    Prelude.Just (Prelude.ALens createRule_clientToken)
 
 instance Prelude.Hashable CreateRule where
   hashWithSalt _salt CreateRule' {..} =

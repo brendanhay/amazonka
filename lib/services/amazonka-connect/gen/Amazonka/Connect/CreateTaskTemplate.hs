@@ -200,6 +200,9 @@ instance Core.AWSRequest CreateTaskTemplate where
             Prelude.<*> (x Data..:> "Id")
             Prelude.<*> (x Data..:> "Arn")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createTaskTemplate_clientToken)
 
 instance Prelude.Hashable CreateTaskTemplate where
   hashWithSalt _salt CreateTaskTemplate' {..} =

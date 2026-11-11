@@ -173,6 +173,9 @@ instance Core.AWSRequest DeleteInventory where
             Prelude.<*> (x Data..?> "TypeName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deleteInventory_clientToken)
 
 instance Prelude.Hashable DeleteInventory where
   hashWithSalt _salt DeleteInventory' {..} =

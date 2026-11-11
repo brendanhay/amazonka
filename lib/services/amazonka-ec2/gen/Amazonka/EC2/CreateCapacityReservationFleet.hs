@@ -331,6 +331,11 @@ instance
             Prelude.<*> (x Data..@? "totalTargetCapacity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createCapacityReservationFleet_clientToken
+      )
 
 instance
   Prelude.Hashable

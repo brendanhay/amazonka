@@ -208,6 +208,9 @@ instance Core.AWSRequest ExportImage where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens exportImage_clientToken)
 
 instance Prelude.Hashable ExportImage where
   hashWithSalt _salt ExportImage' {..} =

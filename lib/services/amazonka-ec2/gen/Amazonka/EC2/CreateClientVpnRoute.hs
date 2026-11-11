@@ -213,6 +213,9 @@ instance Core.AWSRequest CreateClientVpnRoute where
             Prelude.<$> (x Data..@? "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createClientVpnRoute_clientToken)
 
 instance Prelude.Hashable CreateClientVpnRoute where
   hashWithSalt _salt CreateClientVpnRoute' {..} =

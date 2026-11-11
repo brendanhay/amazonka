@@ -173,6 +173,9 @@ instance Core.AWSRequest RunScheduledInstances where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens runScheduledInstances_clientToken)
 
 instance Prelude.Hashable RunScheduledInstances where
   hashWithSalt _salt RunScheduledInstances' {..} =

@@ -144,6 +144,11 @@ instance Core.AWSRequest PurchaseScheduledInstances where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          purchaseScheduledInstances_clientToken
+      )
 
 instance Prelude.Hashable PurchaseScheduledInstances where
   hashWithSalt _salt PurchaseScheduledInstances' {..} =

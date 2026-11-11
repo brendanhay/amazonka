@@ -261,6 +261,11 @@ instance
             Prelude.<*> (x Data..@? "trafficMirrorFilterRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createTrafficMirrorFilterRule_clientToken
+      )
 
 instance
   Prelude.Hashable

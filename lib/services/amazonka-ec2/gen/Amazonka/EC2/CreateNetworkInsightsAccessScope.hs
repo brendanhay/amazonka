@@ -74,7 +74,7 @@ data CreateNetworkInsightsAccessScope = CreateNetworkInsightsAccessScope'
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,17 +101,15 @@ data CreateNetworkInsightsAccessScope = CreateNetworkInsightsAccessScope'
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
 newCreateNetworkInsightsAccessScope ::
-  -- | 'clientToken'
-  Prelude.Text ->
   CreateNetworkInsightsAccessScope
-newCreateNetworkInsightsAccessScope pClientToken_ =
+newCreateNetworkInsightsAccessScope =
   CreateNetworkInsightsAccessScope'
     { dryRun =
         Prelude.Nothing,
       excludePaths = Prelude.Nothing,
       matchPaths = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
-      clientToken = pClientToken_
+      clientToken = Prelude.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -136,7 +134,7 @@ createNetworkInsightsAccessScope_tagSpecifications = Lens.lens (\CreateNetworkIn
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
-createNetworkInsightsAccessScope_clientToken :: Lens.Lens' CreateNetworkInsightsAccessScope Prelude.Text
+createNetworkInsightsAccessScope_clientToken :: Lens.Lens' CreateNetworkInsightsAccessScope (Prelude.Maybe Prelude.Text)
 createNetworkInsightsAccessScope_clientToken = Lens.lens (\CreateNetworkInsightsAccessScope' {clientToken} -> clientToken) (\s@CreateNetworkInsightsAccessScope' {} a -> s {clientToken = a} :: CreateNetworkInsightsAccessScope)
 
 instance
@@ -155,6 +153,11 @@ instance
             Prelude.<$> (x Data..@? "networkInsightsAccessScope")
             Prelude.<*> (x Data..@? "networkInsightsAccessScopeContent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createNetworkInsightsAccessScope_clientToken
       )
 
 instance

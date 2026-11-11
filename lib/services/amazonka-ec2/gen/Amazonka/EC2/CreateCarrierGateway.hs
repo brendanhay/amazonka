@@ -138,6 +138,9 @@ instance Core.AWSRequest CreateCarrierGateway where
             Prelude.<$> (x Data..@? "carrierGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createCarrierGateway_clientToken)
 
 instance Prelude.Hashable CreateCarrierGateway where
   hashWithSalt _salt CreateCarrierGateway' {..} =

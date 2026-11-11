@@ -195,6 +195,9 @@ instance Core.AWSRequest CreateManagedPrefixList where
             Prelude.<$> (x Data..@? "prefixList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createManagedPrefixList_clientToken)
 
 instance Prelude.Hashable CreateManagedPrefixList where
   hashWithSalt _salt CreateManagedPrefixList' {..} =

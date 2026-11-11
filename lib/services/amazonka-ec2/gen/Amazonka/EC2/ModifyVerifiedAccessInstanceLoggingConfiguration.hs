@@ -148,6 +148,11 @@ instance
             Prelude.<$> (x Data..@? "loggingConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          modifyVerifiedAccessInstanceLoggingConfiguration_clientToken
+      )
 
 instance
   Prelude.Hashable

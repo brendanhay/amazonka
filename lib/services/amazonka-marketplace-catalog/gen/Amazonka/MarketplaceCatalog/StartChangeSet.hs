@@ -153,6 +153,9 @@ instance Core.AWSRequest StartChangeSet where
             Prelude.<*> (x Data..?> "ChangeSetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens startChangeSet_clientRequestToken)
 
 instance Prelude.Hashable StartChangeSet where
   hashWithSalt _salt StartChangeSet' {..} =

@@ -121,6 +121,11 @@ instance Core.AWSRequest UpdatePrivateDnsNamespace where
             Prelude.<$> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          updatePrivateDnsNamespace_updaterRequestId
+      )
 
 instance Prelude.Hashable UpdatePrivateDnsNamespace where
   hashWithSalt _salt UpdatePrivateDnsNamespace' {..} =

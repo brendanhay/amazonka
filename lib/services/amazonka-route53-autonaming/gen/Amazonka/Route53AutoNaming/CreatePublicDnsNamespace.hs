@@ -166,6 +166,11 @@ instance Core.AWSRequest CreatePublicDnsNamespace where
             Prelude.<$> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createPublicDnsNamespace_creatorRequestId
+      )
 
 instance Prelude.Hashable CreatePublicDnsNamespace where
   hashWithSalt _salt CreatePublicDnsNamespace' {..} =

@@ -142,6 +142,9 @@ instance Core.AWSRequest ExecuteTransaction where
             Prelude.<*> (x Data..?> "Responses")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens executeTransaction_clientRequestToken)
 
 instance Prelude.Hashable ExecuteTransaction where
   hashWithSalt _salt ExecuteTransaction' {..} =

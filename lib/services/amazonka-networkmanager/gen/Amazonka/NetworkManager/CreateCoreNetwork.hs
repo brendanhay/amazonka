@@ -130,6 +130,9 @@ instance Core.AWSRequest CreateCoreNetwork where
             Prelude.<$> (x Data..?> "CoreNetwork")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createCoreNetwork_clientToken)
 
 instance Prelude.Hashable CreateCoreNetwork where
   hashWithSalt _salt CreateCoreNetwork' {..} =

@@ -186,6 +186,11 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "environmentTemplateVersion")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createEnvironmentTemplateVersion_clientToken
+      )
 
 instance
   Prelude.Hashable

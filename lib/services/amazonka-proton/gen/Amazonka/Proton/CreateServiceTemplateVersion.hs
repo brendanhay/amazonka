@@ -232,6 +232,11 @@ instance Core.AWSRequest CreateServiceTemplateVersion where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "serviceTemplateVersion")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createServiceTemplateVersion_clientToken
+      )
 
 instance
   Prelude.Hashable

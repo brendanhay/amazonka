@@ -142,6 +142,9 @@ instance Core.AWSRequest CreatePricingPlan where
             Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createPricingPlan_clientToken)
 
 instance Prelude.Hashable CreatePricingPlan where
   hashWithSalt _salt CreatePricingPlan' {..} =

@@ -126,6 +126,8 @@ instance Core.AWSRequest DeleteApp where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "appArn")
       )
+  idempotencyTokenLens =
+    Prelude.Just (Prelude.ALens deleteApp_clientToken)
 
 instance Prelude.Hashable DeleteApp where
   hashWithSalt _salt DeleteApp' {..} =

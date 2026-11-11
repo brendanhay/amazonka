@@ -111,6 +111,11 @@ instance Core.AWSRequest DeleteRecommendationTemplate where
             Prelude.<*> (x Data..:> "recommendationTemplateArn")
             Prelude.<*> (x Data..:> "status")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          deleteRecommendationTemplate_clientToken
+      )
 
 instance
   Prelude.Hashable

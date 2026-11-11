@@ -242,6 +242,11 @@ instance Core.AWSRequest CreateRecommendationTemplate where
             Prelude.<$> (x Data..?> "recommendationTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createRecommendationTemplate_clientToken
+      )
 
 instance
   Prelude.Hashable

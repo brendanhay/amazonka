@@ -173,6 +173,8 @@ instance Core.AWSRequest CreateApp where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "app")
       )
+  idempotencyTokenLens =
+    Prelude.Just (Prelude.ALens createApp_clientToken)
 
 instance Prelude.Hashable CreateApp where
   hashWithSalt _salt CreateApp' {..} =

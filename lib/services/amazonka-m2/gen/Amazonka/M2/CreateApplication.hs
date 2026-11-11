@@ -176,6 +176,9 @@ instance Core.AWSRequest CreateApplication where
             Prelude.<*> (x Data..:> "applicationId")
             Prelude.<*> (x Data..:> "applicationVersion")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createApplication_clientToken)
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =

@@ -145,6 +145,9 @@ instance Core.AWSRequest CreateDeployment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "deploymentId")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createDeployment_clientToken)
 
 instance Prelude.Hashable CreateDeployment where
   hashWithSalt _salt CreateDeployment' {..} =

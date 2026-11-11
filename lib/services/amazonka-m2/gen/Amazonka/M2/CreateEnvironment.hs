@@ -256,6 +256,9 @@ instance Core.AWSRequest CreateEnvironment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "environmentId")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createEnvironment_clientToken)
 
 instance Prelude.Hashable CreateEnvironment where
   hashWithSalt _salt CreateEnvironment' {..} =

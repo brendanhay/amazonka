@@ -326,6 +326,9 @@ instance Core.AWSRequest CreateSchedule where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ScheduleArn")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createSchedule_clientToken)
 
 instance Prelude.Hashable CreateSchedule where
   hashWithSalt _salt CreateSchedule' {..} =

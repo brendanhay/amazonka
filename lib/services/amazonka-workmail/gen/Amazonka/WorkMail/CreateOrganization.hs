@@ -166,6 +166,9 @@ instance Core.AWSRequest CreateOrganization where
             Prelude.<$> (x Data..?> "OrganizationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createOrganization_clientToken)
 
 instance Prelude.Hashable CreateOrganization where
   hashWithSalt _salt CreateOrganization' {..} =

@@ -137,6 +137,9 @@ instance Core.AWSRequest DeleteLaunchProfileMember where
           DeleteLaunchProfileMemberResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deleteLaunchProfileMember_clientToken)
 
 instance Prelude.Hashable DeleteLaunchProfileMember where
   hashWithSalt _salt DeleteLaunchProfileMember' {..} =

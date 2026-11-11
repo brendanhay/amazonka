@@ -95,6 +95,9 @@ instance Core.AWSRequest DeleteAnalyzer where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteAnalyzerResponse'
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deleteAnalyzer_clientToken)
 
 instance Prelude.Hashable DeleteAnalyzer where
   hashWithSalt _salt DeleteAnalyzer' {..} =

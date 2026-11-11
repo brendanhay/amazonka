@@ -154,6 +154,11 @@ instance
             Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createWirelessGatewayTaskDefinition_clientRequestToken
+      )
 
 instance
   Prelude.Hashable

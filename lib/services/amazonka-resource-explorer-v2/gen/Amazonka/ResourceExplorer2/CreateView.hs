@@ -227,6 +227,8 @@ instance Core.AWSRequest CreateView where
             Prelude.<$> (x Data..?> "View")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just (Prelude.ALens createView_clientToken)
 
 instance Prelude.Hashable CreateView where
   hashWithSalt _salt CreateView' {..} =

@@ -189,6 +189,9 @@ instance Core.AWSRequest CreateVirtualService where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createVirtualService_clientToken)
 
 instance Prelude.Hashable CreateVirtualService where
   hashWithSalt _salt CreateVirtualService' {..} =

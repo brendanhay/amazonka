@@ -339,6 +339,9 @@ instance Core.AWSRequest CreateDataSource where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Id")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createDataSource_clientToken)
 
 instance Prelude.Hashable CreateDataSource where
   hashWithSalt _salt CreateDataSource' {..} =

@@ -181,6 +181,9 @@ instance Core.AWSRequest CreateContact where
             Prelude.<$> (x Data..?> "ContactArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createContact_clientRequestToken)
 
 instance Prelude.Hashable CreateContact where
   hashWithSalt _salt CreateContact' {..} =

@@ -123,6 +123,9 @@ instance Core.AWSRequest DeleteAppAssessment where
             Prelude.<*> (x Data..:> "assessmentArn")
             Prelude.<*> (x Data..:> "assessmentStatus")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deleteAppAssessment_clientToken)
 
 instance Prelude.Hashable DeleteAppAssessment where
   hashWithSalt _salt DeleteAppAssessment' {..} =

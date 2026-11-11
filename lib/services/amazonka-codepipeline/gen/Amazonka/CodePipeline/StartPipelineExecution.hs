@@ -106,6 +106,11 @@ instance Core.AWSRequest StartPipelineExecution where
             Prelude.<$> (x Data..?> "pipelineExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          startPipelineExecution_clientRequestToken
+      )
 
 instance Prelude.Hashable StartPipelineExecution where
   hashWithSalt _salt StartPipelineExecution' {..} =

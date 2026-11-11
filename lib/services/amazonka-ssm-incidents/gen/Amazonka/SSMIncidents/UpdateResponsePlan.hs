@@ -289,6 +289,9 @@ instance Core.AWSRequest UpdateResponsePlan where
           UpdateResponsePlanResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateResponsePlan_clientToken)
 
 instance Prelude.Hashable UpdateResponsePlan where
   hashWithSalt _salt UpdateResponsePlan' {..} =

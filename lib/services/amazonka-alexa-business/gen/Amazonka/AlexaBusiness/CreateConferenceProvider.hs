@@ -160,6 +160,11 @@ instance Core.AWSRequest CreateConferenceProvider where
             Prelude.<$> (x Data..?> "ConferenceProviderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createConferenceProvider_clientRequestToken
+      )
 
 instance Prelude.Hashable CreateConferenceProvider where
   hashWithSalt _salt CreateConferenceProvider' {..} =

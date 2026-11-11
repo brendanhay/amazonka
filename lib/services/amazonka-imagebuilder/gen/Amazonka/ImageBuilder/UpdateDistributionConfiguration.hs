@@ -63,7 +63,7 @@ data UpdateDistributionConfiguration = UpdateDistributionConfiguration'
     -- | The distributions of the distribution configuration.
     distributions :: [Distribution],
     -- | The idempotency token of the distribution configuration.
-    clientToken :: Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,19 +86,16 @@ data UpdateDistributionConfiguration = UpdateDistributionConfiguration'
 newUpdateDistributionConfiguration ::
   -- | 'distributionConfigurationArn'
   Prelude.Text ->
-  -- | 'clientToken'
-  Prelude.Text ->
   UpdateDistributionConfiguration
 newUpdateDistributionConfiguration
-  pDistributionConfigurationArn_
-  pClientToken_ =
+  pDistributionConfigurationArn_ =
     UpdateDistributionConfiguration'
       { description =
           Prelude.Nothing,
         distributionConfigurationArn =
           pDistributionConfigurationArn_,
         distributions = Prelude.mempty,
-        clientToken = pClientToken_
+        clientToken = Prelude.Nothing
       }
 
 -- | The description of the distribution configuration.
@@ -115,7 +112,7 @@ updateDistributionConfiguration_distributions :: Lens.Lens' UpdateDistributionCo
 updateDistributionConfiguration_distributions = Lens.lens (\UpdateDistributionConfiguration' {distributions} -> distributions) (\s@UpdateDistributionConfiguration' {} a -> s {distributions = a} :: UpdateDistributionConfiguration) Prelude.. Lens.coerced
 
 -- | The idempotency token of the distribution configuration.
-updateDistributionConfiguration_clientToken :: Lens.Lens' UpdateDistributionConfiguration Prelude.Text
+updateDistributionConfiguration_clientToken :: Lens.Lens' UpdateDistributionConfiguration (Prelude.Maybe Prelude.Text)
 updateDistributionConfiguration_clientToken = Lens.lens (\UpdateDistributionConfiguration' {clientToken} -> clientToken) (\s@UpdateDistributionConfiguration' {} a -> s {clientToken = a} :: UpdateDistributionConfiguration)
 
 instance
@@ -135,6 +132,11 @@ instance
             Prelude.<*> (x Data..?> "distributionConfigurationArn")
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          updateDistributionConfiguration_clientToken
       )
 
 instance
@@ -184,7 +186,7 @@ instance Data.ToJSON UpdateDistributionConfiguration where
                   Data..= distributionConfigurationArn
               ),
             Prelude.Just ("distributions" Data..= distributions),
-            Prelude.Just ("clientToken" Data..= clientToken)
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

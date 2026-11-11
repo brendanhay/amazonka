@@ -202,6 +202,9 @@ instance Core.AWSRequest CreateVocabulary where
             Prelude.<*> (x Data..:> "VocabularyId")
             Prelude.<*> (x Data..:> "State")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createVocabulary_clientToken)
 
 instance Prelude.Hashable CreateVocabulary where
   hashWithSalt _salt CreateVocabulary' {..} =

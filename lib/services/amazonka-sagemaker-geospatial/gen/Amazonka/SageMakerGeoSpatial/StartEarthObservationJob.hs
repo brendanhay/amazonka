@@ -181,6 +181,9 @@ instance Core.AWSRequest StartEarthObservationJob where
             Prelude.<*> (x Data..:> "Name")
             Prelude.<*> (x Data..:> "Status")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens startEarthObservationJob_clientToken)
 
 instance Prelude.Hashable StartEarthObservationJob where
   hashWithSalt _salt StartEarthObservationJob' {..} =

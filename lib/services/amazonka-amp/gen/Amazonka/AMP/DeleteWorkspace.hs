@@ -95,6 +95,9 @@ instance Core.AWSRequest DeleteWorkspace where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteWorkspaceResponse'
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deleteWorkspace_clientToken)
 
 instance Prelude.Hashable DeleteWorkspace where
   hashWithSalt _salt DeleteWorkspace' {..} =

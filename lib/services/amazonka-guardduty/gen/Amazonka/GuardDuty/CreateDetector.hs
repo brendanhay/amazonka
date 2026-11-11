@@ -135,6 +135,9 @@ instance Core.AWSRequest CreateDetector where
             Prelude.<*> (x Data..?> "unprocessedDataSources")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createDetector_clientToken)
 
 instance Prelude.Hashable CreateDetector where
   hashWithSalt _salt CreateDetector' {..} =

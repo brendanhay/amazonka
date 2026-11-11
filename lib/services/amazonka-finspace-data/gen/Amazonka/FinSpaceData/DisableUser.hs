@@ -98,6 +98,9 @@ instance Core.AWSRequest DisableUser where
             Prelude.<$> (x Data..?> "userId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens disableUser_clientToken)
 
 instance Prelude.Hashable DisableUser where
   hashWithSalt _salt DisableUser' {..} =

@@ -155,6 +155,9 @@ instance Core.AWSRequest RegisterCluster where
             Prelude.<$> (x Data..?> "cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens registerCluster_clientRequestToken)
 
 instance Prelude.Hashable RegisterCluster where
   hashWithSalt _salt RegisterCluster' {..} =

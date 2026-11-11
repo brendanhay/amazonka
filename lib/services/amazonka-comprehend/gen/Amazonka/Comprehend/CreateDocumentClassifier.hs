@@ -379,6 +379,11 @@ instance Core.AWSRequest CreateDocumentClassifier where
             Prelude.<$> (x Data..?> "DocumentClassifierArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createDocumentClassifier_clientRequestToken
+      )
 
 instance Prelude.Hashable CreateDocumentClassifier where
   hashWithSalt _salt CreateDocumentClassifier' {..} =

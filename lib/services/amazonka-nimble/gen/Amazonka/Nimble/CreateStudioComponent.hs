@@ -238,6 +238,9 @@ instance Core.AWSRequest CreateStudioComponent where
             Prelude.<$> (x Data..?> "studioComponent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createStudioComponent_clientToken)
 
 instance Prelude.Hashable CreateStudioComponent where
   hashWithSalt _salt CreateStudioComponent' {..} =

@@ -106,6 +106,11 @@ instance Core.AWSRequest EnableDelegatedAdminAccount where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "delegatedAdminAccountId")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          enableDelegatedAdminAccount_clientToken
+      )
 
 instance Prelude.Hashable EnableDelegatedAdminAccount where
   hashWithSalt _salt EnableDelegatedAdminAccount' {..} =

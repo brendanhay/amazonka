@@ -154,6 +154,9 @@ instance Core.AWSRequest CreateFHIRDatastore where
             Prelude.<*> (x Data..:> "DatastoreStatus")
             Prelude.<*> (x Data..:> "DatastoreEndpoint")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createFHIRDatastore_clientToken)
 
 instance Prelude.Hashable CreateFHIRDatastore where
   hashWithSalt _salt CreateFHIRDatastore' {..} =

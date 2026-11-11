@@ -106,6 +106,9 @@ instance Core.AWSRequest DeleteSecurityConfig where
           DeleteSecurityConfigResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deleteSecurityConfig_clientToken)
 
 instance Prelude.Hashable DeleteSecurityConfig where
   hashWithSalt _salt DeleteSecurityConfig' {..} =

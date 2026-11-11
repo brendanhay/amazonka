@@ -128,6 +128,11 @@ instance
             Prelude.<$> (x Data..?> "Aliases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          disassociateFileSystemAliases_clientRequestToken
+      )
 
 instance
   Prelude.Hashable

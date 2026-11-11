@@ -138,6 +138,11 @@ instance Core.AWSRequest CreateMulticastGroup where
             Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createMulticastGroup_clientRequestToken
+      )
 
 instance Prelude.Hashable CreateMulticastGroup where
   hashWithSalt _salt CreateMulticastGroup' {..} =

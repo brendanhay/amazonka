@@ -188,6 +188,9 @@ instance Core.AWSRequest CreateVirtualRouter where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createVirtualRouter_clientToken)
 
 instance Prelude.Hashable CreateVirtualRouter where
   hashWithSalt _salt CreateVirtualRouter' {..} =

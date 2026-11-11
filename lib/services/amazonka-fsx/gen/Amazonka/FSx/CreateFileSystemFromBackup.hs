@@ -378,6 +378,11 @@ instance Core.AWSRequest CreateFileSystemFromBackup where
             Prelude.<$> (x Data..?> "FileSystem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createFileSystemFromBackup_clientRequestToken
+      )
 
 instance Prelude.Hashable CreateFileSystemFromBackup where
   hashWithSalt _salt CreateFileSystemFromBackup' {..} =

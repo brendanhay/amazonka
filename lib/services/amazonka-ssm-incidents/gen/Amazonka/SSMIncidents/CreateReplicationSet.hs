@@ -115,6 +115,9 @@ instance Core.AWSRequest CreateReplicationSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "arn")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createReplicationSet_clientToken)
 
 instance Prelude.Hashable CreateReplicationSet where
   hashWithSalt _salt CreateReplicationSet' {..} =

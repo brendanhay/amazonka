@@ -127,6 +127,11 @@ instance Core.AWSRequest UpdateClusterVersion where
             Prelude.<$> (x Data..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          updateClusterVersion_clientRequestToken
+      )
 
 instance Prelude.Hashable UpdateClusterVersion where
   hashWithSalt _salt UpdateClusterVersion' {..} =

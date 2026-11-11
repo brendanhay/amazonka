@@ -160,6 +160,11 @@ instance
             Prelude.<$> (x Data..?> "Association")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          updateDataRepositoryAssociation_clientRequestToken
+      )
 
 instance
   Prelude.Hashable

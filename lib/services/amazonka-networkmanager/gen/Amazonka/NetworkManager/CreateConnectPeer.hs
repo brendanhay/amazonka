@@ -156,6 +156,9 @@ instance Core.AWSRequest CreateConnectPeer where
             Prelude.<$> (x Data..?> "ConnectPeer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createConnectPeer_clientToken)
 
 instance Prelude.Hashable CreateConnectPeer where
   hashWithSalt _salt CreateConnectPeer' {..} =

@@ -146,6 +146,8 @@ instance Core.AWSRequest CreateMesh where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  idempotencyTokenLens =
+    Prelude.Just (Prelude.ALens createMesh_clientToken)
 
 instance Prelude.Hashable CreateMesh where
   hashWithSalt _salt CreateMesh' {..} =

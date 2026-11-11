@@ -108,6 +108,11 @@ instance
           EnableOrganizationAdminAccountResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          enableOrganizationAdminAccount_clientToken
+      )
 
 instance
   Prelude.Hashable

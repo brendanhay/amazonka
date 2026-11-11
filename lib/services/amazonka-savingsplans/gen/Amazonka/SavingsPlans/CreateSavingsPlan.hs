@@ -161,6 +161,9 @@ instance Core.AWSRequest CreateSavingsPlan where
             Prelude.<$> (x Data..?> "savingsPlanId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createSavingsPlan_clientToken)
 
 instance Prelude.Hashable CreateSavingsPlan where
   hashWithSalt _salt CreateSavingsPlan' {..} =

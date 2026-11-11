@@ -138,6 +138,11 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "userAccessLoggingSettingsArn")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createUserAccessLoggingSettings_clientToken
+      )
 
 instance
   Prelude.Hashable

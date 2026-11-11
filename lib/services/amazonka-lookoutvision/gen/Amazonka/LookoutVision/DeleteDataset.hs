@@ -174,6 +174,9 @@ instance Core.AWSRequest DeleteDataset where
           DeleteDatasetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deleteDataset_clientToken)
 
 instance Prelude.Hashable DeleteDataset where
   hashWithSalt _salt DeleteDataset' {..} =

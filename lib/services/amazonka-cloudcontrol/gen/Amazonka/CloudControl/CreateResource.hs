@@ -244,6 +244,9 @@ instance Core.AWSRequest CreateResource where
             Prelude.<$> (x Data..?> "ProgressEvent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createResource_clientToken)
 
 instance Prelude.Hashable CreateResource where
   hashWithSalt _salt CreateResource' {..} =

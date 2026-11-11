@@ -209,6 +209,8 @@ instance Core.AWSRequest CreateInput' where
             Prelude.<$> (x Data..?> "input")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just (Prelude.ALens createInput'_requestId)
 
 instance Prelude.Hashable CreateInput' where
   hashWithSalt _salt CreateInput'' {..} =

@@ -121,6 +121,9 @@ instance Core.AWSRequest UpdateHttpNamespace where
             Prelude.<$> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateHttpNamespace_updaterRequestId)
 
 instance Prelude.Hashable UpdateHttpNamespace where
   hashWithSalt _salt UpdateHttpNamespace' {..} =

@@ -145,6 +145,9 @@ instance Core.AWSRequest CreateAnalyzer where
             Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createAnalyzer_clientToken)
 
 instance Prelude.Hashable CreateAnalyzer where
   hashWithSalt _salt CreateAnalyzer' {..} =

@@ -130,6 +130,11 @@ instance Core.AWSRequest CreateVolumeFromBackup where
             Prelude.<$> (x Data..?> "Volume")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createVolumeFromBackup_clientRequestToken
+      )
 
 instance Prelude.Hashable CreateVolumeFromBackup where
   hashWithSalt _salt CreateVolumeFromBackup' {..} =

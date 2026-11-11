@@ -187,6 +187,9 @@ instance Core.AWSRequest CreateVirtualGateway where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createVirtualGateway_clientToken)
 
 instance Prelude.Hashable CreateVirtualGateway where
   hashWithSalt _salt CreateVirtualGateway' {..} =

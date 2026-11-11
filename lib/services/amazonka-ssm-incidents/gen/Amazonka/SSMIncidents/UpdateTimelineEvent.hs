@@ -191,6 +191,9 @@ instance Core.AWSRequest UpdateTimelineEvent where
           UpdateTimelineEventResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateTimelineEvent_clientToken)
 
 instance Prelude.Hashable UpdateTimelineEvent where
   hashWithSalt _salt UpdateTimelineEvent' {..} =

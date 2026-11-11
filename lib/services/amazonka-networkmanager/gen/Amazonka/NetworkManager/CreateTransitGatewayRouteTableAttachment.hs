@@ -129,6 +129,11 @@ instance
             Prelude.<$> (x Data..?> "TransitGatewayRouteTableAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createTransitGatewayRouteTableAttachment_clientToken
+      )
 
 instance
   Prelude.Hashable

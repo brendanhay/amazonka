@@ -154,6 +154,9 @@ instance Core.AWSRequest ReplicateInstance where
             Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens replicateInstance_clientToken)
 
 instance Prelude.Hashable ReplicateInstance where
   hashWithSalt _salt ReplicateInstance' {..} =

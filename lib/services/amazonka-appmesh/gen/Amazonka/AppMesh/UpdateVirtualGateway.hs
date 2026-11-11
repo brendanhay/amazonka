@@ -155,6 +155,9 @@ instance Core.AWSRequest UpdateVirtualGateway where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateVirtualGateway_clientToken)
 
 instance Prelude.Hashable UpdateVirtualGateway where
   hashWithSalt _salt UpdateVirtualGateway' {..} =

@@ -134,6 +134,9 @@ instance Core.AWSRequest UpdateBrowserSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "browserSettings")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateBrowserSettings_clientToken)
 
 instance Prelude.Hashable UpdateBrowserSettings where
   hashWithSalt _salt UpdateBrowserSettings' {..} =

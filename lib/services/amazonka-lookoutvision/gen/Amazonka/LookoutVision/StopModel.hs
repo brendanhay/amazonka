@@ -154,6 +154,8 @@ instance Core.AWSRequest StopModel where
             Prelude.<$> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just (Prelude.ALens stopModel_clientToken)
 
 instance Prelude.Hashable StopModel where
   hashWithSalt _salt StopModel' {..} =

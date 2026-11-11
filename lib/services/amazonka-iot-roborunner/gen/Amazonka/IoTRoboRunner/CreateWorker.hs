@@ -160,6 +160,9 @@ instance Core.AWSRequest CreateWorker where
             Prelude.<*> (x Data..:> "updatedAt")
             Prelude.<*> (x Data..:> "site")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createWorker_clientToken)
 
 instance Prelude.Hashable CreateWorker where
   hashWithSalt _salt CreateWorker' {..} =

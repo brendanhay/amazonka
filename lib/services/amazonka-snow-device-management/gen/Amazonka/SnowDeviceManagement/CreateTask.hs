@@ -144,6 +144,8 @@ instance Core.AWSRequest CreateTask where
             Prelude.<*> (x Data..?> "taskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just (Prelude.ALens createTask_clientToken)
 
 instance Prelude.Hashable CreateTask where
   hashWithSalt _salt CreateTask' {..} =

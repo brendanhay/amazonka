@@ -206,6 +206,9 @@ instance Core.AWSRequest CreateModel where
             Prelude.<$> (x Data..?> "ModelMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createModel_clientToken)
 
 instance Prelude.Hashable CreateModel where
   hashWithSalt _salt CreateModel' {..} =

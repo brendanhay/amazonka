@@ -124,6 +124,8 @@ instance Core.AWSRequest CreateForm where
             Prelude.<$> (Data.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just (Prelude.ALens createForm_clientToken)
 
 instance Prelude.Hashable CreateForm where
   hashWithSalt _salt CreateForm' {..} =

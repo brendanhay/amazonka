@@ -150,6 +150,11 @@ instance
             Prelude.<*> (x Data..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          associateIdentityProviderConfig_clientRequestToken
+      )
 
 instance
   Prelude.Hashable

@@ -163,6 +163,11 @@ instance Core.AWSRequest AssociateOriginationIdentity where
             Prelude.<*> (x Data..?> "PoolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          associateOriginationIdentity_clientToken
+      )
 
 instance
   Prelude.Hashable

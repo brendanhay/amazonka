@@ -201,6 +201,8 @@ instance Core.AWSRequest StartModel where
             Prelude.<$> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just (Prelude.ALens startModel_clientToken)
 
 instance Prelude.Hashable StartModel where
   hashWithSalt _salt StartModel' {..} =

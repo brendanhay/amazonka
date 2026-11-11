@@ -126,6 +126,9 @@ instance Core.AWSRequest CreateAddressBook where
             Prelude.<$> (x Data..?> "AddressBookArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createAddressBook_clientRequestToken)
 
 instance Prelude.Hashable CreateAddressBook where
   hashWithSalt _salt CreateAddressBook' {..} =

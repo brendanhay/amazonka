@@ -162,6 +162,9 @@ instance Core.AWSRequest CreateCodeReview where
             Prelude.<$> (x Data..?> "CodeReview")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createCodeReview_clientRequestToken)
 
 instance Prelude.Hashable CreateCodeReview where
   hashWithSalt _salt CreateCodeReview' {..} =

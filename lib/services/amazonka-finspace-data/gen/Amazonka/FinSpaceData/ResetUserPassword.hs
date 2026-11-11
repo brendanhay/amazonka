@@ -107,6 +107,9 @@ instance Core.AWSRequest ResetUserPassword where
             Prelude.<*> (x Data..?> "userId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens resetUserPassword_clientToken)
 
 instance Prelude.Hashable ResetUserPassword where
   hashWithSalt _salt ResetUserPassword' {..} =

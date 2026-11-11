@@ -140,6 +140,9 @@ instance Core.AWSRequest CreateAccessPolicy where
             Prelude.<$> (x Data..?> "accessPolicyDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createAccessPolicy_clientToken)
 
 instance Prelude.Hashable CreateAccessPolicy where
   hashWithSalt _salt CreateAccessPolicy' {..} =

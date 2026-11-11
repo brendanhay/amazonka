@@ -180,6 +180,9 @@ instance Core.AWSRequest UpdateReportPlan where
             Prelude.<*> (x Data..?> "ReportPlanName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateReportPlan_idempotencyToken)
 
 instance Prelude.Hashable UpdateReportPlan where
   hashWithSalt _salt UpdateReportPlan' {..} =

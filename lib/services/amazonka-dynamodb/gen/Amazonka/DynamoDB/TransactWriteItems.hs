@@ -263,6 +263,9 @@ instance Core.AWSRequest TransactWriteItems where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens transactWriteItems_clientRequestToken)
 
 instance Prelude.Hashable TransactWriteItems where
   hashWithSalt _salt TransactWriteItems' {..} =

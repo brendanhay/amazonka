@@ -212,6 +212,9 @@ instance Core.AWSRequest UpdatePortal where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "portalStatus")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updatePortal_clientToken)
 
 instance Prelude.Hashable UpdatePortal where
   hashWithSalt _salt UpdatePortal' {..} =

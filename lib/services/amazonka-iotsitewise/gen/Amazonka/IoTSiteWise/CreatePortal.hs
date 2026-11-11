@@ -310,6 +310,9 @@ instance Core.AWSRequest CreatePortal where
             Prelude.<*> (x Data..:> "portalStatus")
             Prelude.<*> (x Data..:> "ssoApplicationId")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createPortal_clientToken)
 
 instance Prelude.Hashable CreatePortal where
   hashWithSalt _salt CreatePortal' {..} =

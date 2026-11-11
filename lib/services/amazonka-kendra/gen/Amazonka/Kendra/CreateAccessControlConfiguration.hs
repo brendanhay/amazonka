@@ -203,6 +203,11 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Id")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createAccessControlConfiguration_clientToken
+      )
 
 instance
   Prelude.Hashable

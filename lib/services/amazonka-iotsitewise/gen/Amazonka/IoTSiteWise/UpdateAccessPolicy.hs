@@ -153,6 +153,9 @@ instance Core.AWSRequest UpdateAccessPolicy where
           UpdateAccessPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateAccessPolicy_clientToken)
 
 instance Prelude.Hashable UpdateAccessPolicy where
   hashWithSalt _salt UpdateAccessPolicy' {..} =

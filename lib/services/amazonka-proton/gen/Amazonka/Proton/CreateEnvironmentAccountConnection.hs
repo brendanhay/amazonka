@@ -250,6 +250,11 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "environmentAccountConnection")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createEnvironmentAccountConnection_clientToken
+      )
 
 instance
   Prelude.Hashable

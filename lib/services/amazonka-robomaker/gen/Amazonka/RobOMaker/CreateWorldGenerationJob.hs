@@ -160,6 +160,11 @@ instance Core.AWSRequest CreateWorldGenerationJob where
             Prelude.<*> (x Data..?> "worldTags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createWorldGenerationJob_clientRequestToken
+      )
 
 instance Prelude.Hashable CreateWorldGenerationJob where
   hashWithSalt _salt CreateWorldGenerationJob' {..} =

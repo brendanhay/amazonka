@@ -107,6 +107,11 @@ instance
           PutFindingsPublicationConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          putFindingsPublicationConfiguration_clientToken
+      )
 
 instance
   Prelude.Hashable

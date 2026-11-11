@@ -227,6 +227,9 @@ instance Core.AWSRequest CreateChannel' where
             Prelude.<$> (x Data..?> "channel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createChannel'_requestId)
 
 instance Prelude.Hashable CreateChannel' where
   hashWithSalt _salt CreateChannel'' {..} =

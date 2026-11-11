@@ -151,6 +151,9 @@ instance Core.AWSRequest UpdateSecurityPolicy where
             Prelude.<$> (x Data..?> "securityPolicyDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateSecurityPolicy_clientToken)
 
 instance Prelude.Hashable UpdateSecurityPolicy where
   hashWithSalt _salt UpdateSecurityPolicy' {..} =

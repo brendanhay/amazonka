@@ -155,6 +155,11 @@ instance
             Prelude.<*> (x Data..@? "policyEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          modifyVerifiedAccessEndpointPolicy_clientToken
+      )
 
 instance
   Prelude.Hashable

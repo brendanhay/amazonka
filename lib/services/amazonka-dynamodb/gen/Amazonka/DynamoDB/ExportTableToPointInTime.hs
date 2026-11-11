@@ -243,6 +243,9 @@ instance Core.AWSRequest ExportTableToPointInTime where
             Prelude.<$> (x Data..?> "ExportDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens exportTableToPointInTime_clientToken)
 
 instance Prelude.Hashable ExportTableToPointInTime where
   hashWithSalt _salt ExportTableToPointInTime' {..} =

@@ -162,6 +162,11 @@ instance Core.AWSRequest RestoreVolumeFromSnapshot where
             Prelude.<*> (x Data..?> "VolumeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          restoreVolumeFromSnapshot_clientRequestToken
+      )
 
 instance Prelude.Hashable RestoreVolumeFromSnapshot where
   hashWithSalt _salt RestoreVolumeFromSnapshot' {..} =

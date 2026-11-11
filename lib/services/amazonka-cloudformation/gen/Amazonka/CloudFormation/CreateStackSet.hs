@@ -666,6 +666,9 @@ instance Core.AWSRequest CreateStackSet where
             Prelude.<$> (x Data..@? "StackSetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createStackSet_clientRequestToken)
 
 instance Prelude.Hashable CreateStackSet where
   hashWithSalt _salt CreateStackSet' {..} =

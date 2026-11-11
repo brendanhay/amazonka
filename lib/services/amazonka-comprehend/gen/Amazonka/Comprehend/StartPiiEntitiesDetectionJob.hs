@@ -224,6 +224,11 @@ instance Core.AWSRequest StartPiiEntitiesDetectionJob where
             Prelude.<*> (x Data..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          startPiiEntitiesDetectionJob_clientRequestToken
+      )
 
 instance
   Prelude.Hashable

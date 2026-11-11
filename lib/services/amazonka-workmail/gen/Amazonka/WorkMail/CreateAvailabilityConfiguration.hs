@@ -154,6 +154,11 @@ instance
           CreateAvailabilityConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createAvailabilityConfiguration_clientToken
+      )
 
 instance
   Prelude.Hashable

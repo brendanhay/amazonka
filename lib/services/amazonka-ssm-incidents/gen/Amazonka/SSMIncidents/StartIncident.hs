@@ -212,6 +212,9 @@ instance Core.AWSRequest StartIncident where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "incidentRecordArn")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens startIncident_clientToken)
 
 instance Prelude.Hashable StartIncident where
   hashWithSalt _salt StartIncident' {..} =

@@ -116,6 +116,11 @@ instance
           DisassociateUserFromPermissionGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          disassociateUserFromPermissionGroup_clientToken
+      )
 
 instance
   Prelude.Hashable

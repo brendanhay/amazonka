@@ -225,6 +225,11 @@ instance Core.AWSRequest CreateDataRepositoryTask where
             Prelude.<$> (x Data..?> "DataRepositoryTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createDataRepositoryTask_clientRequestToken
+      )
 
 instance Prelude.Hashable CreateDataRepositoryTask where
   hashWithSalt _salt CreateDataRepositoryTask' {..} =

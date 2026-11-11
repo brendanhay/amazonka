@@ -142,6 +142,9 @@ instance Core.AWSRequest CreateHttpNamespace where
             Prelude.<$> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createHttpNamespace_creatorRequestId)
 
 instance Prelude.Hashable CreateHttpNamespace where
   hashWithSalt _salt CreateHttpNamespace' {..} =

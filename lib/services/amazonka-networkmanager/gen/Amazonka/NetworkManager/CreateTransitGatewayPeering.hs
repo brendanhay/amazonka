@@ -124,6 +124,11 @@ instance Core.AWSRequest CreateTransitGatewayPeering where
             Prelude.<$> (x Data..?> "TransitGatewayPeering")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createTransitGatewayPeering_clientToken
+      )
 
 instance Prelude.Hashable CreateTransitGatewayPeering where
   hashWithSalt _salt CreateTransitGatewayPeering' {..} =

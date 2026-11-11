@@ -125,6 +125,11 @@ instance
             Prelude.<*> (x Data..?> "Lifecycle")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          deleteDataRepositoryAssociation_clientRequestToken
+      )
 
 instance
   Prelude.Hashable

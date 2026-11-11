@@ -186,6 +186,9 @@ instance Core.AWSRequest ImportTable where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ImportTableDescription")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens importTable_clientToken)
 
 instance Prelude.Hashable ImportTable where
   hashWithSalt _salt ImportTable' {..} =

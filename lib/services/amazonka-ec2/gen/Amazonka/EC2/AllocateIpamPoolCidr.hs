@@ -247,6 +247,9 @@ instance Core.AWSRequest AllocateIpamPoolCidr where
             Prelude.<$> (x Data..@? "ipamPoolAllocation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens allocateIpamPoolCidr_clientToken)
 
 instance Prelude.Hashable AllocateIpamPoolCidr where
   hashWithSalt _salt AllocateIpamPoolCidr' {..} =

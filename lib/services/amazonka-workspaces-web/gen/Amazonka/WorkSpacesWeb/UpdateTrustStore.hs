@@ -141,6 +141,9 @@ instance Core.AWSRequest UpdateTrustStore where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "trustStoreArn")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateTrustStore_clientToken)
 
 instance Prelude.Hashable UpdateTrustStore where
   hashWithSalt _salt UpdateTrustStore' {..} =

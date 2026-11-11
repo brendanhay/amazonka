@@ -150,6 +150,9 @@ instance Core.AWSRequest PutLaunchProfileMembers where
           PutLaunchProfileMembersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens putLaunchProfileMembers_clientToken)
 
 instance Prelude.Hashable PutLaunchProfileMembers where
   hashWithSalt _salt PutLaunchProfileMembers' {..} =

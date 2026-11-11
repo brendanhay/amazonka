@@ -116,6 +116,9 @@ instance Core.AWSRequest EnableMacie where
           EnableMacieResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens enableMacie_clientToken)
 
 instance Prelude.Hashable EnableMacie where
   hashWithSalt _salt EnableMacie' {..} =

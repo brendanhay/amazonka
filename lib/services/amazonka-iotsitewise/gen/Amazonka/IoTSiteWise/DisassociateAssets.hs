@@ -139,6 +139,9 @@ instance Core.AWSRequest DisassociateAssets where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveNull DisassociateAssetsResponse'
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens disassociateAssets_clientToken)
 
 instance Prelude.Hashable DisassociateAssets where
   hashWithSalt _salt DisassociateAssets' {..} =

@@ -124,6 +124,11 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "studio")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          startStudioSSOConfigurationRepair_clientToken
+      )
 
 instance
   Prelude.Hashable

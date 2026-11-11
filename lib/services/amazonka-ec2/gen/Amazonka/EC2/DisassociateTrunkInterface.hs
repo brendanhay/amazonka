@@ -131,6 +131,11 @@ instance Core.AWSRequest DisassociateTrunkInterface where
             Prelude.<*> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          disassociateTrunkInterface_clientToken
+      )
 
 instance Prelude.Hashable DisassociateTrunkInterface where
   hashWithSalt _salt DisassociateTrunkInterface' {..} =

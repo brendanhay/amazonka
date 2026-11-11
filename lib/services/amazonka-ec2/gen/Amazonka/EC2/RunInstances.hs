@@ -1092,6 +1092,9 @@ instance Core.AWSRequest RunInstances where
     Request.postQuery (overrides defaultService)
   response =
     Response.receiveXML (\s h x -> Data.parseXML x)
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens runInstances_clientToken)
 
 instance Prelude.Hashable RunInstances where
   hashWithSalt _salt RunInstances' {..} =

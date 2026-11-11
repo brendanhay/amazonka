@@ -187,6 +187,9 @@ instance Core.AWSRequest StartVectorEnrichmentJob where
             Prelude.<*> (x Data..:> "Status")
             Prelude.<*> (x Data..:> "Type")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens startVectorEnrichmentJob_clientToken)
 
 instance Prelude.Hashable StartVectorEnrichmentJob where
   hashWithSalt _salt StartVectorEnrichmentJob' {..} =

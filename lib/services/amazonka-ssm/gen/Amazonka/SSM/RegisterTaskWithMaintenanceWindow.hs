@@ -509,6 +509,11 @@ instance
             Prelude.<$> (x Data..?> "WindowTaskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          registerTaskWithMaintenanceWindow_clientToken
+      )
 
 instance
   Prelude.Hashable

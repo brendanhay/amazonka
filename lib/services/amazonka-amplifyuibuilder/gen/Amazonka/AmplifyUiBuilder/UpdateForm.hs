@@ -137,6 +137,8 @@ instance Core.AWSRequest UpdateForm where
             Prelude.<$> (Data.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just (Prelude.ALens updateForm_clientToken)
 
 instance Prelude.Hashable UpdateForm where
   hashWithSalt _salt UpdateForm' {..} =

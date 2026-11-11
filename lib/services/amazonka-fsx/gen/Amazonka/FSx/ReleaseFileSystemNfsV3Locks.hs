@@ -99,6 +99,11 @@ instance Core.AWSRequest ReleaseFileSystemNfsV3Locks where
             Prelude.<$> (x Data..?> "FileSystem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          releaseFileSystemNfsV3Locks_clientRequestToken
+      )
 
 instance Prelude.Hashable ReleaseFileSystemNfsV3Locks where
   hashWithSalt _salt ReleaseFileSystemNfsV3Locks' {..} =

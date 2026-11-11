@@ -146,6 +146,9 @@ instance Core.AWSRequest UpdateSecurityConfig where
             Prelude.<$> (x Data..?> "securityConfigDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateSecurityConfig_clientToken)
 
 instance Prelude.Hashable UpdateSecurityConfig where
   hashWithSalt _salt UpdateSecurityConfig' {..} =

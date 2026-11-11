@@ -131,6 +131,11 @@ instance
             Prelude.<$> (x Data..?> "SiteToSiteVpnAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createSiteToSiteVpnAttachment_clientToken
+      )
 
 instance
   Prelude.Hashable

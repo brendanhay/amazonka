@@ -348,6 +348,9 @@ instance Core.AWSRequest CreateService where
             Prelude.<$> (x Data..?> "Service")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createService_creatorRequestId)
 
 instance Prelude.Hashable CreateService where
   hashWithSalt _salt CreateService' {..} =

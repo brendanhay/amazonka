@@ -361,6 +361,9 @@ instance Core.AWSRequest PutSecretValue where
             Prelude.<*> (x Data..?> "VersionStages")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens putSecretValue_clientRequestToken)
 
 instance Prelude.Hashable PutSecretValue where
   hashWithSalt _salt PutSecretValue' {..} =

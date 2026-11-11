@@ -136,6 +136,9 @@ instance Core.AWSRequest UpdateFindings where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateFindingsResponse'
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateFindings_clientToken)
 
 instance Prelude.Hashable UpdateFindings where
   hashWithSalt _salt UpdateFindings' {..} =

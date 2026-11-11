@@ -105,6 +105,11 @@ instance Core.AWSRequest DeleteStorageVirtualMachine where
             Prelude.<*> (x Data..?> "StorageVirtualMachineId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          deleteStorageVirtualMachine_clientRequestToken
+      )
 
 instance Prelude.Hashable DeleteStorageVirtualMachine where
   hashWithSalt _salt DeleteStorageVirtualMachine' {..} =

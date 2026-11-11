@@ -128,6 +128,11 @@ instance
             Prelude.<*> (x Data..?> "Sidewalk")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          associateAwsAccountWithPartnerAccount_clientRequestToken
+      )
 
 instance
   Prelude.Hashable

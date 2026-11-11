@@ -205,6 +205,8 @@ instance Core.AWSRequest CreatePool where
             Prelude.<*> (x Data..?> "TwoWayEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just (Prelude.ALens createPool_clientToken)
 
 instance Prelude.Hashable CreatePool where
   hashWithSalt _salt CreatePool' {..} =

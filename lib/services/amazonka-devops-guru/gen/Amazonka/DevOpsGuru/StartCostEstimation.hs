@@ -101,6 +101,9 @@ instance Core.AWSRequest StartCostEstimation where
           StartCostEstimationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens startCostEstimation_clientToken)
 
 instance Prelude.Hashable StartCostEstimation where
   hashWithSalt _salt StartCostEstimation' {..} =

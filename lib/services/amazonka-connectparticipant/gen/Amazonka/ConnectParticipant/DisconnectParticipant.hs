@@ -113,6 +113,9 @@ instance Core.AWSRequest DisconnectParticipant where
           DisconnectParticipantResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens disconnectParticipant_clientToken)
 
 instance Prelude.Hashable DisconnectParticipant where
   hashWithSalt _salt DisconnectParticipant' {..} =

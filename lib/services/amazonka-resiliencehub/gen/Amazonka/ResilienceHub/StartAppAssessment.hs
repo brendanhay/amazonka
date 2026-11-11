@@ -157,6 +157,9 @@ instance Core.AWSRequest StartAppAssessment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "assessment")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens startAppAssessment_clientToken)
 
 instance Prelude.Hashable StartAppAssessment where
   hashWithSalt _salt StartAppAssessment' {..} =

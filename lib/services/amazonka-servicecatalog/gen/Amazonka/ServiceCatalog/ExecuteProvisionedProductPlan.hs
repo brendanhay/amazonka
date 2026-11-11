@@ -65,7 +65,7 @@ data ExecuteProvisionedProductPlan = ExecuteProvisionedProductPlan'
     -- | A unique identifier that you provide to ensure idempotency. If multiple
     -- requests differ only by the idempotency token, the same response is
     -- returned for each repeated request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,18 +93,14 @@ data ExecuteProvisionedProductPlan = ExecuteProvisionedProductPlan'
 newExecuteProvisionedProductPlan ::
   -- | 'planId'
   Prelude.Text ->
-  -- | 'idempotencyToken'
-  Prelude.Text ->
   ExecuteProvisionedProductPlan
-newExecuteProvisionedProductPlan
-  pPlanId_
-  pIdempotencyToken_ =
-    ExecuteProvisionedProductPlan'
-      { acceptLanguage =
-          Prelude.Nothing,
-        planId = pPlanId_,
-        idempotencyToken = pIdempotencyToken_
-      }
+newExecuteProvisionedProductPlan pPlanId_ =
+  ExecuteProvisionedProductPlan'
+    { acceptLanguage =
+        Prelude.Nothing,
+      planId = pPlanId_,
+      idempotencyToken = Prelude.Nothing
+    }
 
 -- | The language code.
 --
@@ -123,7 +119,7 @@ executeProvisionedProductPlan_planId = Lens.lens (\ExecuteProvisionedProductPlan
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
-executeProvisionedProductPlan_idempotencyToken :: Lens.Lens' ExecuteProvisionedProductPlan Prelude.Text
+executeProvisionedProductPlan_idempotencyToken :: Lens.Lens' ExecuteProvisionedProductPlan (Prelude.Maybe Prelude.Text)
 executeProvisionedProductPlan_idempotencyToken = Lens.lens (\ExecuteProvisionedProductPlan' {idempotencyToken} -> idempotencyToken) (\s@ExecuteProvisionedProductPlan' {} a -> s {idempotencyToken = a} :: ExecuteProvisionedProductPlan)
 
 instance
@@ -141,6 +137,11 @@ instance
           ExecuteProvisionedProductPlanResponse'
             Prelude.<$> (x Data..?> "RecordDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          executeProvisionedProductPlan_idempotencyToken
       )
 
 instance
@@ -181,8 +182,8 @@ instance Data.ToJSON ExecuteProvisionedProductPlan where
           [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
             Prelude.Just ("PlanId" Data..= planId),
-            Prelude.Just
-              ("IdempotencyToken" Data..= idempotencyToken)
+            ("IdempotencyToken" Data..=)
+              Prelude.<$> idempotencyToken
           ]
       )
 

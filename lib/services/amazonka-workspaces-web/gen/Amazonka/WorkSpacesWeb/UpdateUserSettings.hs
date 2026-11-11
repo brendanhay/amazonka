@@ -211,6 +211,9 @@ instance Core.AWSRequest UpdateUserSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "userSettings")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateUserSettings_clientToken)
 
 instance Prelude.Hashable UpdateUserSettings where
   hashWithSalt _salt UpdateUserSettings' {..} =

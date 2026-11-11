@@ -131,6 +131,9 @@ instance Core.AWSRequest PostCommentReply where
             Prelude.<$> (x Data..?> "comment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens postCommentReply_clientRequestToken)
 
 instance Prelude.Hashable PostCommentReply where
   hashWithSalt _salt PostCommentReply' {..} =

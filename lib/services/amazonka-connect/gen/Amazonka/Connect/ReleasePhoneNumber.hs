@@ -109,6 +109,9 @@ instance Core.AWSRequest ReleasePhoneNumber where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull ReleasePhoneNumberResponse'
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens releasePhoneNumber_clientToken)
 
 instance Prelude.Hashable ReleasePhoneNumber where
   hashWithSalt _salt ReleasePhoneNumber' {..} =

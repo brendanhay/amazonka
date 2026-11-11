@@ -161,6 +161,9 @@ instance Core.AWSRequest CreateDataView where
             Prelude.<*> (x Data..?> "datasetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createDataView_clientToken)
 
 instance Prelude.Hashable CreateDataView where
   hashWithSalt _salt CreateDataView' {..} =

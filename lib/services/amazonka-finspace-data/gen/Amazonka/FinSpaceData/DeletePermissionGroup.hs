@@ -100,6 +100,9 @@ instance Core.AWSRequest DeletePermissionGroup where
             Prelude.<$> (x Data..?> "permissionGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deletePermissionGroup_clientToken)
 
 instance Prelude.Hashable DeletePermissionGroup where
   hashWithSalt _salt DeletePermissionGroup' {..} =

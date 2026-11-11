@@ -280,6 +280,11 @@ instance
             Prelude.<$> (x Data..?> "WindowTargetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          registerTargetWithMaintenanceWindow_clientToken
+      )
 
 instance
   Prelude.Hashable

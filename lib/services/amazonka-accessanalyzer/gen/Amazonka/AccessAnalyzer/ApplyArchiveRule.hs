@@ -105,6 +105,9 @@ instance Core.AWSRequest ApplyArchiveRule where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull ApplyArchiveRuleResponse'
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens applyArchiveRule_clientToken)
 
 instance Prelude.Hashable ApplyArchiveRule where
   hashWithSalt _salt ApplyArchiveRule' {..} =

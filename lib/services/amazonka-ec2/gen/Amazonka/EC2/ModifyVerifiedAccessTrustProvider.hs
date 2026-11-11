@@ -157,6 +157,11 @@ instance
             Prelude.<$> (x Data..@? "verifiedAccessTrustProvider")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          modifyVerifiedAccessTrustProvider_clientToken
+      )
 
 instance
   Prelude.Hashable

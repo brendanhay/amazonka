@@ -145,6 +145,9 @@ instance Core.AWSRequest ModifyVerifiedAccessGroup where
             Prelude.<$> (x Data..@? "verifiedAccessGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens modifyVerifiedAccessGroup_clientToken)
 
 instance Prelude.Hashable ModifyVerifiedAccessGroup where
   hashWithSalt _salt ModifyVerifiedAccessGroup' {..} =

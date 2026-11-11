@@ -157,6 +157,9 @@ instance Core.AWSRequest UpdateVirtualService where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Data.eitherParseJSON x)
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateVirtualService_clientToken)
 
 instance Prelude.Hashable UpdateVirtualService where
   hashWithSalt _salt UpdateVirtualService' {..} =

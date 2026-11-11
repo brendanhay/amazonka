@@ -233,6 +233,9 @@ instance Core.AWSRequest CreateComponentVersion where
             Prelude.<*> (x Data..:> "creationTimestamp")
             Prelude.<*> (x Data..:> "status")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createComponentVersion_clientToken)
 
 instance Prelude.Hashable CreateComponentVersion where
   hashWithSalt _salt CreateComponentVersion' {..} =

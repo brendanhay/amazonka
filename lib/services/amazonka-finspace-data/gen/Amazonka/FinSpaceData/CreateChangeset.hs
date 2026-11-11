@@ -279,6 +279,9 @@ instance Core.AWSRequest CreateChangeset where
             Prelude.<*> (x Data..?> "datasetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createChangeset_clientToken)
 
 instance Prelude.Hashable CreateChangeset where
   hashWithSalt _salt CreateChangeset' {..} =

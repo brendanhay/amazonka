@@ -116,6 +116,11 @@ instance
           AssociateUserToPermissionGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          associateUserToPermissionGroup_clientToken
+      )
 
 instance
   Prelude.Hashable

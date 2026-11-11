@@ -209,6 +209,9 @@ instance Core.AWSRequest UpdatePermissionGroup where
             Prelude.<$> (x Data..?> "permissionGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updatePermissionGroup_clientToken)
 
 instance Prelude.Hashable UpdatePermissionGroup where
   hashWithSalt _salt UpdatePermissionGroup' {..} =

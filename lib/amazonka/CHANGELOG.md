@@ -4,7 +4,7 @@
 
 ### Changed
 
-- `amazonka` will now store idempotency tokens into requests that support them but have not been set by the caller, generating a UUID v4 like @botocore@.
+- `amazonka` will now store idempotency tokens into requests that support them but have not been set by the caller, generating a UUID v4 like `botocore`.
   - `amazonka-core`: Class `AWSRequest` has a new method `idempotencyTokenLens :: Maybe (ALens' a (Maybe Text))`. If a request type contains an idempotency token, this is `Just` a lens onto it, otherwise the class's default will leave it as `Nothing`.
 - `amazonka`: `Amazonka.Auth.SSO.fromSSO` throws an `AuthError` now.  Previously
   it could throw a `Amazonka.Types.Error`.

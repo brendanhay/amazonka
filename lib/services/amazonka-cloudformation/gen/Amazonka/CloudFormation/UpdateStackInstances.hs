@@ -401,6 +401,9 @@ instance Core.AWSRequest UpdateStackInstances where
             Prelude.<$> (x Data..@? "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateStackInstances_operationId)
 
 instance Prelude.Hashable UpdateStackInstances where
   hashWithSalt _salt UpdateStackInstances' {..} =

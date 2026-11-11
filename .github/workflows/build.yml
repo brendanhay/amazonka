@@ -52,7 +52,11 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            ghc: ghc96 # Latest mainline GHC
+            ghc: ghc912 # Latest mainline GHC
+          - os: ubuntu-latest
+            ghc: ghc910
+          - os: ubuntu-latest
+            ghc: ghc96
           - os: ubuntu-latest
             ghc: ghc94 # Most industrially-relevant GHC
           - os: ubuntu-latest

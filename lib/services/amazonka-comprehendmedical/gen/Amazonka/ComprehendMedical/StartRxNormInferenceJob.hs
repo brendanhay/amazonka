@@ -180,6 +180,11 @@ instance Core.AWSRequest StartRxNormInferenceJob where
             Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          startRxNormInferenceJob_clientRequestToken
+      )
 
 instance Prelude.Hashable StartRxNormInferenceJob where
   hashWithSalt _salt StartRxNormInferenceJob' {..} =

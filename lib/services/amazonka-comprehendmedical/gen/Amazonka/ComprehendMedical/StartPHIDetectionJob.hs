@@ -180,6 +180,11 @@ instance Core.AWSRequest StartPHIDetectionJob where
             Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          startPHIDetectionJob_clientRequestToken
+      )
 
 instance Prelude.Hashable StartPHIDetectionJob where
   hashWithSalt _salt StartPHIDetectionJob' {..} =

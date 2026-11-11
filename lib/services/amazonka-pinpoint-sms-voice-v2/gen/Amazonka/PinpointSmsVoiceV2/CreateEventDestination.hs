@@ -196,6 +196,9 @@ instance Core.AWSRequest CreateEventDestination where
             Prelude.<*> (x Data..?> "EventDestination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createEventDestination_clientToken)
 
 instance Prelude.Hashable CreateEventDestination where
   hashWithSalt _salt CreateEventDestination' {..} =

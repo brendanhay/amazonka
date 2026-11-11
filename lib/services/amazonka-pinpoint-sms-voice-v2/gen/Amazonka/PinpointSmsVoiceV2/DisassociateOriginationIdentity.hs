@@ -163,6 +163,11 @@ instance
             Prelude.<*> (x Data..?> "PoolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          disassociateOriginationIdentity_clientToken
+      )
 
 instance
   Prelude.Hashable

@@ -160,6 +160,9 @@ instance Core.AWSRequest UpdateNetworkSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "networkSettings")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateNetworkSettings_clientToken)
 
 instance Prelude.Hashable UpdateNetworkSettings where
   hashWithSalt _salt UpdateNetworkSettings' {..} =

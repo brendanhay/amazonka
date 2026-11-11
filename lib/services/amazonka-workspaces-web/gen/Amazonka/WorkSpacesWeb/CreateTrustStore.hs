@@ -134,6 +134,9 @@ instance Core.AWSRequest CreateTrustStore where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "trustStoreArn")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createTrustStore_clientToken)
 
 instance Prelude.Hashable CreateTrustStore where
   hashWithSalt _salt CreateTrustStore' {..} =

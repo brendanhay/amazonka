@@ -334,6 +334,9 @@ instance Core.AWSRequest UpdateIdentityProvider where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "identityProvider")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateIdentityProvider_clientToken)
 
 instance Prelude.Hashable UpdateIdentityProvider where
   hashWithSalt _salt UpdateIdentityProvider' {..} =

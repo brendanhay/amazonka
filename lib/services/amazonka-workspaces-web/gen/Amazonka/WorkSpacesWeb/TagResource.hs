@@ -126,6 +126,9 @@ instance Core.AWSRequest TagResource where
           TagResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens tagResource_clientToken)
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =

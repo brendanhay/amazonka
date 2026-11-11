@@ -177,6 +177,11 @@ instance Core.AWSRequest CreateBusinessReportSchedule where
             Prelude.<$> (x Data..?> "ScheduleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createBusinessReportSchedule_clientRequestToken
+      )
 
 instance
   Prelude.Hashable

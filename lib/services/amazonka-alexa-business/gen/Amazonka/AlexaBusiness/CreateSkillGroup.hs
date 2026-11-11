@@ -123,6 +123,9 @@ instance Core.AWSRequest CreateSkillGroup where
             Prelude.<$> (x Data..?> "SkillGroupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createSkillGroup_clientRequestToken)
 
 instance Prelude.Hashable CreateSkillGroup where
   hashWithSalt _salt CreateSkillGroup' {..} =

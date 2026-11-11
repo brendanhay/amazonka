@@ -140,6 +140,9 @@ instance Core.AWSRequest CreateRoom where
             Prelude.<$> (x Data..?> "RoomArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createRoom_clientRequestToken)
 
 instance Prelude.Hashable CreateRoom where
   hashWithSalt _salt CreateRoom' {..} =

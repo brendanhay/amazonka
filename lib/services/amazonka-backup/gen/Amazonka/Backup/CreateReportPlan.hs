@@ -204,6 +204,9 @@ instance Core.AWSRequest CreateReportPlan where
             Prelude.<*> (x Data..?> "ReportPlanName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createReportPlan_idempotencyToken)
 
 instance Prelude.Hashable CreateReportPlan where
   hashWithSalt _salt CreateReportPlan' {..} =

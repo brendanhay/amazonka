@@ -146,6 +146,9 @@ instance Core.AWSRequest UpdateFramework where
             Prelude.<*> (x Data..?> "FrameworkName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateFramework_idempotencyToken)
 
 instance Prelude.Hashable UpdateFramework where
   hashWithSalt _salt UpdateFramework' {..} =

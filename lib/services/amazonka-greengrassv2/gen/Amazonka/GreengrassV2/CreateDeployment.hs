@@ -239,6 +239,9 @@ instance Core.AWSRequest CreateDeployment where
             Prelude.<*> (x Data..?> "iotJobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createDeployment_clientToken)
 
 instance Prelude.Hashable CreateDeployment where
   hashWithSalt _salt CreateDeployment' {..} =

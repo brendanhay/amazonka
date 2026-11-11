@@ -127,6 +127,9 @@ instance Core.AWSRequest DeleteStreamingSession where
             Prelude.<$> (x Data..?> "session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deleteStreamingSession_clientToken)
 
 instance Prelude.Hashable DeleteStreamingSession where
   hashWithSalt _salt DeleteStreamingSession' {..} =

@@ -162,6 +162,9 @@ instance Core.AWSRequest CreateStreamingImage where
             Prelude.<$> (x Data..?> "streamingImage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createStreamingImage_clientToken)
 
 instance Prelude.Hashable CreateStreamingImage where
   hashWithSalt _salt CreateStreamingImage' {..} =

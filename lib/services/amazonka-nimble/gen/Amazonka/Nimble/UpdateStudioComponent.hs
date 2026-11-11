@@ -235,6 +235,9 @@ instance Core.AWSRequest UpdateStudioComponent where
             Prelude.<$> (x Data..?> "studioComponent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateStudioComponent_clientToken)
 
 instance Prelude.Hashable UpdateStudioComponent where
   hashWithSalt _salt UpdateStudioComponent' {..} =

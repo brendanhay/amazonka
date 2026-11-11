@@ -136,6 +136,11 @@ instance Core.AWSRequest CreateStreamingSessionStream where
             Prelude.<$> (x Data..?> "stream")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createStreamingSessionStream_clientToken
+      )
 
 instance
   Prelude.Hashable

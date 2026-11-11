@@ -121,6 +121,9 @@ instance Core.AWSRequest DeleteStreamingImage where
             Prelude.<$> (x Data..?> "streamingImage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deleteStreamingImage_clientToken)
 
 instance Prelude.Hashable DeleteStreamingImage where
   hashWithSalt _salt DeleteStreamingImage' {..} =

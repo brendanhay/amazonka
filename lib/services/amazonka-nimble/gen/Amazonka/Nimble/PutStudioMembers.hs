@@ -133,6 +133,9 @@ instance Core.AWSRequest PutStudioMembers where
           PutStudioMembersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens putStudioMembers_clientToken)
 
 instance Prelude.Hashable PutStudioMembers where
   hashWithSalt _salt PutStudioMembers' {..} =

@@ -119,6 +119,9 @@ instance Core.AWSRequest AcceptEulas where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens acceptEulas_clientToken)
 
 instance Prelude.Hashable AcceptEulas where
   hashWithSalt _salt AcceptEulas' {..} =

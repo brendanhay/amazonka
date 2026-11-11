@@ -106,6 +106,9 @@ instance Core.AWSRequest DeleteStudio where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "studio")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deleteStudio_clientToken)
 
 instance Prelude.Hashable DeleteStudio where
   hashWithSalt _salt DeleteStudio' {..} =

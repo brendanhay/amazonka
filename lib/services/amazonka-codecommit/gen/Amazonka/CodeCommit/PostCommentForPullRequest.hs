@@ -213,6 +213,11 @@ instance Core.AWSRequest PostCommentForPullRequest where
             Prelude.<*> (x Data..?> "repositoryName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          postCommentForPullRequest_clientRequestToken
+      )
 
 instance Prelude.Hashable PostCommentForPullRequest where
   hashWithSalt _salt PostCommentForPullRequest' {..} =

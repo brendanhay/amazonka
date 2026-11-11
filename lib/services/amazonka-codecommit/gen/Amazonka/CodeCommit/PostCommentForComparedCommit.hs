@@ -183,6 +183,11 @@ instance Core.AWSRequest PostCommentForComparedCommit where
             Prelude.<*> (x Data..?> "repositoryName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          postCommentForComparedCommit_clientRequestToken
+      )
 
 instance
   Prelude.Hashable

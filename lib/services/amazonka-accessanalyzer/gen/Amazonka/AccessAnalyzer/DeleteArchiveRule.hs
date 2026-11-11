@@ -107,6 +107,9 @@ instance Core.AWSRequest DeleteArchiveRule where
     Request.delete (overrides defaultService)
   response =
     Response.receiveNull DeleteArchiveRuleResponse'
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deleteArchiveRule_clientToken)
 
 instance Prelude.Hashable DeleteArchiveRule where
   hashWithSalt _salt DeleteArchiveRule' {..} =

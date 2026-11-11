@@ -140,6 +140,9 @@ instance Core.AWSRequest StartPolicyGeneration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "jobId")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens startPolicyGeneration_clientToken)
 
 instance Prelude.Hashable StartPolicyGeneration where
   hashWithSalt _salt StartPolicyGeneration' {..} =

@@ -128,6 +128,9 @@ instance Core.AWSRequest CreateAccessPreview where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "id")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createAccessPreview_clientToken)
 
 instance Prelude.Hashable CreateAccessPreview where
   hashWithSalt _salt CreateAccessPreview' {..} =

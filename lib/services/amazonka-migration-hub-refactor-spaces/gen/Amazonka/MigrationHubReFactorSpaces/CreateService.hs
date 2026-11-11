@@ -250,6 +250,9 @@ instance Core.AWSRequest CreateService where
             Prelude.<*> (x Data..?> "VpcId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createService_clientToken)
 
 instance Prelude.Hashable CreateService where
   hashWithSalt _salt CreateService' {..} =

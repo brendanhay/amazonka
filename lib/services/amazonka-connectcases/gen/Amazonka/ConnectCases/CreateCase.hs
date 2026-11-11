@@ -136,6 +136,8 @@ instance Core.AWSRequest CreateCase where
             Prelude.<*> (x Data..:> "caseArn")
             Prelude.<*> (x Data..:> "caseId")
       )
+  idempotencyTokenLens =
+    Prelude.Just (Prelude.ALens createCase_clientToken)
 
 instance Prelude.Hashable CreateCase where
   hashWithSalt _salt CreateCase' {..} =

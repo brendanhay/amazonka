@@ -175,6 +175,11 @@ instance Core.AWSRequest UpdateClusterConfig where
             Prelude.<$> (x Data..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          updateClusterConfig_clientRequestToken
+      )
 
 instance Prelude.Hashable UpdateClusterConfig where
   hashWithSalt _salt UpdateClusterConfig' {..} =

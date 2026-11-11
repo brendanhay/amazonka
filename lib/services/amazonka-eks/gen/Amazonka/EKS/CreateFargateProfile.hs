@@ -243,6 +243,11 @@ instance Core.AWSRequest CreateFargateProfile where
             Prelude.<$> (x Data..?> "fargateProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createFargateProfile_clientRequestToken
+      )
 
 instance Prelude.Hashable CreateFargateProfile where
   hashWithSalt _salt CreateFargateProfile' {..} =

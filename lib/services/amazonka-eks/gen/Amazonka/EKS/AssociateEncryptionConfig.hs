@@ -121,6 +121,11 @@ instance Core.AWSRequest AssociateEncryptionConfig where
             Prelude.<$> (x Data..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          associateEncryptionConfig_clientRequestToken
+      )
 
 instance Prelude.Hashable AssociateEncryptionConfig where
   hashWithSalt _salt AssociateEncryptionConfig' {..} =

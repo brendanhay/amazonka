@@ -245,6 +245,9 @@ instance Core.AWSRequest UpdateAddon where
             Prelude.<$> (x Data..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateAddon_clientRequestToken)
 
 instance Prelude.Hashable UpdateAddon where
   hashWithSalt _salt UpdateAddon' {..} =

@@ -176,6 +176,11 @@ instance Core.AWSRequest UpdateNodegroupConfig where
             Prelude.<$> (x Data..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          updateNodegroupConfig_clientRequestToken
+      )
 
 instance Prelude.Hashable UpdateNodegroupConfig where
   hashWithSalt _salt UpdateNodegroupConfig' {..} =

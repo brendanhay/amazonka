@@ -173,6 +173,9 @@ instance Core.AWSRequest CreateDataIntegration where
             Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createDataIntegration_clientToken)
 
 instance Prelude.Hashable CreateDataIntegration where
   hashWithSalt _salt CreateDataIntegration' {..} =

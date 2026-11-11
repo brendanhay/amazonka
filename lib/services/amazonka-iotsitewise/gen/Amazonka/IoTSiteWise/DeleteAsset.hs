@@ -110,6 +110,9 @@ instance Core.AWSRequest DeleteAsset where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "assetStatus")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deleteAsset_clientToken)
 
 instance Prelude.Hashable DeleteAsset where
   hashWithSalt _salt DeleteAsset' {..} =

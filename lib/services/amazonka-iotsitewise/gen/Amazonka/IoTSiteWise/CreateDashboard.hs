@@ -172,6 +172,9 @@ instance Core.AWSRequest CreateDashboard where
             Prelude.<*> (x Data..:> "dashboardId")
             Prelude.<*> (x Data..:> "dashboardArn")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createDashboard_clientToken)
 
 instance Prelude.Hashable CreateDashboard where
   hashWithSalt _salt CreateDashboard' {..} =

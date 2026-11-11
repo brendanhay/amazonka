@@ -119,6 +119,11 @@ instance Core.AWSRequest BatchAssociateProjectAssets where
             Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          batchAssociateProjectAssets_clientToken
+      )
 
 instance Prelude.Hashable BatchAssociateProjectAssets where
   hashWithSalt _salt BatchAssociateProjectAssets' {..} =

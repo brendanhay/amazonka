@@ -103,6 +103,9 @@ instance Core.AWSRequest DeletePortal where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "portalStatus")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens deletePortal_clientToken)
 
 instance Prelude.Hashable DeletePortal where
   hashWithSalt _salt DeletePortal' {..} =

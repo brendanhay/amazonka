@@ -189,6 +189,9 @@ instance Core.AWSRequest UpdateAssetProperty where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveNull UpdateAssetPropertyResponse'
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens updateAssetProperty_clientToken)
 
 instance Prelude.Hashable UpdateAssetProperty where
   hashWithSalt _salt UpdateAssetProperty' {..} =

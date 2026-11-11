@@ -151,6 +151,9 @@ instance Core.AWSRequest CreateProject where
             Prelude.<*> (x Data..:> "projectId")
             Prelude.<*> (x Data..:> "projectArn")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createProject_clientToken)
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =

@@ -124,6 +124,11 @@ instance
             Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          batchDisassociateProjectAssets_clientToken
+      )
 
 instance
   Prelude.Hashable

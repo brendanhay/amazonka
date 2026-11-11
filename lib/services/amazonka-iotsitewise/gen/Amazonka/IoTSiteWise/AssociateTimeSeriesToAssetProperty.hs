@@ -128,6 +128,11 @@ instance
   response =
     Response.receiveNull
       AssociateTimeSeriesToAssetPropertyResponse'
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          associateTimeSeriesToAssetProperty_clientToken
+      )
 
 instance
   Prelude.Hashable

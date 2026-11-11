@@ -235,6 +235,9 @@ instance Core.AWSRequest CreateAssetModel where
             Prelude.<*> (x Data..:> "assetModelArn")
             Prelude.<*> (x Data..:> "assetModelStatus")
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      (Prelude.ALens createAssetModel_clientToken)
 
 instance Prelude.Hashable CreateAssetModel where
   hashWithSalt _salt CreateAssetModel' {..} =

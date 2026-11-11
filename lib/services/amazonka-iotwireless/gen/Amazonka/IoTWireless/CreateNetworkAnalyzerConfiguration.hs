@@ -162,6 +162,11 @@ instance
             Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createNetworkAnalyzerConfiguration_clientRequestToken
+      )
 
 instance
   Prelude.Hashable

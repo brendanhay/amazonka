@@ -245,6 +245,11 @@ instance Core.AWSRequest StartKeyPhrasesDetectionJob where
             Prelude.<*> (x Data..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          startKeyPhrasesDetectionJob_clientRequestToken
+      )
 
 instance Prelude.Hashable StartKeyPhrasesDetectionJob where
   hashWithSalt _salt StartKeyPhrasesDetectionJob' {..} =

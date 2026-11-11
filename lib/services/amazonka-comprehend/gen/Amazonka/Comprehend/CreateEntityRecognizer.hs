@@ -352,6 +352,11 @@ instance Core.AWSRequest CreateEntityRecognizer where
             Prelude.<$> (x Data..?> "EntityRecognizerArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          createEntityRecognizer_clientRequestToken
+      )
 
 instance Prelude.Hashable CreateEntityRecognizer where
   hashWithSalt _salt CreateEntityRecognizer' {..} =

@@ -240,6 +240,11 @@ instance
             Prelude.<*> (x Data..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+  idempotencyTokenLens =
+    Prelude.Just
+      ( Prelude.ALens
+          startDocumentClassificationJob_clientRequestToken
+      )
 
 instance
   Prelude.Hashable

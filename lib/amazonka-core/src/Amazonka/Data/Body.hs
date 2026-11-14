@@ -254,15 +254,18 @@ data HashedBody
 instance Show HashedBody where
   show = \case
     HashedStream h n _ -> str "HashedStream" h n
-    HashedBytes h x -> str "HashedBody" h (BS.length x)
+    HashedBytes h x -> str "HashedBytes" h (BS.length x)
     where
       str c h n =
         BS8.unpack . toBS $
-          c
-            <> " { sha256 = "
-            <> build (Bytes.encodeBase16 h)
-            <> ", length = "
-            <> build n
+          mconcat
+            [ c,
+              " { sha256 = ",
+              build (Bytes.encodeBase16 h),
+              ", length = ",
+              build n,
+              " }"
+            ]
 
 instance IsString HashedBody where
   fromString = toHashed

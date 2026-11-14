@@ -354,7 +354,7 @@ md5Base64 = \case
 isStreaming :: RequestBody -> Bool
 isStreaming = \case
   UnsignedPayload -> False
-  Chunked {} -> False
+  Chunked {} -> True
   Hashed HashedStream {} -> True
   Hashed HashedBytes {} -> False
 

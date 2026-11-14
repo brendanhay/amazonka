@@ -743,6 +743,9 @@
 
 ### Fixed
 
+
+- `amazonka-core`: `Amazonka.Data.Body.isStreaming` once again considers `Chunked` bodies to be streaming, matching behaviour of `HashedStream` bodies.
+[\#1072](https://github.com/brendanhay/amazonka/pull/1072)
 - `amazonka-sts`: `credentials` are now a required field in an `AssumeRoleWithSAMLResponse`.
 [\#1069](https://github.com/brendanhay/amazonka/pull/1069)
 - `amazonka`: `Amazonka.Auth.SSO.relativeCachedTokenFile` is now pure

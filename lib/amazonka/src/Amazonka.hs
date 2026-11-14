@@ -340,6 +340,11 @@ import Control.Monad.Trans.Resource (runResourceT)
 -- $presigning
 -- Presigning requires the 'Service' signer to be an instance of 'AWSPresigner'.
 -- Not all signing algorithms support this.
+--
+-- (S3 Only) If the body of a request is unknown at signing time (e.g., you are
+-- preparing a @s3:PutObject@ request for someone else to upload to), use the special
+-- 'UnsignedPayload' constructor, which presigns as
+-- [@UNSIGNED-PAYLOAD@](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/sig-v4-header-based-auth.html).
 
 -- $async
 -- Requests can be sent asynchronously, but due to guarantees about resource closure

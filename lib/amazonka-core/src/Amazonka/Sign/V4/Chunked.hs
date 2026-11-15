@@ -17,19 +17,19 @@ import Amazonka.Types
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Char8 as BS8
-import Data.Conduit (ConduitM)
+import Data.Conduit (ConduitM, (.|))
 import qualified Data.Conduit as Conduit
-import qualified Network.HTTP.Types as HTTP
+import qualified Network.HTTP.Conduit as Client.Conduit
 import qualified Numeric
 
 chunked :: ChunkedBody -> Algorithm a
 chunked
-  c@ChunkedBody {length = len}
+  c@ChunkedBody {length = len, body = source}
   rq@Request {service = service@Service {endpoint}}
   a
   region
   ts =
-    signRequest meta (toRequestBody body) auth
+    signRequest meta requestBody auth
     where
       (meta, auth) = V4.base (Tag digest) (prepare rq) a region ts
 
@@ -45,12 +45,14 @@ chunked
         r
           { headers =
               headers
-                <> [ (hAMZDecodedContentLength, toBS len),
-                     (HTTP.hContentLength, toBS (metadataLength c))
+                <> [ (hAMZDecodedContentLength, toBS len)
                    ]
           }
 
-      body = Chunked (c `fuseChunks` sign (metaSignature meta))
+      requestBody =
+        Client.Conduit.requestBodySource
+          (fromIntegral (metadataLength c))
+          (source .| sign (metaSignature meta))
 
       sign :: Monad m => Signature -> ConduitM ByteString ByteString m ()
       sign prev = do

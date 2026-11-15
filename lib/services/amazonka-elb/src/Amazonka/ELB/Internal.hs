@@ -41,6 +41,7 @@ getAccountId = \case
   Paris -> Just "009996457667"
   Stockholm -> Just "897822967062"
   HongKong -> Just "754344448648"
+  Jakarta -> Just "589379963580"
   Tokyo -> Just "582318560864"
   Seoul -> Just "600734575887"
   Osaka -> Just "383597477331"

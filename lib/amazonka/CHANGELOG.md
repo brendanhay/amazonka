@@ -4,6 +4,12 @@
 
 ### Changed
 
+- `amazonka-core`: Add regions `NewZealand` (`ap-southeast-6`) and `Taipei` (`ap-east-2`)
+  [\#1075](https://github.com/brendanhay/amazonka/pull/1075)
+  - `amazonka-elb`: Add `Jakarta` (`ap-southeast-3`) to `getAccountId`, which was missing from the legacy account table.
+  - `amazonka-redshift`: Add `NewZealand`, `Taipei`, and `Thailand` (`ap-southeast-7`) to `getCloudTrailAccountId`.
+  - `amazonka-route53`: Add `NewZealand` and `Taipei` to `getHostedZoneId`, and update its `CapeTown` and `Milan` values, which AWS have changed.
+  - `amazonka-s3`: Add `NewZealand` and `Taipei` to `getWebsiteEndpoint`.
 - `amazonka` will now store idempotency tokens into requests that support them but have not been set by the caller, generating a UUID v4 like `botocore`.
   - `amazonka-core`: Class `AWSRequest` has a new method `idempotencyTokenLens :: Maybe (ALens' req (Maybe Text))`. If a request type contains an idempotency token, this is `Just` a lens onto it, otherwise the class's default will leave it as `Nothing`.
   [\#1055](https://github.com/brendanhay/amazonka/pull/1055)

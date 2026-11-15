@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `amazonka`: Update to match current EC2 IMDS keys
+  [\#1076](https://github.com/brendanhay/amazonka/issues/1076)
 - `amazonka-core`: Add regions `NewZealand` (`ap-southeast-6`) and `Taipei` (`ap-east-2`)
   [\#1075](https://github.com/brendanhay/amazonka/pull/1075)
   - `amazonka-elb`: Add `Jakarta` (`ap-southeast-3`) to `getAccountId`, which was missing from the legacy account table.

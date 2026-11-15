@@ -133,10 +133,12 @@ module Amazonka.Types
         Malaysia,
         Melbourne,
         Mumbai,
+        NewZealand,
         Osaka,
         Seoul,
         Singapore,
         Sydney,
+        Taipei,
         Thailand,
         Tokyo,
         Montreal,
@@ -901,6 +903,9 @@ pattern Melbourne = Region' "ap-southeast-4"
 pattern Mumbai :: Region
 pattern Mumbai = Region' "ap-south-1"
 
+pattern NewZealand :: Region
+pattern NewZealand = Region' "ap-southeast-6"
+
 pattern Osaka :: Region
 pattern Osaka = Region' "ap-northeast-3"
 
@@ -912,6 +917,9 @@ pattern Singapore = Region' "ap-southeast-1"
 
 pattern Sydney :: Region
 pattern Sydney = Region' "ap-southeast-2"
+
+pattern Taipei :: Region
+pattern Taipei = Region' "ap-east-2"
 
 pattern Thailand :: Region
 pattern Thailand = Region' "ap-southeast-7"
@@ -1004,10 +1012,12 @@ pattern Ningxia = Region' "cn-northwest-1"
   Malaysia,
   Melbourne,
   Mumbai,
+  NewZealand,
   Osaka,
   Seoul,
   Singapore,
   Sydney,
+  Taipei,
   Thailand,
   Tokyo,
   Montreal,

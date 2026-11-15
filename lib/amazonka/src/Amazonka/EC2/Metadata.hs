@@ -212,6 +212,8 @@ data Metadata
     Services !Services
   | -- | See: 'Spot'
     Spot !Spot
+  | -- | The underlying virtualization type (hypervisor) of the instance.
+    System
   | -- | See: 'Tags'
     Tags !Tags
   | -- | Any other piece of metadata specified by arbitrary key.
@@ -257,6 +259,7 @@ instance ToText Metadata where
       SecurityGroups -> "security-groups"
       Services m -> "services/" <> toText m
       Spot m -> "spot/" <> toText m
+      System -> "system"
       Tags m -> "tags/" <> toText m
       Other m -> m
 
@@ -302,7 +305,7 @@ instance ToText Mapping where
     EBS n -> "ebs" <> toText n
     Ephemeral n -> "ephemeral" <> toText n
     Root -> "root"
-    Swap -> "root"
+    Swap -> "swap"
 
 -- | Metadata keys for @elastic-gpus/*@.
 newtype ElasticGpus
@@ -436,6 +439,8 @@ data Interface
   | -- | The IPv6 addresses associated with the interface. Returned
     -- only for instances launched into a VPC.
     IIPV6s
+  | -- | The IPv6 prefix assigned to the network interface.
+    IIPV6Prefix
   | -- | The private IPv4 DNS hostname of the instance. In cases where
     -- multiple network interfaces are present, this refers to the
     -- eth0 device (the device for which the device number is 0). If
@@ -450,7 +455,7 @@ data Interface
   | -- | The instance's MAC address.
     IMAC
   | -- | The index of the network card. Some instance types support multiple network cards.
-    INetworkCardIndex
+    INetworkCard
   | -- | The ID of the owner of the network interface. In multiple-interface
     -- environments, an interface can be attached by a third party, such as
     -- Elastic Load Balancing. Traffic on an interface is always billed to
@@ -476,7 +481,7 @@ data Interface
   | -- | The IPv4 CIDR block of the subnet in which the interface resides.
     ISubnetIPV4_CIDRBlock
   | -- | The IPv6 CIDR block of the subnet in which the interface resides.
-    ISubnetIPV6_CIDRBlock
+    ISubnetIPV6_CIDRBlocks
   | -- | The ID of the VPC in which the interface resides.
     IVPCId
   | -- | The primary IPv4 CIDR block of the VPC.
@@ -493,10 +498,11 @@ instance ToText Interface where
     IInterfaceId -> "interface-id"
     IIPV4Associations ip -> "ipv4-associations/" <> toText ip
     IIPV6s -> "ipv6s"
+    IIPV6Prefix -> "ipv6-prefix"
     ILocalHostname -> "local-hostname"
     ILocalIPV4s -> "local-ipv4s"
     IMAC -> "mac"
-    INetworkCardIndex -> "network-card-index"
+    INetworkCard -> "network-card"
     IOwnerId -> "owner-id"
     IPublicHostname -> "public-hostname"
     IPublicIPV4s -> "public-ipv4s"
@@ -504,7 +510,7 @@ instance ToText Interface where
     ISecurityGroupIds -> "security-group-ids"
     ISubnetId -> "subnet-id"
     ISubnetIPV4_CIDRBlock -> "subnet-ipv4-cidr-block"
-    ISubnetIPV6_CIDRBlock -> "subnet-ipv6-cidr-block"
+    ISubnetIPV6_CIDRBlocks -> "subnet-ipv6-cidr-blocks"
     IVPCId -> "vpc-id"
     IVPCIPV4_CIDRBlock -> "vpc-ipv4-cidr-block"
     IVPCIPV4_CIDRBlocks -> "vpc-ipv4-cidr-blocks"

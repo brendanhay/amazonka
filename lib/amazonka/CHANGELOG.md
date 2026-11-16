@@ -12,6 +12,10 @@
   - `amazonka-redshift`: Add `NewZealand`, `Taipei`, and `Thailand` (`ap-southeast-7`) to `getCloudTrailAccountId`.
   - `amazonka-route53`: Add `NewZealand` and `Taipei` to `getHostedZoneId`, and update its `CapeTown` and `Milan` values, which AWS have changed.
   - `amazonka-s3`: Add `NewZealand` and `Taipei` to `getWebsiteEndpoint`.
+- `amazonka-core`: The `Data.Body.RequestBody` type has a new `UnsignedPayload` constructor, to make it more obvious how to pre-sign requests where the caller is expected to upload a file whose hash is not known at signing time.
+  [\#1072](https://github.com/brendanhay/amazonka/pull/1072)
+  - When presigning, requests that upload a `ChunkedBody` use `UNSIGNED-PAYLOAD` as the payload to hash, so that presigning does not consume the stream.
+  - When presigning, requests to S3 that contain an empty `HashedBody` use `UNSIGNED-PAYLOAD` as the payload to hash, for backwards compatibility. This is not expected to change.
 - `amazonka` will now store idempotency tokens into requests that support them but have not been set by the caller, generating a UUID v4 like `botocore`.
   - `amazonka-core`: Class `AWSRequest` has a new method `idempotencyTokenLens :: Maybe (ALens' req (Maybe Text))`. If a request type contains an idempotency token, this is `Just` a lens onto it, otherwise the class's default will leave it as `Nothing`.
   [\#1055](https://github.com/brendanhay/amazonka/pull/1055)
@@ -739,6 +743,11 @@
 
 ### Fixed
 
+
+- `amazonka-core`: Fix missing brace in `instance Show HashedBody`, and report `HashedBytes` as `HashedBytes` rather than `HashedBody`.
+[\#1072](https://github.com/brendanhay/amazonka/pull/1072)
+- `amazonka-core`: `Amazonka.Data.Body.isStreaming` once again considers `Chunked` bodies to be streaming, matching behaviour of `HashedStream` bodies.
+[\#1072](https://github.com/brendanhay/amazonka/pull/1072)
 - `amazonka-sts`: `credentials` are now a required field in an `AssumeRoleWithSAMLResponse`.
 [\#1069](https://github.com/brendanhay/amazonka/pull/1069)
 - `amazonka`: `Amazonka.Auth.SSO.relativeCachedTokenFile` is now pure

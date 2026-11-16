@@ -28,11 +28,12 @@ instance ToChunkedBody HashedBody where
 
 instance ToChunkedBody RequestBody where
   toChunked = \case
+    UnsignedPayload -> toChunked (toHashed BS.empty)
     Chunked c -> c
     Hashed h -> toChunked h
 
 enforceChunks ::
-  Integral a =>
+  (Integral a) =>
   a ->
   Conduit.ConduitT () ByteString (Conduit.ResourceT IO) () ->
   ChunkedBody

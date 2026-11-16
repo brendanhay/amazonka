@@ -53,6 +53,7 @@ presign ex rq@Request {body, service} a region ts =
 
     digest =
       case body of
+        UnsignedPayload -> unsignedPayload
         Chunked _ -> unsignedPayload
         Hashed (HashedStream h _ _) -> Base.Tag $ encodeBase16 h
         Hashed (HashedBytes h b)
@@ -75,6 +76,7 @@ presign ex rq@Request {body, service} a region ts =
 sign :: Algorithm a
 sign rq@Request {body} a r ts =
   case body of
+    UnsignedPayload -> hashed (toHashed BS.empty) rq a r ts
     Chunked x -> Chunked.chunked x rq a r ts
     Hashed x -> hashed x rq a r ts
 

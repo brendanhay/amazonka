@@ -68,14 +68,12 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            ghc: ghc96 # Latest mainline GHC
+            ghc: ghc914 # Latest GHC
           - os: ubuntu-latest
-            ghc: ghc94 # Most industrially-relevant GHC
-          - os: ubuntu-latest
-            ghc: ghc90 # Catch errors due to simplified subsumption
+            ghc: ghc910 # GHCup recommended
 
           - os: macos-latest
-            ghc: ghc94
+            ghc: ghc910 # GHCup recommended
 
     runs-on: ${{ matrix.os }}
 

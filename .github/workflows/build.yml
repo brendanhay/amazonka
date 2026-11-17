@@ -21,12 +21,34 @@ on:
       - "LICENSE"
       - "**.md"
 
+permissions: {}
+
 jobs:
+  workflows:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: zizmorcore/zizmor-action@45d7276c9ca790aabd705e31ca99c6185c3e76dd # v0.8.1
+        with:
+          version: 1.32.0
+          advanced-security: false
+          annotations: true
+
   amazonka-gen:
     strategy:
       fail-fast: false
 
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
 
     steps:
       - uses: cachix/install-nix-action@3dc140bfc76c49fbd4dd958429132e3746bcb086 # v31.11.5
@@ -43,6 +65,8 @@ jobs:
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - run: nix build
 
@@ -63,6 +87,9 @@ jobs:
 
     runs-on: ${{ matrix.os }}
 
+    permissions:
+      contents: read
+
     steps:
       - if: ${{ matrix.os == 'ubuntu-latest' }}
         run: |-
@@ -82,6 +109,8 @@ jobs:
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: cabal update && cabal freeze
         run: |

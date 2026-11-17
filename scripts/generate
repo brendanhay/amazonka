@@ -89,7 +89,7 @@ for model in "${models[@]}"; do
 done
 
 # Generate new sources in tmp.
-nix run '.#gen' -- "${args[@]}"
+cabal run --project-dir=gen amazonka-gen:exe:gen -- "${args[@]}"
 
 # Run the format and copy/replace steps in parallel.
 parallel --halt-on-error 2 format_and_replace ::: "$tmp"/amazonka-*

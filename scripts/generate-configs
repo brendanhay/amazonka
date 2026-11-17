@@ -14,4 +14,4 @@ cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
 botocore="${BOTOCORE:?}/botocore/data"
 
-nix run '.#gen-configs' -- "$botocore"
+cabal run --project-dir=gen amazonka-gen:exe:gen-configs -- "$botocore"

@@ -20,7 +20,8 @@
 module Amazonka.CloudHSM.Types.ClientVersion
   ( ClientVersion
       ( ..,
-        ClientVersion_
+        ClientVersion_5_1,
+        ClientVersion_5_3
       ),
   )
 where
@@ -57,10 +58,14 @@ newtype ClientVersion = ClientVersion'
       Data.ToXML
     )
 
-pattern ClientVersion_ :: ClientVersion
-pattern ClientVersion_ = ClientVersion' "5.1"
+pattern ClientVersion_5_1 :: ClientVersion
+pattern ClientVersion_5_1 = ClientVersion' "5.1"
+
+pattern ClientVersion_5_3 :: ClientVersion
+pattern ClientVersion_5_3 = ClientVersion' "5.3"
 
 {-# COMPLETE
-  ClientVersion_,
+  ClientVersion_5_1,
+  ClientVersion_5_3,
   ClientVersion'
   #-}

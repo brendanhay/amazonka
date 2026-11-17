@@ -20,7 +20,14 @@
 module Amazonka.APIGateway.Types.CacheClusterSize
   ( CacheClusterSize
       ( ..,
-        CacheClusterSize_
+        CacheClusterSize_0_5,
+        CacheClusterSize_118,
+        CacheClusterSize_13_5,
+        CacheClusterSize_1_6,
+        CacheClusterSize_237,
+        CacheClusterSize_28_4,
+        CacheClusterSize_58_2,
+        CacheClusterSize_6_1
       ),
   )
 where
@@ -58,10 +65,38 @@ newtype CacheClusterSize = CacheClusterSize'
       Data.ToXML
     )
 
-pattern CacheClusterSize_ :: CacheClusterSize
-pattern CacheClusterSize_ = CacheClusterSize' "1.6"
+pattern CacheClusterSize_0_5 :: CacheClusterSize
+pattern CacheClusterSize_0_5 = CacheClusterSize' "0.5"
+
+pattern CacheClusterSize_118 :: CacheClusterSize
+pattern CacheClusterSize_118 = CacheClusterSize' "118"
+
+pattern CacheClusterSize_13_5 :: CacheClusterSize
+pattern CacheClusterSize_13_5 = CacheClusterSize' "13.5"
+
+pattern CacheClusterSize_1_6 :: CacheClusterSize
+pattern CacheClusterSize_1_6 = CacheClusterSize' "1.6"
+
+pattern CacheClusterSize_237 :: CacheClusterSize
+pattern CacheClusterSize_237 = CacheClusterSize' "237"
+
+pattern CacheClusterSize_28_4 :: CacheClusterSize
+pattern CacheClusterSize_28_4 = CacheClusterSize' "28.4"
+
+pattern CacheClusterSize_58_2 :: CacheClusterSize
+pattern CacheClusterSize_58_2 = CacheClusterSize' "58.2"
+
+pattern CacheClusterSize_6_1 :: CacheClusterSize
+pattern CacheClusterSize_6_1 = CacheClusterSize' "6.1"
 
 {-# COMPLETE
-  CacheClusterSize_,
+  CacheClusterSize_0_5,
+  CacheClusterSize_118,
+  CacheClusterSize_13_5,
+  CacheClusterSize_1_6,
+  CacheClusterSize_237,
+  CacheClusterSize_28_4,
+  CacheClusterSize_58_2,
+  CacheClusterSize_6_1,
   CacheClusterSize'
   #-}

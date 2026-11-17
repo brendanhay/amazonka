@@ -34,7 +34,13 @@ data AdditionalLimit = AdditionalLimit'
     -- Attributes and their details:
     --
     -- -   MaximumNumberOfDataNodesSupported
+    --     This attribute will be present in Master node only to specify how
+    --     much data nodes upto which given @ @@ESPartitionInstanceType@@ @ can
+    --     support as master node.
     -- -   MaximumNumberOfDataNodesWithoutMasterNode
+    --     This attribute will be present in Data node only to specify how much
+    --     data nodes of given @ @@ESPartitionInstanceType@@ @ upto which you
+    --     don\'t need any master nodes to govern them.
     limitName :: Prelude.Maybe Prelude.Text,
     -- | Value for given @ @@AdditionalLimit$LimitName@@ @ .
     limitValues :: Prelude.Maybe [Prelude.Text]
@@ -54,7 +60,13 @@ data AdditionalLimit = AdditionalLimit'
 -- Attributes and their details:
 --
 -- -   MaximumNumberOfDataNodesSupported
+--     This attribute will be present in Master node only to specify how
+--     much data nodes upto which given @ @@ESPartitionInstanceType@@ @ can
+--     support as master node.
 -- -   MaximumNumberOfDataNodesWithoutMasterNode
+--     This attribute will be present in Data node only to specify how much
+--     data nodes of given @ @@ESPartitionInstanceType@@ @ upto which you
+--     don\'t need any master nodes to govern them.
 --
 -- 'limitValues', 'additionalLimit_limitValues' - Value for given @ @@AdditionalLimit$LimitName@@ @ .
 newAdditionalLimit ::
@@ -70,7 +82,13 @@ newAdditionalLimit =
 -- Attributes and their details:
 --
 -- -   MaximumNumberOfDataNodesSupported
+--     This attribute will be present in Master node only to specify how
+--     much data nodes upto which given @ @@ESPartitionInstanceType@@ @ can
+--     support as master node.
 -- -   MaximumNumberOfDataNodesWithoutMasterNode
+--     This attribute will be present in Data node only to specify how much
+--     data nodes of given @ @@ESPartitionInstanceType@@ @ upto which you
+--     don\'t need any master nodes to govern them.
 additionalLimit_limitName :: Lens.Lens' AdditionalLimit (Prelude.Maybe Prelude.Text)
 additionalLimit_limitName = Lens.lens (\AdditionalLimit' {limitName} -> limitName) (\s@AdditionalLimit' {} a -> s {limitName = a} :: AdditionalLimit)
 

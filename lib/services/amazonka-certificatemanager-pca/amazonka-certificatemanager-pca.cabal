@@ -118,7 +118,7 @@ library
 
   build-depends:
     , amazonka-core  >=2.0  && <2.1
-    , base           >=4.12 && <5
+    , base           >=4.18 && <5
 
 test-suite amazonka-certificatemanager-pca-test
   type:             exitcode-stdio-1.0

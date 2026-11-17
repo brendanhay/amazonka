@@ -32,11 +32,23 @@ data StorageTypeLimit = StorageTypeLimit'
     -- @ @@StorageType@@ @ is ebs, following storage options are applicable
     --
     -- 1.  MinimumVolumeSize
+    --     Minimum amount of volume size that is applicable for given storage
+    --     type.It can be empty if it is not applicable.
     -- 2.  MaximumVolumeSize
+    --     Maximum amount of volume size that is applicable for given storage
+    --     type.It can be empty if it is not applicable.
     -- 3.  MaximumIops
+    --     Maximum amount of Iops that is applicable for given storage type.It
+    --     can be empty if it is not applicable.
     -- 4.  MinimumIops
+    --     Minimum amount of Iops that is applicable for given storage type.It
+    --     can be empty if it is not applicable.
     -- 5.  MaximumThroughput
+    --     Maximum amount of Throughput that is applicable for given storage
+    --     type.It can be empty if it is not applicable.
     -- 6.  MinimumThroughput
+    --     Minimum amount of Throughput that is applicable for given storage
+    --     type.It can be empty if it is not applicable.
     limitName :: Prelude.Maybe Prelude.Text,
     -- | Values for the @ @@StorageTypeLimit$LimitName@@ @ .
     limitValues :: Prelude.Maybe [Prelude.Text]
@@ -55,11 +67,23 @@ data StorageTypeLimit = StorageTypeLimit'
 -- @ @@StorageType@@ @ is ebs, following storage options are applicable
 --
 -- 1.  MinimumVolumeSize
+--     Minimum amount of volume size that is applicable for given storage
+--     type.It can be empty if it is not applicable.
 -- 2.  MaximumVolumeSize
+--     Maximum amount of volume size that is applicable for given storage
+--     type.It can be empty if it is not applicable.
 -- 3.  MaximumIops
+--     Maximum amount of Iops that is applicable for given storage type.It
+--     can be empty if it is not applicable.
 -- 4.  MinimumIops
+--     Minimum amount of Iops that is applicable for given storage type.It
+--     can be empty if it is not applicable.
 -- 5.  MaximumThroughput
+--     Maximum amount of Throughput that is applicable for given storage
+--     type.It can be empty if it is not applicable.
 -- 6.  MinimumThroughput
+--     Minimum amount of Throughput that is applicable for given storage
+--     type.It can be empty if it is not applicable.
 --
 -- 'limitValues', 'storageTypeLimit_limitValues' - Values for the @ @@StorageTypeLimit$LimitName@@ @ .
 newStorageTypeLimit ::
@@ -74,11 +98,23 @@ newStorageTypeLimit =
 -- @ @@StorageType@@ @ is ebs, following storage options are applicable
 --
 -- 1.  MinimumVolumeSize
+--     Minimum amount of volume size that is applicable for given storage
+--     type.It can be empty if it is not applicable.
 -- 2.  MaximumVolumeSize
+--     Maximum amount of volume size that is applicable for given storage
+--     type.It can be empty if it is not applicable.
 -- 3.  MaximumIops
+--     Maximum amount of Iops that is applicable for given storage type.It
+--     can be empty if it is not applicable.
 -- 4.  MinimumIops
+--     Minimum amount of Iops that is applicable for given storage type.It
+--     can be empty if it is not applicable.
 -- 5.  MaximumThroughput
+--     Maximum amount of Throughput that is applicable for given storage
+--     type.It can be empty if it is not applicable.
 -- 6.  MinimumThroughput
+--     Minimum amount of Throughput that is applicable for given storage
+--     type.It can be empty if it is not applicable.
 storageTypeLimit_limitName :: Lens.Lens' StorageTypeLimit (Prelude.Maybe Prelude.Text)
 storageTypeLimit_limitName = Lens.lens (\StorageTypeLimit' {limitName} -> limitName) (\s@StorageTypeLimit' {} a -> s {limitName = a} :: StorageTypeLimit)
 

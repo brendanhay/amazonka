@@ -243,7 +243,7 @@ library
     , aeson
     , amazonka-core                     >=2.0  && <2.1
     , amazonka-dynamodb-attributevalue
-    , base                              >=4.12 && <5
+    , base                              >=4.18 && <5
     , containers
 
 test-suite amazonka-dynamodb-test

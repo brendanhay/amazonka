@@ -344,7 +344,7 @@ instance FromJSON (ShapeF ()) where
       "string" -> pure $ case enum of
         Nothing -> Lit i Text
         Just values ->
-          Enum i . HashMap.fromList $ map (first mkId . renameEnumValue) values
+          Enum i . HashMap.fromList $ map (first (\n -> Id n n) . renameEnumValue) values
       _ -> fail $ "Unknown Shape type: " ++ Text.unpack t
 
 data Operation f a b = Operation

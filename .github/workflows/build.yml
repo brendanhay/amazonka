@@ -122,11 +122,11 @@ jobs:
 
       - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
-          key: v1-${{ runner.os }}-${{ matrix.ghc }}-${{ hashFiles('cabal.project.freeze') }}
+          key: v2-${{ runner.os }}-${{ matrix.ghc }}-${{ hashFiles('cabal.project.freeze') }}
           restore-keys: |
-            v1-${{ runner.os }}-${{ matrix.ghc }}-
+            v2-${{ runner.os }}-${{ matrix.ghc }}-
           path: |
-            ~/.cabal/store
+            ~/.local/state/cabal/store
             dist-newstyle
 
       - name: cabal build core

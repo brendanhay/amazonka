@@ -63,6 +63,7 @@
             # Package Dependencies
             pkgs.gmp
             pkgs.ncurses
+            pkgs.pkg-config
             pkgs.zlib
 
             # Development Tools

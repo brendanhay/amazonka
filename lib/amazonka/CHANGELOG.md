@@ -4,6 +4,7 @@
 
 ### Changed
 
+- All packages now require GHC 9.6 or later via `base >=4.18`. CI builds GHC 9.6, 9.10, and 9.14.
 - `amazonka`: Update to match current EC2 IMDS keys
   [\#1076](https://github.com/brendanhay/amazonka/issues/1076)
 - `amazonka-core`: Add regions `NewZealand` (`ap-southeast-6`) and `Taipei` (`ap-east-2`)

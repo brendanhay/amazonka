@@ -31,7 +31,7 @@ common base
     -fwarn-unused-packages
 
   default-extensions: NoImplicitPrelude
-  build-depends:      base >=4.12 && <5
+  build-depends:      base >=4.18 && <5
 
 library
   import:          base

@@ -90,6 +90,9 @@ jobs:
     permissions:
       contents: read
 
+    env:
+      DEVSHELL: .#${{ matrix.ghc }}
+
     steps:
       - if: ${{ matrix.os == 'ubuntu-latest' }}
         run: |-
@@ -114,8 +117,8 @@ jobs:
 
       - name: cabal update && cabal freeze
         run: |
-          nix develop --print-build-logs --command \
-              bash -c 'cabal update && cabal freeze' '.#${{matrix.ghc}}'
+          nix develop "$DEVSHELL" --print-build-logs --command \
+              bash -c 'cabal update && cabal freeze'
 
       - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
@@ -128,15 +131,15 @@ jobs:
 
       - name: cabal build core
         run: |
-          nix develop --print-build-logs --command \
-              bash -c 'cabal build amazonka-core amazonka' '.#${{matrix.ghc}}'
+          nix develop "$DEVSHELL" --print-build-logs --command \
+              bash -c 'cabal build amazonka-core amazonka'
 
       - name: cabal build s3-encryption
         run: |
-          nix develop --print-build-logs --command \
-              bash -c 'cabal build amazonka-s3-encryption' '.#${{matrix.ghc}}'
+          nix develop "$DEVSHELL" --print-build-logs --command \
+              bash -c 'cabal build amazonka-s3-encryption'
 
       - name: cabal build all
         run: |
-          nix develop --print-build-logs --command \
-              bash -c 'cabal test all' '.#${{matrix.ghc}}'
+          nix develop "$DEVSHELL" --print-build-logs --command \
+              bash -c 'cabal test all'

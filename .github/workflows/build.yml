@@ -1,6 +1,5 @@
 name: build
 
-# See: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#concurrency.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
@@ -99,10 +98,10 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: cabal update && cabal freeze --enable-tests
+      - name: cabal update && cabal freeze --enable-tests --disable-optimization
         run: |
           nix develop "$DEVSHELL" --print-build-logs --command \
-              bash -c 'cabal update && cabal freeze --enable-tests'
+              bash -c 'cabal update && cabal freeze --enable-tests --disable-optimization'
 
       - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
@@ -116,14 +115,14 @@ jobs:
       - name: cabal build core
         run: |
           nix develop "$DEVSHELL" --print-build-logs --command \
-              bash -c 'cabal build --enable-tests amazonka-core amazonka'
+              bash -c 'cabal build --enable-tests --disable-optimization amazonka-core amazonka'
 
       - name: cabal build s3-encryption
         run: |
           nix develop "$DEVSHELL" --print-build-logs --command \
-              bash -c 'cabal build --enable-tests amazonka-s3-encryption'
+              bash -c 'cabal build --enable-tests --disable-optimization amazonka-s3-encryption'
 
       - name: cabal build all
         run: |
           nix develop "$DEVSHELL" --print-build-logs --command \
-              bash -c 'cabal test --enable-tests all'
+              bash -c 'cabal test --enable-tests --disable-optimization all'

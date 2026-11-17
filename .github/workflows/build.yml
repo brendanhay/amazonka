@@ -93,7 +93,7 @@ jobs:
     steps:
       - if: ${{ matrix.os == 'ubuntu-latest' }}
         run: |-
-          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt &
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc /opt/hostedtoolcache/CodeQL &
 
       - uses: cachix/install-nix-action@3dc140bfc76c49fbd4dd958429132e3746bcb086 # v31.11.5
         with:

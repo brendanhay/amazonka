@@ -84,34 +84,10 @@
           '';
         };
 
-        # The nixpkgs default package set is binary cached, unlike ghcDefault's.
-        amazonka-gen = pkgs.haskellPackages.developPackage {
-          root = ./gen;
-          overrides = _hsFinal: hsPrev: with pkgs.haskell.lib; {
-            ede = markUnbroken (dontCheck hsPrev.ede);
-          };
-        };
-
       in
       {
-        apps = {
-          gen = {
-            type = "app";
-            program = "${amazonka-gen}/bin/gen";
-          };
-
-          gen-configs = {
-            type = "app";
-            program = "${amazonka-gen}/bin/gen-configs";
-          };
-        };
-
         checks = {
           inherit pre-commit;
-        };
-
-        packages = {
-          default = amazonka-gen;
         };
 
         devShells = {
@@ -123,6 +99,4 @@
           default = mkDevShell ghcDefault;
         };
       });
-
-  nixConfig.allow-import-from-derivation = "true";
 }

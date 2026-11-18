@@ -1,6 +1,0 @@
--- Standalone project for the generator, kept isolated from the main
--- amazonka project (which covers lib/, examples/ and services/).
-packages: .
-
--- Pin the Hackage snapshot to match the main amazonka project.
-index-state: 2026-11-17T01:55:37Z

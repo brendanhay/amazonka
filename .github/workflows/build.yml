@@ -38,30 +38,7 @@ jobs:
           advanced-security: false
           annotations: true
 
-  amazonka-gen:
-    strategy:
-      fail-fast: false
-
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-
-    steps:
-      - uses: cachix/install-nix-action@3dc140bfc76c49fbd4dd958429132e3746bcb086 # v31.11.5
-
-      - uses: cachix/cachix-action@38b082610b782e7e93e209c35fd730d399dee866 # v17
-        with:
-          name: amazonka
-          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-
-      - run: nix build
-
-  amazonka-lib:
+  build:
     strategy:
       fail-fast: false
       matrix:
@@ -129,10 +106,10 @@ jobs:
           nix develop "$DEVSHELL" --print-build-logs --command \
               bash -c 'cabal build $CABAL_FLAGS amazonka-s3-encryption'
 
-      - name: cabal build all:libs
+      - name: cabal build all:libs amazonka-gen:exes
         run: |
           nix develop "$DEVSHELL" --print-build-logs --command \
-              bash -c 'cabal build $CABAL_FLAGS all:libs'
+              bash -c 'cabal build $CABAL_FLAGS all:libs amazonka-gen:exes'
 
       - name: cabal test
         run: |

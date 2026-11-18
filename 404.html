@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Amazonka</title>
+  <script>
+    // GitHub Pages serves this page for every unknown path. Links into the
+    // former Haddock site have the form /docs/<dir>/<file>, where <dir> is
+    // either a source path with "/" encoded as "ZS" whose last segment is the
+    // package name (libZSservicesZSamazonka-s3ZSamazonka-s3), or a versioned
+    // dependency (aeson-1.5.6.0). Both map onto the same file on Hackage, with
+    // the 1.x Network.AWS module prefix renamed to Amazonka.
+    (function () {
+      var hackage = "https://hackage.haskell.org/package/";
+      var target = hackage + "amazonka";
+      var match = /^\/docs\/([^/]+)(?:\/(.*))?$/.exec(window.location.pathname);
+
+      if (match) {
+        var pkg = match[1].split("ZS").pop();
+        var file = (match[2] || "").replace(/^Network-AWS(?=[-.])/, "Amazonka");
+
+        target = hackage + pkg + (file && file !== "index.html" ? "/docs/" + file : "");
+      }
+
+      window.location.replace(target + window.location.hash);
+    })();
+  </script>
+</head>
+<body>
+  <p>Amazonka documentation is hosted on <a href="https://hackage.haskell.org/package/amazonka">Hackage</a>.</p>
+</body>
+</html>

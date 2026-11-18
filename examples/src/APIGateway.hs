@@ -27,7 +27,8 @@ main r = do
 
     Just resources :: Maybe [Resource] <-
       view (field @"items") <$> send env (newGetResources apiId)
-    let Just rootId = head resources ^. field @"id"
+    let rootResource : _ = resources
+        Just rootId = rootResource ^. field @"id"
 
     resource :: Resource <- send env (newCreateResource apiId rootId "{file}")
 

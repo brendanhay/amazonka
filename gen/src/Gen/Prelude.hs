@@ -1,3 +1,5 @@
+{-# LANGUAGE CPP #-}
+
 -- | An intentionally limited set of prelude exports.
 --
 -- Please consider long and hard before adding any addtional types exports to
@@ -66,7 +68,10 @@ import Data.ByteString.Short as Export (ShortByteString)
 import Data.CaseInsensitive as Export (CI)
 import Data.Coerce as Export (Coercible)
 import Data.Either as Export
-import Data.Foldable as Export (foldl', for_, traverse_)
+#if !MIN_VERSION_base(4,20,0)
+import Data.Foldable as Export (foldl')
+#endif
+import Data.Foldable as Export (for_, traverse_)
 import Data.Function as Export ((&))
 import Data.Functor as Export (($>), (<&>))
 import Data.Functor.Const as Export (Const (Const), getConst)

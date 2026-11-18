@@ -53,13 +53,12 @@ This repository is organised under the following directory structure:
 - [`lib/amazonka-test`](lib/amazonka-test): Common test functionality.
 - [`examples`](examples): Basic examples for using the service libraries.
 - [`configs`](configs): Service configuration, templates, and assets used by the code generator.
-- [`docs`](docs): The documentation website.
 - [`gen`](gen): The code and configuration generators.
 - [`scripts`](scripts): Scripts to manage the project, such as the release lifecycle.
 
 ## Supported Platforms and GHC Versions
 
-GHC versions `9.0.*`, `9.4.*` and `9.6.*` are officially supported and tested on NixOS, Ubuntu, and macOS. Earlier or later versions of GHC may also work, but only the aforementioned versions are tested by our [continuous integration pipeline](./.github/workflows/build.yml).
+GHC versions `9.10.*` and `9.14.*` are officially supported and tested on Ubuntu, and `9.10.*` is also tested on macOS. Additional [Nix] shells are provided for GHC versions `9.6.*`, `9.8.*` `9.12.*`, which may also work but are not tested by our [continuous integration pipeline](./.github/workflows/build.yml).
 
 ## Getting Started
 

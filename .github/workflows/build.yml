@@ -47,7 +47,6 @@ jobs:
             ghc: ghc914 # Latest GHC
           - os: ubuntu-latest
             ghc: ghc910 # GHCup recommended
-
           - os: macos-latest
             ghc: ghc910 # GHCup recommended
 
@@ -106,7 +105,9 @@ jobs:
           nix develop "$DEVSHELL" --print-build-logs --command \
               bash -c 'cabal build $CABAL_FLAGS amazonka-s3-encryption'
 
-      - name: cabal build all:libs amazonka-gen:exes
+      # Generated services are platform independent and only built on Linux.
+      - if: ${{ matrix.os == 'ubuntu-latest' }}
+        name: cabal build all:libs amazonka-gen:exes
         run: |
           nix develop "$DEVSHELL" --print-build-logs --command \
               bash -c 'cabal build $CABAL_FLAGS all:libs amazonka-gen:exes'

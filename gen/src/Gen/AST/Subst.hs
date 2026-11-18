@@ -2,6 +2,8 @@
 
 module Gen.AST.Subst
   ( substitute,
+    emptyInfo,
+    emptyRef,
   )
 where
 

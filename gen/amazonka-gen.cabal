@@ -156,3 +156,16 @@ executable gen-configs
     , optparse-applicative
     , text
     , unliftio
+
+test-suite amazonka-gen-test
+  import:         base
+  type:           exitcode-stdio-1.0
+  hs-source-dirs: test
+  main-is:        Main.hs
+  build-depends:
+    , aeson
+    , amazonka-gen
+    , comonad
+    , tasty
+    , tasty-hunit
+    , unordered-containers

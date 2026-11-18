@@ -40,15 +40,14 @@
         };
 
         # The ghc compiler version patch level will be the latest that is available in nixpkgs.
-        ghc810 = pkgs.haskell.packages."ghc810";
-        ghc90 = pkgs.haskell.packages."ghc90";
-        ghc92 = pkgs.haskell.packages."ghc92";
-        ghc94 = pkgs.haskell.packages."ghc94";
         ghc96 = pkgs.haskell.packages."ghc96";
         ghc98 = pkgs.haskell.packages."ghc98";
+        ghc910 = pkgs.haskell.packages."ghc910";
+        ghc912 = pkgs.haskell.packages."ghc912";
+        ghc914 = pkgs.haskell.packages."ghc914";
 
         # The default ghc to use when entering `nix develop`.
-        ghcDefault = ghc94;
+        ghcDefault = ghc914;
 
         renameVersion = version: "ghc" + (pkgs.lib.replaceStrings [ "." ] [ "" ] version);
 
@@ -63,6 +62,7 @@
             # Package Dependencies
             pkgs.gmp
             pkgs.ncurses
+            pkgs.pkg-config
             pkgs.zlib
 
             # Development Tools
@@ -84,70 +84,19 @@
           '';
         };
 
-        amazonka-gen =
-          # Use ghc92 because we want hashable ==1.3.* for actual
-          # generation and the ghc-bignum dep is inside a conditional,
-          # so doJailbreak won't work.
-          #
-          # We need hashable-1.3 for generation because hashable >=1.4
-          # uses a different hashing algorithm which breaks things by
-          # causing the contents of `HashMap`s to be traversed in a
-          # slightly different order. This matters when `Ptr`s are
-          # used to resolve recursive shape references.
-          ghc92.developPackage {
-            root = ./gen;
-            overrides = _hsFinal: hsPrev: with pkgs.haskell.lib; {
-              data-fix = doJailbreak hsPrev.data-fix;
-              ede = dontCheck (hsPrev.callHackageDirect
-                {
-                  pkg = "ede";
-                  ver = "0.3.4.0";
-                  sha256 = "sha256-bEYTVnVj/TigHgGiiMP/Yz3YE1gg2QYPCPrx6RrpSOo=";
-                }
-                { });
-              hashable = hsPrev.callHackage "hashable" "1.3.5.0" { };
-              pandoc = dontHaddock hsPrev.pandoc;
-              semialign = doJailbreak hsPrev.semialign;
-              string-qq = dontCheck hsPrev.string-qq;
-              text-short = doJailbreak hsPrev.text-short;
-              these = doJailbreak hsPrev.these;
-              unordered-containers =
-                hsPrev.callHackage "unordered-containers" "0.2.19.1" { };
-            };
-          };
-
       in
       {
-        apps = {
-          gen = {
-            type = "app";
-            program = "${amazonka-gen}/bin/gen";
-          };
-
-          gen-configs = {
-            type = "app";
-            program = "${amazonka-gen}/bin/gen-configs";
-          };
-        };
-
         checks = {
           inherit pre-commit;
         };
 
-        packages = {
-          default = amazonka-gen;
-        };
-
         devShells = {
-          ghc810 = mkDevShell ghc810;
-          ghc90 = mkDevShell ghc90;
-          ghc92 = mkDevShell ghc92;
-          ghc94 = mkDevShell ghc94;
           ghc96 = mkDevShell ghc96;
           ghc98 = mkDevShell ghc98;
+          ghc910 = mkDevShell ghc910;
+          ghc912 = mkDevShell ghc912;
+          ghc914 = mkDevShell ghc914;
           default = mkDevShell ghcDefault;
         };
       });
-
-  nixConfig.allow-import-from-derivation = "true";
 }

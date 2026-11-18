@@ -4,6 +4,10 @@
 
 ### Changed
 
+- All packages now require GHC 9.6 or later via `base >=4.18`. CI builds GHC 9.6, 9.10, and 9.14.
+- `amazonka-apigateway`, `amazonka-cloudhsm`: Enum values that start with a digit now each have a pattern:
+  - `CacheClusterSize_` is replaced by `CacheClusterSize_0_5`, `CacheClusterSize_1_6`, `CacheClusterSize_6_1`, `CacheClusterSize_13_5`, `CacheClusterSize_28_4`, `CacheClusterSize_58_2`, `CacheClusterSize_118` and `CacheClusterSize_237`. The previous `CacheClusterSize_` was `"1.6"`.
+  - `ClientVersion_` is replaced by `ClientVersion_5_1` and `ClientVersion_5_3`. The previous `ClientVersion_` was `"5.1"`.
 - `amazonka`: Update to match current EC2 IMDS keys
   [\#1076](https://github.com/brendanhay/amazonka/issues/1076)
 - `amazonka-core`: Add regions `NewZealand` (`ap-southeast-6`) and `Taipei` (`ap-east-2`)

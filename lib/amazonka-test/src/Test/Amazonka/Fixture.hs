@@ -100,7 +100,9 @@ testResponse s p lbs = do
           responseHeaders = mempty,
           responseBody = Conduit.sourceLbs lbs,
           responseCookieJar = mempty,
-          responseClose' = Client.ResponseClose (pure ())
+          responseClose' = Client.ResponseClose (pure ()),
+          responseOriginalRequest = Client.defaultRequest,
+          responseEarlyHints = mempty
         }
 
 auth :: AuthEnv

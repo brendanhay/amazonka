@@ -5,8 +5,9 @@ module Gen.AST.Data.Syntax where
 import qualified Control.Lens as Lens
 import qualified Data.Char as Char
 import qualified Data.Foldable as Fold
+import Data.Function (on)
 import qualified Data.HashMap.Strict as HashMap
-import Data.List (find, sortOn)
+import Data.List (find, nubBy, sortOn)
 import qualified Data.List.NonEmpty as NE
 import qualified Data.Text as Text
 import Gen.AST.Data.Field
@@ -185,7 +186,7 @@ serviceD m r = Exts.patBindWhere (pvar n) rhs bs
 
     chk =
       Exts.sfun (ident "check") [ident "e"] . Exts.GuardedRhss () $
-        mapMaybe policy (sortOn fst . HashMap.toList $ r ^. retryPolicies)
+        mapMaybe policy (nubBy ((==) `on` snd) . sortOn fst . HashMap.toList $ r ^. retryPolicies)
           ++ [otherE nothingE]
       where
         policy (k, v) = (`guardE` (justE `Exts.app` str k)) <$> policyE v

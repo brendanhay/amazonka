@@ -1,15 +1,12 @@
 name: build
 
-# See: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#concurrency.
 concurrency:
-  group: ${{ github.head_ref }}-${{ github.workflow }}
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 on:
   pull_request:
     branches: main
-    types:
-      - opened
-      - synchronize
 
   push:
     branches: main
@@ -21,93 +18,106 @@ on:
       - "LICENSE"
       - "**.md"
 
-jobs:
-  amazonka-gen:
-    strategy:
-      fail-fast: false
+permissions: {}
 
+jobs:
+  workflows:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+
     steps:
-      - uses: cachix/install-nix-action@v22
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          nix_path: nixpkgs=channel:nixos-unstable
-          extra_nix_config: |
-            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=
-            extra-substituters = https://cache.iog.io
-            experimental-features = nix-command flakes
+          persist-credentials: false
 
-      - uses: cachix/cachix-action@v12
+      - uses: zizmorcore/zizmor-action@45d7276c9ca790aabd705e31ca99c6185c3e76dd # v0.8.1
         with:
-          name: amazonka
-          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          version: 1.32.0
+          advanced-security: false
+          annotations: true
 
-      - uses: actions/checkout@v3
-
-      - run: nix build
-
-  amazonka-lib:
+  build:
     strategy:
       fail-fast: false
       matrix:
         include:
           - os: ubuntu-latest
-            ghc: ghc96 # Latest mainline GHC
+            ghc: ghc914 # Latest GHC
           - os: ubuntu-latest
-            ghc: ghc94 # Most industrially-relevant GHC
-          - os: ubuntu-latest
-            ghc: ghc90 # Catch errors due to simplified subsumption
+            ghc: ghc910 # GHCup recommended
 
           - os: macos-latest
-            ghc: ghc94
+            ghc: ghc910 # GHCup recommended
 
     runs-on: ${{ matrix.os }}
+
+    permissions:
+      contents: read
+
+    env:
+      DEVSHELL: .#${{ matrix.ghc }}
+      CABAL_FLAGS: >-
+        --enable-tests
+        --enable-shared
+        --enable-executable-dynamic
+        --disable-optimization
+        --disable-library-vanilla
+        -j
+        --semaphore
 
     steps:
       - if: ${{ matrix.os == 'ubuntu-latest' }}
         run: |-
-          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt &
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc /opt/hostedtoolcache/CodeQL &
 
-      - uses: cachix/install-nix-action@v22
-        with:
-          nix_path: nixpkgs=channel:nixos-unstable
-          extra_nix_config: |
-            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=
-            extra-substituters = https://cache.iog.io
-            experimental-features = nix-command flakes
+      - uses: cachix/install-nix-action@3dc140bfc76c49fbd4dd958429132e3746bcb086 # v31.11.5
 
-      - uses: cachix/cachix-action@v12
+      - uses: cachix/cachix-action@38b082610b782e7e93e209c35fd730d399dee866 # v17
         with:
           name: amazonka
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      - uses: actions/checkout@v3
-
-      - name: cabal update && cabal freeze
-        run: |
-          nix develop --print-build-logs --command \
-              bash -c 'cabal update && cabal freeze' '.#${{matrix.ghc}}'
-
-      - uses: actions/cache@v3
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          key: v1-${{ runner.os }}-${{ matrix.ghc }}-${{ hashFiles('cabal.project.freeze') }}
+          persist-credentials: false
+
+      - name: cabal update && cabal freeze --enable-tests --disable-optimization
+        run: |
+          nix develop "$DEVSHELL" --print-build-logs --command \
+              bash -c 'cabal update && cabal freeze --enable-tests --disable-optimization'
+
+      - id: cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          key: v2-${{ runner.os }}-${{ matrix.ghc }}-${{ hashFiles('cabal.project.freeze') }}
           restore-keys: |
-            v1-${{ runner.os }}-${{ matrix.ghc }}-
-          path: |
-            ~/.cabal/store
-            dist-newstyle
+            v2-${{ runner.os }}-${{ matrix.ghc }}-
+          path: ~/.local/state/cabal/store
 
       - name: cabal build core
         run: |
-          nix develop --print-build-logs --command \
-              bash -c 'cabal build amazonka-core amazonka' '.#${{matrix.ghc}}'
+          nix develop "$DEVSHELL" --print-build-logs --command \
+              bash -c 'cabal build $CABAL_FLAGS amazonka-core amazonka'
 
       - name: cabal build s3-encryption
         run: |
-          nix develop --print-build-logs --command \
-              bash -c 'cabal build amazonka-s3-encryption' '.#${{matrix.ghc}}'
+          nix develop "$DEVSHELL" --print-build-logs --command \
+              bash -c 'cabal build $CABAL_FLAGS amazonka-s3-encryption'
 
-      - name: cabal build all
+      - name: cabal build all:libs amazonka-gen:exes
         run: |
-          nix develop --print-build-logs --command \
-              bash -c 'cabal test all' '.#${{matrix.ghc}}'
+          nix develop "$DEVSHELL" --print-build-logs --command \
+              bash -c 'cabal build $CABAL_FLAGS all:libs amazonka-gen:exes'
+
+      - name: cabal test
+        run: |
+          nix develop "$DEVSHELL" --print-build-logs --command \
+              bash -c 'cabal test $CABAL_FLAGS amazonka-core amazonka amazonka-s3-encryption amazonka-gen'
+
+      - if: ${{ github.event_name == 'push' && steps.cache.outputs.cache-hit != 'true' }}
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          key: ${{ steps.cache.outputs.cache-primary-key }}
+          path: ~/.local/state/cabal/store

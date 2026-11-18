@@ -3,7 +3,7 @@
 # Usage: set-version CORE_VERSION DEP_VERSION
 #
 # Bumps all core libraries to CORE_VERSION and their dependencies on
-# other amazonka libraries to DEP_VERSION.
+# other amazonka libraries to the DEP_VERSION (MAJOR.MINOR) series.
 
 set -euo pipefail
 
@@ -22,6 +22,13 @@ fi
 core_version="$1"
 dep_version="$2"
 
+if ! [[ $dep_version =~ ^([0-9]+)\.([0-9]+)$ ]]; then
+	echo "DEP_VERSION must be MAJOR.MINOR"
+	exit 1
+fi
+
+dep_upper="${BASH_REMATCH[1]}.$((BASH_REMATCH[2] + 1))"
+
 # Note: the version for the generated service's cabal file comes from
 # Paths_amazonka_gen.version - so ensure amazonka-gen is bumped.
 cabal_files=(
@@ -39,9 +46,9 @@ say "Setting version = $core_version and dependencies = $dep_version"
 for cabal in "${cabal_files[@]}"; do
 	say "Updating $cabal"
 
-	sed -e "s/^\(version: *\).*$/\1$core_version/;" \
-		-e "s/^\(.*amazonka-[a-z0-9]* *== *\)\([0-9\.]\+\*\)$/\1$dep_version.*/" \
-		-e "s/^\(.*amazonka *== *\)\([0-9\.]\+\*\)$/\1$dep_version.*/" "$cabal" >"$cabal.new"
+	sed -E -e "s/^(version: *).*$/\1$core_version/" \
+		-e "s/(amazonka(-[a-z0-9-]+)? *>= *)[0-9.]+( *&& *< *)[0-9.]+/\1$dep_version\3$dep_upper/" \
+		-e "s/(amazonka(-[a-z0-9-]+)? *\^>= *)[0-9.]+/\1$dep_version/" "$cabal" >"$cabal.new"
 
 	mv "$cabal.new" "$cabal"
 done

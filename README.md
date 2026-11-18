@@ -111,18 +111,18 @@ You can also enter a shell and by specifying one of the GHC versions declared by
 nix flake show
 ...
 └───<system>
-    ├───default: development environment 'amazonka-ghc944'
-    ├───ghc810:  development environment 'amazonka-ghc8107'
-    ├───ghc90:   development environment 'amazonka-ghc902'
-    ├───ghc92:   development environment 'amazonka-ghc927'
-    ├───ghc94:   development environment 'amazonka-ghc944'
-    └───ghc96:   development environment 'amazonka-ghc961'
+    ├───default: development environment 'amazonka-ghc9141'
+    ├───ghc910:  development environment 'amazonka-ghc9103'
+    ├───ghc912:  development environment 'amazonka-ghc9123'
+    ├───ghc914:  development environment 'amazonka-ghc9141'
+    ├───ghc96:   development environment 'amazonka-ghc967'
+    └───ghc98:   development environment 'amazonka-ghc984'
 ```
 
 And then running `nix develop` for the desired version from the attribute list above:
 
 ``` bash
-nix develop '.#ghc90'
+nix develop '.#ghc96'
 ```
 
 > Note: the naming pattern for shells follows the GHC major versions available in [nixpkgs]. This means the minor versions will increment automatically as the [flake.lock](./flake.lock) is updated.

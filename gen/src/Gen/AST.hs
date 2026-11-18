@@ -13,6 +13,7 @@ import Gen.AST.Cofree
 import Gen.AST.Data
 import Gen.AST.Override
 import Gen.AST.Prefix
+import Gen.AST.Solve
 import Gen.AST.Subst
 import Gen.Prelude
 import Gen.Types
@@ -26,20 +27,27 @@ rewrite ::
   Either String Library
 rewrite _version' _config' s' = do
   rewrittenService <- rewriteService _config' (ignore _config' (deprecate s'))
-  _service' <- renderShapes _config' rewrittenService
+  -- Generate unique prefixes for struct (product) members and
+  -- enum (sum) branches to avoid ambiguity, then determine the
+  -- Haskell type and auto deriveable instances of every shape.
+  solvedShapes <-
+    prefixes (rewrittenService ^. shapes)
+      >>= solve (replacements _config')
+  _service' <- renderShapes _config' rewrittenService solvedShapes
   let nodes :: [Text]
       nodes =
-        -- Select the type names from the rewritten service, so we
+        -- Select the type names from the solved shapes, so we
         -- skip over shape definitions that have no corresponding
         -- module (e.g., shapes which are mere lists of other shapes).
-        rewrittenService ^.. shapes . traverse . importedTypes
+        solvedShapes ^.. traverse . importedTypes
 
       edges :: Text -> [Text]
       edges ty =
-        case rewrittenService ^? shapes . Lens.at (mkId ty) . traverse of
+        case HashMap.lookup (mkId ty) solvedShapes of
           Nothing -> []
           Just (_ :< shape) -> case shape of
             Ptr {} -> [] -- A top-level lookup should never be a Ptr
+            Replaced {} -> []
             Struct StructF {_members} -> _members ^.. traverse . importedTypes
             List ListF {_listItem} -> _listItem ^.. importedTypes
             Map MapF {_mapKey, _mapValue} -> [_mapKey, _mapValue] ^.. traverse . importedTypes
@@ -100,20 +108,24 @@ rewriteService cfg s = do
     -- module, separately from .Types.
     >>= substitute
 
+-- | The types that overrides substitute for shapes, keyed by the
+-- substituted name.
+replacements :: Config -> HashMap Id TType
+replacements =
+  HashMap.fromList
+    . map (_replaceName &&& typeOf)
+    . HashMap.elems
+    . vMapMaybe _replacedBy
+    . _typeOverrides
+
 renderShapes ::
   Config ->
   Service Identity (RefF ()) (Shape Related) (Waiter Id) ->
+  HashMap Id (Shape Solved) ->
   Either String (Service Identity SData SData WData)
-renderShapes cfg svc = do
-  -- Generate unique prefixes for struct (product) members and
-  -- enum (sum) branches to avoid ambiguity.
-  (x, y) <-
-    prefixes (svc ^. shapes)
-      -- Determine the appropriate Haskell AST type, auto deriveable instances,
-      -- and fully rendered instances.
-      <&> solve cfg
-      -- Separate the operation input/output shapes from the .Types shapes.
-      >>= separate (svc ^. operations)
+renderShapes cfg svc solvedShapes = do
+  -- Separate the operation input/output shapes from the .Types shapes.
+  (x, y) <- separate (svc ^. operations) solvedShapes
 
   -- Prune anything that is an orphan, or not an exception
   let prune = HashMap.filter $ \s -> not (isOrphan s) || s ^. infoException
@@ -183,24 +195,6 @@ relations os ss = fst <$> State.execStateT (traverse go os) (mempty, mempty)
             ++ partial n ss
         )
         (HashMap.lookup n ss)
-
--- FIXME: Necessary to update the Relation?
-solve ::
-  (Traversable t) =>
-  Config ->
-  t (Shape Prefixed) ->
-  t (Shape Solved)
-solve cfg ss = State.evalState (go ss) types
-  where
-    go = traverse (annotate Solved id (pure . typeOf))
-
-    types :: HashMap Id TType
-    types =
-      HashMap.fromList
-        . map (_replaceName &&& typeOf)
-        . HashMap.elems
-        . vMapMaybe _replacedBy
-        $ _typeOverrides cfg
 
 type MemoS a = StateT (HashMap Id a) (Either String)
 

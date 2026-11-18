@@ -23,12 +23,13 @@ $(Lens.makeLenses ''Env)
 
 -- | Apply the override rules to shapes and their respective fields.
 override ::
-  Functor f =>
+  (Functor f) =>
   HashMap Id Override ->
   Service f (RefF a) (Shape Related) b ->
   Service f (RefF a) (Shape Related) b
 override ovs svc =
-  svc & operations . Lens.each %~ operation
+  svc
+    & operations . Lens.each %~ operation
     & shapes .~ State.evalState ss (Env rename replace mempty)
   where
     ss =
@@ -37,7 +38,7 @@ override ovs svc =
         . HashMap.toList
         $ svc ^. shapes
 
-    operation :: Functor f => Operation f (RefF a) b -> Operation f (RefF a) b
+    operation :: (Functor f) => Operation f (RefF a) b -> Operation f (RefF a) b
     operation o =
       o
         { _opInput = ref <$> _opInput o,
@@ -83,7 +84,7 @@ overrideShape ovs n c@(_ :< s) = go -- env memo n >>= maybe go (return . (n,))
     pointer :: Replace -> MemoS (Shape Related)
     pointer r =
       save $
-        (Comonad.extract c & annId .~ n) :< Ptr (s ^. info) (typeOf r)
+        (Comonad.extract c & annId .~ n) :< Replaced (s ^. info) (typeOf r)
 
     shape :: MemoS (Shape Related)
     shape = do
@@ -121,11 +122,13 @@ overrideShape ovs n c@(_ :< s) = go -- env memo n >>= maybe go (return . (n,))
               (flip (Lens.set refShape) v . g)
               (HashMap.lookup (v ^. refShape) m)
 
-      pure $! x
-        & references
-        %~ f _replaceName rp . f id rn
+      pure $!
+        x
+          & references
+            %~ f _replaceName rp
+            . f id rn
 
-env :: MonadState Env m => Getter Env (HashMap Id a) -> Id -> m (Maybe a)
+env :: (MonadState Env m) => Getter Env (HashMap Id a) -> Id -> m (Maybe a)
 env l n = Lens.uses l (HashMap.lookup n)
 
 save :: Shape Related -> MemoS (Shape Related)

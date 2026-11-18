@@ -1,33 +1,66 @@
 module Main (main) where
 
 import qualified Control.Comonad as Comonad
+import Data.Aeson ((.=))
 import qualified Data.Aeson as Aeson
+import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.List as List
-import Gen.AST (solve)
+import Gen.AST.Cofree (attach, elaborate)
+import Gen.AST.Prefix (prefixes)
+import Gen.AST.Solve (solve)
 import Gen.AST.Subst (emptyInfo, emptyRef)
 import Gen.Prelude
 import Gen.Types
 import Test.Tasty (defaultMain, testGroup)
-import Test.Tasty.HUnit (Assertion, assertFailure, testCase, (@?=))
+import Test.Tasty.HUnit (Assertion, assertBool, assertFailure, testCase, (@?=))
 
 main :: IO ()
-main = do
-  cfg <- either assertFailure pure (Aeson.eitherDecode "{\"libraryName\":\"test\"}")
+main =
   defaultMain $
     testGroup
       "solve"
       [ testGroup "sensitiveViaLoopBreakerDropsRead" $
           orders fsxPairs <&> \(name, trees) ->
-            testCase name $ rootsDerive cfg trees ["AA", "FS"] noRead,
+            testCase name $ rootsDerive trees ["AA", "FS"] noRead,
         testGroup "sensitiveCycleOuterDropsRead" $
           orders [emrPair] <&> \(name, trees) ->
             testCase name $
-              rootsDerive cfg trees ["Configuration", "ConfigurationOverrides"] noRead,
+              rootsDerive trees ["Configuration", "ConfigurationOverrides"] noRead,
         testGroup "memberTypesMatchDeclarations" $
           orders (emrPair : fsxPairs) <&> \(name, trees) ->
-            testCase name $ memberMismatches (solve cfg trees) @?= [],
-        testCase "plainCycleKeepsRead" $ rootsDerive cfg [nodeTree] ["Node"] full
+            testCase name $ solveAll trees >>= \out -> memberMismatches out @?= [],
+        testCase "plainCycleKeepsRead" $ rootsDerive [nodeTree] ["Node"] full,
+        testCase "pipelineFsxDropsRead" $
+          pipelineDerives mempty fsxShapes ["AA", "FS", "Root"] noRead,
+        testCase "pipelineEmrContainersDropsRead" $
+          pipelineDerives mempty emrShapes ["Configuration", "ConfigurationOverrides"] noRead,
+        testCase "replacementSeedWins" $
+          pipelineDerives tagSeed tagShapes ["Parent", "Tag"] noRead,
+        testCase "sensitiveLoopBreakerWrapsOnce" $ do
+          out <- solveAll [filterTree]
+          [typeOf x | x <- concatMap subtrees out, identifier x == mkId "Filter"]
+            @?= replicate 2 (TSensitive (TType "Filter" noRead)),
+        testGroup "occurrencesAgree" $
+          [ testCase name $ solveAll trees >>= \out -> occurrenceMismatches out @?= []
+          | (name, trees) <- ("filterTree", [filterTree]) : orders (emrPair : fsxPairs)
+          ]
+            ++ [ testCase name $
+                   pipeline seed json >>= \out ->
+                     occurrenceMismatches (HashMap.elems out) @?= []
+               | (name, seed, json) <-
+                   [ ("fsxShapes", mempty, fsxShapes),
+                     ("emrShapes", mempty, emrShapes),
+                     ("tagShapes", tagSeed, tagShapes)
+                   ]
+               ],
+        testCase "danglingPtrFails" $
+          case solve mempty [struct "A" [("B", ptr "Ghost")]] of
+            Left e -> assertBool e ("Ghost" `List.isInfixOf` e)
+            Right _ -> assertFailure "solved a loop-breaker with no target",
+        testCase "structlessCycleFails" $
+          assertBool "solved a cycle with no struct on it" $
+            isLeft (solve mempty [list "Loop" (ptr "Loop")])
       ]
 
 noRead, full :: [Derive]
@@ -82,12 +115,99 @@ emrPair = (("cfgTree", cfgTree), ("ovTree", ovTree))
 nodeTree :: Shape Prefixed
 nodeTree = struct "Node" [("Children", list "NodeList" (ptr "Node"))]
 
-rootsDerive :: Config -> [Shape Prefixed] -> [Text] -> [Derive] -> Assertion
-rootsDerive cfg trees names expected =
+-- | A sensitive struct that refers to itself. 'elaborate' copies the target's
+-- 'Info' onto the loop-breaker, so the loop-breaker is sensitive too.
+filterTree :: Shape Prefixed
+filterTree =
+  sensitive $
+    struct
+      "Filter"
+      [ ("AndAll", list "FilterList" (sensitive (ptr "Filter"))),
+        ("Key", text "Str")
+      ]
+
+fsxShapes :: Aeson.Value
+fsxShapes =
+  Aeson.object
+    [ "Root" .= structure [("Fs", "FS")],
+      "FS" .= structure [("Pw", "Pw"), ("Actions", "AAList")],
+      "Pw" .= Aeson.object ["type" .= string, "sensitive" .= True],
+      "AAList" .= listOf "AA",
+      "AA" .= structure [("Target", "FS"), ("Name", "Str")],
+      "Str" .= Aeson.object ["type" .= string]
+    ]
+
+emrShapes :: Aeson.Value
+emrShapes =
+  Aeson.object
+    [ "Configuration"
+        .= structure
+          [ ("Classification", "Str"),
+            ("Properties", "SensitiveMap"),
+            ("Configurations", "ConfigurationList")
+          ],
+      "SensitiveMap"
+        .= Aeson.object
+          [ "type" .= ("map" :: Text),
+            "sensitive" .= True,
+            "key" .= shapeRef "Str",
+            "value" .= shapeRef "Str"
+          ],
+      "ConfigurationList" .= listOf "Configuration",
+      "ConfigurationOverrides" .= structure [("ApplicationConfiguration", "ConfigurationList")],
+      "Str" .= Aeson.object ["type" .= string]
+    ]
+
+-- | A struct whose name is also the name of an override's replacement type.
+tagShapes :: Aeson.Value
+tagShapes =
+  Aeson.object
+    [ "Parent" .= structure [("Tag", "Tag")],
+      "Tag" .= structure [("Key", "Str")],
+      "Str" .= Aeson.object ["type" .= string]
+    ]
+
+tagSeed :: HashMap Id TType
+tagSeed = HashMap.fromList [(mkId "Tag", TType "Tag" noRead)]
+
+structure :: [(Aeson.Key, Text)] -> Aeson.Value
+structure ms =
+  Aeson.object
+    [ "type" .= ("structure" :: Text),
+      "members" .= Aeson.object [k .= shapeRef v | (k, v) <- ms]
+    ]
+
+listOf :: Text -> Aeson.Value
+listOf item = Aeson.object ["type" .= ("list" :: Text), "member" .= shapeRef item]
+
+shapeRef :: Text -> Aeson.Value
+shapeRef n = Aeson.object ["shape" .= n]
+
+string :: Text
+string = "string"
+
+-- | Botocore shape definitions run through the generator's stages up to and
+-- including 'solve'.
+pipeline :: HashMap Id TType -> Aeson.Value -> IO (HashMap Id (Shape Solved))
+pipeline seed json = either assertFailure pure $ do
+  raw <- Aeson.Types.parseEither Aeson.parseJSON json :: Either String (HashMap Id (ShapeF ()))
+  trees <- elaborate raw
+  prefixes (attach Related mempty <$> trees) >>= solve seed
+
+pipelineDerives :: HashMap Id TType -> Aeson.Value -> [Text] -> [Derive] -> Assertion
+pipelineDerives seed json names expected = do
+  out <- pipeline seed json
+  [(n, annDerivings <$> HashMap.lookup (mkId n) out) | n <- names]
+    @?= [(n, Just expected) | n <- names]
+
+solveAll :: [Shape Prefixed] -> IO [Shape Solved]
+solveAll = either assertFailure pure . solve mempty
+
+rootsDerive :: [Shape Prefixed] -> [Text] -> [Derive] -> Assertion
+rootsDerive trees names expected = do
+  out <- solveAll trees
   [(n, annDerivings <$> root (mkId n) out) | n <- names]
     @?= [(n, Just expected) | n <- names]
-  where
-    out = solve cfg trees
 
 -- | Struct members whose derivings differ from those of the declaration they
 -- refer to, as @(struct, member, member derivings, declaration derivings)@.
@@ -101,6 +221,17 @@ memberMismatches out =
     not (isStreaming r),
     Just expected <- [annDerivings <$> root (identifier (r ^. refAnn)) out],
     derivingOf r /= expected
+  ]
+
+-- | Nodes whose type differs from that of the root with the same 'Id', as
+-- @(shape, node type, root type)@.
+occurrenceMismatches :: [Shape Solved] -> [(Text, TType, TType)]
+occurrenceMismatches out =
+  [ (memberId (identifier x), typeOf x, typeOf r)
+  | tree <- out,
+    x <- subtrees tree,
+    Just r <- [root (identifier x) out],
+    typeOf x /= typeOf r
   ]
 
 subtrees :: Shape a -> [Shape a]
@@ -134,7 +265,7 @@ sensitive = info . infoSensitive .~ True
 
 -- | A loop-breaker for the shape named @n@.
 ptr :: Text -> Shape Prefixed
-ptr n = ann n :< Ptr emptyInfo (TType (typeId (mkId n)) derivingBase)
+ptr n = ann n :< Ptr emptyInfo
 
 refTo :: Shape Prefixed -> RefF (Shape Prefixed)
 refTo s = emptyRef (identifier s) & refAnn .~ s

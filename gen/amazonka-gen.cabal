@@ -97,6 +97,7 @@ library
     Gen.AST.Data.Syntax
     Gen.AST.Override
     Gen.AST.Prefix
+    Gen.AST.Solve
     Gen.AST.Subst
     Gen.Import
     Gen.IO

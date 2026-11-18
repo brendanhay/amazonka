@@ -287,7 +287,11 @@ instance FromJSON (Info -> StructF ()) where
             | otherwise = r
 
 data ShapeF a
-  = Ptr Info TType
+  = -- | A loop-breaker standing in for the shape named by the node's own
+    -- annotation, which is an ancestor of the node.
+    Ptr Info
+  | -- | A type defined outside the service, supplied by an override.
+    Replaced Info TType
   | List (ListF a)
   | Map (MapF a)
   | Struct (StructF a)
@@ -300,7 +304,8 @@ $(Lens.makePrisms ''ShapeF)
 
 instance HasInfo (ShapeF a) where
   info f = \case
-    Ptr i ds -> (`Ptr` ds) <$> f i
+    Ptr i -> Ptr <$> f i
+    Replaced i t -> (`Replaced` t) <$> f i
     List l -> List <$> info f l
     Map m -> Map <$> info f m
     Struct s -> Struct <$> info f s
@@ -314,7 +319,8 @@ instance HasInfo (Cofree ShapeF a) where
 
 instance HasRefs ShapeF where
   references f = \case
-    Ptr i ds -> pure (Ptr i ds)
+    Ptr i -> pure (Ptr i)
+    Replaced i t -> pure (Replaced i t)
     List l -> List <$> references f l
     Map m -> Map <$> references f m
     Struct s -> Struct <$> references f s

@@ -12,7 +12,7 @@ import Gen.Types
 
 newtype Fix f = Fix (f (Fix f))
 
-cofree :: Functor f => a -> Fix f -> Cofree f a
+cofree :: (Functor f) => a -> Fix f -> Cofree f a
 cofree x = go
   where
     go (Fix f) = x :< fmap go f
@@ -72,22 +72,22 @@ runMemoE = flip State.evalStateT mempty
 -- values.
 elaborate ::
   forall a.
-  Show a =>
+  (Show a) =>
   HashMap Id (ShapeF a) ->
   Either String (HashMap Id (Shape Id))
 elaborate m = runMemoE $ HashMap.traverseWithKey (shape mempty) m
   where
     shape :: Set Id -> Id -> ShapeF a -> MemoE (Shape Id)
     shape seen n s
-      | n `elem` seen = pure $! n :< Ptr (s ^. info) (pointerTo n s)
+      | n `elem` seen = pure $! n :< Ptr (s ^. info)
       | otherwise = do
-        ms <- State.gets (HashMap.lookup n)
-        case ms of
-          Just x -> pure x
-          Nothing -> do
-            x <- (n :<) <$> Lens.traverseOf references (ref (Set.insert n seen)) s
-            State.modify' (HashMap.insert n x)
-            pure x
+          ms <- State.gets (HashMap.lookup n)
+          case ms of
+            Just x -> pure x
+            Nothing -> do
+              x <- (n :<) <$> Lens.traverseOf references (ref (Set.insert n seen)) s
+              State.modify' (HashMap.insert n x)
+              pure x
 
     ref :: Set Id -> RefF a -> MemoE (RefF (Shape Id))
     ref seen r = do

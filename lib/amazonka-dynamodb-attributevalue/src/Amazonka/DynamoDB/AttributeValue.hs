@@ -17,8 +17,9 @@
 module Amazonka.DynamoDB.AttributeValue where
 
 import Amazonka.Data
-import Amazonka.Prelude
+import Amazonka.Prelude hiding (toList)
 import Data.Aeson (pairs)
+import Data.Foldable (toList)
 import Data.Hashable
 import Data.Map (Map)
 import Data.Vector (Vector)

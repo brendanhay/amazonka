@@ -68,7 +68,10 @@ testEncryptDecrypt :: [ByteString] -> Assertion
 testEncryptDecrypt bs = do
   let e = mkTestAESV2Envelope
       rqb = ChunkedBody defaultChunkSize (Fold.sum (fromIntegral . BS.length <$> bs)) (CL.sourceList bs)
-      (Chunked ChunkedBody {body, length}) = bodyEncrypt e (Chunked rqb)
+
+  ChunkedBody {body, length} <- case bodyEncrypt e (Chunked rqb) of
+    Chunked c -> pure c
+    _ -> assertFailure "Expected bodyEncrypt to return a chunked body"
 
   length `mod` fromIntegral aesBlockSize @?= 0
 
@@ -83,7 +86,7 @@ testEncryptDecrypt bs = do
 
 mkTestAESV2Envelope :: Envelope
 mkTestAESV2Envelope =
-  let (CryptoPassed aes) = cipherInit ("0123456789abcdef0123456789abcdef" :: ByteString) :: CryptoFailable AES256
+  let aes = throwCryptoError (cipherInit ("0123456789abcdef0123456789abcdef" :: ByteString)) :: AES256
 
       e =
         V2Envelope

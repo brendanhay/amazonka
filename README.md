@@ -10,7 +10,7 @@
 [build-badge]: https://github.com/brendanhay/amazonka/workflows/build/badge.svg
 [hackage]: http://hackage.haskell.org/package/amazonka
 [hackage-badge]: https://img.shields.io/hackage/v/amazonka.svg
-[amazonka]: https://www.brendanhay.nz/amazonka
+[amazonka]: https://hackage.haskell.org/package/amazonka
 [nix]: https://nixos.org/nix/
 [nixpkgs]: https://github.com/NixOS/nixpkgs/
 [ghc]: https://www.haskell.org/ghc/

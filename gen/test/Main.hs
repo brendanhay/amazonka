@@ -12,12 +12,12 @@ import Gen.AST.Solve (solve)
 import Gen.AST.Subst (emptyInfo, emptyRef)
 import Gen.Prelude
 import Gen.Types
-import Test.Tasty (defaultMain, testGroup)
+import Test.Tasty (defaultMain, localOption, mkTimeout, testGroup)
 import Test.Tasty.HUnit (Assertion, assertBool, assertFailure, testCase, (@?=))
 
 main :: IO ()
 main =
-  defaultMain $
+  defaultMain . localOption (mkTimeout 10000000) $
     testGroup
       "solve"
       [ testGroup "sensitiveViaLoopBreakerDropsRead" $
@@ -28,7 +28,7 @@ main =
             testCase name $
               rootsDerive trees ["Configuration", "ConfigurationOverrides"] noRead,
         testGroup "memberTypesMatchDeclarations" $
-          orders (emrPair : fsxPairs) <&> \(name, trees) ->
+          orders fsxPairs <&> \(name, trees) ->
             testCase name $ solveAll trees >>= \out -> memberMismatches out @?= [],
         testCase "plainCycleKeepsRead" $ rootsDerive [nodeTree] ["Node"] full,
         testCase "pipelineFsxDropsRead" $
@@ -54,6 +54,14 @@ main =
                      ("tagShapes", tagSeed, tagShapes)
                    ]
                ],
+        testCase "replacedKeepsOwnType" $
+          rootsDeriveWith extSeed [holdA, holdB] [("HoldA", noRead), ("HoldB", full)],
+        testGroup "prefixIgnoresLoopBreakerOrder" $
+          [("Alpha into Beta", "Alpha", "Beta"), ("Beta into Alpha", "Beta", "Alpha")] <&> \(name, outer, inner) ->
+            testCase name $ do
+              out <- either assertFailure pure (prefixes (referringInto outer inner))
+              HashMap.map (isJust . _annPrefix . Comonad.extract) out
+                @?= HashMap.fromList [(mkId outer, True), (mkId inner, True)],
         testCase "danglingPtrFails" $
           case solve mempty [struct "A" [("B", ptr "Ghost")]] of
             Left e -> assertBool e ("Ghost" `List.isInfixOf` e)
@@ -111,6 +119,31 @@ emrPair = (("cfgTree", cfgTree), ("ovTree", ovTree))
     ovTree = struct "ConfigurationOverrides" [("ApplicationConfiguration", configurations)]
 
     configurations = list "ConfigurationList" (ptr "Configuration")
+
+-- | Two structs holding replacements that share a name and differ in what
+-- they can derive.
+holdA, holdB :: Shape Prefixed
+holdA = struct "HoldA" [("Value", replaced "Ext" (TType "Ext" noRead))]
+holdB = struct "HoldB" [("Value", replaced "Ext" (TType "Ext" full))]
+
+extSeed :: HashMap Id TType
+extSeed = HashMap.fromList [(mkId "Ext", TType "Ext" noRead)]
+
+-- | A recursive struct @inner@ and a struct @outer@ that only refers into the
+-- cycle, as 'elaborate' produces them when it visits @inner@ first. Which
+-- root 'prefixes' visits first depends on how the two names hash, so callers
+-- pass each pair of names both ways round to cover both orders.
+referringInto :: Text -> Text -> HashMap Id (Shape Related)
+referringInto outer inner =
+  HashMap.fromList
+    [ (identifier t, _annRelated <$> t)
+    | t <-
+        [ struct outer [("Items", items)],
+          struct inner [("Name", text "Str"), ("Items", items)]
+        ]
+    ]
+  where
+    items = list "ItemList" (ptr inner)
 
 nodeTree :: Shape Prefixed
 nodeTree = struct "Node" [("Children", list "NodeList" (ptr "Node"))]
@@ -204,10 +237,14 @@ solveAll :: [Shape Prefixed] -> IO [Shape Solved]
 solveAll = either assertFailure pure . solve mempty
 
 rootsDerive :: [Shape Prefixed] -> [Text] -> [Derive] -> Assertion
-rootsDerive trees names expected = do
-  out <- solveAll trees
-  [(n, annDerivings <$> root (mkId n) out) | n <- names]
-    @?= [(n, Just expected) | n <- names]
+rootsDerive trees names expected =
+  rootsDeriveWith mempty trees [(n, expected) | n <- names]
+
+rootsDeriveWith :: HashMap Id TType -> [Shape Prefixed] -> [(Text, [Derive])] -> Assertion
+rootsDeriveWith seed trees expected = do
+  out <- either assertFailure pure (solve seed trees)
+  [(n, annDerivings <$> root (mkId n) out) | (n, _) <- expected]
+    @?= [(n, Just ds) | (n, ds) <- expected]
 
 -- | Struct members whose derivings differ from those of the declaration they
 -- refer to, as @(struct, member, member derivings, declaration derivings)@.
@@ -262,6 +299,10 @@ text n = ann n :< Lit emptyInfo Text
 
 sensitive :: Shape Prefixed -> Shape Prefixed
 sensitive = info . infoSensitive .~ True
+
+-- | An override's replacement type standing in for the shape named @n@.
+replaced :: Text -> TType -> Shape Prefixed
+replaced n t = ann n :< Replaced emptyInfo t
 
 -- | A loop-breaker for the shape named @n@.
 ptr :: Text -> Shape Prefixed

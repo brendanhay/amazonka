@@ -287,8 +287,8 @@ instance FromJSON (Info -> StructF ()) where
             | otherwise = r
 
 data ShapeF a
-  = -- | A loop-breaker standing in for the shape named by the node's own
-    -- annotation, which is an ancestor of the node.
+  = -- | A loop-breaker standing in for the recursive shape named by the
+    -- node's own annotation.
     Ptr Info
   | -- | A type defined outside the service, supplied by an override.
     Replaced Info TType

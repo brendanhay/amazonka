@@ -5,6 +5,7 @@ module Gen.AST.Prefix
   )
 where
 
+import qualified Control.Comonad as Comonad
 import qualified Control.Lens as Lens
 import qualified Control.Monad.Except as Except
 import qualified Control.Monad.State.Strict as State
@@ -47,9 +48,20 @@ smartCtors = HashMap.fromListWith (<>) . mapMaybe go . HashMap.toList
         v = CI.mk (stripTilUpper n)
     go _ = Nothing
 
+-- | Annotate every node with its prefix. Only structs and enums have one,
+-- and it is memoised per 'Id' so that every occurrence of a shape agrees.
+-- Other nodes bypass the memo: a loop-breaker or a replacement shares its
+-- 'Id' with the shape it stands in for, and would otherwise record that
+-- shape as having no prefix.
 assignPrefix :: Shape Related -> MemoP (Shape Prefixed)
-assignPrefix = annotate Prefixed memo go
+assignPrefix = sequenceA . Comonad.extend annotate
   where
+    annotate x@(a :< s) =
+      Prefixed a <$> case s of
+        Enum {} -> memoise memo go x
+        Struct {} -> memoise memo go x
+        _ -> pure Nothing
+
     go :: (HasId a, HasRelation a) => Shape a -> MemoP (Maybe Text)
     go (x :< s) =
       let n = typeId (identifier x)
@@ -78,12 +90,14 @@ assignPrefix = annotate Prefixed memo go
       s <- Lens.use seen
 
       let line x =
-            "\n" ++ Text.unpack (CI.original x)
+            "\n"
+              ++ Text.unpack (CI.original x)
               ++ " => "
               ++ show (HashMap.lookup x s)
 
       Except.throwError $
-        "Error prefixing: " ++ Text.unpack n
+        "Error prefixing: "
+          ++ Text.unpack n
           ++ ", fields: "
           ++ show (HashSet.toList ks)
           ++ concatMap line (acronymPrefixes r n)
@@ -95,7 +109,7 @@ assignPrefix = annotate Prefixed memo go
       case m of
         Just ys
           | overlap ys ks ->
-            unique r seen n hs ks
+              unique r seen n hs ks
         _ -> do
           seen %= HashMap.insertWith (<>) h ks
           return (CI.original h)

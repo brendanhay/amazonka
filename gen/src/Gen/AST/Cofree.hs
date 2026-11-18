@@ -1,6 +1,5 @@
 module Gen.AST.Cofree where
 
-import qualified Control.Comonad as Comonad
 import qualified Control.Lens as Lens
 import qualified Control.Monad.Except as Except
 import qualified Control.Monad.State.Strict as State
@@ -26,19 +25,6 @@ attach ::
 attach ctor m = fmap go
   where
     go x = ctor x . fromMaybe mempty $ HashMap.lookup (identifier x) m
-
--- | Allows the new annotation to be memoised separately
--- from the pre-existing annotation.
-annotate ::
-  (Traversable t, MonadState s m, HasId a, Show b) =>
-  (a -> b -> c) ->
-  Lens' s (HashMap Id b) ->
-  (Cofree t a -> m b) ->
-  Cofree t a ->
-  m (Cofree t c)
-annotate ctor l f = sequenceA . Comonad.extend go
-  where
-    go x@(a :< _) = ctor a <$> memoise l f x
 
 memoise ::
   (MonadState s m, HasId a, Show b) =>

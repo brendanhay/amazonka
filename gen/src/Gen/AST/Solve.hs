@@ -95,11 +95,13 @@ solve seed ss = do
           | otherwise ->
               note (failure "Loop-breaker for a missing shape") (HashMap.lookup n nodes)
                 >>= typeAt ds (Set.insert n followed)
+        -- A replacement carries its own type, which can differ from that of
+        -- another replacement with the same name.
+        Replaced _ t -> pure (wrap t)
         _ | Just t <- HashMap.lookup n seed -> pure (wrap t)
         Struct {} ->
           wrap . TType (typeId n)
             <$> note (failure "No derivings solved for struct") (HashMap.lookup n ds)
-        Replaced _ t -> pure (wrap t)
         Enum {} -> pure (wrap (TType (typeId n) (DOrd : derivingBase)))
         List (ListF i e)
           | nonEmpty i -> wrap . TList1 <$> ref e

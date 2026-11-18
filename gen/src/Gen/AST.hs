@@ -255,7 +255,7 @@ breakLoops edgesFrom = (`execState` mempty) . traverse (exploreNode mempty)
   where
     exploreNode :: Set node -> node -> State (Set (node, node)) ()
     exploreNode history node = for_ (edgesFrom node) $ \n ->
-      if n `elem` history
+      if Set.member n history
         then do
           -- We've seen this node before. Record a loop-breaker and
           -- do not recurse further.

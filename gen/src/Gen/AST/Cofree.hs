@@ -55,9 +55,15 @@ memoise l f x = Lens.uses l (HashMap.lookup n) >>= maybe go return
 
     n = identifier x
 
--- | Memoise the set of shapes constructed so far. Because we don't
--- return 'Ptr' unless we see an 'Id' for the second time in a
--- traversal, this is safe.
+-- | Memoise the shapes elaborated so far, so that each shape is elaborated
+-- once and its tree is reused wherever the shape appears.
+--
+-- The tree kept for a shape is the first one built, so where its 'Ptr'
+-- loop-breakers sit depends on the ancestors it was first reached through,
+-- and two occurrences of an 'Id' can differ in that respect. Types do not
+-- depend on it, because "Gen.AST.Solve" assigns them per 'Id'. Code that
+-- inspects a node's constructor still sees the 'Ptr' in place of the list,
+-- map or struct that it stands in for.
 type MemoE = StateT (HashMap Id (Shape Id)) (Either String)
 
 runMemoE :: MemoE a -> Either String a
@@ -79,7 +85,7 @@ elaborate m = runMemoE $ HashMap.traverseWithKey (shape mempty) m
   where
     shape :: Set Id -> Id -> ShapeF a -> MemoE (Shape Id)
     shape seen n s
-      | n `elem` seen = pure $! n :< Ptr (s ^. info)
+      | Set.member n seen = pure $! n :< Ptr (s ^. info)
       | otherwise = do
           ms <- State.gets (HashMap.lookup n)
           case ms of

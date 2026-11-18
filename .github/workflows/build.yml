@@ -60,10 +60,10 @@ jobs:
       DEVSHELL: .#${{ matrix.ghc }}
       CABAL_FLAGS: >-
         --enable-tests
-        --disable-optimization
-        --disable-library-vanilla
         --enable-shared
         --enable-executable-dynamic
+        --disable-optimization
+        --disable-library-vanilla
         -j
         --semaphore
 
@@ -114,7 +114,7 @@ jobs:
       - name: cabal test
         run: |
           nix develop "$DEVSHELL" --print-build-logs --command \
-              bash -c 'cabal test $CABAL_FLAGS amazonka-core amazonka amazonka-s3-encryption'
+              bash -c 'cabal test $CABAL_FLAGS amazonka-core amazonka amazonka-s3-encryption amazonka-gen'
 
       - if: ${{ github.event_name == 'push' && steps.cache.outputs.cache-hit != 'true' }}
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0

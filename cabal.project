@@ -5,7 +5,10 @@ write-ghc-environment-files: never
 --   cabal configure --disable-optimization
 optimization: 1
 
--- Pin the Hackage snapshot so builds and the CI cache key is reproducible.
+-- Pin the Hackage snapshot.
+--
+-- Bump this by running `cabal update` and copying the reported index-state.
+-- Changing this evits CI cabal store cache key.
 index-state: 2026-11-17T01:55:37Z
 
 -- Local packages.
